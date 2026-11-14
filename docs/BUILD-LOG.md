@@ -7,7 +7,8 @@ How ClientOS was redesigned into the Strategy Vault, what was decided and why, a
 - **App:** `~/Supernal/ClientOS-v2`, Next.js 14 (App Router), port 3100, `npm run dev`. Not a git repo yet; nothing committed. Data is an in-memory store built from files in this repo; edits made in the app last until the server restarts or a source file changes.
 - **Projects:** 9 accounts in delivery and 32 deals in sales/scoping (from Account OS). Four scoping deals are fully researched: IEC Colleges, Waterfall, Brill Building, Owner.com.
 - **Stella:** works end to end with Tauseef's key (`claude-opus-5-5`, medium effort, streaming, citations). Full chat page at `/stella`; About page at `/stella/about`. **Evaluation (14 Nov): 34 of 38 on the first run, every answer cited; 38 of 38 after fixing data gaps.** Cost about $5.60 in total.
-- **Not built yet:** Supabase backend (schema written, not applied), live connectors (Account OS sync, Granola, Drive, Linear, Slack, Notion), workflows that actually run, team access for Jaime and Sven.
+- **Code and database:** private GitHub repo https://github.com/tauseefrahman-supernal/clientos-v2 (his account cannot create repos in the Supernal-Technology org; transfer later). The `clientos` schema (18 tables, row-level security on, service role only) is applied to the existing Supabase project "Client OS" (`chgkhaxogaipafngvjqx`, beside `presales` and `we`) on 14 Nov.
+- **Not built yet:** the app still reads its in-memory store; moving it onto the Supabase tables is next, live connectors (Account OS sync, Granola, Drive, Linear, Slack, Notion), workflows that actually run, team access for Jaime and Sven.
 
 ## The strategy, in Tauseef's words and decisions
 

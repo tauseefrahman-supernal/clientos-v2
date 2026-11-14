@@ -3,7 +3,7 @@
 -- these tables hold the context, structure and work ClientOS adds on top.
 
 create schema if not exists clientos;
-create extension if not exists vector;
+create extension if not exists vector with schema extensions;  -- no-op if the project already has it
 
 -- ---------- accounts and deals (read from Account OS) ----------
 create table clientos.accounts (
@@ -11,6 +11,9 @@ create table clientos.accounts (
   slug          text not null unique,
   accountos_id  text unique,
   name          text not null,
+  stage         text not null default 'delivery' check (stage in ('delivery', 'sales')),  -- sales = a deal being scoped
+  industry      text,
+  squad         text,                                    -- Origin, Polaris, ...
   pod           jsonb not null default '{}'::jsonb,      -- {am, strategist, fde}
   strategist    text,
   summary       jsonb not null default '{}'::jsonb,      -- mrr, closed value, health snapshot, freshness lines
@@ -27,7 +30,23 @@ create table clientos.deals (
   stage         text,
   phase         smallint not null default 0 check (phase between 0 and 3),  -- Sales, Deal, Technical, Delivery
   note          text,
+  motion        text,                                    -- New, Expansion
+  owner         text,                                    -- AE
+  pod_strategist text,
+  confidence    text,
+  mrr           text,
+  expected_close date,
+  next_step     text,
+  description   text,
+  people        jsonb not null default '[]'::jsonb,
+  accountos_updated_at timestamptz,
   sort          int not null default 0
+);
+
+create table clientos.squads (
+  name     text primary key,
+  members  text[] not null default '{}',
+  source   text
 );
 
 -- ---------- template library ----------
@@ -94,6 +113,7 @@ create table clientos.vault_files (
   source        text not null default 'template' check (source in ('template', 'human', 'stella', 'import')),
   state         clientos.file_state not null default 'active',
   in_book       boolean not null default true,
+  shown         boolean,                                 -- in the vault sidebar; null = shown when it has content
   updated_by    text,
   updated_at    timestamptz not null default now(),
   unique (account_id, path)
@@ -215,3 +235,39 @@ alter table clientos.book_chapters       enable row level security;
 alter table clientos.chunks              enable row level security;
 alter table clientos.workflows           enable row level security;
 alter table clientos.workflow_runs       enable row level security;
+alter table clientos.squads              enable row level security;
+alter table clientos.template_groups     enable row level security;
+
+-- ---------- Stella conversations ----------
+create table clientos.stella_chats (
+  id          uuid primary key default gen_random_uuid(),
+  account_id  uuid not null references clientos.accounts(id) on delete cascade,
+  created_by  uuid references auth.users(id) on delete set null,
+  title       text not null default 'New chat',
+  created_at  timestamptz not null default now(),
+  updated_at  timestamptz not null default now()
+);
+create index stella_chats_user_idx on clientos.stella_chats (created_by, updated_at desc);
+
+create table clientos.stella_messages (
+  id          uuid primary key default gen_random_uuid(),
+  chat_id     uuid not null references clientos.stella_chats(id) on delete cascade,
+  role        text not null check (role in ('user', 'assistant')),
+  content     text not null default '',
+  steps       jsonb not null default '[]'::jsonb,       -- retrieval steps shown under the answer
+  error       text,
+  usage       jsonb,                                    -- token counts for cost tracking
+  created_at  timestamptz not null default now()
+);
+create index stella_messages_chat_idx on clientos.stella_messages (chat_id, created_at);
+
+alter table clientos.stella_chats    enable row level security;
+alter table clientos.stella_messages enable row level security;
+
+-- The app reads and writes from the server with the service role. No policies are defined, so
+-- the anon and authenticated roles see nothing until sign-in and per-user policies are added.
+grant usage on schema clientos to service_role;
+grant all on all tables in schema clientos to service_role;
+grant all on all sequences in schema clientos to service_role;
+alter default privileges in schema clientos grant all on tables to service_role;
+alter default privileges in schema clientos grant all on sequences to service_role;
