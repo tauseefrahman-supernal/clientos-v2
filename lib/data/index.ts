@@ -6,25 +6,33 @@ import { dbEnabled, insertFile, loadFromDb, setCategoryStatus, setTemplateStatus
 
 // The one data API the pages use. With Supabase configured (NEXT_PUBLIC_SUPABASE_URL and
 // SUPABASE_SERVICE_ROLE_KEY) the `clientos` schema is the source of truth: reads come from a
-// short-lived server copy, and every edit is written to the database before the copy changes.
+// server copy, and every edit is written to the database before the copy changes. A full load
+// takes 1 to 2 seconds, so pages never wait for one after the first: when the copy is older than
+// REFRESH_MS it is reloaded in the background while the current copy keeps serving.
 // Without it, the store is built from the repo files and edits last until a restart.
 
-const TTL_MS = 15_000;
-const G = globalThis as unknown as { __clientosDb?: { store: DbStore; at: number; loading?: Promise<DbStore> } };
+const REFRESH_MS = 30_000;
+const G = globalThis as unknown as { __clientosDb?: { store: DbStore | null; at: number; loading?: Promise<DbStore> } };
 
 export function backend(): "supabase" | "files" {
   return dbEnabled() ? "supabase" : "files";
 }
 
+function reload(): Promise<DbStore> {
+  const c = G.__clientosDb ?? (G.__clientosDb = { store: null, at: 0 });
+  if (c.loading) return c.loading;
+  c.loading = loadFromDb()
+    .then((store) => { G.__clientosDb = { store, at: Date.now() }; return store; })
+    .catch((e) => { c.loading = undefined; throw e; });
+  return c.loading;
+}
+
 async function current(): Promise<Store> {
   if (!dbEnabled()) return seedStore();
   const c = G.__clientosDb;
-  if (c && Date.now() - c.at < TTL_MS) return c.store;
-  if (c?.loading) return c.loading;
-  const loading = loadFromDb().then((store) => { G.__clientosDb = { store, at: Date.now() }; return store; })
-    .catch((e) => { if (G.__clientosDb) G.__clientosDb.loading = undefined; throw e; });
-  G.__clientosDb = c ? { ...c, loading } : { store: undefined as unknown as DbStore, at: 0, loading };
-  return loading;
+  if (!c?.store) return reload();                       // first load: wait once
+  if (Date.now() - c.at > REFRESH_MS) reload().catch((e) => console.error("[data] background reload failed:", e));
+  return c.store;                                       // serve the current copy
 }
 
 /** Drop the server copy so the next read comes from the database (after an import). */

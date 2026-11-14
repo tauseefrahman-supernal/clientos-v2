@@ -77,6 +77,12 @@ How it was built:
 - Signed-out pages carry no project data (the root layout loads nothing until sign-in). Stella chats belong to the signed-in user (`created_by`); a chat can only be read, written or deleted by its owner. The sidebar shows the user and a sign-out button.
 - Switched on by `NEXT_PUBLIC_SUPABASE_ANON_KEY`; without it the app stays open.
 
+### 14 Nov: speed
+- Google sign-in needed a new OAuth client: the old one was Internal to another Workspace. Tauseef made a ClientOS client (Internal) under getsupernal.ai and put it in Supabase.
+- Pages took seconds. Measured with the dev-only `/api/admin/timing`: about 85 ms per Supabase query, about 130 ms per session check over the network, and 1.3 to 2.2 s for a full data load (855 KB of vault text in the first 1,000 files), triggered every 15 s.
+- Fixes: the server copy is served at once and reloaded in the background after 30 s (only the very first load waits); sessions are verified locally with `getClaims()` (the project signs with ES256), once per request; Supabase reads skip Next's fetch cache, which had been serving cached database responses. Page data now takes under 1 ms.
+- Still slow in development: `npm run dev` compiles each page on its first visit and after code changes.
+
 ## Findings worth keeping (deal research, 13 Nov)
 
 - **IEC Colleges** ($175K, Order Form, Zack / Diana, Origin): order form $178K, $9K a month for two months then $16K, billed quarterly, exit at day 90. Champion Esther Duong (VP Marketing) pushes on cost and billing; wants enrolment gains in about 60 days. World Emblem is the reference (Randy call, Eric Freeman walkthrough). Who signs is unclear.

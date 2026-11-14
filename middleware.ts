@@ -25,8 +25,10 @@ export async function middleware(req: NextRequest) {
       },
     },
   });
-  const { data } = await supabase.auth.getUser();
-  const user = data.user;
+  // getClaims verifies the session token locally when the project signs with asymmetric keys
+  // (no network call), and also refreshes an expired session through the cookie handlers above.
+  const { data } = await supabase.auth.getClaims();
+  const user = data?.claims?.sub ? { email: data.claims.email as string | undefined } : null;
   if (user && allowedEmail(user.email)) return res;
 
   const isApi = path.startsWith("/api/");

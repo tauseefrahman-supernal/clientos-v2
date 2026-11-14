@@ -1,4 +1,5 @@
 import "server-only";
+import { cache } from "react";
 import { cookies } from "next/headers";
 import { createServerClient } from "@supabase/ssr";
 import { allowedEmail, anonKey, authEnabled, supabaseUrl } from "./config";
@@ -7,6 +8,7 @@ import { allowedEmail, anonKey, authEnabled, supabaseUrl } from "./config";
 export function authClient() {
   const store = cookies();
   return createServerClient(supabaseUrl()!, anonKey()!, {
+    global: { fetch: (input, init) => fetch(input, { ...init, cache: "no-store" }) },
     cookies: {
       getAll: () => store.getAll(),
       setAll: (list) => { try { list.forEach(({ name, value, options }) => store.set(name, value, options)); } catch { /* read-only in server components; the middleware refreshes */ } },
@@ -16,12 +18,16 @@ export function authClient() {
 
 export type SignedIn = { id: string; email: string; name: string; avatar: string | null };
 
-/** The signed-in Supernal user, or null. When sign-in is not configured, returns null. */
-export async function currentUser(): Promise<SignedIn | null> {
+/**
+ * The signed-in Supernal user, or null (also null when sign-in is not configured). The session token
+ * is verified with getClaims(): locally against the project's signing keys when it uses asymmetric
+ * keys, otherwise by asking Supabase. Computed once per request.
+ */
+export const currentUser = cache(async (): Promise<SignedIn | null> => {
   if (!authEnabled()) return null;
-  const { data } = await authClient().auth.getUser();
-  const u = data.user;
-  if (!u || !allowedEmail(u.email)) return null;
-  const meta = (u.user_metadata ?? {}) as Record<string, unknown>;
-  return { id: u.id, email: u.email!, name: String(meta.full_name ?? meta.name ?? u.email!.split("@")[0]), avatar: typeof meta.avatar_url === "string" ? meta.avatar_url : null };
-}
+  const { data, error } = await authClient().auth.getClaims();
+  const c = data?.claims as (Record<string, unknown> & { sub?: string; email?: string }) | undefined;
+  if (error || !c?.sub || !allowedEmail(c.email)) return null;
+  const meta = (c.user_metadata ?? {}) as Record<string, unknown>;
+  return { id: c.sub, email: c.email!, name: String(meta.full_name ?? meta.name ?? c.email!.split("@")[0]), avatar: typeof meta.avatar_url === "string" ? meta.avatar_url : null };
+});

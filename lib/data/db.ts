@@ -14,6 +14,9 @@ type Row = Record<string, any>;
 
 export type DbStore = Store & { ids: Map<string, string> };   // project slug -> accounts.id
 
+// Next.js caches server fetches by default; database reads must always be live.
+export const noStore: typeof fetch = (input, init) => fetch(input, { ...init, cache: "no-store" });
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let client: SupabaseClient<any, any, any> | null = null;
 
@@ -27,7 +30,7 @@ export function db(): SupabaseClient<any, any, any> {
     // Use only the origin, so a pasted URL with a path (".../rest/v1/") still works.
     const raw = (process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL)!.trim();
     const url = new URL(/^https?:\/\//.test(raw) ? raw : `https://${raw}`).origin;
-    client = createClient(url, process.env.SUPABASE_SERVICE_ROLE_KEY!, { db: { schema: "clientos" }, auth: { persistSession: false, autoRefreshToken: false } });
+    client = createClient(url, process.env.SUPABASE_SERVICE_ROLE_KEY!, { db: { schema: "clientos" }, auth: { persistSession: false, autoRefreshToken: false }, global: { fetch: noStore } });
   }
   return client;
 }
