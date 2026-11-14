@@ -1,0 +1,1341 @@
+{
+  "at": "2026-11-14T09:37:33.974Z",
+  "passed": 34,
+  "total": 38,
+  "tokens": {
+    "input": 899692,
+    "output": 53642,
+    "cacheRead": 1350147
+  },
+  "results": [
+    {
+      "id": "we-01",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Sales Strategy/Concept-Alignment.md",
+        "Book, chapter 2: Why they bought",
+        "File Sales Strategy/Concept-Alignment.md",
+        "File Sales Strategy/Concept-Alignment.md",
+        "File Sales Strategy/Concept-Alignment.md",
+        "File Sales Strategy/Concept-Alignment.md",
+        "File Sales Strategy/Concept-Alignment.md",
+        "Book, chapter 2: Why they bought",
+        "File Sales Strategy/Concept-Alignment.md",
+        "File Sales Strategy/Concept-Alignment.md",
+        "File Sales Strategy/Concept-Alignment.md",
+        "Account: where sources disagree"
+      ],
+      "seconds": 15,
+      "answer": "Randy Carr bought Leadership OS because he saw a working prototype of his own operating system, made from his own files, a week after describing what was wrong with it. That moved the deal from discovery on 14 May to a signature on 28 May. [File Sales Strategy/Concept-Alignment.md] [Book, chapter 2: Why they bought]\n\n**The causes, most important first:**\n\n1. **His pain was specific and daily.** He spent about 15% of his time on KPI work and chasing reds. He kept a 300-line commitments sheet by hand, and about three-quarters of it was not done. He wanted 80 to 85% of his time back and didn't want to have to ask twice. He didn't want the Excel KPI cascade replaced. He wanted it made AI-native. [File Sales Strategy/Concept-Alignment.md]\n2. **The prototype used his own terms and data within about 24 hours.** His assistant, Gabriella, sent the org chart, T3 meeting transcripts, objectives and the meeting-system template. On 21 May Tauseef demoed a Leadership OS prototype built from those files in about a day. Randy said he was doubling the budget, could see it replacing his whole FMDS system, and offered an introduction to Eric Freeman. [File Sales Strategy/Concept-Alignment.md]\n3. **Supernal matched what he said to what his data showed.** That was Tauseef's own read at the time of why Randy was excited. A related point from the same week: it was a prototype, not a proposal. [File Sales Strategy/Concept-Alignment.md]\n4. **The return was easy to see.** Randy's own figure was freeing about three people from spreadsheet work. [File Sales Strategy/Concept-Alignment.md]\n5. **He asked for a quick standalone form, and the form was simple.** On 14 May he asked for an early order form instead of waiting for one proposal at day 60. The internal price moved from $15K to $10K a month. The form listed deliverables plainly and promised value within 30 days, felt by 90. Nick clicked through the prototype against the order form, and Randy said to treat it as signed and not slow down. [File Sales Strategy/Concept-Alignment.md]\n\n**Background that made it possible:** the 60-day advisory was already running. Nick had a master agreement in place, and his idea of rebuilding functions as if AI had always existed had led Randy to ask for an \"AI CEO\". [Book, chapter 2: Why they bought] Randy also spends about 10% of revenue on technology. [File Sales Strategy/Concept-Alignment.md]\n\n**Limits and disagreements:**\n- No written \"pattern\" deck shown to Randy before 28 May was found. The evidence from before the sale is the prototype and the verbal read-back. The heavier analysis came afterwards and won FMDS OS. [File Sales Strategy/Concept-Alignment.md]\n- Randy later felt he had signed the first form too fast. Phil Jarvis called it one-sided and vague and asked for milestones and dates. That criticism shaped the FMDS form. [File Sales Strategy/Concept-Alignment.md]\n- The sources disagree on the price. The signed form says $10K a month, $120K in total. The case study says $15K. [Account: where sources disagree]",
+      "steps": [
+        "searched “Leadership OS why bought” · 8 hits",
+        "searched “Concept-Alignment Leadership OS cause” · 8 hits",
+        "read File Sales Strategy/Concept-Alignment.md",
+        "read Book, chapter 2: Why they bought"
+      ],
+      "error": null,
+      "usage": {
+        "input": 18296,
+        "output": 1344,
+        "cacheRead": 19536
+      }
+    },
+    {
+      "id": "we-02",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "Book, chapter 2: Why they bought",
+        "Book, chapter 2: Why they bought",
+        "Book, chapter 2: Why they bought",
+        "File Sales Strategy/Concept-Alignment.md (part 8)",
+        "Book, chapter 2: Why they bought; File Sales Strategy/Concept-Alignment.md (part 7)",
+        "Book, chapter 2: Why they bought; File Sales Strategy/Concept-Alignment.md (part 8)",
+        "File Sales Strategy/Concept-Alignment.md (part 8)",
+        "File Sales Strategy/Concept-Alignment.md (part 7)",
+        "File Sales Strategy/Concept-Alignment.md (part 8)",
+        "File Sales Strategy/Concept-Alignment.md (part 8)",
+        "Account: deals",
+        "File Sales Strategy/Concept-Alignment.md (part 7)",
+        "File Deal Strategy/Context-Building.md (part 2)"
+      ],
+      "seconds": 18,
+      "answer": "FMDS OS was won by analysis. Leadership OS was won by a prototype. Leadership OS closed in two weeks after Randy saw a prototype of his own system, built from his own files [Book, chapter 2: Why they bought]. FMDS OS took six more weeks. It was won by finding real errors in the KPI cascade and putting a cost on them [Book, chapter 2: Why they bought].\n\nThe causes, most important first:\n\n1. **The findings.** In June the team went through the cascade with the people who run it. They mapped parent and child KPIs and 76,000 SharePoint files. They found three problems:\n   - Safety formulas were reading the wrong columns.\n   - One team's revenue had dropped out of the roll-up, so the board showed about $624K a week against nearly $2M.\n   - Two people paid about $100K a year did nothing but maintain sheets.\n\n   [Book, chapter 2: Why they bought]. The errors were on the CEO's own dashboard [File Sales Strategy/Concept-Alignment.md (part 8)].\n2. **The order of the 2 Jul meeting.** Randy saw the findings first. After the missing-revenue finding he said the spreadsheets had to go [Book, chapter 2: Why they bought; File Sales Strategy/Concept-Alignment.md (part 7)].\n3. **Randy had already asked for it.** On 21 May, the day he saw the Leadership OS prototype, he asked for the floor-level system too, before anything was scoped [Book, chapter 2: Why they bought; File Sales Strategy/Concept-Alignment.md (part 8)]. The team's plan was to earn FMDS by showing Leadership OS working on the existing sheets [File Sales Strategy/Concept-Alignment.md (part 8)].\n4. **The 9 Jul prototype went beyond dashboards.** It showed the 8-step workflow, boards, the accountability loop and a six-month plan. Randy approved $180K on that call and asked for more speed [File Sales Strategy/Concept-Alignment.md (part 7)].\n5. **Eric Freeman became a champion** after the June sessions. The diagrams of his business were what caught him [File Sales Strategy/Concept-Alignment.md (part 8)].\n6. **The order form answered Phil Jarvis.** He had criticised the first form, so this one carried milestones and a six-month exit [File Sales Strategy/Concept-Alignment.md (part 8)]. Phil signed it as OF-003, and it closed on 22 Jul at $15,000 a month for 12 months [Account: deals].\n\nTwo other steps in June built up to it. On 11 Jun Randy admitted the data was not fit for the company's current size. On 23 Jun the SharePoint map impressed Randy and Carlos, and the advisory discovery was folded into the FMDS scope [File Sales Strategy/Concept-Alignment.md (part 7)].\n\nThe two platforms are linked. Building Leadership OS on the client's spreadsheets is what exposed the cascade errors. FMDS OS now produces the L1/L2 numbers that Leadership OS reads at L3 [File Deal Strategy/Context-Building.md (part 2)].",
+      "steps": [
+        "searched “FMDS OS deal why they bought” · 8 hits",
+        "searched “Concept-Alignment FMDS unlocked Leadership OS” · 8 hits",
+        "read File Sales Strategy/Concept-Alignment.md (part 8)",
+        "read Book, chapter 2: Why they bought",
+        "read File Sales Strategy/Concept-Alignment.md (part 7)"
+      ],
+      "error": null,
+      "usage": {
+        "input": 21627,
+        "output": 1621,
+        "cacheRead": 39072
+      }
+    },
+    {
+      "id": "we-03",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "Book, chapter 3: How the deal is built",
+        "Account: artifacts list",
+        "File Deal Strategy/Context-Building.md (part 3)",
+        "File Deal Strategy/Diagnostic-Discovery.md (part 3)",
+        "Book, chapter 3: How the deal is built",
+        "Account: deals",
+        "File Deal Strategy/Context-Building.md (part 3)",
+        "Account: where sources disagree",
+        "Account: where sources disagree",
+        "File Deal Strategy/Context-Building.md (part 3)"
+      ],
+      "seconds": 9,
+      "answer": "**Leadership OS is OF-002**, and **Phil Jarvis (CIO) signed FMDS OS (OF-003)** on 22 Jul 2026.\n\n**Leadership OS number.** The signed papers number it OF-002. It runs at $10K a month for 12 months from 28 May 2026 [Book, chapter 3: How the deal is built]. The signed file is world-emblem-of-002-v1-signed.pdf [Account: artifacts list]. Other sources number it differently:\n- The brief and one Linear milestone (\"OF-001 §3 pod model\") call it OF-001 [File Deal Strategy/Context-Building.md (part 3)].\n- The Executive Readout calls the 28 May form \"Order Form #1\" [File Deal Strategy/Diagnostic-Discovery.md (part 3)].\n- In the signed numbering, \"Order Form #1\" is the advisory [Book, chapter 3: How the deal is built].\n\n**FMDS OS signer.** FMDS OS was signed by Phil Jarvis as OF-003 [Account: deals]. It sits under MSA 2, dated 22 Jul 2026 and signed by Scott Downes and Phil Jarvis [File Deal Strategy/Context-Building.md (part 3)]. The vault doesn't say which company Scott Downes signed for. The PDF, World_Emblem_-_Supernal_MSA.pdf, would show it.\n\nTwo things to watch on FMDS:\n- **Number:** July notes call it OF-002 or OF2 [Account: where sources disagree].\n- **Date and price:** The signed PDF and Account OS say 22 Jul at $15K a month. One note says 23 Jul at $23k, and another calls it \"a $25,000 form\" [Account: where sources disagree].\n\nAmendment No. 1, signed 3 Sep 2026, changes the FMDS form [File Deal Strategy/Context-Building.md (part 3)]. The vault doesn't say who signed the amendment.",
+      "steps": [
+        "searched “Leadership OS order form” · 8 hits",
+        "searched “FMDS OS order form signed” · 8 hits"
+      ],
+      "error": null,
+      "usage": {
+        "input": 6246,
+        "output": 924,
+        "cacheRead": 19536
+      }
+    },
+    {
+      "id": "we-04",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Technical Strategy/Phasing-Commercial.md (part 2)",
+        "File Deal Strategy/Context-Building.md (part 3)",
+        "File Technical Strategy/Phasing-Commercial.md (part 2)",
+        "File Technical Strategy/Phasing-Commercial.md (part 2)",
+        "File Technical Strategy/Phasing-Commercial.md (part 2)",
+        "File Technical Strategy/Phasing-Commercial.md (part 2)",
+        "File Technical Strategy/Phasing-Commercial.md (part 2)",
+        "Book, chapter 3: How the deal is built",
+        "File Technical Strategy/Phasing-Commercial.md (part 2)",
+        "File Technical Strategy/Phasing-Commercial.md (part 4)",
+        "Book, chapter 8: Where it stands and what is next",
+        "File Delivery Strategy/Weekly.md (part 2)",
+        "File Technical Strategy/Phasing-Commercial.md (part 5)",
+        "File Technical Strategy/Phasing-Commercial.md (part 2)"
+      ],
+      "seconds": 14,
+      "answer": "Yes, but only on the FMDS OS form (OF-003). Leadership OS (OF-002) has no exit you can use without cause.\n\n**FMDS OS (OF-003, $15K/month, 12 months from 22 Jul 2026)**\nAmendment No. 1 was signed 3 Sep 2026 and backdated to 22 Jul 2026. It added two exit rights [File Technical Strategy/Phasing-Commercial.md (part 2)] [File Deal Strategy/Context-Building.md (part 3)]:\n- **Month-6 exit, open to either side.** Either party can end the form at the end of month 6 by giving 30 days' notice [File Technical Strategy/Phasing-Commercial.md (part 2)].\n- **Milestone 6 exit, open to World Emblem only.** World Emblem can end the form if Milestone 6 still fails after two rounds of redelivery [File Technical Strategy/Phasing-Commercial.md (part 2)].\n- **If it ends:** World Emblem owns the codebase, data and pipelines, and gets a free migration sprint. Supernal keeps its background IP under a perpetual licence [File Technical Strategy/Phasing-Commercial.md (part 2)].\n\n**When the month-6 exit can be used.** The vault works these dates out from the signed terms; they are not written in the contract [File Technical Strategy/Phasing-Commercial.md (part 2)]:\n- The exit window is around **22 Jan 2027**.\n- World Emblem's notice is due at whichever comes later: the end of month 5 (around **22 Dec 2026**) or 30 days after it accepts Milestone 6.\n- The vault only gives the notice rule for World Emblem. It doesn't say when Supernal would have to give notice. Check the Amendment itself (Drive: Amendment_No1_World_Emblem_FINAL.pdf) before relying on a date.\n\n**Leadership OS (OF-002, $10K/month, 12 months from 28 May 2026).** It can only be ended for material breach, and renewal needs a written agreement. Without a breach it runs to about **27 May 2027** [File Technical Strategy/Phasing-Commercial.md (part 2)] [Book, chapter 3: How the deal is built].\n\n**Other forms**\n- The $10K advisory (Order Form #1) had no termination for convenience [File Technical Strategy/Phasing-Commercial.md (part 2)].\n- The draft OF #004 also has a 12-month commitment with no termination for convenience [File Technical Strategy/Phasing-Commercial.md (part 4)].\n\n**Why the timing matters.** World Emblem's possible notice date in late December falls in the same weeks as Randy's own deadlines: all nine boards live by 31 Dec and Excel gone by 1 Jan. Phil, who signed the FMDS form, also retires then [Book, chapter 8: Where it stands and what is next]. Several things are behind schedule:\n- Three milestones are past their target dates.\n- The Business Central API is still blocked.\n- The Quality Framework that Amendment 1 required within 15 days exists only as a draft.\n\n[File Delivery Strategy/Weekly.md (part 2)] [File Technical Strategy/Phasing-Commercial.md (part 5)]\n\nAccount OS has no renewal plan for this account [File Technical Strategy/Phasing-Commercial.md (part 2)].",
+      "steps": [
+        "searched “exit clause termination notice” · 8 hits",
+        "searched “order form term renewal cancel” · 8 hits",
+        "read File Technical Strategy/Phasing-Commercial.md (part 2)",
+        "searched “Milestone 6 redelivery cycles Amendment” · 5 hits"
+      ],
+      "error": null,
+      "usage": {
+        "input": 13852,
+        "output": 1482,
+        "cacheRead": 29304
+      }
+    },
+    {
+      "id": "we-05",
+      "pass": false,
+      "facts": false,
+      "cited": true,
+      "missing": [
+        [
+          "Obsidian"
+        ]
+      ],
+      "cites": [
+        "Book, chapter 4: The product and why it is built this way (part 1)",
+        "File Deal Strategy/Product-Segmentation.md (part 2)",
+        "File Technical Strategy/Use-Cases-and-Feedback.md (part 2)",
+        "File Sales Strategy/Concept-Alignment.md (part 4)",
+        "File Sales Strategy/Concept-Alignment.md (part 3)",
+        "File Technical Strategy/Feature-Rationale.md",
+        "File Technical Strategy/Feature-Rationale.md",
+        "File Technical Strategy/Data-Layer.md",
+        "File Technical Strategy/Integrations.md",
+        "File Delivery Strategy/Weekly.md (part 1)",
+        "File Deal Strategy/Product-Segmentation.md (part 1)"
+      ],
+      "seconds": 19,
+      "answer": "I can't answer the \"why\" from the vault. No file records that the commitment ledger doesn't write back to Randy's own commitments file, and none gives a reason. The vault doesn't even confirm how the ledger handles write-back.\n\n**What the vault does say about the ledger:**\n- It's part of Leadership OS, and its commitments are \"drawn from meetings and email\" [Book, chapter 4: The product and why it is built this way (part 1)]. Chief can also add commitments when told to [File Deal Strategy/Product-Segmentation.md (part 2)].\n- The ledger stood at 751 commitments on 5 Oct 2026 [File Technical Strategy/Use-Cases-and-Feedback.md (part 2)].\n- Before Supernal, Randy kept a 300-line commitments sheet by hand, and about three-quarters of it wasn't done [File Sales Strategy/Concept-Alignment.md (part 4)].\n\n**Facts that might bear on it, though none is stated as the reason:**\n- In discovery, Randy said he didn't want the spreadsheet replaced. He wanted it made AI-native [File Sales Strategy/Concept-Alignment.md (part 3)]. That would argue *for* write-back, so if there really isn't any, it may be a gap worth checking with him.\n- The team decided to start on the spreadsheets with data-quality flags, then replace them with integrations department by department [File Technical Strategy/Feature-Rationale.md]. That covers the KPI spreadsheets, and the vault doesn't say it applies to the commitments sheet.\n\n**Where the answer should be and isn't:**\n- Feature-Rationale is the file meant to hold this kind of decision. Its table has ten decisions and none is about the ledger [File Technical Strategy/Feature-Rationale.md].\n- Integrations and Data-Layer would show which way data flows. Data-Layer hasn't been filled in [File Technical Strategy/Data-Layer.md]. Integrations only has headings, with no direction-of-flow detail [File Technical Strategy/Integrations.md].\n\n**Where to look:**\n- The engineers. Ask Ricardo, or Saad before he leaves on 20 Nov [File Delivery Strategy/Weekly.md (part 1)].\n- Linear, for the ledger build issues.\n- Slack #acnt-world-emblem-internal.\n- The Leadership OS Usage Training recording from 20 Oct 2026, which walked through the ledger [File Deal Strategy/Product-Segmentation.md (part 1)].\n\nOnce you have the decision and the meeting where it was made, I can draft a row for Feature-Rationale for your approval.",
+      "steps": [
+        "searched “commitment ledger write back” · 8 hits",
+        "searched “Randy file commitments” · 8 hits",
+        "searched “Feature-Rationale commitment ledger spreadsheet sync Randy's sheet” · 8 hits",
+        "read File Technical Strategy/Feature-Rationale.md",
+        "searched “commitments Excel one-way read-only write back Leadership OS ledger source” · 8 hits",
+        "searched “ledger 751 commitments meetings email Outlook Otter” · 8 hits",
+        "read File Technical Strategy/Data-Layer.md",
+        "read File Technical Strategy/Integrations.md"
+      ],
+      "error": null,
+      "usage": {
+        "input": 49629,
+        "output": 1716,
+        "cacheRead": 48840
+      }
+    },
+    {
+      "id": "we-06",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Delivery Strategy/AI-Strategy-Roadmap.md (part 2)",
+        "File Technical Strategy/Delivery-Plan.md (part 2)",
+        "File Technical Strategy/Delivery-Plan.md (part 2)",
+        "File Technical Strategy/Delivery-Plan.md (part 2)",
+        "Book, chapter 7: What value has shown",
+        "Account: where sources disagree",
+        "File Delivery Strategy/Project-Plan.md (part 2)",
+        "File Sales Strategy/Sales-One-Pager.md (part 2)"
+      ],
+      "seconds": 10,
+      "answer": "**8-step completion is still at its 19% baseline against a 60% target. It is marked Behind and has not moved.** [File Delivery Strategy/AI-Strategy-Roadmap.md (part 2)]\n\n- **Baseline:** about 19%. Problems tend to stall at steps 6 to 8. [File Technical Strategy/Delivery-Plan.md (part 2)]\n- **Target:** 60%. [File Technical Strategy/Delivery-Plan.md (part 2)]\n- **Current:** still at baseline, and 8-steps are rarely completed. The latest source is the Check-In on 12 Nov 2026. [File Technical Strategy/Delivery-Plan.md (part 2)] Chapter 7 also says the rate \"has not moved from 19%.\" This is the main outcome the contract names that has not yet shown up. [Book, chapter 7: What value has shown]\n\n**Where sources disagree:** on 16 Sep, \"19% to 60%\" was described as progress. But there were zero completions on 10 and 28 Sep, so 19% is the historical baseline, not an improvement. [Account: where sources disagree]\n\n**Don't confuse this with the build milestone:** the Project-Plan shows the \"8-step engine\" as Met on 15 Sep 2026 at 99.9%. That measures the build, not usage. The work still open there is per-department thresholds (WE-127) and adoption. The note says what triggers an 8-step is a problem repeating, and how often that happens differs by department. [File Delivery Strategy/Project-Plan.md (part 2)]\n\n**Why it matters:** the Sales-One-Pager names this gap as the account's main risk. Adoption trails the build, and activities are under-used. [File Sales Strategy/Sales-One-Pager.md (part 2)]\n\n**What's missing:**\n- **Deadline for 60%:** none of the sources give one.\n- **Current percentage:** nothing after the 12 Nov check-in.\n- **Per-department breakdown:** none.\n\nLinear (WE-127) or the FMDS OS data itself would be the place to get a measured rate.",
+      "steps": [
+        "searched “8-step completion target” · 8 hits",
+        "searched “8-step completion rate baseline” · 8 hits"
+      ],
+      "error": null,
+      "usage": {
+        "input": 6314,
+        "output": 915,
+        "cacheRead": 19536
+      }
+    },
+    {
+      "id": "we-07",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "Book, chapter 9: Lessons this account teaches",
+        "File Delivery Strategy/Project-Plan.md",
+        "File Sales Strategy/Sales-One-Pager.md (part 2)",
+        "File Delivery Strategy/Project-Plan.md",
+        "File Delivery Strategy/Stakeholders.md (part 2)",
+        "File Delivery Strategy/Project-Plan.md",
+        "File Delivery Strategy/Project-Plan.md",
+        "File Delivery Strategy/Project-Plan.md",
+        "File Delivery Strategy/Project-Plan.md",
+        "File Delivery Strategy/Project-Plan.md",
+        "File Delivery Strategy/Project-Plan.md",
+        "File Technical Strategy/Integrations.md"
+      ],
+      "seconds": 19,
+      "answer": "**Microsoft Business Central** is the biggest gate. It blocks both Operations and Finance. **ADP** blocks ODG/HR. Book chapter 9 says client-side access to core systems \"has gated three departments for three months\" [Book, chapter 9: Lessons this account teaches]. The Project-Plan and One-Pager show those three are Operations, Finance and ODG/HR [File Delivery Strategy/Project-Plan.md], [File Sales Strategy/Sales-One-Pager.md (part 2)].\n\n**What blocks each department**\n\n| Department | State | What blocks it |\n|---|---|---|\n| Operations and ERP | Blocked, 5.4%, due 30 Nov | Three things: the Business Central API, read access to WPS, and Varmus having no attendance API |\n| Finance | Blocked, 0%, due 30 Nov | The Business Central API. Mexico finance also runs in Compact, an on-premise system that isn't in scope |\n| ODG and HR | Late, 19.1%, due date 31 Oct has passed | Missing ADP endpoints, and a paid call with an ADP expert that is still pending |\n\n[File Delivery Strategy/Project-Plan.md]\n\n**Who holds the Business Central access**\n- Carlos Mitchell owns Business Central access [File Delivery Strategy/Stakeholders.md (part 2)].\n- The API was promised from 8 Oct and was still pending on 12 Nov. WE-279 is blocked on Carlos's credentials [File Delivery Strategy/Project-Plan.md].\n\n**Varmus is a separate decision**\n- For Mexico attendance, the open question is whether to use a Varmus API or a Windsor export. That was last discussed 15 Oct [File Delivery Strategy/Project-Plan.md].\n\n**Business Central and ADP also slow work that is live**\n- Customer Service and Order Entry went live on 12 Nov. 13 of its KPIs still can't connect until it gets Business Central, ADP and a HubSpot seat [File Delivery Strategy/Project-Plan.md].\n- Leadership OS executive onboarding (testing and hypercare) needs the Business Central incoming-revenue reconciliation first [File Delivery Strategy/Project-Plan.md].\n- WE-171, incoming revenue against Business Central ledgers, is on hold [File Delivery Strategy/Project-Plan.md].\n- IT and Quality is behind for other reasons: an expired CheckMK token, an uptime formula, and Quality being redefined in HubSpot. It isn't marked blocked [File Delivery Strategy/Project-Plan.md].\n\n**Gap in the vault**\nThe \"Access And Integration Gates\" section of the Integrations file has headings for Business Central, ADP, Windsor/Varmus/Compact and Microsoft 365. Under them, the people, request attempts and dates aren't filled in [File Technical Strategy/Integrations.md]. That means the vault can't say who owns the ADP or WPS access, or how many times each was requested. That history is most likely in Slack #acnt-world-emblem-internal, the 15 Oct Varmus meeting notes, and the related Linear issues.",
+      "steps": [
+        "searched “blocked department access system” · 10 hits",
+        "searched “Business Central pending access” · 8 hits",
+        "read Book, chapter 9: Lessons this account teaches",
+        "read File Delivery Strategy/Project-Plan.md",
+        "read File Technical Strategy/Integrations.md",
+        "searched “ADP endpoints PII Varmus attendance WPS” · 6 hits"
+      ],
+      "error": null,
+      "usage": {
+        "input": 31971,
+        "output": 1685,
+        "cacheRead": 39072
+      }
+    },
+    {
+      "id": "we-08",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "Book, chapter 7: What value has shown",
+        "File Technical Strategy/Delivery-Plan.md (part 3)",
+        "File Technical Strategy/Delivery-Plan.md (part 3)",
+        "File Technical Strategy/Delivery-Plan.md (part 3)",
+        "File Technical Strategy/Delivery-Plan.md (part 3)",
+        "File Technical Strategy/Delivery-Plan.md (part 3)",
+        "File Technical Strategy/Delivery-Plan.md (part 3)",
+        "Book, chapter 7: What value has shown",
+        "File Technical Strategy/Delivery-Plan.md (part 3)",
+        "Book, chapter 7: What value has shown",
+        "File Technical Strategy/Use-Cases-and-Feedback.md (part 3)",
+        "File Technical Strategy/Delivery-Plan.md (part 4)",
+        "Book, chapter 7: What value has shown"
+      ],
+      "seconds": 16,
+      "answer": "The 29 Oct QBR's value was mostly about showing World Emblem the truth about its own numbers, plus some early speed and labour gains. It did not show the outcome the contract names. [Book, chapter 7: What value has shown]\n\n**What was found in the data**\n- **First KPI source map:** 646 KPIs. 99 had no source, 92 had never been filled, and 66 pointed to sources that don't exist. [File Technical Strategy/Delivery-Plan.md (part 3)]\n- **Executive sheets:** 6 of the 8 L3 sheets were broken, across more than 87 linked workbooks. [File Technical Strategy/Delivery-Plan.md (part 3)]\n- **Missing revenue:** about $500K of service revenue was out of view because of one hidden column. [File Technical Strategy/Delivery-Plan.md (part 3)]\n- **Safety targets:** $8.55M of targets were restored and corrected, and DART and TRIR were fixed. One note says $8.5M instead, so the exact figure differs between notes. [File Technical Strategy/Delivery-Plan.md (part 3)]\n- **Duplicate standard work:** 255 of 695 documents. [File Technical Strategy/Delivery-Plan.md (part 3)]\n\n**Speed and labour**\n- Two people who used to compile data have been freed, worth about $100K a year. [File Technical Strategy/Delivery-Plan.md (part 3)]\n- A red KPI used to take two weeks to reach a sheet and up to a month to reach an executive. On live boards it now shows the same day. [Book, chapter 7: What value has shown]\n\n**Status figures**\nThese come from the QBR deck (Drive: 20261021_qbr) and the 28 Oct walkthrough, not from notes of the meeting itself:\n- 11 source systems: 4 connected, 4 pending, 3 by hand.\n- Finance KPIs cut from about 85 to about 30.\n- More than 1,000 commitments captured.\n\n[File Technical Strategy/Delivery-Plan.md (part 3)]\n\n**What it didn't show, and how Randy reacted**\n- The contracted outcome, time recovered and problems solved, hasn't shown yet. 8-step completion is still stuck at 19%. [Book, chapter 7: What value has shown]\n- Randy pushed back that soft savings aren't real unless people leave payroll. [File Technical Strategy/Use-Cases-and-Feedback.md (part 3)]\n- He asked for:\n  - activity on a red KPI that brings it back to green, with a dollar figure tied to the annual plan\n  - a shared KPI visual to open the next QBR, which he can also show his bank (owner: Dominik)\n  - what the two freed staff now do\n  - the recap video\n  - an acquirer deck for \"sell the system\"\n\n  [File Technical Strategy/Delivery-Plan.md (part 4)]\n- Supernal has not yet mapped KPI movement to revenue. [Book, chapter 7: What value has shown]",
+      "steps": [
+        "searched “QBR 29 Oct value” · 8 hits",
+        "searched “quarterly business review value shown” · 8 hits",
+        "read File Technical Strategy/Delivery-Plan.md (part 3)",
+        "read File Technical Strategy/Delivery-Plan.md (part 4)",
+        "read Book, chapter 7: What value has shown"
+      ],
+      "error": null,
+      "usage": {
+        "input": 21169,
+        "output": 1414,
+        "cacheRead": 39072
+      }
+    },
+    {
+      "id": "we-09",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Technical Strategy/Delivery-Plan.md (part 2)",
+        "File Delivery Strategy/AI-Strategy-Roadmap.md (part 2)",
+        "File Delivery Strategy/Adoption-Plan.md",
+        "File Deal Strategy/Product-Segmentation.md",
+        "Account: where sources disagree",
+        "File Technical Strategy/Delivery-Plan.md (part 2)",
+        "Account: where sources disagree",
+        "File Delivery Strategy/AI-Strategy-Roadmap.md (part 2)",
+        "File Delivery Strategy/Adoption-Plan.md"
+      ],
+      "seconds": 16,
+      "answer": "**There's no single agreed number. On the latest evidence it's 4 departments as of 5 Nov plus CS/Order Entry on 12 Nov, so 5 or 6 out of 9.** Which one depends on whether CS/OE counts as one department or two. The files only give \"4 of 9 on 5 Nov, plus CS/OE on 12 Nov\" [File Technical Strategy/Delivery-Plan.md (part 2)][File Delivery Strategy/AI-Strategy-Roadmap.md (part 2)].\n\n**What's live, by department** [File Delivery Strategy/Adoption-Plan.md]:\n- **Live:** Sales and Service (28 Aug), Marketing and IT (boards went live in October and November), CS and Order Entry (two boards, 12 Nov). On a strict board count that's 6.\n- **Not live:**\n  - HR and ODG are built but missing the ADP endpoints.\n  - Operations and Finance are mapped but waiting on Business Central.\n\nFMDS OS had 35 users on 5 Nov [File Deal Strategy/Product-Segmentation.md].\n\n**The sources don't agree.** They measure different things and use different totals [Account: where sources disagree]:\n- **QBR:** 2 of 9 departments run the weekly loop.\n- **5 Nov deck:** 4 of 7 departments are off the spreadsheet. This one uses 7 as the total, not 9.\n- **Notion, 2 Nov:** 4 of 9.\n- **Baseline:** 2 of 9 on 28 Sep [File Technical Strategy/Delivery-Plan.md (part 2)].\n\nSo \"live\" means different things in different places: a board exists, the department runs its weekly loop on it, or it has stopped using the spreadsheet. The total also changes between 7 and 9. None of the counts I found is after 12 Nov.\n\n**The target is also disputed.** Sources give four versions: 6+ by 31 Dec, all nine by 31 Dec, all remaining by 30 Nov, or all boards by mid-2027 [Account: where sources disagree]. Against either December target, the success plan marks this criterion as Behind [File Delivery Strategy/AI-Strategy-Roadmap.md (part 2)].\n\n**What's missing:** an agreed definition of \"live\", the list of 9 departments, and a count after 12 Nov. The Adoption-Plan's \"Usage By Week\" section is still an empty heading [File Delivery Strategy/Adoption-Plan.md]. To fill these gaps, I'd check the Linear board milestones and the next WE Sync: Weekly Planning, and agree a definition with Carlos and Randy.",
+      "steps": [
+        "searched “departments live” · 10 hits",
+        "searched “FMDS OS rollout departments go-live adoption” · 10 hits",
+        "read File Deal Strategy/Product-Segmentation.md",
+        "read Account: where sources disagree"
+      ],
+      "error": null,
+      "usage": {
+        "input": 19907,
+        "output": 1442,
+        "cacheRead": 29304
+      }
+    },
+    {
+      "id": "we-10",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "Account: deals",
+        "File Delivery Strategy/Weekly.md (part 1)",
+        "File Technical Strategy/Phasing-Commercial.md (part 4)",
+        "File Technical Strategy/Phasing-Commercial.md (part 4)",
+        "File Technical Strategy/Phasing-Commercial.md (part 4)",
+        "File Sales Strategy/Concept-Alignment.md (part 10)",
+        "File Sales Strategy/Concept-Alignment.md (part 10)",
+        "Account: where sources disagree"
+      ],
+      "seconds": 13,
+      "answer": "**OF #004, the AI-Native Organizational Strategy Retainer, is agreed verbally but not signed.** Carlos Mitchell agreed to it on 11 Nov. The expected close and start date is 16 Nov, and the maximum value is $120K [Account: deals]. This week's plan is to get the form to Carlos by 14 Nov. He will sign once he has checked with Randy [File Delivery Strategy/Weekly.md (part 1)]. The live Google Doc was last edited on 12 Nov [File Technical Strategy/Phasing-Commercial.md (part 4)]. Nothing in the vault says whether it went out on the 14th. To confirm that, check Account OS or the Drive doc.\n\n**What the v2 draft (11 Nov) says** [File Technical Strategy/Phasing-Commercial.md (part 4)]:\n- It covers all departments plus core infrastructure. Build work is excluded.\n- Months 1 to 3 are Full Strategy at $10K a month. From month 4, the client picks each month between Full ($10K) and Steady-State ($5K). That makes the total $120K at most, or $75K if they move to Steady-State from month 4.\n- It runs for 12 months with no termination for convenience. The client owns the deliverables and the knowledge captured.\n- The leads are Nick and Dominik Springer. The signatories are Carlos Mitchell and Scott Downes.\n\n**How it got here.** It started as a marketing-only form: v1 was $3K a month, $36K in total. Marketing was lost when Carlos chose to own that build internally [File Technical Strategy/Phasing-Commercial.md (part 4)] [File Sales Strategy/Concept-Alignment.md (part 10)]. Three things got it widened to cover the whole organisation [File Sales Strategy/Concept-Alignment.md (part 10)]:\n- At the QBR, Randy told Carlos that Supernal's job was to help him meet his department goals.\n- Carlos asked Supernal into operations and finance.\n- Carlos went to Nick after his marketing head was let go.\n\n**Where sources disagree** [Account: where sources disagree]:\n- **Minimum value:** the CRM and the v2 draft say $75K, one note says $90K, and a Notion health note describes it as a \"$180K to $120K retainer\".\n- **Link to SRR:** the CRM lists OF #004 and SRR as two separate $120K deals. One note says the 2027 retainer converts to the SRR model.\n\nThe signed form, or Carlos's reply, should settle both.",
+      "steps": [
+        "searched “org strategy retainer” · 8 hits",
+        "searched “OF #004 Carlos retainer signed price” · 8 hits",
+        "read File Sales Strategy/Concept-Alignment.md (part 10)",
+        "read File Technical Strategy/Phasing-Commercial.md (part 4)"
+      ],
+      "error": null,
+      "usage": {
+        "input": 17002,
+        "output": 1135,
+        "cacheRead": 39072
+      }
+    },
+    {
+      "id": "we-11",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Technical Strategy/Delivery-Plan.md (part 4)",
+        "Book, chapter 7: What value has shown",
+        "File Technical Strategy/Delivery-Plan.md (part 4)",
+        "File Delivery Strategy/Weekly.md (part 2)",
+        "File Technical Strategy/Delivery-Plan.md (part 4)",
+        "File Technical Strategy/Delivery-Plan.md (part 4)",
+        "File Technical Strategy/Delivery-Plan.md (part 4)",
+        "File Technical Strategy/Delivery-Plan.md (part 4)"
+      ],
+      "seconds": 10,
+      "answer": "Randy made his asks at the Quarterly Business Review on 29 Oct 2026. He wants five things:\n\n1. **Proof that work turns into money.** He wants to see an activity logged against a red KPI, that KPI going back to green, and a dollar figure tied to the annual plan. He said not soft savings [File Technical Strategy/Delivery-Plan.md (part 4)]. Supernal has not yet linked KPI movement to revenue, and the 8-step completion rate is still at 19% [Book, chapter 7: What value has shown].\n2. **A shared KPI visual to open the next QBR.** He wants a version he can also show his bank. The owner is Dominik [File Technical Strategy/Delivery-Plan.md (part 4)]. This item is at risk: it's on the Weekly list as \"promised, no task,\" and there's no Linear issue for it [File Delivery Strategy/Weekly.md (part 2)].\n3. **What the two freed staff do now** [File Technical Strategy/Delivery-Plan.md (part 4)].\n4. **The recap video**, so he can share it across the company [File Technical Strategy/Delivery-Plan.md (part 4)].\n5. **A deck for buyers** to support \"sell the system\" [File Technical Strategy/Delivery-Plan.md (part 4)].\n\nThere's one more request that wasn't made at the QBR. Randy wants the FMDS plus AI CEO story ready by 31 Dec 2026 for his Abundance 360 talk in March 2027 [File Technical Strategy/Delivery-Plan.md (part 4)].\n\nThe files don't give a date for the next QBR. The meeting calendar or Account OS should have it.",
+      "steps": [
+        "searched “Randy review” · 8 hits",
+        "searched “Randy asked to see next review” · 8 hits",
+        "read File Technical Strategy/Delivery-Plan.md (part 4)"
+      ],
+      "error": null,
+      "usage": {
+        "input": 12803,
+        "output": 786,
+        "cacheRead": 29304
+      }
+    },
+    {
+      "id": "we-12",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Delivery Strategy/Stakeholders.md (part 3)",
+        "File Sales Strategy/Sales-Context.md (part 6)",
+        "File Delivery Strategy/Stakeholders.md (part 3)",
+        "File Delivery Strategy/Stakeholders.md (part 3)",
+        "File Delivery Strategy/Weekly.md (part 2)",
+        "File Delivery Strategy/Weekly.md (part 1)",
+        "File Delivery Strategy/Stakeholders.md (part 3)",
+        "File Delivery Strategy/Stakeholders.md (part 3)",
+        "File Delivery Strategy/Project-Plan.md (part 5)"
+      ],
+      "seconds": 11,
+      "answer": "Saad Ali is leaving. He's an engineer, and his last day is **20 Nov 2026**. This was announced at the WE Sync: Weekly Planning on 26 Oct [File Delivery Strategy/Stakeholders.md (part 3)] [File Sales Strategy/Sales-Context.md (part 6)]. He has worked on the account with Ricardo Morel since 4 Jun 2026, with near-daily check-ins [File Delivery Strategy/Stakeholders.md (part 3)].\n\n**Handover risk:** Doren Gore, an engineer doing operations mapping, joined on 4 Nov [File Delivery Strategy/Stakeholders.md (part 3)]. An engineer onboarding checklist was promised for Doren before Saad leaves. It hasn't been written, and no Linear issue exists for it. The Weekly lists it as a decision for this week [File Delivery Strategy/Weekly.md (part 2)] [File Delivery Strategy/Weekly.md (part 1)]. The vault doesn't actually say Doren is replacing Saad. That's only implied by the timing.\n\n**Other changes that aren't departures:**\n- Nick Agresti is stepping back from tactical calls but is still the account lead [File Delivery Strategy/Stakeholders.md (part 3)].\n- Swamy and Aman joined on 11 Nov, when squad \"Polaris\" was formed to cover WE and Breakr [File Delivery Strategy/Stakeholders.md (part 3)].\n- Phil retires on 31 Dec 2026, but he's on the client side, not Supernal's team [File Delivery Strategy/Project-Plan.md (part 5)].",
+      "steps": [
+        "searched “leaving Supernal team transition” · 8 hits",
+        "searched “last day handover replacement” · 8 hits",
+        "read File Delivery Strategy/Stakeholders.md (part 3)"
+      ],
+      "error": null,
+      "usage": {
+        "input": 12008,
+        "output": 874,
+        "cacheRead": 29304
+      }
+    },
+    {
+      "id": "we-13",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Deal Strategy/Context-Building.md (part 6)",
+        "File Deal Strategy/Context-Building.md (part 6)",
+        "Book, chapter 3: How the deal is built",
+        "File Sales Strategy/Concept-Alignment.md (part 10)",
+        "File Sales Strategy/Concept-Alignment.md (part 9)",
+        "File Sales Strategy/Concept-Alignment.md (part 10)",
+        "File Sales Strategy/Sales-Context.md (part 5)",
+        "File Delivery Strategy/Stakeholders.md (part 2)",
+        "Book, chapter 3: How the deal is built",
+        "Account: deals",
+        "File Sales Strategy/Concept-Alignment.md (part 10)",
+        "Book, chapter 3: How the deal is built"
+      ],
+      "seconds": 17,
+      "answer": "Two marketing deals were lost, both marked \"Lost (no decision)\" on 14 Oct 2026 [File Deal Strategy/Context-Building.md (part 6)]:\n\n| Deal | Value | MRR |\n|---|---|---|\n| OF4 AI Marketing Strategy | $36,000 | none |\n| OF5 AI-Native Marketing | $180,000 | none |\n\n**Why, starting with the biggest cause:**\n\n1. **Carlos changed the direction of AI work.** Account OS records the same loss reason for both deals: the Director of AI (Carlos Mitchell) moved company strategy away from AI-native marketing and towards general projects across the business [File Deal Strategy/Context-Building.md (part 6)]. The Book puts it as turning strategy away from \"marketing alone\" [Book, chapter 3: How the deal is built].\n\n2. **The client wanted to build marketing itself.** Randy's memo of 21 Jul decided to build marketing with 10 people plus agent fleets. It also kept Supernal \"held to its current contract\" [File Sales Strategy/Concept-Alignment.md (part 10)]. Carlos already had his own Hermes marketing agent, and WE had a data lake, both listed as internal builds competing with us [File Sales Strategy/Concept-Alignment.md (part 9)]. After Supernal pitched a $3K/month strategy form on 31 Aug, Carlos pushed back in mid-September and said he wants to own the build internally [File Sales Strategy/Concept-Alignment.md (part 10)].\n\n3. **Carlos cooled on us, so we stopped pitching.** Between 14 and 16 Sep, Carlos cooled on marketing and questioned our code quality. Supernal decided internally to stop pitching (WE Internal Bi-Weekly Sync, 16 Sep) [File Sales Strategy/Sales-Context.md (part 5)]. Earlier, on 9 Jul, his warmth was rated 6 against Randy's 9 to 10 [File Delivery Strategy/Stakeholders.md (part 2)].\n\n**What came next:** the $36K form was rewritten as OF #004, a strategy retainer for the whole organisation at $10K a month. It can step down to $5K from month four if the client chooses [Book, chapter 3: How the deal is built]. The deal is worth up to $120K, with a $75K minimum. Carlos agreed it verbally on 11 Nov but has not signed it [Account: deals]. It opened up after the QBR, where Randy told Carlos that Supernal's job was to help him meet his department goals [File Sales Strategy/Concept-Alignment.md (part 10)].\n\nThe client also deferred a client-services AI proposal in June. That was a deferral, not a loss [Book, chapter 3: How the deal is built].\n\n**Gap:** the vault doesn't explain why Carlos questioned code quality. The 16 Sep internal sync notes or the Slack thread in #acnt-world-emblem-internal (16 to 17 Sep) would be the place to check.",
+      "steps": [
+        "searched “marketing deal lost” · 8 hits",
+        "searched “closed lost opportunity marketing” · 8 hits",
+        "read File Deal Strategy/Context-Building.md (part 6)",
+        "searched “Carlos marketing own build internally Randy memo agent fleets” · 8 hits"
+      ],
+      "error": null,
+      "usage": {
+        "input": 15297,
+        "output": 1676,
+        "cacheRead": 29304
+      }
+    },
+    {
+      "id": "we-14",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Sales Strategy/Concept-Alignment.md (part 10)",
+        "File Sales Strategy/Concept-Alignment.md (part 10)",
+        "File Sales Strategy/Concept-Alignment.md (part 9)",
+        "File Deal Strategy/Product-Segmentation.md (part 5)",
+        "File Sales Strategy/Client-AI-Strategy.md",
+        "File Sales Strategy/Concept-Alignment.md (part 7)",
+        "File Sales Strategy/Concept-Alignment.md (part 10)",
+        "File Delivery Strategy/Project-Plan.md (part 4)",
+        "File Sales Strategy/Concept-Alignment.md (part 9)",
+        "Book, chapter 8: Where it stands and what is next",
+        "File Technical Strategy/Delivery-Plan.md (part 4)",
+        "File Sales Strategy/Client-AI-Strategy.md",
+        "Book, chapter 6: The people (part 1)",
+        "Book, chapter 8: Where it stands and what is next",
+        "File Sales Strategy/Client-AI-Strategy.md"
+      ],
+      "seconds": 20,
+      "answer": "Carlos is building or running four things that could compete with us. Only one of them, the marketing build, has actually taken work from us.\n\n1. **The marketing build (lost to us).** Randy's 21 Jul memo chose to build marketing with 10 people plus agent fleets, and kept Supernal \"held to its current contract\". We pitched a $3K/month strategy form on 31 Aug. In mid-September Carlos pushed back and said he wants to own the build internally [File Sales Strategy/Concept-Alignment.md (part 10)]. On 14 to 16 Sep he also cooled on marketing and questioned our code quality, and we decided internally to stop pitching [File Sales Strategy/Concept-Alignment.md (part 10)].\n\n2. **His own Hermes marketing agent.** It's listed as an internal build alongside a developer's Claude tool for standard-work conflicts and WE's own data lake [File Sales Strategy/Concept-Alignment.md (part 9)]. This one matters because Chief is also a Hermes agent with persistent memory [File Deal Strategy/Product-Segmentation.md (part 5)]. WE's team already works with the same base Chief runs on.\n\n3. **WE's own data layer.** WE has a plan of its own built on Fabric and a \"company brain\" [File Sales Strategy/Client-AI-Strategy.md]. As early as 4 Jun, Randy told us to coordinate with Phil on WE's data lake [File Sales Strategy/Concept-Alignment.md (part 7)]. On 23 Sep Carlos's team took on the Business Central REST API [File Sales Strategy/Concept-Alignment.md (part 10)]. That access is still blocking us: WE-279 is waiting on Carlos's credentials [File Delivery Strategy/Project-Plan.md (part 4)].\n\n4. **Other AI vendors.** Carlos manages two other AI vendors that are still engaged, and Randy runs three AI-vendor workstreams in parallel [File Sales Strategy/Concept-Alignment.md (part 9)].\n\n**Why this matters now:**\n- On 30 Nov the client owes its own decision on whether to build AI in-house, with a partner, or both [Book, chapter 8: Where it stands and what is next].\n- Carlos is graded on about $1.8M of value against about $600K of team cost [File Technical Strategy/Delivery-Plan.md (part 4)].\n- He also signed his own 2027 AI Department Hoshin [File Sales Strategy/Client-AI-Strategy.md].\n- On the other side, he went from blocking us to buying OF #004. He agreed the retainer verbally on 11 Nov, and at the QBR Randy told him to use Supernal to meet his goals [Book, chapter 6: The people (part 1)]. It is still unsigned [Book, chapter 8: Where it stands and what is next].\n\n**What the vault doesn't tell us:** Client-AI-Strategy names Carlos's AI Hoshin 2027, a 159-agent map and the Fabric data-layer plan, but has nothing on what's in them [File Sales Strategy/Client-AI-Strategy.md]. So we can't yet see:\n- which of the 159 agents Carlos plans to build in-house\n- whether anything in those plans overlaps Chief, Patch or the Vault\n- who the other two vendors are\n\nThose details are likely in the Drive copies of the Hoshin and the agent map, or in the 11 Nov scoping call. It's worth pulling them into this file before 30 Nov.",
+      "steps": [
+        "searched “Carlos building” · 8 hits",
+        "searched “Carlos in-house competitor internal tool” · 8 hits",
+        "searched “Hermes marketing agent fleet in-house build decision” · 8 hits",
+        "searched “Carlos Mitchell Stakeholders disposition questioned code” · 8 hits",
+        "read File Sales Strategy/Client-AI-Strategy.md",
+        "read File Sales Strategy/Concept-Alignment.md (part 10)",
+        "searched “159-agent map Fabric company brain data lake” · 8 hits",
+        "searched “30 Nov decision in-house partner or both AI Hoshin 2027 three times team cost” · 8 hits"
+      ],
+      "error": null,
+      "usage": {
+        "input": 49095,
+        "output": 1872,
+        "cacheRead": 48840
+      }
+    },
+    {
+      "id": "he-01",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "Book, chapter 3: How the deal is built",
+        "Book, chapter 3: How the deal is built",
+        "File Deal Strategy/Context-Building.md (part 6)",
+        "File Deal Strategy/Context-Building.md (part 8)",
+        "File Technical Strategy/Phasing-Commercial.md",
+        "Book, chapter 3: How the deal is built",
+        "File Technical Strategy/Phasing-Commercial.md",
+        "File Technical Strategy/Phasing-Commercial.md",
+        "File Technical Strategy/Phasing-Commercial.md",
+        "File Technical Strategy/Phasing-Commercial.md",
+        "File Technical Strategy/Phasing-Commercial.md",
+        "File Technical Strategy/Phasing-Commercial.md",
+        "File Technical Strategy/Phasing-Commercial.md",
+        "Account: where sources disagree",
+        "File Technical Strategy/Phasing-Commercial.md",
+        "File Technical Strategy/Phasing-Commercial.md",
+        "Account: where sources disagree",
+        "File Technical Strategy/Phasing-Commercial.md",
+        "File Technical Strategy/Phasing-Commercial.md"
+      ],
+      "seconds": 23,
+      "answer": "Heritage is billed on points, not a fixed fee. The client buys build capacity each month at **$7,500 a point**, through three order forms that add up to **$90,000 a month**. Building runs until total build spend reaches **$840,000** in January 2027. After that a maintenance tier starts, and its price hasn't been agreed yet [Book, chapter 3: How the deal is built].\n\n**How the main build works**\n- The three order forms are $10,000, $14,000 and $66,000 a month. Together they buy about 12 points a month [Book, chapter 3: How the deal is built].\n- Every feature is a numbered order-form item with a size of 1, 2, 4 or 8 points. One point is up to a week of work, 2 points is 2 to 4 weeks, and 4 points is more than 4 weeks [File Deal Strategy/Context-Building.md (part 6)] [File Deal Strategy/Context-Building.md (part 8)].\n- The April 2026 Expansion draft had two speeds. Standard was $30,000 a month for 4 points and Accelerated was $60,000 a month for 8. Unused points don't roll over, and the client can switch speeds on 30 days' notice. The signed version isn't in Drive [File Technical Strategy/Phasing-Commercial.md].\n- Heritage calls this \"death by a thousand cuts.\" More than half of October's points were additions to the original scope [Book, chapter 3: How the deal is built].\n\n**Separate order forms outside the build**\n- **OF-002, the private environment (signed 2 Nov 2026):** $93,485 a year, billed $7,790.42 a month. Billing starts on 1 Dec 2026 or when the environment is set up, whichever is later. The price is fixed for 24 months, then rises at most with inflation. It doesn't count toward the $840K [File Technical Strategy/Phasing-Commercial.md].\n- **OF-003, brand videos (signed):** $32,500 one-time, half on signing and half on acceptance [File Technical Strategy/Phasing-Commercial.md].\n- **Websites:** the sources disagree, see below.\n- **Foreman (OF-005) and Help Desk (OF-006):** both still drafts. Help Desk is $7,000 a month with a 24-month minimum [File Technical Strategy/Phasing-Commercial.md]. The Foreman price is in the conflicts below. Both forms are meant to be signed before Thanksgiving. Help Desk may not be needed by February [File Technical Strategy/Phasing-Commercial.md].\n- **Insurance CRM:** a $96,000 placeholder while the team scopes a custom build against an Airtable option [File Technical Strategy/Phasing-Commercial.md].\n\n**After January 2027: not settled**\n- The figures discussed on 15 Oct were $35,417 a month for app maintenance, or $43,207 a month including the private environment. There was also an optional $60K-a-month features bucket. Heritage won't commit to that bucket: they estimate the extra features at about $300K and would rather stay near $90K a month [File Technical Strategy/Phasing-Commercial.md].\n- OF-008, the pod subscription, would replace points and the $7,500 rate from 1 Jan 2027. It runs 24 months at $87,500, $101,500 or $144,000 a month for Small, Medium or Large. It's an internal draft from 9 Oct and hadn't been shown to the client as of 24 Oct [File Technical Strategy/Phasing-Commercial.md].\n\n**Where the sources disagree**\n- **Price after January.** The 17 Sep Budget Plan says the $90K \"drops to $30K,\" about 35 points. The 15 Oct sync says $35,417 a month [Account: where sources disagree].\n- **Websites.** The verbal price was $12.5K for both sites. The prices table says the AI site was signed at $24,000 and the Strategies site at $500 a month. But the terms taken from Drive list OF-004-B, the Heritage AI site, at $1,500 a month for at least 12 months [File Technical Strategy/Phasing-Commercial.md]. The signed form in Drive should settle which is right.\n- **Foreman.** The draft order form says $6,000 a month for at least 24 months ($144,000). The forecast and the 21 Jul review say $7,000 [File Technical Strategy/Phasing-Commercial.md].\n- **Deal size.** Phase 2 was announced as $1.6M over 3 years. The Expansion is $168,000, Account OS shows $1,339,985 closed, and Sven described about $1M [Account: where sources disagree].\n- **Heritage's spend.** Heritage's own numbers put total Supernal spend near $500K by the end of 2026. Their 2026 tech-spend forecast is about $920K [File Technical Strategy/Phasing-Commercial.md].\n\nThe vault doesn't record a margin for Heritage, though the videos were sold near cost. It also doesn't record a renewal date. In practice the renewal point is February 2027, when building ends [File Technical Strategy/Phasing-Commercial.md].",
+      "steps": [
+        "searched “Heritage pricing order form price” · 8 hits",
+        "listed 49 sources",
+        "read File Technical Strategy/Phasing-Commercial.md",
+        "read Account: where sources disagree",
+        "read Book, chapter 3: How the deal is built"
+      ],
+      "error": null,
+      "usage": {
+        "input": 23598,
+        "output": 2105,
+        "cacheRead": 38458
+      }
+    },
+    {
+      "id": "he-02",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Deal Strategy/Context-Building.md (part 3)",
+        "File Technical Strategy/Phasing-Commercial.md (part 4)",
+        "File Delivery Strategy/Weekly.md (part 1)",
+        "File Deal Strategy/Context-Building.md (part 3)",
+        "Book, chapter 8: Where it stands and what is next",
+        "File Deal Strategy/Context-Building.md (part 6)",
+        "File Technical Strategy/Phasing-Commercial.md (part 5)",
+        "File Technical Strategy/Phasing-Commercial.md (part 3)",
+        "File Technical Strategy/Phasing-Commercial.md (part 2)",
+        "File Technical Strategy/Phasing-Commercial.md (part 5)",
+        "File Technical Strategy/Phasing-Commercial.md (part 4)",
+        "File Technical Strategy/Phasing-Commercial.md (part 3)",
+        "File Technical Strategy/Phasing-Commercial.md (part 2)",
+        "File Technical Strategy/Phasing-Commercial.md (part 5)",
+        "File Deal Strategy/Context-Building.md (part 3)"
+      ],
+      "seconds": 25,
+      "answer": "It isn't settled. When the $840K build threshold is reached in January 2027, the app build stops and maintenance is supposed to start in February 2027 [File Deal Strategy/Context-Building.md (part 3)]. Nobody has agreed what Heritage pays or gets from February. The vault lists it as unresolved [File Technical Strategy/Phasing-Commercial.md (part 4)], and it is an open decision this week [File Delivery Strategy/Weekly.md (part 1)].\n\n**Where things stand**\n- At $7,500 a point, $840K is about 112 points [File Deal Strategy/Context-Building.md (part 3)]. About 3 contracted points will be left at the threshold, with 29 or more points of wanted work beyond it [Book, chapter 8: Where it stands and what is next]. The 15 Oct sync said 29 points remain outside maintenance after January [File Deal Strategy/Context-Building.md (part 6)].\n- The private environment is not part of this. OF-002 is outside the $840K threshold and bills $7,790.42 a month from 1 Dec 2026 [File Technical Strategy/Phasing-Commercial.md (part 5)].\n- No renewal date is recorded. February 2027 is treated as the effective renewal moment [File Technical Strategy/Phasing-Commercial.md (part 3)].\n\n**The options**\n1. **Maintenance plus a features bucket.** App maintenance with security costs $35,417 a month ($425K a year). With the private environment, the 2027 baseline is $43,207 a month. On top of that is a features bucket of $60K a month, about 3 features a month [File Technical Strategy/Phasing-Commercial.md (part 2)].\n2. **A pod subscription (OF-008).** Small is $87,500 a month, Medium $101,500 and Large $144,000, for 24 months. It replaces points and the $7,500 rate [File Technical Strategy/Phasing-Commercial.md (part 5)]. It was proposed in August, then parked, then drafted in October. As of 24 Oct it had not been shown to Heritage [File Technical Strategy/Phasing-Commercial.md (part 4)].\n\n**What Heritage has said:** it wants to stay near $90K a month. It will not commit to $60K a month it might not use. Its own estimate of the extra features it needs is about $300K, against the $720K-a-year bucket [File Technical Strategy/Phasing-Commercial.md (part 3)].\n\n**Where the sources disagree**\n- **Price after the threshold.** The 17 Sep Budget Plan says the build drops \"to $30K after\" January. The 15 Oct sync puts maintenance at $35,417 a month [File Technical Strategy/Phasing-Commercial.md (part 2)].\n- **Start dates.** The OF-008 draft starts on 1 Jan 2027 [File Technical Strategy/Phasing-Commercial.md (part 5)], but maintenance is set to begin in February [File Deal Strategy/Context-Building.md (part 3)]. If the pod is chosen, January would need to be reconciled.\n\nTo find out whether anything has moved since the 9 Nov Delivery Sync, check the latest Heritage weekly calls or Account OS. The vault has nothing more recent on this.",
+      "steps": [
+        "searched “build threshold” · 8 hits",
+        "searched “threshold reached licensing spin-out equity” · 8 hits",
+        "read File Technical Strategy/Phasing-Commercial.md (part 1)",
+        "searched “maintenance $35,417 February 2027 pod option” · 8 hits",
+        "read File Technical Strategy/Phasing-Commercial.md (part 2)",
+        "read File Technical Strategy/Phasing-Commercial.md (part 3)",
+        "read File Technical Strategy/Phasing-Commercial.md (part 5)",
+        "searched “Delivery Sync 9 Nov 2026 commercial model after January points remaining” · 6 hits"
+      ],
+      "error": null,
+      "usage": {
+        "input": 50026,
+        "output": 2076,
+        "cacheRead": 58980
+      }
+    },
+    {
+      "id": "he-03",
+      "pass": false,
+      "facts": false,
+      "cited": true,
+      "missing": [
+        [
+          "sensitive",
+          "spread"
+        ]
+      ],
+      "cites": [
+        "File Deal Strategy/Product-Segmentation.md (part 2)",
+        "File Technical Strategy/Use-Cases-and-Feedback.md (part 1)",
+        "File Deal Strategy/Product-Segmentation.md (part 2)",
+        "File Technical Strategy/Use-Cases-and-Feedback.md (part 1)",
+        "File Technical Strategy/Security-and-Compliance.md",
+        "File Technical Strategy/Feature-Rationale.md",
+        "File Technical Strategy/Data-Layer.md",
+        "File Delivery Strategy/Stakeholders.md (part 3)"
+      ],
+      "seconds": 18,
+      "answer": "I can't answer that from the vault. No file or Book chapter says invited viewers are blocked from seeing identifiers, or gives a reason for it. I searched for viewers, identifiers, masking, redaction, Social Security numbers, account numbers and permissions. None of them turned up a rule like this.\n\n**What the vault does say about viewer access:**\n- **Read-only client role:** Secure access (#35) includes a read-only role for clients, and it's in production [File Deal Strategy/Product-Segmentation.md (part 2)].\n- **View-only in the pilot:** Clients and their advisers get view-only access during the pilot [File Technical Strategy/Use-Cases-and-Feedback.md (part 1)].\n- **Section-level sharing:** Vault sharing (#37) shares a vault section by section. It had been in review for 11 days as of 9 Nov [File Deal Strategy/Product-Segmentation.md (part 2)]. This could be how a viewer ends up seeing less, but no file connects it to identifiers.\n- **Before clients are invited:** Heritage plans to invite 50 of its own clients. Items 35, 36, 37 and 53 are the minimum that must be in place first [File Technical Strategy/Use-Cases-and-Feedback.md (part 1)].\n- **Security background:** The private environment runs on Google Cloud and Vertex, the data belongs to Heritage, and the MSA requires US-only hosting [File Technical Strategy/Security-and-Compliance.md]. None of this covers what a viewer can see.\n\n**What's missing and where to look:**\n- **The decision:** If someone chose to hide identifiers, the choice and its reason belong in Feature-Rationale. That file has no such entry [File Technical Strategy/Feature-Rationale.md].\n- **The privacy rules:** Data-Layer would hold them, but it hasn't been filled in [File Technical Strategy/Data-Layer.md].\n- **Likely sources:** the Linear issues for #35 and #37, the Heritage Platform Weekly Sync notes from when those items were specified, or Roger Lee, who handles security [File Delivery Strategy/Stakeholders.md (part 3)].\n\nThe behaviour you're seeing could also be a bug, not a design choice. Once the cause is confirmed, I can draft a Feature-Rationale entry for you to approve.",
+      "steps": [
+        "searched “invited viewers identifiers Vault” · 8 hits",
+        "searched “viewer role masked identifiers” · 8 hits",
+        "searched “social security numbers hidden view-only access invite” · 8 hits",
+        "read File Technical Strategy/Security-and-Compliance.md",
+        "read File Technical Strategy/Feature-Rationale.md",
+        "searched “redact PII account numbers permissions roles secure access” · 8 hits",
+        "read File Deal Strategy/Product-Segmentation.md (part 2)"
+      ],
+      "error": null,
+      "usage": {
+        "input": 39307,
+        "output": 1396,
+        "cacheRead": 49150
+      }
+    },
+    {
+      "id": "he-04",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Technical Strategy/Delivery-Plan.md (part 2)",
+        "File Delivery Strategy/AI-Strategy-Roadmap.md (part 2)",
+        "File Technical Strategy/Delivery-Plan.md (part 2)",
+        "File Delivery Strategy/AI-Strategy-Roadmap.md (part 2)",
+        "File Technical Strategy/Delivery-Plan.md (part 2)",
+        "File Technical Strategy/Delivery-Plan.md (part 2)",
+        "Book, chapter 7: What value has shown",
+        "File Technical Strategy/Accuracy-and-Timing-Evidence.md",
+        "File Delivery Strategy/Project-Plan.md (part 2)",
+        "File Delivery Strategy/Project-Plan.md (part 2)",
+        "File Delivery Strategy/Project-Plan.md (part 4)",
+        "File Technical Strategy/Phasing-Commercial.md (part 5)"
+      ],
+      "seconds": 15,
+      "answer": "Stage 2 answer accuracy is 97.2%, which clears the 95% gate for full automation. That gate requires 95% or better at every stage, though, and the other two stages fall short. Full automation isn't unlocked yet. [File Technical Strategy/Delivery-Plan.md (part 2)] [File Delivery Strategy/AI-Strategy-Roadmap.md (part 2)]\n\n| Stage | Current | Stage target | 95% gate |\n|---|---|---|---|\n| 1 Routing | 87.3% | 90% | Missed (also misses its own 90% target) |\n| 2 Answer | 97.2% | \"met\" | Cleared |\n| 3 Mapping | about 89% | not stated | Missed |\n\nSources: [File Technical Strategy/Delivery-Plan.md (part 2)] and [File Delivery Strategy/AI-Strategy-Roadmap.md (part 2)]. The gate itself was set in the Platform testing, timing, and accuracy session on 9 Sep 2026 [File Technical Strategy/Delivery-Plan.md (part 2)].\n\n**How far to trust the 97.2%:**\n- **It comes from a mock-up.** All three stage figures were read off a dashboard mock-up at the Heritage Platform Weekly Sync on 28 Oct 2026. They are not tracked production measurements. [File Technical Strategy/Delivery-Plan.md (part 2)] [Book, chapter 7: What value has shown]\n- **There is no trend.** The vault has only that one reading. Accuracy-and-Timing-Evidence is meant to hold \"Stage Accuracy by Month\", but it is only an outline with no monthly numbers yet [File Technical Strategy/Accuracy-and-Timing-Evidence.md]. Later readings would be in the weekly platform sync notes (Granola/Fathom) or Linear.\n- **Errors compound across stages.** Three stages at 90% each give about 73% end to end, so a strong stage 2 doesn't make up for stages 1 and 3 [File Delivery Strategy/Project-Plan.md (part 2)].\n- **Weak documents are a known risk.** The model was tuned on documents from top law firms and fails on poorly drafted ones, which licensees will bring (Cornerstone Discussion, 2 Oct 2026) [File Delivery Strategy/Project-Plan.md (part 2)].\n- **The model move needs a parity check.** The Dedicated Private Environment move is measured on accuracy parity across models. Sonnet 4.6 and Gemini 3.1 Pro matched GPT-5.2 on accuracy [File Delivery Strategy/Project-Plan.md (part 4)], but the vault doesn't show whether that was re-tested at each stage.\n\nIf you meant the commercial Pilot Exit Gate instead, that one isn't about accuracy. It is 5 completed books and 5 live sales reps, and it comes from a draft order form whose signed version isn't in Drive [File Technical Strategy/Phasing-Commercial.md (part 5)].",
+      "steps": [
+        "searched “answer accuracy gate” · 8 hits",
+        "searched “accuracy threshold evaluation results” · 8 hits",
+        "read File Technical Strategy/Accuracy-and-Timing-Evidence.md",
+        "read File Technical Strategy/Delivery-Plan.md (part 2)"
+      ],
+      "error": null,
+      "usage": {
+        "input": 13182,
+        "output": 1472,
+        "cacheRead": 29490
+      }
+    },
+    {
+      "id": "he-05",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Sales Strategy/Sales-One-Pager.md (part 3)",
+        "File Deal Strategy/Diagnostic-Discovery.md (part 2)",
+        "File Delivery Strategy/Project-Plan.md (part 3)",
+        "File Deal Strategy/Diagnostic-Discovery.md (part 2)",
+        "File Delivery Strategy/AI-Strategy-Roadmap.md (part 3)",
+        "File Delivery Strategy/Project-Plan.md (part 2)",
+        "File Delivery Strategy/AI-Strategy-Roadmap.md (part 3)"
+      ],
+      "seconds": 13,
+      "answer": "No. Account OS rates Heritage fully healthy, while the Notion weekly reports put it at Yellow or At risk. Account OS's own notes also disagree with its score.\n\n**Account OS:** The score is 5.0 of 5 on every dimension (Tech, Strategic Defensibility, Exec Engagement, GM, Build). It has been 5.0 for all six recorded weeks since 5 Oct 2026. The band is Healthy, the flag is \"Expansion-ready\" and renewal risk is Low, with the driver \"Healthy partnership\" [File Sales Strategy/Sales-One-Pager.md (part 3)]. But the note stored for the 26 Oct week says having no pilot firm \"is what holds this at yellow\" [File Deal Strategy/Diagnostic-Discovery.md (part 2)].\n\n**Notion:** Our files describe the Notion reports in two different ways:\n- **At risk since early October.** There are 16 weekly reports starting the week of 20 Jul 2026. Status was \"Healthy\" through the week of 28 Sep and \"At risk\" from 5 Oct. \"Delivery vs project plan\" was already \"At risk\" in six of the healthy weeks. Sven set the account to At risk on 10 Oct, to stay that way until a pilot firm is live [File Delivery Strategy/Project-Plan.md (part 3)].\n- **Yellow, not overall At risk.** The 2 to 9 Nov report opens \"Yellow. Heritage is engaged and buying, but items are not closing.\" The 19 to 26 Oct report flags both websites as at risk. This file says it only saw \"Yellow\", not an overall \"At risk\", and admits the reports were seen as search snippets and never opened in full [File Deal Strategy/Diagnostic-Discovery.md (part 2)].\n\nSo Notion is either Yellow or At risk, depending on which file you trust. Either way it is well below Account OS's 5.0. The Project-Plan reading looks more specific, but I can't settle it from our files. Opening the Notion reports for 2 to 9 Nov and the week of 5 Oct, plus the \"Delivery review standing context\" page, would settle it.\n\n**What the lower rating is based on:** no pilot firm live, items not closing (7 items due 3 to 6 Nov hadn't closed), and the commercial model from February 2027 not yet agreed [File Delivery Strategy/AI-Strategy-Roadmap.md (part 3)] [File Delivery Strategy/Project-Plan.md (part 2)]. The AI-Strategy-Roadmap suggests changing the Account OS record to Watch for these reasons [File Delivery Strategy/AI-Strategy-Roadmap.md (part 3)]. I can't make that change; it would need your approval.",
+      "steps": [
+        "searched “health score Account OS” · 8 hits",
+        "searched “Notion weekly report health” · 8 hits",
+        "searched “note text disagrees with the score yellow pilot firm” · 5 hits"
+      ],
+      "error": null,
+      "usage": {
+        "input": 13970,
+        "output": 1261,
+        "cacheRead": 29490
+      }
+    },
+    {
+      "id": "he-06",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Sales Strategy/Sales-Context.md (part 2)",
+        "File Deal Strategy/Diagnostic-Discovery.md (part 4)",
+        "Account: deals",
+        "File Deal Strategy/Context-Building.md (part 4)",
+        "File Deal Strategy/Diagnostic-Discovery.md (part 4)",
+        "Account: where sources disagree",
+        "Account: deals"
+      ],
+      "seconds": 10,
+      "answer": "**No. Nothing in the account backs $1.6M. It was an internal announcement, not a contract figure.**\n\n- **Where it comes from:** the Heritage Expansion was announced internally as \"$1.6M over 3 years\", called the largest deal in company history [File Sales Strategy/Sales-Context.md (part 2)]. That figure appears only in the All Hands. No order form or Drive file states it [File Deal Strategy/Diagnostic-Discovery.md (part 4)]. The two files give different dates for that All Hands: Sales-Context says 28 Apr 2026 and Diagnostic-Discovery says 27 Apr 2026.\n- **What the Expansion actually closed at:** $168,000 at $14,000 a month, Closed Won 22 Apr [Account: deals].\n- **What all closed deals add up to:** $1,339,985 across six deals in Account OS. That is $230,000 (original), $168,000 (Expansion), $792,000 (Expansion Acceleration), $32,500 (Brand Video Bundle), $24,000 (Website, Heritage AI) and $93,485 (Dedicated Private Environment) [File Deal Strategy/Context-Building.md (part 4)]. Even the whole account is below $1.6M.\n- **Other figures in circulation:**\n  - The March 2026 plan was about $1.5M over three years, split $790K + $425K + $425K [File Deal Strategy/Diagnostic-Discovery.md (part 4)].\n  - Sven described the deal as about $1M [Account: where sources disagree].\n  - Foreman AI Project Manager (OF-005, $84,000) is at Order Form stage, not closed [Account: deals]. Adding it would bring the total to about $1.42M, still short of $1.6M.\n\n$1.6M was probably the three-year Phase 2 ambition, close to the March $1.5M plan, not a signed value. That is my inference; no source says so. To confirm what was meant, check the All Hands recording from late April 2026 or ask whoever announced it. If you quote a number, use $1,339,985 closed (Account OS).",
+      "steps": [
+        "searched “1.6 million” · 0 hits",
+        "searched “$1.6M total contract value” · 8 hits"
+      ],
+      "error": null,
+      "usage": {
+        "input": 3153,
+        "output": 1000,
+        "cacheRead": 19660
+      }
+    },
+    {
+      "id": "he-07",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Sales Strategy/Sales-One-Pager.md (part 2)",
+        "File Deal Strategy/Context-Building.md",
+        "File Deal Strategy/Context-Building.md",
+        "File Sales Strategy/Spin-out-and-Licensing.md",
+        "File Deal Strategy/Context-Building.md",
+        "File Deal Strategy/Context-Building.md",
+        "Account: where sources disagree",
+        "File Deal Strategy/Product-Segmentation.md",
+        "File Deal Strategy/Product-Segmentation.md",
+        "File Deal Strategy/Product-Segmentation.md",
+        "File Deal Strategy/Product-Segmentation.md",
+        "File Deal Strategy/Product-Segmentation.md",
+        "File Deal Strategy/Context-Building.md; File Deal Strategy/Product-Segmentation.md",
+        "File Deal Strategy/Context-Building.md; File Deal Strategy/Product-Segmentation.md",
+        "File Deal Strategy/Context-Building.md",
+        "File Deal Strategy/Context-Building.md",
+        "File Deal Strategy/Context-Building.md; File Deal Strategy/Product-Segmentation.md",
+        "File Deal Strategy/Context-Building.md; File Deal Strategy/Product-Segmentation.md",
+        "File Deal Strategy/Context-Building.md"
+      ],
+      "seconds": 21,
+      "answer": "Heritage is turning the Heritage Vault into a licensed software business. It is spinning the product out as a new company, Heritage AI Inc., to sell it to other advisory firms. The public launch is aimed at January to February 2027 [File Sales Strategy/Sales-One-Pager.md (part 2)]. Most of what Heritage buys beyond the core app exists to support that spin-out [File Deal Strategy/Context-Building.md].\n\n**1. The spin-out company**\n- Heritage AI Inc. will own and license the platform. Its name was reserved but it was not incorporated on 17 Sep 2026, and that blocked the trademark filing. As of 30 Oct, neither the company nor the trademark had been filed [File Deal Strategy/Context-Building.md].\n- Licensees would pay per seat, per vault, or by tier. The revenue forecast is about $1.25M in 2027 and about $3.125M in 2028 [File Sales Strategy/Spin-out-and-Licensing.md].\n- Ridgeback Group is responsible for finding pilot firms. Its exclusivity covers only insurance-type clients. RIAs, accountants, attorneys and family offices are open to Heritage directly [File Deal Strategy/Context-Building.md].\n- Prospective licensees named so far are Concurrent (250+ advisers), Cornerstone and Wayfinder (Dallas) [File Deal Strategy/Context-Building.md]. The sources disagree on whether any firm is live. Wayfinder was \"ready to start\" on 24 Aug. \"No firms signed\" was recorded on 31 Aug. A 26 Aug forecast counted four paying firms. On 30 Oct, no firm was using the platform [Account: where sources disagree].\n\n**2. Features in the app that only matter for licensing**\n- **Separate firms and access:** separate firms on one platform (multi-tenant, #21) and a read-only client role (secure access, #35). Both are in production [File Deal Strategy/Product-Segmentation.md].\n- **White-labelling:** a firm can set only its logo and colours, and \"Powered by Heritage AI\" always stays. Firms write their own disclosures. Disclosures (#53) are done; white-labelling (#60) is in review [File Deal Strategy/Product-Segmentation.md].\n- **Rules for paying firms:**\n  - One session at a time per seat, plus two-factor login, to stop seat sharing.\n  - Feature toggles that apply to a whole firm.\n  - Each pilot firm gets its own portal [File Deal Strategy/Product-Segmentation.md].\n- **Demo, KPIs and partners:**\n  - A demo on a fictional family (#54) was due on staging around 9 Nov.\n  - A KPI dashboard (#39) has been shown as a mock-up only.\n  - A partner API (#57) is on hold [File Deal Strategy/Product-Segmentation.md].\n- **Billing and licensing:** these features (#38, #40) were pushed to December because pricing is not final [File Deal Strategy/Product-Segmentation.md].\n\n**3. Separate order forms built around the spin-out**\n- **OF-002 Dedicated Private Environment ($93,485):** a dedicated Google Cloud environment where Heritage owns the data and accounts. It closed 4 Nov 2026 with a 1 Dec start [File Deal Strategy/Context-Building.md; File Deal Strategy/Product-Segmentation.md].\n- **OF-006 Help Desk AI Employee (\"Bubbles\", $84,000):** at the Order Form stage, expected to close 30 Nov. It has to be live for the February 2027 licensee launch [File Deal Strategy/Context-Building.md; File Deal Strategy/Product-Segmentation.md].\n- **OF-003 Brand Video Bundle ($32,500):** seven videos, made up of four brand films and three animated explainers [File Deal Strategy/Context-Building.md].\n- **OF-004-B Heritage AI website ($24,000, $2,000 a month):** the site for the new SaaS company, targeted for 20 Nov [File Deal Strategy/Context-Building.md].\n\n**4. Purchases for Heritage Strategies itself, not the spin-out**\n- **Foreman (OF-005, $84,000, expected 30 Nov):** an AI organiser for meetings, tasks and follow-up, combined with the EA role. About 8 points of Foreman features have already been pulled into the app [File Deal Strategy/Context-Building.md; File Deal Strategy/Product-Segmentation.md].\n- **Insurance CRM ($96,000, in concept alignment, expected 10 Dec):** covers policy service only. Commissions stay in Smart Office [File Deal Strategy/Context-Building.md; File Deal Strategy/Product-Segmentation.md].\n- **New Heritage Strategies website (OF-004-A):** Notion lists it at $500 a month, but it is not recorded as a deal in Account OS [File Deal Strategy/Context-Building.md].\n\nTwo gaps: the vault has no detail on licensee pricing tiers or on progress with incorporation and the trademark. These would likely be in Drive or the next Heritage weekly sync.",
+      "steps": [
+        "searched “Heritage spin-out licensing product other firms” · 8 hits",
+        "searched “Heritage AI website Heritage Strategies SaaS go-to-market” · 8 hits",
+        "read File Sales Strategy/Spin-out-and-Licensing.md",
+        "read File Deal Strategy/Product-Segmentation.md",
+        "read File Deal Strategy/Context-Building.md"
+      ],
+      "error": null,
+      "usage": {
+        "input": 20800,
+        "output": 2317,
+        "cacheRead": 29490
+      }
+    },
+    {
+      "id": "he-08",
+      "pass": false,
+      "facts": false,
+      "cited": true,
+      "missing": [
+        [
+          "upload",
+          "scan",
+          "quarantin"
+        ]
+      ],
+      "cites": [
+        "File Technical Strategy/Phasing-Commercial.md (part 3)",
+        "File Sales Strategy/Sales-Context.md (part 3)",
+        "File Sales Strategy/Sales-Context.md (part 5)",
+        "File Technical Strategy/Security-and-Compliance.md",
+        "File Delivery Strategy/Weekly.md (part 2)"
+      ],
+      "seconds": 16,
+      "answer": "I can't confirm that from the vault. No file says Heritage found a security issue themselves. The likeliest match is the database location, but the files never say who found it.\n\n**Most likely what you mean: the database was outside the US.** Heritage's April MSA requires hosting in the US only, but the database was found in Central Europe. The Dedicated Private Environment (DPE) project moves it [File Technical Strategy/Phasing-Commercial.md (part 3)]. The file cites the Heritage, Ridgeback, Supernal Weekly Call on 5 Oct 2026, but says only \"was found.\" It doesn't say whether Heritage or Supernal found it.\n\n**The other security events in the vault were found or reported by Supernal:**\n- **Malware incident, July 2026.** This was at Supernal, and it froze deployments, including Heritage's. Supernal told Heritage it was contained in 58 minutes and no Heritage data was affected [File Sales Strategy/Sales-Context.md (part 3)].\n- **2FA lockout, 25 Oct 2026.** Two-factor login (2FA) was switched on in production, locked clients out, and was turned off again the same day [File Sales Strategy/Sales-Context.md (part 5)]. The vault doesn't say who reported it.\n\n**Security-and-Compliance has no incident list.** The file is supposed to hold \"every incident with its fix.\" It doesn't list any. It only points to \"Roger's assessment and incident history\" [File Technical Strategy/Security-and-Compliance.md]. That written assessment was promised on 28 Oct, due in 1 to 2 weeks, and no Linear issue was found for it [File Delivery Strategy/Weekly.md (part 2)].\n\nTo confirm who found the Central Europe database, check the 5 Oct 2026 call recording or notes in Granola or Fathom, or ask Roger Lee. Once that's confirmed, the incident should go into Security-and-Compliance. I can draft that entry for your approval.",
+      "steps": [
+        "searched “security issue found by client” · 8 hits",
+        "searched “Security-and-Compliance incident” · 8 hits",
+        "searched “database Central Europe US-only hosting found” · 8 hits",
+        "searched “Roger security assessment vulnerability flagged” · 8 hits",
+        "searched “5 Oct 2026 Central Europe Heritage discovered” · 8 hits",
+        "read File Technical Strategy/Security-and-Compliance.md",
+        "read File Sales Strategy/Sales-Context.md (part 5)",
+        "searched “Heritage raised security concern data location client noticed” · 8 hits"
+      ],
+      "error": null,
+      "usage": {
+        "input": 50366,
+        "output": 1335,
+        "cacheRead": 49150
+      }
+    },
+    {
+      "id": "he-09",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Delivery Strategy/Weekly.md (part 2)",
+        "File Delivery Strategy/Project-Plan.md (part 1)",
+        "Book, chapter 5: How delivery has gone",
+        "File Delivery Strategy/Weekly.md (part 1)",
+        "File Sales Strategy/Sales-Context.md (part 6)",
+        "Account: deals",
+        "File Delivery Strategy/Project-Plan.md (part 1)",
+        "File Technical Strategy/Phasing-Commercial.md (part 2)",
+        "Book, chapter 5: How delivery has gone"
+      ],
+      "seconds": 15,
+      "answer": "Heritage was told the Dedicated Private Environment (DPE, OF-002) would take two weeks. Engineering expects the full move to take months. The Weekly file lists this as an open expectation gap [File Delivery Strategy/Weekly.md (part 2)], and the Project-Plan says the timeline the client was given \"was wrong and must be reset\" [File Delivery Strategy/Project-Plan.md (part 1)].\n\n**The agreed reset.** The plan is to split the promise in two. Heritage would hear two weeks for the Vertex move and six to eight weeks for the full migration [Book, chapter 5: How delivery has gone]. This is one of this week's decisions: \"Reset the DPE timeline\" [File Delivery Strategy/Weekly.md (part 1)]. Dates for the Vertex move:\n- Internal deadline: 13 Nov\n- Date given to the client: 16 Nov [File Sales Strategy/Sales-Context.md (part 6)]\n\n**Why it matters now:**\n- **The order form is already signed.** OF-002 closed on 4 Nov at $93,485, or $7,790 a month [Account: deals].\n- **Billing starts before the move is likely done.** Billing begins 1 Dec [File Delivery Strategy/Project-Plan.md (part 1)]. My own inference: six to eight weeks from mid-November runs into January. So Heritage would be paying for the environment before the full migration finishes. Expect that question to come up when you reset the timeline.\n- **The fee was already pushed back once.** It was deferred to 1 Dec, which saved Heritage about $46K [File Technical Strategy/Phasing-Commercial.md (part 2)].\n- **It's part of a pattern.** Chapter 5 lists this gap alongside other delivery slips: 2 of 12 October points closed, and 2FA rolled back the same day it went on [Book, chapter 5: How delivery has gone].\n\n**What the sources don't say:**\n- Who told Heritage two weeks, and in which meeting. The Delivery Sync of 9 Nov, cited in the Project-Plan, or the Heritage Weekly Planning call of 9 Nov are the likely places to check.\n- Whether the reset has been passed on to Heritage yet. Nothing in the vault confirms it.",
+      "steps": [
+        "searched “private environment expectation” · 8 hits",
+        "searched “private LLM Iron Curtain data sovereignty Heritage” · 8 hits",
+        "searched “DPE two weeks Vertex move six to eight weeks migration” · 8 hits"
+      ],
+      "error": null,
+      "usage": {
+        "input": 15812,
+        "output": 1106,
+        "cacheRead": 29490
+      }
+    },
+    {
+      "id": "he-10",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Delivery Strategy/Stakeholders.md",
+        "File Technical Strategy/Delivery-Plan.md (part 3)",
+        "File Delivery Strategy/Stakeholders.md",
+        "File Delivery Strategy/Stakeholders.md",
+        "Book, chapter 6: The people",
+        "File Technical Strategy/Use-Cases-and-Feedback.md (part 2)",
+        "File Delivery Strategy/Stakeholders.md",
+        "Book, chapter 6: The people",
+        "File Technical Strategy/Use-Cases-and-Feedback.md (part 2)",
+        "File Delivery Strategy/AI-Strategy-Roadmap.md (part 3)",
+        "File Deal Strategy/Diagnostic-Discovery.md (part 3)",
+        "File Delivery Strategy/AI-Strategy-Roadmap.md (part 3)",
+        "File Sales Strategy/Sales-One-Pager.md (part 3)",
+        "File Delivery Strategy/Stakeholders.md"
+      ],
+      "seconds": 15,
+      "answer": "**Three people make the decisions at Heritage, and each decides different things.** The vault doesn't name one final decision-maker.\n\n- **Tom Fanning Sr. (founder)** sets the deadlines. Before anything moves he wants timing and QC estimates for each feature and a tracker with timelines at every meeting. He also asked for a monthly cost breakdown through 2027 before he signs anything new [File Delivery Strategy/Stakeholders.md] [File Technical Strategy/Delivery-Plan.md (part 3)].\n- **Tom Fanning Jr.** makes the product decisions. He is the only admin who can add firms, and the power map lists him as the champion [File Delivery Strategy/Stakeholders.md].\n- **Chris Halvey** holds the budget and the contracts. He is careful about spending, chases order forms, and is recorded as the \"day-to-day decision maker\" [File Delivery Strategy/Stakeholders.md] [Book, chapter 6: The people].\n\nStaff feature requests also have to go through Chris and Tom Jr. first now, instead of being emailed straight to Supernal [File Technical Strategy/Use-Cases-and-Feedback.md (part 2)].\n\n**How the forum has changed for Tom Sr.:** So far it has been proposed but hasn't happened.\n\n- He has been taking decisions in the Monday weekly calls, where he gets pulled into tactical detail [File Delivery Strategy/Stakeholders.md] [Book, chapter 6: The people].\n- The Monday calls were judged ineffective. On 26 Aug and again on 15 Oct 2026, a quarterly, monthly and weekly cadence was proposed, with a quarterly forum for Tom Sr. [File Technical Strategy/Use-Cases-and-Feedback.md (part 2)] [File Delivery Strategy/AI-Strategy-Roadmap.md (part 3)].\n- No notes from a quarterly meeting or QBR exist. In August, Ryan said no quarterly conversations were happening [File Deal Strategy/Diagnostic-Discovery.md (part 3)]. The roadmap still lists the quarterly forum as \"proposed\", alongside the weekly platform sync, the weekly Ridgeback call and Wednesday training with the directors [File Delivery Strategy/AI-Strategy-Roadmap.md (part 3)].\n- Account OS has no cadence events or stakeholder records for this account, so the forum isn't tracked there either [File Sales Strategy/Sales-One-Pager.md (part 3)].\n\n**Worth knowing before that forum is set up:** In the week of 2 Nov, Tom Sr. was unhappy with an interview question during the shoot week and is considering reshooting his segment. Stuart handled the concern [File Delivery Strategy/Stakeholders.md].\n\n**Gaps:** The vault doesn't say whether the quarterly forum was agreed after 15 Oct, or who approves the February commercial model, which is still unagreed. The Heritage Platform Weekly Sync notes after 15 Oct and the Linear or Account OS cadence records would answer both.",
+      "steps": [
+        "searched “decision maker forum” · 8 hits",
+        "searched “Stakeholders economic buyer decides” · 5 hits",
+        "read File Delivery Strategy/Stakeholders.md",
+        "read Book, chapter 6: The people",
+        "searched “quarterly forum Tom Sr. Monday calls tactical” · 8 hits",
+        "searched “Tom Fanning Sr. founder decides sign” · 8 hits"
+      ],
+      "error": null,
+      "usage": {
+        "input": 23447,
+        "output": 1544,
+        "cacheRead": 39320
+      }
+    },
+    {
+      "id": "he-11",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Technical Strategy/Phasing-Commercial.md",
+        "File Technical Strategy/Phasing-Commercial.md",
+        "File Technical Strategy/Phasing-Commercial.md",
+        "File Technical Strategy/Phasing-Commercial.md",
+        "File Technical Strategy/Phasing-Commercial.md",
+        "File Delivery Strategy/Weekly.md",
+        "File Technical Strategy/Phasing-Commercial.md",
+        "File Technical Strategy/Phasing-Commercial.md",
+        "File Technical Strategy/Phasing-Commercial.md",
+        "File Delivery Strategy/Weekly.md",
+        "File Deal Strategy/Context-Building.md (part 8)",
+        "File Deal Strategy/Context-Building.md (part 8)",
+        "Account: artifacts list"
+      ],
+      "seconds": 17,
+      "answer": "Two order forms are actually waiting on Heritage's signature: **OF-005 Foreman** and **OF-006 Help Desk**. The aim is to have both signed before Thanksgiving [File Technical Strategy/Phasing-Commercial.md]. Several other forms are drafts, but none has been put to the client yet.\n\n**Waiting for signature**\n- **OF-005 Foreman.** The draft is $6,000 a month with a 24-month minimum ($144,000). The forecast still says $7,000 a month [File Technical Strategy/Phasing-Commercial.md]. The Foreman Review on 21 Jul priced it at $7,000 a month, with a 3-month build and billing from the start [File Technical Strategy/Phasing-Commercial.md]. You need to settle which price is right before it goes out.\n- **OF-006 Help Desk.** The draft is $7,000 a month with a 24-month minimum ($168,000). It covers 24/7 support and moves from shadow to co-pilot to autonomous over 3 months [File Technical Strategy/Phasing-Commercial.md]. It may not be needed by February, because that depends on how fast the client ramps up [File Technical Strategy/Phasing-Commercial.md].\n- **The totals don't match.** The Weekly file says the two forms come to $84,000 [File Delivery Strategy/Weekly.md]. The draft terms add up to $312,000 over 24 months ($144,000 + $168,000), or $13,000 a month [File Technical Strategy/Phasing-Commercial.md]. The files don't explain where $84,000 comes from.\n\n**Drafts not yet sent**\n- **OF-008 Pod Subscription.** This is an internal draft dated 9 Oct. It would start on 1 Jan 2027, run 24 months, and replace points. The tiers are Small $87,500, Medium $101,500 and Large $144,000 a month [File Technical Strategy/Phasing-Commercial.md]. As of 24 Oct it had not been shown to the client [File Technical Strategy/Phasing-Commercial.md]. It depends on the open decision about the 2027 commercial model [File Delivery Strategy/Weekly.md].\n- **OF-007 and OF-009 to OF-013.** These are listed in the Drive register as a placeholder and drafts. The vault doesn't say what any of them cover [File Deal Strategy/Context-Building.md (part 8)]. Open each file in Drive to see what they are.\n\n**Already signed**\n- The 2025 SOW\n- OF-001, signed 21 Apr 2026. The signed copy is not in Drive.\n- OF-002 DPE, v3, signed 2 Nov 2026\n- OF-003 Brand Video Bundle\n- OF-004-A and OF-004-B websites\n\n[File Deal Strategy/Context-Building.md (part 8)]\n\nThe artifacts list mentions DPE versions v10 and v11 from October [Account: artifacts list], but the register records v3 as the version signed. It looks like two different version-numbering schemes, but the files don't confirm that.",
+      "steps": [
+        "searched “order form unsigned awaiting signature” · 8 hits",
+        "searched “Phasing-Commercial order forms” · 8 hits",
+        "read File Technical Strategy/Phasing-Commercial.md",
+        "read File Deal Strategy/Context-Building.md (part 8)"
+      ],
+      "error": null,
+      "usage": {
+        "input": 25352,
+        "output": 1591,
+        "cacheRead": 39320
+      }
+    },
+    {
+      "id": "he-12",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Delivery Strategy/Drive-Inventory.md",
+        "File Delivery Strategy/Drive-Inventory.md",
+        "File Delivery Strategy/Drive-Inventory.md",
+        "File Delivery Strategy/Drive-Inventory.md",
+        "File Delivery Strategy/Drive-Inventory.md"
+      ],
+      "seconds": 11,
+      "answer": "Five Drive locations hold real Heritage client families' financial and legal documents. They are marked \"Do NOT show in an artifact library\", and the inventory records only how many files each holds [File Delivery Strategy/Drive-Inventory.md]:\n\n- **Heritage Books, tree 1**: 53 files (52 PDFs, 1 docx). There is one folder per named family, plus Flow Diagrams, Data Sheets and Asset Sheets.\n- **Heritage Books, tree 2**: 70 files (69 PDFs, 1 docx). It has the same layout, plus Estate Distribution Charts.\n- **\"Asset Files from Alan\"**: real client tax returns, K-1s, trust documents and email exports, in three subfolders named after clients (53 files). A second copy sits under Resources.\n- **Eval Set Exports**: 6 sheets built from client data.\n- **\"Chris Insurance Back Up\"**: 19 email files.\n\n**One exception:** the John Smith book in tree 2 (7 PDFs) is the demo book and is safe to show [File Delivery Strategy/Drive-Inventory.md].\n\n**Two things to watch:**\n- The list was made on 13 Nov 2026 from Drive file details only. Nobody opened the files, so it shows what the folders are labelled as holding, not a check of what is inside them [File Delivery Strategy/Drive-Inventory.md].\n- \"Asset Files from Alan\" is stored twice under different folder IDs. Keep both copies out of anything you share [File Delivery Strategy/Drive-Inventory.md].\n\nThe engagement files in the same Drive (order forms, SOWs, plans, brand video material and the Wealth.com competitor material) are listed separately as engagement artifacts and are not marked as restricted [File Delivery Strategy/Drive-Inventory.md].",
+      "steps": [
+        "searched “Drive inventory never shown sensitive” · 8 hits",
+        "source not found",
+        "read File Delivery Strategy/Drive-Inventory.md"
+      ],
+      "error": null,
+      "usage": {
+        "input": 9814,
+        "output": 877,
+        "cacheRead": 29490
+      }
+    },
+    {
+      "id": "ho-01",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "Book, chapter 3: How the scope changed between scoping and signing",
+        "File Deal Strategy/Product-Segmentation.md (part 14)",
+        "File Deal Strategy/Product-Segmentation.md (part 14)",
+        "File Deal Strategy/Product-Segmentation.md (part 14)",
+        "Book, chapter 4: How the deal is built",
+        "File Deal Strategy/Context-Building.md (part 14)",
+        "Book, chapter 4: How the deal is built",
+        "File Deal Strategy/Product-Segmentation.md (part 14)",
+        "File Deal Strategy/Product-Segmentation.md (part 14)",
+        "Book, chapter 3: How the scope changed between scoping and signing",
+        "File Technical Strategy/Delivery-Plan.md (part 7)",
+        "File Deal Strategy/Context-Building.md (part 14)",
+        "File Delivery Strategy/Weekly.md (part 2)",
+        "File Delivery Strategy/Weekly.md (part 2)",
+        "File Technical Strategy/Delivery-Plan.md (part 7)",
+        "File Deal Strategy/Context-Building.md (part 14)",
+        "Account: this week"
+      ],
+      "seconds": 27,
+      "answer": "Everything the signed order form put in Phase 1 has been built except the demo kit, which the vault doesn't track. Supernal also built things the order form didn't include, most notably the internal Command Center. The real gap is that no hotel users are on it yet, so Phase 1's end state hasn't been reached.\n\nNote that \"scoped\" has two meanings here. The June scoping files described SAL, an AI employee for reports and creative briefs, at $72,000 in year one. What Hooray signed on 29–30 Jul was a different product, Genome, at $106,800 [Book, chapter 3: How the scope changed between scoping and signing]. The comparison below uses the signed order form.\n\n**Signed Phase 1 scope, and where each item stands**\n\n| Signed item | Built? | State |\n|---|---|---|\n| Data store on sources Hooray controls (Vault / \"Brain\": GA4, Meta Ads, CM360) | Yes | Live for 10 pilot hotels [File Deal Strategy/Product-Segmentation.md (part 14)] |\n| Branded console for a demo group of 10 hotels (Client View / Client Portal) | Yes | Built, but no hotel users yet [File Deal Strategy/Product-Segmentation.md (part 14)] |\n| Genome chat (Ask Genome) | Yes | Live in Client View. Hidden from Command Center in Sep, back in Nov [File Deal Strategy/Product-Segmentation.md (part 14)] |\n| A kit for demonstrating it [Book, chapter 4: How the deal is built] | Unknown | No file records its status. Check Drive or Linear |\n\n**Built but not in the signed scope**\n- **Command Center** (the internal console for account managers). The order form lists it only as a later option. It was built first and has been live since 19 Aug [File Deal Strategy/Context-Building.md (part 14)] [Book, chapter 4: How the deal is built].\n- **Help Center** (live) and **Connector Hub** (launched in Oct, now being opened to hotels) [File Deal Strategy/Product-Segmentation.md (part 14)]. The vault doesn't say whether either is in the order form.\n\n**Scoped in June but never built**\n- **SAL** was never built [File Deal Strategy/Product-Segmentation.md (part 14)]. The brief-packaging work had already fallen out of the pitch by 16 Jun [Book, chapter 3: How the scope changed between scoping and signing].\n\n**Phase 1 end state: still open**\n- The order form defines Phase 1's end as \"console in hotel hands, feedback readout, Phase 2 scoped.\" So far the console is ready, but there have been no hotel sessions and Phase 2 isn't scoped [File Technical Strategy/Delivery-Plan.md (part 7)].\n- In Linear, Phase 1 is past its 30 Oct target [File Deal Strategy/Context-Building.md (part 14)]. M4 Pilot validation is at 75% against a 16 Oct target, and M5 Rollout and Phase 2 is at 54% against 30 Oct [File Delivery Strategy/Weekly.md (part 2)].\n- Hotel onboarding has moved from mid-Oct to 2 Nov, then to 9 Nov, and Supernal is still waiting for Hooray's go-ahead [File Delivery Strategy/Weekly.md (part 2)].\n\n**Success measures**\nThe signed order form has milestones but no numeric success measures. The targets in the vault (≥10 hotels in the reporting workflow, 95% of reports on time by day 3, ≥50 hours a month reclaimed) come from the unsigned June scoping and were never agreed with Hooray. The last two have never been measured [File Technical Strategy/Delivery-Plan.md (part 7)].\n\n**What comes next doesn't match**\nLinear plans Phases 2–4 as an agent roadmap. The client-facing deck pitches Phase 2 as a path to charging hotels [File Deal Strategy/Context-Building.md (part 14)]. The outcome of the 12 Nov QBR isn't recorded [Account: this week].",
+      "steps": [
+        "searched “scoped at signing order form scope” · 8 hits",
+        "searched “built live Command Center Client View state” · 8 hits",
+        "searched “SAL scoped never built dropped” · 8 hits",
+        "read File Deal Strategy/Context-Building.md (part 14)",
+        "read File Deal Strategy/Product-Segmentation.md (part 14)",
+        "read Book, chapter 3: How the scope changed between scoping and signing",
+        "searched “MSA + Order Form 3.1 deliverables signed scope hotels” · 8 hits",
+        "searched “Phase 1 past target date not delivered missing” · 8 hits",
+        "read Book, chapter 4: How the deal is built",
+        "read File Technical Strategy/Delivery-Plan.md (part 7)",
+        "searched “demo kit demonstrating Genome hotels” · 5 hits"
+      ],
+      "error": null,
+      "usage": {
+        "input": 76347,
+        "output": 2387,
+        "cacheRead": 57893
+      }
+    },
+    {
+      "id": "ho-02",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "Book, chapter 3: How the scope changed between scoping and signing",
+        "File Technical Strategy/Phasing-Commercial.md",
+        "Book, chapter 3: How the scope changed between scoping and signing",
+        "Book, chapter 3: How the scope changed between scoping and signing",
+        "Book, chapter 3: How the scope changed between scoping and signing",
+        "Book, chapter 3: How the scope changed between scoping and signing",
+        "File Technical Strategy/Phasing-Commercial.md",
+        "File Technical Strategy/Phasing-Commercial.md",
+        "File Technical Strategy/Phasing-Commercial.md",
+        "File Deal Strategy/Scoping-Package.md (part 9)",
+        "File Technical Strategy/Phasing-Commercial.md",
+        "File Technical Strategy/Phasing-Commercial.md"
+      ],
+      "seconds": 18,
+      "answer": "Hooray's price went up, from **$72,000 in year one at scoping to $106,800 signed** ($8,900 a month for 12 months). Along the way it rose to $192,000, then came back down. The scope changed at the same time: the AI employee for reports and creative briefs (SAL) was replaced by a data console that Hooray's clients can see [Book, chapter 3: How the scope changed between scoping and signing].\n\n**How the price moved**\n\n| Date | Price | Source |\n|---|---|---|\n| Mar–Jun 2026 | $60,000 deal value in Pipedrive | [File Technical Strategy/Phasing-Commercial.md] |\n| 30 Apr | About $10K/month for the pod, plus $500–$10,000 upkeep per module | same |\n| 4 Jun | $5K/month retainer plus about $12K for the first project | same |\n| 5 Jun (scoping proposal) | $72,000 in year one ($60,000 retainer + $12,000 build), with $7,000/month upkeep listed separately | same |\n| 16 Jun | $8,000/month for 12 months, exit at month 6 | same |\n| 19 Jun (internal memo) | $16,000/month ($192,000) plus $350 per hotel per month or 15% of billings | same |\n| 30 Jun and 6 Jul | Back to $8,000/month | same |\n| 29 Jul (signed) | $8,900/month, $106,800 | same |\n\n**Why it moved, most important first**\n1. **The money pushed back.** On 30 Jun David said the jump was too big. Hooray would rather risk about $50,000 than $150,000, and above about $8,000 a month it would hire staff instead. Its own developer had also just connected Google Analytics to an AI tool, so a small proof felt within reach [Book, chapter 3: How the scope changed between scoping and signing].\n2. **The CEO raised the ambition.** On 18 Jun Hooray asked for a product it could sell to hotels by 1 Jan 2027. That meant building an internal console and a hotel console at the same time, which produced the $16K/month price plus a per-hotel licence, with Supernal keeping the platform [Book, chapter 3: How the scope changed between scoping and signing].\n3. **The pitch changed.** By 16 Jun Supernal was selling a data store and consoles at $8,000/month, and the brief-packaging work had been dropped [Book, chapter 3: How the scope changed between scoping and signing].\n4. **The two executives disagreed.** One wanted to go big and the other wanted to spend little. Ninety-day phases let both agree. The licence fee was dropped and Hooray kept full ownership [Book, chapter 3: How the scope changed between scoping and signing].\n\n**What was signed:** $8,900/month, split $3,000 strategy and $5,900 build. It starts 1 Aug 2026 and can be ended at month 6 on 30 days' notice. It covers up to 10 connected accounts, with more added in blocks of 10 at $500/month, and includes up to $500/month of third-party costs. Hooray owns the code, the Genome configuration and the data [File Technical Strategy/Phasing-Commercial.md].\n\n**Gaps and conflicts**\n- **$8,000 agreed vs $8,900 signed:** nothing in the vault explains the difference [File Technical Strategy/Phasing-Commercial.md]. The answer is most likely in the order form drafts in Drive (there were 8 versions) or Ryan Williams's contract thread.\n- **Scoping build price:** the sources disagree. Phasing-Commercial and Book chapter 3 put the first project at about $12K [File Technical Strategy/Phasing-Commercial.md]. The Scoping-Package says the order form was about $7K, making the whole of Phase 1 about $12K [File Deal Strategy/Scoping-Package.md (part 9)].\n- **Out of date:** the top of Phasing-Commercial still describes the pre-signature model: a $5K retainer, Accelerated ($10K) and Sprint ($15K) tiers, and Care and Concierge [File Technical Strategy/Phasing-Commercial.md]. Care and Concierge are retired. I can draft a cleanup of that section if you want, but it would need your approval.\n- **Still open:** the price for taking all of about 40 hotels live by 1 Jan 2027. A monthly increase is being scoped, but no quote has been found [File Technical Strategy/Phasing-Commercial.md].",
+      "steps": [
+        "searched “price scoping signature order form” · 8 hits",
+        "searched “Phasing-Commercial pricing MRR $8,900” · 8 hits",
+        "read File Technical Strategy/Phasing-Commercial.md",
+        "read Book, chapter 3: How the scope changed between scoping and signing"
+      ],
+      "error": null,
+      "usage": {
+        "input": 16235,
+        "output": 1914,
+        "cacheRead": 29355
+      }
+    },
+    {
+      "id": "ho-03",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Technical Strategy/Use-Cases-and-Feedback.md (part 2)",
+        "Book, chapter 5: The product and why the September sessions reshaped it",
+        "File Deal Strategy/Product-Segmentation.md (part 15)",
+        "File Technical Strategy/Feature-Rationale.md (part 2)",
+        "Book, chapter 5: The product and why the September sessions reshaped it",
+        "File Deal Strategy/Product-Segmentation.md (part 15)",
+        "Book, chapter 5: The product and why the September sessions reshaped it",
+        "File Technical Strategy/Use-Cases-and-Feedback.md (part 2)",
+        "File Technical Strategy/Feature-Rationale.md (part 2)"
+      ],
+      "seconds": 11,
+      "answer": "Hooray asked for it. The first version, shown in August, put blended ROAS at the top. Randy raised it at the Genome Feedback Session on 24 Sep, and the top metrics were swapped to Revenue, Transactions, Room Nights and ADR [File Technical Strategy/Use-Cases-and-Feedback.md (part 2)] [Book, chapter 5: The product and why the September sessions reshaped it].\n\nThere are three reasons, most important first:\n\n1. **Brand-awareness spend makes ROAS misleading.** 20 to 30% of one pilot hotel's budget goes to brand awareness, not bookings. A return figure at the top pulls the client conversation off course [File Deal Strategy/Product-Segmentation.md (part 15)] [File Technical Strategy/Feature-Rationale.md (part 2)].\n2. **How Hooray gets paid.** Hooray earns a share of ad spend and is judged on results it only partly controls. A headline ROAS figure starts the wrong conversation for them. That's also why the home screen now marks figures the agency can't influence [Book, chapter 5: The product and why the September sessions reshaped it].\n3. **The four metrics match the existing Looker report.** They come in the same order as the old report hotels already know [File Deal Strategy/Product-Segmentation.md (part 15)] [Book, chapter 5: The product and why the September sessions reshaped it].\n\nROAS wasn't removed. It's now limited to media revenue over media spend, with disclaimers added [File Technical Strategy/Use-Cases-and-Feedback.md (part 2)].\n\nTwo related decisions from the same sessions: the default comparison is the same period last year, because hotel demand is seasonal, and budget data is left out of reports so clients don't raise questions about unspent money rolling over [File Technical Strategy/Feature-Rationale.md (part 2)].",
+      "steps": [
+        "searched “ROAS revenue lead metrics” · 8 hits",
+        "searched “four lead metrics Revenue Transactions Room Nights ADR” · 8 hits",
+        "read Book, chapter 5: The product and why the September sessions reshaped it"
+      ],
+      "error": null,
+      "usage": {
+        "input": 12483,
+        "output": 905,
+        "cacheRead": 29355
+      }
+    },
+    {
+      "id": "ho-04",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Delivery Strategy/Project-Plan.md (part 1)",
+        "File Delivery Strategy/Project-Plan.md (part 1)",
+        "File Delivery Strategy/Weekly.md (part 2)",
+        "File Delivery Strategy/Project-Plan.md (part 2)",
+        "File Delivery Strategy/Project-Plan.md (part 2)",
+        "Account: this week",
+        "Account: where sources disagree",
+        "File Technical Strategy/Proposal-v2.md (part 5)"
+      ],
+      "seconds": 11,
+      "answer": "Both are late. M4 and M5 are each past their target date, and both are now waiting on Hooray rather than on the build.\n\n**M4, Pilot validation: 75%, target was 16 Oct** [File Delivery Strategy/Project-Plan.md (part 1)]\n- The only thing measured so far is that the AMs accepted their invites.\n- The hotel sessions haven't been scheduled.\n- Hooray's leaders wanted to review Genome before the AMs did, which slowed it down.\n\n**M5, Rollout and Phase 2: 54%, target was 30 Oct** [File Delivery Strategy/Project-Plan.md (part 1)]\n- Nothing has been measured yet. It's blocked until Hooray gives a go or no-go.\n- What the team learned: the limit is getting Hooray aligned, not how fast we build.\n- The rollout date has moved three times: mid-Oct, then 2 Nov, then 9 Nov. We're still waiting for a go [File Delivery Strategy/Weekly.md (part 2)].\n- The Phase 2 project in Linear officially started on 2 Nov, but there's no agreed scope [File Delivery Strategy/Project-Plan.md (part 2)].\n\n**What Hooray needs to decide to unblock them:**\n- When hotel users start, and which hotel goes first.\n- How to close Phase 1: all 10 hotels, one hotel, or extend the phase.\n- What Phase 2 is. [File Delivery Strategy/Project-Plan.md (part 2)]\n\nThe outcome of the 12 Nov QBR isn't recorded, so these may already be settled [Account: this week]. The meeting notes or Account OS should say.\n\n**Where sources disagree:**\n- **Is Phase 1 done?** The health note says Phase 1 is complete. Linear shows M4 at 75% and M5 at 54% [Account: where sources disagree].\n- **What do M4 and M5 mean?** Proposal-v2 defines them differently from the milestones being tracked. There, M4 is \"AM review interface live\" (week 8) and M5 is \"Delivery workflow live\" (week 9: Monday.com and email notifications, on-time delivery tracking, EHH in the Leadership Dashboard) [File Technical Strategy/Proposal-v2.md (part 5)]. So 75% and 54% measure progress against the Linear milestones, not the proposal's. If you report these numbers to Hooray, say which version you mean.",
+      "steps": [
+        "searched “Phase 1 milestone M4 M5” · 8 hits",
+        "searched “M4 M5 status Project-Plan” · 8 hits"
+      ],
+      "error": null,
+      "usage": {
+        "input": 6257,
+        "output": 1032,
+        "cacheRead": 19570
+      }
+    },
+    {
+      "id": "ho-05",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Deal Strategy/Product-Segmentation.md (part 14)",
+        "File Delivery Strategy/Weekly.md",
+        "File Delivery Strategy/Project-Plan.md",
+        "Book, chapter 6: How delivery has gone",
+        "File Delivery Strategy/Weekly.md",
+        "Book, chapter 6: How delivery has gone",
+        "File Technical Strategy/Feature-Rationale.md (part 2)",
+        "File Delivery Strategy/Project-Plan.md",
+        "File Technical Strategy/Use-Cases-and-Feedback.md (part 1)",
+        "File Delivery Strategy/Weekly.md",
+        "File Delivery Strategy/Project-Plan.md",
+        "Book, chapter 6: How delivery has gone",
+        "File Delivery Strategy/Weekly.md",
+        "Account: where sources disagree",
+        "Account: where sources disagree",
+        "File Delivery Strategy/Weekly.md"
+      ],
+      "seconds": 22,
+      "answer": "The build isn't what's holding up hotel onboarding. Hooray hasn't given the go. Client View is built but has no hotel users yet [File Deal Strategy/Product-Segmentation.md (part 14)]. The weekly file marks hotel onboarding \"Blocked on client\": the rollout moved from mid-Oct to 2 Nov to 9 Nov, and Supernal is \"still waiting for a go\" [File Delivery Strategy/Weekly.md]. The project plan's own lesson is \"Client alignment, not build speed, is the constraint\" [File Delivery Strategy/Project-Plan.md].\n\nHere is what sits behind that, most important first:\n\n1. **Hooray's leaders don't agree on whether to go.** David pushed back on putting hotels on at all, while the CEO's instruction to proceed still stood. On 9 Nov Supernal was still waiting [Book, chapter 6: How delivery has gone]. Hooray also still has to decide when hotels start and which hotel goes first [File Delivery Strategy/Weekly.md].\n\n2. **Hooray scheduled a platform migration for the same window.** Leadership chose to move about 45 hotels off another platform while onboarding, against the team's advice. That's what pushed the date to 2 Nov and then 9 Nov [Book, chapter 6: How delivery has gone].\n\n3. **The account managers (AMs) haven't finished their test.** The plan was for AMs to test before hotels, so early software doesn't reach clients and internal advocates are won first [File Technical Strategy/Feature-Rationale.md (part 2)]. Pilot validation (M4) is 75% done against a 16 Oct target. Hotel sessions haven't been scheduled, and leaders wanted to review before the AMs [File Delivery Strategy/Project-Plan.md]. Of 10 AMs invited, 6 had accepted by 23 Oct and 4 were still pending on 26 Oct [File Technical Strategy/Use-Cases-and-Feedback.md (part 1)].\n\n4. **Some data questions are still open.** Display cost shows $0. Two options went to Roger and he hasn't picked one yet [File Delivery Strategy/Weekly.md]. Display spend from before Jul or Aug has no cost in DV360 [File Delivery Strategy/Project-Plan.md]. Wrong numbers found in mid-September cost about a week [Book, chapter 6: How delivery has gone]. No source says these are the reason Hooray is holding back. They are open items a hotel would see, though.\n\n5. **How Phase 1 ends hasn't been decided.** The options are 10 hotels, one hotel, or extending the phase [File Delivery Strategy/Weekly.md]. Until that's settled, it isn't clear how many hotels go on.\n\n**The sources disagree on two points:**\n- **Phase 1 status:** the health note says it's complete, but Linear shows M4 at 75% and M5 at 54% [Account: where sources disagree].\n- **Account health:** Account OS rates it Watch at 3.0, while the 9 Nov delivery sync lists Hooray as healthy [Account: where sources disagree].\n\n**What I couldn't find:** the vault has nothing after 9 Nov. The 12 Nov QBR outcome isn't recorded [File Delivery Strategy/Weekly.md], and the Hooray AI Summit (13 Nov in some sources, 12 Nov in others) has no notes. If Hooray gave a go or settled David's position at either, it would be in those meeting notes (Granola or Fathom) or in Slack #acnt-hooray-internal, and Delivery Strategy/Stakeholders should then be updated.",
+      "steps": [
+        "searched “hotel onboarding blocked Client View” · 8 hits",
+        "searched “AMs test before hotels rollout” · 8 hits",
+        "read File Delivery Strategy/Project-Plan.md",
+        "read File Delivery Strategy/Weekly.md",
+        "searched “leaders review before AMs hotel go-live Randy trust numbers” · 8 hits",
+        "searched “display spend $0 DV360 options Roger” · 8 hits",
+        "read Book, chapter 6: How delivery has gone"
+      ],
+      "error": null,
+      "usage": {
+        "input": 43541,
+        "output": 1888,
+        "cacheRead": 48925
+      }
+    },
+    {
+      "id": "ho-06",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Technical Strategy/Use-Cases-and-Feedback.md (part 1)",
+        "File Delivery Strategy/AI-Strategy-Roadmap.md (part 3)",
+        "File Technical Strategy/Use-Cases-and-Feedback.md (part 1)",
+        "Book, chapter 8: What value has shown, and what is next",
+        "File Delivery Strategy/Project-Plan.md (part 1)",
+        "File Technical Strategy/Use-Cases-and-Feedback.md (part 1)"
+      ],
+      "seconds": 7,
+      "answer": "**Six of the 10 invited account managers had accepted by 23 Oct. The other four were still pending on 26 Oct.** [File Technical Strategy/Use-Cases-and-Feedback.md (part 1)] [File Delivery Strategy/AI-Strategy-Roadmap.md (part 3)]\n\n- **No newer number in the vault.** Tracking of logins, sessions and Ask Genome questions started the week of 9 Nov, but the files don't show any figures from it yet. [File Technical Strategy/Use-Cases-and-Feedback.md (part 1)] The most likely places to find a current count are the Command Center adoption watch or the next Weekly Brief in Drive.\n- **The sources describe the count differently.** Most files say six AMs \"accepted\" their invites. The Book says six \"had logged in\" by late October. [Book, chapter 8: What value has shown, and what is next] Accepting an invite and using the product aren't the same thing, so don't read the six as six active users.\n- **The rollout is behind.** Pilot validation (M4, due 16 Oct) is late, partly because Hooray's leaders wanted to review the product before the AMs got access. No hotel users have joined yet. [File Delivery Strategy/Project-Plan.md (part 1)] [File Technical Strategy/Use-Cases-and-Feedback.md (part 1)]",
+      "steps": [
+        "searched “account managers accepted invites” · 8 hits",
+        "searched “AMs invited Command Center adoption” · 8 hits"
+      ],
+      "error": null,
+      "usage": {
+        "input": 5833,
+        "output": 647,
+        "cacheRead": 19570
+      }
+    },
+    {
+      "id": "ho-07",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "Book, chapter 6: How delivery has gone",
+        "File Technical Strategy/Prior-and-adjacent-client-systems.md",
+        "File Technical Strategy/Feature-Rationale.md (part 2)",
+        "File Deal Strategy/Product-Segmentation.md (part 14)",
+        "File Sales Strategy/Sales-Research.md (part 9)",
+        "File Deal Strategy/Diagnostic-Discovery.md (part 5)",
+        "File Sales Strategy/Concept-Alignment.md (part 2)",
+        "File Deal Strategy/Product-Segmentation.md (part 14)",
+        "File Technical Strategy/Integrations.md (part 9)",
+        "File Technical Strategy/Use-Cases-and-Feedback.md (part 1)"
+      ],
+      "seconds": 23,
+      "answer": "The vault never says which system the account managers trust, so I can't confirm it. Everything points to **Hooray's Looker reports**: they're what Genome was checked against and built to copy.\n\n- **Genome's numbers were checked against Looker.** Wrong numbers turned up in checks in mid-September. That cost about a week and led to \"a formal comparison with Hooray's Looker reports\" [Book, chapter 6: How delivery has gone].\n- **Genome was built to mirror Looker.** The Looker reports are described as \"the existing report Genome mirrors\" [File Technical Strategy/Prior-and-adjacent-client-systems.md]. The home screen leads with Revenue, Transactions, Room Nights and ADR partly because \"the four match the Looker report\" (Genome Feedback Session, 24 Sep) [File Technical Strategy/Feature-Rationale.md (part 2)]. Client View's reports also copy the old PDF report [File Deal Strategy/Product-Segmentation.md (part 14)].\n- **Looker reaches every hotel client.** It's one of only two tools, with GA4, used for 100% of hotel clients [File Sales Strategy/Sales-Research.md (part 9)].\n\nTwo things make this less clear-cut:\n\n- **No platform was trusted on its own at the start.** At scoping, the AMs pulled numbers by hand from GA4, Google Ads, Meta, Trade Desk and Looker Studio, and those sources \"each tell a slightly different story\" that someone had to reconcile [File Deal Strategy/Diagnostic-Discovery.md (part 5)]; [File Sales Strategy/Concept-Alignment.md (part 2)]. Looker is one of those hand-pulled sources, not a settled single source of truth.\n- **Genome's own data layer is meant to become the reference.** It's built as a cleaned reporting model \"with one definition per metric\" [File Deal Strategy/Product-Segmentation.md (part 14)]. The metric definitions go to Brian for sign-off, and there's a sign-off log for methodology approvals [File Technical Strategy/Integrations.md (part 9)]. Nothing I found says those definitions have been signed off yet.\n\nTo confirm what the AMs actually rely on, check the Genome Feedback Session transcript from 24 Sep or the AM pilot feedback (6 of 10 AMs had accepted invites by 23 Oct) [File Technical Strategy/Use-Cases-and-Feedback.md (part 1)]. If they confirm it's Looker, the answer belongs in Technical Strategy/Data-Layer or Integrations.",
+      "steps": [
+        "searched “account managers trust numbers” · 8 hits",
+        "searched “source of truth reporting AMs GA4 Looker” · 8 hits",
+        "searched “trust Looker report numbers don't match” · 8 hits",
+        "searched “source of truth AMs rely on” · 8 hits",
+        "searched “Looker Studio report AMs compare Genome numbers wrong metrics” · 8 hits",
+        "searched “Data-Layer one definition per metric reconcile” · 8 hits",
+        "read Book, chapter 6: How delivery has gone"
+      ],
+      "error": null,
+      "usage": {
+        "input": 52238,
+        "output": 1569,
+        "cacheRead": 48925
+      }
+    },
+    {
+      "id": "ho-08",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Technical Strategy/Delivery-Plan.md (part 7)",
+        "File Technical Strategy/Delivery-Plan.md (part 7)",
+        "File Technical Strategy/Delivery-Plan.md (part 7)",
+        "File Technical Strategy/Delivery-Plan.md (part 7)",
+        "Book, chapter 8: What value has shown, and what is next",
+        "File Delivery Strategy/AI-Strategy-Roadmap.md (part 3)",
+        "File Technical Strategy/Delivery-Plan.md (part 7)",
+        "File Deal Strategy/Diagnostic-Discovery.md (part 14)",
+        "File Technical Strategy/Delivery-Plan.md (part 8)",
+        "File Sales Strategy/Concept-Alignment.md (part 4)"
+      ],
+      "seconds": 13,
+      "answer": "No. Hooray has no measured value baseline yet. The only figures are an estimate and targets from scoping that the client never agreed to.\n\n**What exists**\n- **Hours reclaimed per month:** the baseline is \"60% of AM time\", which is an estimate. The target is 50 or more hours. Nobody has measured it. Nick estimates the saving at about 50% [File Technical Strategy/Delivery-Plan.md (part 7)].\n- **Reports on time by day 3:** no baseline was set. The target is 95%. It isn't measured [File Technical Strategy/Delivery-Plan.md (part 7)].\n- **Hotels in the reporting workflow:** this is the only row with a real starting point. It went from 0 to 10 hotels connected, but none of those hotels has users on it yet [File Technical Strategy/Delivery-Plan.md (part 7)].\n- These first three rows come from the unsigned June scoping. The signed order form has milestones but no numeric success measures [File Technical Strategy/Delivery-Plan.md (part 7)]. The Book says the same: nobody has measured how many hours account managers spent on reporting before or spend now [Book, chapter 8: What value has shown, and what is next].\n\n**Where it's missing**\n- The Success Metrics table in AI-Strategy-Roadmap is still the empty template. The baseline and target columns for adoption, hours saved and revenue or cost impact are blank [File Delivery Strategy/AI-Strategy-Roadmap.md (part 3)].\n- Account OS has no value entries or success-plan goals for Hooray [File Technical Strategy/Delivery-Plan.md (part 7)].\n- Diagnostic-Discovery lists \"any measured baseline\" among the things the research didn't find. Fathom, Gmail and transcripts weren't searched, and Granola was read to the first page only [File Deal Strategy/Diagnostic-Discovery.md (part 14)]. A baseline could still be in one of those meetings, but nothing in the vault shows one.\n\n**Why it matters now**\n- A Q4 company goal says Hooray should have a baseline and its own metrics by 30 Nov 2026. The sponsor also asked for usage tracking by the end of November [File Technical Strategy/Delivery-Plan.md (part 8)].\n- The concept doc promised that the team would sign off the method for counting Equivalent Human Hours at Milestone 2 [File Sales Strategy/Concept-Alignment.md (part 4)]. The vault doesn't say whether that sign-off happened.\n\nTo set a baseline, the most direct route is to measure how many hours account managers currently spend on monthly reports for the 10 pilot hotels, and agree the hours method with Hooray. Once you've done that, the result belongs in the Delivery-Plan success table and in Account OS.",
+      "steps": [
+        "searched “baseline value measured” · 8 hits",
+        "searched “success metrics KPI Revenue Transactions Room Nights ADR same-period-last-year” · 8 hits",
+        "read File Technical Strategy/Delivery-Plan.md (part 7)",
+        "read File Technical Strategy/Delivery-Plan.md (part 8)"
+      ],
+      "error": null,
+      "usage": {
+        "input": 12648,
+        "output": 1231,
+        "cacheRead": 29355
+      }
+    },
+    {
+      "id": "ho-09",
+      "pass": false,
+      "facts": false,
+      "cited": true,
+      "missing": [
+        [
+          "access",
+          "async",
+          "slow"
+        ]
+      ],
+      "cites": [
+        "File Delivery Strategy/Stakeholders.md (part 1)",
+        "File Sales Strategy/Sales-Context.md (part 2)",
+        "Book, chapter 7: The people",
+        "Book, chapter 6: How delivery has gone",
+        "File Delivery Strategy/Stakeholders.md (part 1)",
+        "File Delivery Strategy/Weekly.md (part 2)",
+        "Book, chapter 7: The people",
+        "Book, chapter 6: How delivery has gone",
+        "Book, chapter 3: How the scope changed between scoping and signing",
+        "File Sales Strategy/Client-internal-alignment.md",
+        "File Technical Strategy/Use-Cases-and-Feedback.md (part 2)"
+      ],
+      "seconds": 19,
+      "answer": "David Metze is the day-to-day contact. He is Hooray's point of contact and AI lead, and was the original champion [File Delivery Strategy/Stakeholders.md (part 1)]. He goes to every call, drives the agenda and is open about Hooray's internal politics [File Sales Strategy/Sales-Context.md (part 2)]. He has also put his own standing on an outside partner succeeding [Book, chapter 7: The people].\n\n**The friction, most important first:**\n\n1. **He is holding up hotel onboarding.** The rollout date moved from mid-October to 2 Nov, then to 9 Nov. After that David resisted putting hotels on at all, even though the CEO's instruction to go ahead still stood. On 9 Nov Supernal was still waiting for a go [Book, chapter 6: How delivery has gone]. He is still listed as a champion, but one who \"pushed back on the 9 Nov hotel onboarding.\" That was last noted at the Weekly Review on 6 Nov [File Delivery Strategy/Stakeholders.md (part 1)]. This is why M4 Pilot validation is at 75% (due 16 Oct) and M5 Rollout is at 54% (due 30 Oct) [File Delivery Strategy/Weekly.md (part 2)].\n\n2. **He is caught between Steven and Randy.** David and Roger Burns have both said they get stuck between the CEO, Steven Seghers, and the budget holder, Randy Stuck. The team also reports that the CEO overrides decisions the working group makes [Book, chapter 7: The people]. So what David agrees with Supernal may not hold. The delay before his pushback also came from leadership: they chose to move about 45 hotels off another platform at the same time as onboarding, against Supernal's advice [Book, chapter 6: How delivery has gone].\n\n3. **Money and risk, which date back to the sale.** On 30 Jun David said the bigger CEO-driven version of the deal was too much of a stretch. Hooray didn't know whether hotels would pay and saw the project as a gamble [Book, chapter 3: How the scope changed between scoping and signing]. That is background, not a current issue.\n\n**Gaps in the sources:**\n- They don't say *why* David resisted onboarding. The reason is probably in the Weekly Review recording from 6 Nov or in Slack #acnt-hooray-internal.\n- Sales-Client-internal-alignment has headings for \"Overridden Decisions\" but no entries under them [File Sales Strategy/Client-internal-alignment.md]. That is where specific cases of the CEO reversing decisions should go.\n\nThe relationship itself still looks good. He supplied the design that brought Ask Genome back in November [File Technical Strategy/Use-Cases-and-Feedback.md (part 2)].",
+      "steps": [
+        "searched “day-to-day contact friction” · 8 hits",
+        "source not found",
+        "read Book, chapter 7: The people",
+        "searched “David Metze frustration override CEO tension” · 8 hits",
+        "read File Delivery Strategy/Stakeholders.md (part 1)",
+        "searched “David pushed back 9 Nov hotel onboarding” · 8 hits",
+        "read Book, chapter 6: How delivery has gone",
+        "read File Delivery Strategy/Weekly.md (part 2)",
+        "searched “David caught between CEO and Randy decisions overridden” · 8 hits"
+      ],
+      "error": null,
+      "usage": {
+        "input": 32399,
+        "output": 1511,
+        "cacheRead": 48925
+      }
+    },
+    {
+      "id": "ho-10",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Technical Strategy/Phasing-Commercial.md (part 5)",
+        "File Delivery Strategy/AI-Strategy-Roadmap.md (part 4)",
+        "File Technical Strategy/Phasing-Commercial.md (part 5)",
+        "File Delivery Strategy/AI-Strategy-Roadmap.md (part 4)",
+        "File Technical Strategy/Phasing-Commercial.md (part 5)",
+        "Book, chapter 4: How the deal is built",
+        "File Delivery Strategy/AI-Strategy-Roadmap.md (part 4)",
+        "File Delivery Strategy/AI-Strategy-Roadmap.md (part 4)",
+        "Book, chapter 2: Why they bought",
+        "Book, chapter 4: How the deal is built",
+        "File Delivery Strategy/AI-Strategy-Roadmap.md (part 3)",
+        "File Technical Strategy/Phasing-Commercial.md (part 4)",
+        "File Technical Strategy/Phasing-Commercial.md (part 5)"
+      ],
+      "seconds": 12,
+      "answer": "Hooray's first chance to leave is the **end of month 6, which is the end of January 2027**. They have to give **30 days' notice** [File Technical Strategy/Phasing-Commercial.md (part 5)] [File Delivery Strategy/AI-Strategy-Roadmap.md (part 4)].\n\n**Exit points**\n- **Early exit:** end of month 6 of a 12-month term that started on 1 Aug 2026, with 30 days' notice [File Technical Strategy/Phasing-Commercial.md (part 5)]. Counting back from 31 Jan, that notice would need to arrive by about 1 Jan 2027. That date is my calculation. The vault doesn't state a deadline, so check the exact wording in the Drive MSA + Order Form.\n- **End of term:** the first term ends on 31 Jul 2027 [File Delivery Strategy/AI-Strategy-Roadmap.md (part 4)].\n- **After that:** the contract renews automatically for six months at a time unless either side gives 30 days' notice [File Technical Strategy/Phasing-Commercial.md (part 5)].\n\n**Why the timing matters**\n- The month-6 exit falls when Phase 2 is due to end [Book, chapter 4: How the deal is built].\n- The vault has no renewal plan [File Delivery Strategy/AI-Strategy-Roadmap.md (part 4)]. Weekly health is 3.0 Watch, with renewal risk marked medium and the account described as \"Easily displaced\" [File Delivery Strategy/AI-Strategy-Roadmap.md (part 4)].\n- Part of why Hooray signed was that they could leave. The monthly fee and month-6 exit kept the bet \"small and reversible\" for Randy Stuck, who believed Hooray could build this themselves [Book, chapter 2: Why they bought].\n\n**If they leave:** Hooray owns the console code, Genome's configuration, the database and the data. Supernal runs a paid migration and hands over credentials within 10 business days [Book, chapter 4: How the deal is built].\n\n**Two things not to confuse with the signed exit terms:**\n- The AI-Strategy-Roadmap has a \"Month-3 Review — Opt-Out Gate\" section [File Delivery Strategy/AI-Strategy-Roadmap.md (part 3)]. It looks like template text. The signed terms only describe the month-6 exit.\n- Phasing-Commercial still includes an older structure: a $5,000/month MSA retainer with separate Phase 1 and Phase 2 order forms [File Technical Strategy/Phasing-Commercial.md (part 4)]. The signed deal replaced that [File Technical Strategy/Phasing-Commercial.md (part 5)].",
+      "steps": [
+        "searched “termination exit term notice contract” · 8 hits",
+        "searched “order form term months renewal cancel” · 8 hits"
+      ],
+      "error": null,
+      "usage": {
+        "input": 5468,
+        "output": 1262,
+        "cacheRead": 19570
+      }
+    },
+    {
+      "id": "ng-01",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Delivery Strategy/Stakeholders.md",
+        "File Technical Strategy/Phasing-Commercial.md",
+        "File Delivery Strategy/Stakeholders.md",
+        "File Technical Strategy/Phasing-Commercial.md",
+        "File Technical Strategy/Phasing-Commercial.md",
+        "File Sales Strategy/Sales-One-Pager.md",
+        "File Deal Strategy/Diagnostic-Discovery.md"
+      ],
+      "seconds": 14,
+      "answer": "The vault has nothing on this. No Hooray CFO is named anywhere in it, and no renewal price was discussed in September.\n\n**No CFO on record.** The Hooray people in the vault are Steven V. Seghers (CEO, signer), Randy Stuck (senior operations executive and budget holder, titled EVP or SVP Ops), David Metze (point of contact and AI lead), Roger Burns (co-champion), Brian (checks metric calculations), Shelly (traffic manager), Stephen Garcia (developer) and Billy Kang (billing contact) [File Delivery Strategy/Stakeholders.md]. The closest roles to finance are Randy as budget holder and Billy Kang for billing. Neither is called CFO.\n\n**No September price talk.** The full list of prices discussed runs from Mar to 29 Jul 2026 and ends with the signed $8,900 a month. Nothing after signing is listed [File Technical Strategy/Phasing-Commercial.md]. The September sessions were about product feedback, such as the Genome Feedback Session on 24 Sep where Randy gave detailed feedback on the metrics [File Delivery Strategy/Stakeholders.md].\n\n**What the vault does say about renewal:**\n- The contract auto-renews for six-month terms unless either side gives 30 days' notice. Hooray can also exit at the end of month 6, which falls at the end of Jan 2027 [File Technical Strategy/Phasing-Commercial.md].\n- One price is still open: taking all of about 40 hotels live by 1 Jan 2027, which was said to come with a monthly increase that was still being scoped (Account OS health note, 12 to 18 Oct) [File Technical Strategy/Phasing-Commercial.md].\n- Account OS rates renewal risk as medium, with the driver \"Easily displaced\", and holds no renewal plan [File Sales Strategy/Sales-One-Pager.md] [File Deal Strategy/Diagnostic-Discovery.md].\n\nIf a September conversation about price did happen, check the Granola or Fathom notes for that month's calls, or ask Nick Agresti, who holds the relationship. If you find it, the price belongs in Phasing-Commercial and the CFO belongs in Stakeholders.",
+      "steps": [
+        "searched “CFO renewal price September” · 8 hits",
+        "searched “renewal pricing” · 8 hits",
+        "searched “CFO finance Shelly” · 8 hits",
+        "read File Delivery Strategy/Stakeholders.md",
+        "read File Technical Strategy/Phasing-Commercial.md"
+      ],
+      "error": null,
+      "usage": {
+        "input": 27605,
+        "output": 1148,
+        "cacheRead": 39140
+      }
+    },
+    {
+      "id": "ng-02",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [],
+      "seconds": 15,
+      "answer": "I couldn't find a stated MRR figure for World Emblem. That's a different client: this workspace is set up for Heritage, so anything here comes from Supernal's records of other projects, not from Heritage's files.\n\nWhat World Emblem's commercial file does show is two signed monthly order forms:\n\n- **OF-002 Leadership OS:** $10,000 a month ($120,000 total), 12 months from 28 May 2026 [World Emblem · File Technical Strategy/Phasing-Commercial.md (part 2)]\n- **OF-003 FMDS OS:** $15,000 a month ($180,000 total), 12 months from 22 Jul 2026 [World Emblem · File Technical Strategy/Phasing-Commercial.md (part 2)]\n- **OF #1 advisory:** a one-off $10,000, so it doesn't count toward MRR [World Emblem · File Technical Strategy/Phasing-Commercial.md (part 2)]\n\nThe two monthly forms add up to **$25,000 a month**. That's my own sum, not a number the file gives. It may be missing later deals: I found no order form or price for an AI COO deal, or for any other expansion. For the actual MRR, check World Emblem's record in Account OS.\n\nFor comparison, Heritage's MRR is $92,000.",
+      "steps": [
+        "searched other projects for “World Emblem MRR monthly recurring revenue” · 5 hits",
+        "searched other projects for “World Emblem order form monthly price Phasing-Commercial” · 5 hits",
+        "read File Technical Strategy/Phasing-Commercial.md (part 2)",
+        "read File Technical Strategy/Phasing-Commercial.md (part 1)",
+        "searched other projects for “World Emblem AI COO order form signed monthly total” · 6 hits"
+      ],
+      "error": null,
+      "usage": {
+        "input": 24595,
+        "output": 1182,
+        "cacheRead": 58980
+      }
+    }
+  ]
+}

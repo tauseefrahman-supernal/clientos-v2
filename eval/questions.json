@@ -1,0 +1,713 @@
+{
+ "about": "Stella evaluation set. Each question has facts the answer must contain (every inner list is a set of alternatives; at least one must appear, case-insensitive) and the source kinds a correct answer should cite. Answers come from the research documents in docs/context, so they are known. Written 13 Nov 2026.",
+ "questions": [
+  {
+   "id": "we-01",
+   "slug": "world-emblem",
+   "q": "Why did World Emblem buy Leadership OS?",
+   "must": [
+    [
+     "prototype"
+    ],
+    [
+     "Randy"
+    ]
+   ],
+   "cite": [
+    "Book",
+    "File"
+   ]
+  },
+  {
+   "id": "we-02",
+   "slug": "world-emblem",
+   "q": "What won the FMDS OS deal, as distinct from Leadership OS?",
+   "must": [
+    [
+     "analysis",
+     "analys",
+     "formula",
+     "missing revenue"
+    ],
+    [
+     "FMDS"
+    ]
+   ],
+   "cite": [
+    "Book",
+    "File"
+   ]
+  },
+  {
+   "id": "we-03",
+   "slug": "world-emblem",
+   "q": "Which order form number is Leadership OS, and who signed FMDS OS?",
+   "must": [
+    [
+     "OF-002",
+     "002"
+    ],
+    [
+     "Phil Jarvis",
+     "Phil"
+    ]
+   ],
+   "cite": [
+    "File"
+   ]
+  },
+  {
+   "id": "we-04",
+   "slug": "world-emblem",
+   "q": "Is there an exit clause, and when could either side use it?",
+   "must": [
+    [
+     "month 6",
+     "six months",
+     "6 months",
+     "month six"
+    ],
+    [
+     "Amendment",
+     "exit"
+    ]
+   ],
+   "cite": [
+    "File"
+   ]
+  },
+  {
+   "id": "we-05",
+   "slug": "world-emblem",
+   "q": "Why does the commitment ledger not write back to Randy's own file?",
+   "must": [
+    [
+     "Obsidian"
+    ],
+    [
+     "refus",
+     "write-back",
+     "write back"
+    ]
+   ],
+   "cite": [
+    "File"
+   ]
+  },
+  {
+   "id": "we-06",
+   "slug": "world-emblem",
+   "q": "Where does 8-step completion stand against its target?",
+   "must": [
+    [
+     "19%",
+     "19 %"
+    ],
+    [
+     "60%"
+    ]
+   ],
+   "cite": [
+    "Account",
+    "File"
+   ]
+  },
+  {
+   "id": "we-07",
+   "slug": "world-emblem",
+   "q": "Which client systems gate the departments that are blocked?",
+   "must": [
+    [
+     "Business Central"
+    ],
+    [
+     "ADP"
+    ]
+   ],
+   "cite": [
+    "Account",
+    "File"
+   ]
+  },
+  {
+   "id": "we-08",
+   "slug": "world-emblem",
+   "q": "What did the 29 Oct QBR show as value?",
+   "must": [
+    [
+     "646"
+    ],
+    [
+     "$500K",
+     "500K",
+     "500,000"
+    ],
+    [
+     "8.55"
+    ]
+   ],
+   "cite": [
+    "Book",
+    "File"
+   ]
+  },
+  {
+   "id": "we-09",
+   "slug": "world-emblem",
+   "q": "How many departments are live? Do the sources agree?",
+   "must": [
+    [
+     "4 of 9",
+     "four of nine"
+    ],
+    [
+     "2 of 9",
+     "two of nine"
+    ],
+    [
+     "disagree",
+     "conflict",
+     "differ"
+    ]
+   ],
+   "cite": [
+    "Account",
+    "File"
+   ]
+  },
+  {
+   "id": "we-10",
+   "slug": "world-emblem",
+   "q": "What is the status of the org strategy retainer?",
+   "must": [
+    [
+     "verbal",
+     "verbally"
+    ],
+    [
+     "unsigned",
+     "not signed",
+     "not yet signed"
+    ],
+    [
+     "$75K",
+     "75K",
+     "75,000"
+    ]
+   ],
+   "cite": [
+    "Account",
+    "File"
+   ]
+  },
+  {
+   "id": "we-11",
+   "slug": "world-emblem",
+   "q": "What has Randy asked to see at the next review?",
+   "must": [
+    [
+     "dollar",
+     "$"
+    ],
+    [
+     "KPI"
+    ]
+   ],
+   "cite": [
+    "Book",
+    "File"
+   ]
+  },
+  {
+   "id": "we-12",
+   "slug": "world-emblem",
+   "q": "Who is leaving the Supernal team and when?",
+   "must": [
+    [
+     "Saad"
+    ],
+    [
+     "20 Nov"
+    ]
+   ],
+   "cite": [
+    "Account",
+    "File"
+   ]
+  },
+  {
+   "id": "we-13",
+   "slug": "world-emblem",
+   "q": "What marketing deals were lost and why?",
+   "must": [
+    [
+     "14 Oct"
+    ],
+    [
+     "Carlos"
+    ]
+   ],
+   "cite": [
+    "Account",
+    "File"
+   ]
+  },
+  {
+   "id": "we-14",
+   "slug": "world-emblem",
+   "q": "What is Carlos building that could compete with us?",
+   "must": [
+    [
+     "Fabric",
+     "data layer",
+     "in-house"
+    ]
+   ],
+   "cite": [
+    "File"
+   ]
+  },
+  {
+   "id": "he-01",
+   "slug": "heritage",
+   "q": "How is the Heritage deal priced?",
+   "must": [
+    [
+     "point"
+    ],
+    [
+     "$7,500",
+     "7,500",
+     "7500"
+    ]
+   ],
+   "cite": [
+    "File"
+   ]
+  },
+  {
+   "id": "he-02",
+   "slug": "heritage",
+   "q": "What happens when the build threshold is reached, and is it settled?",
+   "must": [
+    [
+     "$840K",
+     "840K",
+     "840,000"
+    ],
+    [
+     "unresolved",
+     "open",
+     "not agreed",
+     "no agreed",
+     "undecided"
+    ]
+   ],
+   "cite": [
+    "File"
+   ]
+  },
+  {
+   "id": "he-03",
+   "slug": "heritage",
+   "q": "Why can invited viewers not see identifiers in the Vault?",
+   "must": [
+    [
+     "sensitive",
+     "spread"
+    ],
+    [
+     "hidden",
+     "masked",
+     "hide"
+    ]
+   ],
+   "cite": [
+    "File"
+   ]
+  },
+  {
+   "id": "he-04",
+   "slug": "heritage",
+   "q": "Where does answer accuracy stand against the gate?",
+   "must": [
+    [
+     "91%",
+     "90%"
+    ],
+    [
+     "95%"
+    ]
+   ],
+   "cite": [
+    "File"
+   ]
+  },
+  {
+   "id": "he-05",
+   "slug": "heritage",
+   "q": "Do Account OS and the Notion weekly report agree on Heritage's health?",
+   "must": [
+    [
+     "5.0",
+     "5"
+    ],
+    [
+     "At risk",
+     "Yellow"
+    ],
+    [
+     "disagree",
+     "conflict",
+     "differ",
+     "while",
+     "but"
+    ]
+   ],
+   "cite": [
+    "Account",
+    "File"
+   ]
+  },
+  {
+   "id": "he-06",
+   "slug": "heritage",
+   "q": "Is the 1.6 million figure right?",
+   "must": [
+    [
+     "1.6"
+    ],
+    [
+     "1.34",
+     "1,339",
+     "1.33"
+    ]
+   ],
+   "cite": [
+    "File"
+   ]
+  },
+  {
+   "id": "he-07",
+   "slug": "heritage",
+   "q": "What is Heritage building beyond its own internal tool?",
+   "must": [
+    [
+     "licens",
+     "spin-out",
+     "spin out",
+     "Heritage AI"
+    ]
+   ],
+   "cite": [
+    "Book",
+    "File"
+   ]
+  },
+  {
+   "id": "he-08",
+   "slug": "heritage",
+   "q": "What security issue did the client find themselves?",
+   "must": [
+    [
+     "upload",
+     "scan",
+     "quarantin"
+    ]
+   ],
+   "cite": [
+    "Account",
+    "File"
+   ]
+  },
+  {
+   "id": "he-09",
+   "slug": "heritage",
+   "q": "What expectation gap exists on the private environment?",
+   "must": [
+    [
+     "two weeks",
+     "2 weeks"
+    ],
+    [
+     "6 to 8",
+     "six to eight",
+     "6-8"
+    ]
+   ],
+   "cite": [
+    "Account",
+    "File"
+   ]
+  },
+  {
+   "id": "he-10",
+   "slug": "heritage",
+   "q": "Who decides at Heritage and how has the forum changed for him?",
+   "must": [
+    [
+     "Tom"
+    ],
+    [
+     "monthly",
+     "quarterly"
+    ]
+   ],
+   "cite": [
+    "File"
+   ]
+  },
+  {
+   "id": "he-11",
+   "slug": "heritage",
+   "q": "Which order forms are waiting to be signed?",
+   "must": [
+    [
+     "Foreman"
+    ],
+    [
+     "Help Desk",
+     "Helpdesk"
+    ]
+   ],
+   "cite": [
+    "Account",
+    "File"
+   ]
+  },
+  {
+   "id": "he-12",
+   "slug": "heritage",
+   "q": "What do the Drive folders hold that must never be shown?",
+   "must": [
+    [
+     "client",
+     "famil"
+    ],
+    [
+     "tax",
+     "trust",
+     "estate",
+     "K-1"
+    ]
+   ],
+   "cite": [
+    "File"
+   ]
+  },
+  {
+   "id": "ho-01",
+   "slug": "hooray",
+   "q": "What was scoped at close compared with what was built?",
+   "must": [
+    [
+     "SAL"
+    ],
+    [
+     "Genome",
+     "reporting",
+     "Command Center"
+    ]
+   ],
+   "cite": [
+    "Book",
+    "File"
+   ]
+  },
+  {
+   "id": "ho-02",
+   "slug": "hooray",
+   "q": "How did the price change from scoping to signature?",
+   "must": [
+    [
+     "$8,900",
+     "8,900",
+     "8900"
+    ],
+    [
+     "$16K",
+     "16K",
+     "$192K",
+     "$72K",
+     "72K"
+    ]
+   ],
+   "cite": [
+    "File"
+   ]
+  },
+  {
+   "id": "ho-03",
+   "slug": "hooray",
+   "q": "Why do the reports lead with revenue metrics and not ROAS?",
+   "must": [
+    [
+     "Revenue"
+    ],
+    [
+     "ROAS"
+    ],
+    [
+     "year over year",
+     "YoY",
+     "year-over-year",
+     "control"
+    ]
+   ],
+   "cite": [
+    "File"
+   ]
+  },
+  {
+   "id": "ho-04",
+   "slug": "hooray",
+   "q": "Where do Phase 1 milestones M4 and M5 stand?",
+   "must": [
+    [
+     "75%"
+    ],
+    [
+     "54%"
+    ]
+   ],
+   "cite": [
+    "File"
+   ]
+  },
+  {
+   "id": "ho-05",
+   "slug": "hooray",
+   "q": "What is blocking hotel-user onboarding?",
+   "must": [
+    [
+     "client",
+     "go or no-go",
+     "go/no-go",
+     "alignment",
+     "migration"
+    ]
+   ],
+   "cite": [
+    "Account",
+    "File"
+   ]
+  },
+  {
+   "id": "ho-06",
+   "slug": "hooray",
+   "q": "How many account managers accepted their invites?",
+   "must": [
+    [
+     "6"
+    ],
+    [
+     "10"
+    ]
+   ],
+   "cite": [
+    "Account",
+    "File"
+   ]
+  },
+  {
+   "id": "ho-07",
+   "slug": "hooray",
+   "q": "Which system do Hooray's account managers trust for numbers?",
+   "must": [
+    [
+     "Looker"
+    ]
+   ],
+   "cite": [
+    "File"
+   ]
+  },
+  {
+   "id": "ho-08",
+   "slug": "hooray",
+   "q": "Is there a measured value baseline for Hooray?",
+   "must": [
+    [
+     "no ",
+     "not ",
+     "none",
+     "unmeasured"
+    ]
+   ],
+   "cite": [
+    "File"
+   ]
+  },
+  {
+   "id": "ho-09",
+   "slug": "hooray",
+   "q": "Who is the day-to-day client contact and what is the friction with them?",
+   "must": [
+    [
+     "David"
+    ],
+    [
+     "access",
+     "async",
+     "slow"
+    ]
+   ],
+   "cite": [
+    "File"
+   ]
+  },
+  {
+   "id": "ho-10",
+   "slug": "hooray",
+   "q": "When can Hooray exit the contract?",
+   "must": [
+    [
+     "month 6",
+     "six months",
+     "6 months",
+     "January",
+     "Jan"
+    ]
+   ],
+   "cite": [
+    "File"
+   ]
+  },
+  {
+   "id": "ng-01",
+   "slug": "hooray",
+   "q": "What did Hooray's CFO say about the renewal price in September?",
+   "must": [
+    [
+     "not ",
+     "no record",
+     "couldn",
+     "can't",
+     "cannot",
+     "don't have",
+     "do not have",
+     "nothing"
+    ]
+   ],
+   "cite": [],
+   "note": "Unanswerable: tests that Stella says the sources do not hold it instead of inventing an answer."
+  },
+  {
+   "id": "ng-02",
+   "slug": "heritage",
+   "q": "What is World Emblem's MRR?",
+   "must": [
+    [
+     "only",
+     "this account",
+     "Heritage",
+     "not ",
+     "can't",
+     "cannot"
+    ]
+   ],
+   "cite": [],
+   "note": "Wrong account: tests that Stella stays on the open project."
+  }
+ ]
+}

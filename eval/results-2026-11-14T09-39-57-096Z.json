@@ -1,0 +1,143 @@
+{
+  "at": "2026-11-14T09:39:57.105Z",
+  "passed": 3,
+  "total": 4,
+  "tokens": {
+    "input": 98616,
+    "output": 4627,
+    "cacheRead": 156052
+  },
+  "results": [
+    {
+      "id": "we-05",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Deal Strategy/Product-Segmentation.md (part 6)",
+        "File Deal Strategy/Product-Segmentation.md (part 6)",
+        "File Deal Strategy/Product-Segmentation.md (part 6)",
+        "File Deal Strategy/Product-Segmentation.md (part 2)",
+        "File Deal Strategy/Product-Segmentation.md (part 6)",
+        "File Sales Strategy/Concept-Alignment.md (part 3)",
+        "File Deal Strategy/Product-Segmentation.md (part 6)",
+        "File Technical Strategy/Feature-Rationale.md (part 1)"
+      ],
+      "seconds": 13,
+      "answer": "**The team built it that way on purpose. Randy's Obsidian file stays his own, and the commitment ledger only reads from it.** Leadership OS writes commitments to its own ledger. Randy's Obsidian vault and his own workflows (Otter, email) stay his. This was said in World Emblem Sync: Weekly Planning on 2 Nov 2026 [File Deal Strategy/Product-Segmentation.md (part 6)].\n\nHere is how it got there:\n\n1. **He connects with his own credentials, and the ledger reads his file.** This was set up in World Emblem Sync: Weekly Planning on 26 Oct 2026 [File Deal Strategy/Product-Segmentation.md (part 6)].\n2. **Write-back came up again and was dropped.** In Check-In: World Emblem on 5 Nov 2026, the team chose to send the brief to Teams instead of writing into Obsidian [File Deal Strategy/Product-Segmentation.md (part 6)]. The brief is Chief's Daily Brief at 05:30, and Chief follows up in Teams [File Deal Strategy/Product-Segmentation.md (part 2)].\n3. **The likely reason: his file is his personal system, and the ledger is the shared record.** The vault says this is inferred from the two meetings above, not stated in either of them [File Deal Strategy/Product-Segmentation.md (part 6)]. This matches what Randy asked for in discovery. He wanted his existing system made AI-native, not replaced [File Sales Strategy/Concept-Alignment.md (part 3)].\n\n**Correction:** earlier notes say Randy \"refused\" write-back. The meetings don't back that up, so don't repeat it to the client [File Deal Strategy/Product-Segmentation.md (part 6)].\n\n**Gap:** Technical Strategy/Feature-Rationale should hold this decision, its reason and the meeting it was made in, but it has no entry for it [File Technical Strategy/Feature-Rationale.md (part 1)]. The 2 Nov and 5 Nov transcripts would give the reason in the team's own words. With your approval I can draft the Feature-Rationale row from them.",
+      "steps": [
+        "searched “commitment ledger write back Randy” · 8 hits",
+        "searched “commitment ledger” · 8 hits",
+        "read File Deal Strategy/Product-Segmentation.md (part 6)",
+        "searched “Obsidian write-back Feature-Rationale” · 6 hits"
+      ],
+      "error": null,
+      "usage": {
+        "input": 20930,
+        "output": 1044,
+        "cacheRead": 38272
+      }
+    },
+    {
+      "id": "he-03",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Deal Strategy/Product-Segmentation.md (part 6)",
+        "File Deal Strategy/Product-Segmentation.md (part 6)",
+        "File Deal Strategy/Product-Segmentation.md (part 6)",
+        "File Technical Strategy/Use-Cases-and-Feedback.md (part 1)",
+        "File Deal Strategy/Product-Segmentation.md (part 2)",
+        "File Deal Strategy/Product-Segmentation.md (part 6)",
+        "File Technical Strategy/Feature-Rationale.md (part 2)"
+      ],
+      "seconds": 15,
+      "answer": "The Vault holds very sensitive client data, so Social Security, passport, tax ID and account numbers can be shown in full, masked to the last 4 digits, or hidden completely. That setting is made per view (Heritage Platform Weekly Sync, 1 Oct 2026) [File Deal Strategy/Product-Segmentation.md (part 6)]. Invited viewers get the masked or hidden version.\n\nBut no meeting recorded in the vault actually decided that rule for invited viewers. The file says outright that it's inferred from the meetings above [File Deal Strategy/Product-Segmentation.md (part 6)]. So \"protecting sensitive data shared outside Heritage staff\" is a reasonable reading, not a recorded decision.\n\n**What the vault does record:**\n- **What masking hides.** When identifiers are censored, the full date of birth is hidden too (14 Oct 2026). On asset sheets, tax IDs show only the last 4 digits (16 Sep 2026) [File Deal Strategy/Product-Segmentation.md (part 6)].\n- **Who invited viewers are.** In the pilot, clients and their advisers have view-only access (Heritage Platform Weekly Sync, 2 Sep 2026) [File Technical Strategy/Use-Cases-and-Feedback.md (part 1)]. Secure access (#35) gives clients a read-only role and is in production [File Deal Strategy/Product-Segmentation.md (part 2)].\n- **The downside, raised by Heritage staff.** Someone preparing a tax return may need the full number and then has to ask for it (1 Oct 2026) [File Deal Strategy/Product-Segmentation.md (part 6)].\n\n**What's missing:** Feature-Rationale has no entry for identifier masking [File Technical Strategy/Feature-Rationale.md (part 2)]. To confirm why viewers get the masked form, and who chose that, check the Heritage Platform Weekly Sync transcript from 1 Oct 2026 and the Linear issue for secure access (#35). If it was a deliberate decision, I can draft a Feature-Rationale row for it, which would need your approval.",
+      "steps": [
+        "searched “invited viewers identifiers Vault” · 8 hits",
+        "searched “viewer role masked identifiers access” · 8 hits",
+        "read File Deal Strategy/Product-Segmentation.md (part 6)",
+        "searched “Feature-Rationale identifiers masked last 4 sensitive” · 8 hits",
+        "read File Technical Strategy/Feature-Rationale.md (part 2)"
+      ],
+      "error": null,
+      "usage": {
+        "input": 25020,
+        "output": 1165,
+        "cacheRead": 39320
+      }
+    },
+    {
+      "id": "he-08",
+      "pass": false,
+      "facts": false,
+      "cited": true,
+      "missing": [
+        [
+          "upload",
+          "scan",
+          "quarantin"
+        ]
+      ],
+      "cites": [
+        "File Technical Strategy/Phasing-Commercial.md (part 3)",
+        "File Sales Strategy/Sales-Context.md (part 3)",
+        "File Sales Strategy/Sales-Context.md (part 5)",
+        "File Deal Strategy/Product-Segmentation.md (part 6)",
+        "File Technical Strategy/Security-and-Compliance.md",
+        "File Delivery Strategy/Weekly.md (part 2)"
+      ],
+      "seconds": 15,
+      "answer": "The files don't say Heritage found any security issue themselves. The likeliest answer is the hosting problem: the April MSA requires US-only hosting, but the database was found in Central Europe, and the DPE project moves it [File Technical Strategy/Phasing-Commercial.md (part 3)]. That file says only that it \"was found\", citing the Heritage, Ridgeback, Supernal Weekly Call of 5 Oct 2026. It doesn't say whether Heritage or Supernal found it.\n\nThe other security events in the vault don't fit \"found by the client\":\n- **Malware incident, July 2026.** This was at Supernal and froze deployments for every client, Heritage included (Delivery Planning Weekly, 13 Jul 2026). Supernal told Heritage it was contained in 58 minutes and no Heritage data was affected [File Sales Strategy/Sales-Context.md (part 3)].\n- **2FA lockout, 25 Oct 2026.** Turning on 2FA in production locked clients out, and it was reverted the same day [File Sales Strategy/Sales-Context.md (part 5)]. This came from a change Supernal shipped, and the file doesn't say who reported it.\n- **Identifier masking.** Heritage staff pointed out that someone preparing a tax return may need a client's full number and would then have to ask for it [File Deal Strategy/Product-Segmentation.md (part 6)]. That's a complaint about how the masking works, not a security hole.\n\nSecurity-and-Compliance should have the answer. It's meant to log every incident and its fix, but it only has headings, including \"Roger's assessment and incident history\" [File Technical Strategy/Security-and-Compliance.md]. Roger Lee promised a written security assessment on 28 Oct, to come in 1 to 2 weeks, and no Linear issue was found for it [File Delivery Strategy/Weekly.md (part 2)].\n\nTo confirm who found the Central Europe database, check the Fathom/Granola recording of the 5 Oct 2026 weekly call. Roger's questions-and-answers on the 28 Oct Heritage Platform Weekly Sync may also cover it.",
+      "steps": [
+        "searched “security issue found by client” · 8 hits",
+        "searched “Security-and-Compliance incident” · 8 hits",
+        "searched “database Central Europe US-only hosting found” · 8 hits",
+        "searched “Heritage discovered vulnerability Roger tested access” · 8 hits",
+        "read File Sales Strategy/Sales-Context.md (part 5)",
+        "searched “Europe region database moved DPE Heritage raised” · 8 hits"
+      ],
+      "error": null,
+      "usage": {
+        "input": 32550,
+        "output": 1279,
+        "cacheRead": 39320
+      }
+    },
+    {
+      "id": "ho-09",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Delivery Strategy/Stakeholders.md (part 1)",
+        "File Delivery Strategy/Stakeholders.md (part 3)",
+        "Book, chapter 7: The people",
+        "File Delivery Strategy/Stakeholders.md (part 2)",
+        "File Delivery Strategy/Stakeholders.md (part 1)",
+        "File Delivery Strategy/Weekly.md (part 2)",
+        "File Delivery Strategy/Stakeholders.md (part 2)",
+        "Book, chapter 7: The people"
+      ],
+      "seconds": 14,
+      "answer": "David Metze is the day-to-day contact. He is Hooray's point of contact and AI lead, and he was the original champion [File Delivery Strategy/Stakeholders.md (part 1)]. He is still a champion with high influence [File Delivery Strategy/Stakeholders.md (part 3)], and he has put his own standing on an outside partner working out [Book, chapter 7: The people].\n\nThe friction with him, most important first:\n\n1. **He is slow on reviews and homework.** The team finds David slow on anything sent to him for review or follow-up. At Squad Lab on 22 Sep 2026 this was called a small but real problem that needs better ways of working without meetings [File Delivery Strategy/Stakeholders.md (part 2)].\n2. **He is holding up hotel onboarding.** David pushed back on the 9 Nov hotel onboarding. His last notable interaction was the Weekly Review on 6 Nov 2026 [File Delivery Strategy/Stakeholders.md (part 1)]. The rollout has already moved from mid-Oct to 2 Nov to 9 Nov, and the team is still waiting for a go-ahead [File Delivery Strategy/Weekly.md (part 2)]. The vault records that he pushed back but not why. The 6 Nov Weekly Review notes are the place to check.\n3. **He limits access and gates who we see.** David and Roger Burns did not want to give Supernal direct access to Looker Studio, the source behind the KPIs, even though the team needed it to trace how the numbers are calculated (Weekly Review, 18 Sep 2026). Presenting to Hooray's account managers also had to wait for their review first (Delivery Sync, 21 Sep 2026) [File Delivery Strategy/Stakeholders.md (part 2)].\n4. **He is caught between his bosses.** David and Roger have said they get caught between the CEO, Steven Seghers, and Randy Stuck. The team reports that decisions made by the working group get overridden by the CEO [Book, chapter 7: The people]. Some delays that look like David's may come from above him.\n\nThe vault doesn't say whether the Looker Studio access was ever granted. Look in later meeting notes or Slack #acnt-hooray-internal.",
+      "steps": [
+        "searched “day-to-day contact friction” · 8 hits",
+        "searched “Stakeholders disposition last contact” · 8 hits",
+        "read File Delivery Strategy/Stakeholders.md (part 2)",
+        "read File Delivery Strategy/Stakeholders.md (part 1)",
+        "searched “David pushed back 9 Nov hotel onboarding” · 5 hits"
+      ],
+      "error": null,
+      "usage": {
+        "input": 20116,
+        "output": 1139,
+        "cacheRead": 39140
+      }
+    }
+  ]
+}

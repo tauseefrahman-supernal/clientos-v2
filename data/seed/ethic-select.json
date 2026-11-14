@@ -1,0 +1,1359 @@
+{
+ "key": "ethic-select",
+ "title": "Ethic Select",
+ "strat": "Jaime Garcia",
+ "pod": "Stu Childs (AM), Jaime Garcia (strategist), Harvy Leyton (FDE)",
+ "mrr": "$8,000",
+ "closedValue": "$96,000",
+ "closedCount": 1,
+ "health": {
+  "score": "3.6",
+  "band": "Watch",
+  "tone": "warn"
+ },
+ "fresh": [
+  "Current as of Weekly Pipeline Meeting, 11 Nov",
+  "About 45 internal meetings since Jun",
+  "3.1M certified products from 10 certifiers"
+ ],
+ "transcripts": 4,
+ "deals": [
+  {
+   "name": "Ethic Select (Engineering Partnership, OF-001)",
+   "value": "$96,000",
+   "stage": "Closed Won 30 Jun",
+   "phase": 3,
+   "note": "$8,000 a month for 12 months from 16 Jun; owner Jack."
+  },
+  {
+   "name": "AI Native Expansion",
+   "value": "$48,000",
+   "stage": "Order Form, expected close 20 Nov",
+   "phase": 2,
+   "note": "Owner Johnny. Notion tracks it as stage Proposal with no target close."
+  }
+ ],
+ "lost": "",
+ "sold": [
+  {
+   "form": "OF-001 Engineering Partnership (effective 16 Jun)",
+   "promised": "Developer handoff by week 2, certifiers six and seven by end of month 1, all eight by end of month 2, then monthly cycles on a live backlog for $8,000 a month.",
+   "met": "Phase 1 met: handoff done, 8 then 10 certifiers, API ready 4 Sep; SABRC blueprint at 72%, past its 2 Oct date.",
+   "tone": "ok"
+  },
+  {
+   "form": "AI Native Expansion (pending)",
+   "promised": "Command Center, Chrome/Edge extension and SABRC Agent V1 for the UC pilot, Q1 2027.",
+   "met": "Unsigned; no order form document found; Johnny to push for signature 14 to 15 Nov.",
+   "tone": "info"
+  }
+ ],
+ "arc": [
+  {
+   "period": "Q2 (May to Jun)",
+   "meetings": 1,
+   "points": [
+    "Chuck Stump of HMS Jets introduced Todd; first call 27 May with Johnny.",
+    "Thomas wrote the proposal; order form effective 16 Jun, closed 30 Jun."
+   ]
+  },
+  {
+   "period": "Jul",
+   "meetings": 7,
+   "points": [
+    "Team formed: Harvy as engineer, Jaime strategist by 6 Jul; kickoff with Todd and Zohar 8 Jul.",
+    "Handoff with departing developer Quinn 14 Jul; M1 six certifiers done by 31 Jul."
+   ]
+  },
+  {
+   "period": "Aug",
+   "meetings": 5,
+   "points": [
+    "Cradle to Cradle and BIFMA integrated; coverage rose from about 2M to 3.1M products.",
+    "LabViva agreed to integrate directly with the API; M2 done."
+   ]
+  },
+  {
+   "period": "Sep",
+   "meetings": 12,
+   "points": [
+    "API ready 4 Sep.",
+    "11 Sep: Todd endorsed the buyer-surface vision and said the arrangement would need to expand.",
+    "SABRC pipeline built; Green Seal and SCS ingested."
+   ]
+  },
+  {
+   "period": "Oct",
+   "meetings": 11,
+   "points": [
+    "Verification prototype and $18,750 / $26,000 options shown; Todd expected far less.",
+    "9 Oct: agreed to stay at $8,000 through the pilot and blueprint SABRC.",
+    "21 Oct Railway incident; 30 Oct platform-independent path via the extension."
+   ]
+  },
+  {
+   "period": "Nov",
+   "meetings": 9,
+   "points": [
+    "5 Nov: Vickie at UC said the extension closes the punch-out gap and agreed in principle to a contract.",
+    "9 Nov: Todd sent his commercialization proposal to UC; Johnny to push for signature 14 to 15 Nov."
+   ]
+  }
+ ],
+ "disagreements": [
+  "Close and start dates: effective 16 Jun (order form), closed 30 Jun (Account OS), signed 1 Jul and kickoff 15 Jul (Notion), kickoff held 8 Jul (Slack), Linear Phase 1 start 15 Aug.",
+  "Cancellation: proposal says cancel anytime with 30 days’ notice; order form says 12 months with a month-6 exit.",
+  "Margin: 18% (Notion, 19 Oct), about 3% (Squad Lab, 6 Oct), below a $9,600 break-even (Strat², 15 Oct) vs a $6,500 break-even (Notion, 19 Oct).",
+  "Team allocation: a quarter each for Harvy and Jaime (Strat², 15 Oct) vs half a mason plus a third of a strategist (Notion, 19 Oct).",
+  "Todd’s price ceiling: about $12,000 (Strat², 15 Oct) vs $20,000 (Notion, 19 Oct).",
+  "Expansion deal: $48,000 at Order Form, close 20 Nov (Account OS) vs stage Proposal with no value or date (Notion).",
+  "Health: 3.6 Watch (Account OS) vs Healthy (Notion weekly report).",
+  "Account manager: Stu on the account pod, Johnny on both deals (Account OS).",
+  "Certifier count: 8 (Linear, Notion), 10 (Strat², 15 Oct), “24 engaged” (weekly report, 5 to 9 Oct); products 2M+ (dashboard) vs 3.1M (reports, Linear).",
+  "SABRC enforcement date: December 2026 (order form), no fixed date (Todd, 11 Sep), something expected in January (Jaime, 15 Oct).",
+  "Agent priority: Environmental first (Strat², 15 Oct) vs SABRC first (Slack, 21 Oct); the 30 Oct report again says environmental first.",
+  "UC payment to Todd: $150,000 for development, a $150K grant, or $150,000 of capital to deploy; possibly the same money.",
+  "Vickie’s campus: UC Santa Barbara (Account OS) vs UC San Diego discussed as the pilot school in July (Slack)."
+ ],
+ "streams": [
+  {
+   "name": "Certifiers and database",
+   "state": "Live",
+   "tone": "ok",
+   "pct": 100,
+   "due": "",
+   "measured": "Certifier count, products",
+   "learned": "Identifiers and variants raise coverage.",
+   "attention": false
+  },
+  {
+   "name": "API and LabViva validation",
+   "state": "Live",
+   "tone": "ok",
+   "pct": 100,
+   "due": "15 Oct",
+   "measured": "Test errors",
+   "learned": "Platforms move slowly.",
+   "attention": false
+  },
+  {
+   "name": "SABRC blueprint",
+   "state": "Late",
+   "tone": "err",
+   "pct": 72,
+   "due": "2 Oct",
+   "measured": "SABRC products",
+   "learned": "No certifier exists; needs rules plus evidence.",
+   "attention": true
+  },
+  {
+   "name": "Expansion proposal",
+   "state": "Waiting on client",
+   "tone": "warn",
+   "pct": null,
+   "due": "20 Nov",
+   "measured": "Signature",
+   "learned": "SABRC must be in the package.",
+   "attention": true
+  },
+  {
+   "name": "Command Center",
+   "state": "Not started",
+   "tone": "",
+   "pct": 0,
+   "due": "29 Jan 2027",
+   "measured": "Match-rate baseline",
+   "learned": "Simplify to ledger and reports.",
+   "attention": false
+  },
+  {
+   "name": "Extension",
+   "state": "Not started",
+   "tone": "",
+   "pct": 0,
+   "due": "26 Feb 2027",
+   "measured": "Checks logged",
+   "learned": "UC uses Edge; installs need IT rights.",
+   "attention": false
+  },
+  {
+   "name": "SABRC Agent V1",
+   "state": "Not started",
+   "tone": "",
+   "pct": 0,
+   "due": "31 Mar 2027",
+   "measured": "Verified results",
+   "learned": "Decision support, human review.",
+   "attention": false
+  },
+  {
+   "name": "Pulse rollout",
+   "state": "Blocked",
+   "tone": "err",
+   "pct": null,
+   "due": "",
+   "measured": "",
+   "learned": "",
+   "attention": true
+  }
+ ],
+ "tiles": [
+  {
+   "file": "roadmap",
+   "section": "Roadmap › Success metrics",
+   "title": "Success metrics",
+   "headline": "Phase 1 targets met (3.1M products, API tested with zero errors) but SABRC sits at 631 of 1,500 to 2,000 products.",
+   "tone": "warn",
+   "state": "Mostly met"
+  },
+  {
+   "file": "plan",
+   "section": "Plan › Commercial model",
+   "title": "Commercial model",
+   "headline": "$8,000 a month retainer with thin or negative margin; a $48,000 expansion is at Order Form for 20 Nov.",
+   "tone": "warn",
+   "state": "Margin pressure"
+  },
+  {
+   "file": "plan",
+   "section": "Plan › Dependencies",
+   "title": "Dependencies",
+   "headline": "Expansion waits on a UC contract with Ethic Select and on Todd’s investors; UL SPOT blocks SABRC data.",
+   "tone": "warn",
+   "state": "External gates"
+  },
+  {
+   "file": "stakeholders",
+   "section": "Stakeholders › Power map",
+   "title": "Power map",
+   "headline": "Todd is the whole client and a Champion; the real decision-makers sit at UC and are not contacts of record.",
+   "tone": "info",
+   "state": "Single-threaded"
+  },
+  {
+   "file": "roadmap",
+   "section": "Roadmap › Health",
+   "title": "Health",
+   "headline": "3.6 of 5, Watch: Exec Engagement 5 and Tech 4, dragged by GM 2.",
+   "tone": "warn",
+   "state": "Watch"
+  },
+  {
+   "file": "roadmap",
+   "section": "Roadmap › Opportunity map",
+   "title": "Opportunity map",
+   "headline": "Buyer extension, three verification agents and a Command Center turn a data API into a buyer surface.",
+   "tone": "ok",
+   "state": "Prototyped"
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Option A or B and its price",
+   "detail": "Build by end of February or end of March; Todd wants resource allocation, monthly cost and total investment.",
+   "action": "Draft estimate"
+  },
+  {
+   "title": "Show FTEs to Todd or not",
+   "detail": "Johnny wants hours for investors; Jaime wants outcomes only.",
+   "action": "Decide"
+  },
+  {
+   "title": "Sign now with delayed billing",
+   "detail": "Johnny meets Todd 14 to 15 Nov and may offer billing delayed until UC pays.",
+   "action": "Prep Johnny"
+  },
+  {
+   "title": "Who reads the LabViva and JAGGAER agreements",
+   "detail": "Whether platform agreements restrict a direct buyer surface has no owner.",
+   "action": "Assign owner"
+  },
+  {
+   "title": "Liability wording for agent determinations",
+   "detail": "Legal review of AI in procurement validation was promised to Todd on 11 Sep.",
+   "action": "Draft wording"
+  }
+ ],
+ "slipping": [
+  {
+   "kind": "Past target",
+   "tone": "err",
+   "item": "M4 SABRC blueprint",
+   "detail": "Due 2 Oct, at 72%."
+  },
+  {
+   "kind": "Blocked on client",
+   "tone": "warn",
+   "item": "UL SPOT access",
+   "detail": "Largest SABRC source still blocks access; ticket only Planned."
+  },
+  {
+   "kind": "Promised, no task",
+   "tone": "warn",
+   "item": "Legal and compliance review of AI in procurement validation",
+   "detail": "Promised to Todd in writing 11 Sep; no Linear issue."
+  },
+  {
+   "kind": "Promised, no task",
+   "tone": "warn",
+   "item": "Cost-per-lookup model, match-precision spike, UC data simulation, Railway consolidation",
+   "detail": "Commitments with no Linear issue."
+  },
+  {
+   "kind": "Expectation gap",
+   "tone": "err",
+   "item": "Todd expected the wider scope inside $8,000",
+   "detail": "His price expectation was far below the $18,750 and $26,000 options."
+  },
+  {
+   "kind": "Open risk",
+   "tone": "warn",
+   "item": "Funding for year one only",
+   "detail": "Renewal in June 2027 depends on Ethic Select earning or raising money; month-6 exit window opens about 16 Nov."
+  },
+  {
+   "kind": "Open risk",
+   "tone": "warn",
+   "item": "GTM board and weekly update",
+   "detail": "No target close on the GTM board; this week’s GTM update unapproved."
+  }
+ ],
+ "dates": [
+  {
+   "when": "14 Nov",
+   "what": "Johnny meets Todd (weekend of 14 to 15 Nov), push for signature"
+  },
+  {
+   "when": "16 Nov",
+   "what": "End of month 5, opening the month-6 exit notice window (inferred)"
+  },
+  {
+   "when": "16 Nov",
+   "what": "Phase 2 planned start in Linear"
+  },
+  {
+   "when": "20 Nov",
+   "what": "Expected close of AI Native Expansion"
+  },
+  {
+   "when": "30 Nov",
+   "what": "Baseline and own metrics due (Q4 goal)"
+  }
+ ],
+ "feed": [
+  {
+   "meeting": "Strat²",
+   "date": "12 Nov",
+   "changes": [
+    "Design: Command Center dashboard, ask and search screens modelled on Midday, Sana AI and Dropbox Dash"
+   ]
+  },
+  {
+   "meeting": "Weekly Pipeline Meeting",
+   "date": "11 Nov",
+   "changes": [
+    "Commercials: Johnny to push for signature 14 to 15 Nov; billing could be delayed a month or two"
+   ]
+  },
+  {
+   "meeting": "Delivery Sync",
+   "date": "9 Nov",
+   "changes": [
+    "Dependencies: investors require a UC contract; Todd has about $150,000, year one only",
+    "Plan: no new build until the upsell is confirmed"
+   ]
+  },
+  {
+   "meeting": "Weekly Review + Next Cycle Plan",
+   "date": "6 Nov",
+   "changes": [
+    "Demo plan: a “magic trick” pitch using UC’s own data"
+   ]
+  },
+  {
+   "meeting": "UC prototype session (via Notion report)",
+   "date": "5 Nov",
+   "changes": [
+    "Stakeholders: Vickie agreed in principle to a contract",
+    "Scope: SABRC required in the package"
+   ]
+  }
+ ],
+ "people": [
+  {
+   "name": "Todd Capps",
+   "title": "Founder and CEO, Ethic Select",
+   "note": "At the start: excited at close. Now: Champion with high influence; treats Jaime as his CTO; about $150,000 to spend.",
+   "influence": "High",
+   "disposition": "Champion"
+  },
+  {
+   "name": "Vickie",
+   "title": "UC (Account OS says UC Santa Barbara)",
+   "note": "At the start: neutral. Now: warming; agreed in principle to a contract on 5 Nov.",
+   "influence": "High",
+   "disposition": "Supporter"
+  },
+  {
+   "name": "Paul Williams",
+   "title": "UC Systemwide Procurement AVP and CPO",
+   "note": "Senior UC sponsor, publicly tied to LabViva; not met directly.",
+   "influence": "High",
+   "disposition": "Neutral"
+  },
+  {
+   "name": "Zohar Ziv",
+   "title": "Board chairman, Ethic Select",
+   "note": "At kickoff; now consulted on deal structure.",
+   "influence": "Medium",
+   "disposition": "Neutral"
+  },
+  {
+   "name": "Abim",
+   "title": "UC pilot team",
+   "note": "Positive on the database at the 9 Oct UC session.",
+   "influence": "Medium",
+   "disposition": "Supporter"
+  },
+  {
+   "name": "Therese Merrell",
+   "title": "UC Office of the President, eProcurement",
+   "note": "Runs LabViva UX review and pilot planning; pushed for LabViva.",
+   "influence": "Medium",
+   "disposition": "Neutral"
+  },
+  {
+   "name": "Ian",
+   "title": "Investor contact",
+   "note": "His VC passed for stage reasons; may invest personally.",
+   "influence": "Low",
+   "disposition": "Neutral"
+  },
+  {
+   "name": "Jaime Garcia",
+   "title": "Strategist (Supernal)",
+   "note": "Strategist from 6 Jul and product lead; built the design workflow and prototypes.",
+   "influence": "High",
+   "disposition": "Champion"
+  },
+  {
+   "name": "Johnny Borbone",
+   "title": "Commercial lead (Supernal)",
+   "note": "Owns the commercial conversation since August; AM on both deals.",
+   "influence": "High",
+   "disposition": "Supporter"
+  },
+  {
+   "name": "Harvy Leyton",
+   "title": "FDE (Supernal)",
+   "note": "Engineer throughout, about a quarter of his time.",
+   "influence": "Medium",
+   "disposition": "Supporter"
+  }
+ ],
+ "metrics": [
+  {
+   "criterion": "Certifiers live in UC test environment: 8 by end of month 2",
+   "now": "Met; 10 on dashboard",
+   "state": "Met",
+   "tone": "ok"
+  },
+  {
+   "criterion": "Products covered: about 3.1M",
+   "now": "3.1M",
+   "state": "Met",
+   "tone": "ok"
+  },
+  {
+   "criterion": "Developer handoff by week 2",
+   "now": "Done",
+   "state": "Met",
+   "tone": "ok"
+  },
+  {
+   "criterion": "API ready and partner tested by 4 Sep",
+   "now": "Done; LabViva zero errors",
+   "state": "Met",
+   "tone": "ok"
+  },
+  {
+   "criterion": "SABRC-compliant products: 1,500 to 2,000",
+   "now": "631",
+   "state": "Behind",
+   "tone": "err"
+  },
+  {
+   "criterion": "SABRC blueprint by 2 Oct",
+   "now": "72%",
+   "state": "Late",
+   "tone": "err"
+  },
+  {
+   "criterion": "First verified purchase in UC live environment",
+   "now": "Not yet",
+   "state": "Not started",
+   "tone": "warn"
+  },
+  {
+   "criterion": "Matcher accuracy",
+   "now": "Precision 1.00, recall 0.877",
+   "state": "Measured",
+   "tone": "info"
+  },
+  {
+   "criterion": "Usage",
+   "now": "2 · Prompted (down from 3 · Driven in August)",
+   "state": "Declining",
+   "tone": "warn"
+  }
+ ],
+ "accountos": [
+  {
+   "record": "Weekly health",
+   "now": "3.6 Watch for week of 2 Nov (previous 3.4); GM 2 flagged low",
+   "proposes": "Keep Watch; note GM 2 from the $8,000 retainer margin and Exec Engagement 5 from the UC agreement in principle."
+  },
+  {
+   "record": "Stakeholders",
+   "now": "Only Todd on the power map",
+   "proposes": "Add Vickie, Paul Williams, Abim, Therese Merrell and Zohar Ziv."
+  },
+  {
+   "record": "Success plan",
+   "now": "Empty",
+   "proposes": "Goals: SABRC to 1,500 products, first verified UC purchase, baseline and own metrics by 30 Nov, Phase 2 closed by 31 Dec."
+  },
+  {
+   "record": "Cadence",
+   "now": "Empty",
+   "proposes": "Weekly client sync with Todd, weekly brief deck, weekly recap email, weekly internal review and cycle plan."
+  },
+  {
+   "record": "Value",
+   "now": "Empty",
+   "proposes": "Coverage 2M to 3.1M, eight certifiers in two months, working API tested with zero errors, help toward a roughly $100,000 UC expansion."
+  },
+  {
+   "record": "Whitespace",
+   "now": "Not stated",
+   "proposes": "Extension, Social and Environmental agents, Command Center campus reports, reach to 100+ California institutions."
+  },
+  {
+   "record": "Renewal",
+   "now": "Renewal plan empty; risk Medium, driver “Margin pressure”",
+   "proposes": "Renewal about 16 Jun 2027; month-6 exit window around mid-Nov; client funded for year one only."
+  }
+ ],
+ "rationale": [
+  {
+   "decision": "AI works upstream; buyers get deterministic answers",
+   "why": "Institutions need consistency and an audit trail.",
+   "source": "Background for Scoping, May"
+  },
+  {
+   "decision": "API-first, partners never hold the full dataset",
+   "why": "Protects the client’s data asset when integrating with LabViva and JAGGAER.",
+   "source": "Slack, 27 Jul"
+  },
+  {
+   "decision": "Buyer surface as a browser extension",
+   "why": "Reaches the half of spend outside portals and avoids building purchase orders and invoicing.",
+   "source": "Notion: Ethic Select Extension, 9 Sep"
+  },
+  {
+   "decision": "Badge from cache, agent runs asynchronously",
+   "why": "A badge must appear in under a second.",
+   "source": "Notion: Sep 11 Readout"
+  },
+  {
+   "decision": "Verified only with evidence, separate provenance",
+   "why": "A false badge is worse than none.",
+   "source": "Notion: Sep 11 Readout"
+  },
+  {
+   "decision": "SABRC first, then Social, then Environmental",
+   "why": "UC needs SABRC to commit.",
+   "source": "Slack, 21 Oct"
+  },
+  {
+   "decision": "SABRC as rules engine plus evidence agent",
+   "why": "No SABRC certifier exists; data is supplier-asserted.",
+   "source": "Client sync, 11 Sep"
+  },
+  {
+   "decision": "Platform-independent pilot",
+   "why": "The pilot should not wait on LabViva or JAGGAER.",
+   "source": "Strategy call, 30 Oct"
+  },
+  {
+   "decision": "Command Center reduced to a ledger and campus reports",
+   "why": "Simpler to explain and tied to what UC leadership reports.",
+   "source": "Slack, 21 Oct"
+  },
+  {
+   "decision": "Price-versus-time slider",
+   "why": "Lets the client choose lower price with slower delivery instead of negotiating scope.",
+   "source": "Alignment call, 9 Oct"
+  }
+ ],
+ "sections": [
+  {
+   "category": "Design",
+   "group": 2,
+   "desc": "The squad’s reference for design by non-designers with AI tools: workflow, tokens, components, prototypes, video and interactive proposals.",
+   "files": [
+    {
+     "name": "Design-Workflow",
+     "summary": "Mobbin connected to Claude Code and Figma via MCP: brief, reference apps, wireframes, refine, final; a full prototype in under 1.5 hours; Command Center modelled on Midday, Sana AI and Dropbox Dash."
+    },
+    {
+     "name": "UI-Tokens-And-Components",
+     "summary": "Paper background, ink text, lime, teal, rose and amber accents; Inter and Libre Baskerville; slide rail, image cards with pills, gap comparison, status table, architecture flow, Gantt rows, price box."
+    },
+    {
+     "name": "Prototype-Inventory",
+     "summary": "Full verification prototype, reduced UC prototype, extension drawer with Verify button and three agents, client branding on the platform."
+    },
+    {
+     "name": "Demo-Video-Recipe",
+     "summary": "Narrated vision video in about 40 minutes with Claude Code, Remotion, an ElevenLabs narrator and generated music."
+    },
+    {
+     "name": "Interactive-Proposal-Patterns",
+     "summary": "Price-versus-time slider, What’s Included per level, team-allocation pop-ups, colour-coded live vs proposed diagrams."
+    }
+   ]
+  },
+  {
+   "category": "Certifier and Data Source Registry",
+   "group": 2,
+   "desc": "Every certifier and data source, access terms and the SABRC source map.",
+   "files": [
+    {
+     "name": "Certifier-Registry",
+     "summary": "Each certifier, access, records, status."
+    },
+    {
+     "name": "Data-Rights-And-Terms",
+     "summary": "Blue Angel, UL SPOT, re-publication limits."
+    },
+    {
+     "name": "SABRC-Source-Map",
+     "summary": "Green Seal, SCS Global, GreenCircle, UL SPOT."
+    }
+   ]
+  },
+  {
+   "category": "Regulatory and Compliance Context",
+   "group": 0,
+   "desc": "SABRC, enforcement timing and liability for agent determinations.",
+   "files": [
+    {
+     "name": "SABRC-Explained",
+     "summary": "California’s recycled-content programme and what it requires."
+    },
+    {
+     "name": "Enforcement-Timeline",
+     "summary": "Including the dropped January 2027 date."
+    },
+    {
+     "name": "Liability-Matrix",
+     "summary": "Who is liable for an agent’s determination."
+    },
+    {
+     "name": "Certifying-Body-Question",
+     "summary": "Whether Ethic Select acts as a certifier."
+    }
+   ]
+  },
+  {
+   "category": "End-Customer and Ecosystem Map",
+   "group": 1,
+   "desc": "UC, the procurement platforms and the money flow.",
+   "files": [
+    {
+     "name": "UC-Stakeholders",
+     "summary": "Vickie, Paul Williams, Abim, Therese Merrell."
+    },
+    {
+     "name": "Platform-Partners",
+     "summary": "LabViva, JAGGAER and channel conflict."
+    },
+    {
+     "name": "Money-Flow",
+     "summary": "UC to Ethic Select to Supernal."
+    }
+   ]
+  },
+  {
+   "category": "Investor and Fundraising Support",
+   "group": 0,
+   "desc": "Supernal’s role in Todd’s raise.",
+   "files": [
+    {
+     "name": "Investor-Narrative",
+     "summary": "Product story for investors, led by funding-compliance risk."
+    },
+    {
+     "name": "Defensibility-Addendum",
+     "summary": "Why the data asset is defensible."
+    },
+    {
+     "name": "Raise-Timeline-And-Dependencies",
+     "summary": "Investors conditional on a UC contract."
+    }
+   ]
+  },
+  {
+   "category": "Pricing and Offer Evolution",
+   "group": 1,
+   "desc": "Every price shown, the delivery vehicles and the presale expectation gap.",
+   "files": [
+    {
+     "name": "Offer-History",
+     "summary": "Every price shown and the reaction."
+    },
+    {
+     "name": "Delivery-Vehicles-And-Margins",
+     "summary": "Tiers, levels and margins."
+    },
+    {
+     "name": "Presale-Expectation-Gap",
+     "summary": "What Todd was led to expect inside $8,000."
+    }
+   ]
+  },
+  {
+   "category": "Product Vision and Architecture Decisions",
+   "group": 2,
+   "desc": "Buyer surface architecture, decisions and open spikes.",
+   "files": [
+    {
+     "name": "Buyer-Surface-Architecture",
+     "summary": "API to buyer surface: extension, agents, Command Center."
+    },
+    {
+     "name": "Decision-Log",
+     "summary": "Feature rationale and when it changed."
+    },
+    {
+     "name": "Open-Technical-Spikes",
+     "summary": "Match precision, cost per lookup, UC data simulation."
+    }
+   ]
+  }
+ ],
+ "artifacts": [
+  {
+   "kind": "Folder",
+   "title": "Ethic Select (account folder)",
+   "date": "24 Jun",
+   "what": "Root folder",
+   "url": "https://drive.google.com/drive/folders/1exOjUxvXq0eR4pAvM2YA_fNryRMaoKWf",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Proposal",
+   "title": "supernal-ethic-select-v2.html",
+   "date": "1 Jun",
+   "what": "Engineering Partnership proposal, 8 slides",
+   "url": "https://drive.google.com/file/d/1GZ9oEgecmu1OKcDOamk-t--JSCX9KcnT/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Ethic_Select_Stakeholder_Briefing.html",
+   "date": "3 Jul",
+   "what": "Briefing; linked as “Proposal” on the Notion account page",
+   "url": "https://drive.google.com/file/d/1CKR-h0wd5TZaOhTfqQAxWpbR8-XHUPDD/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "BUILD_STATE.html",
+   "date": "6 Jul",
+   "what": "Build state at handoff (not opened)",
+   "url": "https://drive.google.com/file/d/1gbIL-amGcXEh52c5suzFDVgBHWtho6L_/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Ethic Select - Background for Scoping",
+   "date": "26 May",
+   "what": "Todd's reframe, client briefing, first-call transcript",
+   "url": "https://docs.google.com/document/d/1FGl1NNqKxD7Uh3L47X6F1KbpwyE6xiQ2pUQi3uAhLSg/edit",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "01 Ethic Select Order Form",
+   "date": "20 Jul",
+   "what": "OF-001",
+   "url": "https://docs.google.com/document/d/1syghGf7X5It61GuUnY6XgL-0t47U8FCGp6u20NnlcJI/edit",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "ethic-select-of-001-v1-draft.docx",
+   "date": "28 Oct (copy)",
+   "what": "Copy of OF-001 in a second “Ethic Select” folder",
+   "url": "https://drive.google.com/file/d/1UD7DQRsDi8ATws8r9TdLtEtKUyQZ2PHg/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Ethic Select x Supernal - Kickoff Deck.pptx",
+   "date": "8 Jul",
+   "what": "Kickoff, with Gantt",
+   "url": "https://drive.google.com/file/d/1s-OhS-EIgCh_Z0vQ8Fx4x620SkKvTnff/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Design",
+   "title": "Architecture Diagram 08/31.png",
+   "date": "31 Aug",
+   "what": "System architecture",
+   "url": "https://drive.google.com/file/d/1RFlzHrisLHDEMD3KM8MhyZ7gq2OLL2va/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Weekly Brief decks W2, W3, W5, W6, W8–W14 (13 files)",
+   "date": "27 Jul–29 Oct",
+   "what": "Weekly client briefs",
+   "url": "https://drive.google.com/drive/folders/1mDMa3Skq_c_ZQgVXdUJEDQi7UG6y2q5J",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "2026-05-27 Ethic Select / Supernal; Notes by Gemini 27 May and 2 Jun; 2026-06-12 Labviva/Ethic Select Discussion",
+   "date": "May–Jun",
+   "what": "Sales call notes",
+   "url": "https://drive.google.com/drive/folders/1OKfiUBMOr2bhzrprLHtAHMZm0HYLaqCo",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Video",
+   "title": "Ethic Select / Supernal - 2026/06/02 Recording",
+   "date": "2 Jun",
+   "what": "Sales call recording",
+   "url": "https://drive.google.com/file/d/1pgIY92BKu_xBhcMAPt8khrEz6sjHUP32/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Onboarding presentation",
+   "date": "6 Jul",
+   "what": "Engineer onboarding and answers",
+   "url": "https://drive.google.com/file/d/19T509m8OXtfGgUd8esYTAIhlmeY_WcSd/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Kick-off deck (Slides)",
+   "date": "8 Jul",
+   "what": "Kickoff deck shared in Slack",
+   "url": "https://docs.google.com/presentation/d/19WpggPR4ambpQEooudhRUejSknN8evoT/edit",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Session document for 18 Sep",
+   "date": "18 Sep",
+   "what": "Agenda and Todd's vision notes",
+   "url": "https://docs.google.com/document/d/1L_yqc1c7NfjRGXiXD1ZEHhA-qCkgPtFNvJHAePV7mKc/edit",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Ethic Select Expansion (Slides)",
+   "date": "20 Oct",
+   "what": "Pricing reasoning",
+   "url": "https://docs.google.com/presentation/d/1YtfUZuZfgkAk9f0e-Jkd2a-ub6z1Owa5j9UaabO3muc/edit",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Proposal",
+   "title": "Ethic Select Proposal (interactive page)",
+   "date": "5 Oct",
+   "what": "Expansion proposal with video and options",
+   "url": "https://proposal-es.links.getsupernal.ai/",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Proposal",
+   "title": "Proposal 1 (interactive page)",
+   "date": "6 Oct",
+   "what": "Version reviewed in scoping requests",
+   "url": "https://proposal-1-ethic-select.links.getsupernal.ai/",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Proposal",
+   "title": "Consolidated roadmap and pricing tool",
+   "date": "21 Oct",
+   "what": "Six levels, slider, What's Included, margins",
+   "url": "https://roadmap-es.links.getsupernal.ai/",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Prototype",
+   "title": "Johnny's roadmap artifact",
+   "date": "about 14 Oct",
+   "what": "Roadmap with dates, engines, FTEs (share key omitted)",
+   "url": "https://claude.ai/artifact/Ho7mhmck56nq6poeVDb6qw",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Design",
+   "title": "Ethic Select Alignment v1",
+   "date": "20 Oct",
+   "what": "Alignment slides for reuse",
+   "url": "https://claude.ai/design/p/b6f51fe1-085d-4034-8f95-b4e9d3716156",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Prototype",
+   "title": "Verification prototype (extension + Command Center)",
+   "date": "about 5 Oct",
+   "what": "Full vision demo; old project was to be deleted (Slack, 29 Oct)",
+   "url": "https://ethic-select-prototype-production.up.railway.app/",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Prototype",
+   "title": "Reduced prototype (extension + Command Center MVP)",
+   "date": "2 Nov",
+   "what": "UC-specific demo",
+   "url": "https://ethic-select-mini-production.up.railway.app/",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Video",
+   "title": "Video link in a direct message from Jaime",
+   "date": "28 Oct",
+   "what": "Content not confirmed (not opened)",
+   "url": "https://youtu.be/27e8hA0FegA",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Site",
+   "title": "Repo client-ethic-select",
+   "date": "ongoing",
+   "what": "Code, docs, Claude skills",
+   "url": "https://github.com/Supernal-Technology/client-ethic-select",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Dashboard",
+   "title": "ProjectOS plan",
+   "date": "ongoing",
+   "what": "Project plan link on Notion account page",
+   "url": "https://supernal-pms-production.up.railway.app/clients/66e0bfcf-cb05-41fb-85e8-76b55a49df81",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Ethic Select (account page)",
+   "date": "8 Sep",
+   "what": "Account record, 17 weekly reports linked",
+   "url": "https://app.notion.com/p/3a7bd5e8f31881e08a59e600fcbc463e",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Ethic Select Extension",
+   "date": "9–10 Sep",
+   "what": "Upsell strategy and competitor analysis",
+   "url": "https://app.notion.com/p/3d6bd5e8f3188093b783c61497d42a50",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Product Vision Expansion: Sep 11 Readout",
+   "date": "11 Sep",
+   "what": "Call readout, architecture, legal and financial review",
+   "url": "https://app.notion.com/p/3d9bd5e8f31881599955c94b38e071d3",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Scope, Liability and Alignment Pack for Sep 18",
+   "date": "12 Sep",
+   "what": "Scope boundary, client record, liability matrix",
+   "url": "https://app.notion.com/p/3d9bd5e8f31881ce9b86fd103a955b2d",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Ethic Select Expansion: Alignment Breakdown",
+   "date": "19 Oct",
+   "what": "Pricing tiers and owners",
+   "url": "https://app.notion.com/p/3ffbd5e8f318819990cdcc4d3332c291",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Phase 2 AI verification expansion",
+   "date": "16 Oct",
+   "what": "GTM board entry",
+   "url": "https://app.notion.com/p/3f9bd5e8f31881639a27fe0c9b66945d",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Ethic Select Orderform Review",
+   "date": "17 Aug",
+   "what": "Deal review checklist (not opened)",
+   "url": "https://app.notion.com/p/37dbd5e8f31880ad8918f320a4a6ca1c",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Weekly Account Health reports (17)",
+   "date": "Aug–Nov",
+   "what": "Latest: 2–6 Nov",
+   "url": "https://app.notion.com/p/413bd5e8f3188175a01dc7a7d33df32c",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Dashboard",
+   "title": "Linear: Ethic Select Phase 1",
+   "date": "from 15 Aug",
+   "what": "Six milestones",
+   "url": "https://linear.app/supernal-clients/project/ethic-select-phase-1-7df9f9a99cc3",
+   "where": "Linear",
+   "sensitive": false
+  },
+  {
+   "kind": "Dashboard",
+   "title": "Linear: Ethic Select Phase 2",
+   "date": "16 Nov–31 Mar 2027",
+   "what": "Three milestones",
+   "url": "https://linear.app/supernal-clients/project/ethic-select-phase-2-d79c3f2a1489",
+   "where": "Linear",
+   "sensitive": false
+  },
+  {
+   "kind": "Video",
+   "title": "Intro video for the product vision",
+   "date": "about 5 Oct",
+   "what": "Remotion video with narrator",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Design",
+   "title": "“API to Buyer Surface Architecture” diagram v2",
+   "date": "11 Sep",
+   "what": "Green live layer, pink expansion",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Design",
+   "title": "“As-Is” and “To-Be” diagrams",
+   "date": "Jul",
+   "what": "Handoff with Quinn",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Design",
+   "title": "Figma designs for Command Center (dashboard, ask, search)",
+   "date": "Sep–Nov",
+   "what": "Mobbin-led designs",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "SABRC Agent technical blueprint",
+   "date": "23 Oct",
+   "what": "Build path",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "API documentation package",
+   "date": "Sep",
+   "what": "Sent to LabViva and JAGGAER",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Dashboard",
+   "title": "Ethic Select dashboard (live app)",
+   "date": "Aug onward",
+   "what": "Live data view",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Spreadsheet",
+   "title": "Account value framework spreadsheet",
+   "date": "Oct",
+   "what": "Squad metrics, includes this account",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Weekly recap emails to Todd",
+   "date": "weekly",
+   "what": "Written record",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  }
+ ],
+ "book": [
+  {
+   "title": "The account in one page",
+   "minutes": 2,
+   "lenses": [
+    "all"
+   ],
+   "text": "Ethic Select is a small company led by Todd Capps. It collects certification data from bodies such as ENERGY STAR and Green Seal and matches it to products, so that a public buyer can prove a purchase was sustainable. Its only customer is the University of California, which funds a pilot. In June 2026 Supernal signed a 12-month order form at $8,000 a month, $96,000 in total, to become the company's engineering team after its single developer left.\n\nIn five months the squad took the database from about 2 million to 3.1 million products, connected eight and then ten certifiers, shipped an API that LabViva tested without errors, and built a dashboard. Health is 3.6, in the Watch band, with executive engagement at 5 and gross margin at 2.\n\nThe account now turns on an expansion. Supernal designed a second product for Todd: a browser extension that checks a product at the moment of purchase, three agents that verify what the database does not know, and a Command Center that reports by campus. A $48,000 expansion deal is at Order Form with an expected close of 20 Nov 2026. UC agreed in principle on 5 Nov to sign a contract with Ethic Select, and Todd's investors are waiting for that contract.",
+   "sources": [
+    "Account OS",
+    "Drive: 01 Ethic Select Order Form",
+    "Linear",
+    "Notion weekly reports",
+    "Delivery Sync, 9 Nov 2026"
+   ]
+  },
+  {
+   "title": "Why they bought",
+   "minutes": 2,
+   "lenses": [
+    "strategy",
+    "account"
+   ],
+   "text": "Todd came to Supernal through a referral from Chuck Stump of HMS Jets. The first call was on 27 May 2026 with his partners Brent Bottelsen and John. Several things pushed the purchase at once.\n\nThe first was a gap in the team. One developer had built the database and was leaving for his own startup. Ethic Select was seven months into a twelve-month UC pilot and could not stop. The second was proof. In a sandbox test, UC's assumed sustainability compliance of 40% turned out to be 8% when checked against certifier data. Thomas built the proposal around that number. The third was a deadline. California's recycled-content programme, SABRC, was described as moving to enforcement at the end of 2026, with agencies reporting 3% against a 70% requirement.\n\nThe offer was simple: one retainer of $8,000 a month, start in the week of the developer handoff, all code owned by the client. Johnny's point in the first call, what you own versus what we own, mattered to a founder protecting a data asset. They had spoken to another AI firm first.\n\nThe price was low for the work, and that choice shaped everything after. It created a margin problem for Supernal and an expectation in Todd that the whole roadmap was included.",
+   "sources": [
+    "Drive: Ethic Select - Background for Scoping",
+    "Drive: supernal-ethic-select-v2.html",
+    "GTM + Scoping, 6 Oct 2026"
+   ]
+  },
+  {
+   "title": "How the deal is built",
+   "minutes": 2,
+   "lenses": [
+    "account",
+    "strategy"
+   ],
+   "text": "There is one signed order form, OF-001, effective 16 Jun 2026. It commits Supernal to a first phase with three milestones: developer knowledge transfer by week 2, certifiers six and seven by the end of month 1, and all eight by the end of month 2. After that the work runs in monthly cycles on a backlog that both sides reprioritise, for the same fee. The backlog lists the LabViva and JAGGAER integrations and a SABRC pipeline, marked as indicative.\n\nThree terms matter. The client owns all code, data, infrastructure and third-party accounts. The client may exit at the end of month 6. And section 8 says new ideas beyond the order form need their own agreement. That clause is the boundary the team has held since September.\n\nThe money flows in a chain. UC pays Ethic Select for the pilot, about $150,000 so far. Ethic Select pays Supernal. Supernal builds what UC evaluates. Supernal has no contract with UC, LabViva or JAGGAER.\n\nThe second deal has had many shapes: an anchor above $15,000 a month, options of $18,750 and $26,000, tiers of $16,000, $19,000 and $23,000, six levels from $12,000 to $26,000, and now $48,000 in Account OS. Margin today is reported as 18%, 3% or below break-even, depending on the source.",
+   "sources": [
+    "Drive: 01 Ethic Select Order Form",
+    "Notion: Scope, Liability and Alignment Pack",
+    "Notion: Expansion Alignment Breakdown",
+    "Slack #acnt-ethic-select-internal, 21 Oct 2026",
+    "Account OS"
+   ]
+  },
+  {
+   "title": "The product and why it is built this way",
+   "minutes": 2,
+   "lenses": [
+    "product",
+    "engineering"
+   ],
+   "text": "The live product is a data layer. Certifier feeds are ingested, normalised and matched to products by identifier. An API serves answers to procurement platforms without handing over the dataset. A dashboard shows coverage and lets Todd ask questions of the data.\n\nThe first design rule came from UC and from Todd before the deal: AI does its work ahead of time, and the buyer sees stored, auditable answers. Institutions need the same answer every time and a trail behind it.\n\nThe second product came from two facts found during delivery. About half of UC's spend happens outside the procurement portals, on supplier sites. And the platforms were slow: LabViva kept delaying its interface work and JAGGAER wanted proof of demand. An extension in the buyer's browser reaches both problems. When the database has an answer the badge appears at once. When it does not, an agent gathers evidence and writes a result back, so the catalog grows with use. The team insisted on an evidence gate and on keeping agent-derived records apart from certifier records, because a wrong badge is worse than none.\n\nSABRC changed shape too. There is no SABRC certifier to connect to; the data is asserted by suppliers. So SABRC became a rules engine with an evidence agent, and it moved to first priority because UC said it must be in any commercial package.",
+   "sources": [
+    "Drive: Background for Scoping",
+    "Notion: Sep 11 Readout",
+    "Strat², 15 Oct 2026",
+    "Notion weekly reports, 26–30 Oct and 2–6 Nov 2026",
+    "Linear"
+   ]
+  },
+  {
+   "title": "Design as a selling tool",
+   "minutes": 2,
+   "lenses": [
+    "product",
+    "strategy"
+   ],
+   "text": "No designer worked on this account. What stands out is how much designed material a strategist and an engineer produced, and how it moved the deal.\n\nIt began with a complaint. In September Vitor said the squad's apps were too dense, and the others agreed. Jaime went looking for tools. He connected Mobbin, a library of screenshots from well-made apps, to Claude Code and Figma. He would describe a screen, pick reference apps, and get wireframes and then a final design. The first full prototype took under an hour and a half. The Command Center's dashboard, ask and search screens borrow from Midday, Sana AI and Dropbox Dash.\n\nThe prototype was built to feel real: a drawer on the right of a supplier page, a Verify button, three agents visibly at work, the evidence behind each answer. A narrated video, made in about 40 minutes with Claude Code, Remotion and a synthetic narrator, opened the pitch. The proposal itself was an interactive page where Todd could slide between price and delivery time.\n\nEach piece had a job. The video gave Todd words for investors. The prototype let UC see the punch-out gap closed. The slider turned a price shock into a choice. The lesson the strat team took from it is to make prototypes as real as possible and to use the client's own data.",
+   "sources": [
+    "Squad Lab, 10 Sep 2026",
+    "Squad Lab, 29 Sep 2026",
+    "Squad Lab, 6 Oct 2026",
+    "Strat², 15 Oct 2026",
+    "Strat², 12 Nov 2026"
+   ]
+  },
+  {
+   "title": "How delivery has gone",
+   "minutes": 2,
+   "lenses": [
+    "delivery",
+    "engineering"
+   ],
+   "text": "Phase 1 went to plan. The handoff from the departing developer finished in July. Six certifiers were live by the end of July and eight by the end of August. The API, its documentation and access controls were ready on 4 Sep. LabViva ran a first test in September. Todd's feedback each week was warm, and weekly commitments were mostly met.\n\nThree things were harder. SABRC turned out to have no certifier behind it. The honest finding, given to Todd on 11 Sep, was that four data sources would yield about 1,500 to 2,000 products. The catalog reached 631, and the largest source, UL SPOT, still blocks access. The blueprint milestone was due 2 Oct and stands at 72%.\n\nThe second was dependence on others. The pilot needs LabViva's interface and JAGGAER's services team, and both moved slowly. The third was housekeeping: work started in the client's repository, two Railway projects existed where one is the rule, and a Railway incident on 21 Oct forced key rotation, including a Green Seal key only the client could reissue.\n\nThe squad runs the account in weekly cycles with Linear as the record. Harvy gives it about a quarter of his time. Since early November no new build has started, by decision, until the expansion is signed.",
+   "sources": [
+    "Linear",
+    "Notion: Sep 11 Readout",
+    "Notion weekly reports",
+    "Slack #acnt-ethic-select-internal",
+    "Weekly Review + Next Cycle Plan, 23 Oct and 6 Nov 2026"
+   ]
+  },
+  {
+   "title": "The people",
+   "minutes": 2,
+   "lenses": [
+    "account",
+    "strategy"
+   ],
+   "text": "Todd Capps is the whole client. He is founder, sponsor, buyer and daily contact, and he is rated Champion with high influence. He reads every report, sends ideas by email after calls, and treats Jaime as his chief technology officer. He is also thin on resources: no team to run a new product line, and about $150,000 to spend. Zohar Ziv, the board chairman, advises him on structure.\n\nThe people who decide Ethic Select's future sit at UC. Vickie leads the pilot conversation and warmed over the 5 Nov session. Paul Williams is UC's chief procurement officer and is publicly committed to LabViva. Abim and Therese Merrell work the pilot and the LabViva interface. None of them is a Supernal contact of record.\n\nOn Supernal's side the cast changed often. Jack Parham sold the deal and Thomas wrote the proposal. Jaime took over strategy in July and Harvy has been the engineer throughout. Johnny entered in late August and owns the commercial conversation; Stu became account manager in mid-September. The handoffs left a gap: nobody on the delivery side knew exactly what Todd had been led to expect, which is why Thomas was brought back for the 9 Oct call.\n\nJohnny and Jaime disagree on one thing that matters: whether Todd should see hours and headcount. Johnny says he needs them for investors. Jaime wants outcomes only.",
+   "sources": [
+    "Account OS",
+    "Notion: Ethic Select Extension",
+    "Notion weekly reports",
+    "Slack #acnt-ethic-select-internal, 20 Oct 2026",
+    "GTM + Scoping, 6 Oct 2026"
+   ]
+  },
+  {
+   "title": "Where it stands and what is next",
+   "minutes": 2,
+   "lenses": [
+    "all"
+   ],
+   "text": "As of 13 Nov 2026 the account is healthy in relationship and fragile in money. UC has agreed in principle to a contract with Ethic Select. Todd sent his commercialization proposal to Vickie, Paul and Abim on 9 Nov. Supernal owes him resource and cost estimates for two roadmaps: finish by the end of February, or by the end of March. Linear already holds the second: Command Center by 29 Jan 2027, extension by 26 Feb, SABRC Agent by 31 Mar.\n\nJohnny plans to ask Todd to sign the expansion when they meet on the weekend of 14–15 Nov, possibly with billing delayed until UC pays. The expected close is 20 Nov. The company goal is to close Phase 2 by 31 Dec.\n\nSeveral risks are open. The client has funds for year one only, so renewal in June 2027 depends on Ethic Select earning or raising money. The month-6 exit window opens around now. UC's browser is Edge and installs may need IT rights, so adoption by requisitioners is unproven. The legal questions from September, who is liable for an agent's determination and whether the platform agreements restrict a direct buyer surface, have no owner. And the team has never agreed with UC what good looks like in numbers.\n\nThe next proof point is a simulation on UC's own purchasing data, once Vickie shares it.",
+   "sources": [
+    "Delivery Sync, 9 Nov 2026",
+    "Weekly Pipeline Meeting, 11 Nov 2026",
+    "Notion weekly report, 2–6 Nov 2026",
+    "Linear",
+    "Notion: Q4 2026 Supernal Goals",
+    "Drive: 01 Ethic Select Order Form"
+   ]
+  }
+ ],
+ "answers": [
+  {
+   "q": "Is Labrynth Consulting part of this account?",
+   "a": "No. Labrynth is a separate client with its own Account OS account, deal, Linear tickets, Drive folders and repo. The names appear together because the same strategist and the same Origin squad deliver both, and Harvy is lent to Labrynth when Ethic Select is quiet."
+  },
+  {
+   "q": "What has to happen for the expansion to close?",
+   "a": "UC has to sign a contract with Ethic Select, which Todd’s investors require; Vickie agreed in principle on 5 Nov. Supernal owes Todd resource and cost estimates for Option A (end of February) or B (end of March). Johnny plans to ask for signature on 14 to 15 Nov, possibly with billing delayed until UC pays."
+  },
+  {
+   "q": "Why does this account matter beyond its revenue?",
+   "a": "It is the squad’s reference for design done by non-designers with AI tools: a Mobbin, Claude Code and Figma workflow produced a full prototype in under 1.5 hours, plus a narrated Remotion video and an interactive pricing slider. Each piece moved the deal: the video gave Todd words for investors, the prototype let UC see the punch-out gap closed, and the slider turned a price shock into a choice."
+  }
+ ],
+ "workflows": [
+  {
+   "name": "ES + Supernal Weekly Sync",
+   "kind": "external",
+   "cadence": "Weekly",
+   "with": "Todd Capps",
+   "output": "",
+   "lastRun": "",
+   "note": "Not recorded in Granola or Fathom under the connected account."
+  },
+  {
+   "name": "Weekly Brief deck",
+   "kind": "external",
+   "cadence": "Weekly",
+   "with": "Todd Capps",
+   "output": "Weekly Brief deck",
+   "lastRun": "29 Oct",
+   "note": "13 decks from W2 to W14."
+  },
+  {
+   "name": "Weekly recap email to Todd",
+   "kind": "external",
+   "cadence": "Weekly",
+   "with": "Todd Capps",
+   "output": "Recap email",
+   "lastRun": "",
+   "note": "In Gmail, not accessed."
+  },
+  {
+   "name": "Weekly Internal Ethic Select",
+   "kind": "internal",
+   "cadence": "Weekly",
+   "with": "Jaime, Harvy",
+   "output": "",
+   "lastRun": "",
+   "note": "Not recorded under the connected account."
+  },
+  {
+   "name": "Weekly Review + Next Cycle Plan",
+   "kind": "internal",
+   "cadence": "Weekly",
+   "with": "Origin squad: Jaime, Diana, Harvy, Vitor",
+   "output": "Linear cycle",
+   "lastRun": "6 Nov",
+   "note": "Covers Labrynth too."
+  },
+  {
+   "name": "Weekly Account Health report",
+   "kind": "internal",
+   "cadence": "Weekly",
+   "with": "Jaime",
+   "output": "Notion weekly report",
+   "lastRun": "6 Nov",
+   "note": "17 reports since August."
+  },
+  {
+   "name": "GTM weekly update approval",
+   "kind": "internal",
+   "cadence": "Weekly",
+   "with": "#gtm-report-approvals",
+   "output": "GTM update",
+   "lastRun": "",
+   "note": "This week’s update unapproved as of 13 Nov."
+  }
+ ]
+}

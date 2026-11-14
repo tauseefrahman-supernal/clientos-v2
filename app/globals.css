@@ -1,0 +1,344 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ── Primitive scales (identical in both modes; semantic layer inverts) ── */
+    /* Action 10-stop — sage, hand-tuned from #436F65 */
+    --color-action-1: 161 33% 98%;
+    --color-action-2: 161 28% 93%;
+    --color-action-3: 162 27% 85%;
+    --color-action-4: 163 25% 73%;
+    --color-action-5: 164 22% 60%;
+    --color-action-6: 164 20% 48%;
+    --color-action-7: 166 28% 36%;
+    --color-action-8: 167 38% 25%;
+    --color-action-9: 169 54% 15%;
+    --color-action-10: 168 74% 6%;
+    /* Surface 15-stop — warm neutral ladder */
+    --color-surface-1: 40 20% 97%;
+    --color-surface-2: 36 19% 95%;
+    --color-surface-3: 26 19% 93%;
+    --color-surface-4: 30 20% 90%;
+    --color-surface-4a: 33 13% 86%;
+    --color-surface-5: 30 10% 80%;
+    --color-surface-6: 32 10% 72%;
+    --color-surface-7: 33 9% 56%;
+    --color-surface-7a: 35 9% 37%;
+    --color-surface-8: 38 6% 26%;
+    --color-surface-9: 30 5% 16%;
+    --color-surface-9a: 30 3% 13%;
+    --color-surface-10: 30 2% 10%;
+    --color-surface-10a: 30 2% 8%;
+    --color-surface-11: 30 7% 6%;
+
+    /* ── Semantic: action (light) ── */
+    --color-action-default: var(--color-action-7);
+    --color-action-hover: var(--color-action-8);
+    --color-action-active: var(--color-action-9);
+    --color-action-foreground: 0 0% 100%;
+    --color-action-text: var(--color-action-8);
+    --color-action-subtle-bg: var(--color-action-3);
+    --color-action-subtle-fg: var(--color-action-9);
+
+    /* ── Semantic: surfaces (light) ── */
+    --color-bg-page: 40 20% 97%;
+    --color-bg-subtle: var(--color-surface-2);
+    --color-surface-card: 0 0% 100%;
+    --color-surface-input: var(--color-surface-card);
+    --color-surface-shape: var(--color-surface-3);
+    --color-surface-hover: var(--color-surface-4);
+    --color-code-block-bg: var(--color-surface-3);
+    --color-skeleton-highlight: var(--color-surface-1);
+    --color-switch-thumb: 0 0% 100%;
+    --color-card-hover-bg: var(--color-surface-2);
+    --color-table-header-bg: var(--color-surface-2);
+    --color-table-body-bg: var(--color-surface-card);
+
+    /* ── Semantic: text (light) ── */
+    --color-text-primary: var(--color-surface-11);
+    --color-text-secondary: var(--color-surface-10);
+    --color-text-tertiary: var(--color-surface-7a);
+    --color-text-placeholder: var(--color-surface-7);
+    --color-text-disabled: var(--color-surface-5);
+    --color-text-inverse: var(--color-surface-1);
+
+    /* ── Borders — foreground at low alpha (baked-alpha tokens; the ONLY
+          tokens allowed to contain hsl() in their definition) ── */
+    --color-border-subtle: hsl(var(--color-surface-11) / 0.08);
+    --color-border-default: hsl(var(--color-surface-11) / 0.10);
+    --color-border-input: hsl(var(--color-surface-11) / 0.12);
+    --color-border-strong: hsl(var(--color-surface-11) / 0.15);
+    --color-border-focus: var(--color-action-7); /* raw channels — solid */
+    --color-card-hover-border: hsl(var(--color-surface-11) / 0.15);
+    --color-card-focus-ring: hsl(var(--color-surface-11) / 0.15);
+    --color-overlay-bg: hsl(var(--color-surface-11) / 0.8);
+    --color-accent-subtle: hsl(var(--color-action-default) / 0.08);
+
+    /* ── Indicator tokens (non-interactive badges) ── */
+    --color-indicator-default-bg: var(--color-surface-3);
+    --color-indicator-default-text: var(--color-surface-8);
+    --color-indicator-default-border: hsl(var(--color-surface-11) / 0.08);
+    --color-indicator-inverse-bg: var(--color-surface-8);
+    --color-indicator-inverse-text: var(--color-surface-1);
+    --color-indicator-inverse-border: hsl(var(--color-surface-11) / 0.15);
+
+    /* ── Status — 4 tokens per state (light values) ── */
+    --color-status-success: 145 63% 42%;
+    --color-status-success-bg: 139 76% 97%;
+    --color-status-success-text: 142 72% 29%;
+    --color-status-success-border: 141 79% 85%;
+    --color-status-warning: 28 80% 52%;
+    --color-status-warning-bg: 48 100% 96%;
+    --color-status-warning-text: 26 91% 37%;
+    --color-status-warning-border: 48 97% 77%;
+    --color-status-error: 6 63% 46%;
+    --color-status-error-bg: 0 86% 97%;
+    --color-status-error-text: 6 63% 46%;
+    --color-status-error-border: 0 96% 89%;
+    --color-status-info: 204 64% 44%;
+    --color-status-info-bg: 214 99% 97%;
+    --color-status-info-text: 204 64% 44%;
+    --color-status-info-border: 213 97% 87%;
+
+    /* ── Viz palette — 8 identity colors + bg tints (light values) ── */
+    --color-viz-single: 197 13% 52%;   --color-viz-single-bg: 197 9% 93%;
+    --color-viz-1: 30 58% 64%;         --color-viz-1-bg: 30 41% 93%;
+    --color-viz-2: 9 37% 56%;          --color-viz-2-bg: 9 26% 93%;
+    --color-viz-3: 64 13% 45%;         --color-viz-3-bg: 64 9% 93%;
+    --color-viz-4: 345 22% 48%;        --color-viz-4-bg: 345 15% 93%;
+    --color-viz-5: 166 13% 54%;        --color-viz-5-bg: 166 9% 93%;
+    --color-viz-6: 19 45% 72%;         --color-viz-6-bg: 19 32% 93%;
+    --color-viz-7: 210 2% 49%;         --color-viz-7-bg: 210 1% 93%;
+
+    /* ── Sidebar (light — follows app mode, NOT forced dark) ── */
+    --sidebar-background: var(--color-surface-3);
+    --sidebar-foreground: var(--color-surface-7a);
+    --sidebar-border: hsl(var(--color-surface-11) / 0.08);
+    --sidebar-accent: var(--color-surface-4);
+    --sidebar-accent-foreground: var(--color-surface-7a);
+    --sidebar-active-bg: var(--color-surface-4);
+    --sidebar-active-fg: var(--color-action-7);
+    --sidebar-primary: var(--color-action-7);
+    --sidebar-primary-foreground: var(--color-action-foreground);
+    --sidebar-ring: var(--color-action-7);
+
+    /* ── shadcn bridge tokens ── */
+    --background: var(--color-bg-page);
+    --foreground: var(--color-text-primary);
+    --card: var(--color-surface-card);
+    --card-foreground: var(--color-text-primary);
+    --popover: var(--color-surface-card);
+    --popover-foreground: var(--color-text-primary);
+    --primary: var(--color-action-default);
+    --primary-foreground: var(--color-action-foreground);
+    --secondary: var(--color-surface-4);
+    --secondary-hover: var(--color-surface-5);
+    --secondary-active: var(--color-surface-6);
+    --secondary-foreground: var(--color-text-primary);
+    --muted: var(--color-surface-3);
+    --muted-foreground: var(--color-surface-7a);
+    --accent: var(--color-card-hover-bg);
+    --accent-foreground: var(--color-text-primary);
+    --destructive: var(--color-status-error);
+    --destructive-foreground: 0 0% 100%;
+    --ring: var(--color-action-default);
+    --radius: 0.5rem;
+    /* NOTE: --border and --input are baked-alpha — they alias the alpha
+       border tokens and are wired as plain var() (no hsl() wrap) in
+       tailwind.config.ts. See Task 2. */
+
+    /* ── Shadows (light geometry, palette-derived) ── */
+    --shadow-color: var(--color-surface-10);
+    --shadow-xs: 0 1px 1px 0 hsl(var(--shadow-color) / 0.05);
+    --shadow-sm: 0 1px 2px 0 hsl(var(--shadow-color) / 0.07);
+    --shadow-default: 0 1px 3px 0 hsl(var(--shadow-color) / 0.10), 0 1px 2px -1px hsl(var(--shadow-color) / 0.08);
+    --shadow-md: 0 4px 6px -1px hsl(var(--shadow-color) / 0.10), 0 2px 4px -2px hsl(var(--shadow-color) / 0.08);
+    --shadow-lg: 0 10px 15px -3px hsl(var(--shadow-color) / 0.10), 0 4px 6px -4px hsl(var(--shadow-color) / 0.08);
+    --shadow-xl: 0 20px 25px -5px hsl(var(--shadow-color) / 0.12), 0 8px 10px -6px hsl(var(--shadow-color) / 0.08);
+    --shadow-2xl: 0 25px 50px -12px hsl(var(--shadow-color) / 0.20);
+    --shadow-ring: inset 0 0 0 1px hsl(var(--color-surface-11) / 0.07);
+
+    /* ── Motion ── */
+    --duration-instant: 100ms;
+    --duration-fast: 150ms;
+    --duration-standard: 200ms;
+    --duration-expressive: 300ms;
+
+    /* ── Layout ── */
+    --width-content: 1440px;
+    --form-width-default: 560px;
+    --form-width-wide: 720px;
+    --nav-width: 240px;
+    --nav-width-collapsed: 64px;
+  }
+
+  .dark {
+    /* Semantic inversions only — primitives unchanged.
+       Values per brand/supernal/tokens.md dark columns: */
+    --color-action-default: var(--color-action-8);
+    --color-action-hover: var(--color-action-7);   /* dark LIFTS on hover */
+    --color-action-active: var(--color-action-9);
+    --color-action-text: var(--color-action-5);
+    --color-action-subtle-bg: var(--color-action-9);
+    --color-action-subtle-fg: var(--color-action-3);
+
+    --color-bg-page: var(--color-surface-11);
+    --color-bg-subtle: var(--color-surface-10);
+    --color-surface-card: var(--color-surface-10);
+    --color-surface-shape: var(--color-surface-9a);
+    --color-surface-hover: var(--color-surface-9);
+    --color-code-block-bg: var(--color-surface-11);
+    --color-skeleton-highlight: var(--color-surface-7);
+    --color-switch-thumb: var(--color-surface-2);
+    --color-card-hover-bg: var(--color-surface-9);
+    --color-table-header-bg: var(--color-surface-9);
+    --color-table-body-bg: var(--color-surface-10a);
+
+    --color-text-primary: var(--color-surface-3);
+    --color-text-secondary: var(--color-surface-4);
+    --color-text-tertiary: var(--color-surface-5);
+    --color-text-placeholder: var(--color-surface-7);
+    --color-text-disabled: var(--color-surface-7);
+    --color-text-inverse: var(--color-surface-11);
+
+    --color-border-subtle: hsl(var(--color-surface-3) / 0.06);
+    --color-border-default: hsl(var(--color-surface-3) / 0.08);
+    --color-border-input: hsl(var(--color-surface-3) / 0.10);
+    --color-border-strong: hsl(var(--color-surface-3) / 0.12);
+    --color-border-focus: var(--color-action-3);
+    --color-card-hover-border: hsl(var(--color-surface-3) / 0.12);
+    --color-card-focus-ring: hsl(var(--color-surface-3) / 0.12);
+
+    --color-indicator-default-bg: var(--color-surface-8);
+    --color-indicator-default-text: var(--color-surface-2);
+    --color-indicator-default-border: hsl(var(--color-surface-3) / 0.06);
+    --color-indicator-inverse-bg: var(--color-surface-5);
+    --color-indicator-inverse-text: var(--color-surface-11);
+    --color-indicator-inverse-border: hsl(var(--color-surface-3) / 0.12);
+
+    /* Status dark values — transcribe from supernal-palette.md Status tables */
+    --color-status-success: 142 69% 58%;
+    --color-status-success-bg: 145 80% 10%;
+    --color-status-success-text: 142 69% 58%;
+    --color-status-success-border: 144 61% 20%;
+    --color-status-warning: 48 97% 77%;
+    --color-status-warning-bg: 21 92% 14%;
+    --color-status-warning-text: 48 97% 77%;
+    --color-status-warning-border: 22 78% 26%;
+    --color-status-error: 0 91% 71%;
+    --color-status-error-bg: 0 75% 15%;
+    --color-status-error-text: 0 91% 71%;
+    --color-status-error-border: 0 70% 35%;
+    --color-status-info: 213 94% 68%;
+    --color-status-info-bg: 226 57% 21%;
+    --color-status-info-text: 213 94% 68%;
+    --color-status-info-border: 214 52% 24%;
+
+    /* Viz dark values — transcribe from supernal-palette.md viz tables */
+    --color-viz-single: 197 37% 40%;   --color-viz-single-bg: 197 12% 10%;
+    --color-viz-1: 30 47% 40%;         --color-viz-1-bg: 30 13% 10%;
+    --color-viz-2: 9 47% 40%;          --color-viz-2-bg: 9 13% 10%;
+    --color-viz-3: 64 37% 35%;         --color-viz-3-bg: 64 12% 10%;
+    --color-viz-4: 345 37% 40%;        --color-viz-4-bg: 345 11% 10%;
+    --color-viz-5: 166 32% 42%;        --color-viz-5-bg: 166 11% 10%;
+    --color-viz-6: 19 47% 45%;         --color-viz-6-bg: 19 13% 10%;
+    --color-viz-7: 210 6% 45%;         --color-viz-7-bg: 210 1% 10%;
+
+    --sidebar-background: var(--color-surface-10);
+    --sidebar-foreground: var(--color-surface-2);
+    --sidebar-border: hsl(var(--color-surface-3) / 0.06);
+    --sidebar-accent: var(--color-action-10);
+    --sidebar-accent-foreground: var(--color-surface-1);
+    --sidebar-active-bg: var(--color-surface-9);
+    --sidebar-active-fg: var(--color-action-5);
+    --sidebar-primary: var(--color-action-3);
+    --sidebar-primary-foreground: var(--color-surface-11);
+    --sidebar-ring: var(--color-surface-5);
+
+    --background: var(--color-bg-page);
+    --foreground: var(--color-text-primary);
+    --card: var(--color-surface-card);
+    --card-foreground: var(--color-text-primary);
+    --popover: var(--color-surface-card);
+    --popover-foreground: var(--color-text-primary);
+    --secondary: var(--color-surface-8);
+    --secondary-hover: var(--color-surface-9);
+    --secondary-active: var(--color-surface-9a);
+    --muted: var(--color-surface-9);
+    --muted-foreground: var(--color-surface-4);
+    --accent: var(--color-card-hover-bg);
+    --ring: var(--color-action-default);
+
+    /* Dark shadows — white halo + inset top-highlight per shadows.md.
+       Dark shadow vars hardcode their colors, so no --shadow-color is set here. */
+    --shadow-xs: 0 1px 1px 0 hsl(var(--color-surface-11) / 0.30);
+    --shadow-sm: 0 1px 2px 0 hsl(var(--color-surface-11) / 0.35), inset 0 1px 0 hsl(0 0% 100% / 0.04);
+    --shadow-default: 0 1px 3px 0 hsl(var(--color-surface-11) / 0.40), 0 1px 2px -1px hsl(var(--color-surface-11) / 0.30), inset 0 1px 0 hsl(0 0% 100% / 0.04);
+    --shadow-md: 0 4px 6px -1px hsl(var(--color-surface-11) / 0.45), 0 2px 4px -2px hsl(var(--color-surface-11) / 0.35), inset 0 1px 0 hsl(0 0% 100% / 0.05);
+    --shadow-lg: 0 10px 15px -3px hsl(var(--color-surface-11) / 0.50), 0 4px 6px -4px hsl(var(--color-surface-11) / 0.35), inset 0 1px 0 hsl(0 0% 100% / 0.06);
+    --shadow-xl: 0 20px 25px -5px hsl(var(--color-surface-11) / 0.55), 0 8px 10px -6px hsl(var(--color-surface-11) / 0.40), inset 0 1px 0 hsl(0 0% 100% / 0.07);
+    --shadow-2xl: 0 25px 50px -12px hsl(var(--color-surface-11) / 0.60), inset 0 1px 0 hsl(0 0% 100% / 0.07);
+    --shadow-ring: inset 0 0 0 1px hsl(var(--color-surface-5) / 0.20);
+
+    color-scheme: dark; /* native chrome theming per responsive-mobile.md */
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-inter), sans-serif;
+  }
+  h1, h2 { font-family: var(--font-lora), serif; }
+}
+
+/* Dark-mode floating panel borders — single scope rule per component-library.md */
+.dark [role="dialog"],
+.dark [role="alertdialog"],
+.dark [data-radix-popper-content-wrapper] {
+  --color-border-default: hsl(var(--color-surface-9));
+}
+
+/* Skeleton shimmer — single global class per skeleton.md (sanctioned gradient) */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--color-surface-shape))      25%,
+    hsl(var(--color-skeleton-highlight)) 50%,
+    hsl(var(--color-surface-shape))      75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+/* Reduced motion — single global safety net per motion.md */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---- ClientOS v2: rendered markdown in the vault and library ---- */
+@layer components {
+  .prose-vault { @apply flex flex-col gap-3 text-sm leading-relaxed; }
+  .prose-vault h1 { @apply mb-1; }
+  .prose-vault h2 { @apply mt-4 font-sans text-base font-semibold; }
+  .prose-vault h3 { @apply mt-3 font-sans text-sm font-semibold; }
+  .prose-vault p, .prose-vault li { @apply max-w-[72ch]; }
+  .prose-vault ul { @apply list-disc pl-5; }
+  .prose-vault ol { @apply list-decimal pl-5; }
+  .prose-vault blockquote { @apply border-l-2 border-border pl-3 text-muted-foreground; }
+  .prose-vault code { @apply rounded bg-muted px-1 font-mono text-xs; }
+  .prose-vault table { @apply block w-full overflow-x-auto border-collapse text-xs; }
+  .prose-vault th { @apply border-b border-border bg-muted px-2 py-1.5 text-left font-medium uppercase tracking-wide text-muted-foreground; }
+  .prose-vault td { @apply border-b border-border px-2 py-1.5 align-top; }
+}

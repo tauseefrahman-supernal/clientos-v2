@@ -1,0 +1,81 @@
+{
+  "at": "2026-11-13T15:31:54.702Z",
+  "passed": 2,
+  "total": 2,
+  "tokens": {
+    "input": 48355,
+    "output": 2798,
+    "cacheRead": 67700
+  },
+  "results": [
+    {
+      "id": "we-01",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "Book, chapter 2: Why they bought",
+        "File Sales Strategy/Concept-Alignment.md (part 4)",
+        "File Sales Strategy/Concept-Alignment.md (part 3)",
+        "File Sales Strategy/Concept-Alignment.md (part 3)",
+        "File Sales Strategy/Concept-Alignment.md (part 3)",
+        "File Sales Strategy/Concept-Alignment.md (part 4)",
+        "File Sales Strategy/Concept-Alignment.md (part 4)",
+        "File Sales Strategy/Concept-Alignment.md (part 3)",
+        "File Sales Strategy/Concept-Alignment.md (part 4)",
+        "File Sales Strategy/Concept-Alignment.md (part 3)",
+        "File Sales Strategy/Concept-Alignment.md (part 2)",
+        "File Sales Strategy/Concept-Alignment.md (part 4)",
+        "Book, chapter 2: Why they bought"
+      ],
+      "seconds": 18,
+      "answer": "Need Concept-Alignment section 4.2.Randy Carr bought Leadership OS because Supernal showed him his own management system, built from his own files, a week after he described it. He signed at $10K a month on 28 May 2026, two weeks after discovery [Book, chapter 2: Why they bought].\n\nThe reasons, most important first:\n\n1. **His pain was specific and he felt it every day.** About 15% of his time went on KPI work and chasing reds. His 300-line commitments sheet was about three-quarters not done. He wanted 80 to 85% of his time back and not to have to ask twice [File Sales Strategy/Concept-Alignment.md (part 4)] [File Sales Strategy/Concept-Alignment.md (part 3)]. He did not want the spreadsheet replaced; he wanted it made AI-native [File Sales Strategy/Concept-Alignment.md (part 3)].\n\n2. **The 21 May prototype mirrored his system.** Gabriella sent the org chart, T3 transcripts, objectives and the meeting-system template. Tauseef demoed a prototype built from them in about a day. Randy said he was doubling the budget and could see it replacing his whole FMDS system [File Sales Strategy/Concept-Alignment.md (part 3)]. Tauseef's view at the time was that Randy was excited because Supernal had matched what he said against what his data showed [File Sales Strategy/Concept-Alignment.md (part 4)].\n\n3. **It was a prototype, not a proposal.** Randy also asked for a standalone order form early, rather than one proposal at day 60 of the advisory [File Sales Strategy/Concept-Alignment.md (part 4)] [File Sales Strategy/Concept-Alignment.md (part 3)].\n\n4. **He saw a clear return.** He expected to free about three people from spreadsheet work [File Sales Strategy/Concept-Alignment.md (part 4)].\n\n5. **Simple pricing and a promise of fast value.** Internal pricing fell from $15K to $10K a month. The order form listed the deliverables plainly and promised value within 30 days, felt within 90. When Nick clicked through the prototype against the order form, Randy said to treat it as signed and not slow down [File Sales Strategy/Concept-Alignment.md (part 3)].\n\n6. **The advisory had already opened the door.** There was already an MSA. Nick's idea of rebuilding functions as if AI had always existed had led Randy to ask for an \"AI CEO\". Randy also spends about 10% of revenue on technology [File Sales Strategy/Concept-Alignment.md (part 2)].\n\n**Two things to keep in mind:**\n- **The pre-sale evidence is thin.** No written \"pattern\" deck shown to Randy before 28 May was found. What sold Leadership OS was the prototype and the spoken read-back of his system. The heavy analysis came afterwards and won FMDS OS [File Sales Strategy/Concept-Alignment.md (part 4)].\n- **The staffing numbers differ.** Randy's \"about three people\" is his own estimate. The June analysis counted two people at about $100K a year who only maintained sheets [Book, chapter 2: Why they bought].",
+      "steps": [
+        "searched “Leadership OS why they bought” · 8 hits",
+        "searched “Concept-Alignment Leadership OS cause” · 8 hits",
+        "read File Sales Strategy/Concept-Alignment.md (part 1)",
+        "read Book, chapter 2: Why they bought",
+        "searched “4.2 Leadership OS 21 May prototype doubling budget Randy” · 8 hits",
+        "read File Sales Strategy/Concept-Alignment.md (part 3)",
+        "read File Sales Strategy/Concept-Alignment.md (part 4)"
+      ],
+      "error": null,
+      "usage": {
+        "input": 35162,
+        "output": 1641,
+        "cacheRead": 39072
+      }
+    },
+    {
+      "id": "he-04",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Technical Strategy/Delivery-Plan.md (part 2)",
+        "File Delivery Strategy/AI-Strategy-Roadmap.md (part 2)",
+        "File Technical Strategy/Delivery-Plan.md (part 2)",
+        "File Technical Strategy/Delivery-Plan.md (part 2)",
+        "File Technical Strategy/Delivery-Plan.md (part 2)",
+        "File Delivery Strategy/Project-Plan.md (part 2)",
+        "File Technical Strategy/Accuracy-and-Timing-Evidence.md"
+      ],
+      "seconds": 13,
+      "answer": "**Stage 2 answer accuracy is above the gate: 97.2%, against the 95%+ needed at every stage before full automation** [File Technical Strategy/Delivery-Plan.md (part 2)]. The roadmap lists it as \"Met\" [File Delivery Strategy/AI-Strategy-Roadmap.md (part 2)].\n\nSome caveats before you rely on it:\n\n- **It's a mock-up figure.** The 97.2% came from the dashboard mock-up shown at the Heritage Platform Weekly Sync on 28 Oct 2026. It isn't a tracked production measurement [File Technical Strategy/Delivery-Plan.md (part 2)].\n- **There's no numeric target just for stage 2.** The Delivery-Plan's target column says only \"met\". The 95% bar comes from the 9 Sep platform testing session and applies to all three stages [File Technical Strategy/Delivery-Plan.md (part 2)].\n- **The overall gate is still not met.** Stage 1 routing is at 87.3% and stage 3 mapping at about 89%, both under 95% [File Technical Strategy/Delivery-Plan.md (part 2)]. Errors build on each other across the stages: three stages at 90% give about 73% end to end [File Delivery Strategy/Project-Plan.md (part 2)]. That means a strong stage 2 score doesn't make the pipeline ready for full automation.\n- **There's no trend yet.** Accuracy-and-Timing-Evidence is meant to hold stage accuracy by month, but it's only an outline with no figures [File Technical Strategy/Accuracy-and-Timing-Evidence.md].\n\n**What's missing:** I can't find any accuracy figure after 28 Oct. A newer measured number would most likely come from a later Heritage Platform Weekly Sync or from Linear, and it should go into Accuracy-and-Timing-Evidence as the first monthly entry.",
+      "steps": [
+        "searched “answer accuracy gate” · 8 hits",
+        "searched “accuracy threshold evaluation results” · 8 hits",
+        "read File Technical Strategy/Accuracy-and-Timing-Evidence.md",
+        "read File Technical Strategy/Delivery-Plan.md (part 2)"
+      ],
+      "error": null,
+      "usage": {
+        "input": 13193,
+        "output": 1157,
+        "cacheRead": 28628
+      }
+    }
+  ]
+}

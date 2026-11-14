@@ -1,0 +1,1603 @@
+{
+ "key": "rafferty",
+ "title": "Rafferty",
+ "strat": "Katie Jefferson",
+ "pod": "Johnny Borbone (AM), Katie Jefferson (strategist), Felipe Orlando (FDE), Thomas Bustos (CAIO, Holdings)",
+ "mrr": "$15,000",
+ "closedValue": "$180,000",
+ "closedCount": 2,
+ "health": {
+  "score": "3.4 / 3.2",
+  "band": "Watch",
+  "tone": "warn"
+ },
+ "fresh": [
+  "Current as of Slack, 13 Nov, and Weekly Checkpoint, 4 Nov",
+  "About 67 meetings since Apr",
+  "Two accounts: Rafferty Ventures (3.4) and Rafferty Holdings (3.2)"
+ ],
+ "transcripts": 0,
+ "deals": [
+  {
+   "name": "Rafferty Ventures: Ventures OS build",
+   "value": "$120,000",
+   "stage": "Closed Won 30 Jul",
+   "phase": 3,
+   "note": "$10,000 a month for 12 months from 29 Jul; exit option at month 6."
+  },
+  {
+   "name": "Rafferty Holdings: Chief AI Officer advisory",
+   "value": "$60,000",
+   "stage": "Closed Won 30 Jul",
+   "phase": 3,
+   "note": "$5,000 a month for 12 months from 29 Jul; now centred on training."
+  },
+  {
+   "name": "Rafferty Holdings: Holdings OS (Michael Raff OS)",
+   "value": "$90,000",
+   "stage": "Nurture, expected 31 Aug (passed)",
+   "phase": 0,
+   "note": "Paused in Sep after Michael found a cheaper vendor; Account OS still shows best case."
+  },
+  {
+   "name": "Direxion (Rafferty Holdings group): Ad Production OS",
+   "value": "$102,000",
+   "stage": "Nurture, expected 30 Nov",
+   "phase": 0,
+   "note": "Draft order form at $120,000; stalled since August though Account OS shows commit."
+  }
+ ],
+ "lost": "No deal is marked lost, but Holdings OS was paused in September and Direxion stalled in August; both still show as open in Account OS.",
+ "sold": [
+  {
+   "form": "Rafferty Ventures: OF-001 Ventures OS",
+   "promised": "Four milestones in 90 days (14 Aug, 4 Sep, 25 Sep, 23 Oct), then monthly cycles at the same fee; client owns code and data.",
+   "met": "Partly: M1 and M2 closed, M3 at 96%, M4 at 56% and past due.",
+   "tone": "warn"
+  },
+  {
+   "form": "Rafferty Holdings: OF-001 CAIO advisory",
+   "promised": "Discovery (month 1), AI roadmap v1 (months 2 to 3), mid-year review (month 6), monthly leadership review, supervision of builds.",
+   "met": "Partly: MORs and discovery held, training running; AI Roadmap v1 not found.",
+   "tone": "warn"
+  },
+  {
+   "form": "Rafferty Holdings: OF-002 Holdings OS (unsigned)",
+   "promised": "Holdings OS platform at $7,500 a month, Atlas later; read and report only.",
+   "met": "Never signed; paused Sep.",
+   "tone": "err"
+  },
+  {
+   "form": "Direxion: Ad Production OS order form (unsigned draft)",
+   "promised": "Ad variant generation from approved creative at $10,000 a month.",
+   "met": "Never signed; stalled.",
+   "tone": "err"
+  }
+ ],
+ "arc": [
+  {
+   "period": "Apr–May",
+   "meetings": null,
+   "points": [
+    "Late April in-person pitch to Henry and Michael; 13 May prototype on fake data, which Jack said was about 90% of the way there.",
+    "Mid-May discovery across the group became the Opportunity Report; Thomas questioned the bespoke Ventures build."
+   ]
+  },
+  {
+   "period": "Jun",
+   "meetings": null,
+   "points": [
+    "8 Jun commercial structure agreed with Jack and Henry: $10,000 a month for Ventures, $5,000 for a holdco-wide CAIO, client owns IP, Supernal absorbs usage."
+   ]
+  },
+  {
+   "period": "Jul",
+   "meetings": 4,
+   "points": [
+    "First SMPL call and first Holdings OS demo to Shari and Jackie on 8 Jul.",
+    "Both order forms signed 29 to 30 Jul after slow legal review."
+   ]
+  },
+  {
+   "period": "Aug",
+   "meetings": 17,
+   "points": [
+    "Ventures kickoff 5 Aug; Milestone 1 done 12 Aug; Affinity shipped its own AI agents.",
+    "Holdings OS pitched to Michael 20 Aug; restructured to $7,500 a month platform-only."
+   ]
+  },
+  {
+   "period": "Sep",
+   "meetings": 15,
+   "points": [
+    "SMPL sent a 13-question security questionnaire; Argus in production about 9 Sep.",
+    "Holdings OS and Direxion paused; internal review rated the account at risk (CAIO deep red)."
+   ]
+  },
+  {
+   "period": "Oct",
+   "meetings": 15,
+   "points": [
+    "Shari announced two in-house AI engineers and paused new builds on 1 Oct.",
+    "Handover from Tauseef to Katie; Shari asked for firm-wide training; Railway key rotation outage."
+   ]
+  },
+  {
+   "period": "Nov",
+   "meetings": 10,
+   "points": [
+    "Training discovery sessions started 3 to 4 Nov with positive feedback from Shari.",
+    "Data errors found live on 4 Nov, fixed by 5 Nov; inbox triage became the top priority."
+   ]
+  }
+ ],
+ "disagreements": [
+  "Pod: Account OS names Tauseef as Ventures strategist and Aziz as FDE (deal record: Thomas and Tauseef); in practice Katie is strategist and Felipe the engineer.",
+  "Start of billing: the 29 Sep internal sync says $15,000 a month since May; the order forms are effective 29 Jul and Account OS shows both closed 30 Jul.",
+  "ARR: Notion’s Ventures page shows $180,000; the Ventures contract alone is $120,000.",
+  "Michael’s investment: most sources say $4M in Infinity; one note says $4M in Supernal plus $4M in Infinity.",
+  "Holdings OS price: $13,500, $13,000, $10,000, $7,500 and $150,000 plus $1,500 a month all appear; Account OS carries $90,000.",
+  "Direxion value: $120,000 in the draft against $102,000 in Account OS with commit confidence, though the deal stalled in August.",
+  "Holdings OS expected close: Account OS still shows 31 Aug and best case for a deal paused in September.",
+  "Order-form numbering: both signed forms are OF-001; Holdings OS is headed OF-002 and legal says it should be OF-003.",
+  "Ventures signatory: the template names Shari James; the legal review note says Henry Mulholland signed.",
+  "Milestone 4 progress: 67% (27 Oct), 78% (4 Nov), 50% (10 Nov) and 56% (13 Nov).",
+  "Root cause of 4 Nov bugs: call notes blame the nightly email job; Felipe’s investigation found the calendar-based guess.",
+  "Health: Notion reports call Ventures “At risk” while Account OS says Watch; Holdings has two reads (3.0 and 2.0) for the week of 28 Sep."
+ ],
+ "streams": [
+  {
+   "name": "Rafferty Ventures: Ventures OS Milestone 4, portfolio health visible",
+   "state": "Late",
+   "tone": "err",
+   "pct": null,
+   "due": "Due 23 Oct; 56% in Linear on 13 Nov",
+   "measured": "Linear progress; usage score 2 of 5",
+   "learned": "Wrong data costs more trust than missing data; unit tests did not catch real-data errors.",
+   "attention": true
+  },
+  {
+   "name": "Rafferty Ventures: Ventures OS Milestone 3, prepared for every meeting",
+   "state": "Live",
+   "tone": "ok",
+   "pct": null,
+   "due": "Was due 25 Sep; 96%",
+   "measured": "One brief validated by Jack",
+   "learned": "Briefs needed the stage framework first; phone interface moved to M4.",
+   "attention": false
+  },
+  {
+   "name": "Rafferty Ventures: inbox triage and drafted replies",
+   "state": "Waiting on client",
+   "tone": "warn",
+   "pct": null,
+   "due": "No date",
+   "measured": "",
+   "learned": "Jack’s model of the dashboard is a ranked to-do list; drafts need SMPL mail write permission.",
+   "attention": true
+  },
+  {
+   "name": "Rafferty Ventures: release quality",
+   "state": "Building",
+   "tone": "info",
+   "pct": null,
+   "due": "No date",
+   "measured": "",
+   "learned": "Handover must include merge and deploy rights; reviewer availability across time zones is the limit.",
+   "attention": false
+  },
+  {
+   "name": "Rafferty Holdings: CAIO discovery and training sessions",
+   "state": "Live",
+   "tone": "ok",
+   "pct": null,
+   "due": "6 sessions over 3 weeks from 3 Nov; 4 to 5 more likely",
+   "measured": "Session feedback from Shari",
+   "learned": "Ask people to share their screen; smaller groups work better.",
+   "attention": false
+  },
+  {
+   "name": "Rafferty Holdings: firm-wide AI policy training",
+   "state": "Building",
+   "tone": "warn",
+   "pct": null,
+   "due": "Script lock 18 Nov; Q&As 30 Nov to 4 Dec; sign-off 11 Dec; report 15 Dec",
+   "measured": "Completion and quiz pass rate (80%)",
+   "learned": "The policy asks for directed training, so live Q&A is included; four SMPL items were needed by 13 Nov.",
+   "attention": true
+  },
+  {
+   "name": "Rafferty Holdings: hiring support",
+   "state": "Live",
+   "tone": "ok",
+   "pct": null,
+   "due": "No date",
+   "measured": "",
+   "learned": "Offering good-faith help built trust.",
+   "attention": false
+  },
+  {
+   "name": "Rafferty Holdings: training hub (Holdings OS light)",
+   "state": "Not started",
+   "tone": "info",
+   "pct": null,
+   "due": "About 1 week for a first version plus 3 to 4 days (Felipe’s estimate)",
+   "measured": "Who watched what; quiz scores",
+   "learned": "Shari wants Microsoft login and SharePoint copies; it competes with Felipe’s Ventures work.",
+   "attention": true
+  },
+  {
+   "name": "Rafferty Holdings: Holdings OS / Atlas",
+   "state": "Paused",
+   "tone": "",
+   "pct": null,
+   "due": "n/a",
+   "measured": "",
+   "learned": "No scoping call was ever held on data sources.",
+   "attention": false
+  },
+  {
+   "name": "Direxion (Rafferty Holdings group): Ad Production OS",
+   "state": "Paused",
+   "tone": "",
+   "pct": null,
+   "due": "Account OS expects close 30 Nov",
+   "measured": "",
+   "learned": "Stalled in August; client decision.",
+   "attention": false
+  }
+ ],
+ "tiles": [
+  {
+   "file": "roadmap",
+   "section": "Roadmap › 7",
+   "title": "Success metrics",
+   "headline": "No written baseline or KPI; usage stuck at 2 of 5, logs in when prompted.",
+   "tone": "err",
+   "state": "Undefined"
+  },
+  {
+   "file": "plan",
+   "section": "Plan › Commercials",
+   "title": "Commercial model",
+   "headline": "$15,000 a month across two order forms; Ventures exit-notice window opens about 29 Dec.",
+   "tone": "warn",
+   "state": "Exit window near"
+  },
+  {
+   "file": "plan",
+   "section": "Plan › Dependencies",
+   "title": "Dependencies",
+   "headline": "SMPL gates every permission: mail write, Teams app and training hub all wait on it.",
+   "tone": "warn",
+   "state": "Blocked on SMPL"
+  },
+  {
+   "file": "roadmap",
+   "section": "Roadmap › Opportunity",
+   "title": "Opportunity map",
+   "headline": "New builds paused for in-house engineers; growth now runs through training and advice.",
+   "tone": "info",
+   "state": "Premise changed"
+  },
+  {
+   "file": "stakeholders",
+   "section": "Stakeholders › Power",
+   "title": "Power map",
+   "headline": "Michael decides through Shari; Jack champions Ventures; Henry under-engaged.",
+   "tone": "warn",
+   "state": "Sponsor distant"
+  },
+  {
+   "file": "stakeholders",
+   "section": "Stakeholders › Health",
+   "title": "Health",
+   "headline": "Ventures 3.4 and Holdings 3.2, both Watch; Holdings up from 2.0 since mid Oct.",
+   "tone": "warn",
+   "state": "Recovering"
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Date the Month 3 review and Phase 2 with Jack",
+   "detail": "RAFVTS-77 was due about 23 Oct and must land before the exit-notice window in late December.",
+   "action": "Propose date"
+  },
+  {
+   "title": "Training hub as a separate small app",
+   "detail": "Needs sign-off; it competes with Felipe’s Ventures work and needs Rafferty IT approval.",
+   "action": "Decide"
+  },
+  {
+   "title": "Policy training plan readiness",
+   "detail": "Confirm live Q&A satisfies the policy and the 18 Nov script lock is realistic.",
+   "action": "Confirm with Thomas"
+  },
+  {
+   "title": "Firm boundary in Ventures OS",
+   "detail": "Whether one holding and the raffre.com domain count as part of the firm.",
+   "action": "Decide"
+  },
+  {
+   "title": "Define value and usage metrics",
+   "detail": "Still undefined; agree measures that speak to Michael such as time saved and follow-up speed.",
+   "action": "Draft metrics"
+  },
+  {
+   "title": "Fix Account OS and Linear records",
+   "detail": "Both still name Tauseef and Aziz; Holdings has no pod.",
+   "action": "Update records"
+  }
+ ],
+ "slipping": [
+  {
+   "kind": "Past target",
+   "tone": "err",
+   "item": "Rafferty Ventures: Milestone 4",
+   "detail": "Due 23 Oct; 56% on 13 Nov."
+  },
+  {
+   "kind": "Past target",
+   "tone": "err",
+   "item": "Rafferty Ventures: Month 3 review and Phase 2 sequencing (RAFVTS-77)",
+   "detail": "Due about 23 Oct; undated."
+  },
+  {
+   "kind": "Blocked on client",
+   "tone": "warn",
+   "item": "Rafferty Ventures: Teams app (RAFVTS-92)",
+   "detail": "Waiting on SMPL setup, no date."
+  },
+  {
+   "kind": "Promised, no task",
+   "tone": "err",
+   "item": "Rafferty Holdings: AI Roadmap v1",
+   "detail": "Contractually months 2 to 3; not found anywhere."
+  },
+  {
+   "kind": "Expectation gap",
+   "tone": "warn",
+   "item": "Rafferty Ventures: value and usage metrics",
+   "detail": "Order form promised a week-1 baseline; still undefined."
+  },
+  {
+   "kind": "Promised, no task",
+   "tone": "warn",
+   "item": "Rafferty Holdings: training, hiring and hub work",
+   "detail": "No Linear team exists for Holdings, so none of the CAIO work is tracked."
+  },
+  {
+   "kind": "Open risk",
+   "tone": "warn",
+   "item": "Single engineer",
+   "detail": "Felipe is the only engineer and is being asked to build the training hub too."
+  }
+ ],
+ "dates": [
+  {
+   "when": "13 Nov",
+   "what": "Four SMPL items due to hold the training date"
+  },
+  {
+   "when": "18 Nov",
+   "what": "Training video script lock"
+  },
+  {
+   "when": "20 Nov",
+   "what": "Remaining discovery sessions finish (about)"
+  },
+  {
+   "when": "30 Nov",
+   "what": "Account OS expected close for the Direxion deal"
+  },
+  {
+   "when": "30 Nov",
+   "what": "Live Q&A sessions per entity begin (to 4 Dec)"
+  },
+  {
+   "when": "11 Dec",
+   "what": "AI policy attestation sign-off due"
+  }
+ ],
+ "feed": [
+  {
+   "meeting": "Raff Venture AI OS - Weekly Checkpoint",
+   "date": "4 Nov",
+   "changes": [
+    "Ventures OS: Jack found several data errors live; fixed in production by 5 Nov, postmortem 6 Nov.",
+    "Priorities: Jack asked for a ranked “My day” view rather than clicking through deals."
+   ]
+  },
+  {
+   "meeting": "AI Discovery Session: RH EAs + Supernal",
+   "date": "4 Nov",
+   "changes": [
+    "Use cases: one task list from Michael’s texts, emails and calls; a single invoice inbox; Concur receipts."
+   ]
+  },
+  {
+   "meeting": "Workshops sync",
+   "date": "3 Nov",
+   "changes": [
+    "Training: Shari wants meaty, survey-led sessions; smaller cohorts and screen-share walk-throughs adopted.",
+    "Adoption: Drew is the power user, Henry under-engaged."
+   ]
+  },
+  {
+   "meeting": "SMPL coordination",
+   "date": "27 Oct",
+   "changes": [
+    "Incident: Railway key rotation recap; Teams app chosen over a channel post, waiting on SMPL setup."
+   ]
+  },
+  {
+   "meeting": "Rafferty - Team AI Training Session Prep",
+   "date": "20 Oct",
+   "changes": [
+    "People: Michael Radzicki introduced as Head of AI; Supernal asked to review the Lead AI Engineer JD.",
+    "Training: 8 to 10 sessions planned across Direxion, Hilton, Holdings and Real Estate."
+   ]
+  }
+ ],
+ "people": [
+  {
+   "name": "Michael Rafferty",
+   "title": "CEO, Rafferty Holdings",
+   "note": "At the start: interested but price-sensitive, felt double-billed given his investment. Now: distant; chose in-house engineers and a cheaper vendor.",
+   "influence": "High",
+   "disposition": "Skeptic"
+  },
+  {
+   "name": "Shari James",
+   "title": "CFO, Rafferty Holdings",
+   "note": "At the start: champion in July. Now: warm again since mid Oct after a cold spell; asking for training and hiring help.",
+   "influence": "High",
+   "disposition": "Supporter"
+  },
+  {
+   "name": "Jack Grady",
+   "title": "Ventures day-to-day lead (GP)",
+   "note": "At the start: very positive. Now: engaged and gracious through the 4 Nov bugs; wants a ranked to-do view and inbox triage.",
+   "influence": "Medium",
+   "disposition": "Champion"
+  },
+  {
+   "name": "Henry Mulholland",
+   "title": "EVP across the group",
+   "note": "At the start: engaged at kickoff. Now: under-engaged; took weeks to consent to mailbox reading.",
+   "influence": "High",
+   "disposition": "Neutral"
+  },
+  {
+   "name": "Drew Quinn",
+   "title": "Associate, Ventures",
+   "note": "At the start: curious, asked how it beats Claude. Now: power user who produces the monthly deck.",
+   "influence": "Low",
+   "disposition": "Champion"
+  },
+  {
+   "name": "Michael Radzicki",
+   "title": "Head of AI (formerly Direxion IT)",
+   "note": "New ally to develop; works with Shari on rollout and hiring; uneasy with the AI title.",
+   "influence": "Medium",
+   "disposition": "Neutral"
+  },
+  {
+   "name": "Jacqueline (Jackie) Bader",
+   "title": "Executive assistant to Michael",
+   "note": "At the start: positive on the Holdings OS prototype. Now: engaged in discovery.",
+   "influence": "Low",
+   "disposition": "Supporter"
+  },
+  {
+   "name": "Jessica Fernandez",
+   "title": "CMO, Direxion",
+   "note": "At the start: interested. Now: the Direxion deal has stalled.",
+   "influence": "Medium",
+   "disposition": "Neutral"
+  },
+  {
+   "name": "Peter LaRocca",
+   "title": "SMPL, acts as CTO",
+   "note": "Security gatekeeper; reasonable and cautious throughout.",
+   "influence": "Medium",
+   "disposition": "Neutral"
+  },
+  {
+   "name": "Katie Jefferson",
+   "title": "Supernal strategist",
+   "note": "Brought in 11 Aug for growth across entities; leads Ventures delivery from about 14 Oct and co-runs CAIO training.",
+   "influence": "High",
+   "disposition": "Champion"
+  },
+  {
+   "name": "Thomas Bustos",
+   "title": "Supernal Chief AI Officer for Holdings",
+   "note": "Internal critic who questioned the Ventures build early; runs the training programme with Katie.",
+   "influence": "High",
+   "disposition": "Supporter"
+  },
+  {
+   "name": "Johnny Borbone",
+   "title": "Supernal account lead",
+   "note": "Has held the relationship since the first pitch; owns every deal and records weekly health.",
+   "influence": "High",
+   "disposition": "Supporter"
+  },
+  {
+   "name": "Felipe Orlando",
+   "title": "Supernal engineer",
+   "note": "Sole engineer on Ventures OS since 15 Oct; found the 4 Nov cause within the hour.",
+   "influence": "Medium",
+   "disposition": "Supporter"
+  }
+ ],
+ "metrics": [
+  {
+   "criterion": "Rafferty Ventures: primary KPI, quality and completeness of deal and portfolio context",
+   "now": "No baseline or target written down",
+   "state": "Undefined",
+   "tone": "err"
+  },
+  {
+   "criterion": "Rafferty Ventures: M2, last touch on a company in under 10 seconds",
+   "now": "Milestone closed",
+   "state": "Met",
+   "tone": "ok"
+  },
+  {
+   "criterion": "Rafferty Ventures: M3, prepared for every meeting; log a deal from a phone in under 60 seconds",
+   "now": "Brief live; phone logging not built",
+   "state": "Partly",
+   "tone": "warn"
+  },
+  {
+   "criterion": "Rafferty Ventures: M4, which portfolio company needs attention without a meeting",
+   "now": "Health view live; alerts and signals not started",
+   "state": "Behind",
+   "tone": "err"
+  },
+  {
+   "criterion": "Rafferty Ventures: usage score",
+   "now": "2 of 5, logs in when prompted",
+   "state": "Flat",
+   "tone": "warn"
+  },
+  {
+   "criterion": "Rafferty Holdings: AI policy training quiz pass mark",
+   "now": "80% target; training not yet run",
+   "state": "Not started",
+   "tone": "info"
+  }
+ ],
+ "accountos": [
+  {
+   "record": "Weekly health",
+   "now": "Ventures 3.4 and Holdings 3.2, both Watch, week of 2 Nov; renewal risk Medium.",
+   "proposes": "Ventures Watch for usage and M4; Holdings trending up on training feedback from Shari."
+  },
+  {
+   "record": "Stakeholders",
+   "now": "Empty on both accounts.",
+   "proposes": "Michael Rafferty, Shari James, Jack Grady, Henry Mulholland, Drew Quinn, Michael Radzicki and SMPL’s Peter LaRocca."
+  },
+  {
+   "record": "Success plan",
+   "now": "Empty on both accounts.",
+   "proposes": "Ventures M4 and usage to daily; Holdings training completion, quiz pass rate and AI Roadmap v1."
+  },
+  {
+   "record": "Cadence",
+   "now": "Empty on both accounts.",
+   "proposes": "Wednesday Ventures checkpoint, Monday internal planning, SMPL call, monthly MOR with Shari."
+  },
+  {
+   "record": "Value",
+   "now": "Empty on both accounts.",
+   "proposes": "Generated monthly deck judged better than manual; pages about ten times faster after 6 Nov."
+  },
+  {
+   "record": "Whitespace",
+   "now": "Empty on both accounts.",
+   "proposes": "Holdings finance close and Sage Intacct queries, EA task list, Direxion and Hilton use cases, training hub."
+  },
+  {
+   "record": "Renewal",
+   "now": "No renewal plan recorded; Notion gives Ventures renewal as 31 Jul 2027.",
+   "proposes": "Ventures exit-notice window about 29 Dec to 29 Jan 2027; Holdings term ends 29 Jul 2027 with no auto-renewal."
+  }
+ ],
+ "rationale": [
+  {
+   "decision": "Affinity stays the system of record; Ventures OS does not become a CRM",
+   "why": "The team lives in Affinity and Thomas had warned against rebuilding one.",
+   "source": "Engineering Kickoff, 5 Aug"
+  },
+  {
+   "decision": "One AI employee, not three workflows",
+   "why": "Keep the story and the build simple.",
+   "source": "Tauseef / Thomas (Rafferty), 3 Aug"
+  },
+  {
+   "decision": "Argus on Hermes with chat and memory, not a dashboard alone",
+   "why": "A dashboard-only product would see low use; a conversational coworker is the real difference from Affinity.",
+   "source": "AI Coworker for Rafferty Ventures, 27 Aug"
+  },
+  {
+   "decision": "Transcript access follows the calendar invite",
+   "why": "Henry’s sensitive conversations differ from the day-to-day.",
+   "source": "Engineering Kickoff, 19 Aug"
+  },
+  {
+   "decision": "Five stages with explicit triggers; Holding pattern is a flag",
+   "why": "Tasks and briefs were noise without knowing what each stage needs.",
+   "source": "Deal Structure Q & A, 25 Sep"
+  },
+  {
+   "decision": "GP View dropped for an email-based financials request",
+   "why": "GP View has no API and companies ignore its no-reply emails.",
+   "source": "Weekly Checkpoint, 9 Sep"
+  },
+  {
+   "decision": "Suggested tasks need accept or reject with a reason",
+   "why": "Jack wanted a way to train them, and stale ones pile up.",
+   "source": "Weekly Checkpoint, 9 and 23 Sep"
+  },
+  {
+   "decision": "Email is read only for deal domains, and only highlights surface",
+   "why": "SMPL’s concern about mailbox permissions and business email compromise.",
+   "source": "Weekly Checkpoint, 8 Oct"
+  },
+  {
+   "decision": "Do not guess which company a transcript belongs to",
+   "why": "The calendar-based guess was wrong 37 times out of 37; no deal beats the wrong deal.",
+   "source": "Slack #acnt-rafferty-ventures-internal, 5 Nov"
+  },
+  {
+   "decision": "Holdings OS is read and report only",
+   "why": "Personal financial data and no clear route to bank APIs.",
+   "source": "NEW GTM + Scoping, 21 Aug"
+  }
+ ],
+ "sections": [
+  {
+   "category": "Entity and Engagement Map",
+   "group": 0,
+   "desc": "Which entity bought what, under which order form; the first thing a new person needs.",
+   "files": [
+    {
+     "name": "Entity-List",
+     "summary": "Entities with regulators and leaders."
+    },
+    {
+     "name": "Engagement-Order-Form-Map",
+     "summary": "Engagement to entity to order form."
+    },
+    {
+     "name": "Holdings-OS-Glossary",
+     "summary": "Which Holdings OS do you mean."
+    },
+    {
+     "name": "Investor-Relationship",
+     "summary": "Michael’s investment in Infinity and its effect on pricing."
+    }
+   ]
+  },
+  {
+   "category": "Third-Party IT Gatekeeper (SMPL)",
+   "group": 2,
+   "desc": "Every access request and security answer with SMPL.",
+   "files": [
+    {
+     "name": "Access-Request-Log",
+     "summary": "Graph, calendar, mailbox, SharePoint, Affinity, Granola, Teams, mail write."
+    },
+    {
+     "name": "Security-Questionnaire",
+     "summary": "The 13 questions and the written response."
+    },
+    {
+     "name": "Data-Flow-Diagram",
+     "summary": "How data moves through Ventures OS."
+    },
+    {
+     "name": "SMPL-Call-Record",
+     "summary": "The SMPL call series."
+    }
+   ]
+  },
+  {
+   "category": "Data Handling and Compliance",
+   "group": 2,
+   "desc": "What client data goes to model providers and which tools are allowed per entity.",
+   "files": [
+    {
+     "name": "Data-Exceptions-Log",
+     "summary": "Each new kind of data sent to a model provider."
+    },
+    {
+     "name": "Client-Consents",
+     "summary": "Written consents from Jack and Henry."
+    },
+    {
+     "name": "Email-Allow-List",
+     "summary": "Deal-domain rules."
+    },
+    {
+     "name": "Compliance-by-Entity",
+     "summary": "Granola and Plaud for Ventures only; SEC/FINRA limits; AI policy drafts."
+    }
+   ]
+  },
+  {
+   "category": "Incidents and Handover",
+   "group": 3,
+   "desc": "Two incidents and two team changes.",
+   "files": [
+    {
+     "name": "Railway-Key-Rotation",
+     "summary": "Timeline for Rafferty."
+    },
+    {
+     "name": "4-Nov-Postmortem",
+     "summary": "Internal and client versions."
+    },
+    {
+     "name": "Release-Checklist",
+     "summary": "Real-data check before release."
+    },
+    {
+     "name": "Handover-Record",
+     "summary": "Who held which role when; merge and deploy rights."
+    }
+   ]
+  },
+  {
+   "category": "Unsold and Paused Scope",
+   "group": 1,
+   "desc": "Holdings OS and Direxion, easy to lose.",
+   "files": [
+    {
+     "name": "Holdings-OS-Order-Forms",
+     "summary": "Drafts with legal notes and the deal review."
+    },
+    {
+     "name": "Direxion-Proposal",
+     "summary": "Proposal and draft order form."
+    },
+    {
+     "name": "Pricing-History",
+     "summary": "Every price discussed, including Brennan’s quote."
+    }
+   ]
+  },
+  {
+   "category": "Training Programme",
+   "group": 3,
+   "desc": "The CAIO engagement as it now runs.",
+   "files": [
+    {
+     "name": "Programme-Plan",
+     "summary": "Rollout order by entity."
+    },
+    {
+     "name": "Survey-Insights",
+     "summary": "Survey and results."
+    },
+    {
+     "name": "Discovery-Session-Notes",
+     "summary": "One page per session with pain points."
+    },
+    {
+     "name": "Policy-Training-Proposal",
+     "summary": "Dates and quiz rules."
+    },
+    {
+     "name": "Hiring-Playbook",
+     "summary": "JD feedback and Hiring your AI engineers."
+    }
+   ]
+  },
+  {
+   "category": "Client Reporting Templates",
+   "group": 3,
+   "desc": "What good looks like for generated output.",
+   "files": [
+    {
+     "name": "Monthly-Decks",
+     "summary": "Drew’s monthly decks by month and Jack’s slide order."
+    },
+    {
+     "name": "Company-Tiers",
+     "summary": "High-touch and low-touch companies."
+    },
+    {
+     "name": "Deal-Stage-Standard",
+     "summary": "Five stages and their triggers."
+    }
+   ]
+  },
+  {
+   "category": "Product Design and UX",
+   "group": 2,
+   "desc": "Design artifacts for Ventures OS and the Holdings OS prototype.",
+   "files": [
+    {
+     "name": "Ventures-OS-Mockups",
+     "summary": "New UI, after-call tasks, deal email, inbox triage and My day."
+    },
+    {
+     "name": "UI-Feedback-Log",
+     "summary": "Jack and Drew’s feedback and what changed."
+    },
+    {
+     "name": "Holdings-OS-Design",
+     "summary": "Heritage green and gold prototype with Atlas."
+    }
+   ]
+  }
+ ],
+ "artifacts": [
+  {
+   "kind": "Order form",
+   "title": "Rafferty Ventures: 001 Rafferty Ventures Strategy Order Form V2",
+   "date": "15 Oct",
+   "what": "The Ventures OS contract text.",
+   "url": "https://docs.google.com/document/d/1-M6ba_MTj0nAfB9Xqv8tmHtfS81o1JzLFPEam15wU_8",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "Rafferty Ventures: signed order form (Docusign PDF)",
+   "date": "30 Jul",
+   "what": "Executed copy of the Ventures order form (not opened).",
+   "url": "https://drive.google.com/file/d/1mQ9CGk-BN8Ccf6PjtyYniNpl_9TqRuuQ/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Rafferty Ventures: Kickoff",
+   "date": "3 Aug",
+   "what": "Kickoff presentation.",
+   "url": "https://docs.google.com/presentation/d/1nq8lYHRNLL4_hB81M_YiThKtigpRhxEzhfluzarfDQE",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Rafferty Ventures x Supernal: Kickoff",
+   "date": "3 Aug",
+   "what": "Kickoff context document.",
+   "url": "https://docs.google.com/document/d/1z7DjOSRim8hNyNvnQZes9uNroNoI1Idat0yPkQgiuIk",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Rafferty Ventures: Weekly Update, Aug 12",
+   "date": "12 Aug",
+   "what": "Weekly client deck.",
+   "url": "https://docs.google.com/presentation/d/1-BZTMi24nQXFwjGcKzZ1ct5t7OFIBszgYhRhOoJ6Kmg",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Rafferty Ventures: Weekly Update, Aug 19",
+   "date": "19 Aug",
+   "what": "Weekly client deck.",
+   "url": "https://docs.google.com/presentation/d/1mL0PSwDYSrjP0bbX6J6XPuoGTzyhXc8uO2VXRMEFIhk",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Rafferty Ventures: Weekly Update, Aug 26",
+   "date": "26 Aug",
+   "what": "Weekly client deck.",
+   "url": "https://docs.google.com/presentation/d/1JoEa9ZNcztOQsnFeHUVz8us17AzwIVbhCZ6VyaG2Czg",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Rafferty Ventures: Weekly Update, Sep 9",
+   "date": "9 Sep",
+   "what": "Weekly client deck.",
+   "url": "https://docs.google.com/presentation/d/1u7qDVxP4c6RpDE9SGILIvD9SEWSnDXT_mxb88TfXYEM",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Rafferty Ventures: September Monthly Update (client’s own deck)",
+   "date": "9 Sep",
+   "what": "The client’s monthly deck with portfolio company detail; the template the generated deck must match.",
+   "url": "https://drive.google.com/file/d/16pWpseYcqokTb8vzWuj0KbuodPjjEe7f/view",
+   "where": "Drive",
+   "sensitive": true
+  },
+  {
+   "kind": "Deck",
+   "title": "Rafferty Ventures: Weekly Update, Sep 23",
+   "date": "23 Sep",
+   "what": "Weekly client deck.",
+   "url": "https://docs.google.com/presentation/d/1fRT2X1EPqw_01LMau8HfeRKeV_N1gPT8DcPFhm1_mY4",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Rafferty Ventures · Internal Sync · 29 Sep",
+   "date": "29 Sep",
+   "what": "Internal account health review.",
+   "url": "https://docs.google.com/presentation/d/1DwvwJRQXwgkk9ejK_UIIfYHg2bt5GEvLavmiixidxA8",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Rafferty Ventures: Weekly Update, Oct 7",
+   "date": "7 Oct",
+   "what": "Weekly client deck.",
+   "url": "https://docs.google.com/presentation/d/1ihe258SDwl-LPi98IG8tJwC6vdOTGmOL303o8wYvcBk",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Rafferty Ventures: Weekly Update, Oct 14",
+   "date": "14 Oct",
+   "what": "Weekly client deck; last one in Google Slides.",
+   "url": "https://docs.google.com/presentation/d/1iCHJZQa3zlOYL2bKArsMPcgj-IAwvULmMcz2ko2fQ0I",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "Rafferty Holdings: 001 Rafferty Holding Strategy Order Form",
+   "date": "31 Aug",
+   "what": "The CAIO contract text.",
+   "url": "https://docs.google.com/document/d/14bSFqlJezywt1WAXr4p-7jgCJnhpfXYac451cOInPEY",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "Rafferty Holdings: 002 Order Form (Holdings OS), draft",
+   "date": "26 Aug",
+   "what": "Two unsigned versions, Holdings OS at $7,500 and OS + Atlas at $13,500, plus legal review notes.",
+   "url": "https://docs.google.com/document/d/1MiMADxXqKLeaBlgVgfcYoUMNcUaRGOoEMH_kncJALr8",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Rafferty Holdings: CAIO",
+   "date": "27 Aug",
+   "what": "CAIO monthly review material (not opened).",
+   "url": "https://docs.google.com/presentation/d/1U3kl9ZJ2eiYB4GHaGD0d9vEqVSppeDGcABQ_aZnWFuE",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Rafferty Holdings: Chief AI Officer Advisory Kickoff",
+   "date": "5 Aug",
+   "what": "CAIO kickoff.",
+   "url": "https://docs.google.com/presentation/d/1HL4Bwn4HrTl2Ih_Wgw43wdbNsiIW4Bi6ntcEVGj5Iow",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "CTO alignment working session",
+   "date": "18 Aug",
+   "what": "SMPL alignment session.",
+   "url": "https://docs.google.com/presentation/d/123Q41GGzshL8yDf5kK3FsFzsJF2rGwkr1Q1L8On7MZM",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Rafferty Holdings: Training & Workshops Kickoff",
+   "date": "19 Aug",
+   "what": "Training kickoff with Shari.",
+   "url": "https://docs.google.com/presentation/d/1E6F1z8WXPV7Fylm4DZRMpQdJREVXzk-Cgs0jM_1w4EA",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Rafferty Holdings: 2026-08-20 Chief AI Officer Update",
+   "date": "20 Aug",
+   "what": "Portfolio-wide update for Michael.",
+   "url": "https://docs.google.com/presentation/d/16ewQWHOEjagAZFHFd2ZDY_kRqFv-MN2eiZ5l-0i6ZJ0",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Rafferty Holdings: AI Workshop Series 2",
+   "date": "21 Aug",
+   "what": "Workshop plan.",
+   "url": "https://docs.google.com/presentation/d/1tkzpKQH4QUQQblSsDrUEVyvbvkgzdHn3",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Rafferty Holdings: AI Workshop One-Pager",
+   "date": "21 Aug",
+   "what": "Executive one-pager of the workshop plan.",
+   "url": "https://drive.google.com/file/d/11c5ddmBWq7U97ltLAWQqqLeR4txBvzMh/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Rafferty Holdings: AI Workshop Discovery Survey",
+   "date": "21 Aug",
+   "what": "Survey questions.",
+   "url": "https://docs.google.com/document/d/17ixPZE037h66Nd-B6qLNOqSSqKrKkdyu",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "2026-09-01 CTO alignment working session",
+   "date": "1 Sep",
+   "what": "SMPL session.",
+   "url": "https://docs.google.com/presentation/d/1Xy63vK0yi-e8qwl9cFQgANUvFUNJHrm1UlrU3KmvT0k",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Rafferty Holdings: AI Training Program Plan",
+   "date": "20 Aug",
+   "what": "Training programme plan.",
+   "url": "https://drive.google.com/file/d/1IQpvWz7xieBdUYz6Iei-h4f68zl8k56t/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Rafferty Holdings: Shari call deck, CAIO style",
+   "date": "20 Oct",
+   "what": "Deck for the training call with Shari.",
+   "url": "https://docs.google.com/presentation/d/1f1WvVZMkotHOIV9-7xh9FoJMeJjEhInJj6nLQZjxKqo",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Rafferty Holdings: Hiring your AI engineers",
+   "date": "26 Oct",
+   "what": "Hiring playbook sent with the JD feedback.",
+   "url": "https://drive.google.com/file/d/1G62w0mwwGKbg2ke1GMOQGglMjPFL7B74/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "Direxion: 001 Rafferty Direxion Order Form, draft",
+   "date": "9 Jul",
+   "what": "Direxion Ad Production OS at $10,000 a month; unsigned.",
+   "url": "https://docs.google.com/document/d/1ftYp-EmdHBfD4pJzdVoBRf-S_lZo1jij11Ddv91jPfY",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Proposal",
+   "title": "Direxion: Ad Production proposal",
+   "date": "24 Jun",
+   "what": "Direxion proposal (not opened).",
+   "url": "https://drive.google.com/file/d/1jRhOmyFhsBMyU8WfywLitUInGFan2gX5/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Prototype",
+   "title": "Rafferty Ventures: VentureOS prototype",
+   "date": "7 Aug",
+   "what": "The May sales prototype for Ventures.",
+   "url": "https://rafferty-demo-production.demos.getsupernal.ai/",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Prototype",
+   "title": "Rafferty Holdings: Holdings OS prototype",
+   "date": "17 Aug",
+   "what": "Michael’s Life App demo with Atlas, on illustrative numbers.",
+   "url": "https://rafferty-holdings-app-production.demos.getsupernal.ai/",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Design",
+   "title": "Rafferty Ventures: New UI",
+   "date": "18 Aug",
+   "what": "Early UI direction.",
+   "url": "https://claude.ai/artifacts/0f681690-6a1e-4f5d-9656-c150697de53e",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Site",
+   "title": "Rafferty Ventures: VentureOS production app",
+   "date": "17 Sep",
+   "what": "Live product.",
+   "url": "https://client-rafferty-production.up.railway.app",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Site",
+   "title": "Rafferty Ventures: VentureOS friendly link",
+   "date": "27 Aug",
+   "what": "Live product address.",
+   "url": "https://ventureos-rafferty-ventures.links.getsupernal.ai/",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Design",
+   "title": "Rafferty Ventures: Deal & Stage Standard",
+   "date": "29 Sep",
+   "what": "How a deal looks at each stage and what moves it.",
+   "url": "https://claude.ai/artifact/PSfmFxcWoRJoHxa4CeZaxw",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Design",
+   "title": "Rafferty Ventures: After-call and tasks merged UI",
+   "date": "5 Oct",
+   "what": "UI proposal by Aziz.",
+   "url": "https://claude.ai/artifact/ACYteSm1G9H7SxzSo14r8G",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Design",
+   "title": "Rafferty Ventures: Deal email mockup",
+   "date": "8 Oct",
+   "what": "Visual of email on a deal for Jack.",
+   "url": "https://claude.ai/artifact/FWdm8Na9RCbDHUxD1h2K92",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Design",
+   "title": "Rafferty Ventures: Email security visual",
+   "date": "8 Oct",
+   "what": "How email filtering works, for Jack and SMPL.",
+   "url": "https://claude.ai/artifact/2DUckER2Jo1BR7rSTtqQ6o",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Rafferty Ventures: Weekly Update, Oct 21",
+   "date": "21 Oct",
+   "what": "Weekly client deck.",
+   "url": "https://claude.ai/artifact/T2k4S7cMUGaPiBMboKSYRD",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Rafferty Ventures: Weekly Update, Oct 28 (reused 6 Nov with the postmortem)",
+   "date": "27 Oct",
+   "what": "Weekly client deck.",
+   "url": "https://claude.ai/artifact/LzyNorW1SvCk2oTPkgyknC",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "SMPL call deck",
+   "date": "27 Oct",
+   "what": "Incident recap and asks for SMPL.",
+   "url": "https://claude.ai/artifact/RSfsP71x3E4NWUvbag3yQY",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Rafferty Ventures: Weekly Update, Nov 4",
+   "date": "3 Nov",
+   "what": "Weekly client deck.",
+   "url": "https://claude.ai/artifact/SY4DqmCRA2uFJ1z1M5yeYH",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Rafferty Ventures: Postmortem draft",
+   "date": "5 Nov",
+   "what": "Seven slides on the 4 Nov issues.",
+   "url": "https://claude.ai/artifact/1xkhJReV3wsmT5NhcD9r74",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Design",
+   "title": "Rafferty Ventures: Inbox triage and My day mockup",
+   "date": "6 Nov",
+   "what": "Design for triage and drafted replies.",
+   "url": "https://claude.ai/artifact/9LxDLbi2ny6eqjZsJ4T9G7",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Rafferty Ventures: Weekly Update, Nov 11",
+   "date": "10 Nov",
+   "what": "Weekly client deck.",
+   "url": "https://claude.ai/artifact/7HrJQgByXP3K8uMZ6yaHB5",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "SMPL - Rafferty Holdings - Security & Data Handling Response",
+   "date": "9 Sep",
+   "what": "Final security response sent to SMPL.",
+   "url": "https://docs.google.com/document/d/12FjXxRZ0TcPv__2sz04lT8L2ur4RnCPMwSBEn8hDsvE",
+   "where": "Slack",
+   "sensitive": false
+  },
+  {
+   "kind": "Design",
+   "title": "Data flow diagram",
+   "date": "Sep",
+   "what": "First data flow diagram by Aziz; link omitted because it carries a share key.",
+   "url": "",
+   "where": "Slack",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Rafferty Holdings: AI Discovery Session with Kate and Jackie",
+   "date": "4 Nov",
+   "what": "Session deck.",
+   "url": "https://claude.ai/artifact/EfCQfaPjL53psQiXQELSD4",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Rafferty Holdings: AI Discovery Survey Insights",
+   "date": "4 Nov",
+   "what": "Survey results.",
+   "url": "https://claude.ai/artifact/3EsN1kkdsfBuSv62uhZVRM",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Proposal",
+   "title": "Rafferty Holdings: Firm-wide AI training proposal",
+   "date": "10 Nov",
+   "what": "Policy training plan for Shari.",
+   "url": "https://claude.ai/artifact/JU3onhYo3rGPZJzKC8hvXy",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Rafferty Holdings: Workshops sync (Granola note)",
+   "date": "3 Nov",
+   "what": "Notes shared to the Holdings channel.",
+   "url": "https://notes.granola.ai/d/db286cea-06ee-46e1-b5a4-cf065a5095f0",
+   "where": "Slack",
+   "sensitive": false
+  },
+  {
+   "kind": "Dashboard",
+   "title": "Rafferty Ventures: Linear issues RAFVTS-24 to RAFVTS-123",
+   "date": "Aug to Nov",
+   "what": "Delivery tracking.",
+   "url": "https://linear.app/supernal-clients/project/rafferty-ventures-708ea187131c",
+   "where": "Linear",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Rafferty Ventures: account page",
+   "date": "20 Oct",
+   "what": "Vision, limiting factor, buyer, hygiene checklist.",
+   "url": "https://app.notion.com/p/3aebd5e8f31880a48a11e2d489db381a",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Rafferty Ventures: weekly account health reports (14 weeks), latest",
+   "date": "Aug to Nov",
+   "what": "Weekly status.",
+   "url": "https://app.notion.com/p/410bd5e8f31881d289bdc14fc95b5f1b",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Rafferty Holdings - Opportunity Report",
+   "date": "19 May",
+   "what": "Use case inventory and raw discovery notes.",
+   "url": "https://app.notion.com/p/364bd5e8f31880c48709d75e43af1d18",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Rafferty Holdings (deal review)",
+   "date": "26 Aug",
+   "what": "Internal scoring of the Holdings OS order form.",
+   "url": "https://app.notion.com/p/3c8bd5e8f318807aa416c760da00a783",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Wednesday Meeting Outline – Rafferty Ventures (Oct 21)",
+   "date": "19 Oct",
+   "what": "Meeting outline.",
+   "url": "https://app.notion.com/p/3febd5e8f3188173a2e4de5336311441",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "How to Build a Prototype",
+   "date": "Sep",
+   "what": "Uses both Rafferty prototypes as examples.",
+   "url": "https://app.notion.com/p/3bbbd5e8f31881b8babaf3244d5ca889",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "INC-17: Railway breach key rotation, Rafferty entries",
+   "date": "Oct",
+   "what": "Which Rafferty keys were affected.",
+   "url": "https://app.notion.com/p/401bd5e8f318815baa7af30668172aa0",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Proposal",
+   "title": "Rafferty Ventures: HTML proposal (points-based, Accelerated and Sprint plans)",
+   "date": "May",
+   "what": "First commercial proposal for Ventures; location unknown.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  }
+ ],
+ "book": [
+  {
+   "title": "The account in one page",
+   "minutes": 2,
+   "lenses": [
+    "all"
+   ],
+   "text": "Rafferty Holdings is a family-owned financial services group led by Michael Rafferty. Its businesses include Direxion, a large ETF provider, Hilton Capital Management, a real estate arm, a capital markets arm, and Rafferty Ventures, which invests the family's money deal by deal. Supernal has two contracts with the group, both starting 29 Jul 2026. Rafferty Ventures pays $10,000 a month for Ventures OS, a working application with an AI coworker named Argus. Rafferty Holdings pays $5,000 a month for a Chief AI Officer service, which today means discovery sessions, training and advice. Together that is $180,000 a year.\n\nThe account is more important than its size. Michael has put about $4M into Infinity, the company that trades as Supernal, so the client is also an owner. The original hope was a relationship worth over $1M across four or five entities. Two further builds were prepared, a personal asset dashboard for Michael and an ad production tool for Direxion. Neither was signed. In October Rafferty chose to hire its own AI engineers and paused new builds.\n\nBoth accounts now sit in the “watch” band, at 3.4 and 3.2 out of 5. Ventures has a product people like but do not yet use daily. Holdings has recovered from a low of 2.0 because Shari James, the CFO, asked Supernal to train the firm and help it hire. Katie Jefferson leads both day to day, with Thomas Bustos as the named Chief AI Officer, Felipe Orlando as the one engineer, and Johnny Borbone as account lead.",
+   "sources": [
+    "Account OS",
+    "Drive: order forms",
+    "Raff Scoping/Order Forms/Proposal, 26 May 2026",
+    "CAIO MOR, 1 Oct 2026",
+    "Slack, both channels"
+   ]
+  },
+  {
+   "title": "Why they bought",
+   "minutes": 2,
+   "lenses": [
+    "strategy",
+    "account"
+   ],
+   "text": "Jack Grady runs the daily work of Rafferty Ventures with Henry Mulholland above him and two associates beside him. In May he described a week with about 24 hours of meetings, an inbox used as a to-do list, files sorted by hand into dated folders, and call prep done by typing prompts into Claude. The team is small and will stay small, so their stated problem was keeping everything in one place: who said what, what was promised, which portfolio company had gone quiet, which introduction was owed.\n\nSupernal answered with a prototype built in two weeks on invented data. Jack asked for almost nothing to change. Three things he said shaped the product: a drafted reply that is 80% right is already a big saving; he wants to see what the AI did; and the tool should become his main channel, not another place to look. Price was shown only after the demo, on purpose. Client ownership of the code, a flat fee with usage absorbed, and a promise of continuous building rather than maintenance closed it.\n\nThe holding company bought for different reasons. It was rolling out Claude Enterprise and saw AI as a change in how the firm works. The finance team wanted a faster close. Leaders wanted help choosing what to do first. Supernal priced the Chief AI Officer seat at $5,000, a third of its usual rate, to hold the coordinating role across every entity. The investor tie made Supernal the natural first call.",
+   "sources": [
+    "Technical Scoping, 1 May 2026",
+    "Prototype Review, 13 May 2026",
+    "Next Steps, 8 Jun 2026",
+    "Notion: Opportunity Report"
+   ]
+  },
+  {
+   "title": "How the deal is built",
+   "minutes": 2,
+   "lenses": [
+    "strategy",
+    "account"
+   ],
+   "text": "There are five pieces and only two are signed. The Ventures order form commits Supernal to four milestones in 90 days, then monthly cycles at the same fee, with a backlog for a second phase. The client can leave at the end of month 6 if it gives notice around the end of month 5, which falls in late December 2026. The Holdings order form is a strategy contract: discovery, a roadmap, a mid-year review and a monthly leadership review. It says plainly that any build needs a separate order form, and that the Chief AI Officer supervises builds across the group.\n\nThat design made the Holdings contract the trunk and each build a branch. Ventures was the first branch. Holdings OS, the dashboard for Michael with the AI analyst Atlas, was to be the second, first at $13,500 a month with Atlas, then at $7,500 without. Direxion's ad tool was to be the third at $10,000. Each was meant to have its own pod.\n\nThree things link the pieces in daily life. Shari James signs for all of them. SMPL Technologies, the outside IT firm, controls every permission for all of them. And the Ventures team's monthly deck, now produced by Ventures OS, is how Michael sees that branch.\n\nThe paperwork has loose ends: both signed forms are numbered OF-001, one carries another client's name in the signature block, and the unsigned Holdings OS draft has an inconsistent fee line and eight open legal questions.",
+   "sources": [
+    "Drive: all four order forms",
+    "GTM + Scoping, 14 Jul 2026",
+    "NEW GTM + Scoping, 21 Aug 2026"
+   ]
+  },
+  {
+   "title": "Michael's Life App and the price problem",
+   "minutes": 2,
+   "lenses": [
+    "strategy",
+    "account"
+   ],
+   "text": "The Holdings OS prototype was the most impressive thing Supernal showed Rafferty and the deal that did the most damage. It put Michael's whole financial world on one screen, with Atlas giving a daily brief and answering questions by text or voice. Shari and Jackie Bader saw it in July and said the group was ready. Michael saw it on 20 Aug. He liked the idea of asking about a deal from a dinner table, but said he was unsure how much he would use the interactive part.\n\nPrice was the real trouble. Supernal's own estimate of running costs was under $7,000 a month, and comparable clients pay $30,000 to $90,000. Johnny wanted $13,500; Tauseef thought $10,000 was the most the scope could bear. Before the pitch, Brennan had told Michael it could be done for $150,000 up front and $1,500 a month. Michael's view was that he had already invested millions and should not pay again for the people. Johnny had to walk the quote back in a private conversation. The team then split the deal: $7,500 a month for the platform, Atlas later. The internal review scored margin at 2 out of 5 and accepted it for the relationship.\n\nNo scoping call on real data sources was ever held, and there was no clear way to connect bank accounts. By mid September Michael had found a cheaper vendor through a contact and the deal was paused. The team later judged that Rafferty felt misled twice on price.",
+   "sources": [
+    "Life App & Overall Supernal AI Update, 20 Aug 2026",
+    "NEW GTM + Scoping, 20 and 21 Aug 2026",
+    "Tauseef / Katie, 20 Aug 2026",
+    "Notion: Rafferty Holdings deal review",
+    "Sync: Katie & Tauseef, 18 Sep 2026",
+    "Debrief, 1 Oct 2026"
+   ]
+  },
+  {
+   "title": "Ventures OS and why it is built this way",
+   "minutes": 2,
+   "lenses": [
+    "product",
+    "engineering"
+   ],
+   "text": "Ventures OS does not replace Affinity, the CRM the team uses all day. It mirrors Affinity on a schedule and adds what Affinity lacks: the three partners' calendars, their deal-related email, the files in the Investments SharePoint site, and call transcripts. From that it builds a page per deal, laid out for the deal's stage, with a brief for the next call, the tasks each side owes, research on the company, and alerts when things go quiet. It also produces the monthly deck for Michael.\n\nSeveral choices explain its shape. Affinity released its own AI features a week after kickoff, so a plain dashboard would have been redundant. Tauseef argued for a conversational coworker instead, and Argus was built on the Hermes framework so that it could remember, monitor and take instructions. Argus is told never to fill a gap: if a tool returns nothing, it says what it checked. The five stages and their triggers came from a long question-and-answer session with Jack, after early briefs proved to be lists of one-liners. Transcripts are visible only to people who were on the invite, because Henry's conversations can be sensitive. Email is read only for deal domains and shown as highlights, which is what SMPL would approve. GP View, the old portfolio reporting tool, was dropped because nobody answered its emails.\n\nThe latest lesson came on 4 Nov. A rule that guessed a transcript's company from nearby calendar entries was wrong every time. It was switched off. Showing “no deal” is safer than showing the wrong deal.",
+   "sources": [
+    "vault: client-rafferty/README.md and docs/argus/system-prompt.md",
+    "Affinity Deep Dive, 11 Aug 2026",
+    "AI Coworker for Rafferty Ventures, 27 Aug 2026",
+    "Deal Structure Q & A, 25 Sep 2026",
+    "Slack #acnt-rafferty-ventures-internal, 5 Nov 2026"
+   ]
+  },
+  {
+   "title": "How delivery has gone",
+   "minutes": 2,
+   "lenses": [
+    "delivery",
+    "engineering"
+   ],
+   "text": "Milestone 1 closed on time in mid August with Affinity connected and environments live. After that the plan met SMPL. Access to Outlook, calendar and SharePoint, expected in week 2, took until late September and October. SMPL's concerns were reasonable: mailbox permissions allow impersonation, and automated filing removes the moment when a person would notice a bad attachment. They sent 13 written questions; the answers took a week to polish. The folder Jack called OneDrive turned out to be a SharePoint site. Granola was approved for Ventures only and then never adopted.\n\nInside Supernal the team changed twice. Aziz Bellout built the product alone from August while also on another account; he left on 15 Oct. Felipe Orlando joined on 28 Sep without a handover and found he lacked the right to merge code the day Aziz left. Tauseef handed delivery to Katie between 7 and 14 Oct. Milestones 2 and 3 closed late and with scope moved forward; Milestone 4, due 23 Oct, stands at 56%.\n\nTwo incidents tested the account. In late October a security problem at the hosting provider forced every key to be rotated, and Ventures OS lost its AI for a day and its data feeds for several. On 4 Nov Jack found wrong data live on a call. Felipe found the cause within the hour, fixes were in production the next morning, Katie wrote to the client the same day, and a postmortem was presented two days later. Speed and honesty kept the relationship steady.",
+   "sources": [
+    "Linear",
+    "SMPL coordination calls, 20 Aug to 27 Oct 2026",
+    "Slack #acnt-rafferty-holdings-internal, 2 Sep 2026",
+    "Sync: Rafferty Ventures, 7 Oct 2026",
+    "Notion: Rafferty Ventures (Oct 19 - Oct 23) and (Nov 2 - Nov 6)"
+   ]
+  },
+  {
+   "title": "The people",
+   "minutes": 2,
+   "lenses": [
+    "account",
+    "strategy"
+   ],
+   "text": "Michael Rafferty decides. He is rarely in the room. Everything reaches him through Shari James, the CFO, who signs every contract, runs AI governance and has become the person whose confidence matters most. In late September she was distant; she kept Supernal out of the firm's weekly AI discussions and ended the October review early. By November she was staying late on calls and asking for more.\n\nAt Ventures, Jack Grady is the champion: engaged, direct, forgiving when things break. Drew Quinn, the junior associate, uses the product most and seems to tell the others what is worth their time. Henry Mulholland is senior to both and less involved; the tool serves early-stage deal work and his attention is on closing. Michael Radzicki, long-time Direxion IT lead, has been made Head of AI and is hiring two engineers; Supernal sees him as someone to help succeed. Jackie Bader and Kate Crowley, the executive assistants, opened the discovery series. At SMPL, Peter LaRocca sets the security line and Arto Akyemeniciyan does the work.\n\nOn Supernal's side Johnny Borbone has held the relationship since the first pitch. Thomas Bustos is the Chief AI Officer and the internal critic who asked early whether the Ventures build was the right thing. Tauseef scoped it, built both prototypes and ran Ventures until October. Katie Jefferson now carries both accounts. Felipe Orlando is the only engineer.",
+   "sources": [
+    "Internal Tri-Weekly Sync, 29 Sep 2026",
+    "Workshops sync, 3 Nov 2026",
+    "Training Session Prep, 20 Oct 2026",
+    "Slack #acnt-rafferty-ventures-internal, 6 Nov 2026",
+    "Account OS"
+   ]
+  },
+  {
+   "title": "What value has shown, and what has not",
+   "minutes": 2,
+   "lenses": [
+    "strategy",
+    "product",
+    "account"
+   ],
+   "text": "The clearest wins are qualitative. Jack said the first generated monthly deck beat the hand-built one. He generated a report from his phone in the middle of a call. A brief for a live deal read as accurate to him. The volume of information now captured without typing is, in his words to the team, an obvious gain. Pages that took five or six seconds now take about one.\n\nWhat is missing is measurement. The order form says a baseline would be set in week 1 and reported monthly. No written baseline or target was found. The internal usage score has stayed at 2 out of 5, meaning people log in when prompted. In late September the team agreed to define measures that speak to Michael, such as time saved, follow-up speed and pipeline capacity, and drafted slides for it. The Notion checklist still shows value and usage metrics as undefined, and the Month 3 review that should set Phase 2 has no date.\n\nOn the Holdings side the Chief AI Officer work produced little that Shari could point to for its first three months, which is why that engagement was rated deep red in September. The training programme has changed that. Its value will be easier to show: sessions held, people trained, quiz pass rates, and a planned before-and-after comparison of tool use.",
+   "sources": [
+    "Weekly Checkpoint, 23 Sep, 8 Oct and 21 Oct 2026",
+    "Drive: 001 Rafferty Ventures Strategy Order Form V2",
+    "Internal Tri-Weekly Sync, 29 Sep 2026",
+    "Notion: Rafferty Ventures account page",
+    "Slack #acnt-rafferty-holdings-internal, 16 Oct and 10 Nov 2026"
+   ]
+  },
+  {
+   "title": "Where it stands and what is next",
+   "minutes": 2,
+   "lenses": [
+    "all"
+   ],
+   "text": "Rafferty is now a two-track account with a changed premise. The client will build with its own engineers. Supernal's place is to finish and deepen Ventures OS, and to be the adviser and trainer for the whole group. The internal plan is to make the three Ventures users very happy, help the new Head of AI and the incoming engineers succeed, and be the obvious partner if in-house work falls short.\n\nOn Ventures the next weeks are about inbox triage and drafted replies, which Jack has called his biggest win, a dashboard that ranks what he must do, and the Teams app once SMPL sets it up. Milestone 4 needs closing and the Phase 2 conversation needs a date before the exit-notice window opens in late December. Usage must move from prompted to daily, and someone must find an angle for Henry.\n\nOn Holdings the discovery sessions run through November, followed by the firm-wide policy training with live sessions from 30 Nov and sign-off on 11 Dec. A small hub for training materials is being scoped. The contractual roadmap is still owed.\n\nThe risks are plain. One engineer serves the product and is being asked to build the hub. A $200,000 in-house engineer could take over the work. Michael's view on price has never been repaired. Records in Account OS and Linear still name people who have left the account.",
+   "sources": [
+    "Granola note \"Account Updates\", 26 Oct 2026",
+    "Slack, both channels, 5 to 13 Nov 2026",
+    "Delivery Sync, 9 Nov 2026",
+    "Drive: 001 Rafferty Ventures Strategy Order Form V2"
+   ]
+  }
+ ],
+ "answers": [
+  {
+   "q": "Why does this account matter more than its $180,000?",
+   "a": "Michael Rafferty has invested about $4M in Infinity, the company that trades as Supernal, so the client is also an owner. The original hope was over $1M across four or five entities. That tie also colours pricing, since Michael feels he should not pay twice."
+  },
+  {
+   "q": "Is the Ventures renewal at risk?",
+   "a": "The Ventures form allows exit at the end of month 6 with notice around the end of month 5, about 29 Dec 2026. Usage is still 2 of 5, Milestone 4 is past due and the Phase 2 review has no date. Jack is a champion, but Henry is under-engaged and Shari, who signs, judges the whole account."
+  },
+  {
+   "q": "What is the CAIO engagement now?",
+   "a": "After Rafferty decided on 1 Oct to hire two in-house AI engineers and pause builds, the CAIO work was rebuilt around firm-wide training and discovery. Sessions started 3 Nov, AI policy training runs 30 Nov to 4 Dec with sign-off on 11 Dec, and Supernal is helping hire. The contractual AI Roadmap v1 is still owed."
+  }
+ ],
+ "workflows": [
+  {
+   "name": "Rafferty Ventures: Weekly Checkpoint",
+   "kind": "external",
+   "cadence": "Weekly, Wednesday",
+   "with": "Jack Grady, Drew Quinn, Henry Mulholland",
+   "output": "Weekly client deck",
+   "lastRun": "4 Nov",
+   "note": "Run by Katie since 21 Oct."
+  },
+  {
+   "name": "Rafferty Ventures: internal weekly planning",
+   "kind": "internal",
+   "cadence": "Weekly, Monday",
+   "with": "Katie, Felipe",
+   "output": "",
+   "lastRun": "",
+   "note": ""
+  },
+  {
+   "name": "SMPL Technology & AI Coordination",
+   "kind": "external",
+   "cadence": "Recurring",
+   "with": "SMPL (Peter LaRocca, Arto Akyemeniciyan, Sean Martens); Shari",
+   "output": "",
+   "lastRun": "10 Nov",
+   "note": "Covers both Ventures and Holdings access."
+  },
+  {
+   "name": "Rafferty Holdings: Chief AI Officer monthly review (MOR)",
+   "kind": "external",
+   "cadence": "Monthly",
+   "with": "Shari James and entity leads",
+   "output": "CAIO update deck",
+   "lastRun": "6 Nov",
+   "note": "Held 27 Aug, 1 Oct and 6 Nov."
+  },
+  {
+   "name": "Rafferty Ventures: monthly review deck for Michael",
+   "kind": "external",
+   "cadence": "Monthly",
+   "with": "Ventures team",
+   "output": "Generated monthly deck",
+   "lastRun": "11 Nov",
+   "note": "Produced by Ventures OS; Drew sent the October deck 11 Nov."
+  },
+  {
+   "name": "Rafferty Ventures: Internal Tri-Weekly Sync",
+   "kind": "internal",
+   "cadence": "Every three weeks",
+   "with": "Supernal account team",
+   "output": "Internal sync deck",
+   "lastRun": "29 Sep",
+   "note": ""
+  },
+  {
+   "name": "Weekly account health",
+   "kind": "internal",
+   "cadence": "Weekly",
+   "with": "Johnny",
+   "output": "Account OS health record and Notion weekly report",
+   "lastRun": "2 to 8 Nov",
+   "note": "This week’s read is due."
+  }
+ ]
+}

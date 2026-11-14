@@ -1,0 +1,26 @@
+# Keys ClientOS v2 reads. Copy this file to .env.local in the repo root and fill in the values:
+#   cp docs/env-keys.txt .env.local
+# Then restart the dev server. .env.local is gitignored and never committed.
+# A line left blank is treated as not set, so leave a key out entirely until you have it.
+
+# Needed now: Stella
+ANTHROPIC_API_KEY=
+
+# Supabase: the clientos schema (when the database backend lands)
+NEXT_PUBLIC_SUPABASE_URL=
+SUPABASE_SERVICE_ROLE_KEY=
+
+# Account OS (production token, not the staging one)
+ACCOUNTOS_MCP_URL=
+ACCOUNTOS_MCP_TOKEN=
+
+# Meetings
+GRANOLA_API_KEY=
+FATHOM_API_KEY=
+
+# Delivery and documents
+LINEAR_API_KEY=
+SLACK_BOT_TOKEN=
+NOTION_TOKEN=
+# Google Drive: path to a service-account JSON file with read access to the shared drive
+GOOGLE_APPLICATION_CREDENTIALS=

@@ -1,0 +1,1298 @@
+{
+ "key": "sunflower-wellness",
+ "title": "Sunflower Wellness and ArcWell",
+ "strat": "Tauseef Rahman",
+ "pod": "Nick Agresti (AM), Tauseef Rahman (strategist), Swami Costa (FDE)",
+ "mrr": "$2,000",
+ "closedValue": "$48,000",
+ "closedCount": 1,
+ "health": {
+  "score": "2.6",
+  "band": "Watch",
+  "tone": "warn"
+ },
+ "fresh": [
+  "Current as of Tauseef / Nick: WE Vid Clip, 12 Nov",
+  "17 recorded client calls since May; none since 11 Sep",
+  "$96K-minimum ArcWell order form unsigned since 11 Sep"
+ ],
+ "transcripts": 12,
+ "deals": [
+  {
+   "name": "Sunflower Wellness deal (Oliver)",
+   "value": "$48,000",
+   "stage": "Closed Won 2 Oct 2025",
+   "phase": 3,
+   "note": "$30,000 implementation plus $2,000 a month; appears to have auto-renewed to 30 Sep 2027. Still billed while Oliver has no users."
+  },
+  {
+   "name": "Arcwell Manufacturing – Expansion (Order Form #001)",
+   "value": "$96,000",
+   "stage": "Order Form, parked",
+   "phase": 2,
+   "note": "Sent to Suzan for signature about 11 Sep and unsigned; the opportunity sits in Notion, not Account OS, with no value set and a revisit date of 15 Nov."
+  }
+ ],
+ "lost": "No deal is recorded as lost, but the July Oliver Generalist proposal was never signed and was overtaken by the ArcWell order form, and the team decided on 19 Aug to book Sunflower as a churn and ArcWell as a new logo.",
+ "sold": [
+  {
+   "form": "Sunflower Wellness (Order Management AIE), signed 2 Oct 2025",
+   "promised": "Oliver in three processes: sales order capture and validation, purchase order drafting, and invoice generation and distribution.",
+   "met": "Process 1 is live and ran at about 90% of orders with near-zero errors; Processes 2 and 3 were never completed, and usage is now about zero.",
+   "tone": "warn"
+  },
+  {
+   "form": "OF-002 Oliver: Sales Generalist (draft, Jul)",
+   "promised": "Lifecycle backend, support-agent MVP, Slack shipping signal, open-orders board, SMS, then invoice generation and change requests at $4,000 a month net.",
+   "met": "Presented 29 Jul, never signed, overtaken by Order Form #001; only the order-status pop-out was built.",
+   "tone": ""
+  },
+  {
+   "form": "ArcWell Manufacturing Order Form #001 (pending)",
+   "promised": "Strategy and product management, Procurement OS, Production OS and Oliver as sales generalist; minimum commitment $96,000.",
+   "met": "Approved by users on 19 Aug; unsigned since about 11 Sep. Prototypes only.",
+   "tone": "err"
+  }
+ ],
+ "arc": [
+  {
+   "period": "Q4 2025",
+   "meetings": 5,
+   "points": [
+    "Signed 2 Oct 2025; on 10 Oct Alex said he had not realised the document was the actual contract but still wanted to proceed.",
+    "Kickoff 14 Oct 2025 defined the MVP as voice and text order capture; Zoho integration finished 19 Nov 2025.",
+    "Supernal held the demo until the first $10,000 was paid."
+   ]
+  },
+  {
+   "period": "Q1",
+   "meetings": null,
+   "points": [
+    "Subscription billing started 1 Jan.",
+    "On 4 Feb a two-week pod formed to rebuild Oliver on Cortex; in late March the original engineer went offline and Fran joined as cover at about 60% build."
+   ]
+  },
+  {
+   "period": "Apr to May",
+   "meetings": 4,
+   "points": [
+    "A red build-instability thread ran 21 to 23 Apr.",
+    "QBR on 29 Apr: error rate about 20% the week before, 11.6% that week; the client set under 3% as the bar to turn off manual entry.",
+    "May: evals passed 14 of 15 and the team decided to move Oliver's brain off n8n into code."
+   ]
+  },
+  {
+   "period": "Jun",
+   "meetings": 4,
+   "points": [
+    "Oliver left n8n on 9 Jun and went live on the new backend with zero errors; Pulse went live 10 Jun.",
+    "34 of 37 orders through Oliver on 24 Jun; the same call opened the inventory and cost-per-kilogram opportunity."
+   ]
+  },
+  {
+   "period": "Jul",
+   "meetings": 5,
+   "points": [
+    "8 Jul: the client announced the DEA rescheduling and named ArcWell as the new priority.",
+    "13 Jul: a malware incident froze deployments across Supernal.",
+    "29 Jul: Oliver Generalist proposal presented; Alex left at the end of July."
+   ]
+  },
+  {
+   "period": "Aug",
+   "meetings": 4,
+   "points": [
+    "12 Aug: order reversed to procurement first, then production, then sales.",
+    "19 Aug: users approved Order Form #001 on the call.",
+    "27 Aug: production planning dashboard demo; by 31 Aug the deal was stalled on Rob's signature."
+   ]
+  },
+  {
+   "period": "Sep",
+   "meetings": 1,
+   "points": [
+    "11 Sep: Steps to Kicking Off call; Suzan confirmed as signer and NetSuite go-live targeted 1 Oct.",
+    "15 Sep: Oliver had been down for 2 to 3 days and users noticed.",
+    "30 Sep: plan to go for a smaller deal of about $96,000."
+   ]
+  },
+  {
+   "period": "Oct",
+   "meetings": 0,
+   "points": [
+    "5 Oct: Oren listed five gaps NetSuite will not cover; Sheri asked for the $2,000 Sunflower charge to be refunded and billed to ArcWell.",
+    "9 Oct: on hold until mid-November.",
+    "23 to 28 Oct: handover from Fran to Swami."
+   ]
+  },
+  {
+   "period": "Nov",
+   "meetings": 0,
+   "points": [
+    "2 Nov: Nick emailed the whole ArcWell group; $2,000 invoiced with no heads-up; no reply.",
+    "6 Nov: new proactive plan; Tauseef asked to take the strategist seat.",
+    "12 Nov: Nick planned to send the re-engagement email introducing Tauseef and Swami."
+   ]
+  }
+ ],
+ "disagreements": [
+  "Rename or separate entity: one internal note says Sunflower was rebranded to ArcWell because of Colorado rules; client calls and the contract picture show a separate sister entity and a federal DEA rescheduling.",
+  "Order form numbering: OF-002 names both the signed 2025 form and the unsigned July 2026 generalist draft; OF-001 names the unsigned ArcWell form.",
+  "Milestone C price: $4,000 per month in the document; $6,000 in the 19 Aug call summary.",
+  "Size of the ArcWell deal: minimum $96,000 and $18,000 per month if all active in the order form; $18,000 to $22,000 per month on 15 Sep; full $120k scope in the 26 Oct weekly report.",
+  "Generalist price: $5,000 per month on the call; $4,000 net in the draft.",
+  "Renewal date: 30 Sep 2026 in the signed form; 2 Aug, 4 Aug and 15 Aug 2026 in other sources.",
+  "Contract value: $48,000 with $2,000 MRR in Account OS; ARR $24,000 in Notion, which also shows a contract signed 20 Sep 2026 that matches no signature found.",
+  "Why the deal is on hold: waiting for NetSuite per GTM + Scoping and Account OS; Oren said the hold is not specifically about NetSuite.",
+  "Usage in early October: near zero on 30 Sep versus usage score 3, core team uses it, on 5 Oct.",
+  "Health label: Watch at 2.6 in Account OS; Critical in the Notion weekly reports and Delivery Sync.",
+  "Pod: Nick / Devan / Fran in Account OS versus Fran gone, Swami engineering and Tauseef asked to take strategy.",
+  "Alex's title and exit: CFO, President, or both; left versus fired.",
+  "Who met on 20 Oct: Jerry (Sunflower finance) in one note; Sheri in the Notion report. Jerry is Figaro's founder elsewhere.",
+  "ArcWell's business: peptide strips and tablets on client calls; compounding pharmacy in one internal note."
+ ],
+ "streams": [
+  {
+   "name": "Oliver on Sunflower",
+   "state": "Paused",
+   "tone": "warn",
+   "pct": 35,
+   "due": "15 Sep",
+   "measured": "Nothing currently.",
+   "learned": "Reliability won the users but not the buyer.",
+   "attention": true
+  },
+  {
+   "name": "Oliver decoupling for NetSuite",
+   "state": "Building",
+   "tone": "info",
+   "pct": null,
+   "due": "About 23 Nov",
+   "measured": "Eval pass rate.",
+   "learned": "The agent is fine; the Zoho-shaped tools and prompt are the work.",
+   "attention": true
+  },
+  {
+   "name": "Oliver Generalist",
+   "state": "Paused",
+   "tone": "",
+   "pct": 8,
+   "due": "",
+   "measured": "",
+   "learned": "Figaro read-only limits writes.",
+   "attention": true
+  },
+  {
+   "name": "Procurement OS and Production OS",
+   "state": "Not started",
+   "tone": "warn",
+   "pct": null,
+   "due": "",
+   "measured": "",
+   "learned": "Users want all three together.",
+   "attention": true
+  },
+  {
+   "name": "Security clean-up",
+   "state": "Blocked",
+   "tone": "err",
+   "pct": null,
+   "due": "",
+   "measured": "",
+   "learned": "Cleaning the latest commit is not remediation; scan history and config files.",
+   "attention": true
+  },
+  {
+   "name": "Commercial re-engagement",
+   "state": "Waiting on client",
+   "tone": "warn",
+   "pct": null,
+   "due": "12 Nov",
+   "measured": "Reply or not.",
+   "learned": "Momentum dies between decision and action.",
+   "attention": true
+  }
+ ],
+ "tiles": [
+  {
+   "file": "roadmap",
+   "section": "Roadmap › Health",
+   "title": "Health",
+   "headline": "Health has sat at 2.6 for five weekly reads with Exec Engagement at 1 and renewal risk High.",
+   "tone": "err",
+   "state": "Watch, flat"
+  },
+  {
+   "file": "roadmap",
+   "section": "Roadmap › Commercial model",
+   "title": "Commercial model",
+   "headline": "Supernal still bills $2,000 a month for an unused Oliver while the $96,000-minimum ArcWell form is unsigned.",
+   "tone": "err",
+   "state": "Billing in limbo"
+  },
+  {
+   "file": "stakeholders",
+   "section": "Stakeholders › Power map",
+   "title": "Power map",
+   "headline": "The buyer left in July and the new signer, Suzan Damron, puts NetSuite first and has been silent since 11 Sep.",
+   "tone": "err",
+   "state": "No sponsor"
+  },
+  {
+   "file": "plan",
+   "section": "Plan › Dependencies",
+   "title": "Dependencies",
+   "headline": "Oliver cannot work for ArcWell until it connects to NetSuite, and there is no sandbox and no client reply.",
+   "tone": "warn",
+   "state": "Blocked on client"
+  },
+  {
+   "file": "roadmap",
+   "section": "Roadmap › Success metrics",
+   "title": "Success metrics",
+   "headline": "Oliver peaked at about 91% of orders with near-zero errors, but no dollar value was ever shown and usage is now about zero.",
+   "tone": "warn",
+   "state": "Value unproven"
+  },
+  {
+   "file": "plan",
+   "section": "Plan › Rhythm",
+   "title": "Rhythm",
+   "headline": "The weekly client meeting is cancelled until an order form closes and four outreach attempts have gone unanswered.",
+   "tone": "err",
+   "state": "No cadence"
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Send the re-engagement email",
+   "detail": "The note asking ArcWell to confirm NetSuite as system of record and for a sandbox, introducing Tauseef and Swami, was drafted and its sending is not confirmed.",
+   "action": "Confirm sent"
+  },
+  {
+   "title": "Keep billing Sunflower, credit it or pause",
+   "detail": "$2,000 a month is charged against an unused system; Sheri asked for one charge to be refunded and billed to ArcWell.",
+   "action": "Draft billing note"
+  },
+  {
+   "title": "Full order form or Oliver-first deal",
+   "detail": "The client holds the full-scope form, not the condensed Oliver-first deal of about $96,000 that Nick is aiming for.",
+   "action": "Draft Oliver-first offer"
+  },
+  {
+   "title": "Start decoupling now or wait",
+   "detail": "Nick wants the decoupling started; Swami's 2 Nov update was to wait for ArcWell to confirm scope around 15 Nov.",
+   "action": "Confirm plan"
+  },
+  {
+   "title": "Strategist of record",
+   "detail": "Account OS and Notion still show Devan; Tauseef was asked to take over on 6 Nov.",
+   "action": "Update pod"
+  },
+  {
+   "title": "Credential rotation and security backlog",
+   "detail": "The July rotation list has no closed ticket and three urgent issues are assigned to an engineer who has left.",
+   "action": "Reassign issues"
+  }
+ ],
+ "slipping": [
+  {
+   "kind": "Blocked on client",
+   "tone": "err",
+   "item": "Order form signature",
+   "detail": "Targeted 30 Aug, then September, then mid-November; unsigned since about 11 Sep."
+  },
+  {
+   "kind": "Blocked on client",
+   "tone": "warn",
+   "item": "NetSuite go-live",
+   "detail": "Targeted 1 Oct, then late Oct or early Nov, now unknown."
+  },
+  {
+   "kind": "Past target",
+   "tone": "warn",
+   "item": "Re-engagement note",
+   "detail": "Drafted 6 Nov, still unsent on 9 Nov; a fuller draft was posted about 12 Nov and sending is not confirmed."
+  },
+  {
+   "kind": "Open risk",
+   "tone": "err",
+   "item": "Security clean-up",
+   "detail": "SUN-53, SUN-50 and SUN-84 are urgent and in backlog, assigned to Fran, who has left; the July credential rotation is unconfirmed."
+  },
+  {
+   "kind": "Expectation gap",
+   "tone": "err",
+   "item": "Billing with no users",
+   "detail": "$2,000 invoiced on 2 Nov with no heads-up; Sunflower finance has queried the charge and asked for one back."
+  },
+  {
+   "kind": "Promised, no task",
+   "tone": "warn",
+   "item": "Commitments with no Linear issue",
+   "detail": "Oliver decoupling and readiness document, NetSuite sandbox request, credential rotation check, Diana's scoping notes and handoff recording, and reassigning Fran's backlog."
+  },
+  {
+   "kind": "Not started",
+   "tone": "warn",
+   "item": "Client cadence",
+   "detail": "Weekly client meeting cancelled until a new order form closes; no pod internal sync held."
+  }
+ ],
+ "dates": [
+  {
+   "when": "This week",
+   "what": "Health read for W46 is due"
+  },
+  {
+   "when": "15 Nov",
+   "what": "Revisit and target-close date on the parked ArcWell opportunity"
+  },
+  {
+   "when": "About 23 Nov",
+   "what": "Oliver decoupling build due if the two-week estimate holds"
+  },
+  {
+   "when": "About 2 Dec",
+   "what": "Next $2,000 Sunflower invoice"
+  }
+ ],
+ "feed": [
+  {
+   "meeting": "Tauseef / Nick: WE Vid Clip",
+   "date": "12 Nov",
+   "changes": [
+    "Project plan: Nick to send the re-engagement email introducing Tauseef and Swami",
+    "Project plan: Nick to forward Oren's emails to Tauseef"
+   ]
+  },
+  {
+   "meeting": "Sync: Arcwell / Sunflower",
+   "date": "11 Nov",
+   "changes": [
+    "Stakeholders: Diana briefed Tauseef and Swami; fragmented context from handoffs named as a risk",
+    "Project plan: Diana to share scoping notes and a handoff recording"
+   ]
+  },
+  {
+   "meeting": "Delivery Sync",
+   "date": "9 Nov",
+   "changes": [
+    "Health: status called critical",
+    "Pod: Fran has left Supernal and Swami is the engineer"
+   ]
+  },
+  {
+   "meeting": "Slack #acnt-sunflower-wellness-internal",
+   "date": "6 Nov",
+   "changes": [
+    "Project plan: go proactive, tell ArcWell what Supernal is working on and ask for NetSuite access",
+    "Project plan: Swami to decouple Oliver from Zoho, about two weeks plus evals",
+    "Pod: Tauseef asked to take the strategist seat"
+   ]
+  },
+  {
+   "meeting": "Notion weekly report",
+   "date": "2 Nov",
+   "changes": [
+    "Commercial: $2,000 invoiced with no heads-up; group email to ArcWell got no reply",
+    "Risk: credential rotation and urgent security issues ranked above the commercial problem"
+   ]
+  }
+ ],
+ "people": [
+  {
+   "name": "Suzan Damron",
+   "title": "Chief Integration Officer",
+   "note": "At the start: joined about Sep and was named signer on 11 Sep. Now: sceptical, NetSuite first, silent since that call.",
+   "influence": "High",
+   "disposition": "Skeptic"
+  },
+  {
+   "name": "Rob (Robert) Miller",
+   "title": "President and Chief Legal Officer",
+   "note": "At the start: liked Oliver's compliance. Now: verbally supportive, never signed, hard to reach; named Suzan as signer.",
+   "influence": "High",
+   "disposition": "Neutral"
+  },
+  {
+   "name": "Sheri DeCoste",
+   "title": "Finance; interim CFO; Zoho admin",
+   "note": "At the start: a cost-cutting risk. Now: the only executive who still replies, mostly about charges.",
+   "influence": "High",
+   "disposition": "Neutral"
+  },
+  {
+   "name": "Oren Dlin",
+   "title": "AI Automation Strategist / Systems Analyst",
+   "note": "At the start: day-to-day contact who built the workflow map. Now: still supportive, sent the five-gap list on 5 Oct, but has no budget authority.",
+   "influence": "Medium",
+   "disposition": "Champion"
+  },
+  {
+   "name": "Phil Burrow",
+   "title": "Production manager",
+   "note": "At the start: first ArcWell production contact on 5 Aug. Now: convinced by the slider demo and offered to push Rob.",
+   "influence": "Medium",
+   "disposition": "Supporter"
+  },
+  {
+   "name": "Kaleb Renyer",
+   "title": "Procurement and inventory",
+   "note": "Engaged since August and gave detailed requests on the prototype; last seen on the 11 Sep call.",
+   "influence": "Medium",
+   "disposition": "Supporter"
+  },
+  {
+   "name": "Ehron Sidel",
+   "title": "Accounting and inventory; leads NetSuite onboarding",
+   "note": "Needed for NetSuite access; neutral so far.",
+   "influence": "Medium",
+   "disposition": "Neutral"
+  },
+  {
+   "name": "Molly Xiong and Mailee Xiong",
+   "title": "Sales support",
+   "note": "Daily Oliver users until mid-2026 and positive about it.",
+   "influence": "Low",
+   "disposition": "Supporter"
+  },
+  {
+   "name": "Alex Seleznov",
+   "title": "CFO (also called President)",
+   "note": "At the start: buyer, sponsor and champion. Now: gone since the end of July, described as fired.",
+   "influence": "Low",
+   "disposition": "At risk"
+  }
+ ],
+ "metrics": [
+  {
+   "criterion": "Share of orders through Oliver (target: the only way to submit orders)",
+   "now": "About 91% at peak on 24 Jun; about zero now",
+   "state": "Unused",
+   "tone": "err"
+  },
+  {
+   "criterion": "Oliver error rate (target under 3%)",
+   "now": "Near zero from June, from about 20% in April",
+   "state": "Met",
+   "tone": "ok"
+  },
+  {
+   "criterion": "Correct information collected (target 90%)",
+   "now": "Not measured as such",
+   "state": "Not measured",
+   "tone": "info"
+  },
+  {
+   "criterion": "Sales like using it",
+   "now": "Positive feedback and feature requests",
+   "state": "Met",
+   "tone": "ok"
+  },
+  {
+   "criterion": "Order-to-invoice turnaround",
+   "now": "Never built",
+   "state": "Not started",
+   "tone": "warn"
+  },
+  {
+   "criterion": "ArcWell lead time (6 weeks to about 3)",
+   "now": "Not started",
+   "state": "Not started",
+   "tone": "warn"
+  },
+  {
+   "criterion": "ArcWell revenue per day ($25,000 to $120,000)",
+   "now": "Not started",
+   "state": "Not started",
+   "tone": "warn"
+  },
+  {
+   "criterion": "Inventory buffer (3 weeks of cover)",
+   "now": "Not started",
+   "state": "Not started",
+   "tone": "warn"
+  },
+  {
+   "criterion": "Roadmap metrics in Order Form #001 (lead time, inventory coverage, order cycle time)",
+   "now": "Unsigned; to be baselined",
+   "state": "Unsigned",
+   "tone": "warn"
+  }
+ ],
+ "accountos": [
+  {
+   "record": "Weekly health",
+   "now": "2.6 of 5, Watch, unchanged for five reads from 9 Oct to 6 Nov; Exec Engagement 1, Tech 2, Strategic Defensibility 2, GM 4, Build 4. The W46 read is due.",
+   "proposes": "The W46 read with the eight causes behind the score and the 6 Nov proactive plan."
+  },
+  {
+   "record": "Stakeholders",
+   "now": "None recorded.",
+   "proposes": "Suzan as signer, Rob as economic buyer, Sheri, Oren, Phil, Kaleb and Ehron, with Alex marked as departed."
+  },
+  {
+   "record": "Success plan",
+   "now": "No goals recorded.",
+   "proposes": "Oliver live on NetSuite within about a month of access, then the order share and error targets, then the ArcWell lead-time and inventory goals."
+  },
+  {
+   "record": "Cadence",
+   "now": "No cadence events.",
+   "proposes": "A restart of the weekly client meeting once ArcWell replies, plus a pod internal sync."
+  },
+  {
+   "record": "Value",
+   "now": "No value entries.",
+   "proposes": "34 of 37 orders in a week with no errors, 95 orders in a quarter, and the error rate falling from about 20% to near zero."
+  },
+  {
+   "record": "Whitespace",
+   "now": "No whitespace ideas.",
+   "proposes": "Procurement OS, Production OS, Oliver Generalist, and the parked R&D research tool, vendor onboarding, quality data and custom packaging flags."
+  },
+  {
+   "record": "Renewal",
+   "now": "No renewal plan; renewal risk High with driver Exec sponsorship weak · Easily displaced.",
+   "proposes": "A plan covering the apparent auto-renewal to 30 Sep 2027, the billing decision, and the contract transfer and IP questions for ArcWell."
+  }
+ ],
+ "rationale": [
+  {
+   "decision": "Human confirmation before any write to Zoho.",
+   "why": "Oliver drafts and the rep approves, because compliance came before speed.",
+   "source": "Delivery Planning Weekly, 20 Apr"
+  },
+  {
+   "decision": "Text and voice-to-text only as inputs.",
+   "why": "The client said these two would satisfy about 95% of reps.",
+   "source": "Slack #accounts-sunflower, 15 Oct 2025"
+  },
+  {
+   "decision": "Move off n8n to a coded backend.",
+   "why": "n8n node and JSON issues were the source of errors; the move was expected to cut errors by about half at once.",
+   "source": "Delivery Planning Weekly, 4 May and 18 May"
+  },
+  {
+   "decision": "Missing-data prompts at order time, as soft suggestions.",
+   "why": "Batch lists of customers with missing details do not get worked.",
+   "source": "Supernal x Sunflower Weekly, 3 Jun"
+  },
+  {
+   "decision": "Relabel correct refusals as rejections, not errors.",
+   "why": "Oliver blocking an incomplete order is the product working.",
+   "source": "Supernal x Sunflower Weekly, 17 Jun"
+  },
+  {
+   "decision": "Stay mobile-first; do not widen the layout for desktop.",
+   "why": "Most field users reach Oliver by SMS.",
+   "source": "Supernal x Sunflower Weekly, 17 Jun"
+  },
+  {
+   "decision": "Invoices are generated in Zoho Books; purchase orders stay in Figaro.",
+   "why": "Figaro's API is read-only and Alex wanted inventory control kept there.",
+   "source": "Supernal x Sunflower Weekly, 8 Jul"
+  },
+  {
+   "decision": "Read inventory in days of production, not kilos.",
+   "why": "Removes unit-conversion errors and moves with run rate.",
+   "source": "Sunflower x Supernal, 12 Aug"
+  },
+  {
+   "decision": "Client-pulled milestone triggers with target dates, not deadlines.",
+   "why": "To pre-empt fear of paying for strategy before scope is known.",
+   "source": "Sunflower Sync, 14 Aug"
+  },
+  {
+   "decision": "Build on Sheets now, switch to NetSuite at go-live.",
+   "why": "Supernal owns the agent and operating layer; ArcWell owns the data layer.",
+   "source": "Supernal x Arcwell: Steps to Kicking Off, 11 Sep"
+  }
+ ],
+ "sections": [
+  {
+   "category": "Entity Transition",
+   "group": 1,
+   "desc": "Two legal entities under the same ownership, one closing and one opening, with the contract and billing caught between them.",
+   "files": [
+    {
+     "name": "Entity-Map",
+     "summary": "Sunflower, ArcWell Manufacturing, the ArcWell Solutions domain and the Zoho org numbers."
+    },
+    {
+     "name": "Contract-Transfer-And-IP",
+     "summary": "Contract transfer and IP assignment questions before Sunflower closes."
+    },
+    {
+     "name": "Billing-In-Limbo-Log",
+     "summary": "Who is charged and who queried it."
+    },
+    {
+     "name": "Naming-And-Numbering-Key",
+     "summary": "The inconsistent order-form numbering and entity names across systems."
+    }
+   ]
+  },
+  {
+   "category": "Regulatory And Compliance Context",
+   "group": 2,
+   "desc": "The rescheduling that ended Sunflower's main product and the compliance rules that shape any automation.",
+   "files": [
+    {
+     "name": "7-OH-Rescheduling-Timeline",
+     "summary": "The rescheduling timeline and its effect on the client."
+    },
+    {
+     "name": "State-Compliance-Rules",
+     "summary": "Oliver's state-by-state compliance rules and who maintains them."
+    },
+    {
+     "name": "Electronic-MMR-Limits",
+     "summary": "FDA limits on electronic MMRs and the print-and-sign fallback."
+    },
+    {
+     "name": "Batch-Traceability",
+     "summary": "The batch traceability need."
+    }
+   ]
+  },
+  {
+   "category": "Sponsor Loss And Re-Entry Plan",
+   "group": 0,
+   "desc": "The buyer left, the new signer is silent, and the plan of 6 Nov is the way back in.",
+   "files": [
+    {
+     "name": "Stakeholder-Turnover-Timeline",
+     "summary": "Alex out, Sheri interim, Rob, Suzan in."
+    },
+    {
+     "name": "Non-Response-Log",
+     "summary": "The four outreach attempts that went unanswered."
+    },
+    {
+     "name": "Proactive-Plan",
+     "summary": "The plan of 6 Nov and the re-engagement email draft."
+    },
+    {
+     "name": "Routes-To-An-Executive",
+     "summary": "Sheri, Phil and Oren as routes in."
+    }
+   ]
+  },
+  {
+   "category": "Competing Platform NetSuite",
+   "group": 0,
+   "desc": "The migration the new decision maker puts first and the case for what Supernal adds on top.",
+   "files": [
+    {
+     "name": "Migration-Timeline",
+     "summary": "The NetSuite go-live target and its slips."
+    },
+    {
+     "name": "Supernal-On-Top-Of-NetSuite",
+     "summary": "The argument answering Suzan's objection."
+    },
+    {
+     "name": "Five-Gap-List",
+     "summary": "Oren's list of five gaps NetSuite will not cover."
+    },
+    {
+     "name": "Sandbox-And-API-Asks",
+     "summary": "Sandbox and API access requests."
+    },
+    {
+     "name": "ERP-Neutral-Design",
+     "summary": "Design notes for an Oliver where the ERP is an adapter."
+    }
+   ]
+  },
+  {
+   "category": "Client Operations Model",
+   "group": 2,
+   "desc": "How ArcWell actually takes, builds and ships an order across Zoho, Sheets and Figaro.",
+   "files": [
+    {
+     "name": "Order-To-Ship-Flow",
+     "summary": "The six-step flow from the client's HTML map."
+    },
+    {
+     "name": "Production-Steps-And-Bottlenecks",
+     "summary": "Production steps and physical bottlenecks such as the drying tunnel and strip inspection."
+    },
+    {
+     "name": "Spreadsheet-Inventory",
+     "summary": "The master sheet, demand planning and App Scripts."
+    },
+    {
+     "name": "Numbering-And-Join-Key",
+     "summary": "SO, PO and invoice numbering and the Record ID join key."
+    },
+    {
+     "name": "Figaro-Constraints",
+     "summary": "Read-only API and what stays in Figaro."
+    }
+   ]
+  },
+  {
+   "category": "Trigger-Based Order Form Design",
+   "group": 1,
+   "desc": "The client-pulled milestone design of Order Form #001 and the pricing history behind it.",
+   "files": [
+    {
+     "name": "Milestone-Trigger-Mechanics",
+     "summary": "The milestone-trigger and term-reset mechanics."
+    },
+    {
+     "name": "Pricing-History",
+     "summary": "Pricing across four proposals."
+    },
+    {
+     "name": "Internal-Approval-Path",
+     "summary": "Review by Jaime, Thomas and Naveen."
+    },
+    {
+     "name": "Objection-Handling",
+     "summary": "Objection handling notes."
+    }
+   ]
+  },
+  {
+   "category": "Security Incident Record",
+   "group": 3,
+   "desc": "The malware waves, credential rotations and open hardening issues a newcomer must know.",
+   "files": [
+    {
+     "name": "Malware-Waves",
+     "summary": "The two malware waves and what was learned."
+    },
+    {
+     "name": "Credential-Rotation-Checklist",
+     "summary": "The rotation checklist and its status."
+    },
+    {
+     "name": "Open-Hardening-Issues",
+     "summary": "The open urgent hardening issues."
+    }
+   ]
+  },
+  {
+   "category": "Prototype Library",
+   "group": 2,
+   "desc": "The product-experience prototypes that made production and procurement staff lean in.",
+   "files": [
+    {
+     "name": "Production-Planning-Prototype",
+     "summary": "The first planning UI and the feedback that shaped it."
+    },
+    {
+     "name": "Procurement-Runway",
+     "summary": "Reworked after Kaleb's requests for a slider, toggle and days-of-production view."
+    },
+    {
+     "name": "Ship-Date-Planner",
+     "summary": "When the next order can clear."
+    },
+    {
+     "name": "Demo-Reactions",
+     "summary": "What was demoed to whom and the reaction."
+    }
+   ]
+  }
+ ],
+ "artifacts": [
+  {
+   "kind": "Order form",
+   "title": "sunflower-wellness-inc-of-002-v1-signed.pdf",
+   "date": "2 Oct 2025",
+   "what": "The contract in force.",
+   "url": "https://drive.google.com/file/d/1zaIFdG9lb6vgx0-E91_XW-VjA0u6_PAT/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "sunflower-wellness-inc-msa-v1-signed.pdf",
+   "date": "3 Nov",
+   "what": "Governing agreement (MSA); not opened.",
+   "url": "https://drive.google.com/file/d/1MdwRqSXR82L1AOfGqAqz5MrvHcLeZuy_/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "sunflower-wellness-inc-bundle-v1-signed.pdf; Sunflower Wellness + Supernal.pdf",
+   "date": "30 Apr and 3 Nov",
+   "what": "Contract bundle, two files of the same size; MSA plus order form (inferred).",
+   "url": "https://drive.google.com/file/d/1b0oCDWWKNedOvIpz-OwvuG9SYTRWNKO3/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "ArcWell Manufacturing - Order Form #001.docx",
+   "date": "16 to 25 Aug",
+   "what": "Unsigned ArcWell expansion proposal.",
+   "url": "https://drive.google.com/file/d/1ctEug7HmASHgJW3GN5Sn5Sj6V6aYI_f7/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "sunflower-wellness-inc-of-001-v1-draft.docx",
+   "date": "28 Oct",
+   "what": "Copy of Order Form #001 (inferred from file size).",
+   "url": "https://drive.google.com/file/d/1uqA6uVclP7-zkzcUrB-ZgKD1t_qhKEcl/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "Sunflower Wellness: OF-002 Oliver Generalist.docx",
+   "date": "Jul",
+   "what": "Superseded generalist proposal draft.",
+   "url": "https://drive.google.com/file/d/1rkixjOGbAYVA_vnL170Ge79-KsOTUsXj/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "ArcWell Manufacturing (Sunflower Wellness) Notes",
+   "date": "13 to 24 Aug",
+   "what": "Oliver 1.0 overview, tools and data map.",
+   "url": "https://docs.google.com/document/d/1iz9RHmf_hP3mK6SKXeHvCfTtn5giJJJ_YLSues7m4JE/edit",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Site",
+   "title": "order-fulfillment-overview_2.html",
+   "date": "27 Aug",
+   "what": "The client's workflow map: ArcWell's six-step order-to-ship flow across Zoho Books and Sheets.",
+   "url": "https://drive.google.com/file/d/1aCF4j9FYWV2HgWmeNo5Q2dzuijgOTC9s/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Folder",
+   "title": "Transcripts folder (12 docs, 29 Apr to 15 Jul, incl. QBR)",
+   "date": "Apr to Jul",
+   "what": "Call transcripts.",
+   "url": "https://drive.google.com/drive/folders/1VgXBUoBOEjlCsRxeP9LJbK3aoaQRBPf-",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Folder",
+   "title": "Drive folders: Sunflower Wellness Inc.; Arcwell Manufacturing Expansion; contracts folder",
+   "date": "Jun to Oct",
+   "what": "Account files; Client Facing, Internal Facing and monorepo are empty.",
+   "url": "https://drive.google.com/drive/folders/1kmGhEiK5II8H382JfrVOCiO2C3K0sVAP",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Prototype",
+   "title": "Oliver UI",
+   "date": "9 Jun",
+   "what": "The live product.",
+   "url": "https://oliver-ui-production-8433.up.railway.app/",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Dashboard",
+   "title": "Pulse reporting for Oliver",
+   "date": "10 Jun",
+   "what": "Usage and error reporting.",
+   "url": "https://pulse.getsupernal.ai/employees/01KQFYVDN5N1XCFNCSJ1Y2TKGQ",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Prototype",
+   "title": "Production planning prototype",
+   "date": "20 Aug",
+   "what": "Visualises the algorithm the AI would use.",
+   "url": "https://claude.ai/code/artifact/a235cd74-9c64-4dd4-9446-87422482ee72",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Prototype",
+   "title": "Procurement Runway",
+   "date": "2 Sep",
+   "what": "Reworked after the 26 Aug feedback.",
+   "url": "https://claude.ai/code/artifact/e80c7d13-d0b9-44f7-8dec-a7f4ca008a5d",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Prototype",
+   "title": "Ship-Date Planner",
+   "date": "2 Sep",
+   "what": "When the next order can clear.",
+   "url": "https://claude.ai/code/artifact/e77ca849-d6b0-4345-8c85-3b9241d9a931",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Video",
+   "title": "Loom for Alex on scope options",
+   "date": "Jul",
+   "what": "Explains what is in scope and what is new.",
+   "url": "https://www.loom.com/share/6e5f264794a044c3a1a57a73cc1f918b",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Revised Scope (Process 4, change requests)",
+   "date": "Jul",
+   "what": "Scope revision.",
+   "url": "https://docs.google.com/document/d/1-A_E8PP_kokFZhmvy2Rvr7zaZLMpDgK-5cXgzd86R6o/edit",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "Order form working draft",
+   "date": "Jul",
+   "what": "Draft with pricing questions.",
+   "url": "https://docs.google.com/document/d/1NQwPnUEfZKa41RuoRkYqFGU9o_F39UfV/edit",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Recording",
+   "title": "24 Jun call recording",
+   "date": "24 Jun",
+   "what": "The inventory opportunity call.",
+   "url": "https://fathom.video/share/EsfGBzrHgrrwyJyJCwqEsVsCe4JPs-8b",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Recording",
+   "title": "QBR recording",
+   "date": "29 Apr",
+   "what": "QBR.",
+   "url": "https://fathom.video/calls/653784165",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Linear project Sunflower - Oliver",
+   "date": "2 Oct 2025 on",
+   "what": "Delivery record.",
+   "url": "https://linear.app/supernal-clients/project/sunflower-oliver-eaf8536b167d",
+   "where": "Linear",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Notion account page; weekly reports (16); opportunity page",
+   "date": "Sep to Nov",
+   "what": "Health reporting.",
+   "url": "https://app.notion.com/p/3a7bd5e8f31881928560ec7313260e2d",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Sunflower Wellness Oliver in Cortex",
+   "date": "Jan",
+   "what": "Oliver as a Cortex-native employee; not opened.",
+   "url": "https://app.notion.com/p/2f1bd5e8f31880159e24c479010ddde3",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Re-engagement email draft: Getting Oliver live on NetSuite",
+   "date": "About 12 Nov",
+   "what": "Asks for a sandbox and introduces the new team; in the #acnt-sunflower-wellness-internal thread of 6 Nov.",
+   "url": "",
+   "where": "Slack",
+   "sensitive": false
+  },
+  {
+   "kind": "Design",
+   "title": "Oliver order-flow diagram V8",
+   "date": "Jul",
+   "what": "The client's diagram, reference for lifecycle logic.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Oren's mock sales-question script (10 benchmark scenarios)",
+   "date": "Jul",
+   "what": "Benchmark for the generalist.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Supernal on top of NetSuite explainer",
+   "date": "Sep",
+   "what": "Answers Suzan's objection.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Handover document Fran to Swami",
+   "date": "Oct",
+   "what": "Engineering handover.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Oren's Phase 1 review and gap list",
+   "date": "5 Oct",
+   "what": "Email listing five gaps NetSuite will not cover.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Visual roadmap paired with the order form",
+   "date": "Aug",
+   "what": "Planned; existence not confirmed.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "MVP scope doc; technical scope and migration plan",
+   "date": "Oct 2025",
+   "what": "Original build plan.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Video",
+   "title": "Oliver demo video for prospects",
+   "date": "Nov 2025",
+   "what": "Requested by Nick; delivery not confirmed.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  }
+ ],
+ "book": [
+  {
+   "title": "The account in one page",
+   "minutes": 1,
+   "lenses": [
+    "all"
+   ],
+   "text": "Sunflower Wellness is a Colorado supplement company that bought one AI employee from Supernal in October 2025. Oliver takes sales orders by text or chat, checks them against compliance rules, and writes them into Zoho. The price was $30,000 to build and $2,000 a month after. By June 2026 about nine in ten orders went through Oliver with almost no errors, and the client was talking about switching off manual entry.\n\nThen the ground moved. The DEA made Sunflower's main product illegal from about August 2026. The owners shifted the business to a sister company, ArcWell Manufacturing, which makes peptide strips. The finance lead who bought Oliver left. ArcWell's production and procurement staff loved a new proposal to build procurement and production systems, worth at least $96,000 a year, but the president never signed and a new Chief Integration Officer put a NetSuite migration first.\n\nToday Oliver has no users, Supernal still bills $2,000 a month, the order form has sat unsigned since 11 September, and the client has gone quiet. Health is 2.6 of 5 with executive engagement at 1. The current plan is to make Oliver ready for NetSuite and use that as the way back in.",
+   "sources": [
+    "Drive signed order form",
+    "Delivery Planning Weekly, 29 Jun 2026",
+    "Supernal x Sunflower Weekly, 8 Jul 2026",
+    "Drive Order Form #001",
+    "Account OS",
+    "Notion weekly report, 2 Nov 2026."
+   ]
+  },
+  {
+   "title": "Why they bought",
+   "minutes": 1,
+   "lenses": [
+    "all"
+   ],
+   "text": "The record of the sale itself is missing, but the first weeks show the reasons. Orders reached accounting by hand, in different formats, with details missing. The company sells regulated products, so each order also had to be checked against what could legally ship to each state. The finance lead, Alex Seleznov, wanted clean, compliant orders. His head of legal later said he was very happy with the compliance built in.\n\nThere was a second, quieter reason. Alex and his automation lead, Oren Dlin, wanted to modernise but were wary of the sales team, whose head had influence with the owner. Alex told Nick that the head of sales needed to touch something before she would back it. So the brief became: build the order-capture step first, make reps like it, and collect 90% correct information. Reps wanted only typing and voice-to-text.\n\nSupernal refused to build a free demo and treated the first step as the start of the paid build. It also held the first showing until the first $10,000 invoice was paid. That early caution reflected a real worry: Alex had said he did not realise the paper he signed was the contract itself.",
+   "sources": [
+    "Slack #accounts-sunflower, 10 and 15 Oct 2025",
+    "Drive 2026-04-29 QBR",
+    "Delivery Planning Weekly, 20 Apr 2026."
+   ]
+  },
+  {
+   "title": "How the deal is built",
+   "minutes": 1,
+   "lenses": [
+    "all"
+   ],
+   "text": "There is one signed contract and three unsigned ones. The signed one is with Sunflower Wellness: three $10,000 build payments, then $2,000 a month, a term to 30 September 2026, and automatic renewal for a year unless notice is given 60 days before. Nobody gave notice, so it appears to have renewed.\n\nIn July 2026 Supernal drafted an \"Oliver Generalist\" form at $4,000 to $5,000 a month. It was overtaken within weeks. The form that matters is ArcWell Manufacturing Order Form #001. It has four lines: strategy at $2,000 a month, a Procurement OS at $6,000, a Production OS at $6,000, and Oliver as a sales generalist at $4,000. Only the first two start at signature, which makes the minimum $96,000. The client pulls the trigger on each later milestone, and each trigger restarts a 12-month term. The fee for a milestone does not drop once it is built, because it covers upkeep too.\n\nThe design was deliberate. The client was shrinking and could not commit $10,000 a month to an unknown scope, so the form let them control cash and order. The cost was weaker up-front risk analysis. A fourth idea, a smaller Oliver-first deal, exists only in conversation.",
+   "sources": [
+    "Drive signed order form",
+    "Drive OF-002 Oliver Generalist",
+    "Drive Order Form #001",
+    "Sunflower Sync, 14 Aug 2026",
+    "NEW GTM + Scoping, 13 Aug 2026",
+    "Weekly Pipeline Meeting, 30 Sep 2026."
+   ]
+  },
+  {
+   "title": "The product and why it is built this way",
+   "minutes": 2,
+   "lenses": [
+    "all"
+   ],
+   "text": "Oliver is a careful clerk, not a free agent. A rep describes an order; Oliver fills a template, checks state rules, asks for what is missing, shows a draft, and only writes to Zoho when the rep confirms. That gate exists because the client cared more about compliance than speed.\n\nIt began on n8n with a voice layer. That version was fragile: about one order in five failed in April 2026. Fran rebuilt it as a coded backend with its own web screen, which roughly halved errors at once and reached near zero by June. Several small choices came from watching real orders: stop demanding payment terms the client does not track; prompt for missing customer data at order time, because batch clean-up lists are ignored; call a correct refusal a \"rejection\", not an \"error\"; keep the screen mobile-first.\n\nTwo outside limits shaped everything after. Figaro, the inventory system, gave read-only access, so Oliver can report on purchase orders but not create them, and invoices are generated in Zoho Books. And at ArcWell the data lives in spreadsheets on the way to NetSuite, so the manufacturing design reads inventory in days of production and is meant to start on Sheets and switch source later.",
+   "sources": [
+    "Drive ArcWell Manufacturing (Sunflower Wellness) Notes",
+    "Drive 2026-04-29 QBR",
+    "vault notes of 3, 10 and 17 Jun 2026",
+    "Supernal x Sunflower Weekly, 8 Jul 2026",
+    "Supernal x Arcwell: Steps to Kicking Off, 11 Sep 2026."
+   ]
+  },
+  {
+   "title": "How delivery has gone",
+   "minutes": 1,
+   "lenses": [
+    "all"
+   ],
+   "text": "Delivery has had three engineers and two clear phases. The first engineer built the n8n version through late 2025, then went offline in March 2026. An SMS channel that was in scope had not been delivered, and secrets and release practice were weak. Fran arrived as temporary cover at about 60% build and stayed.\n\nApril was the low point: unanswered client emails, a red instability thread, and a QBR where Supernal had to show an 11.6% error rate. The client stayed patient because the main contact was consistently positive and because Supernal showed a believable downward trend. Internally the lesson was about testing: release gates and evals came after the damage.\n\nFrom June the build was stable and the weekly calls turned into discovery for more work. Then two things outside the product hit: a company-wide malware incident in July that touched this repository twice, and the client's pivot. Since September nothing has shipped to a user. The Linear project is paused, urgent security items sit unassigned in practice, and the last weekly client meeting was cancelled until an order form closes. Fran has left; Swami now owns the code.",
+   "sources": [
+    "Catchup: Fran & Tauseef, 16 Apr 2026",
+    "Slack #acnt-sunflower-wellness-internal, Apr to Jun 2026",
+    "Tauseef / Devan, 30 Apr 2026",
+    "Notion weekly reports, Oct to Nov 2026",
+    "Linear."
+   ]
+  },
+  {
+   "title": "The people",
+   "minutes": 1,
+   "lenses": [
+    "all"
+   ],
+   "text": "On the client side the account has lost its buyer. Alex Seleznov signed, sponsored and attended; he was gone by the end of July 2026. Oren Dlin has been the constant: helpful, technically able, the author of the workflow maps and gap lists, but without budget. Rob Miller, president and chief legal officer, is the economic buyer; he liked Oliver's compliance and said he wanted to proceed, yet never scheduled the signing meeting. Suzan Damron arrived as Chief Integration Officer, was named signer on 11 September, and has not engaged since. Sheri DeCoste in finance is the only executive who still replies, mostly about charges. Phil Burrow and Kaleb Renyer in production and procurement are convinced users.\n\nOn Supernal's side Nick Agresti has owned the relationship throughout. Around him the team has changed often: a delivery manager, a strategist of record stretched across accounts, a second strategist borrowed only to write the order form, three engineers in turn. Diana named this as a risk in itself: the story lives in pieces across people who have moved on.",
+   "sources": [
+    "Slack #accounts-sunflower, 7 Oct 2025",
+    "Delivery Planning Weekly, 3 Aug 2026",
+    "Supernal x Arcwell: Steps to Kicking Off, 11 Sep 2026",
+    "Sync: Arcwell / Sunflower, 11 Nov 2026."
+   ]
+  },
+  {
+   "title": "What value has shown",
+   "minutes": 1,
+   "lenses": [
+    "all"
+   ],
+   "text": "The value shown was operational, never financial. At its best Oliver took 34 of 37 orders in a week with no errors, 95 orders in a quarter, and the sales support team stopped reporting problems. Reps asked for features before they were planned. The legal head liked that every order passed a compliance check.\n\nWhat was never produced is a number a finance lead could use. Alex said he would not open the reporting dashboard until it showed dollars or time saved, and suggested order-to-invoice lead time as the first hard measure. Figaro access to build it arrived in mid-June; the pivot arrived three weeks later; the metric was never built. Account OS holds no value entries.\n\nThat gap matters now. The new decision maker has no history with Oliver and is asking a fair question: what does this add on top of NetSuite? The honest assets are user affection, a list from Oren of five things NetSuite will not cover, and three prototypes that made production staff lean in.",
+   "sources": [
+    "vault notes of 10, 17 and 24 Jun and 1 Jul 2026",
+    "Drive 2026-04-29 QBR",
+    "Linear SUN-33",
+    "Notion weekly report, 5 Oct 2026",
+    "Account OS."
+   ]
+  },
+  {
+   "title": "The security thread",
+   "minutes": 1,
+   "lenses": [
+    "all"
+   ],
+   "text": "This account carries a security history a newcomer must know. In June 2026 a compromised npm package led Fran to rotate keys. In July a malware infection spread through Supernal's GitHub; this client's repository was cleaned at its latest commit, then found infected again three weeks later because history and other executable config files were not re-checked. The second payload fired on the linter, so opening the code in an editor was enough to run it. In October a Railway breach led to another round of key rotation with several Sunflower entries.\n\nThe strategy team's weekly report ranks this above the commercial problem: a documented rotation list (Supabase, Zoho, n8n, Fathom, Railway) has no closed ticket, the engineer who knew the detail has left, and three urgent hardening issues remain in the backlog. Swami was told to delete the archived project because some branches may be compromised, and needed access to the current one.",
+   "sources": [
+    "Delivery Planning Weekly, 1 Jun and 13 Jul 2026",
+    "Notion weekly reports, 26 Oct and 2 Nov 2026",
+    "Notion INC-13 and INC-17 entries",
+    "Linear SUN-50, SUN-53, SUN-84",
+    "Delivery Sync, 9 Nov 2026."
+   ]
+  },
+  {
+   "title": "Where it stands and what is next",
+   "minutes": 1,
+   "lenses": [
+    "all"
+   ],
+   "text": "The plan agreed on 6 November 2026 is to stop waiting. Swami is separating Oliver from Zoho so that NetSuite becomes a connector, not a rebuild. Nick will tell ArcWell what Supernal is doing and ask for the two things that gate progress: confirmation that NetSuite is the system of record for sales orders, and a sandbox with API access. Devan's advice shaped it: announce the work, so a \"don't bother\" is learned cheaply. Tauseef drafted the email and is introduced in it with Swami as the day-to-day team.\n\nThree things could undo it. The client may simply not answer a fifth time. The $2,000 monthly charge against an unused system may draw a refund demand or a cancellation before value returns. And the unconfirmed credential rotation is a risk that does not depend on the client at all.\n\nIf ArcWell engages, the path is Oliver live on NetSuite within about a month of access, then the Oliver-first deal, then procurement and production once NetSuite settles. Internally this account ranks below World Emblem and RxVIP for Tauseef's time.\n\n---",
+   "sources": [
+    "Slack #acnt-sunflower-wellness-internal, 6 Nov 2026",
+    "Tauseef / Nick: WE Vid Clip, 12 Nov 2026",
+    "Notion weekly report, 2 Nov 2026",
+    "Weekly Pipeline Meeting, 30 Sep 2026."
+   ]
+  }
+ ],
+ "answers": [
+  {
+   "q": "Why is this account cold when Oliver worked?",
+   "a": "Oliver took about nine in ten orders with almost no errors by June, but the DEA made Sunflower's main product illegal from about August and the business moved to ArcWell. The finance lead who bought Oliver left at the end of July. The new decision maker, Suzan Damron, puts a NetSuite migration first and doubts Supernal adds value beyond it, and the client has not replied to four outreach attempts in a row."
+  },
+  {
+   "q": "What exactly is contracted today, and what is not?",
+   "a": "The only signed contract is with Sunflower Wellness: $30,000 to build and $2,000 a month, which appears to have auto-renewed to 30 Sep 2027 because nobody gave notice. ArcWell Manufacturing has no contract; its Order Form #001, with a $96,000 minimum, has been unsigned since about 11 Sep and a new MSA is needed. Supernal still bills Sunflower $2,000 a month while Oliver has no users."
+  },
+  {
+   "q": "What is the plan to get back in?",
+   "a": "The plan agreed on 6 Nov is to stop waiting: Swami separates Oliver from Zoho so NetSuite becomes a connector, and Nick tells ArcWell what Supernal is doing and asks for confirmation of NetSuite as system of record and a sandbox with API access. If ArcWell engages, the path is Oliver live on NetSuite within about a month of access, then the Oliver-first deal, then procurement and production. The risks are a fifth non-reply, a refund demand or cancellation over the $2,000 charge, and the unconfirmed credential rotation."
+  }
+ ],
+ "workflows": [
+  {
+   "name": "Weekly client meeting (Supernal x Sunflower Weekly)",
+   "kind": "external",
+   "cadence": "Weekly",
+   "with": "Oren, Alex and the sales support team; later ArcWell production and procurement",
+   "output": "",
+   "lastRun": "11 Sep",
+   "note": "Ran from Oct 2025; cancelled until a new order form closes."
+  },
+  {
+   "name": "QBR",
+   "kind": "external",
+   "cadence": "Quarterly",
+   "with": "Sunflower leadership, with Ryan Williams and Johnny Borbone joining",
+   "output": "QBR transcript and recording",
+   "lastRun": "29 Apr",
+   "note": "Showed the error-rate trend; only one QBR found."
+  },
+  {
+   "name": "Weekly account health report",
+   "kind": "internal",
+   "cadence": "Weekly",
+   "with": "Strategy team",
+   "output": "Notion weekly report and Account OS weekly health",
+   "lastRun": "2 Nov",
+   "note": "16 Notion weekly reports; the W46 Account OS read is due."
+  },
+  {
+   "name": "Delivery Sync",
+   "kind": "internal",
+   "cadence": "Weekly",
+   "with": "Delivery team",
+   "output": "",
+   "lastRun": "9 Nov",
+   "note": "Status called critical on 9 Nov."
+  },
+  {
+   "name": "Weekly Pipeline Meeting",
+   "kind": "internal",
+   "cadence": "Weekly",
+   "with": "Nick and the GTM team",
+   "output": "",
+   "lastRun": "30 Sep",
+   "note": "Where the ArcWell forecast and the smaller Oliver-first deal were discussed."
+  },
+  {
+   "name": "Pod internal sync",
+   "kind": "internal",
+   "cadence": "",
+   "with": "Nick, Tauseef, Swami",
+   "output": "",
+   "lastRun": "11 Nov",
+   "note": "No regular pod sync is held; Diana briefed Tauseef and Swami on 11 Nov."
+  }
+ ]
+}

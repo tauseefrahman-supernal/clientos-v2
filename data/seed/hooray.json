@@ -1,0 +1,1332 @@
+{
+  "key": "hooray",
+  "title": "Hooray Agency",
+  "strat": "Jaime Garcia",
+  "pod": "Nick Agresti (AM), Jaime Garcia (strategist), Harvy Leyton (FDE)",
+  "mrr": "$8,900",
+  "closedValue": "$106,800",
+  "closedCount": 1,
+  "health": {
+    "score": "3.0",
+    "band": "Watch",
+    "tone": "warn"
+  },
+  "fresh": [
+    "Current as of Delivery Sync, 9 Nov, and Slack, 12 Nov",
+    "22 Granola notes and 13 sales call notes since Apr",
+    "10 hotels connected, no hotel users"
+  ],
+  "transcripts": 0,
+  "deals": [
+    {
+      "name": "Hooray Agency (Ret+OF1)",
+      "value": "$106,800",
+      "stage": "Closed Won 29 Jul",
+      "phase": 3,
+      "note": "$8,900 a month for 12 months from 1 Aug; exit at month 6."
+    },
+    {
+      "name": "Expansion, additional hotels",
+      "value": "",
+      "stage": "Idea",
+      "phase": 0,
+      "note": "Expected close 18 Dec; value not set."
+    }
+  ],
+  "lost": "",
+  "sold": [
+    {
+      "form": "OF-001 Genome (MSA + Order Form)",
+      "promised": "Phase 1 data store on Hooray-controlled sources, a branded console for 10 hotels, the Genome chat and a demo kit, then 90-day phases agreed at gates.",
+      "met": "Built and live for 10 hotels with AMs onboarded; no hotel users, Phase 1 gate not held, Phase 2 not scoped.",
+      "tone": "warn"
+    }
+  ],
+  "arc": [
+    {
+      "period": "Q1",
+      "meetings": null,
+      "points": [
+        "Nick met CEO Steven Seghers at a hospitality conference.",
+        "Deal created 19 Mar."
+      ]
+    },
+    {
+      "period": "Apr–May",
+      "meetings": 3,
+      "points": [
+        "Discovery I on 30 Apr with David and Roger; pod pricing of about $10K a month.",
+        "Discovery II on 11 May scoped SAL; ownership became a condition."
+      ]
+    },
+    {
+      "period": "Jun",
+      "meetings": 13,
+      "points": [
+        "Reporting became the way in; $72,000 year-one proposal, then $8,000 a month on 16 Jun.",
+        "CEO asked for a sellable hotel product by 1 Jan 2027; on 30 Jun Hooray said the money was too much and scope was cut."
+      ]
+    },
+    {
+      "period": "Jul",
+      "meetings": 2,
+      "points": [
+        "$8,000 a month and 90-day sprints agreed 6 Jul; Jaime introduced and product named Genome 14 Jul.",
+        "Steven signed 29 Jul; Supernal countersigned 30 Jul."
+      ]
+    },
+    {
+      "period": "Aug",
+      "meetings": 5,
+      "points": [
+        "Kickoff about 5 Aug; design workshops 11 and 18 Aug.",
+        "By 19 Aug, 4 of 10 accounts connected and Command Center demoed; M1 and M2 completed."
+      ]
+    },
+    {
+      "period": "Sep",
+      "meetings": 4,
+      "points": [
+        "Client View workshop 1 Sep; wrong metrics found and fixed mid-month.",
+        "Genome V1 in production 21 Sep; three feedback sessions 22 to 24 Sep reshaped the product."
+      ]
+    },
+    {
+      "period": "Oct",
+      "meetings": null,
+      "points": [
+        "Hooray asked for about 40 hotels by 1 Jan 2027 and raised PMS data; 10 AMs invited.",
+        "Help Center and Connector Hub shipped; a parallel platform migration pushed rollout to 9 Nov."
+      ]
+    },
+    {
+      "period": "Nov",
+      "meetings": null,
+      "points": [
+        "Steven signalled a shift in goals; David pushed back on the 9 Nov hotel onboarding.",
+        "Ask Genome returned to the Command Center; QBR on 12 Nov around the Denver AI Summit."
+      ]
+    }
+  ],
+  "disagreements": [
+    "Price: $60,000 (Pipedrive), $72,000 (Proposal-v2), $192,000 (memo) and $106,800 signed.",
+    "Phase 2: Linear describes an agent roadmap; the client deck describes a path to charging hotels.",
+    "Ownership: the memo planned the hotel platform as Supernal property under licence; the contract gives everything to Hooray.",
+    "Data sources: the contract says DV360, GA4, Meta; the build uses CM360, GA4, Meta, with DV360 only for display spend.",
+    "Health: Account OS says Watch at 3.0; the 9 Nov delivery sync lists Hooray as healthy.",
+    "Phase 1 status: the health note says complete; Linear shows M4 at 75% and M5 at 54%.",
+    "Summit date: Thursday 12 Nov (W14, Slack) versus Friday 13 Nov (Account OS, All-Hands).",
+    "Account cap: 100 accounts agreed on 23 Jun; 10 connected accounts in the contract."
+  ],
+  "streams": [
+    {
+      "name": "Data foundation",
+      "state": "Live",
+      "tone": "ok",
+      "pct": 100,
+      "due": "4 Sep",
+      "measured": "10 hotels, 3 sources",
+      "learned": "Each platform’s numbers needed rework; wrong metrics found mid-Sep.",
+      "attention": false
+    },
+    {
+      "name": "Genome V1",
+      "state": "Live",
+      "tone": "ok",
+      "pct": 100,
+      "due": "30 Sep",
+      "measured": "",
+      "learned": "",
+      "attention": false
+    },
+    {
+      "name": "Pilot validation",
+      "state": "Late",
+      "tone": "err",
+      "pct": 75,
+      "due": "16 Oct",
+      "measured": "AM invites accepted",
+      "learned": "Leaders wanted to review before AMs.",
+      "attention": true
+    },
+    {
+      "name": "Rollout and Phase 2",
+      "state": "Waiting on client",
+      "tone": "err",
+      "pct": 54,
+      "due": "30 Oct",
+      "measured": "",
+      "learned": "Client alignment, not build speed, is the constraint.",
+      "attention": true
+    },
+    {
+      "name": "Phase 2",
+      "state": "Not started",
+      "tone": "warn",
+      "pct": 0,
+      "due": "30 Nov",
+      "measured": "",
+      "learned": "",
+      "attention": true
+    }
+  ],
+  "tiles": [
+    {
+      "file": "roadmap",
+      "section": "Roadmap › Success",
+      "title": "Success metrics",
+      "headline": "No numeric success measure was agreed, and no hotel has used the console.",
+      "tone": "err",
+      "state": "Unmeasured"
+    },
+    {
+      "file": "roadmap",
+      "section": "Roadmap › Commercials",
+      "title": "Commercial model",
+      "headline": "$8,900 a month for 12 months, with an early-exit window at the end of Jan 2027.",
+      "tone": "warn",
+      "state": "Exit window"
+    },
+    {
+      "file": "plan",
+      "section": "Plan › Dependencies",
+      "title": "Dependencies",
+      "headline": "Hotel rollout waits on a go from Hooray; Supernal says it is ready.",
+      "tone": "err",
+      "state": "Client blocked"
+    },
+    {
+      "file": "roadmap",
+      "section": "Roadmap › Opportunities",
+      "title": "Opportunity map",
+      "headline": "Four asks on the table: PMS data, about 40 hotels by 1 Jan 2027, a Catalyst console and Prophit.",
+      "tone": "info",
+      "state": "Phase 2 open"
+    },
+    {
+      "file": "stakeholders",
+      "section": "Stakeholders › Power",
+      "title": "Power map",
+      "headline": "Working-group decisions get overridden by the CEO; David and Roger sit between him and Randy.",
+      "tone": "warn",
+      "state": "Split leadership"
+    },
+    {
+      "file": "stakeholders",
+      "section": "Stakeholders › Health",
+      "title": "Health",
+      "headline": "3.0 Watch, with tech and defensibility at risk and renewal risk medium.",
+      "tone": "warn",
+      "state": "Easily displaced"
+    }
+  ],
+  "decisions": [
+    {
+      "title": "When hotel users start",
+      "detail": "Hooray must say when hotels go on and which comes first; Supernal is waiting for a go.",
+      "action": "Draft go/no-go"
+    },
+    {
+      "title": "How to close Phase 1",
+      "detail": "Options are 10 hotels, one hotel, or extend the phase.",
+      "action": "Draft options"
+    },
+    {
+      "title": "What Phase 2 is",
+      "detail": "Linear plans an agent roadmap while the client deck pitches hotel monetisation; the 12 Nov QBR outcome is unrecorded.",
+      "action": "Record QBR outcome"
+    },
+    {
+      "title": "Display-spend option",
+      "detail": "Display cost shows $0; two options were sent to Roger.",
+      "action": "Chase Roger"
+    },
+    {
+      "title": "Quote for expansion and integrations",
+      "detail": "The 10 to 40 hotel expansion and extra integrations were to be quoted; no quote found.",
+      "action": "Draft quote"
+    }
+  ],
+  "slipping": [
+    {
+      "kind": "Past target",
+      "tone": "err",
+      "item": "M4 Pilot validation",
+      "detail": "75% against a 16 Oct target."
+    },
+    {
+      "kind": "Past target",
+      "tone": "err",
+      "item": "M5 Rollout and Phase 2",
+      "detail": "54% against a 30 Oct target."
+    },
+    {
+      "kind": "Blocked on client",
+      "tone": "err",
+      "item": "Hotel onboarding",
+      "detail": "Rollout moved from mid-Oct to 2 Nov to 9 Nov; still waiting for a go."
+    },
+    {
+      "kind": "Not started",
+      "tone": "warn",
+      "item": "Phase 2 scope",
+      "detail": "The Linear Phase 2 project started 2 Nov on paper with no agreed scope."
+    },
+    {
+      "kind": "Promised, no task",
+      "tone": "warn",
+      "item": "Quote for extra integrations and the 40-hotel expansion",
+      "detail": "No Linear issue found."
+    },
+    {
+      "kind": "Promised, no task",
+      "tone": "warn",
+      "item": "Pulse usage tracking for Hooray",
+      "detail": "Sponsor asked for usage tracking by end of Nov."
+    },
+    {
+      "kind": "Promised, no task",
+      "tone": "warn",
+      "item": "Split Genome into client-facing and internal instances",
+      "detail": "Raised at the 6 Nov Weekly Review."
+    },
+    {
+      "kind": "Promised, no task",
+      "tone": "warn",
+      "item": "Refresh rules per platform for Randy",
+      "detail": "From the 24 Sep feedback session."
+    },
+    {
+      "kind": "Open risk",
+      "tone": "err",
+      "item": "Month-6 exit",
+      "detail": "Early exit falls at the end of Jan 2027, and Account OS rates the account easily displaced."
+    }
+  ],
+  "dates": [
+    {
+      "when": "13 Nov",
+      "what": "Hooray AI Summit in Denver (some sources say 12 Nov)"
+    },
+    {
+      "when": "30 Nov",
+      "what": "Phase 2 M1 due; Phase 1 gate re-planned for end of Nov"
+    },
+    {
+      "when": "30 Nov",
+      "what": "Company goal: Hooray baseline and own metrics; usage tracking asked for by end of Nov"
+    }
+  ],
+  "feed": [
+    {
+      "meeting": "QBR (Slack #acnt-hooray-internal)",
+      "date": "12 Nov",
+      "changes": [
+        "Phase 2: QBR deck shared to settle Phase 2 or a pivot; outcome not recorded."
+      ]
+    },
+    {
+      "meeting": "All-Hands",
+      "date": "10 Nov",
+      "changes": [
+        "Summit: Denver trip approved, after the delivery sync had ruled it out on budget."
+      ]
+    },
+    {
+      "meeting": "Delivery Sync",
+      "date": "9 Nov",
+      "changes": [
+        "Rollout: Supernal ready and waiting for Hooray’s go.",
+        "Feedback: pilot feedback tracking sheet set up.",
+        "Product: Ask Genome restored in the Command Center with David’s design (Slack, 9 Nov)."
+      ]
+    },
+    {
+      "meeting": "Weekly Review",
+      "date": "6 Nov",
+      "changes": [
+        "Stakeholders: David pushed back on the 9 Nov hotel onboarding.",
+        "Product: splitting Genome into client-facing and internal instances raised."
+      ]
+    }
+  ],
+  "people": [
+    {
+      "name": "Steven V. Seghers",
+      "title": "CEO, signer",
+      "note": "At the start: warm, wants to swing big. Now: driving direction, floating Genome as a strategic tool that carries Hooray’s expertise.",
+      "influence": "High",
+      "disposition": "Supporter"
+    },
+    {
+      "name": "Randy Stuck",
+      "title": "Senior operations executive (EVP or SVP Ops), budget holder",
+      "note": "At the start: sceptic who favoured building in house. Now: engaged, a precise reviewer of metrics.",
+      "influence": "High",
+      "disposition": "Supporter"
+    },
+    {
+      "name": "David Metze",
+      "title": "Point of contact; AI lead",
+      "note": "At the start: champion. Now: still champion, but pushed back on the 9 Nov hotel onboarding.",
+      "influence": "High",
+      "disposition": "Champion"
+    },
+    {
+      "name": "Roger Burns",
+      "title": "Account leadership; co-champion",
+      "note": "At the start: warm. Now: active reviewer, shown the new build on 28 Oct.",
+      "influence": "Medium",
+      "disposition": "Champion"
+    },
+    {
+      "name": "Brian",
+      "title": "Validates metric calculations",
+      "note": "Signs off the methodology and the metrics inventory.",
+      "influence": "Medium",
+      "disposition": "Neutral"
+    },
+    {
+      "name": "Rocio, Caitlin",
+      "title": "Named pilot testers for PGA",
+      "note": "Named in the Linear M4 description.",
+      "influence": "Low",
+      "disposition": "Neutral"
+    },
+    {
+      "name": "Shelly",
+      "title": "Traffic manager",
+      "note": "At the start: neutral to resistant, could veto SAL. Now: out of scope since SAL was dropped (inferred).",
+      "influence": "Low",
+      "disposition": "Neutral"
+    },
+    {
+      "name": "Stephen Garcia",
+      "title": "Hooray developer",
+      "note": "Connected an MCP server to Google Analytics, which made a small in-house proof feel within reach.",
+      "influence": "Low",
+      "disposition": "Neutral"
+    },
+    {
+      "name": "Billy Kang",
+      "title": "Billing contact",
+      "note": "Named in the order form.",
+      "influence": "Low",
+      "disposition": "Neutral"
+    },
+    {
+      "name": "Nick Agresti",
+      "title": "Account manager, Supernal",
+      "note": "Seller, then AM throughout; holds the relationship.",
+      "influence": "",
+      "disposition": ""
+    },
+    {
+      "name": "Jaime Garcia",
+      "title": "Strategist, Supernal",
+      "note": "Joined scoping early Jun; strategy and product lead from 14 Jul.",
+      "influence": "",
+      "disposition": ""
+    },
+    {
+      "name": "Harvy Leyton",
+      "title": "FDE, Supernal",
+      "note": "Engineer from late Jul; built the data store, consoles and Ask Genome.",
+      "influence": "",
+      "disposition": ""
+    },
+    {
+      "name": "Diana Pedroza",
+      "title": "Designer, Supernal",
+      "note": "Prototype design and feedback sessions.",
+      "influence": "",
+      "disposition": ""
+    }
+  ],
+  "metrics": [
+    {
+      "criterion": "Hotels in reporting workflow (10 or more)",
+      "now": "10 connected, none with hotel users",
+      "state": "Behind",
+      "tone": "warn"
+    },
+    {
+      "criterion": "Reports on time by day 3 (95%)",
+      "now": "Not measured",
+      "state": "Not tracked",
+      "tone": ""
+    },
+    {
+      "criterion": "Hours reclaimed per month (50 or more)",
+      "now": "Not measured; Nick estimates about 50% time saving",
+      "state": "Not tracked",
+      "tone": ""
+    },
+    {
+      "criterion": "Phase 1 end state",
+      "now": "Console ready; no hotel sessions; Phase 2 not scoped",
+      "state": "Behind",
+      "tone": "err"
+    },
+    {
+      "criterion": "All hotels on Genome (about 40 by 1 Jan 2027)",
+      "now": "10",
+      "state": "Behind",
+      "tone": "warn"
+    },
+    {
+      "criterion": "AM adoption",
+      "now": "6 of 10 invited AMs accepted by 23 Oct",
+      "state": "Partial",
+      "tone": "warn"
+    }
+  ],
+  "accountos": [
+    {
+      "record": "Weekly health",
+      "now": "3.0 Watch for 2 to 8 Nov; tech and defensibility at risk; renewal risk medium, Easily displaced.",
+      "proposes": "Keep Watch and note the QBR outcome, the hotel go/no-go and the client-side delays."
+    },
+    {
+      "record": "Stakeholders",
+      "now": "None recorded.",
+      "proposes": "Add Steven Seghers, Randy Stuck, David Metze, Roger Burns and Brian with their bands."
+    },
+    {
+      "record": "Success plan",
+      "now": "No goals.",
+      "proposes": "Goals for hotels in the workflow, AM adoption, hours reclaimed and the Phase 1 gate."
+    },
+    {
+      "record": "Cadence",
+      "now": "No cadence events.",
+      "proposes": "Weekly client sync with Weekly Brief, QBR, and a 90-day phase gate."
+    },
+    {
+      "record": "Value",
+      "now": "No value entries.",
+      "proposes": "Monthly reporting automated for the 10 pilot hotels; hours saving still unmeasured."
+    },
+    {
+      "record": "Whitespace",
+      "now": "Expansion deal for additional hotels at Idea, expected 18 Dec.",
+      "proposes": "10 to 40 hotels, hotel PMS data, a Catalyst console and Prophit as a source."
+    },
+    {
+      "record": "Renewal",
+      "now": "No renewal plan.",
+      "proposes": "Month-6 exit at end of Jan 2027; auto-renews six months at a time; term ends 31 Jul 2027."
+    }
+  ],
+  "rationale": [
+    {
+      "decision": "Hooray owns all of it",
+      "why": "David and Roger needed an answer to the build-it-ourselves objection.",
+      "source": "Discovery II, 11 May"
+    },
+    {
+      "decision": "90-day phases with a gate, not a 12-month plan",
+      "why": "Hooray saw the product as a gamble on whether hotels would pay and wanted to re-aim each quarter.",
+      "source": "Gemini notes, 30 Jun and 6 Jul"
+    },
+    {
+      "decision": "Hooray-controlled data sources first",
+      "why": "They connect without asking each hotel for access.",
+      "source": "Gemini notes, 23 Jun"
+    },
+    {
+      "decision": "AMs test before hotels",
+      "why": "Avoids putting early software before clients and wins internal advocates first.",
+      "source": "Gemini notes, 14 Jul; Client View Portal - Workshop, 1 Sep"
+    },
+    {
+      "decision": "An explain-how-this-was-calculated control under AI output",
+      "why": "Hotel marketing directors are not data-trained and trust in AI numbers was a known worry.",
+      "source": "Design workshop, Aug"
+    },
+    {
+      "decision": "Suggestions as accept-or-reject Opportunities, no manual staff input",
+      "why": "A softer sell, rejections teach the system, and hand-entered content could bias Genome.",
+      "source": "Client View Portal - Workshop, 1 Sep"
+    },
+    {
+      "decision": "Lead with Revenue, Transactions, Room Nights and ADR, not blended ROAS",
+      "why": "Brand-awareness spend makes ROAS derail the conversation; the four match the Looker report.",
+      "source": "Genome Feedback Session, 24 Sep"
+    },
+    {
+      "decision": "Compare with the same period last year by default",
+      "why": "Hotel demand is seasonal, so month-on-month misleads.",
+      "source": "Feedback Session | David & Roger, 23 Sep"
+    },
+    {
+      "decision": "No budget data in reports",
+      "why": "It would invite rollover questions from clients.",
+      "source": "Feedback Session | David & Roger, 23 Sep"
+    },
+    {
+      "decision": "PDF export",
+      "why": "Usually one person per property has a login and must share reports upward.",
+      "source": "Feedback Session | David & Roger, 23 Sep"
+    }
+  ],
+  "sections": [
+    {
+      "category": "Commercial path",
+      "group": 1,
+      "desc": "Scope and price history: 8 order form versions, 13 call notes and one memo.",
+      "files": [
+        {
+          "name": "Price-Timeline",
+          "summary": "Every price discussed from $60,000 to $106,800 signed."
+        },
+        {
+          "name": "Licensing-Memo",
+          "summary": "The $16K a month plus per-hotel licence case."
+        },
+        {
+          "name": "Order-Form-Drafts",
+          "summary": "Each draft and what changed."
+        },
+        {
+          "name": "Jun-30-Rescope",
+          "summary": "Why the scope was cut."
+        }
+      ]
+    },
+    {
+      "category": "End-customer layer",
+      "group": 0,
+      "desc": "The client’s clients: the hotels that are the intended console users.",
+      "files": [
+        {
+          "name": "Pilot-Cohort",
+          "summary": "The 10 pilot hotels and the full hotel list."
+        },
+        {
+          "name": "Account-Platform-Mapping",
+          "summary": "Hotels to platform accounts."
+        },
+        {
+          "name": "Hotel-Persona",
+          "summary": "Marketing directors, one login per property."
+        },
+        {
+          "name": "Monetisation-Options",
+          "summary": "How Hooray might charge hotels."
+        },
+        {
+          "name": "Hotel-Onboarding-Plan",
+          "summary": "Sequence and session guide for hotel users."
+        }
+      ]
+    },
+    {
+      "category": "Metric definitions and data trust",
+      "group": 2,
+      "desc": "Metric inventory, refresh and lag rules, known data gaps and sign-off.",
+      "files": [
+        {
+          "name": "Metric-Inventory",
+          "summary": "Definitions for Brian’s sign-off."
+        },
+        {
+          "name": "Refresh-And-Lag-Rules",
+          "summary": "Per-platform refresh rules asked for by Randy."
+        },
+        {
+          "name": "Known-Data-Gaps",
+          "summary": "Display spend without cost, missing prior-year data."
+        },
+        {
+          "name": "Sign-Off-Log",
+          "summary": "Methodology approvals with Brian."
+        }
+      ]
+    },
+    {
+      "category": "Feedback log and design decisions",
+      "group": 2,
+      "desc": "One file per feedback session and a decision register with reason and date.",
+      "files": [
+        {
+          "name": "Session-Sep-01",
+          "summary": "Client View workshop: Opportunities flow."
+        },
+        {
+          "name": "Session-Sep-23",
+          "summary": "David and Roger: hotels naming, year-on-year, no budget, PDF."
+        },
+        {
+          "name": "Session-Sep-24",
+          "summary": "Randy: metric order and ROAS limits."
+        },
+        {
+          "name": "Pilot-Audit-Oct",
+          "summary": "Display cost at $0 and other pilot findings."
+        },
+        {
+          "name": "Decision-Register",
+          "summary": "Each decision with reason and date."
+        }
+      ]
+    },
+    {
+      "category": "Phase gates",
+      "group": 3,
+      "desc": "One file per 90-day phase with definition of done, readout and signed next-phase plan; thin so far but required by the contract.",
+      "files": [
+        {
+          "name": "Phase-1-Gate",
+          "summary": "Definition of done and readout for Phase 1."
+        },
+        {
+          "name": "Phase-2-Plan",
+          "summary": "One-page plan for the next phase once agreed."
+        }
+      ]
+    },
+    {
+      "category": "Client internal alignment",
+      "group": 0,
+      "desc": "Who decides what at Hooray, competing initiatives and overridden decisions.",
+      "files": [
+        {
+          "name": "Decision-Rights",
+          "summary": "Steven, Randy, David and Roger and how they decide."
+        },
+        {
+          "name": "Competing-Initiatives",
+          "summary": "Platform migration, Catalyst, custom GPTs, internal developer work."
+        },
+        {
+          "name": "Overridden-Decisions",
+          "summary": "Working-group decisions the CEO reversed."
+        }
+      ]
+    },
+    {
+      "category": "Prior and adjacent client systems",
+      "group": 2,
+      "desc": "Systems Genome sits beside or could absorb.",
+      "files": [
+        {
+          "name": "Looker-Reports",
+          "summary": "The existing report Genome mirrors."
+        },
+        {
+          "name": "Custom-GPTs",
+          "summary": "Client custom GPTs the CEO asked about."
+        },
+        {
+          "name": "Catalyst-PearlDiver",
+          "summary": "Catalyst console request."
+        },
+        {
+          "name": "Prophit-Momentum-Funnel",
+          "summary": "Other tools and data paths named."
+        }
+      ]
+    },
+    {
+      "category": "Design",
+      "group": 2,
+      "desc": "Product design for the consoles: two design workshops, the Client View prototype, feedback-driven redesigns and Hooray branding.",
+      "files": [
+        {
+          "name": "Design-Workshops",
+          "summary": "11 and 18 Aug workshop notes and requirements."
+        },
+        {
+          "name": "Client-View-Prototype",
+          "summary": "1 Sep prototype workshop and the Opportunities flow."
+        },
+        {
+          "name": "Command-Center-Design",
+          "summary": "Internal console screens and Ask Genome restored with David’s design."
+        },
+        {
+          "name": "Console-Branding",
+          "summary": "Brand brief, identity guide and logos."
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "kind": "Order form",
+      "title": "MSA + Order Form (signed)",
+      "date": "30 Jul",
+      "what": "The contract; copies as Complete_with_Docusign and Order Form.",
+      "url": "https://drive.google.com/file/d/1Y199v98FVh2ezcV-xebdSu1r_C6D2JJA/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Proposal",
+      "title": "Hooray_Agency-Proposal-v5-90day-phases.html",
+      "date": "7 Jul",
+      "what": "Final proposal after the scope cut (not opened).",
+      "url": "https://drive.google.com/file/d/1lTtRtg4ydekqDZDErdag7K7EbsXDijD9/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Supernal AI + Funnel document.pdf",
+      "date": "14 Aug",
+      "what": "Data extraction with Funnel (not opened).",
+      "url": "https://drive.google.com/file/d/1iAsBpuIGI8lExIq5qw8z8sM3X5LCiDhT/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "[Internal] Pricing & Licensing Memo",
+      "date": "19 Jun",
+      "what": "The $16K a month plus licensing case.",
+      "url": "https://docs.google.com/document/d/13ScJAr2YpAl4X-EN39pNDmhVY7gtp2sb5pYV5rQwlo0/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Order form",
+      "title": "Hooray Agency - Order Form #001 [DEPRECATED]",
+      "date": "24 Jul",
+      "what": "Working copy before signing.",
+      "url": "https://docs.google.com/document/d/1vlXQJTisN9ZHf8EREA-iW3Hed4eJ3lvSZmSzalyMbQ4/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Order form",
+      "title": "Hooray Agency - Order Form #001 - V3.docx",
+      "date": "13 Jul",
+      "what": "Draft.",
+      "url": "https://drive.google.com/file/d/15vnw5_WZs-3oewfeYUs5-Pu1HCm1sIzg/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Order form",
+      "title": "Hooray Agency - Order Form - New Scope (L)",
+      "date": "22 Jun",
+      "what": "The large two-console scope.",
+      "url": "https://docs.google.com/document/d/1RxqEc76qvhAYlxbDg5xT2rQ_gfywwdwh4QUobnn6_jc/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Order form",
+      "title": "Hooray Agency - Order Form - 18 Jun Approved",
+      "date": "19 Jun",
+      "what": "Internally approved draft.",
+      "url": "https://docs.google.com/document/d/1uHZe-x-9TxZHMjuQ4KNhmMZlLuyXFhvo_l5euF2XuBA/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Order form",
+      "title": "Hooray Agency - Order Form 2 - draft",
+      "date": "17 Jun",
+      "what": "Draft.",
+      "url": "https://docs.google.com/document/d/1_EXHKFLd5RRn_jjD2iSxxMk4MzMQx0bxIEjIBh3v6yA/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Order form",
+      "title": "Hooray Agency - Order Form (template-aligned draft v2)",
+      "date": "12 Jun",
+      "what": "First draft; also as HTML.",
+      "url": "https://docs.google.com/document/d/1hpdf4qwAUDU-h-tsVbLsOVvQaBUzcXwvxp3Qe6PYVmI/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Spreadsheet",
+      "title": "Milestone Analysis OF1 - Hooray Agency",
+      "date": "18 Jun",
+      "what": "Milestone sizing.",
+      "url": "https://docs.google.com/spreadsheets/d/1Md1MqySmH28q4SieYuEHSsmwmRiOxihMfor-QPxMyP0/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Deck",
+      "title": "Hooray x Supernal - Kickoff Deck.pptx (sales-era)",
+      "date": "23 Jun",
+      "what": "Kickoff plan under the large scope.",
+      "url": "https://drive.google.com/file/d/1hzdwET9VHiqCyRaJD78wjhjRZ-RKMU1E/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Sample Report - Hooray.pdf",
+      "date": "10 Jun",
+      "what": "A hotel client’s monthly report that Genome replaces.",
+      "url": "https://drive.google.com/file/d/1rYXwCklYNsuVC421AP_eO2dqnLI3FGaP/view",
+      "where": "Drive",
+      "sensitive": true
+    },
+    {
+      "kind": "Document",
+      "title": "Hooray Agency, Requirements from Competitor",
+      "date": "3 Jun",
+      "what": "Rival vendor’s scope for a reporting copilot.",
+      "url": "https://docs.google.com/document/d/1NQnM1WHahsv70ThHeTmSC_uLTv1gGkXQk1dMwBSViCo/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Folder",
+      "title": "Gemini notes, 13 sales calls (30 Apr to 14 Jul)",
+      "date": "Apr to Jul",
+      "what": "Record of the sale.",
+      "url": "https://drive.google.com/drive/folders/1Hr0i5Bovco0wZH_ONMFF60U4e_L6BMwj",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Deck",
+      "title": "Hooray x Supernal - Kickoff.pptx",
+      "date": "5 to 28 Aug",
+      "what": "Client kickoff; also Kickoff 2 and [OLD] Kickoff in the Kick-off folder.",
+      "url": "https://docs.google.com/presentation/d/1S5LGRFiHnN6AKbYkVq-D3KGJb-E9EoQN/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Deck",
+      "title": "Weekly Brief W2 to W14 (13 files; no W12)",
+      "date": "11 Aug to 10 Nov",
+      "what": "Weekly client status; latest is W14.",
+      "url": "https://drive.google.com/drive/folders/1b8On94FfYoiut0qS8IWmdWuy1qxFMum5",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Deck",
+      "title": "Genome-Hooray-AM.pptx and v2",
+      "date": "14 and 22 Sep",
+      "what": "Presenting Genome to AMs and executives.",
+      "url": "https://drive.google.com/file/d/1HPkrbyLRJvwR0EOUgmjlmmSWwwGdEZ1i/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Design",
+      "title": "Design Workshop Notes",
+      "date": "12 Aug",
+      "what": "Product requirements from the design workshops.",
+      "url": "https://docs.google.com/document/d/1BTcosSB3VBpRkvVQR92VqYLKvHevJCFwp6ddXOif9Hs/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Ask Genome - Product Definition",
+      "date": "1 Sep",
+      "what": "Chat product spec (not opened).",
+      "url": "https://docs.google.com/document/d/1t-JMu_LD6wOdOqbeh1JJZd_bxYUjNN0UDYPgyMlh5mU/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "IGNORE_ASK Genome - Documentation System",
+      "date": "1 Sep",
+      "what": "Superseded.",
+      "url": "https://docs.google.com/document/d/10rJbOvT4BVTpDH5CTycZkLyl-hFZVbl7QRjcSab-zLg/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Genome - Job Description.docx",
+      "date": "10 Sep",
+      "what": "Role definition for Genome (not opened).",
+      "url": "https://drive.google.com/file/d/16oJJAMSgRtBLS0BvMPHCqqBorQk9wMZF/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Spreadsheet",
+      "title": "Genome Metrics Inventory (3 versions, latest 25 Aug)",
+      "date": "18 to 25 Aug",
+      "what": "Metric definitions for Brian’s sign-off.",
+      "url": "https://drive.google.com/file/d/1YnWLtq_FWQ8KQDYWEI8o72HGsGkO8JlY/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Spreadsheet",
+      "title": "Account Mapping Matrix",
+      "date": "14 Sep",
+      "what": "Hotels to platform accounts.",
+      "url": "https://docs.google.com/spreadsheets/d/1lLOpYDBgV6GbYV8j3T-fgYZ0mmJGAVa0jDfsCKWEU1U/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Folder",
+      "title": "Kick-off Hooray; Design Workshop 08/11 (transcripts)",
+      "date": "11 Aug",
+      "what": "Meeting records.",
+      "url": "https://drive.google.com/drive/folders/1_91VYnHJSjXuVYWid9cEKOtYWAWNVC3u",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Folder",
+      "title": "Feedback - Client View; Feedback - Internal Console",
+      "date": "Aug to Sep",
+      "what": "Client feedback (contents not listed).",
+      "url": "https://drive.google.com/drive/folders/1N36NvbVNFm4i5_86liVPXLvAlx7tzAZ9",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Design",
+      "title": "Brand assets: hooray-agency-brand-brief.md, Hooray Identity Guide Summer 2025.pdf, logo folders",
+      "date": "30 Jul to 12 Aug",
+      "what": "Branding for the console.",
+      "url": "https://drive.google.com/drive/folders/11Agx62CfbfBTHVs32Kq6hUHhDdk-eqv8",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Site",
+      "title": "QBR deck",
+      "date": "12 Nov",
+      "what": "Status and Phase 2 discussion (not opened).",
+      "url": "https://qbr-hooray.links.getsupernal.ai/",
+      "where": "Web",
+      "sensitive": false
+    },
+    {
+      "kind": "Prototype",
+      "title": "Internal Platform (Command Center)",
+      "date": "18 Aug",
+      "what": "Shown at the design workshop.",
+      "url": "https://internal-genome.links.getsupernal.ai/",
+      "where": "Web",
+      "sensitive": false
+    },
+    {
+      "kind": "Folder",
+      "title": "client-hooray repository",
+      "date": "31 Jul",
+      "what": "Product code; PRs 89 to 133 shared in #supernal-squad-the-origin.",
+      "url": "https://github.com/Supernal-Technology/client-hooray",
+      "where": "Web",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "PRD: Hooray (Genome), with Key Features and Supporting Documents",
+      "date": "Aug to Sep",
+      "what": "Product requirements (not opened).",
+      "url": "https://app.notion.com/p/b94bd5e8f31883088a8f811c7d43b12d",
+      "where": "Notion",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Hooray account page, AI Strategy Hub",
+      "date": "21 Sep",
+      "what": "Account summary (not opened).",
+      "url": "https://app.notion.com/p/3aebd5e8f3188004a60fc25efcb3d81b",
+      "where": "Notion",
+      "sensitive": false
+    },
+    {
+      "kind": "Dashboard",
+      "title": "Linear projects Hooray Phase 1 to 4",
+      "date": "Aug on",
+      "what": "Delivery tracking.",
+      "url": "https://linear.app/supernal-clients/project/hooray-phase-1-dc7e91e3a44e",
+      "where": "Linear",
+      "sensitive": false
+    },
+    {
+      "kind": "Folder",
+      "title": "23 scoping files",
+      "date": "4 to 5 Jun",
+      "what": "June scoping vault export, stored locally.",
+      "url": "",
+      "where": "unknown",
+      "sensitive": false
+    },
+    {
+      "kind": "Site",
+      "title": "Hooray Help Center",
+      "date": "21 Oct",
+      "what": "AM and hotel onboarding; link cut off in Slack search.",
+      "url": "",
+      "where": "unknown",
+      "sensitive": false
+    },
+    {
+      "kind": "Spreadsheet",
+      "title": "Feedback tracking Google Sheet",
+      "date": "Nov",
+      "what": "Pilot feedback.",
+      "url": "",
+      "where": "unknown",
+      "sensitive": false
+    },
+    {
+      "kind": "Recording",
+      "title": "Feedback template and workshop recording",
+      "date": "1 Sep",
+      "what": "Async review of the Client View workshop.",
+      "url": "",
+      "where": "unknown",
+      "sensitive": false
+    },
+    {
+      "kind": "Prototype",
+      "title": "SAL Vision Deck; HTML proposal v1; June prototype",
+      "date": "Jun",
+      "what": "The original pitch.",
+      "url": "",
+      "where": "unknown",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "AskGenome design doc",
+      "date": "10 Sep",
+      "what": "Architecture; may be the Drive product definition.",
+      "url": "",
+      "where": "unknown",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Session guide for hotel feedback sessions",
+      "date": "Nov",
+      "what": "For hotel sessions; may not exist yet.",
+      "url": "",
+      "where": "unknown",
+      "sensitive": false
+    }
+  ],
+  "book": [
+    {
+      "title": "The account in one page",
+      "minutes": 2,
+      "lenses": [
+        "all"
+      ],
+      "text": "Hooray Agency markets luxury hotels and resorts. It has about 30 years of history, a few dozen staff and about 40 to 50 hotel clients. Supernal builds it a product called Genome: one store of each hotel's marketing data from GA4, Meta and CM360, an internal console for Hooray's account managers, a portal each hotel logs into, and a chat that answers questions about the numbers. Hooray pays $8,900 per month for 12 months from 1 Aug 2026, $106,800 in all, with a way out at month 6, and owns everything built.\n\nThree things set this account apart. First, the product serves Hooray's own clients, so its success depends on people Supernal never meets. Second, what was scoped in early June, an AI employee for creative briefs at $72,000, is not what was signed, and what was signed is not quite what was built. Third, the work runs in 90-day phases, and the scope of each phase is meant to be agreed at a gate.\n\nPhase 1 is built. Ten hotels are connected. Ten account managers have been invited. No hotel has used it. The team's own reading is that the build has gone well and the client's internal alignment has been the hard part. Health is 3.0 of 5, Watch, with the two weakest scores on technical depth and on how easily Supernal could be replaced.",
+      "sources": [
+        "Drive: MSA + Order Form",
+        "Drive: Weekly Brief W14",
+        "Account OS",
+        "Delivery Sync, 9 Nov 2026",
+        "vault: Proposal-v2 › Commercials"
+      ]
+    },
+    {
+      "title": "Why they bought",
+      "minutes": 2,
+      "lenses": [
+        "strategy",
+        "account"
+      ],
+      "text": "No single reason carried this sale. The starting point was a relationship: Nick met the CEO, Steven Seghers, at a hospitality conference in early 2026, which is why Supernal was in the room at all. The pain was real but unmeasured. David Metze said account staff lose 60% or more of their time to chasing unclear client requests and assembling monthly reports from four platforms that never agree.\n\nHooray had already tried to solve it. Its developers built a chatbot, then began moving it to Google Vertex, and stalled both times because they kept being pulled onto client problems. That failure made an outside partner thinkable, but it also created the main objection: the operations executive, Randy Stuck, believed they could still do it themselves. Two commercial terms answered him. Hooray would own the code from day one, and it would pay monthly with an exit at month 6, so the bet was small and reversible.\n\nA competing vendor helped without meaning to. Its requirements document, which Hooray shared, framed the same problem as a reporting assistant. That told Supernal to lead with reporting and keep the AI-employee idea as the larger picture. By mid-June Randy trusted Nick more than earlier vendors. And the CEO added a reason of his own: he wanted something hotels would pay for. That last reason later reshaped the deal.",
+      "sources": [
+        "vault: Sales-Context › Origin, Political Landscape",
+        "vault: Sales-Notes",
+        "Drive: Hooray Agency, Requirements from Competitor",
+        "Drive: Gemini notes, 18 Jun 2026"
+      ]
+    },
+    {
+      "title": "How the scope changed between scoping and signing",
+      "minutes": 2,
+      "lenses": [
+        "strategy",
+        "account"
+      ],
+      "text": "The scoping files of 4 to 5 Jun describe SAL, an AI employee that drafts monthly reports first and packages creative briefs second, for a $5,000 monthly retainer plus a $12,000 build: $72,000 in year one. Eight weeks later Hooray signed for a client-facing data console at $106,800. Four separate forces produced that.\n\nFirst, the pitch moved. By the 16 Jun presentation Supernal was selling “AI-native” companies, a data store and consoles, at $8,000 per month, and the brief-packaging work had dropped away.\n\nSecond, the CEO raised the ambition. On 18 Jun Hooray asked for a product it could sell to hotels by 1 Jan 2027, shown to them in Aug and Sep when budgets are set. That meant an internal console and a hotel console in parallel. Supernal priced it at $16,000 per month, $192,000, plus a licence fee per hotel, and planned to keep the platform as its own property.\n\nThird, the money stopped it. On 30 Jun David said the stretch was too great. Hooray did not know hotels would pay, saw the project as a gamble, and would rather risk about $50,000 than $150,000. Above about $8,000 per month it would hire staff instead. Its own developer had also just connected Google Analytics to an AI tool, which made a small proof feel within reach.\n\nFourth, the two executives wanted different things, one to swing big and one to spend little. Ninety-day phases let both agree. The licence fee disappeared and Hooray kept full ownership.",
+      "sources": [
+        "vault: Proposal-v2 › Commercials",
+        "Drive: Gemini notes, 16, 18, 30 Jun and 6 Jul 2026",
+        "Drive: [Internal] Pricing & Licensing Memo",
+        "Drive: MSA + Order Form"
+      ]
+    },
+    {
+      "title": "How the deal is built",
+      "minutes": 2,
+      "lenses": [
+        "account",
+        "delivery"
+      ],
+      "text": "The signed order form is short and unusual. It commits a monthly fee, not a fixed list of work. Phase 1 is described in full: a data store on the sources Hooray controls, a branded console for a demo group of 10 hotels, the Genome chat, and a kit for demonstrating it. After that, each 90-day phase ends in a gate where both sides read what hotels used and asked for, then sign a one-page plan for the next phase, sized to what the fee covers. Work beyond that capacity needs a new order form.\n\nThe fee is $3,000 for strategy and $5,900 for build. It covers 10 connected accounts; each further block of 10 costs $500 per month. A connected account is one platform account, not one hotel, so a hotel on three platforms can count as three. That matters for the request to bring about 40 hotels live. Third-party costs up to $500 per month are included.\n\nHooray owns the console code, Genome's configuration, the database and the data. If it leaves, Supernal runs a paid migration and hands over credentials within 10 business days. The term renews automatically for six months at a time. The early exit falls at the end of Jan 2027, which is also when Phase 2 is due to end.\n\nThe order form lists an internal account-manager console as a later option. In practice it was built first.",
+      "sources": [
+        "Drive: MSA + Order Form › 2 to 9",
+        "Linear"
+      ]
+    },
+    {
+      "title": "The product and why the September sessions reshaped it",
+      "minutes": 2,
+      "lenses": [
+        "product",
+        "engineering"
+      ],
+      "text": "The first version, shown in August, was built from the contract and two design workshops. It led with blended return on ad spend, compared each month with the one before, opened the chat across all hotels, and wrote a short narrative at the top of each report.\n\nThree sessions on 22 to 24 Sep changed much of that, for reasons that came from different places. The hotel business supplied some: demand is seasonal, so the comparison had to be the same month last year, and reviews are quarterly, so a quarter view replaced the rolling 30 days. Hooray's commercial position supplied others. It is paid a share of ad spend and is judged on results it only partly controls. Part of a hotel's budget buys awareness, not bookings, so a return figure at the top starts the wrong conversation. The home screen now leads with revenue, transactions, room nights and average rate, the same order as the old report, and marks figures the agency cannot influence. Budget numbers were left out to avoid arguments about unspent money.\n\nHow hotels work supplied more: usually one person per property logs in, so reports had to export to PDF. And the feedback itself was candid about the AI. Text that restated the screen was judged low value; the buttons that ask or explain were what people wanted.\n\nTiming also mattered. Supernal had found wrong metrics earlier in the month, and the executives, burned by an earlier internal project also called Genome, insisted on reviewing before any account manager did.",
+      "sources": [
+        "Supernal <> Hooray Weekly Sync, 19 Aug 2026",
+        "Feedback Session | David & Roger, 23 Sep 2026",
+        "Genome Feedback Session, 24 Sep 2026",
+        "Weekly Review, 11 Sep 2026",
+        "Delivery Sync, 21 Sep 2026",
+        "Drive: Design Workshop Notes"
+      ]
+    },
+    {
+      "title": "How delivery has gone",
+      "minutes": 2,
+      "lenses": [
+        "delivery",
+        "engineering"
+      ],
+      "text": "The build went quickly. Within two weeks of kickoff the team had data access, a production environment and an internal console to show. A client leader said, in effect, that the pace would let him sleep. The first three milestones closed on or near their dates: kickoff by 14 Aug, data for all 10 hotels by early Sep, Genome live by the end of Sep.\n\nThe data was harder than the screens. Each platform reports differently. Google Ads was not connected, so paid search was derived from GA4. Display spend bought through Trade Desk before mid-2026 has no cost in the newer system, so history is incomplete. Mid-September checks found wrong numbers, which cost about a week and led to a formal comparison with Hooray's Looker reports.\n\nFrom October the delays came from the client side. The pilot milestone, due 16 Oct, sits at 75%. Rollout, due 30 Oct, sits at 54%. Leadership chose to migrate about 45 hotels off another platform at the same time as onboarding, against the team's advice, and the date moved to 2 Nov and then 9 Nov. David then resisted putting hotels on at all, while the CEO's instruction to proceed stood. On 9 Nov Supernal was still waiting for a go.\n\nAround this the squad built things nobody asked for by contract: a help centre, a connector request hub, usage tracking.",
+      "sources": [
+        "Slack #acnt-hooray-internal, 19 Aug 2026",
+        "Linear",
+        "Supernal <> Hooray Weekly Sync, 19 Aug 2026",
+        "Weekly Review, 23 Oct and 6 Nov 2026",
+        "Strat Team Standup, 26 Oct 2026",
+        "Drive: Weekly Brief W14"
+      ]
+    },
+    {
+      "title": "The people",
+      "minutes": 2,
+      "lenses": [
+        "account",
+        "strategy"
+      ],
+      "text": "Four people at Hooray decide, and they do not always decide together. Steven Seghers, the CEO, signed the contract and thinks in large moves. He asked early where Genome's intelligence comes from and whether other Hooray tools could be folded in, and in late October he floated turning Genome from a reporting tool into something that carries Hooray's expertise. Randy Stuck holds the budget, began as the sceptic who preferred building in house, and has become a precise reviewer of what the numbers should say. David Metze is the day-to-day contact and the original champion; he has staked his standing on an outside partner working. Roger Burns is the steady co-champion who knows how to move the others.\n\nDavid and Roger have said they get caught between the CEO and Randy. That gap shows up in delivery: the team reports that decisions made by the working group get overridden by the CEO. Below them sit about eight or nine account managers and three account directors who had not heard of the project until September, and a validator, Brian, who signs off calculations.\n\nOn Supernal's side Nick has held the relationship since the first meeting. Jaime runs strategy and product, Harvy builds, Vitor reviews code, Diana designs and runs feedback sessions. They work as one squad across four accounts.",
+      "sources": [
+        "Drive: Gemini notes, 18 Jun 2026",
+        "Slack #acnt-hooray-internal, 5 Aug 2026",
+        "Slack #supernal-squad-the-origin, 2 Nov 2026",
+        "Client View Portal - Workshop, 1 Sep 2026",
+        "Strat Team Standup, 26 Oct 2026",
+        "All-Hands, 10 Nov 2026"
+      ]
+    },
+    {
+      "title": "What value has shown, and what is next",
+      "minutes": 2,
+      "lenses": [
+        "all"
+      ],
+      "text": "So far the value is a working product, not a number. Monthly reporting is automated for the pilot hotels. Nick has estimated a time saving of about half, but nobody has measured the hours account managers spent before or spend now. The June targets of 50 hours a month and 95% on-time reports were never agreed with the client and are not tracked. Six of ten invited account managers had logged in by late October. No hotel has. Hooray has not yet earned anything from Genome, which was the CEO's reason for wanting it.\n\nThat is why the scores for defensibility and technical depth are low: a reporting console on three common data sources is something another vendor, or Hooray's own developer, could reproduce.\n\nThe next steps are all decisions. Hooray must say when hotels start and how Phase 1 closes. Both sides must agree what Phase 2 is. Four requests are on the table: hotel booking-system data, which is valuable and very hard because every hotel uses a different system; growing from 10 to about 40 hotels by 1 Jan 2027; a Catalyst console; and Prophit as a source. Supernal's internal plan instead describes Genome preparing account-manager work. A QBR on 12 Nov was meant to settle it. The month-6 exit at the end of Jan 2027 is the date that gives this urgency.",
+      "sources": [
+        "Squad Lab, 13 Oct and 22 Sep 2026",
+        "Account OS",
+        "Drive: Weekly Brief W14",
+        "Slack #acnt-hooray-internal, 15 Oct and 12 Nov 2026",
+        "Linear",
+        "Drive: MSA + Order Form"
+      ]
+    }
+  ],
+  "answers": [
+    {
+      "q": "Why is health at Watch when the build went well?",
+      "a": "Tech and defensibility score 2.0 because a reporting console on three common sources is easy for another vendor, or Hooray’s own developer, to reproduce. No hotel has used it and no value has been measured. Since Oct the delays have come from client-side alignment."
+    },
+    {
+      "q": "What is Phase 2?",
+      "a": "Not agreed. Linear describes Genome preparing AM work; the client deck pitches hotel PMS data, 40 hotels, Catalyst and Prophit as a path to charging hotels. The 12 Nov QBR was meant to settle it and its outcome is not recorded."
+    },
+    {
+      "q": "How exposed is the renewal?",
+      "a": "Hooray can exit at the end of month 6, end of Jan 2027, which is also when Phase 2 ends. Renewal risk is medium with the driver easily displaced, and the CEO’s reason for buying, revenue from hotels, has not yet shown."
+    }
+  ],
+  "workflows": [
+    {
+      "name": "Supernal <> Hooray weekly sync",
+      "kind": "external",
+      "cadence": "Weekly",
+      "with": "David Metze, Roger Burns",
+      "output": "Weekly Brief deck",
+      "lastRun": "10 Nov",
+      "note": "Weekly Brief W2 to W14, no W12."
+    },
+    {
+      "name": "QBR",
+      "kind": "external",
+      "cadence": "Quarterly",
+      "with": "Hooray leadership",
+      "output": "QBR deck",
+      "lastRun": "12 Nov",
+      "note": "Outcome not recorded."
+    },
+    {
+      "name": "Phase gate",
+      "kind": "external",
+      "cadence": "Every 90 days",
+      "with": "Hooray leadership",
+      "output": "One-page next-phase plan",
+      "lastRun": "",
+      "note": "Phase 1 gate re-planned for end of Nov."
+    },
+    {
+      "name": "Weekly Review",
+      "kind": "internal",
+      "cadence": "Weekly",
+      "with": "Squad",
+      "output": "",
+      "lastRun": "6 Nov",
+      "note": ""
+    },
+    {
+      "name": "Delivery Sync",
+      "kind": "internal",
+      "cadence": "Recurring",
+      "with": "Squad",
+      "output": "",
+      "lastRun": "9 Nov",
+      "note": ""
+    },
+    {
+      "name": "Squad Lab",
+      "kind": "internal",
+      "cadence": "Recurring",
+      "with": "Squad",
+      "output": "",
+      "lastRun": "13 Oct",
+      "note": ""
+    },
+    {
+      "name": "Strat Team Standup",
+      "kind": "internal",
+      "cadence": "Recurring",
+      "with": "Strategy team",
+      "output": "",
+      "lastRun": "26 Oct",
+      "note": ""
+    },
+    {
+      "name": "Weekly account health",
+      "kind": "internal",
+      "cadence": "Weekly",
+      "with": "Jaime Garcia",
+      "output": "Account OS health note",
+      "lastRun": "8 Nov",
+      "note": "Week of 2 to 8 Nov scored 3.0."
+    }
+  ]
+}

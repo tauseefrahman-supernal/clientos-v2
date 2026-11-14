@@ -1,0 +1,1211 @@
+{
+  "key": "super-73",
+  "title": "Super 73",
+  "strat": "Diana Pedroza",
+  "pod": "Johnny Borbone (AM), Diana Pedroza (strategist), Vitor Escalfoni (engineer)",
+  "mrr": "$6,000",
+  "closedValue": "$72,000",
+  "closedCount": 1,
+  "health": {
+    "score": "4.4",
+    "band": "Healthy",
+    "tone": "ok"
+  },
+  "fresh": [
+    "Current as of Super73 <> Supernal, 10 Nov",
+    "20 dedicated meetings since Aug",
+    "28 call paths built for Keith"
+  ],
+  "transcripts": 4,
+  "deals": [
+    {
+      "name": "Super73 (New)",
+      "value": "$72,000",
+      "stage": "Closed Won 15 Sep",
+      "phase": 3,
+      "note": "$6,000 a month under OF-001, effective 8 Sep; owner Johnny."
+    }
+  ],
+  "lost": "",
+  "sold": [
+    {
+      "form": "OF-001 Customer Service AI Employee",
+      "promised": "A phone-first Tier 1 support agent over three milestones for $6,000 a month, with 1,000 call-minutes included weekly.",
+      "met": "M1 done; M2.1 build at 56% against 17 Nov; nothing live yet.",
+      "tone": "warn"
+    }
+  ],
+  "arc": [
+    {
+      "period": "Q2",
+      "meetings": null,
+      "points": [
+        "Warm intro via Drystone’s CFO to Super73’s CFO Bryson, then Taylor and Michael.",
+        "Technical scoping and a deeper review with MAC on 26 Jun; proposal and order form first drafts 8 and 12 Jun."
+      ]
+    },
+    {
+      "period": "Jul–Aug",
+      "meetings": 1,
+      "points": [
+        "Slow close: decision-tree emails 10 to 17 Jul, Johnny named the bottleneck.",
+        "Client legal reviewing on 12 Aug; internal prep sync 20 Aug."
+      ]
+    },
+    {
+      "period": "Sep",
+      "meetings": 5,
+      "points": [
+        "Signed 14 to 15 Sep, about a month after the planned 15 Aug start.",
+        "Kickoff 18 Sep, discovery 25 Sep, working session 29 Sep."
+      ]
+    },
+    {
+      "period": "Oct",
+      "meetings": 10,
+      "points": [
+        "Scope narrowed to front door plus troubleshooting, North America only; M1 done 13 Oct.",
+        "Voice chosen 20 Oct; Railway incident forced key rotation; six-call test interface 27 Oct."
+      ]
+    },
+    {
+      "period": "Nov",
+      "meetings": 4,
+      "points": [
+        "Full Command Center shown 3 Nov.",
+        "Routing rules and testing plan agreed 10 Nov; Twilio ownership still open."
+      ]
+    }
+  ],
+  "disagreements": [
+    "Minute allowance: the signed order form says 1,000 minutes every week; the 10 Nov call notes say 1,000 a month.",
+    "Contract value: Account OS and Notion show $72,000; the signed term is six months ($36,000) then monthly.",
+    "Team cost: about $480,000 a year in the cost model against just under $1,000,000 a year from Johnny on 17 Sep.",
+    "Titles: Taylor is COO, Head of Operations or Sr. Director; MAC is Director or Head; the order form names Jaime as strat lead, Account OS names Diana.",
+    "Telephony: Super73 owns Twilio for now (3 Nov); Supernal decided to set it up in-house (6 Nov); ownership still open on 10 Nov."
+  ],
+  "streams": [
+    {
+      "name": "Keith engine and brain",
+      "state": "Building",
+      "tone": "warn",
+      "pct": 56,
+      "due": "17 Nov",
+      "measured": "Latency 0.6 to 0.9 seconds",
+      "learned": "More knowledge makes it slower.",
+      "attention": true
+    },
+    {
+      "name": "Command Center",
+      "state": "Live",
+      "tone": "ok",
+      "pct": null,
+      "due": "17 Nov",
+      "measured": "Test pass and fail per path",
+      "learned": "Client uses it to rethink its own KPIs.",
+      "attention": false
+    },
+    {
+      "name": "Integrations (Zendesk, Shopify, Narvar, read-only)",
+      "state": "Late",
+      "tone": "err",
+      "pct": null,
+      "due": "10 Nov",
+      "measured": "",
+      "learned": "Zendesk splits phone and email profiles.",
+      "attention": true
+    },
+    {
+      "name": "Telephony and SMS",
+      "state": "Blocked",
+      "tone": "err",
+      "pct": null,
+      "due": "17 Nov",
+      "measured": "",
+      "learned": "Zendesk telephony cannot be used.",
+      "attention": true
+    },
+    {
+      "name": "Knowledge and source catalogue",
+      "state": "Live",
+      "tone": "ok",
+      "pct": null,
+      "due": "13 Nov",
+      "measured": "Articles checked per run",
+      "learned": "Manual updates kept for 2 weeks to check the automated review.",
+      "attention": false
+    },
+    {
+      "name": "Testing and rollout",
+      "state": "Not started",
+      "tone": "info",
+      "pct": null,
+      "due": "18 Dec",
+      "measured": "Launch criteria",
+      "learned": "Open the line in short windows, then review.",
+      "attention": false
+    }
+  ],
+  "tiles": [
+    {
+      "file": "roadmap",
+      "section": "Roadmap › Success",
+      "title": "Success metrics",
+      "headline": "The one recorded outcome is above 90% satisfaction, and no value is shown yet.",
+      "tone": "warn",
+      "state": "Nothing live"
+    },
+    {
+      "file": "roadmap",
+      "section": "Roadmap › Commercials",
+      "title": "Commercial model",
+      "headline": "$6,000 a month flat, below the $8,000 minimum, six months then monthly.",
+      "tone": "warn",
+      "state": "Below floor"
+    },
+    {
+      "file": "plan",
+      "section": "Plan › Dependencies",
+      "title": "Dependencies",
+      "headline": "Twilio ownership, test records and SMS registration are undecided or past due.",
+      "tone": "err",
+      "state": "Critical path"
+    },
+    {
+      "file": "roadmap",
+      "section": "Roadmap › Opportunities",
+      "title": "Opportunity map",
+      "headline": "Eight later lanes each need their own scope; the account is sized internally at $300,000 or more a year.",
+      "tone": "info",
+      "state": "Large whitespace"
+    },
+    {
+      "file": "stakeholders",
+      "section": "Stakeholders › Power",
+      "title": "Power map",
+      "headline": "MAC drives the work, Taylor signs and watches milestones, Bryson sits in weekly.",
+      "tone": "ok",
+      "state": "Champion engaged"
+    },
+    {
+      "file": "stakeholders",
+      "section": "Stakeholders › Health",
+      "title": "Health",
+      "headline": "4.4 Healthy with low renewal risk, but the COO and CFO expected more by now.",
+      "tone": "warn",
+      "state": "Healthy, watch"
+    }
+  ],
+  "decisions": [
+    {
+      "title": "Twilio account ownership",
+      "detail": "Who owns the carrier account and its cost is still open after 10 Nov; telephony is the critical path.",
+      "action": "Draft proposal"
+    },
+    {
+      "title": "Minute allowance reading",
+      "detail": "Order form says 1,000 minutes a week, call notes say a month; overage maths differ about fourfold.",
+      "action": "Check transcript"
+    },
+    {
+      "title": "Where the engine runs",
+      "detail": "Engine hosting issue SUP3-135 is unassigned.",
+      "action": "Assign owner"
+    },
+    {
+      "title": "AI disclosure and recording wording",
+      "detail": "Wording needs agreement with the client’s counsel before real calls.",
+      "action": "Draft wording"
+    },
+    {
+      "title": "Transfers to North American sales",
+      "detail": "Undecided whether Keith transfers callers to the sales team.",
+      "action": "Ask MAC"
+    },
+    {
+      "title": "COO and CFO expectations",
+      "detail": "MAC warned Johnny that leadership expected to be further along.",
+      "action": "Draft update"
+    }
+  ],
+  "slipping": [
+    {
+      "kind": "Past target",
+      "tone": "err",
+      "item": "SM4 sign-off",
+      "detail": "Integrations sign-off was due 10 Nov."
+    },
+    {
+      "kind": "Past target",
+      "tone": "err",
+      "item": "Carrier account and test number",
+      "detail": "Past due on 13 Nov; Twilio ownership undecided."
+    },
+    {
+      "kind": "Past target",
+      "tone": "err",
+      "item": "SMS registration",
+      "detail": "Past due on 13 Nov."
+    },
+    {
+      "kind": "Past target",
+      "tone": "err",
+      "item": "Test-ticket marking",
+      "detail": "Was due 3 Nov."
+    },
+    {
+      "kind": "Blocked on client",
+      "tone": "err",
+      "item": "Real test records",
+      "detail": "Due 30 Oct; test records not agreed."
+    },
+    {
+      "kind": "Past target",
+      "tone": "err",
+      "item": "In-call survey",
+      "detail": "Was due 3 Nov."
+    },
+    {
+      "kind": "Promised, no task",
+      "tone": "warn",
+      "item": "Twilio call with Taylor and Bryson",
+      "detail": "No Linear issue found."
+    },
+    {
+      "kind": "Promised, no task",
+      "tone": "warn",
+      "item": "Call-volume analysis for MAC",
+      "detail": "No Linear issue found."
+    },
+    {
+      "kind": "Promised, no task",
+      "tone": "warn",
+      "item": "Johnny’s recurring KPI check with Taylor and monthly operating reviews",
+      "detail": "No Linear issue found."
+    },
+    {
+      "kind": "Expectation gap",
+      "tone": "warn",
+      "item": "Leadership pace",
+      "detail": "The COO and CFO expected to be further along (health note, 7 Nov)."
+    }
+  ],
+  "dates": [
+    {
+      "when": "13 Nov",
+      "what": "Client answers due on four knowledge gaps"
+    },
+    {
+      "when": "17 Nov",
+      "what": "M2.1 build complete; client testing starts (SM5)"
+    },
+    {
+      "when": "24 Nov",
+      "what": "Weekly Super73 <> Supernal call (Tuesday)"
+    },
+    {
+      "when": "1 Dec",
+      "what": "Weekly Super73 <> Supernal call (Tuesday)"
+    },
+    {
+      "when": "8 Dec",
+      "what": "Weekly Super73 <> Supernal call (Tuesday)"
+    }
+  ],
+  "feed": [
+    {
+      "meeting": "Super73 <> Supernal",
+      "date": "10 Nov",
+      "changes": [
+        "Routing: rules agreed with MAC; no-transfer cases create a ticket in the right group.",
+        "Testing: plan presented, first window for real calls around 18 Dec.",
+        "Stakeholders: Manon added as tester; Twilio ownership still open."
+      ]
+    },
+    {
+      "meeting": "Super73 Internal Sync",
+      "date": "6 Nov",
+      "changes": [
+        "Architecture: fast, cheap model with a retrieval tool, as latency is the parity measure.",
+        "Telephony: Supernal decided to set up Twilio in-house.",
+        "Roadmap: order tracking named the next path."
+      ]
+    },
+    {
+      "meeting": "Super73 <> Supernal",
+      "date": "3 Nov",
+      "changes": [
+        "Command Center: full version shown, deployed 4 Nov with placeholder data.",
+        "Requests: light mode, change log, metric drill-down.",
+        "Telephony: Super73 upgraded Twilio, signed off by Bryson."
+      ]
+    },
+    {
+      "meeting": "Super73 <> Supernal",
+      "date": "27 Oct",
+      "changes": [
+        "Testing: six-call test interface shown.",
+        "Telephony: MAC shared Twilio Flex and Zendesk documentation."
+      ]
+    }
+  ],
+  "people": [
+    {
+      "name": "MAC",
+      "title": "Director of Client Success",
+      "note": "At the start: supporter and day-to-day contact. Now: strong advocate who agreed routing rules and the test schedule on 10 Nov.",
+      "influence": "High",
+      "disposition": "Champion"
+    },
+    {
+      "name": "Taylor Beebe",
+      "title": "COO",
+      "note": "At the start: signer with a 23-point wish list who chose to test one case. Now: wants leadership-ready milestones; last seen 27 Oct.",
+      "influence": "High",
+      "disposition": "Supporter"
+    },
+    {
+      "name": "Bryson Eastwood",
+      "title": "CFO",
+      "note": "At the start: the original introduction. Now: joins weekly calls since 6 Oct and signed off the Twilio upgrade.",
+      "influence": "High",
+      "disposition": "Supporter"
+    },
+    {
+      "name": "Michael",
+      "title": "Founder and president",
+      "note": "Consulted on the agent name.",
+      "influence": "High",
+      "disposition": "Neutral"
+    },
+    {
+      "name": "Melissa",
+      "title": "Demand planning",
+      "note": "Named at kickoff.",
+      "influence": "Low",
+      "disposition": "Neutral"
+    },
+    {
+      "name": "Alyssa",
+      "title": "FAQ updates",
+      "note": "Updates the FAQs Keith draws on.",
+      "influence": "Low",
+      "disposition": "Neutral"
+    },
+    {
+      "name": "Manon",
+      "title": "EU counterpart",
+      "note": "Added as tester on 10 Nov.",
+      "influence": "Low",
+      "disposition": "Neutral"
+    },
+    {
+      "name": "Johnny Borbone",
+      "title": "Account manager, Supernal",
+      "note": "At the start: pre-sale lead, named the close bottleneck in Jul. Now: owns the relationship and a promised KPI check with Taylor.",
+      "influence": "",
+      "disposition": ""
+    },
+    {
+      "name": "Diana Pedroza",
+      "title": "Strategist, Supernal",
+      "note": "Joined from kickoff. Now: runs strategy, product, SOPs and weekly reports.",
+      "influence": "",
+      "disposition": ""
+    },
+    {
+      "name": "Vitor Escalfoni",
+      "title": "Engineer, Supernal",
+      "note": "Joined from kickoff. Now: builds Keith and the Command Center, split across two projects.",
+      "influence": "",
+      "disposition": ""
+    }
+  ],
+  "metrics": [
+    {
+      "criterion": "Tier 1 resolution rate",
+      "now": "Not measured; nothing live",
+      "state": "Not started",
+      "tone": ""
+    },
+    {
+      "criterion": "Cost per contact",
+      "now": "Baseline about $11.60 (directional)",
+      "state": "Baseline only",
+      "tone": ""
+    },
+    {
+      "criterion": "Customer satisfaction above 90%",
+      "now": "Baseline about 90% from Zendesk reviews",
+      "state": "Baseline only",
+      "tone": ""
+    },
+    {
+      "criterion": "Handle time",
+      "now": "Baseline 6.75 minutes",
+      "state": "Baseline only",
+      "tone": ""
+    },
+    {
+      "criterion": "Average resolution time",
+      "now": "Baseline 9 hours",
+      "state": "Baseline only",
+      "tone": ""
+    },
+    {
+      "criterion": "Response latency (parity measure)",
+      "now": "0.6 to 0.9 seconds in pre-test",
+      "state": "On track",
+      "tone": "ok"
+    }
+  ],
+  "accountos": [
+    {
+      "record": "Weekly health",
+      "now": "4.4 Healthy for 2 to 8 Nov; renewal risk Low.",
+      "proposes": "Keep Healthy, noting the leadership expectation gap and past-due SM4 items."
+    },
+    {
+      "record": "Stakeholders",
+      "now": "MAC and Taylor Beebe recorded; account pod fields empty.",
+      "proposes": "Add Bryson Eastwood, Michael and Manon; fill the pod with Johnny, Diana and Vitor."
+    },
+    {
+      "record": "Success plan",
+      "now": "One outcome, above 90% satisfaction; no goals.",
+      "proposes": "Goals for Tier 1 resolution rate, cost per contact and trend insights against the baselines."
+    },
+    {
+      "record": "Cadence",
+      "now": "No cadence events.",
+      "proposes": "Weekly Tuesday client call with report deck, internal sync, monthly operating review."
+    },
+    {
+      "record": "Value",
+      "now": "Nothing recorded; nothing live.",
+      "proposes": "Savings case of about $46,600 a month in team and tool cost against a $6,000 fee."
+    },
+    {
+      "record": "Whitespace",
+      "now": "No entries.",
+      "proposes": "Eight later lanes from the order form, led by order tracking, messaging and EU support."
+    },
+    {
+      "record": "Renewal",
+      "now": "No renewal date or plan.",
+      "proposes": "Initial term ends about 8 Mar 2027, then monthly; plan a review after the 22 Jan 2027 launch."
+    }
+  ],
+  "rationale": [
+    {
+      "decision": "Front door for all calls, resolving only troubleshooting at first",
+      "why": "Do one thing well; it is the highest-volume, hardest call type.",
+      "source": "Super73 <> Supernal, 29 Sep and 6 Oct"
+    },
+    {
+      "decision": "Safety issues transfer at once with no AI handling",
+      "why": "Thermal events, cracked frames and injuries need a person.",
+      "source": "Discovery Call, 25 Sep"
+    },
+    {
+      "decision": "Explicit coded rules per workflow",
+      "why": "The client has detailed SOPs and wants predictable behaviour.",
+      "source": "Vitor / Diana Internal Sync, 13 Oct"
+    },
+    {
+      "decision": "Fast, cheap backend model calling a retrieval tool",
+      "why": "Smarter models were too slow, and latency is the parity measure.",
+      "source": "Super73 Internal Sync, 6 Nov"
+    },
+    {
+      "decision": "Do not transfer on the first request",
+      "why": "Try a few steps, check the caller is with the bike, and reassure early.",
+      "source": "Super73 <> Supernal, 13 Oct"
+    },
+    {
+      "decision": "No personal details for troubleshooting; three verified before order changes",
+      "why": "Keeps troubleshooting frictionless while protecting order changes.",
+      "source": "Super73 <> Supernal, 29 Sep and 10 Nov"
+    },
+    {
+      "decision": "Zendesk read-only in early testing, test tickets in a controlled queue",
+      "why": "Limits risk to live support data while testing.",
+      "source": "Super73 <> Supernal, 13 Oct and 10 Nov"
+    },
+    {
+      "decision": "Go direct to a carrier (Twilio or Telnyx)",
+      "why": "Zendesk telephony gives no direct API access.",
+      "source": "Super73 <> Supernal, 20 Oct"
+    },
+    {
+      "decision": "With no transfer possible, create a ticket in the right group",
+      "why": "A ticket is tracked where a Slack post is not; Keith stays on 24 hours.",
+      "source": "Super73 <> Supernal, 10 Nov"
+    }
+  ],
+  "sections": [
+    {
+      "category": "Agent knowledge and source catalogue",
+      "group": 2,
+      "desc": "Source index, SOP versions, change log, open knowledge gaps and conflict rulings; about 25 files plus weekly automated reviews.",
+      "files": [
+        {
+          "name": "Source-Index",
+          "summary": "Keith-Source-Catalogue linking sources to paths."
+        },
+        {
+          "name": "SOP-Versions",
+          "summary": "Keith SOP v1.0, Tier-1 SOP v2.3 and SOP v2.1 Keith still reads."
+        },
+        {
+          "name": "Knowledge-Change-Log",
+          "summary": "Changes from the weekly review of 289 Zendesk articles."
+        },
+        {
+          "name": "Knowledge-Gaps",
+          "summary": "Open gaps and conflict rulings with MAC."
+        }
+      ]
+    },
+    {
+      "category": "Call paths and routing rules",
+      "group": 2,
+      "desc": "The 28 paths, safety stops, transfer and no-transfer rules and verification rules.",
+      "files": [
+        {
+          "name": "Call-Paths",
+          "summary": "The 28 paths and how far Keith resolves each."
+        },
+        {
+          "name": "Safety-Stops",
+          "summary": "Thermal event, cracked frame and injury transfer at once."
+        },
+        {
+          "name": "Routing-Rules",
+          "summary": "Transfer, no-transfer and ticket rules agreed 10 Nov."
+        },
+        {
+          "name": "Verification-Rules",
+          "summary": "Three pieces verified before order changes."
+        }
+      ]
+    },
+    {
+      "category": "Telephony",
+      "group": 2,
+      "desc": "Phone menu map, number inventory, carrier decision, ownership and minutes, SMS registration.",
+      "files": [
+        {
+          "name": "Phone-Menu-Map",
+          "summary": "Current IVR explorer, flowchart and script."
+        },
+        {
+          "name": "Carrier-Decision",
+          "summary": "Twilio or Telnyx and who owns the account."
+        },
+        {
+          "name": "Minutes-And-Cost",
+          "summary": "Included minutes, overage at cost, weekly versus monthly question."
+        },
+        {
+          "name": "SMS-Registration",
+          "summary": "Registration status and test number."
+        }
+      ]
+    },
+    {
+      "category": "Testing and acceptance",
+      "group": 3,
+      "desc": "Test plan, gates, launch criteria, tester list and feedback log; growing.",
+      "files": [
+        {
+          "name": "Test-Plan",
+          "summary": "Web, then phone, then edge cases."
+        },
+        {
+          "name": "Launch-Criteria",
+          "summary": "Gates before opening the line to real callers."
+        },
+        {
+          "name": "Tester-List",
+          "summary": "MAC, Taylor, Manon and other testers."
+        },
+        {
+          "name": "Feedback-Log",
+          "summary": "Pass and fail per path and client feedback."
+        }
+      ]
+    },
+    {
+      "category": "Agent persona",
+      "group": 2,
+      "desc": "Name history, voice choice, tone guidance and disclosure wording.",
+      "files": [
+        {
+          "name": "Name-History",
+          "summary": "Dyno to Keith, with spelling variants."
+        },
+        {
+          "name": "Voice-Choice",
+          "summary": "Voice Cedar, slowed slightly."
+        },
+        {
+          "name": "Disclosure-Wording",
+          "summary": "AI disclosure and recording wording with counsel."
+        }
+      ]
+    },
+    {
+      "category": "Baseline and cost model",
+      "group": 1,
+      "desc": "Client metrics, team and tool costs, voice cost curve and cost-per-contact formula.",
+      "files": [
+        {
+          "name": "Client-Baselines",
+          "summary": "Handle time, ticket volume, resolution time, satisfaction."
+        },
+        {
+          "name": "Team-And-Tool-Costs",
+          "summary": "TalentPop, Mavenoid and Narvar costs and the savings case."
+        },
+        {
+          "name": "Cost-Per-Contact",
+          "summary": "Formula and the directional $11.60 baseline."
+        }
+      ]
+    },
+    {
+      "category": "Design",
+      "group": 2,
+      "desc": "Command Center product experience and client brand assets; the document shows the screens and requested changes, not a set of design variations.",
+      "files": [
+        {
+          "name": "Command-Center-Screens",
+          "summary": "Overview, Calls, Insights, Safety, Keith’s Brain and Test Lab."
+        },
+        {
+          "name": "Command-Center-Requests",
+          "summary": "In-call survey, gap ranking, metric drill-down, light mode, change log."
+        },
+        {
+          "name": "Brand-Assets",
+          "summary": "S73 logo pack and brand guidelines."
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "kind": "Order form",
+      "title": "Super73 x Supernal - Order Form.pdf",
+      "date": "15 Sep",
+      "what": "Signed OF-001 (owners Johnny, Jaime).",
+      "url": "https://drive.google.com/file/d/1o36S-a_BjHkXSdSm--6n0u7oDbrGtXTB/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Super73 MSA - Supernal.pdf",
+      "date": "15 Sep",
+      "what": "Signed MSA.",
+      "url": "https://drive.google.com/file/d/1K7l3uPohzbpQyXbr91OTQV0bUKXnpcNV/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Folder",
+      "title": "super73-of-001 v1, v2, v3 drafts, v4 signed; super73-msa-v1-signed",
+      "date": "14 Oct",
+      "what": "Version history of the contract.",
+      "url": "https://drive.google.com/drive/folders/1EGrcuLvnd3zexQkYuIZw3XHUKoyc8QtE",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Order form",
+      "title": "Super 73 - Order Form - Build - New.docx",
+      "date": "28 Jul",
+      "what": "Build draft before signing.",
+      "url": "https://drive.google.com/file/d/1flITiopAdX63UbNMf8C954SHAzpiDsu7/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Order form",
+      "title": "Super 73 - Order Form - Build CS v1",
+      "date": "30 Jun",
+      "what": "Archived first build draft.",
+      "url": "https://docs.google.com/document/d/1gpQNDgNwrHegFwwNQVTmf7t7nUVvoneaaxXRb1Ro8Bg/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Order form",
+      "title": "Super 73 - Order Form - Strategy Engagement",
+      "date": "30 Jun",
+      "what": "Archived OF-002 draft, $5,000 a month; no sign it was signed.",
+      "url": "https://docs.google.com/document/d/1v09YqhDKx7A94JXYwudOIXTyMXK7GO5JUxHJrBKCY1g/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Proposal",
+      "title": "Final Proposal (HTML)",
+      "date": "18 Aug",
+      "what": "The proposal shown to the client.",
+      "url": "https://drive.google.com/file/d/1dl2X6TlDjbwZY70eDII0_tJVa2z6eiGu/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Initial client brief (PDF)",
+      "date": "18 Aug",
+      "what": "Taylor’s wish-list brief.",
+      "url": "https://drive.google.com/file/d/1yT8CKNme3th6onjKeSaYw5T82jSxKz9H/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Folder",
+      "title": "Extra context (10 files: index, Taylor data email, scoping transcripts, email thread, voice cost, APIs, company and competitor research, metrics and cost model)",
+      "date": "21 Aug",
+      "what": "Pre-sale evidence pack.",
+      "url": "https://drive.google.com/drive/folders/1SEShg3J8DuI9yOqC1ghkyLpAikcEfOH1",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Project Plan",
+      "date": "29 Sep",
+      "what": "Plan after kickoff.",
+      "url": "https://docs.google.com/document/d/1kpjwAztc8wRrBXvKuTqFFVo8_e3q2OwXD-e1e7uWyiY/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Deck",
+      "title": "0. Kickoff Deck",
+      "date": "18 Sep",
+      "what": "Kickoff.",
+      "url": "https://drive.google.com/file/d/1QVmx0sM-vXpIxTAKx33bE8Ll4pV2INeK/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Deck",
+      "title": "1. Discovery Workshop; 2. Working Session 29 Sep",
+      "date": "24 and 29 Sep",
+      "what": "Discovery sessions.",
+      "url": "https://drive.google.com/drive/folders/1nplsAlye6o6ub3BClxkAA881S0ph1ZYG",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Deck",
+      "title": "Weekly Report Week 3 to 8 (6 decks)",
+      "date": "6 Oct to 10 Nov",
+      "what": "Weekly client update.",
+      "url": "https://drive.google.com/drive/folders/1nplsAlye6o6ub3BClxkAA881S0ph1ZYG",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "01 - Dyno Job Description (v0.1).md",
+      "date": "11 Sep",
+      "what": "First scope definition.",
+      "url": "https://drive.google.com/file/d/1kagzKU6K2gO6VHgVKbyV3VMJqk4xyYvY/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Super73 - Keith SOP: Frontdoor + Troubleshooting (v1.0)",
+      "date": "19 Oct",
+      "what": "Keith’s operating procedure.",
+      "url": "https://docs.google.com/document/d/1IjKaB779jctEuEnH8GxpumQUtIGeHP2ULllJJL1Twkg/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "CS Tier-1 SOP Today (v2.3), marked do not use for Keith",
+      "date": "19 Oct",
+      "what": "The current human process, for reference.",
+      "url": "https://docs.google.com/document/d/1_9qBBhWjt07au54ISCleQjNwxXDc0h60OP6FlGlFAtk/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Keith knowledge consolidation, 19 Oct 2026",
+      "date": "19 Oct",
+      "what": "Decisions on knowledge structure.",
+      "url": "https://docs.google.com/document/d/1Xea51Ha24ZhwGjb3qq0T5MBYEjoM3simysSQn9ipW4M/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Telephony and SMS setup call: live checklist",
+      "date": "22 Oct",
+      "what": "Internal telephony checklist.",
+      "url": "https://docs.google.com/document/d/1Qz_Dtn2RcDze-wCx2W7SD6-UMY8RON8jhPHSEkgRloI/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Keith: Open questions for Super73",
+      "date": "10 Nov",
+      "what": "Questions MAC must answer before testing.",
+      "url": "https://docs.google.com/document/d/1W1CTchH1mxyyBJ4s54DJXC5U_Ll67d4yaBjY3ejO1rI/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Internal Notes",
+      "date": "20 Aug",
+      "what": "Team notes.",
+      "url": "https://docs.google.com/document/d/1TeLEgN-D3Gf6CWxdSRJhZ9EA-owx8sdykGgZV0kyfiw/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Folder",
+      "title": "Internal Transcripts: Kick-Off, Discovery Call, Working Session 2, Week 3",
+      "date": "18 Sep to 6 Oct",
+      "what": "Call records.",
+      "url": "https://drive.google.com/drive/folders/1WLPB1EvFnh2Zr2DqyLmHugWk9kb62ZSb",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Prototype",
+      "title": "super73_diagnostic_map (very relevant).html",
+      "date": "18 Aug",
+      "what": "Client’s original diagnostic tree, from Taylor.",
+      "url": "https://drive.google.com/file/d/1e9JCqaCrCDBMnMQ-lUI8leinHQX3jdEA/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Prototype",
+      "title": "super73_service_diagnostic_system_v0.19.html and super73_troubleshooting_logic.json",
+      "date": "29 Sep",
+      "what": "Reconciled source of truth for troubleshooting, from MAC.",
+      "url": "https://drive.google.com/drive/folders/10trsfvczaUtpFTDd7smav0As2hYx04Js",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Prototype",
+      "title": "Phone IVR: Explorer.html, Flowchart.pdf, Script.pdf, Spec.json",
+      "date": "6 Oct",
+      "what": "Current phone menu, mapped.",
+      "url": "https://drive.google.com/drive/folders/1QvhrzHOCEuw3wUDtbb3Wh2FKemZ9ZZVx",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Spreadsheet",
+      "title": "Super73 Bike Export.xlsx; Super73_Warranty_A_0526.pdf",
+      "date": "17 to 28 Sep",
+      "what": "Model list and warranty terms.",
+      "url": "https://drive.google.com/drive/folders/1Qm8Fo7bIbL0OHXeQRO_PljuJlWpNVGCf",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Recording",
+      "title": "Call Recordings.zip and Call Recordings folder",
+      "date": "17 Sep",
+      "what": "Real customer calls for the baseline.",
+      "url": "https://drive.google.com/drive/folders/1h6KLrFPRPijiPt7b4uVBTlNXUI_EkESH",
+      "where": "Drive",
+      "sensitive": true
+    },
+    {
+      "kind": "Design",
+      "title": "S73 Logo.zip",
+      "date": "17 Sep",
+      "what": "Client brand assets.",
+      "url": "https://drive.google.com/drive/folders/1N-R3ryB3PKqlY1DDUEbS3sKu7vGf6NZH",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Folder",
+      "title": "engine/ Keith-Source-Catalogue",
+      "date": "20 Oct",
+      "what": "Index linking sources to paths (not opened).",
+      "url": "https://drive.google.com/drive/folders/1MmqZcyZBphWY06SUqO1UhrPDqRKB3QcD",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Folder",
+      "title": "A-super73-originals (about 25 files)",
+      "date": "20 to 22 Oct",
+      "what": "Discovery audit and source files: knowledge-base inventory, ticket evidence, scoping report, Zendesk phone analysis, IVR state, brand guidelines, Keith job description, SOP, SKU export.",
+      "url": "https://drive.google.com/drive/folders/1sOyyc-Gs6Swd8AIV8MzjlVhmNLoFB9_K",
+      "where": "Drive",
+      "sensitive": true
+    },
+    {
+      "kind": "Site",
+      "title": "Keith Command Center",
+      "date": "30 Oct",
+      "what": "Testing and, later, live operations.",
+      "url": "https://keith.super73.com",
+      "where": "Web",
+      "sensitive": false
+    },
+    {
+      "kind": "Demo",
+      "title": "Dyno voice samples and first Command Center",
+      "date": "30 Sep",
+      "what": "Voice choice and first prototype; also at dyno.up.railway.app.",
+      "url": "https://dyno.super73.com",
+      "where": "Web",
+      "sensitive": false
+    },
+    {
+      "kind": "Prototype",
+      "title": "Scope review questionnaire",
+      "date": "6 to 8 Oct",
+      "what": "About 40 path decisions for MAC.",
+      "url": "https://scope-review-super73.links.getsupernal.ai",
+      "where": "Web",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Initial architecture draft, 29 Sep 2026",
+      "date": "29 Sep",
+      "what": "Architecture and test phases, in GitHub client-super73 docs/architecture.",
+      "url": "",
+      "where": "Web",
+      "sensitive": false
+    },
+    {
+      "kind": "Deck",
+      "title": "Testing and Rollout Strategy presentation",
+      "date": "10 Nov",
+      "what": "Testing plan, attached in #external-super73-supernal.",
+      "url": "",
+      "where": "Slack",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Twilio Flex and Zendesk documentation",
+      "date": "27 Oct",
+      "what": "Telephony option shared by MAC.",
+      "url": "https://twilio.com/docs/flex/admin-guide/integrations/zendesk",
+      "where": "Web",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "PRD: Super 73 (Dyno); PRD: Keith Command Center (Super73); PRD: Super73 Keith Command Center",
+      "date": "8 Sep, 23 Oct, 26 Oct",
+      "what": "Product requirements.",
+      "url": "",
+      "where": "Notion",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Weekly account health reports (7)",
+      "date": "21 Sep to 6 Nov",
+      "what": "Weekly internal status.",
+      "url": "",
+      "where": "Notion",
+      "sensitive": false
+    },
+    {
+      "kind": "Video",
+      "title": "Loom walkthrough of the CS and Zendesk setup",
+      "date": "29 Sep",
+      "what": "Onboarding-style tour asked of MAC; still pending on 2 Oct.",
+      "url": "",
+      "where": "unknown",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Job description and KPI document (PDF)",
+      "date": "13 Oct",
+      "what": "Scope and KPI baseline, sent by email.",
+      "url": "",
+      "where": "unknown",
+      "sensitive": false
+    },
+    {
+      "kind": "Demo",
+      "title": "Earlier voice prototype",
+      "date": "",
+      "what": "Built by a Supernal engineer before Aug; reference only.",
+      "url": "",
+      "where": "unknown",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Call-volume analysis against the minute allowance",
+      "date": "",
+      "what": "Benchmark for included minutes; due after 10 Nov.",
+      "url": "",
+      "where": "unknown",
+      "sensitive": false
+    }
+  ],
+  "book": [
+    {
+      "title": "The account in one page",
+      "minutes": 1,
+      "lenses": [
+        "all"
+      ],
+      "text": "Super73 is an e-bike brand that wants service to be what sets it apart. It pays about 18 outsourced agents to answer calls and emails through Zendesk. In Sep 2026 it signed a $6,000 a month order with Supernal for a voice agent that answers the phone, troubleshoots bikes and hands the rest to people. The agent is called Keith. Around him sit a knowledge layer and a Command Center where the client tests and later watches calls. The build is in week 8, testing with the client starts 17 Nov 2026 and launch is planned for late Jan 2027. Three people run it: Johnny on the relationship, Diana on strategy and product, Vitor on engineering.",
+      "sources": [
+        "Account OS",
+        "Drive: order form",
+        "Kick-Off, 18 Sep 2026",
+        "Linear"
+      ]
+    },
+    {
+      "title": "Why they bought and how the deal is built",
+      "minutes": 1,
+      "lenses": [
+        "strategy",
+        "account"
+      ],
+      "text": "The introduction was personal: Drystone's CFO knew Super73's CFO. The case rested on several things at once. The outsourced team and two support tools cost about $46,600 a month. Calls peak beyond what 18 people can take. And the leadership wants a premium service experience. Taylor had 23 wishes but chose to test Supernal on one. The price is low for Supernal, a holdover from older pricing, on a six-month term that then runs monthly. The client owns the code. Minutes are included up to an allowance, then billed at cost. Every later lane needs its own order form, so this first build is the audition for a much larger account, put internally at $300,000 or more a year.",
+      "sources": [
+        "Super73 Internal Alignment, 17 Sep 2026",
+        "Drive: 11 - Metrics master and cost model.md",
+        "Drive: order form"
+      ]
+    },
+    {
+      "title": "The product and why it is built this way",
+      "minutes": 1,
+      "lenses": [
+        "product",
+        "engineering"
+      ],
+      "text": "The order form says “Tier 1 troubleshooting”. At Super73, Tier 1 means every first contact, whatever the topic. Diana and Vitor resolved this by making Keith the front door for all calls while resolving only troubleshooting, North America only. An audit of two months of tickets gave 15 paths Keith can finish, 10 he can part-finish and 3 that transfer at once for safety; the set later grew to 28. Because the client has detailed procedures, rules are coded per path and each step shows its source. A fast model with a retrieval tool was chosen because slower, smarter ones broke the conversation. The Command Center exists so the client can prove Keith before real callers meet him.",
+      "sources": [
+        "Super73 <> Supernal, 29 Sep, 6 Oct and 3 Nov 2026",
+        "Super73 Internal Sync, 6 Nov 2026",
+        "Slack #acnt-super73-internal, 1 Oct 2026"
+      ]
+    },
+    {
+      "title": "How delivery has gone and the people",
+      "minutes": 1,
+      "lenses": [
+        "delivery",
+        "account"
+      ],
+      "text": "Kickoff slipped a month from the planned date, and Supernal held the Nov target anyway. Discovery took four weeks and weekly milestones have mostly been met. MAC is the engine on the client side: he answers questionnaires, rules on conflicts in the knowledge base and reacts warmly to demos. Taylor signs and watches milestones. Bryson, the CFO, sits in. The strain is on Supernal's side. Vitor is split across two projects, a hosting incident cost time in Oct, and telephony has been the critical path since 20 Oct without a settled owner for the carrier account. MAC has warned Johnny that the COO and CFO expected more by now.",
+      "sources": [
+        "Super73 Internal Alignment, 17 Sep 2026",
+        "Super73 <> Supernal, 20 Oct 2026",
+        "Account OS health note, 7 Nov 2026",
+        "Notion"
+      ]
+    },
+    {
+      "title": "Where it stands and what is next",
+      "minutes": 1,
+      "lenses": [
+        "all"
+      ],
+      "text": "On 13 Nov 2026 the build is 56% against a 17 Nov date, with the fourth sub-milestone sign-off, the carrier account and the SMS registration all past due. Keith still reads mainly one SOP file and has not been tried at volume. The testing plan is agreed: core paths on the web, then by phone, then edge cases, with a first window for real calls around 18 Dec. Three things need a decision: who owns Twilio, how the minute allowance is read, and where the engine runs. If the first use case lands, order tracking is the obvious next path, and MAC is already talking about messaging and EU support.",
+      "sources": [
+        "Linear",
+        "Super73 <> Supernal, 10 Nov 2026",
+        "Notion",
+        "Slack #acnt-super73-internal, 26 Oct 2026"
+      ]
+    }
+  ],
+  "answers": [
+    {
+      "q": "Is the 17 Nov build-complete date safe?",
+      "a": "Not clearly. On 13 Nov the build is 56% with SM4 sign-off, the carrier account and SMS registration past due. Telephony has been the critical path since 20 Oct without a settled owner for the Twilio account."
+    },
+    {
+      "q": "Why is the price below Supernal’s minimum?",
+      "a": "The $6,000 a month was carried over from the old pricing model, below the $8,000 minimum. The first build is treated as an audition for a larger account, sized internally at $300,000 or more a year, with each later lane needing its own order form."
+    },
+    {
+      "q": "What would the next expansion be?",
+      "a": "Order tracking, about 30% of calls, is the obvious next path once troubleshooting lands. MAC is already talking about messaging and EU support, and the order form names eight later lanes from warranty automation to NetSuite reporting."
+    }
+  ],
+  "workflows": [
+    {
+      "name": "Super73 <> Supernal weekly call",
+      "kind": "external",
+      "cadence": "Weekly, Tuesday",
+      "with": "MAC, Taylor Beebe, Bryson Eastwood",
+      "output": "Weekly Report deck",
+      "lastRun": "10 Nov",
+      "note": "Weekly reports run from week 3 to week 8."
+    },
+    {
+      "name": "Vitor / Diana internal sync",
+      "kind": "internal",
+      "cadence": "Recurring",
+      "with": "Vitor Escalfoni, Diana Pedroza",
+      "output": "",
+      "lastRun": "6 Nov",
+      "note": "Super73 Internal Sync."
+    },
+    {
+      "name": "Weekly account health report",
+      "kind": "internal",
+      "cadence": "Weekly",
+      "with": "Diana Pedroza",
+      "output": "Notion health report",
+      "lastRun": "6 Nov",
+      "note": "Seven reports since 21 Sep."
+    },
+    {
+      "name": "Automated knowledge review",
+      "kind": "internal",
+      "cadence": "Weekly",
+      "with": "",
+      "output": "Knowledge change log",
+      "lastRun": "",
+      "note": "Reviews 289 Zendesk articles; manual updates kept for two weeks to check it."
+    },
+    {
+      "name": "KPI check with Taylor",
+      "kind": "external",
+      "cadence": "Recurring",
+      "with": "Johnny Borbone, Taylor Beebe",
+      "output": "",
+      "lastRun": "",
+      "note": "Promised; no Linear issue found."
+    },
+    {
+      "name": "Monthly operating review",
+      "kind": "external",
+      "cadence": "Monthly",
+      "with": "Super73 leadership",
+      "output": "",
+      "lastRun": "",
+      "note": "Promised; not yet started."
+    }
+  ]
+}

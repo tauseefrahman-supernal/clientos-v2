@@ -1,0 +1,29 @@
+{
+  "root": true,
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "rules": {
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "JSXAttribute[name.name='className'] Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "No hex color literals in className. Use a semantic token (e.g. text-foreground, bg-card, border-border)."
+      },
+      {
+        "selector": "JSXAttribute[name.name='style'] Property[key.name='boxShadow'] Literal[value=/#[0-9a-fA-F]{3,8}\\b/], JSXAttribute[name.name='style'] Property[key.name='color'] Literal[value=/#[0-9a-fA-F]{3,8}\\b/], JSXAttribute[name.name='style'] Property[key.name='background'] Literal[value=/#[0-9a-fA-F]{3,8}\\b/], JSXAttribute[name.name='style'] Property[key.name='backgroundColor'] Literal[value=/#[0-9a-fA-F]{3,8}\\b/], JSXAttribute[name.name='style'] Property[key.name='borderColor'] Literal[value=/#[0-9a-fA-F]{3,8}\\b/], JSXAttribute[name.name='style'] Property[key.name='fill'] Literal[value=/#[0-9a-fA-F]{3,8}\\b/], JSXAttribute[name.name='style'] Property[key.name='stroke'] Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "No hex color literals in inline style objects. Use a CSS custom property token (hsl(var(--color-...)) or var(--shadow-...))."
+      },
+      {
+        "selector": "JSXAttribute[name.name='className'] Literal[value=/(?<![a-z]:)\\btext-[23]xs\\b/]",
+        "message": "Bare text-2xs / text-3xs is prohibited. Use it only behind a responsive prefix (e.g. md:text-2xs), or use text-xs."
+      },
+      {
+        "selector": "JSXAttribute[name.name='className'] Literal[value=/\\btext-\\[(?:[0-9]|1[01])(?:\\.[0-9]+)?px\\]/]",
+        "message": "Arbitrary font sizes below 12px are prohibited (typography.md restricted sizes). Use text-xs, or md:text-2xs / md:text-3xs in permitted dense-UI contexts."
+      },
+      {
+        "selector": "JSXAttribute[name.name='className'] Literal[value=/(bg|text|border|ring|from|via|to)-(slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-[0-9]/]",
+        "message": "Tailwind named-color utility classes are discouraged. Use semantic tokens (bg-card, text-foreground, border-border, text-success, etc.). NOTE: enforced at error in v3 — eslintrc cannot split severities within a single no-restricted-syntax invocation; there are zero existing violations so this does not break the build."
+      }
+    ]
+  }
+}

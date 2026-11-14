@@ -1,0 +1,1670 @@
+{
+ "key": "heritage",
+ "title": "Heritage",
+ "strat": "Sven Boettger",
+ "pod": "Stuart Childs (AM), Sven Boettger (strategist), Jens Haakaas (FDE)",
+ "mrr": "$92,000",
+ "closedValue": "$1,339,985",
+ "closedCount": 6,
+ "health": {
+  "score": "5.0",
+  "band": "Healthy",
+  "tone": "ok"
+ },
+ "fresh": [
+  "Current as of Heritage Weekly Planning and Delivery Sync, 9 Nov",
+  "About 62 recorded meetings since Jul",
+  "App build at $90K a month; $840K threshold reached Jan 2027"
+ ],
+ "transcripts": 0,
+ "deals": [
+  {
+   "name": "Heritage Strategies LLC deal (app build)",
+   "value": "$230,000",
+   "stage": "Closed Won 3 Feb 2025",
+   "phase": 3,
+   "note": "$10,000 a month; the original deal, owned by Chris."
+  },
+  {
+   "name": "Heritage Expansion (app build)",
+   "value": "$168,000",
+   "stage": "Closed Won 22 Apr",
+   "phase": 3,
+   "note": "$14,000 a month; announced internally as $1.6M over 3 years."
+  },
+  {
+   "name": "Heritage Expansion Acceleration (app build)",
+   "value": "$792,000",
+   "stage": "Closed Won 28 Jun",
+   "phase": 3,
+   "note": "$66,000 a month; took the build to $90K a month."
+  },
+  {
+   "name": "Brand Video Bundle (OF-003)",
+   "value": "$32,500",
+   "stage": "Closed Won 22 Sep",
+   "phase": 3,
+   "note": "One-time; seven videos."
+  },
+  {
+   "name": "Website, Heritage AI (OF-004-B)",
+   "value": "$24,000",
+   "stage": "Closed Won 22 Sep",
+   "phase": 3,
+   "note": "$2,000 a month."
+  },
+  {
+   "name": "Dedicated Private Environment (OF-002)",
+   "value": "$93,485",
+   "stage": "Closed Won 4 Nov",
+   "phase": 3,
+   "note": "$7,790 a month; billing starts 1 Dec. MRR missing in Account OS."
+  },
+  {
+   "name": "Foreman AI Project Manager (OF-005)",
+   "value": "$84,000",
+   "stage": "Order Form, expected 30 Nov",
+   "phase": 2,
+   "note": "$7K a month; to sign before Thanksgiving."
+  },
+  {
+   "name": "Help Desk AI Employee (OF-006)",
+   "value": "$84,000",
+   "stage": "Order Form, expected 30 Nov",
+   "phase": 2,
+   "note": "$7K a month; may not be needed by February."
+  },
+  {
+   "name": "Insurance CRM (for Chris H)",
+   "value": "$96,000",
+   "stage": "Concept Alignment, expected 10 Dec",
+   "phase": 0,
+   "note": "Placeholder value; custom build versus Airtable being scoped."
+  }
+ ],
+ "lost": "",
+ "sold": [
+  {
+   "form": "App build order forms (original, Expansion, Acceleration)",
+   "promised": "$90K a month buying about 12 points a month until the $840K threshold in Jan 2027.",
+   "met": "Partly: only 2 of 12 October points closed by 30 Oct; six items in review on 9 Nov.",
+   "tone": "warn"
+  },
+  {
+   "form": "OF-002 Dedicated Private Environment",
+   "promised": "Dedicated Google Cloud environment on Vertex, US hosting, Heritage owns data; billing from 1 Dec.",
+   "met": "Not yet: Vertex move due 16 Nov, full move 6 to 8 weeks; timeline told to client must be reset.",
+   "tone": "warn"
+  },
+  {
+   "form": "OF-003 Brand Video Bundle",
+   "promised": "Seven videos: four brand films and three animated explainers.",
+   "met": "In progress: shoot done, first cuts early Dec, target 8 Jan 2027.",
+   "tone": "info"
+  },
+  {
+   "form": "OF-004-B Heritage AI website",
+   "promised": "Website for the new SaaS entity.",
+   "met": "Draft awaiting feedback; gated on trademark filing for 20 Nov.",
+   "tone": "warn"
+  },
+  {
+   "form": "OF-004-A Heritage Strategies website",
+   "promised": "New site for the existing firm at $500 a month (Notion); not in Account OS.",
+   "met": "First version on staging; V2 under comment; dates disagree (20 Nov or 17 Dec).",
+   "tone": "warn"
+  },
+  {
+   "form": "OF-005 Foreman (pending)",
+   "promised": "AI project manager at $7K a month, 3-month build.",
+   "met": "Not signed; expected before Thanksgiving.",
+   "tone": ""
+  },
+  {
+   "form": "OF-006 Help Desk (pending)",
+   "promised": "Help desk AI Employee at $7K a month, live for the Feb 2027 licensee launch.",
+   "met": "Not signed; expected before Thanksgiving.",
+   "tone": ""
+  },
+  {
+   "form": "OF-008 Pod Subscription (draft)",
+   "promised": "Always-on pod in place of points.",
+   "met": "Drafted in October; not yet shown to the client as of 24 Oct.",
+   "tone": ""
+  }
+ ],
+ "arc": [
+  {
+   "period": "2025",
+   "meetings": null,
+   "points": [
+    "First deal closed 3 Feb 2025 at $230,000.",
+    "Linear app project started 8 May 2025; two earlier products were scrapped before the current version."
+   ]
+  },
+  {
+   "period": "Q1 2026",
+   "meetings": null,
+   "points": [
+    "Phase 2, licensing the platform to other advisers, started in March.",
+    "Account in project-plan and MSA negotiation for Phase 2 in late March."
+   ]
+  },
+  {
+   "period": "Apr–May",
+   "meetings": null,
+   "points": [
+    "A 28-page vision document overcame a roadblock; the Expansion closed 22 Apr.",
+    "Delivery Yellow at 4 points a month; Jens moved to tech lead in May."
+   ]
+  },
+  {
+   "period": "Jun",
+   "meetings": 5,
+   "points": [
+    "Platform live on Heritage’s domain, staging, analytics and an accelerated roadmap landed together.",
+    "Heritage raised $2M to $3M; the Acceleration closed 28 Jun at $90K a month."
+   ]
+  },
+  {
+   "period": "Jul",
+   "meetings": 7,
+   "points": [
+    "Backend migration done 9 Jul; private cloud, videos and websites approved verbally.",
+    "Supernal malware incident froze deployments; Foreman scoped at $7,000 a month."
+   ]
+  },
+  {
+   "period": "Aug",
+   "meetings": 14,
+   "points": [
+    "New contracts held until a monthly cost forecast through 2027 was delivered.",
+    "Pod model proposed then parked; pilot called stalled on 31 Aug with no firms signed."
+   ]
+  },
+  {
+   "period": "Sep",
+   "meetings": 15,
+   "points": [
+    "Budget meeting found about 40 points beyond contract.",
+    "Videos and Heritage AI website closed 22 Sep; first external webinar to Concurrent and Spire."
+   ]
+  },
+  {
+   "period": "Oct",
+   "meetings": 20,
+   "points": [
+    "Stuart Childs introduced as AM; 2027 calculator shown; in-app LLM chat shipped.",
+    "Insurance CRM scoped; 2FA in production locked clients out and was reverted."
+   ]
+  },
+  {
+   "period": "Nov",
+   "meetings": 6,
+   "points": [
+    "On-site shoot in New York produced 26 interviews; DPE closed 4 Nov.",
+    "Vertex migration deadlines set: 13 Nov internal, 16 Nov client-facing."
+   ]
+  }
+ ],
+ "disagreements": [
+  "Health: Account OS scores 5.0 on every dimension for six weeks, while its own 26 Oct note says no pilot firm holds it at yellow and Notion’s 2 to 9 Nov report opens “Yellow”.",
+  "Deal size: Phase 2 announced as $1.6M over 3 years, against $168,000 for the Expansion and $1,339,985 closed in Account OS; Sven described about $1M.",
+  "Hours per book: 150 to 200 by hand and about 30 minutes claimed, against 16.5 hours measured on 28 Oct and 75 minutes for four policies on 9 Sep.",
+  "Pilot firm live: Wayfinder “ready to start” on 24 Aug, “no firms signed” on 31 Aug, four paying firms in the 26 Aug forecast, and none using the platform on 30 Oct.",
+  "Spend: cumulative Supernal spend near $500K by end of 2026 against about $920K total tech spend forecast for 2026.",
+  "After January: “dropping to $30K” and “about 35 points” (17 Sep) against $35,417 a month (15 Oct).",
+  "Points beyond contract: about 40 (17 Sep) against 29 (15 Oct).",
+  "Website prices and dates: $12.5K for two sites verbally against $24,000 for the AI site and $500 a month for the Strategies site; go-live given as about 10 Nov, 20 Nov and 17 Dec.",
+  "DPE timing: two weeks told to the client against two to three months per engineering; now two weeks for Vertex and six to eight weeks in full.",
+  "Domain: platform said to be live on heritage.ai (16 Jun) against heritage.ai not owned and the domain being heritagevault.ai (17 Sep).",
+  "On-site visits: a 5 to 7 Aug strategy meeting and a September 2.5-day workshop were both planned; only Zack’s August visit and the November visit are confirmed.",
+  "Chris Halvey’s title: Managing Director in the brief, “partner” in the webinar notes."
+ ],
+ "streams": [
+  {
+   "name": "HeritageAI App",
+   "state": "Building",
+   "tone": "warn",
+   "pct": null,
+   "due": "Build threshold Jan 2027; Linear target 30 Jun 2027",
+   "measured": "Points closed per month; three-stage accuracy",
+   "learned": "Client review is slow: #36 and #37 in review 11 days; 7 items due 3 to 6 Nov not closed.",
+   "attention": true
+  },
+  {
+   "name": "Dedicated Private Environment",
+   "state": "Building",
+   "tone": "warn",
+   "pct": null,
+   "due": "Vertex move 16 Nov (internal 13 Nov); full move 6 to 8 weeks; billing 1 Dec",
+   "measured": "Accuracy parity across models",
+   "learned": "Sonnet 4.6 and Gemini 3.1 Pro matched GPT-5.2 on accuracy; the timeline told to the client was wrong and must be reset.",
+   "attention": true
+  },
+  {
+   "name": "Heritage AI Website",
+   "state": "Blocked",
+   "tone": "err",
+   "pct": null,
+   "due": "20 Nov",
+   "measured": "",
+   "learned": "Draft awaits feedback; gated on trademark filing, legal pages and brand-book approval.",
+   "attention": true
+  },
+  {
+   "name": "Heritage Strategies Website",
+   "state": "Waiting on client",
+   "tone": "warn",
+   "pct": null,
+   "due": "20 Nov in Linear; 17 Dec launch in Notion",
+   "measured": "",
+   "learned": "First version on staging, V2 under comment; three different dates given.",
+   "attention": true
+  },
+  {
+   "name": "Brand Video Bundle",
+   "state": "Building",
+   "tone": "info",
+   "pct": null,
+   "due": "First cuts early Dec; target 8 Jan 2027",
+   "measured": "7 videos owed",
+   "learned": "Shoot produced 26 interviews in a day and a half; Tom Sr. may reshoot his segment.",
+   "attention": false
+  },
+  {
+   "name": "Pilot",
+   "state": "Late",
+   "tone": "err",
+   "pct": null,
+   "due": "4 firms were due end of Sep",
+   "measured": "Books completed, satisfaction, time on platform (proposed)",
+   "learned": "No firm live; the model misreads poorly drafted trusts that licensees will bring.",
+   "attention": true
+  }
+ ],
+ "tiles": [
+  {
+   "file": "roadmap",
+   "section": "Roadmap › 7",
+   "title": "Success metrics",
+   "headline": "16.5 hours per book measured against a 30-minute claim; routing and mapping accuracy below the 95% bar.",
+   "tone": "warn",
+   "state": "Behind target"
+  },
+  {
+   "file": "plan",
+   "section": "Plan › Commercials",
+   "title": "Commercial model",
+   "headline": "Points at $7,500 on $90K a month until the $840K threshold in Jan 2027; no model agreed for Feb.",
+   "tone": "err",
+   "state": "Cliff unresolved"
+  },
+  {
+   "file": "plan",
+   "section": "Plan › Dependencies",
+   "title": "Dependencies",
+   "headline": "Websites gated on a Heritage AI trademark filing and entity that are not started.",
+   "tone": "err",
+   "state": "Blocked on client"
+  },
+  {
+   "file": "roadmap",
+   "section": "Roadmap › Opportunity",
+   "title": "Opportunity map",
+   "headline": "$264,000 open in Foreman, Help Desk and the Insurance CRM, plus a $60K-a-month features bucket on offer.",
+   "tone": "ok",
+   "state": "Expansion-ready"
+  },
+  {
+   "file": "stakeholders",
+   "section": "Stakeholders › Power",
+   "title": "Power map",
+   "headline": "Tom Sr. sets deadlines, Tom Jr. decides product, Chris Halvey holds budget and contracts.",
+   "tone": "info",
+   "state": "Three deciders"
+  },
+  {
+   "file": "stakeholders",
+   "section": "Stakeholders › Health",
+   "title": "Health",
+   "headline": "Scored 5.0 for six weeks while the notes read yellow because no pilot firm is live.",
+   "tone": "warn",
+   "state": "Score disputed"
+  }
+ ],
+ "decisions": [
+  {
+   "title": "2027 commercial model",
+   "detail": "Choose between maintenance at $35,417 a month plus features or a pod before the January threshold.",
+   "action": "Draft options"
+  },
+  {
+   "title": "Foreman and Help Desk signatures",
+   "detail": "Both order forms at $84,000 are expected before Thanksgiving.",
+   "action": "Chase signature"
+  },
+  {
+   "title": "Reset the DPE timeline",
+   "detail": "Tell Heritage two weeks for the Vertex move and six to eight weeks for the full migration.",
+   "action": "Draft reply"
+  },
+  {
+   "title": "Heritage AI entity and trademark filings",
+   "detail": "Not started on 30 Oct and blocking the Heritage AI website.",
+   "action": "Raise with client"
+  },
+  {
+   "title": "Summary versus detailed flow-diagram output",
+   "detail": "Decide how weak documents are shown, after Cornerstone’s trust broke the diagram.",
+   "action": "Decide"
+  },
+  {
+   "title": "Priority of items 63, 70, 72, 76, 79",
+   "detail": "Order the next items against the few points left before the threshold.",
+   "action": "Set priority"
+  }
+ ],
+ "slipping": [
+  {
+   "kind": "Past target",
+   "tone": "err",
+   "item": "Pilot firms",
+   "detail": "Four were due signed by end of Sep; none was using the platform on 30 Oct."
+  },
+  {
+   "kind": "Past target",
+   "tone": "err",
+   "item": "Seven November items",
+   "detail": "Notion’s 2 to 9 Nov report says 7 items due 3 to 6 Nov had not closed."
+  },
+  {
+   "kind": "Blocked on client",
+   "tone": "warn",
+   "item": "Item reviews #36 and #37",
+   "detail": "In client review 11 days on 9 Nov."
+  },
+  {
+   "kind": "Open risk",
+   "tone": "warn",
+   "item": "#27 book generation",
+   "detail": "Stalled since 16 Oct."
+  },
+  {
+   "kind": "Expectation gap",
+   "tone": "warn",
+   "item": "DPE timeline",
+   "detail": "Two weeks was told to the client; engineering expects months."
+  },
+  {
+   "kind": "Promised, no task",
+   "tone": "warn",
+   "item": "Roger’s written security assessment",
+   "detail": "Promised 28 Oct for 1 to 2 weeks; no Linear issue found (issue level unchecked)."
+  },
+  {
+   "kind": "Promised, no task",
+   "tone": "warn",
+   "item": "Stuart’s org chart and cadence document; token cost breakdown at scale",
+   "detail": "Promised in October calls; no Linear issue found."
+  },
+  {
+   "kind": "Not started",
+   "tone": "err",
+   "item": "Heritage AI entity and trademark",
+   "detail": "Not started on 30 Oct; gates the website."
+  }
+ ],
+ "dates": [
+  {
+   "when": "13 Nov",
+   "what": "Internal deadline for the Vertex migration"
+  },
+  {
+   "when": "16 Nov",
+   "what": "Client-facing DPE date"
+  },
+  {
+   "when": "20 Nov",
+   "what": "Both websites due"
+  },
+  {
+   "when": "26 Nov",
+   "what": "Foreman and Help Desk signatures due before Thanksgiving"
+  },
+  {
+   "when": "30 Nov",
+   "what": "Expected close for Foreman and Help Desk in Account OS"
+  },
+  {
+   "when": "1 Dec",
+   "what": "DPE billing starts"
+  },
+  {
+   "when": "Early Dec",
+   "what": "First video cuts"
+  },
+  {
+   "when": "10 Dec",
+   "what": "Expected close, Insurance CRM"
+  }
+ ],
+ "feed": [
+  {
+   "meeting": "Strat²",
+   "date": "12 Nov",
+   "changes": [
+    "Client portal: Sven’s Heritage portal shown with Library, Meetings, Billing and Ask Delphi; 5 signed order forms and 2 in review."
+   ]
+  },
+  {
+   "meeting": "All-Hands",
+   "date": "10 Nov",
+   "changes": [
+    "Videos: the shoot produced 26 interviews in a day and a half.",
+    "Rhythm: in person works better than four or five calls a week."
+   ]
+  },
+  {
+   "meeting": "Heritage Weekly Planning",
+   "date": "9 Nov",
+   "changes": [
+    "DPE: Vertex deadlines set, 13 Nov internal and 16 Nov client-facing.",
+    "App: six items in review; Ask the Vault being ported to main; January has about 3 points left."
+   ]
+  },
+  {
+   "meeting": "Delivery Sync",
+   "date": "9 Nov",
+   "changes": [
+    "Commercials: the model from February 2027 is unresolved; Foreman and Help Desk to sign before Thanksgiving.",
+    "Risk: Heritage worried about bugs in client-facing book runs; Tom Sr. may reshoot."
+   ]
+  },
+  {
+   "meeting": "Jr, Jens, Chris",
+   "date": "3 Nov",
+   "changes": [
+    "Scope: firm-level permissions set at 2 points; asset sheet improvements 4 points.",
+    "Pilot: one portal per Ridgeback firm; recommendations in test with Tom Jr."
+   ]
+  }
+ ],
+ "people": [
+  {
+   "name": "Tom Fanning Sr.",
+   "title": "Founder",
+   "note": "At the start: founder who wanted an AI-native firm. Now: drives deadlines, wants timing and QC data, unhappy with a shoot interview question.",
+   "influence": "High",
+   "disposition": "Supporter"
+  },
+  {
+   "name": "Tom Fanning Jr.",
+   "title": "Leads product decisions",
+   "note": "Engaged weekly and the only admin who can add firms. Wants API and live data feeds on the December agenda.",
+   "influence": "High",
+   "disposition": "Champion"
+  },
+  {
+   "name": "Chris Halvey",
+   "title": "Managing Director (partner per webinar)",
+   "note": "Holds budget and contracts and owns the insurance sheet. Careful on spend and chases order forms.",
+   "influence": "High",
+   "disposition": "Supporter"
+  },
+  {
+   "name": "Jess (Jessica)",
+   "title": "Operations",
+   "note": "Point person for websites and Foreman.",
+   "influence": "Medium",
+   "disposition": "Supporter"
+  },
+  {
+   "name": "Keith",
+   "title": "Director",
+   "note": "Owns and tests the flow diagram and estate distribution chart.",
+   "influence": "Medium",
+   "disposition": "Neutral"
+  },
+  {
+   "name": "William “Willie” Morales",
+   "title": "Director",
+   "note": "Owns the asset sheet; a steady source of feature requests.",
+   "influence": "Medium",
+   "disposition": "Neutral"
+  },
+  {
+   "name": "Lisa",
+   "title": "Onboarding and client data",
+   "note": "Signs off items.",
+   "influence": "Medium",
+   "disposition": "Neutral"
+  },
+  {
+   "name": "Brendan Costello",
+   "title": "Ridgeback Group",
+   "note": "Responsible with Eric Eklund for finding pilot firms; slow to respond.",
+   "influence": "Medium",
+   "disposition": "At risk"
+  },
+  {
+   "name": "Nate Lenz",
+   "title": "Concurrent",
+   "note": "Prospective distribution partner with 250+ advisers, with Joe McQuaid and Justin Ward.",
+   "influence": "Low",
+   "disposition": "Neutral"
+  },
+  {
+   "name": "Sven Boettger",
+   "title": "Supernal strategist",
+   "note": "At the start: project manager. Now: AI strategist carrying the vision; built the client portal.",
+   "influence": "High",
+   "disposition": "Champion"
+  },
+  {
+   "name": "Jens Haakaas",
+   "title": "Supernal tech lead (FDE)",
+   "note": "Tech lead since May 2026; runs daily delivery and most client calls.",
+   "influence": "High",
+   "disposition": "Champion"
+  },
+  {
+   "name": "Stuart Childs",
+   "title": "Supernal AM",
+   "note": "Joined in October to take the commercial side; handled Tom Sr.’s shoot concern.",
+   "influence": "Medium",
+   "disposition": "Supporter"
+  },
+  {
+   "name": "Ryan Williams",
+   "title": "Supernal sponsor",
+   "note": "Owns eight of nine deals but said he was not managing the account strategically.",
+   "influence": "High",
+   "disposition": "Supporter"
+  }
+ ],
+ "metrics": [
+  {
+   "criterion": "Time to produce a book",
+   "now": "16.5 hours measured; about 30 minutes claimed (baseline 150 to 200 hours)",
+   "state": "Unproven",
+   "tone": "warn"
+  },
+  {
+   "criterion": "Document accuracy (target 99.9%)",
+   "now": "About 99% claimed",
+   "state": "Near",
+   "tone": "warn"
+  },
+  {
+   "criterion": "Stage 1 routing accuracy (target 90%)",
+   "now": "87.3% (mock-up)",
+   "state": "Behind",
+   "tone": "err"
+  },
+  {
+   "criterion": "Stage 2 answer accuracy",
+   "now": "97.2% (mock-up)",
+   "state": "Met",
+   "tone": "ok"
+  },
+  {
+   "criterion": "Stage 3 mapping accuracy",
+   "now": "About 89% (mock-up)",
+   "state": "Behind",
+   "tone": "warn"
+  },
+  {
+   "criterion": "95%+ at each stage for full automation",
+   "now": "Not met at stages 1 and 3",
+   "state": "Behind",
+   "tone": "err"
+  },
+  {
+   "criterion": "Old-book ingestion accuracy (about 80%)",
+   "now": "Met",
+   "state": "Met",
+   "tone": "ok"
+  },
+  {
+   "criterion": "Pilot firms (4 by end of Sep)",
+   "now": "None using the platform on 30 Oct",
+   "state": "Behind",
+   "tone": "err"
+  },
+  {
+   "criterion": "Hands-off book automation (31 Oct)",
+   "now": "#51 on staging 9 Nov",
+   "state": "Late",
+   "tone": "warn"
+  },
+  {
+   "criterion": "Public launch (Jan to Feb 2027)",
+   "now": "Pending",
+   "state": "On track",
+   "tone": "info"
+  }
+ ],
+ "accountos": [
+  {
+   "record": "Weekly health",
+   "now": "5.0 on every dimension for six weeks, band Healthy, Expansion-ready; renewal risk Low.",
+   "proposes": "Score Watch: no pilot firm live, items not closing, and the February model unagreed."
+  },
+  {
+   "record": "Stakeholders",
+   "now": "None recorded.",
+   "proposes": "Tom Sr., Tom Jr., Chris Halvey, Jess, the sheet-owning directors and Ridgeback’s Brendan and Eric."
+  },
+  {
+   "record": "Success plan",
+   "now": "None recorded.",
+   "proposes": "Hours per book, three-stage accuracy at 95%, four pilot firms, public launch Jan to Feb 2027."
+  },
+  {
+   "record": "Cadence",
+   "now": "None recorded.",
+   "proposes": "Weekly platform sync, weekly Ridgeback call, Wednesday training with directors, and the proposed quarterly forum for Tom Sr."
+  },
+  {
+   "record": "Value",
+   "now": "None recorded.",
+   "proposes": "Timed run of 75 minutes for four policies; 16.5-hour baseline with monthly time tracking from 28 Oct."
+  },
+  {
+   "record": "Whitespace",
+   "now": "Foreman, Help Desk and Insurance CRM open as deals.",
+   "proposes": "Add the $60K-a-month features bucket, Growth Pod at $3,042 a month and OF-008 Pod Subscription."
+  },
+  {
+   "record": "Renewal",
+   "now": "No renewal date recorded.",
+   "proposes": "Treat Feb 2027, when the build threshold ends, as the renewal moment."
+  }
+ ],
+ "rationale": [
+  {
+   "decision": "Three human quality-control checkpoints",
+   "why": "Human QC is the most effective path to the 99.9% accuracy goal; more AI layers add little.",
+   "source": "Heritage + Supernal Weekly Call, 9 Jul"
+  },
+  {
+   "decision": "Recommendations live in their own tab",
+   "why": "Avoid clutter in the sheets; each links to the relevant section.",
+   "source": "Heritage Platform Weekly Sync, 13 Aug"
+  },
+  {
+   "decision": "White-labelling is logo and colour only, with “Powered by Heritage AI” fixed",
+   "why": "Brand the output without customising the platform.",
+   "source": "Heritage Platform Weekly Sync, 13 Aug"
+  },
+  {
+   "decision": "One concurrent session per seat plus 2FA",
+   "why": "Stop seat sharing under per-seat pricing.",
+   "source": "Heritage Platform Weekly Sync, 13 Aug"
+  },
+  {
+   "decision": "Firm-wide feature toggles, not per client",
+   "why": "Per-client control was judged unnecessary; 2 points instead of 4.",
+   "source": "Jr, Jens, Chris, 3 Nov"
+  },
+  {
+   "decision": "Each pilot firm gets its own portal",
+   "why": "No client transfer needed when a firm takes a full licence.",
+   "source": "Jr, Jens, Chris, 3 Nov"
+  },
+  {
+   "decision": "No ChatGPT in the chat; Claude and Gemini only",
+   "why": "No sufficiently secure model available.",
+   "source": "Heritage Platform Weekly Sync, 21 Oct"
+  },
+  {
+   "decision": "Firms write their own disclosures from a blank slate",
+   "why": "Chris does not want a platform-supplied template.",
+   "source": "Heritage Platform Weekly Sync, 21 Oct"
+  },
+  {
+   "decision": "“Client Ready” toggle replaces the status dropdown",
+   "why": "Fewer manual steps and no pop-ups.",
+   "source": "Heritage Platform Weekly Sync, 28 Oct"
+  },
+  {
+   "decision": "Billing and licensing features (#38, #40) deferred to December",
+   "why": "Pricing is not final and building now risks rework.",
+   "source": "Heritage Platform Weekly Sync, 15 Oct"
+  }
+ ],
+ "sections": [
+  {
+   "category": "Order Forms and Points Ledger",
+   "group": 1,
+   "desc": "Every order form with versions, the numbered item list with points, and the 2027 commercial options.",
+   "files": [
+    {
+     "name": "Order-Form-Register",
+     "summary": "One row per order form with version history."
+    },
+    {
+     "name": "Item-Points-Ledger",
+     "summary": "Items #1 to #90 with points and HER issue."
+    },
+    {
+     "name": "Sold-vs-Delivered",
+     "summary": "Monthly points sold against delivered, and the $840K threshold tracker."
+    },
+    {
+     "name": "2027-Commercial-Options",
+     "summary": "Calculator scenarios, pod subscription drafts and the maintenance tier definition."
+    }
+   ]
+  },
+  {
+   "category": "Spin-out and Licensing",
+   "group": 0,
+   "desc": "Heritage AI Inc. as a licensing business.",
+   "files": [
+    {
+     "name": "Entity-Trademark-Status",
+     "summary": "Incorporation and trademark filings."
+    },
+    {
+     "name": "Licensee-Pricing",
+     "summary": "Per seat, per vault and tier options."
+    },
+    {
+     "name": "Revenue-Forecast",
+     "summary": "2027 about $1.25M, 2028 about $3.125M."
+    },
+    {
+     "name": "Ridgeback-Exclusivity",
+     "summary": "Insurance-type clients only; others open to Heritage."
+    }
+   ]
+  },
+  {
+   "category": "Pilot Programme",
+   "group": 3,
+   "desc": "Getting outside firms live on the platform.",
+   "files": [
+    {
+     "name": "Pilot-Firm-Status",
+     "summary": "Wayfinder, Cornerstone, Concurrent and Ridgeback firms."
+    },
+    {
+     "name": "Onboarding-Framework",
+     "summary": "Portal per firm, testers, onboarding flow."
+    },
+    {
+     "name": "Pilot-Success-Criteria",
+     "summary": "Books completed, satisfaction, time on platform."
+    },
+    {
+     "name": "Cornerstone-Lessons",
+     "summary": "Poorly drafted trusts break the flow diagram."
+    }
+   ]
+  },
+  {
+   "category": "Accuracy and Timing Evidence",
+   "group": 2,
+   "desc": "The measured value of the platform, which conflicts with the headline claims.",
+   "files": [
+    {
+     "name": "Stage-Accuracy-by-Month",
+     "summary": "Routing, answer and mapping accuracy."
+    },
+    {
+     "name": "Hours-per-Book",
+     "summary": "16.5-hour baseline and monthly tracking."
+    },
+    {
+     "name": "Timed-Runs",
+     "summary": "75 minutes for four policies on 9 Sep."
+    },
+    {
+     "name": "QC-Protocol",
+     "summary": "Three human checkpoints."
+    }
+   ]
+  },
+  {
+   "category": "Domain Model of the Book",
+   "group": 2,
+   "desc": "What the Heritage Book is and how the platform fills it.",
+   "files": [
+    {
+     "name": "Five-Sections",
+     "summary": "Data sheet, asset sheet, insurance schedule, flow diagram, distribution chart."
+    },
+    {
+     "name": "Question-Sets",
+     "summary": "Question sets by document type."
+    },
+    {
+     "name": "Flow-Diagram-Rules",
+     "summary": "Black, red and green trust language."
+    },
+    {
+     "name": "Plain-English-Glossary",
+     "summary": "Definitions for client updates."
+    }
+   ]
+  },
+  {
+   "category": "Competitor Intelligence",
+   "group": 0,
+   "desc": "Wealth.com, Vanilla and Luminary.",
+   "files": [
+    {
+     "name": "Wealth-com",
+     "summary": "Vendor collateral, demos and the $25K quote."
+    },
+    {
+     "name": "Vanilla-and-Luminary",
+     "summary": "Notes on the other named competitors."
+    },
+    {
+     "name": "Positioning",
+     "summary": "Visual output for existing documents, not drafting."
+    }
+   ]
+  },
+  {
+   "category": "Security and Compliance",
+   "group": 2,
+   "desc": "The private environment and the terms around it.",
+   "files": [
+    {
+     "name": "DPE-Design",
+     "summary": "Google Cloud and Vertex, Heritage-owned data."
+    },
+    {
+     "name": "MSA-Hosting-Clause",
+     "summary": "US-only hosting and 72-hour incident notice."
+    },
+    {
+     "name": "Disclosures",
+     "summary": "Firm-written disclosures."
+    },
+    {
+     "name": "Security-Assessment",
+     "summary": "Roger’s assessment and incident history."
+    },
+    {
+     "name": "Incident-Log",
+     "summary": "Incidents with who found them and the fix. Jul 2026: malware incident at Supernal froze all deployments; contained in 58 minutes, no Heritage data affected (found by Supernal). 5 Oct 2026: database found hosted in Central Europe against the MSA's US-only clause; fix is the DPE move to US-only GCP (Weekly Call, 5 Oct). 23 Oct 2026: Heritage itself asked whether a virus uploaded by a client could spread through the Vault; uploads were not yet scanned or quarantined, files are only read when fetched; Roger Lee brought in, scanning sits with security programme HER-1306 (security call, 23 Oct; Weekly Sync, 28 Oct). 25 Oct 2026: 2FA switched on in production locked clients out; reverted the same day; mandatory for all 30 accounts from 9 Nov. 10 Nov 2026: Chris Halvey's 'Concerns with platform' email; accuracy (HER-1307) and security (HER-1306) programmes opened."
+    },
+    {
+     "name": "Identifier-Masking",
+     "summary": "Because the data is highly sensitive, identifiers (SSN, passport, tax ID, account numbers) can be shown in full, masked to the last 4 digits, or hidden; censoring also hides the full date of birth; invited viewers see the masked or hidden form (Weekly Sync, 1 Oct 2026; Training, 14 Oct 2026)."
+    }
+   ]
+  },
+  {
+   "category": "Brand, Video and Website Production",
+   "group": 3,
+   "desc": "Marketing services for both entities.",
+   "files": [
+    {
+     "name": "Video-Scope-and-Shoot-Log",
+     "summary": "Seven videos and the November shoot."
+    },
+    {
+     "name": "Website-Briefs",
+     "summary": "Heritage AI and Heritage Strategies sites."
+    },
+    {
+     "name": "Brand-Decisions",
+     "summary": "Brand book and Heritage AI identity."
+    }
+   ]
+  }
+ ],
+ "artifacts": [
+  {
+   "kind": "Document",
+   "title": "Heritage Strategies account page",
+   "date": "21 Sep",
+   "what": "Account page; says the long-term AI-native strategy doc was reviewed and approved.",
+   "url": "https://app.notion.com/p/3a7bd5e8f31881849472c0a40d440d92",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Weekly health reports (Jul 20 to 27, Aug 3 to 9, Aug 10 to 17, Aug 24 to 31, Oct 19 to 26, Oct 26 to Nov 2, Nov 2 to 9)",
+   "date": "Weekly",
+   "what": "Weekly account health reports in Weekly Account Health Reporting.",
+   "url": "",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Heritage Marketing: Brand Videos + Websites",
+   "date": "11 Nov",
+   "what": "Scope and status of OF-003, OF-004-A and OF-004-B.",
+   "url": "https://app.notion.com/p/3c6bd5e8f318818b91bbf2305909ce7d",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Site",
+   "title": "Heritage Strategies website, first version",
+   "date": "Nov",
+   "what": "Staging site for the new Heritage Strategies website.",
+   "url": "https://heritage-strategies-production.up.railway.app",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Dashboard",
+   "title": "HeritageAI App project and seven other Linear projects",
+   "date": "Live",
+   "what": "Delivery tracking for team HER.",
+   "url": "https://linear.app/supernal-clients/project/heritageai-app-037f80396485",
+   "where": "Linear",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "28-page vision document",
+   "date": "Apr",
+   "what": "Vision document by Seb and Jens that unlocked Phase 2; not located in Drive.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Accelerated 3-month roadmap",
+   "date": "Jun",
+   "what": "Sven’s roadmap that became the basis for the Acceleration.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Spreadsheet",
+   "title": "Monthly cost projection through 2027",
+   "date": "Aug",
+   "what": "Emailed to Heritage to unblock new contracts.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Heritage Pod Subscription doc",
+   "date": "Aug",
+   "what": "First pass at the pod model, by Sven and Zack.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Prototype",
+   "title": "Heritage x Supernal 2027 calculator",
+   "date": "15 Oct",
+   "what": "Sven’s calculator of 2027 commercial options.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Heritage Meeting Cadence & Supernal Pods",
+   "date": "15 Oct",
+   "what": "Ryan’s slide proposing the new meeting cadence.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "DPE order form v10, v11",
+   "date": "5 Oct",
+   "what": "OF-002 versions; v11 about 23 Oct.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "Foreman, Help Desk, Pod Subscription (OF-008) order forms",
+   "date": "Aug to Oct",
+   "what": "Order forms for the pending deals.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Prototype",
+   "title": "KPI dashboard mock-up",
+   "date": "28 Oct",
+   "what": "Jens’s mock-up for item #39, labelled demo data.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Prototype",
+   "title": "LLM cost forecast",
+   "date": "27 Oct",
+   "what": "Jens and Rodrigo’s forecast of 2027 chat costs.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Site",
+   "title": "Heritage client portal (Ask Delphi)",
+   "date": "Nov",
+   "what": "Sven’s portal with Library, Meetings and Billing tabs for the client.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Spreadsheet",
+   "title": "heritage-document-to-question-set mapper",
+   "date": "28 Oct",
+   "what": "Jens’s mapping of document types to question sets for QC.",
+   "url": "https://docs.google.com/spreadsheets/d/1GM5s5i74PgNsjM-m3L_Df1ihkOgBNbmEniSPXtYrdz8",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Demo",
+   "title": "John Smith / Smith Family demo book",
+   "date": "Sep to Nov",
+   "what": "Sales demo book on a fictional family, in the platform and as 7 PDFs in Drive.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Video",
+   "title": "Onboarding flow Loom",
+   "date": "Sep",
+   "what": "Sergio’s async walkthrough of #42.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Video",
+   "title": "Announcement video; 26 interviews",
+   "date": "Nov",
+   "what": "Brand Video Bundle output by Michelle and Jonathan.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Moat and staying-ahead write-ups",
+   "date": "9 Jul",
+   "what": "Ryan’s write-ups for client-facing reuse.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Video",
+   "title": "Wealth.com demo recordings",
+   "date": "Jul",
+   "what": "Competitor analysis recordings by Heritage interns; probably in the Heritage x Wealth.com folder.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Heritage investor deck",
+   "date": "2026",
+   "what": "Heritage’s fundraise deck; 50 firms at $25K.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Folder",
+   "title": "Heritage x Wealth.com",
+   "date": "31 Jul",
+   "what": "42 files of Wealth.com vendor material: feature videos, security videos, case studies.",
+   "url": "https://drive.google.com/drive/folders/1tYAa9c-HUxjMjwMSAJ4Vgy5kYi9bfDuS",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Folder",
+   "title": "Heritage Books, tree 1",
+   "date": "",
+   "what": "Holds client family documents (53 files, one folder per named family); must not be shown.",
+   "url": "",
+   "where": "Drive",
+   "sensitive": true
+  },
+  {
+   "kind": "Folder",
+   "title": "Heritage Books, tree 2",
+   "date": "",
+   "what": "Holds client family documents (70 files, one folder per named family); must not be shown. The John Smith demo book inside it is safe.",
+   "url": "",
+   "where": "Drive",
+   "sensitive": true
+  },
+  {
+   "kind": "Folder",
+   "title": "Asset Files from Alan",
+   "date": "",
+   "what": "Holds client family documents: tax returns, K-1s, trust documents and email exports (53 files); must not be shown.",
+   "url": "",
+   "where": "Drive",
+   "sensitive": true
+  },
+  {
+   "kind": "Folder",
+   "title": "Eval Set Exports",
+   "date": "",
+   "what": "Holds client family documents: 6 sheets derived from client data; must not be shown.",
+   "url": "",
+   "where": "Drive",
+   "sensitive": true
+  },
+  {
+   "kind": "Folder",
+   "title": "Chris Insurance Back Up",
+   "date": "",
+   "what": "Holds client family documents: 19 email files; must not be shown.",
+   "url": "",
+   "where": "Drive",
+   "sensitive": true
+  },
+  {
+   "kind": "Order form",
+   "title": "Order form draft: Foreman Project Manager",
+   "date": "29 Oct",
+   "what": "Order-form draft (Google Doc), last modified 29 Oct.",
+   "url": "https://docs.google.com/document/d/1ldiZgSPIw02BP_Nth1ii83AJ-ntBAMkap-pwODurPv4",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "Order form draft: Helpdesk",
+   "date": "29 Oct",
+   "what": "Order-form draft (Google Doc), last modified 29 Oct.",
+   "url": "https://docs.google.com/document/d/1SKxAuemhQoWKx06il8yx6G2FCMWURRzwPE0Ed_11iUw",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "Order form draft: Pod Subscription (OF-008)",
+   "date": "9 Oct",
+   "what": "Order-form draft (Google Doc), last modified 9 Oct.",
+   "url": "https://docs.google.com/document/d/1yL6awO0kjfJGiXRpnkxBIyz3cwS9Zvk3gIePeqBynyE",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "Order form draft: Dedicated Private Environment",
+   "date": "9 Oct",
+   "what": "Order-form draft (Google Doc), last modified 9 Oct.",
+   "url": "https://docs.google.com/document/d/19QNIMDHvM4poCRthYOwNg4PrzY6354qZUSkdWYSdm4Y",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "Order form draft: Dedicated Environment",
+   "date": "9 Oct",
+   "what": "Order-form draft (Google Doc), last modified 9 Oct.",
+   "url": "https://docs.google.com/document/d/1C4PEcEHxThhPhNUGI_4gOZRZk8ufL8-qB3gam5SlbZU",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "Order form draft: Content & Website Manager",
+   "date": "9 Oct",
+   "what": "Order-form draft (Google Doc), last modified 9 Oct.",
+   "url": "https://docs.google.com/document/d/1qZsqnYxTUFohKiITHy50IBzD4DyJq8i4t9C19u-erYw",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "Order form draft: v1 Brand Video Bundle",
+   "date": "9 Oct",
+   "what": "Order-form draft (Google Doc), last modified 9 Oct.",
+   "url": "https://docs.google.com/document/d/1aDnrmeZ5d1TZSuz9XCcNBl5-_M2GZNj6V6r7AfRrOcs",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "Order form draft: Foreman PM v2",
+   "date": "18 Sep",
+   "what": "Order-form draft (Google Doc), last modified 18 Sep.",
+   "url": "https://docs.google.com/document/d/1eCxTSs_SU1bxOdJLdX0_4ZQ-SPZOr8e53IhgE_PAFKg",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "Order form draft: Foreman PM v1",
+   "date": "10 Sep",
+   "what": "Order-form draft (Google Doc), last modified 10 Sep.",
+   "url": "https://docs.google.com/document/d/1iyWTB2BxZjWDcF9yUHSuzSKHVCzi0R8m5EDBYQN_-FU",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "Order form draft: Helpdesk (earlier)",
+   "date": "31 Aug",
+   "what": "Order-form draft (Google Doc), last modified 31 Aug.",
+   "url": "https://docs.google.com/document/d/1tPARd9ExlaQbi0OynwzNVbwF_u2QNC7vwSO1wsYNuzo",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "Order form draft: Pod Subscription V1",
+   "date": "31 Aug",
+   "what": "Order-form draft (Google Doc), last modified 31 Aug.",
+   "url": "https://docs.google.com/document/d/1N127mC7hh5cDXPS18ZI4G9IlJwg71SjRft2rgpmComs",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "Order form draft: Heritage AI Content & Website Manager",
+   "date": "31 Aug",
+   "what": "Order-form draft (Google Doc), last modified 31 Aug.",
+   "url": "https://docs.google.com/document/d/1E0yDLIh6Jpd_oHlEf6OTs5V6EUgG5R3hRzfpAWMtwTs",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "Order form draft: v2 Brand Video Bundle",
+   "date": "5 Aug",
+   "what": "Order-form draft (Google Doc), last modified 5 Aug.",
+   "url": "https://docs.google.com/document/d/1Zw5gGpyLnsOt-NqaNVNpXkdBMIetGMRSknwOGAIDt4U",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "Order form draft: Dedicated Private Environment (oldest)",
+   "date": "30 Jun",
+   "what": "Order-form draft (Google Doc), last modified 30 Jun.",
+   "url": "https://docs.google.com/document/d/1q4jTmAT_wi5t6x24lijUVe2LBD_d2Ul-ynp_8Ly1ePo",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "Order form draft: Supernal x Heritage Order Form (DPE).docx",
+   "date": "2 Oct",
+   "what": "DPE order-form draft as a Word file.",
+   "url": "https://drive.google.com/file/d/13GtBOfoDDVvoSDvxSUzAdanz58vpnvIc",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "Client-facing order form: Brand Video Bundle",
+   "date": "10 Sep",
+   "what": "Client-facing order-form PDF.",
+   "url": "https://drive.google.com/file/d/10kJjIwEpXyMrk9xfLgsHPBZTl3JT0xNu",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "Client-facing order form: Heritage AI Content & Website Manager",
+   "date": "10 Sep",
+   "what": "Client-facing order-form PDF.",
+   "url": "https://drive.google.com/file/d/13tfVYNm62pSAORd0kBHnr4Sx8AYaaQmQ",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "Client-facing order form: Heritage Strategies Content & Website Manager",
+   "date": "10 Sep",
+   "what": "Client-facing order-form PDF.",
+   "url": "https://drive.google.com/file/d/1J8439kQy3iVt6Gezp8myPiye6TSPB6h_",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Heritage SOW Phase 1.pdf",
+   "date": "",
+   "what": "Phase 1 statement of work.",
+   "url": "https://drive.google.com/file/d/19OJCUcqYtm0f3duhJsV8n385dEW7IKLa",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Phase 1 Subscription SOW",
+   "date": "",
+   "what": "Phase 1 subscription statement of work.",
+   "url": "https://docs.google.com/document/d/1U27SIDxv2wB0MfRDdcgO1by3yWrPZUpV79GOp1Rilyw",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Phase 2: SoW",
+   "date": "",
+   "what": "Phase 2 statement of work.",
+   "url": "https://docs.google.com/document/d/10KJcVexeQ3WnC27AGj3nFxRcOSvWrCu2QPXDQgDaF7U",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Items in Phase 1 vs Phase 2",
+   "date": "",
+   "what": "Split of items between phases; nearest thing to a roadmap.",
+   "url": "https://drive.google.com/file/d/1pTrEmv229CUQBAQfI4OxERDoYYXSNY8qtZRr3L7ANNQ",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "The Digital Heritage Book - PRD",
+   "date": "",
+   "what": "Product requirements for the digital book.",
+   "url": "https://docs.google.com/document/d/1VPMQIIdc5jeaflReTZ9V0iSniZMzsPm5e772grWE-lw",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Spreadsheet",
+   "title": "Project Plan (1 of 3)",
+   "date": "",
+   "what": "Project plan sheet.",
+   "url": "https://docs.google.com/spreadsheets/d/1Af_2pPbh1icBnykA8qGsjZdeIQMJ0eWazmAoJ6eZrKU",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Spreadsheet",
+   "title": "Project Plan (2 of 3)",
+   "date": "",
+   "what": "Project plan sheet.",
+   "url": "https://docs.google.com/spreadsheets/d/1QSOBWDLDAK5UP41Iz5QwU-BA44KU55EMGmF4obwPoiE",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Spreadsheet",
+   "title": "Project Plan (3 of 3)",
+   "date": "",
+   "what": "Project plan sheet.",
+   "url": "https://docs.google.com/spreadsheets/d/1uqY6x1cH9O7vWorjD-lZY_fD2-hxcfypv9CbW-wMAto",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Heritage Data Layer Proposal",
+   "date": "",
+   "what": "Data layer proposal; nearest match to the vision document.",
+   "url": "https://docs.google.com/document/d/1b7sIHDlKab2re9kZ12fHVybCaR6FwayXMXF1QL78KC0",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Heritage Testing Report",
+   "date": "",
+   "what": "Platform testing report.",
+   "url": "https://docs.google.com/document/d/15JWrdF0QtKgdWEgoGVhNEMVY3W3tCQP79OMHDYdWtHQ",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "LOI.pdf",
+   "date": "",
+   "what": "Letter of intent.",
+   "url": "https://drive.google.com/file/d/1zbJUsOX53Gzxgl-qBZbEB3ohJY9UcWPd",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Heritage shoot, full transcripts",
+   "date": "11 Nov",
+   "what": "Transcripts of the brand-video shoot interviews.",
+   "url": "https://docs.google.com/document/d/1ynm39c0lwqxHBqqudr65EqMXOaUfF6JPHD_K2iZwpss",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Spreadsheet",
+   "title": "Heritage — Hours and Travel Tracker",
+   "date": "8 Oct",
+   "what": "Hours and travel for the brand-video production.",
+   "url": "https://docs.google.com/spreadsheets/d/17cM68RqCK7Kjq-LeiT0gUBVtazmVRkuKh19TFDzV3J0",
+   "where": "Drive",
+   "sensitive": false
+  }
+ ],
+ "book": [
+  {
+   "title": "The account in one page",
+   "minutes": 1,
+   "lenses": [
+    "all"
+   ],
+   "text": "Heritage Strategies is a Long Island advisory firm that plans estates for very wealthy families. Its signature deliverable is the Heritage Book, a hand-built set of sheets and diagrams that took 150 to 200 hours per client. Supernal has spent about 18 months turning that book into software, the Heritage Vault, after two earlier attempts were scrapped. Since March 2026 the aim has been larger: Heritage is creating a separate company, Heritage AI Inc., to license the platform to other advisory firms from early 2027. That decision explains nearly everything bought since. Account OS shows six closed deals worth $1,339,985 and three open ones worth $264,000. The app build runs at about $90,000 a month and reaches its contractual threshold of $840,000 in January 2027. Five projects are active: the app, a private cloud environment, two websites and a set of brand videos. The relationship is close and commercially generous, and it is scored 5.0 in Account OS. The same records note that no pilot firm is using the platform, that the client reviews work slowly, and that nobody has agreed what happens in February 2027.",
+   "sources": [
+    "Account OS",
+    "Webinar re: Heritage Vault, 30 Sep 2026",
+    "Catch Up: Sven & Tauseef, 28 Aug 2026",
+    "Heritage Platform Weekly Sync, 15 Oct 2026",
+    "Delivery Sync, 9 Nov 2026"
+   ]
+  },
+  {
+   "title": "Why they bought, three times",
+   "minutes": 1,
+   "lenses": [
+    "strategy",
+    "account"
+   ],
+   "text": "The first purchase, in February 2025, is not documented in the sources read here. The second is. By early 2026 the engagement had hit a roadblock. Seb and Jens pulled engineering time and produced a 28-page vision document showing what Heritage could become. The client started resourcing Phase 2 at once, and the Expansion closed on 22 April 2026. Three things worked together: the document made the future concrete, the goal shifted from an internal tool to a licensable product, and the founder wanted an AI-native firm. The third purchase came two months later. Heritage raised $2M to $3M in June. Supernal had just delivered four milestones in one week and, without being asked, proposed an accelerated three-month roadmap. The client said it no longer had the capacity to plan the roadmap itself. The Acceleration closed on 28 June and tripled the pace. Later add-ons each have their own reason: the private environment removes security objections in sales, the videos and websites sell the new company, Foreman frees the founders from office management, and the Insurance CRM replaces a failing system.",
+   "sources": [
+    "All Hands, 28 Apr 2026",
+    "All Hands, 16 Jun 2026",
+    "Catch Up: Sven & Tauseef, 28 Aug 2026",
+    "Heritage, Ridgeback, Supernal Weekly Call, 17 Aug 2026",
+    "Foreman Review, 21 Jul 2026",
+    "Supernal <> Heritage Insurance, 27 Oct 2026"
+   ]
+  },
+  {
+   "title": "How the deal is built",
+   "minutes": 1,
+   "lenses": [
+    "strategy",
+    "account"
+   ],
+   "text": "There is no single contract. Three order forms stack on one product: $10,000, $14,000 and $66,000 a month, which add to the $90,000 a month the client talks about. That money buys points at $7,500 each, so about 12 a month. Every feature is a numbered order-form item with a point size, and a point is roughly a week of work. When cumulative build spend reaches $840,000, in January 2027, building stops and a maintenance tier begins. Around this core sit separate order forms: the private environment at $7,790 a month, the videos at $32,500, the websites, and two AI employees not yet signed. The model gives the client precise control, and that is also its cost. Heritage calls it death by a thousand cuts. More than half of October's points were additions to the original scope. About 29 to 40 points of wanted work sit beyond the threshold. Ryan proposed a pod subscription to replace points; the team could not find a better control mechanism, parked it, and drafted it again as OF-008. Internally the order-form volume is a running joke.",
+   "sources": [
+    "Account OS",
+    "Budget Plan, 17 Sep 2026",
+    "Heritage Platform Weekly Sync, 26 Aug and 15 Oct 2026",
+    "Heritage Pod Subscription, 31 Aug 2026"
+   ]
+  },
+  {
+   "title": "The product and why it is built this way",
+   "minutes": 1,
+   "lenses": [
+    "product",
+    "engineering"
+   ],
+   "text": "The Vault has five sections: a data sheet, an asset sheet, an insurance schedule, a flow diagram of the estate documents, and an estate distribution chart. Advisers upload documents to a data room. The system labels and routes them, answers a fixed question set for each document type, and maps the answers onto the sheets. Humans check at all three steps, because the team judged human QC the fastest route to the 99.9% accuracy the brand needs. The flow diagram is the differentiator: it colours trust language to show what is fine, what should go and what to use instead. Heritage chose to compete on that visual output and not on drafting documents, where Wealth.com is strong. The licensing goal shapes the rest. Firms are fully separated. White-labelling stops at logo and colour. Seats allow one session at a time. Firms write their own disclosures. Billing features wait until pricing is settled. One weakness surfaced in October: the model learned on documents from top law firms and misreads poorly drafted trusts, which is what licensees will bring.",
+   "sources": [
+    "Webinar re: Heritage Vault, 30 Sep 2026",
+    "Heritage + Supernal Weekly Call, 9 Jul 2026",
+    "Heritage Platform Weekly Sync, 13 Aug and 21 Oct 2026",
+    "Cornerstone Discussion, 2 Oct 2026"
+   ]
+  },
+  {
+   "title": "How delivery has gone",
+   "minutes": 1,
+   "lenses": [
+    "delivery",
+    "engineering"
+   ],
+   "text": "Delivery began behind. In April 2026 the team was late at 4 points a month, because requirements arrived late and items were scoped too small. Jens became tech lead and engineers were added. July brought a backend migration and a company-wide security incident that froze deployments. From August the pace held, but friction moved to the client side: updates were too technical, staff emailed requests directly, and finished work sat untested. Each complaint produced a rule: plain-English definitions, requests through Chris and Tom Jr., testers named before release, updates grouped by what matters to book production. By late October the team reported its best app week, with multi-tenancy and secure access in production. Yet only 2 of October's 12 points were closed by 30 October, and on 9 November six items sat in review. Turning 2FA on in production locked clients out and was reverted the same day. The private environment was promised in two weeks when engineering expected months; the agreed position is two weeks for the Vertex move and six to eight weeks for the full migration.",
+   "sources": [
+    "Delivery Team Sync, 20 Apr and 4 May 2026",
+    "Heritage, Ridgeback, Supernal Weekly Call, 10 and 31 Aug 2026",
+    "Heritage Platform Weekly Sync, 26 Aug and 2 Sep 2026",
+    "Account OS health note, week of 26 Oct 2026",
+    "Heritage Weekly Planning, 9 Nov 2026"
+   ]
+  },
+  {
+   "title": "The people",
+   "minutes": 1,
+   "lenses": [
+    "account",
+    "strategy"
+   ],
+   "text": "Tom Fanning Sr. founded the firm and sets the deadlines. He wants numbers and trackers, and he tends to get pulled into detail on the weekly calls, which is why a quarterly forum for him was proposed. Tom Fanning Jr. makes product decisions and pushes toward what licensees and families will value. Chris Halvey holds the budget and the contracts, owns the insurance sheet, and is the person who notices when an order form is late. Below them, directors each own a sheet: Keith the diagrams, Willie the assets, Lisa onboarding. Jess runs operations. Ridgeback's Brendan and Eric are meant to bring pilot firms and have been slow. On Supernal's side the account has changed hands. Chris sold the first deal. Seb led through the vision document. Sven grew from project manager into strategist and now carries the vision. Jens runs daily delivery and most client calls. Ryan sponsors and owns the deals but has said he was not managing the account strategically. Stuart joined in October to take the commercial side. The team worried about adding another face.",
+   "sources": [
+    "Heritage Platform Weekly Sync, 15 Oct 2026",
+    "Jr, Jens, Chris, 3 Nov 2026",
+    "Heritage Pod Subscription, 31 Aug 2026",
+    "All Hands, 28 Apr 2026",
+    "Account OS"
+   ]
+  },
+  {
+   "title": "What value has shown",
+   "minutes": 1,
+   "lenses": [
+    "strategy",
+    "product"
+   ],
+   "text": "The headline claim to prospects is a book in about 30 minutes instead of 150 to 200 hours, with accuracy up from about 50% to about 99%. The measured picture is more modest and more useful. A timed run in September took 75 minutes for four insurance policies. The October baseline is 16.5 hours per book, of which sheet QC is 34% and client onboarding 30%. Stage accuracy on the dashboard mock-up was 87.3% for routing, 97.2% for answers and about 89% for mapping, against a need for 95% at every stage before full automation. Monthly time tracking began on 28 October so that a falling trend can be shown. Commercial value to Heritage AI is still a forecast: zero revenue in 2026, about $1.25M targeted for 2027. Value to Supernal is clear. Heritage is about 40% of revenue, the reference for the points model, and the source of the private-cloud capability and the new marketing services line.",
+   "sources": [
+    "Webinar re: Heritage Vault, 30 Sep 2026",
+    "Platform testing, timing, and accuracy, 9 Sep 2026",
+    "Heritage Platform Weekly Sync, 26 Aug and 28 Oct 2026",
+    "Strat Team Standup, 8 Sep 2026 (match excerpt)"
+   ]
+  },
+  {
+   "title": "Where it stands and what is next",
+   "minutes": 1,
+   "lenses": [
+    "all"
+   ],
+   "text": "Three things decide the next quarter. First, the commercial cliff. The build threshold arrives in January 2027 with about 3 contracted points left, 29 or more points of wanted work beyond it, and no agreed model for February. The options on the table are maintenance at $35,417 a month plus features on top, or a pod. Heritage wants to stay near $90,000 a month only while it uses the capacity. Second, proof. No pilot firm is live. Portals for Ridgeback's firms are being set up, the demo vault is nearly ready, and Heritage plans to invite 50 of its own clients. Until a firm outside Heritage uses the product, the licensing story rests on demos. Third, promises with dates: the private environment on 16 November, two websites on 20 November that are gated on a trademark filing not yet started, video cuts in early December, and two order forms to sign before Thanksgiving. The visit to New York in early November showed that time in the room moves this client faster than calls.",
+   "sources": [
+    "Heritage Weekly Planning, 9 Nov 2026",
+    "Delivery Sync, 9 Nov 2026",
+    "Heritage Platform Weekly Sync, 15 and 21 Oct 2026",
+    "Jr, Jens, Chris, 3 Nov 2026",
+    "All-Hands, 10 Nov 2026"
+   ]
+  }
+ ],
+ "answers": [
+  {
+   "q": "What happens to revenue after January 2027?",
+   "a": "The app build reaches its $840K threshold in January 2027 with about 3 contracted points left. No model for February is agreed: options are maintenance at $35,417 a month plus features, or a pod subscription. Heritage wants to stay near $90K a month only while it uses the capacity."
+  },
+  {
+   "q": "Why is health 5.0 when the notes say yellow?",
+   "a": "Account OS has scored every dimension 5.0 for six weeks, but the same records note that no pilot firm is using the platform. Notion’s 2 to 9 Nov report opens “Yellow” because items are not closing. The score and the notes have not been reconciled."
+  },
+  {
+   "q": "What would prove the licensing story?",
+   "a": "A firm outside Heritage using the product. Portals for Ridgeback’s firms are being set up, the demo vault is nearly ready, and Heritage plans to invite 50 of its own clients. Until then the story rests on demos."
+  }
+ ],
+ "workflows": [
+  {
+   "name": "Heritage Platform Weekly Sync",
+   "kind": "external",
+   "cadence": "Weekly",
+   "with": "Tom Sr., Tom Jr., Chris Halvey and directors",
+   "output": "Project tracker with timelines",
+   "lastRun": "28 Oct",
+   "note": "Heritage requires a tracker with timelines at every meeting; a quarterly, monthly and weekly cadence was proposed."
+  },
+  {
+   "name": "Heritage, Ridgeback, Supernal Weekly Call",
+   "kind": "external",
+   "cadence": "Weekly, Monday",
+   "with": "Heritage and Ridgeback",
+   "output": "",
+   "lastRun": "5 Oct",
+   "note": "Monday calls were judged ineffective."
+  },
+  {
+   "name": "Weekly training with Heritage directors",
+   "kind": "external",
+   "cadence": "Weekly, Wednesday",
+   "with": "Heritage directors and staff",
+   "output": "Weekly Training Agenda",
+   "lastRun": "",
+   "note": "Run by Jens; tracked in Linear P-HER-58."
+  },
+  {
+   "name": "Heritage Weekly Planning",
+   "kind": "internal",
+   "cadence": "Weekly",
+   "with": "Supernal delivery team",
+   "output": "",
+   "lastRun": "9 Nov",
+   "note": "Plans the monthly points cycle."
+  },
+  {
+   "name": "Delivery Sync",
+   "kind": "internal",
+   "cadence": "Weekly",
+   "with": "Supernal delivery and strategy",
+   "output": "",
+   "lastRun": "9 Nov",
+   "note": ""
+  },
+  {
+   "name": "Weekly account health report",
+   "kind": "internal",
+   "cadence": "Weekly",
+   "with": "Strat team",
+   "output": "Notion health report and Account OS health record",
+   "lastRun": "2 to 9 Nov",
+   "note": "Account OS record by Johnny."
+  },
+  {
+   "name": "Monthly manual time tracking",
+   "kind": "external",
+   "cadence": "Monthly",
+   "with": "Heritage",
+   "output": "Book-creation time trend",
+   "lastRun": "28 Oct",
+   "note": "Began 28 Oct to show a falling trend."
+  }
+ ]
+}

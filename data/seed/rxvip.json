@@ -1,0 +1,1630 @@
+{
+ "key": "rxvip",
+ "title": "RxVIP",
+ "strat": "Tauseef Rahman",
+ "pod": "Nick Agresti (AM), Tauseef Rahman (strategist), Doren Gore (FDE)",
+ "mrr": "$0",
+ "closedValue": "$45,000",
+ "closedCount": 1,
+ "health": {
+  "score": "2.8",
+  "band": "Watch",
+  "tone": "warn"
+ },
+ "fresh": [
+  "Current as of Johnny / Dan 1:1, 11 Nov",
+  "85 meeting notes since Apr",
+  "1 store live, about 35% of store scripts covered"
+ ],
+ "transcripts": 0,
+ "deals": [
+  {
+   "name": "RxVIP (Order Form #1)",
+   "value": "$45,000",
+   "stage": "Closed Won 15 May",
+   "phase": 3,
+   "note": "One-time build fee; owner Nick. MRR recorded as $0."
+  },
+  {
+   "name": "RxVIP Pharmacy OF1 Completion",
+   "value": "$22,500",
+   "stage": "Closed Won 22 Sep",
+   "phase": 3,
+   "note": "Removed record; the second half of the OF#1 build fee, billed 23 Sep."
+  },
+  {
+   "name": "Order Form #2",
+   "value": "$48,000",
+   "stage": "Order Form, expected close 16 Nov",
+   "phase": 2,
+   "note": "Draft Order Form #002 commits $12,000 and is with Thomas for review, unsigned. Next-step text is stale."
+  }
+ ],
+ "lost": "No deal is marked lost, but Order Form #2 was rejected in three earlier shapes (28 Sep, early Oct, 30 Oct) before the fourth was accepted verbally on 11 Nov.",
+ "sold": [
+  {
+   "form": "Order Form #1 (signed 14 May)",
+   "promised": "One AI Employee working the PioneerRx Priority Fill queue: 9 deliverables, 23 points, $45,000 build plus $1,500 per location per month once live.",
+   "met": "Closed by Dan 22 Sep, but only 5 of 9 deliverables were built as written; unlisted work was swapped in with no change order, and the Operational Fee was never started.",
+   "tone": "warn"
+  },
+  {
+   "form": "Order Form #002 (draft 12 Nov)",
+   "promised": "Cycle fills and store dashboard by week 4, fixed rules by week 6, learning loop by week 10, rollout to 4 stores by about day 90; $12,000 committed.",
+   "met": "Unsigned; ownership section, fourth store and Dan’s signing title still open.",
+   "tone": "info"
+  }
+ ],
+ "arc": [
+  {
+   "period": "Q1",
+   "meetings": null,
+   "points": [
+    "Dan came in through outreach and asked for a 90-minute session by 25 Mar.",
+    "Dan’s developer questioned Supernal’s legitimacy (27 Mar)."
+   ]
+  },
+  {
+   "period": "Q2 (Apr to May)",
+   "meetings": 15,
+   "points": [
+    "Discovery 8 Apr: 1,000 scripts a day with four or fewer people; first proposal was 62 points across three tracks.",
+    "TJM Labs found to automate PioneerRx by screen; scope cut to one module.",
+    "Order Form #1 signed 14 May; kickoff 19 May with Andrea as main contact."
+   ]
+  },
+  {
+   "period": "Jun",
+   "meetings": 10,
+   "points": [
+    "Access and infrastructure trouble: shared workstation, no test account, Tailscale held by HIPAA review.",
+    "Test e-script filled end to end 23 Jun; pod admitted it sold an agent and built click automation."
+   ]
+  },
+  {
+   "period": "Jul",
+   "meetings": 6,
+   "points": [
+    "Live testing exposed undocumented pop-ups; Andrea rejected rule-based fixes twice.",
+    "50+ live e-scripts and refills filled without help by 15 Jul."
+   ]
+  },
+  {
+   "period": "Aug",
+   "meetings": 12,
+   "points": [
+    "Private vision LLM shipped 3 Aug; all five script types automated 11 Aug.",
+    "First numbers 21 Aug: 276 processed, 110 completed, 40%.",
+    "Andrea delivered 169 PioneerRx edit-flag rules 25 Aug."
+   ]
+  },
+  {
+   "period": "Sep",
+   "meetings": 12,
+   "points": [
+    "Private LLM access suspended 17 Sep for CAPTCHA screenshots; internal status went red.",
+    "500-case target cleared at 517; Dan closed OF#1 22 Sep.",
+    "OF#2 at $10,000 a month presented 28 Sep."
+   ]
+  },
+  {
+   "period": "Oct",
+   "meetings": 10,
+   "points": [
+    "Dan rejected OF#2 and anchored on DRX at 12 cents a script.",
+    "Missing volume traced to cycle fills 7 Oct; refill date bug found 13 Oct.",
+    "Per-task pricing presented 30 Oct and did not land; development paused."
+   ]
+  },
+  {
+   "period": "Nov",
+   "meetings": 5,
+   "points": [
+    "4 Nov: Dan asked why coverage is 35% and said he is moving stores to DRX; scope reset to cycle fills plus learning loop.",
+    "Dan said yes to $4,000 a month on 11 Nov; Order Form #002 drafted 12 Nov."
+   ]
+  }
+ ],
+ "disagreements": [
+  "Health: Account OS says 2.8, Watch; the Notion weekly report for the same week says Critical.",
+  "Order Form #2 value: $48,000 (Account OS), $60K (Deal Desk 3 Nov), $120,000 (28 Sep draft), $12,000 committed (12 Nov draft).",
+  "Has Dan agreed: Slack 11 Nov says he said yes and is ready to sign; Johnny’s call note says he is reviewing and will respond next week.",
+  "11 Nov price vs 7 Nov one-pager: $12,000 over 3 months then $4,500 and $2,500 monthly, against $16,000 over 4 months and no monthly fee after launch.",
+  "Cost-plus claim: Johnny described the price as cost plus 45% while the same note shows a $2,500 a month loss in the build phase.",
+  "Number of pharmacies Dan has: seven, five, four to five, one active, and four stores in the draft order form.",
+  "Rayne’s volume: from about 4,500 scripts a month (11 Aug) to 18,000 a month with 9,000 cycle fills (10 Nov notes).",
+  "Cycle fills as a share of volume: about half (13 Oct), 52% (10 Nov), 70% (4 Nov), 40% (Fathom, 10 Nov).",
+  "Coverage: “100% of in-scope volume” (7 and 13 Oct) vs “about 35% of scripts” (4 Nov); Linear milestone shows 0%.",
+  "DRX pricing: $435 a month plus 12 cents a script plus $10K setup (5 Oct) vs $439 a month plus $1,500 activation (Notion, 7 Oct).",
+  "OF#1 pricing before signing: $15,000 a month (12 May note) vs $45,000 one-time plus $1,500 a location (signed form).",
+  "Automation type: the order form says browser-based; the product automates a Windows desktop application.",
+  "Effort: Deal Desk 10 Nov says 30 days with a few hours a week of Doren; draft order form uses about 90 days and the cost model half of Doren’s time."
+ ],
+ "streams": [
+  {
+   "name": "AI Employee at Rayne (five script types)",
+   "state": "Live",
+   "tone": "warn",
+   "pct": 0,
+   "due": "28 Oct",
+   "measured": "Picked up, completed, handed off, per day",
+   "learned": "Scope must be checked against the store’s real queues, not a list of script types.",
+   "attention": true
+  },
+  {
+   "name": "Cycle fills",
+   "state": "Not started",
+   "tone": "warn",
+   "pct": null,
+   "due": "Week 4 after signature",
+   "measured": "Cycle-fill scripts completed",
+   "learned": "A person must keep the sync-warning step.",
+   "attention": true
+  },
+  {
+   "name": "Fixed rules and learning loop",
+   "state": "Not started",
+   "tone": "warn",
+   "pct": null,
+   "due": "Weeks 6 and 10 after signature",
+   "measured": "Hand-offs by reason code",
+   "learned": "60% of pick-ups are handed off; unreadable e-scripts are a large share and rules will not fix them.",
+   "attention": true
+  },
+  {
+   "name": "Operator dashboard and controls",
+   "state": "Blocked",
+   "tone": "warn",
+   "pct": null,
+   "due": "",
+   "measured": "Run status, errors",
+   "learned": "Auto-start and manual controls must both work.",
+   "attention": true
+  },
+  {
+   "name": "Neon production data path",
+   "state": "Blocked",
+   "tone": "warn",
+   "pct": null,
+   "due": "",
+   "measured": "",
+   "learned": "Tenant isolation has to be in before a second store.",
+   "attention": true
+  },
+  {
+   "name": "Store rollout (Delray, New Iberia, a fourth)",
+   "state": "Paused",
+   "tone": "err",
+   "pct": 25,
+   "due": "30 Nov",
+   "measured": "Stores live",
+   "learned": "A store needs a machine, credentials and a setup visit.",
+   "attention": true
+  },
+  {
+   "name": "Onboarding handbook",
+   "state": "Late",
+   "tone": "err",
+   "pct": null,
+   "due": "28 Oct",
+   "measured": "",
+   "learned": "",
+   "attention": true
+  },
+  {
+   "name": "Order Form #002",
+   "state": "Waiting on client",
+   "tone": "info",
+   "pct": null,
+   "due": "16 Nov",
+   "measured": "",
+   "learned": "Send a directionally right proposal fast.",
+   "attention": false
+  },
+  {
+   "name": "MedSync and call agent",
+   "state": "Not started",
+   "tone": "",
+   "pct": null,
+   "due": "Before the holidays",
+   "measured": "",
+   "learned": "DRX does not offer it.",
+   "attention": false
+  }
+ ],
+ "tiles": [
+  {
+   "file": "roadmap",
+   "section": "Roadmap › Success metrics",
+   "title": "Success metrics",
+   "headline": "41% of picked-up scripts completed in October, but only about 35% of store scripts are in scope.",
+   "tone": "err",
+   "state": "Coverage gap"
+  },
+  {
+   "file": "plan",
+   "section": "Plan › Commercials",
+   "title": "Commercial model",
+   "headline": "Order Form #002 at $4,000 a month for about 90 days is drafted and unsigned, priced below Supernal’s $6,500 cost.",
+   "tone": "warn",
+   "state": "Below floor"
+  },
+  {
+   "file": "plan",
+   "section": "Plan › Dependencies",
+   "title": "Dependencies",
+   "headline": "PioneerRx has no API and no test environment; every fix ships to the live pharmacy.",
+   "tone": "err",
+   "state": "Host fragile"
+  },
+  {
+   "file": "stakeholders",
+   "section": "Stakeholders › Power map",
+   "title": "Power map",
+   "headline": "Andrea is the working champion; Dan signs, is price-driven and is moving stores to DRX.",
+   "tone": "warn",
+   "state": "Sponsor wavering"
+  },
+  {
+   "file": "roadmap",
+   "section": "Roadmap › Health",
+   "title": "Health",
+   "headline": "2.8 of 5, Watch: Tech 1 and Build 2 drag down a strong Exec Engagement 4.",
+   "tone": "warn",
+   "state": "Watch"
+  },
+  {
+   "file": "plan",
+   "section": "Plan › Rhythm",
+   "title": "Rhythm",
+   "headline": "Weekly with Andrea on Tuesdays; Dan engaged weekly since late October through Nick and Johnny.",
+   "tone": "ok",
+   "state": "Weekly cadence"
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Approve Order Form #002",
+   "detail": "Settle Section 8 (Ownership) and the self-hosting migration rate with Thomas, Johnny and Nick.",
+   "action": "Review draft"
+  },
+  {
+   "title": "Name the fourth store and Dan’s signing title",
+   "detail": "Both are TBC in the draft order form.",
+   "action": "Ask Dan"
+  },
+  {
+   "title": "Alert email domain",
+   "detail": "Mat says Supernal’s domain, Doren says the client’s.",
+   "action": "Decide"
+  },
+  {
+   "title": "Unreadable e-scripts",
+   "detail": "Improve reading or carve them out of the KPI.",
+   "action": "Decide"
+  },
+  {
+   "title": "Replace Doren’s hours",
+   "detail": "The plan assumes half of Doren while he moves onto World Emblem.",
+   "action": "Staff plan"
+  },
+  {
+   "title": "MedSync and call agent",
+   "detail": "Scope and price owed to Dan before the holidays.",
+   "action": "Draft scope"
+  }
+ ],
+ "slipping": [
+  {
+   "kind": "Past target",
+   "tone": "err",
+   "item": "AI Employee Runs 100% of Rayne Volume",
+   "detail": "Due 28 Oct, shows 0% in Linear."
+  },
+  {
+   "kind": "Past target",
+   "tone": "err",
+   "item": "RXVIP-58 machine per store, RXVIP-66 handbook, RXVIP-67 Rayne rollout",
+   "detail": "Due 15 Oct and 28 Oct, still Planned."
+  },
+  {
+   "kind": "Past target",
+   "tone": "err",
+   "item": "Nine issues due 31 Aug still open",
+   "detail": "Including RXVIP-41, 53, 54, 55, 57, 59; Linear not updated since 28 Oct."
+  },
+  {
+   "kind": "Promised, no task",
+   "tone": "warn",
+   "item": "Trend report for Dan at each review",
+   "detail": "Promised 22 Sep; no evidence it was delivered."
+  },
+  {
+   "kind": "Promised, no task",
+   "tone": "warn",
+   "item": "Learning-loop artifact, day-supply bug, changed-dates log, crash data, new-vs-refill breakdown",
+   "detail": "Commitments from 27 Oct to 10 Nov with no Linear issue."
+  },
+  {
+   "kind": "Expectation gap",
+   "tone": "err",
+   "item": "35% coverage",
+   "detail": "Dan learned on 4 Nov that the build covers about 35% of store scripts because cycle fills were never in scope."
+  },
+  {
+   "kind": "Open risk",
+   "tone": "warn",
+   "item": "Dan moving stores to DRX",
+   "detail": "Would shrink the number of PioneerRx stores the AI Employee can serve."
+  },
+  {
+   "kind": "Past target",
+   "tone": "warn",
+   "item": "Revised cost and timeline for Dan",
+   "detail": "Promised for 6 Nov, sent 11 Nov."
+  }
+ ],
+ "dates": [
+  {
+   "when": "16 Nov",
+   "what": "Expected close of Order Form #2 (Account OS)"
+  },
+  {
+   "when": "Week of 16 Nov",
+   "what": "Dan responds on the proposal; Johnny reconnects on the call-agent exercise"
+  },
+  {
+   "when": "17 Nov",
+   "what": "Next weekly with Andrea (inferred from Tuesday cadence)"
+  },
+  {
+   "when": "30 Nov",
+   "what": "Linear targets: five stores onboarded; Delray and New Iberia onboarding"
+  },
+  {
+   "when": "Before the holidays",
+   "what": "MedSync and call agent pricing to Dan"
+  },
+  {
+   "when": "14 Dec",
+   "what": "Milestone 1 (cycle fills and store dashboard) if signed 16 Nov (inferred)"
+  }
+ ],
+ "feed": [
+  {
+   "meeting": "Johnny / Dan 1:1",
+   "date": "11 Nov",
+   "changes": [
+    "Commercials: Dan accepted $12,000 over 3 months, then per-script",
+    "Plan: MedSync and call agent to be scoped and priced before the holidays"
+   ]
+  },
+  {
+   "meeting": "RxVIP Weekly",
+   "date": "10 Nov",
+   "changes": [
+    "Project plan: cycle-fill and learning-loop walkthrough with Andrea",
+    "Risks: day-supply bug on renewals opened",
+    "Decisions: a person keeps the sync-warning step"
+   ]
+  },
+  {
+   "meeting": "Deal Desk Weekly Review",
+   "date": "10 Nov",
+   "changes": [
+    "Commercials: $12K for 3 months then per-script agreed; Naveen approved outcome pricing as a one-off"
+   ]
+  },
+  {
+   "meeting": "RxVIP Sync: Weekly Planning",
+   "date": "9 Nov",
+   "changes": [
+    "Delivery: development paused pending a new contract; Doren moving to World Emblem"
+   ]
+  },
+  {
+   "meeting": "Path Forward Alignment",
+   "date": "4 Nov",
+   "changes": [
+    "Scope: reset to cycle fills plus learning loop, about 95% coverage",
+    "Risk: Dan moving stores to DRX"
+   ]
+  }
+ ],
+ "people": [
+  {
+   "name": "Dan Benamoz",
+   "title": "Owner, Syntrixs LLC (RxVIP)",
+   "note": "At the start: big vision, unrealistic dates, absent from weekly work. Now: engaged weekly, price-driven, moving stores to DRX, still wants to own the product.",
+   "influence": "High",
+   "disposition": "Neutral"
+  },
+  {
+   "name": "Andrea Bourque",
+   "title": "Pharmacist, runs operations",
+   "note": "At the start: careful and exacting, set two hard rules at kickoff. Now: the working champion; wants to be in every Dan meeting.",
+   "influence": "Medium",
+   "disposition": "Champion"
+  },
+  {
+   "name": "Mathieu “Mat” Silverstein",
+   "title": "Dan’s developer, CommandRx and SynapseRx",
+   "note": "At the start: wanted the code in his monorepo. Now: careful reviewer of the Neon design; Dan says he is not a fit for ongoing engineering.",
+   "influence": "Medium",
+   "disposition": "Neutral"
+  },
+  {
+   "name": "Meagan Loschiavo",
+   "title": "Dan’s assistant",
+   "note": "Schedules Dan; on the 4 Nov call.",
+   "influence": "Low",
+   "disposition": "Neutral"
+  },
+  {
+   "name": "Andre Duplantier",
+   "title": "TigerBytes, pharmacies’ IT provider",
+   "note": "Gatekeeper for machine access, VPN and file copy.",
+   "influence": "Medium",
+   "disposition": "Neutral"
+  },
+  {
+   "name": "Samantha",
+   "title": "Runs the Illinois store using TJM Labs",
+   "note": "Source of the “still slow” comment; Dan later credited the AI with keeping her store going.",
+   "influence": "Low",
+   "disposition": "Neutral"
+  },
+  {
+   "name": "Anna",
+   "title": "Technician at Rayne",
+   "note": "Processes cycle fills by hand, about an hour a day; key to the next phase.",
+   "influence": "Low",
+   "disposition": "Supporter"
+  },
+  {
+   "name": "Charlie",
+   "title": "Andrea’s assistant",
+   "note": "On site daily; backup contact for logins.",
+   "influence": "Low",
+   "disposition": "Supporter"
+  },
+  {
+   "name": "Nick Agresti",
+   "title": "Account manager (Supernal)",
+   "note": "Owner of all three deals; presented the 30 Oct pricing.",
+   "influence": "High",
+   "disposition": "Supporter"
+  },
+  {
+   "name": "Doren Gore",
+   "title": "Forward-deployed engineer (Supernal)",
+   "note": "Sole builder; moving onto World Emblem in November.",
+   "influence": "Medium",
+   "disposition": "Supporter"
+  },
+  {
+   "name": "Johnny Borbone",
+   "title": "Supernal",
+   "note": "Joined the Dan conversation 4 Nov; closed the verbal yes 11 Nov.",
+   "influence": "High",
+   "disposition": "Supporter"
+  },
+  {
+   "name": "Thomas Bustos",
+   "title": "Pricing (Supernal)",
+   "note": "Pricing models from October; reviews Order Form #002.",
+   "influence": "Medium",
+   "disposition": "Supporter"
+  }
+ ],
+ "metrics": [
+  {
+   "criterion": "New prescription started every 30 seconds; full process within 2 minutes",
+   "now": "One instance, about 90 seconds a case",
+   "state": "Behind",
+   "tone": "warn"
+  },
+  {
+   "criterion": "500 fills verified end to end by 31 Aug",
+   "now": "517 on 21 Sep, three weeks late",
+   "state": "Met late",
+   "tone": "ok"
+  },
+  {
+   "criterion": "Autonomous operation at 90 days (15 Aug)",
+   "now": "Reached for five script types, not the whole store",
+   "state": "Partial",
+   "tone": "warn"
+  },
+  {
+   "criterion": "Cases per hour: 40 to 50",
+   "now": "7.3 over OF#1",
+   "state": "Behind",
+   "tone": "err"
+  },
+  {
+   "criterion": "Completion rate of scripts picked up",
+   "now": "41% (October)",
+   "state": "No target",
+   "tone": "info"
+  },
+  {
+   "criterion": "Share of total store scripts covered: about 95%",
+   "now": "About 35%",
+   "state": "Behind",
+   "tone": "err"
+  },
+  {
+   "criterion": "Run 100% of Rayne’s reachable Priority Fill volume by 28 Oct",
+   "now": "Milestone 0% in Linear",
+   "state": "Behind",
+   "tone": "err"
+  },
+  {
+   "criterion": "5 stores onboarded by 30 Nov",
+   "now": "1",
+   "state": "Behind",
+   "tone": "err"
+  },
+  {
+   "criterion": "Accuracy: Dan’s bar 99%",
+   "now": "Zero wrong entries in OF#1, then the refill date bug in October",
+   "state": "At risk",
+   "tone": "warn"
+  },
+  {
+   "criterion": "Dan’s grade: B or B+",
+   "now": "B (Fathom, 22 Sep)",
+   "state": "On track",
+   "tone": "ok"
+  }
+ ],
+ "accountos": [
+  {
+   "record": "Weekly health",
+   "now": "2.8 Watch for week of 2 Nov; week of 9 Nov not scored",
+   "proposes": "Score the week of 9 Nov: Tech 1, Build 2, with written reasons (no API, no test environment, 35% coverage, paused build)."
+  },
+  {
+   "record": "Stakeholders",
+   "now": "One stakeholder: Andrea, Supporter, Medium",
+   "proposes": "Add Dan (High, Neutral), Mat, Meagan and Andre; consider Andrea as Champion."
+  },
+  {
+   "record": "Success plan",
+   "now": "Empty, no goals",
+   "proposes": "Goals from OF#002: share of in-scope volume completed, cycle fills by week 4, learning loop by week 10, 4 stores by day 90."
+  },
+  {
+   "record": "Cadence",
+   "now": "No cadence events",
+   "proposes": "Tuesday weekly with Andrea, weekly Dan call, monthly review, internal weekly planning."
+  },
+  {
+   "record": "Value",
+   "now": "No value entries",
+   "proposes": "October: 1,728 scripts completed; 90 seconds a case vs about 7 minutes; 9 cents vs 76 cents per technician script."
+  },
+  {
+   "record": "Whitespace",
+   "now": "No whitespace ideas",
+   "proposes": "MedSync call agent, eFax intake, handwritten prescriptions, compounds, patient SMS, network pharmacy resale."
+  },
+  {
+   "record": "Renewal",
+   "now": "No renewal plan; risk Medium, driver “Overall health on watch”",
+   "proposes": "12-month OF#002 term ending about 16 Nov 2027 if signed on time; exit point at day 90."
+  }
+ ],
+ "rationale": [
+  {
+   "decision": "Drive the screen",
+   "why": "PioneerRx offers API access only to selected partners.",
+   "source": "TGM Labs Pharmacy Integration Strategy, 1 May"
+  },
+  {
+   "decision": "Pilot at Rayne",
+   "why": "Andrea is on site weekly and did not want to hand an unfinished system to a store already onboarding TJM.",
+   "source": "Kickoff, 19 May"
+  },
+  {
+   "decision": "Test in production during agreed windows",
+   "why": "There is no PioneerRx staging copy.",
+   "source": "RxVIP Weekly, 23 Jun"
+  },
+  {
+   "decision": "Vision LLM for pop-ups instead of rules",
+   "why": "Andrea rejected rules as unscalable; the manual documents no pop-ups.",
+   "source": "Testing & Review, 8 Jul"
+  },
+  {
+   "decision": "Private, tenant-isolated model",
+   "why": "Screenshots contain patient data.",
+   "source": "RxVIP sync on future integration, 30 Jun"
+  },
+  {
+   "decision": "Hand-offs live in PioneerRx’s task list",
+   "why": "Keeps staff in the tool they already use and avoids a second portal.",
+   "source": "Check-In, 21 Aug"
+  },
+  {
+   "decision": "Skip the pre-check queue",
+   "why": "It is where technicians verify the AI’s work.",
+   "source": "RxVIP Weekly, 3 Aug"
+  },
+  {
+   "decision": "E-scripts first, refresh after every script",
+   "why": "E-scripts for waiting customers sat for 3 hours.",
+   "source": "RxVIP Weekly, 29 Sep"
+  },
+  {
+   "decision": "Weekdays 7am to 7pm only",
+   "why": "Insurers restrict fill hours and many states require staff on site.",
+   "source": "RxVIP Weekly, 7 Oct"
+  },
+  {
+   "decision": "Never solve CAPTCHA or critical comments",
+   "why": "Critical comments must reach a pharmacist; CAPTCHA handling caused the model suspension.",
+   "source": "RxVIP Weekly, 10 Nov"
+  }
+ ],
+ "sections": [
+  {
+   "category": "Host System Constraints (PioneerRx)",
+   "group": 2,
+   "desc": "No API, no staging, pop-ups, crashes and access constraints that shape every build decision.",
+   "files": [
+    {
+     "name": "PioneerRx-Behaviour-Log",
+     "summary": "No API, one process at a time, no auto-refresh, re-login screens, crash patterns."
+    },
+    {
+     "name": "Pop-Up-Rule-Register",
+     "summary": "The 169 edit flags, Andrea’s overrides, what goes to a person."
+    },
+    {
+     "name": "Environment-and-Access",
+     "summary": "Machines, VPN, TigerBytes, time windows, no staging."
+    },
+    {
+     "name": "Vendor-Contact-History",
+     "summary": "Requests to PioneerRx and the answers."
+    }
+   ]
+  },
+  {
+   "category": "Volume and Queue Map",
+   "group": 1,
+   "desc": "Which queues and script types make up each store’s volume; the gap behind the 35% surprise.",
+   "files": [
+    {
+     "name": "Store-Volume-By-Queue",
+     "summary": "Priority Fill, cycle fill, PhilRx, walk-ins, incoming documents, per store."
+    },
+    {
+     "name": "Script-Type-Taxonomy",
+     "summary": "Eight types and which are in scope."
+    },
+    {
+     "name": "Coverage-Denominator-Rules",
+     "summary": "Which number is the 100%."
+    }
+   ]
+  },
+  {
+   "category": "Regulated Operation and Compliance",
+   "group": 3,
+   "desc": "HIPAA, controlled substances, operating hours and model-provider policy events.",
+   "files": [
+    {
+     "name": "HIPAA-and-BAA-Register",
+     "summary": "Syntrixs BAA, subprocessors, Neon, network pharmacies."
+    },
+    {
+     "name": "Controlled-Substance-Incident-Log",
+     "summary": "The refill date bug and the audit."
+    },
+    {
+     "name": "Operating-Hours-and-Staffing-Rules",
+     "summary": "Insurer hours, weekends, holidays."
+    },
+    {
+     "name": "Model-Provider-Policy-Events",
+     "summary": "The CAPTCHA suspension."
+    }
+   ]
+  },
+  {
+   "category": "Pricing Experiments and Unit Economics",
+   "group": 1,
+   "desc": "Every price shape offered, the cost model and internal floors.",
+   "files": [
+    {
+     "name": "Price-Offers-Timeline",
+     "summary": "Eleven shapes, who rejected what and why."
+    },
+    {
+     "name": "Unit-Economics-Model",
+     "summary": "Cost per script, breakeven by pharmacy count."
+    },
+    {
+     "name": "Internal-Floors-and-Exceptions",
+     "summary": "The $9.6K floor and the one-off approval."
+    },
+    {
+     "name": "Reseller-Model",
+     "summary": "Dan as channel, what he charges pharmacies."
+    }
+   ]
+  },
+  {
+   "category": "Competitor File",
+   "group": 0,
+   "desc": "DRX and TJM Labs: price, coverage and positioning.",
+   "files": [
+    {
+     "name": "DRX-Profile",
+     "summary": "Price, coverage, gaps."
+    },
+    {
+     "name": "TJM-Labs-Profile",
+     "summary": "How it integrates, price, where installed."
+    },
+    {
+     "name": "Side-By-Side-Positioning",
+     "summary": "Supernal against both competitors."
+    }
+   ]
+  },
+  {
+   "category": "Client Software and Integration Partner",
+   "group": 2,
+   "desc": "Dan’s own software and the shared data design with Mat.",
+   "files": [
+    {
+     "name": "CommandRx-and-SynapseRx-Overview",
+     "summary": "Dan’s multi-tenant Next.js monorepo on Neon and Vercel."
+    },
+    {
+     "name": "Neon-Tenant-Design",
+     "summary": "Schema and Mat’s six security changes."
+    },
+    {
+     "name": "Code-Ownership-and-Repo-Access",
+     "summary": "Who owns the code and where it lives."
+    }
+   ]
+  },
+  {
+   "category": "Operations Runbook and Store Rollout",
+   "group": 3,
+   "desc": "Thin today; promised since 22 Sep and now a contracted deliverable.",
+   "files": [
+    {
+     "name": "Store-Onboarding-Runbook",
+     "summary": "Machine, credentials and setup visit per store."
+    },
+    {
+     "name": "Operator-Handbook",
+     "summary": "Start, stop, stuck, escalate."
+    },
+    {
+     "name": "Store-Roster",
+     "summary": "Stores, systems, volumes, machine status."
+    },
+    {
+     "name": "Escalation-Protocol",
+     "summary": "Who is emailed and when."
+    }
+   ]
+  },
+  {
+   "category": "Product Experience and Decks",
+   "group": 3,
+   "desc": "Dashboards, review decks and the planned prototype; no brand or visual design system exists for this account.",
+   "files": [
+    {
+     "name": "Operator-Dashboard-Screens",
+     "summary": "Doren’s Windows dashboard: counts, errors, start, stop, pause."
+    },
+    {
+     "name": "Store-Dashboard-Spec",
+     "summary": "Per-store, per-day dashboard planned in OF#002."
+    },
+    {
+     "name": "Monthly-Review-Decks",
+     "summary": "Jul and Sep monthly reviews, the hosted review site and claude.ai decks."
+    },
+    {
+     "name": "Vision-Prototype-Plan",
+     "summary": "The four-screen Pharmacy OS prototype planned and not built."
+    }
+   ]
+  }
+ ],
+ "artifacts": [
+  {
+   "kind": "Folder",
+   "title": "RxVIP (shared-drive account folder: Client Facing, Commerical Contracts, Internal Facing, Transcripts)",
+   "date": "24 Jun",
+   "what": "Main account folder",
+   "url": "https://drive.google.com/drive/folders/1xWiimQd_2NJeZzD0RTC8IyeKcZRMOv_0",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "RxVIP + Supernal document.pdf",
+   "date": "14 May",
+   "what": "Signed MSA, Order Form #1 and BAA",
+   "url": "https://drive.google.com/file/d/1T0rR07QiLsfOjt_VLriFF7PHj8TeRu_M/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "RxVIP x Supernal: Order Form #2",
+   "date": "22 to 28 Sep",
+   "what": "First OF#2: $10K a month, 51 points, 7 milestones. Rejected",
+   "url": "https://docs.google.com/document/d/1CyvUvaXcQvfTJWr14mBVUPnS-XO93yxfBRe-0D1Gwpo/edit",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "RxVIP: Order Form #002",
+   "date": "12 Nov",
+   "what": "Current draft: $4,000, $4,500, $2,500 phases. In review",
+   "url": "https://docs.google.com/document/d/1YTXupDzq7C3qzOQYa8lrteAqHGD5yIryZE147w_txJw/edit",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "rxvip-of-002-v2-draft.docx",
+   "date": "12 Nov",
+   "what": "Word version of the current draft (not opened)",
+   "url": "https://drive.google.com/file/d/1fKih7tWetgkjJF2QK_fJ04a8daUMOrcV/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Folder",
+   "title": "RxVIP (second folder holding the two .docx drafts)",
+   "date": "28 Oct",
+   "what": "Order form drafts",
+   "url": "https://drive.google.com/drive/folders/1pw0OEEFR7JDztj1Db-HwuyYveCBLxn8H",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Spreadsheet",
+   "title": "RxVIP (Rayne Pharmancy): Testing Log August 2026",
+   "date": "21 Aug, edited 13 Nov",
+   "what": "Daily run numbers; the record of performance (not opened)",
+   "url": "https://docs.google.com/spreadsheets/d/1OaEvGhdK2rLq3xidL15UuJEOpDexQ2-UdcIrXSd7NdI/edit",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "RxVIP: Monthly Review, Sep 15 2026",
+   "date": "15 to 22 Sep",
+   "what": "OF#1 results and OF#2 roadmap shown to Dan 22 Sep",
+   "url": "https://docs.google.com/presentation/d/1mM5CJJAAL3pEIdlikvYAaIFi6FEKO843tQDNrHaIQ-8/edit",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "RxVIP: Monthly Review Jul 15, 2026",
+   "date": "15 Jul",
+   "what": "Phase 1 review for Dan and Mat",
+   "url": "https://docs.google.com/presentation/d/13lUCQTIWq7ho7_kx8Nru2XAeGg_m_D2VjDblR6JM94A/edit",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "AI Employee Client Alignment Document.pdf",
+   "date": "15 Jul",
+   "what": "Alignment document on the AI Employee (not opened)",
+   "url": "https://drive.google.com/file/d/1P7_OByxMJmme2MMXJGCC89Tmx7Z55PQF/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Dev Pipeline Architecture (June).pdf",
+   "date": "Jun",
+   "what": "Development pipeline diagram",
+   "url": "https://drive.google.com/file/d/1HAcu6bXXLCto1G42UFarLSDKIV9wyhS0/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Pioneer RX: Tech Course notes.pdf",
+   "date": "Jul",
+   "what": "Notes from the PioneerRx course; knowledge base source",
+   "url": "https://drive.google.com/file/d/1UTB_J6hDMat8uB00mSmu8q-3SfH_vO_q/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Pioneer RX: Training Manual Notes.pdf",
+   "date": "Jul",
+   "what": "Notes on the PioneerRx manual",
+   "url": "https://drive.google.com/file/d/1rn7k37G1AQdJOVurOpX5OWzNXiQ7lKgl/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "RxVIP x Supernal: Kickoff",
+   "date": "19 May to 4 Jun",
+   "what": "Kickoff document",
+   "url": "https://docs.google.com/document/d/1y3sp07OKevkyDXoGL2LoKYDL0Ysxv8UO39vmGyC3_bg/edit",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "TJM Labs Technical Overview May 2026.pdf",
+   "date": "21 May",
+   "what": "Competitor's technical overview",
+   "url": "https://drive.google.com/file/d/1dfAa0oDNqp2cfzO0A2OYCKuXyseMqWxq/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Folder",
+   "title": "Pioneer RX (subfolder of Internal Facing)",
+   "date": "15 May",
+   "what": "PioneerRx reference material (contents not listed)",
+   "url": "https://drive.google.com/drive/folders/1TY6VpH6JU_v5fVPyqso1EwYqBkzjFvgA",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Folder",
+   "title": "RxVIP (third folder) with two “Notes by Gemini” docs",
+   "date": "11 Jun and 15 Jul",
+   "what": "Gemini notes of Progress Update I and Update II",
+   "url": "https://drive.google.com/drive/folders/1TDG5Mi7jMUQ5tvopQ28nnlJg9LEEQ4uC",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "The call with Dan (notes doc)",
+   "date": "about 28 Sep",
+   "what": "Notes of the call where Dan rejected OF#2 (not opened)",
+   "url": "https://docs.google.com/document/d/1n22Hzmeo1lf_kC6SfqUymWpmS7bCB1mFl8kzkYnPFEc/edit",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "RxVIP: Where the AI Employee Stands",
+   "date": "15 Oct",
+   "what": "Slides explaining why the product looked short and why it was not",
+   "url": "https://docs.google.com/presentation/d/1VAw2PZcy0nRhU7dyqGPD57DaFaArwD8UqmjHYBWJvWM/edit",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Video",
+   "title": "Video of the 30 Oct call with Dan",
+   "date": "30 Oct",
+   "what": "Recording of “The Numbers for a Win-Win”",
+   "url": "https://drive.google.com/file/d/1mVDUH9dSSplFe0Mz6ych_oqakd3h69d6/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Video",
+   "title": "12 meeting recording folders in Tauseef's My Drive (11 Aug to 4 Nov)",
+   "date": "Aug to Nov",
+   "what": "Recordings of weeklies, pricing calls and the 4 Nov alignment call",
+   "url": "",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Site",
+   "title": "Monthly Review site",
+   "date": "22 Sep",
+   "what": "Hosted monthly review for the 22 Sep meeting",
+   "url": "https://monthly-review-rxvip.links.getsupernal.ai/",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Dashboard",
+   "title": "RxVIP Pricing Model",
+   "date": "5 Oct",
+   "what": "Retainer and revenue-share pricing model",
+   "url": "https://claude.ai/artifact/RZDZgyuRL2yPHGceAD7VnJ",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Pharmacy OS repositioning",
+   "date": "6 Oct",
+   "what": "Proposal to reposition RxVIP as an AI-native pharmacy operating system, for Naveen's review",
+   "url": "https://claude.ai/artifact/XNV7ZMZucFxh6EFdRGBR3o",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Dashboard",
+   "title": "Pricing calculator V1",
+   "date": "27 Oct",
+   "what": "Per-script pricing calculator",
+   "url": "https://claude.ai/artifact/JZVYn1f7S8K9kkr3vLH9Cx",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Win-win partnership pitch",
+   "date": "29 Oct",
+   "what": "Deck for Nick's 30 Oct call with Dan",
+   "url": "https://claude.ai/artifact/Pz3RfeBd4cYZB2n48mgb2F",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Storytelling deck for the 4 Nov call",
+   "date": "4 Nov",
+   "what": "Explains the three options",
+   "url": "https://claude.ai/artifact/6kBy94BSwGNQ4z1ALmtU11",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Three-slide deck for the 4 Nov call",
+   "date": "4 Nov",
+   "what": "Refined after Thomas's feedback; presented to Dan",
+   "url": "https://claude.ai/artifact/HDcoujVJsxzVCG2BKi2NMG",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Proposal",
+   "title": "One-pager for Dan and the numbers behind it",
+   "date": "7 Nov",
+   "what": "$16,000 over 4 months, then per-script",
+   "url": "",
+   "where": "Slack",
+   "sensitive": false
+  },
+  {
+   "kind": "Proposal",
+   "title": "Johnny's proposal for Dan",
+   "date": "10 Nov",
+   "what": "What was sent before the 11 Nov call",
+   "url": "",
+   "where": "Slack",
+   "sensitive": false
+  },
+  {
+   "kind": "Dashboard",
+   "title": "RxVIP Holiday dashboard",
+   "date": "12 Nov",
+   "what": "Holiday schedule for the AI Employee",
+   "url": "",
+   "where": "Slack",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Holidays for the AI Employee",
+   "date": "15 Oct",
+   "what": "Days the AI Employee should not run",
+   "url": "",
+   "where": "Slack",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Human Led for RxVIP",
+   "date": "13 Oct",
+   "what": "Proposal to use people to fill gaps the AI leaves",
+   "url": "",
+   "where": "Slack",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Pulse Onboarding",
+   "date": "25 Sep",
+   "what": "Putting RxVIP tracking on Pulse",
+   "url": "",
+   "where": "Slack",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Crash report and dashboard .exe update",
+   "date": "21 and 29 Oct",
+   "what": "PioneerRx crash record; dashboard build status",
+   "url": "",
+   "where": "Slack",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Reply to Mat's security review",
+   "date": "25 Sep",
+   "what": "Six agreed changes to the Neon queue design",
+   "url": "",
+   "where": "Slack",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "RxVIP account page",
+   "date": "updated 31 Aug",
+   "what": "Account record, hygiene checklist, links to 16 weekly reports",
+   "url": "https://app.notion.com/p/3a7bd5e8f3188199b28bcbd46da463c1",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Weekly Account Health reports (16, 20 Jul to 6 Nov)",
+   "date": "weekly",
+   "what": "Weekly status, fires, exec asks",
+   "url": "",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Proposal",
+   "title": "RxVIP: Pharmacy OS Vision, Prototype and Economics",
+   "date": "7 Oct",
+   "what": "Vision, four-screen prototype plan, pricing table, compliance path",
+   "url": "https://app.notion.com/p/3f1bd5e8f31881c29665f3574ac1a770",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "RxVIP - 2026-11-12 (GTM weekly update)",
+   "date": "12 Nov",
+   "what": "Deal status roll-up",
+   "url": "https://app.notion.com/p/416bd5e8f3188117ac43c71accb8df40",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "RxVIP (GTM account) and “Order form 2” opportunity",
+   "date": "Oct",
+   "what": "GTM tracking",
+   "url": "https://app.notion.com/p/3f4bd5e8f31881eb95c8ccc99d8b9fce",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "RxVIP (deal page, GTM & Scoping)",
+   "date": "25 Mar to 4 May",
+   "what": "Pre-sale deal record; sized X-Large ($250k+)",
+   "url": "https://app.notion.com/p/32ebd5e8f318802888bbc4929226b74e",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "ENG-877: RxVIP Vision-Model Spike",
+   "date": "14 Jul",
+   "what": "Comparison of vision models for pop-up handling",
+   "url": "https://app.notion.com/p/39dbd5e8f318813aa3d9ef018c1ed781",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Tenant-Isolated LLM (Heritage & RxVIP): Architecture & Requirements",
+   "date": "7 Jul",
+   "what": "Private model architecture",
+   "url": "https://app.notion.com/p/396bd5e8f318812a8567d210375da2af",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Dashboard",
+   "title": "Linear project: RxVIP Pharmacy AI Platform",
+   "date": "31 Jul",
+   "what": "Milestones and issues",
+   "url": "https://linear.app/supernal-clients/project/rxvip-pharmacy-ai-platform-d94ea01ac92a",
+   "where": "Linear",
+   "sensitive": false
+  },
+  {
+   "kind": "Dashboard",
+   "title": "ProjectOS plan",
+   "date": "not stated",
+   "what": "Earlier project plan, linked from Notion",
+   "url": "https://supernal-pms-production.up.railway.app/clients/4c0a2b6c-d398-482c-adf7-f26f2097527b",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Site",
+   "title": "Code repository RxVIP-software-automation",
+   "date": "2026",
+   "what": "AI Employee code; feature branches to staging to main",
+   "url": "",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Prototype",
+   "title": "The AI Employee .exe and its Task Scheduler setup",
+   "date": "Jul onward",
+   "what": "The product itself",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Prototype",
+   "title": "Operator dashboard .exe",
+   "date": "Oct",
+   "what": "Live status and controls",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Proposal",
+   "title": "Three-option one-pager sent to Dan",
+   "date": "2 to 3 Nov",
+   "what": "Options 1, 2 and 3 with costs",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Proposal",
+   "title": "First co-development proposal (62 points, three tracks)",
+   "date": "28 Apr",
+   "what": "The original, broader pitch",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "DRX competitive analysis",
+   "date": "5 Oct",
+   "what": "Side-by-side with DRX",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "DRX statement of work and price list sent by Dan",
+   "date": "early Oct",
+   "what": "The price anchor",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Spreadsheet",
+   "title": "Andrea's PioneerRx pop-up rules sheet (169 edit flags)",
+   "date": "25 Aug",
+   "what": "Source for pop-up rules",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Spreadsheet",
+   "title": "SIG codes list and SMS template export",
+   "date": "15 May",
+   "what": "Reference data",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Pop-up screenshot document",
+   "date": "Aug onward",
+   "what": "Unknown pop-ups for Andrea to rule on",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Spreadsheet",
+   "title": "Log of scripts with changed dates",
+   "date": "27 Oct",
+   "what": "Andrea's audit of the refill bug (holds patient-linked records)",
+   "url": "",
+   "where": "unknown",
+   "sensitive": true
+  },
+  {
+   "kind": "Document",
+   "title": "Operating manual for the AI Employee",
+   "date": "promised 22 Sep",
+   "what": "Start, stop, stuck, escalate",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Learning-loop artifact (fixed rules, learning items, out of scope)",
+   "date": "10 Nov",
+   "what": "For Andrea's review",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Thomas's 60-slide visual deck",
+   "date": "29 Oct",
+   "what": "Reference for client pitches",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  }
+ ],
+ "book": [
+  {
+   "title": "The account in one page",
+   "minutes": 2,
+   "lenses": [
+    "all"
+   ],
+   "text": "RxVIP is the trading name of Syntrixs LLC, owned by Dan Benamoz, who runs a handful of independent pharmacies and wants to manage many more. In May 2026 he bought one thing from Supernal: an AI Employee that does the data entry for prescription fill requests inside PioneerRx, the pharmacy system his stores use. The price was $45,000 for the build plus $1,500 per store per month once live. The build ran from 19 May to 22 Sep 2026 at one store, Rayne Medicine Shoppe in Louisiana, with the store's pharmacist, Andrea Bourque, as the daily partner.\n\nThe AI Employee works. It picked up 4,206 scripts in October and completed 1,728 of them without help. It also covers only about 35% of what the store fills, because roughly half of the volume, the cycle fills, sits in a separate queue nobody scoped. The monthly fee was never charged. A second order form has been proposed four times since late September; the fourth, at $4,000 a month for about 90 days, was accepted verbally on 11 Nov and is unsigned.\n\nHealth is 2.8 out of 5. Tech scores 1 because the product drives a fragile desktop app with no API and no test environment. Build scores 2 because coverage is partial and work has been paused. The client is moving stores to a competitor that charges 12 cents a script.",
+   "sources": [
+    "Account OS",
+    "Drive: RxVIP + Supernal document.pdf",
+    "RxVIP Weekly, 10 Nov 2026",
+    "Path Forward Alignment, 4 Nov 2026",
+    "Slack #acnt-rxvip-internal, 11 Nov 2026"
+   ]
+  },
+  {
+   "title": "Why they bought",
+   "minutes": 2,
+   "lenses": [
+    "strategy",
+    "account"
+   ],
+   "text": "Dan arrived with a labour target: a pharmacy that fills 1,000 prescriptions a day with four people or fewer. He also had a date, a first tribal pharmacy opening on 1 Jun 2026, and a story about scale, with 41 clinics in Oklahoma and 200 stores by the end of 2027. Supernal answered first with a broad co-development plan of 62 scored pieces across a data foundation, a platform and AI employees. It did not close. Dan's ceiling was $5,000 a month per location and he wanted his money back within a year.\n\nThree things then narrowed the deal. The team learned that a competitor Dan already used, TJM Labs, automates PioneerRx by driving the screen, because PioneerRx has no API; that showed both what was possible and what Dan would compare against. The team accepted that the June date ruled out anything broad. And Andrea, who runs operations, became the main contact because her answers were realistic where Dan's and his developer's were not. The scope shrank to one module with a clear finish, and it was signed on 14 May.\n\nOwnership mattered throughout. Dan and his developer Mat Silverstein already had their own software, CommandRx, and wanted to own what was built. Andrea's reason was different again: she wanted pharmacists counselling patients instead of typing e-scripts.",
+   "sources": [
+    "RxVIP x SupernalAI: Part 1, 8 Apr 2026",
+    "New note, 28 Apr 2026",
+    "TGM Labs Pharmacy Integration Strategy, 1 May 2026",
+    "Sync: Eric & Tauseef, 12 May 2026",
+    "RxVIP Weekly, 11 Aug 2026"
+   ]
+  },
+  {
+   "title": "How the deal is built",
+   "minutes": 2,
+   "lenses": [
+    "account",
+    "strategy"
+   ],
+   "text": "There is one client entity, Syntrixs LLC, and one master agreement dated 14 May 2026 with a HIPAA business associate agreement attached. Under it sits Order Form #1: a $45,000 one-time build fee, half on signing and half on completion, for nine deliverables worth 23 points, plus an Operational Fee of $1,500 per location per month, capped at 20 locations. The order form has no delivery date; three months was a spoken expectation.\n\nWhat was delivered differs from what was written. Five of the nine deliverables were built. Label printing, the technician pre-check station and patient text messaging were canceled, and the reply classifier was put on hold. In their place the team built four more script types, denial queue handling, a private vision model for pop-ups and a longer run window. No change order records the swap. Dan closed the order form on 22 Sep and the second $22,500 was billed the next day. The Operational Fee was never started, and when Dan heard the figure again in October he objected.\n\nOrder Form #2 has had four shapes: $10,000 a month for twelve months; a completion fee plus a per-store fee; $10,000 a month plus 20 cents a script; and the current draft, $4,000 a month for about 90 days, then $4,500, then $2,500 once ten pharmacies are live, with 9 and then 5 cents per completed script. Account OS carries the deal at $48,000, expected to close 16 Nov.",
+   "sources": [
+    "Drive: RxVIP + Supernal document.pdf",
+    "Linear",
+    "Account OS",
+    "Drive: RxVIP x Supernal: Order Form #2",
+    "Drive: RxVIP: Order Form #002",
+    "Catchup: Nick & Tauseef, 26 Oct 2026"
+   ]
+  },
+  {
+   "title": "The product and why it is built this way",
+   "minutes": 2,
+   "lenses": [
+    "product",
+    "engineering"
+   ],
+   "text": "The AI Employee is a Windows program on a dedicated machine in the store. It logs in to PioneerRx, opens the Priority Fill queue, reads each request, matches patient, prescriber and drug, fills the fields, presses F12 and moves to the next. It handles five script types in a fixed order, e-scripts first.\n\nAlmost every design choice is a response to PioneerRx. There is no API, so the program clicks. There is no staging copy, so testing happens on the live system in agreed windows. The software throws pop-ups that no manual documents; the first answer was a list of rules, which Andrea rejected as unscalable, and the second was a private vision model that looks at a screenshot and decides. The model is private because screenshots hold patient data. When the program cannot finish a script it creates a task in PioneerRx's own task list with the reason, so staff stay in the tool they know.\n\nSome limits are deliberate. The pre-check queue is left alone because that is where technicians verify the AI's work. Critical comments, which flag drug interactions and allergies, always go to a pharmacist. CAPTCHA screens are skipped after the model provider suspended access for processing them. The program runs on weekdays from 7am to 7pm, because insurers restrict fill hours and staff must be present. In the client's hearing it is an AI employee or an agent, never a bot.",
+   "sources": [
+    "RxVIP Weekly, 3 Aug and 29 Sep 2026",
+    "Testing & Review, 8 Jul 2026",
+    "Check-In, 21 Aug 2026",
+    "OF2 Scope Discovery, 18 Sep 2026",
+    "Progress + Way Forward, 22 Sep 2026",
+    "RxVIP sync on future integration, 30 Jun 2026"
+   ]
+  },
+  {
+   "title": "How delivery has gone",
+   "minutes": 2,
+   "lenses": [
+    "delivery",
+    "engineering"
+   ],
+   "text": "June went to access. The only workstation was shared with staff who printed patient records on it each morning. PioneerRx would not provide a test account. A remote access tool waited on a HIPAA review. A password lock cost a day. By 23 Jun a test e-script was filled end to end in front of Andrea.\n\nJuly brought live testing and the pop-up wall. Andrea told the team twice that rules would not work and that a competitor was moving faster. The vision model shipped on 3 Aug and all five script types were automated by 11 Aug. Then the numbers arrived: 276 processed and 110 completed in the first two weeks, 40%. One day the program sat idle because PioneerRx does not refresh its own queues. In September the model access was suspended over CAPTCHA screenshots, weekly throughput fell to 31 cases, and the internal status went red, in the same week that the 500-case target cleared at 517 and Andrea signed off.\n\nOctober was spent finding out why volume looked low. Scripts were being skipped, priorities were wrong, and PioneerRx crashed, 90 times in one day. On 7 Oct the real cause surfaced: about half of the store's scripts are cycle fills, processed by a technician in another queue. On 13 Oct a refill bug was found to have rewritten past fill dates, including on a controlled substance. Development stopped in late October while the contract was argued.",
+   "sources": [
+    "RxVIP Weekly, 9, 16 and 23 Jun 2026",
+    "Testing & Review, 8 Jul 2026",
+    "Check-In, 21 Aug 2026",
+    "RxVIP Weekly, 18 Aug 2026",
+    "RxVIP Sync: Weekly Planning, 21 Sep and 26 Oct 2026",
+    "RxVIP Weekly, 7 and 13 Oct 2026"
+   ]
+  },
+  {
+   "title": "The people",
+   "minutes": 2,
+   "lenses": [
+    "account",
+    "strategy"
+   ],
+   "text": "Dan Benamoz owns the company, signs and pays. He thinks in large numbers and changes direction often: a tribal pharmacy network in April, phone and texting agents in July, a product to compete with DRX in October, a call bot for medication sync in November. The number of pharmacies he controls has been given as seven, five, four and one active. He was absent from the weekly work for most of the build and has been on calls weekly since late October. He wants to own what is built.\n\nAndrea Bourque is the pharmacist who runs operations and the reason the build got as far as it did. She chose her own store for the pilot, set rules on day one, supplied PioneerRx's rule list when the vendor would not, and found both serious bugs. She pushes back hard and is usually right. She has asked to be in every meeting with Dan, because scope shifts when she is not.\n\nMat Silverstein built Dan's existing software and reviews the data design carefully. Andre Duplantier at TigerBytes controls the machines. Anna, a technician, does cycle fills by hand and holds the knowledge the next phase needs.\n\nOn the Supernal side, Nick Agresti owns the account, Tauseef Rahman leads strategy and delivery, and Doren Gore is the only engineer. Johnny Borbone stepped in on 4 Nov and closed the verbal yes. Thomas Bustos and Naveen Lekkalapudi set pricing and the cost floor.",
+   "sources": [
+    "RxVIP x SupernalAI: Part 1, 8 Apr 2026",
+    "Kickoff, 19 May 2026",
+    "RxVIP Weekly, 25 Aug and 3 Nov 2026",
+    "The Numbers for a Win-Win, 30 Oct 2026",
+    "Confirm Variable Costs, 29 Oct 2026",
+    "Deal Desk Weekly Review, 10 Nov 2026",
+    "Account OS"
+   ]
+  },
+  {
+   "title": "What value has shown",
+   "minutes": 2,
+   "lenses": [
+    "strategy",
+    "account"
+   ],
+   "text": "The clearest numbers are operational. Over the first order form the AI Employee processed 1,419 prescriptions in 26 run days and completed 517, at an average of 90 seconds a case, down from about seven minutes at the start. In October it picked up 4,206 of the 5,769 scripts in the Priority Fill queue and completed 1,728, which is 41%. The rest were handed to a person with a reason: 45% for PioneerRx pop-ups it did not know, 28% for other problems such as e-scripts it could not read.\n\nThe client has said, in his own way, that it helps. On 4 Nov Dan described a store keeping up on a thin crew and credited the technology, and a week earlier he passed on a manager's view that she would be stuck without it. Set against a technician at about 76 cents a script, 9 cents is cheap.\n\nWhat has not been shown is money. Account OS has no value entries and no success goals. Dan asked on 22 Sep for a trend report at every review and there is no sign he received one. He has since asked for the split of new prescriptions against refills and for time per script by type. The measure that now matters, share of total store volume completed, was not tracked until October, and the answer, about 35%, came as a surprise to the sponsor.",
+   "sources": [
+    "Progress + Way Forward, 22 Sep 2026",
+    "RxVIP Weekly, 10 Nov 2026",
+    "Notion: RxVIP (Nov 2 - Nov 6)",
+    "The Numbers for a Win-Win, 30 Oct 2026",
+    "Rx VIP pricing and pharmacy expansion strategy, 28 Oct 2026",
+    "Account OS"
+   ]
+  },
+  {
+   "title": "The pricing saga",
+   "minutes": 2,
+   "lenses": [
+    "strategy",
+    "account"
+   ],
+   "text": "No part of this account took more internal time than price. The first second-phase offer, on 28 Sep, was $10,000 a month for a year. Dan declined because he could not see how to resell it when others quoted a $10,000 integration and $400 a store. He then sent the price list of DRX, a newer pharmacy system at about $435 a month per store with AI data entry at 12 cents a script, and asked for something that competes with it. The pod spent early October on a pharmacy operating system vision priced at $16,000 to $20,000 a month with a revenue share. Andrea called competing with DRX financially irresponsible, and the idea was dropped.\n\nThe next model charged per completed script. Versions ran from 30 cents down to 20, split with Dan, on top of a $10,000 retainer, and assumed 40 pharmacies. Dan said the assumption was unrealistic and the retainer was an enterprise price. Internally the floor was $9,600 a month.\n\nThe offer that landed is below that floor: $4,000 a month against a cost of $6,500, so Supernal carries about $10,000, recovered only if Dan reaches ten pharmacies. Naveen approved it as a one-off. Two lessons were recorded: price against the competitor's anchor, not against cost, and send a roughly right proposal quickly.",
+   "sources": [
+    "Slack #acnt-rxvip-internal, 30 Sep and 7 Nov 2026",
+    "Sync: RxVIP OF 2 Pricing, 5 Oct 2026",
+    "RxVIP Weekly, 7 Oct 2026",
+    "Confirm Variable Costs, 29 Oct 2026",
+    "The Numbers for a Win-Win, 30 Oct 2026",
+    "Johnny / Dan 1:1, 11 Nov 2026",
+    "Deal Desk Weekly Review, 10 Nov 2026"
+   ]
+  },
+  {
+   "title": "Where it stands and what is next",
+   "minutes": 2,
+   "lenses": [
+    "all"
+   ],
+   "text": "As of 13 Nov the draft Order Form #002 is with Thomas for review. It commits $12,000 over about 90 days for three milestones: cycle fills and a store dashboard at Rayne by week 4, fixed rules by week 6 and a learning loop by week 10, then a packaged install and rollout to four stores by about day 90. Open points are the ownership section, the name of the fourth store and Dan's signature. Account OS expects the close on 16 Nov.\n\nSeveral things have to be true for the plan to hold. The learning loop has to turn a 60% hand-off rate into something much lower, against roughly 1,000 undocumented pop-up types. Unreadable e-scripts need a decision. A day-supply bug on renewals is open. The plan assumes half of Doren's time while he is moving onto another account. Each new store needs a machine, credentials and a visit, and the shared data path through Neon is still in review. Linear has not been updated since 28 Oct and its dates are all in the past.\n\nBeyond the build, Dan wants a call agent that phones patients before their medicines are packaged; Tauseef owes a scope and a price before the holidays. And the larger risk remains: Dan has said he is moving stores to DRX, which would shrink the number of PioneerRx stores the AI Employee can serve.",
+   "sources": [
+    "Drive: RxVIP: Order Form #002",
+    "Slack #acnt-rxvip-internal, 12 Nov 2026",
+    "Account OS",
+    "RxVIP Weekly, 10 Nov 2026",
+    "RxVIP Sync: Weekly Planning, 9 Nov 2026",
+    "Johnny / Dan 1:1, 11 Nov 2026",
+    "Path Forward Alignment, 4 Nov 2026",
+    "Linear"
+   ]
+  }
+ ],
+ "answers": [
+  {
+   "q": "Why does the AI Employee cover only about 35% of the store’s scripts?",
+   "a": "Roughly half of Rayne’s volume is cycle fills, which sit in a different PioneerRx queue that was never in scope. Of what the program does pick up, about 41% is completed and the rest is handed to a person, mostly for unknown pop-ups. The draft Order Form #002 adds cycle fills and a learning loop to reach about 95%."
+  },
+  {
+   "q": "Is Order Form #2 actually agreed?",
+   "a": "Not in writing. Dan said yes to $4,000 a month for about 90 days on 11 Nov according to Slack, but Johnny’s call note says he is reviewing and will respond next week. The draft is with Thomas for review, with ownership, the fourth store and Dan’s signing title still open; Account OS expects the close on 16 Nov."
+  },
+  {
+   "q": "Does the new deal make money?",
+   "a": "Not during the build. Cost is about $6,500 a month against $4,000 billed, so Supernal carries about $10,000 over four months, recovered only if Dan passes 10 pharmacies. It sits below the internal $9.6K a month floor and Naveen approved it as a one-off."
+  }
+ ],
+ "workflows": [
+  {
+   "name": "RxVIP Weekly",
+   "kind": "external",
+   "cadence": "Weekly, Tuesday",
+   "with": "Andrea Bourque",
+   "output": "",
+   "lastRun": "10 Nov",
+   "note": "The main working meeting; next 17 Nov (inferred)."
+  },
+  {
+   "name": "Weekly call with Dan",
+   "kind": "external",
+   "cadence": "Weekly since late Oct",
+   "with": "Dan Benamoz, Nick, Johnny",
+   "output": "",
+   "lastRun": "11 Nov",
+   "note": "Commercial conversation, led by Johnny since 4 Nov."
+  },
+  {
+   "name": "Monthly Review",
+   "kind": "external",
+   "cadence": "Monthly",
+   "with": "Dan Benamoz, Mat Silverstein",
+   "output": "Monthly review deck",
+   "lastRun": "22 Sep",
+   "note": "Dan asked for a trend report at each review."
+  },
+  {
+   "name": "RxVIP Sync: Weekly Planning",
+   "kind": "internal",
+   "cadence": "Weekly",
+   "with": "Tauseef, Doren, Nick",
+   "output": "",
+   "lastRun": "9 Nov",
+   "note": ""
+  },
+  {
+   "name": "Deal Desk Weekly Review",
+   "kind": "internal",
+   "cadence": "Weekly",
+   "with": "Johnny, Thomas, Naveen, Nick",
+   "output": "",
+   "lastRun": "10 Nov",
+   "note": "Pricing decisions for Order Form #2."
+  },
+  {
+   "name": "Weekly Account Health report",
+   "kind": "internal",
+   "cadence": "Weekly",
+   "with": "Tauseef, drafted by RIC",
+   "output": "Notion weekly report",
+   "lastRun": "6 Nov",
+   "note": "16 reports from 20 Jul to 6 Nov."
+  },
+  {
+   "name": "Account OS health score",
+   "kind": "internal",
+   "cadence": "Weekly",
+   "with": "Nick",
+   "output": "Health score",
+   "lastRun": "6 Nov",
+   "note": "Week of 9 Nov is due."
+  },
+  {
+   "name": "Linear project status check",
+   "kind": "internal",
+   "cadence": "About every two days",
+   "with": "Automated, Slack",
+   "output": "Behind flag in Slack",
+   "lastRun": "",
+   "note": "Flagged Behind since 25 Sep with no reply seen."
+  }
+ ]
+}

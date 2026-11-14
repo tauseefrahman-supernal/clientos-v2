@@ -1,0 +1,76 @@
+{
+  "at": "2026-11-14T09:40:55.010Z",
+  "passed": 2,
+  "total": 2,
+  "tokens": {
+    "input": 26337,
+    "output": 2260,
+    "cacheRead": 58980
+  },
+  "results": [
+    {
+      "id": "he-03",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Technical Strategy/Security-and-Compliance.md (part 2)",
+        "File Deal Strategy/Product-Segmentation.md (part 6)",
+        "File Deal Strategy/Product-Segmentation.md (part 6)",
+        "File Technical Strategy/Use-Cases-and-Feedback.md (part 1)",
+        "File Deal Strategy/Product-Segmentation.md (part 2)",
+        "File Deal Strategy/Product-Segmentation.md (part 6)",
+        "File Technical Strategy/Security-and-Compliance.md (part 2)",
+        "File Deal Strategy/Product-Segmentation.md (part 6)",
+        "File Technical Strategy/Feature-Rationale.md (part 1)"
+      ],
+      "seconds": 16,
+      "answer": "They see identifiers masked or hidden because the Vault holds very sensitive client data. Social Security numbers, passport numbers, tax IDs and account numbers can each be shown in full, masked to the last 4 digits, or hidden, and that is set per view. Invited viewers get the masked or hidden version [File Technical Strategy/Security-and-Compliance.md (part 2)].\n\n**How it works:**\n- Censoring identifiers also hides the full date of birth (Training, 14 Oct 2026) [File Deal Strategy/Product-Segmentation.md (part 6)].\n- Tax IDs show only the last 4 digits on asset sheets (Training, 16 Sep 2026) [File Deal Strategy/Product-Segmentation.md (part 6)].\n- Invited viewers fit the wider pilot setup, where clients and their advisers have view-only access [File Technical Strategy/Use-Cases-and-Feedback.md (part 1)]. A read-only client role is in production [File Deal Strategy/Product-Segmentation.md (part 2)].\n\n**The cost Heritage raised:** someone preparing a tax return may need the full number and then has to ask for it (Weekly Sync, 1 Oct 2026) [File Deal Strategy/Product-Segmentation.md (part 6)].\n\n**The two files don't agree on how firm the viewer rule is:**\n- Security-and-Compliance says it outright and cites the 1 Oct Weekly Sync and the 14 Oct Training [File Technical Strategy/Security-and-Compliance.md (part 2)].\n- Product-Segmentation calls it \"inferred from the same meetings\", so nobody may have stated it as a decision [File Deal Strategy/Product-Segmentation.md (part 6)].\n\nFeature-Rationale is where this should be settled, but it has no entry for identifier masking yet [File Technical Strategy/Feature-Rationale.md (part 1)]. To confirm it, check the 1 Oct Heritage Platform Weekly Sync recording or the related Linear issue. Then I can draft a Feature-Rationale entry for your approval.",
+      "steps": [
+        "searched “invited viewers identifiers Vault” · 8 hits",
+        "searched “viewer role masked identifiers access” · 8 hits",
+        "read File Deal Strategy/Product-Segmentation.md (part 6)",
+        "searched “identifiers masked full number tax return ask Feature-Rationale” · 5 hits"
+      ],
+      "error": null,
+      "usage": {
+        "input": 13995,
+        "output": 1099,
+        "cacheRead": 29490
+      }
+    },
+    {
+      "id": "he-08",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Technical Strategy/Security-and-Compliance.md (part 2)",
+        "File Technical Strategy/Security-and-Compliance.md (part 2)",
+        "File Deal Strategy/Product-Segmentation.md (part 6)",
+        "File Deal Strategy/Product-Segmentation.md (part 6)",
+        "File Technical Strategy/Security-and-Compliance.md (part 2)",
+        "File Deal Strategy/Product-Segmentation.md (part 6)",
+        "File Delivery Strategy/Weekly.md (part 2)",
+        "File Technical Strategy/Security-and-Compliance.md (part 2)",
+        "File Technical Strategy/Security-and-Compliance.md (part 2)"
+      ],
+      "seconds": 12,
+      "answer": "Heritage found that **files uploaded to the Vault were not being scanned for viruses.** They asked what would happen if one of their clients uploaded a virus, and whether it could spread through the Vault [File Technical Strategy/Security-and-Compliance.md (part 2)]. It's the only incident in the log marked as one Heritage found itself. The others were found by Supernal or don't say who found them [File Technical Strategy/Security-and-Compliance.md (part 2)].\n\n- **What Supernal told them:** uploads were not yet scanned or quarantined. Files are only read when someone opens them [File Deal Strategy/Product-Segmentation.md (part 6)].\n- **What happened next:** Sven used the question to bring Roger Lee, Supernal's security lead, onto the calls. Scanning and quarantine are now part of the security programme in Linear, HER-1306 [File Deal Strategy/Product-Segmentation.md (part 6)].\n- **The two files give slightly different dates.** The security log puts Heritage's question on 23 Oct [File Technical Strategy/Security-and-Compliance.md (part 2)]. Product-Segmentation says Heritage raised it the week before the 28 Oct Weekly Sync, and Supernal answered at the 23 Oct security meeting [File Deal Strategy/Product-Segmentation.md (part 6)]. Either way it was around 23 Oct.\n\n**Still open:**\n- Roger's written security assessment was promised on 28 Oct for one to two weeks, but there's no Linear issue for it. Only project-level Linear was checked, so that isn't confirmed [File Delivery Strategy/Weekly.md (part 2)].\n- The vault doesn't say whether upload scanning has been built. Check HER-1306 in Linear.\n\n**Related issues the log doesn't credit to Heritage:**\n- On 5 Oct the database was found hosted in Central Europe, which breaks the contract's (MSA's) US-only hosting clause. The fix is the move to a private environment on US-only Google Cloud (the DPE project) [File Technical Strategy/Security-and-Compliance.md (part 2)].\n- On 10 Nov Chris Halvey sent a \"Concerns with platform\" email, which led to the security (HER-1306) and accuracy (HER-1307) programmes [File Technical Strategy/Security-and-Compliance.md (part 2)].",
+      "steps": [
+        "searched “security issue found by client” · 8 hits",
+        "searched “Security-and-Compliance incident” · 8 hits",
+        "read File Technical Strategy/Security-and-Compliance.md (part 2)",
+        "read File Deal Strategy/Product-Segmentation.md (part 6)"
+      ],
+      "error": null,
+      "usage": {
+        "input": 12342,
+        "output": 1161,
+        "cacheRead": 29490
+      }
+    }
+  ]
+}

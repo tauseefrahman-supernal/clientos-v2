@@ -1,0 +1,1762 @@
+{
+ "key": "world-emblem",
+ "title": "World Emblem",
+ "strat": "Tauseef",
+ "pod": "Nick (AM), Tauseef (strategist), Ricardo (FDE)",
+ "mrr": "$25,000",
+ "closedValue": "$310,000",
+ "closedCount": 3,
+ "health": {
+  "score": "4.0",
+  "band": "Healthy",
+  "tone": "ok"
+ },
+ "fresh": [
+  "Current as of Check-In: World Emblem, 12 Nov",
+  "227 meetings since Apr",
+  "About $100M revenue and 1,600 to 1,700 people across four countries"
+ ],
+ "transcripts": 227,
+ "deals": [
+  {
+   "name": "WE: AI CEO Project (Advisory)",
+   "value": "$10,000",
+   "stage": "Closed Won 5 May",
+   "phase": 3,
+   "note": "One-time 60-day advisory signed by Randy Carr; no build."
+  },
+  {
+   "name": "World Emblem: Leadership OS (Post-Advisory)",
+   "value": "$120,000",
+   "stage": "Closed Won 28 May",
+   "phase": 3,
+   "note": "$10,000 a month for 12 months; active. Signed numbering is OF-002."
+  },
+  {
+   "name": "World Emblem: FMDS OS (Expansion)",
+   "value": "$180,000",
+   "stage": "Closed Won 22 Jul",
+   "phase": 3,
+   "note": "$15,000 a month for 12 months; active. Signed by Phil Jarvis as OF-003."
+  },
+  {
+   "name": "OF #004 AI-Native Organizational Strategy Retainer",
+   "value": "$120,000",
+   "stage": "Order Form, expected close 16 Nov",
+   "phase": 2,
+   "note": "Maximum $120K, minimum $75K. Verbally agreed by Carlos Mitchell on 11 Nov; not yet signed."
+  },
+  {
+   "name": "SRR",
+   "value": "$120,000",
+   "stage": "Concept Alignment, expected close 18 Dec",
+   "phase": 0,
+   "note": "Self Reliance Ratio extension of both platforms with Eric Freeman; not yet numbered."
+  }
+ ],
+ "lost": "Two marketing deals, OF4 AI Marketing Strategy ($36,000) and OF5 AI-Native Marketing ($180,000), were marked lost on 14 Oct with no decision after the Director of AI redirected strategy away from AI-native marketing.",
+ "sold": [
+  {
+   "form": "OF #1 AI Consultation, 60-day advisory ($10,000)",
+   "promised": "6 to 8 discovery sessions, a Build Roadmap and an Executive Readout.",
+   "met": "Executive Readout given 18 Jun; roadmap written 2 Jul. Whether the conversion credit was applied is not recorded.",
+   "tone": "ok"
+  },
+  {
+   "form": "OF-002 Leadership OS ($10,000 a month, $120,000)",
+   "promised": "AI-native operating environment for the CEO and COO functions; 29 deliverables in four tracks, stated as a target, not a commitment.",
+   "met": "In production since 10 Sep and T3 runs on it since 21 Oct; the AI COO is not started and two milestones are past their dates.",
+   "tone": "warn"
+  },
+  {
+   "form": "OF-003 FMDS OS ($15,000 a month, $180,000)",
+   "promised": "KPI cascade, boards per department, 8-step, standard work and Hoshin; six Phase 1 milestones over 12 weeks, then Phase 2.",
+   "met": "Sales, Service, Marketing, IT and CS/OE are live; Operations and Finance wait on Business Central, and 8-step completion is still at its 19% baseline.",
+   "tone": "warn"
+  },
+  {
+   "form": "OF #004 AI-Native Organizational Strategy Retainer (pending, up to $120,000)",
+   "promised": "Workflow mapping across all departments, an AI-native roadmap, an infrastructure assessment and a weekly session.",
+   "met": "Not signed; start is 16 Nov if signed.",
+   "tone": "info"
+  }
+ ],
+ "arc": [
+  {
+   "period": "Q2 (Apr to May)",
+   "meetings": 17,
+   "points": [
+    "Client-services scoping with COO Jim Kozel from 6 Apr.",
+    "MSA effective 5 May and the $10K AI CEO advisory closed.",
+    "Prototype shown 21 May; Leadership OS signed 28 May at $10K a month."
+   ]
+  },
+  {
+   "period": "Jun",
+   "meetings": 31,
+   "points": [
+    "FMDS walkthroughs with Eric Freeman’s team; Leadership OS kickoff on 4 Jun.",
+    "First live demo on real data 11 Jun; Carlos Mitchell named Head of AI.",
+    "Executive Readout on 18 Jun; formula errors found in the CEO dashboard."
+   ]
+  },
+  {
+   "period": "Jul",
+   "meetings": 28,
+   "points": [
+    "Missing-revenue finding shown 2 Jul; Randy said the spreadsheets must go.",
+    "Randy approved $180K on 9 Jul; FMDS form signed 22 Jul.",
+    "57 KPIs live end to end by 30 Jul; 1 Jan 2027 set as the hard date for the full Hoshin system."
+   ]
+  },
+  {
+   "period": "Aug",
+   "meetings": 39,
+   "points": [
+    "Soft launch 4 Aug was slow; 24 sales and service staff onboarded 28 Aug.",
+    "Posted and incoming revenue found to be two correct stages.",
+    "8-step and Patch live in production 27 Aug."
+   ]
+  },
+  {
+   "period": "Sep",
+   "meetings": 59,
+   "points": [
+    "Amendment No. 1 signed 3 Sep; Leadership OS shown in a T3 on 9 to 10 Sep.",
+    "Revenue discrepancy traced to a client-side roll-up formula and fixed 18 Sep.",
+    "Carlos cooled on marketing; health dropped to At risk for the weeks of 28 Sep and 5 Oct."
+   ]
+  },
+  {
+   "period": "Oct",
+   "meetings": 59,
+   "points": [
+    "Carlos named Supernal sole AI partner for 2027 on 8 Oct; both marketing deals marked lost 14 Oct.",
+    "First T3 run on Leadership OS 21 Oct; Randy tied reviews and bonuses to system use.",
+    "QBR held 29 Oct."
+   ]
+  },
+  {
+   "period": "Nov",
+   "meetings": 34,
+   "points": [
+    "ADP connected with about 65 HR/ODG KPIs; help centre live in English and Spanish.",
+    "Carlos verbally agreed the strategy retainer 11 Nov; squad Polaris formed.",
+    "CS and Order Entry boards live 12 Nov; Power BI incoming-revenue outage 13 Nov."
+   ]
+  }
+ ],
+ "disagreements": [
+  "Order form numbering: signed papers say #1 advisory, OF-002 Leadership OS, OF-003 FMDS; the brief and a Linear milestone call Leadership OS OF-001, and July notes call FMDS OF-002 or OF2.",
+  "Leadership OS price: $10K a month, $120K in the signed form; the case study says $15K.",
+  "FMDS signature and price: 22 Jul at $15K a month in the signed PDF and Account OS; one note says 23 Jul at $23k and another calls it a $25,000 form.",
+  "OF #004 minimum: $75K in the CRM and v2 draft; $90K in one note; a Notion health note says a $180K to $120K retainer.",
+  "OF #004 and SRR: two separate $120K deals in the CRM; one note says the 2027 retainer converts to the SRR model.",
+  "Departments live: 2 of 9 run the weekly loop (QBR); 4 of 7 off the spreadsheet (5 Nov deck); 4 of 9 (Notion, 2 Nov).",
+  "Department deadline: 6+ by 31 Dec; all nine by 31 Dec; all remaining by 30 Nov; all boards by mid-2027.",
+  "KPI totals: 646 or 656; breakdown 99/92/66 against 171/77/165/35.",
+  "Standard work counts: 255 of 695; about 1,000; 247 of 818.",
+  "Safety targets: $8.55M in one set of QBR notes, $8.5M in another.",
+  "8-step: 19% to 60% was stated as progress on 16 Sep, but there were zero completions on 10 and 28 Sep; 19% is the historical baseline.",
+  "Company size: revenue $100M, $105M or $150M; staff 1,500, 1,600 or 1,700.",
+  "18 Nov visit: a session with Randy (5 Nov deck) or Randy and Carlos away (11 Nov note).",
+  "Prototype build time: one day or four hours.",
+  "Leadership OS live date: 9 Jul (strategy draft) or 10 Sep (task file)."
+ ],
+ "streams": [
+  {
+   "name": "FMDS OS: Discovery and Data Vault",
+   "state": "Live",
+   "tone": "ok",
+   "pct": 87.5,
+   "due": "15 Aug",
+   "measured": "KPI map sign-off per department",
+   "learned": "Parent-child map is location-based at L3 and factor-based below; L1 incoming revenue against BC ledgers (WE-171) is on hold.",
+   "attention": false
+  },
+  {
+   "name": "FMDS OS: Sales/Service board and Patch",
+   "state": "Live",
+   "tone": "warn",
+   "pct": 84.9,
+   "due": "15 Aug",
+   "measured": "Logins, activities",
+   "learned": "Usage is the constraint, not capability; spreadsheet retirement is gated on refresh reliability and a named finance confirmer.",
+   "attention": true
+  },
+  {
+   "name": "FMDS OS: 8-step engine",
+   "state": "Live",
+   "tone": "warn",
+   "pct": 99.9,
+   "due": "15 Sep",
+   "measured": "8-step completion rate",
+   "learned": "Trigger is repetition and cadence differs by department; adoption and per-department thresholds (WE-127) remain.",
+   "attention": true
+  },
+  {
+   "name": "FMDS OS: Marketing",
+   "state": "Late",
+   "tone": "warn",
+   "pct": 22.1,
+   "due": "30 Sep",
+   "measured": "KPIs live from source",
+   "learned": "Targets rest on flawed history; let 2026 fail and set a realistic 2027 baseline. Board live 3 Nov; field map, connectors and Pierre’s KPIs pending.",
+   "attention": true
+  },
+  {
+   "name": "FMDS OS: Operations and ERP",
+   "state": "Blocked",
+   "tone": "err",
+   "pct": 5.4,
+   "due": "30 Nov",
+   "measured": "On-time performance by location",
+   "learned": "Most layers are still physical boards; blocked on the Business Central API, WPS read access and Varmus having no attendance API.",
+   "attention": true
+  },
+  {
+   "name": "FMDS OS: ODG and HR",
+   "state": "Late",
+   "tone": "warn",
+   "pct": 19.1,
+   "due": "31 Oct",
+   "measured": "KPIs from source",
+   "learned": "About 75% of HR KPIs are manual and some manual steps are deliberate; missing ADP endpoints and a paid ADP expert call are pending.",
+   "attention": true
+  },
+  {
+   "name": "FMDS OS: IT and Quality",
+   "state": "Building",
+   "tone": "info",
+   "pct": 17.9,
+   "due": "30 Nov",
+   "measured": "Board accuracy",
+   "learned": "Most KPIs need formulas on top of source data; IT is live, the Quality prototype is pending.",
+   "attention": false
+  },
+  {
+   "name": "FMDS OS: Finance",
+   "state": "Blocked",
+   "tone": "err",
+   "pct": 0,
+   "due": "30 Nov",
+   "measured": "T3 metrics from closed data",
+   "learned": "Mexico finance sits in an on-premise system, Compact, which is not scoped; blocked on the Business Central API.",
+   "attention": true
+  },
+  {
+   "name": "FMDS OS: CS / Order Entry",
+   "state": "Live",
+   "tone": "ok",
+   "pct": null,
+   "due": "",
+   "measured": "13 KPIs pending connection",
+   "learned": "Split into two boards, live 12 Nov; remaining KPIs need BC, ADP and a HubSpot seat.",
+   "attention": false
+  },
+  {
+   "name": "Leadership OS: Engineering and data foundation",
+   "state": "Live",
+   "tone": "ok",
+   "pct": 100,
+   "due": "30 Jun",
+   "measured": "",
+   "learned": "",
+   "attention": false
+  },
+  {
+   "name": "Leadership OS: Hoshin-KPI dashboard and diagnosis",
+   "state": "Live",
+   "tone": "ok",
+   "pct": 99.9,
+   "due": "31 Jul",
+   "measured": "",
+   "learned": "",
+   "attention": false
+  },
+  {
+   "name": "Leadership OS: AI CEO designed and built",
+   "state": "Live",
+   "tone": "ok",
+   "pct": 100,
+   "due": "31 Aug",
+   "measured": "",
+   "learned": "",
+   "attention": false
+  },
+  {
+   "name": "Leadership OS: AI CEO operational across Sales and Service",
+   "state": "Late",
+   "tone": "warn",
+   "pct": 0,
+   "due": "30 Sep",
+   "measured": "",
+   "learned": "Work shipped but not recorded in Linear; needs a backfill and the KPI-to-Hoshin mapping from Randy.",
+   "attention": true
+  },
+  {
+   "name": "Leadership OS: AI CEO across CEO workflows with leader standard work",
+   "state": "Waiting on client",
+   "tone": "warn",
+   "pct": 8.3,
+   "due": "31 Oct",
+   "measured": "",
+   "learned": "Waits on Randy’s per-item leader standard work descriptions.",
+   "attention": true
+  },
+  {
+   "name": "Leadership OS: AI COO",
+   "state": "Not started",
+   "tone": "err",
+   "pct": 0,
+   "due": "30 Nov",
+   "measured": "",
+   "learned": "Contracted as 4 deliverables in the Leadership OS form.",
+   "attention": true
+  },
+  {
+   "name": "Leadership OS: Testing and hypercare (executive onboarding)",
+   "state": "Building",
+   "tone": "info",
+   "pct": 65,
+   "due": "31 Dec",
+   "measured": "",
+   "learned": "Data trust comes first: Business Central incoming-revenue reconciliation.",
+   "attention": false
+  }
+ ],
+ "tiles": [
+  {
+   "file": "roadmap",
+   "section": "Roadmap",
+   "title": "Success metrics",
+   "headline": "8-step completion is at its 19% baseline against a 60% target, with 4 of 9 departments plus CS/OE live.",
+   "tone": "err",
+   "state": "Behind target"
+  },
+  {
+   "file": "roadmap",
+   "section": "Roadmap",
+   "title": "Commercial model",
+   "headline": "Two flat subscriptions bring $25K a month, and a strategy retainer of up to $120K is agreed verbally but unsigned.",
+   "tone": "ok",
+   "state": "$300K a year"
+  },
+  {
+   "file": "plan",
+   "section": "Plan",
+   "title": "Dependencies",
+   "headline": "Business Central and ADP access sit on the client side and gate Operations, Finance and HR.",
+   "tone": "err",
+   "state": "Blocked on client"
+  },
+  {
+   "file": "roadmap",
+   "section": "Roadmap",
+   "title": "Opportunity map",
+   "headline": "OF #004 with Carlos Mitchell and SRR with Eric Freeman are open at $120K each.",
+   "tone": "info",
+   "state": "Two open deals"
+  },
+  {
+   "file": "stakeholders",
+   "section": "Stakeholders",
+   "title": "Power map",
+   "headline": "Randy Carr sponsors and forces adoption, Carlos Mitchell has turned from brake to buyer, and Phil Jarvis retires at the end of December.",
+   "tone": "warn",
+   "state": "Single sponsor"
+  },
+  {
+   "file": "plan",
+   "section": "Plan",
+   "title": "Health",
+   "headline": "4.0 of 5, Healthy, for the week of 2 to 8 Nov; the week of 9 Nov is not yet recorded.",
+   "tone": "ok",
+   "state": "Healthy, low risk"
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Get OF #004 to Carlos by 14 Nov",
+   "detail": "The retainer is verbally agreed but unsigned; Carlos signs after a check with Randy, with a 16 Nov start.",
+   "action": "Send order form"
+  },
+  {
+   "title": "Unblock the Business Central API",
+   "detail": "Promised from 8 Oct and still pending; WE-279 is blocked on Carlos’s credentials.",
+   "action": "Draft reply"
+  },
+  {
+   "title": "Write the engineer onboarding checklist",
+   "detail": "Saad’s last day is 20 Nov and Doren is newly in; no Linear issue was found for the checklist.",
+   "action": "Create task"
+  },
+  {
+   "title": "Prepare the onboarding visual for the SRR call",
+   "detail": "The five-layer onboarding progress visual goes into the SRR call on 19 Nov.",
+   "action": "Draft deck"
+  },
+  {
+   "title": "Settle the 18 Nov HQ visit",
+   "detail": "One source says a session with Randy at Fort Lauderdale, another says Randy and Carlos will be away.",
+   "action": "Confirm agenda"
+  },
+  {
+   "title": "Raise a ticket for the Supabase security alert",
+   "detail": "The alert from 10 Nov has no ticket.",
+   "action": "Create task"
+  }
+ ],
+ "slipping": [
+  {
+   "kind": "Blocked on client",
+   "tone": "err",
+   "item": "Business Central API",
+   "detail": "Promised from 8 Oct, still pending on 12 Nov; WE-279 is blocked on Carlos’s credentials."
+  },
+  {
+   "kind": "Past target",
+   "tone": "err",
+   "item": "Three milestones past their dates",
+   "detail": "Marketing (30 Sep), ODG/HR (31 Oct) and AI CEO across CEO workflows (31 Oct) have low progress."
+  },
+  {
+   "kind": "Past target",
+   "tone": "warn",
+   "item": "AI CEO date",
+   "detail": "The AI CEO date has moved four times."
+  },
+  {
+   "kind": "Not started",
+   "tone": "err",
+   "item": "AI COO",
+   "detail": "Contracted in the Leadership OS form; the Linear milestone is due 30 Nov at 0%."
+  },
+  {
+   "kind": "Not started",
+   "tone": "warn",
+   "item": "Value/PMF dashboard",
+   "detail": "Asked for by Seb and Thomas and not built."
+  },
+  {
+   "kind": "Promised, no task",
+   "tone": "warn",
+   "item": "60-day ROI read for Carlos",
+   "detail": "Listed as slipping in the task file."
+  },
+  {
+   "kind": "Open risk",
+   "tone": "err",
+   "item": "Supabase security alert",
+   "detail": "The alert from 10 Nov has no ticket."
+  },
+  {
+   "kind": "Promised, no task",
+   "tone": "warn",
+   "item": "Mutual KPI visualisation for the next QBR",
+   "detail": "Randy asked for it to open the next QBR and for his bank; no Linear issue found."
+  },
+  {
+   "kind": "Promised, no task",
+   "tone": "warn",
+   "item": "Engineer onboarding checklist",
+   "detail": "Needed for Doren before Saad leaves on 20 Nov; no Linear issue found."
+  },
+  {
+   "kind": "Expectation gap",
+   "tone": "err",
+   "item": "Proof of value in dollars",
+   "detail": "Randy wants an activity leading to a KPI back to green with a dollar figure tied to the annual plan; KPI movement is not yet mapped to revenue."
+  },
+  {
+   "kind": "Open risk",
+   "tone": "warn",
+   "item": "Quality Framework under Amendment 1",
+   "detail": "Required within 15 days of the amendment and exists only as a draft."
+  }
+ ],
+ "dates": [
+  {
+   "when": "14 Nov",
+   "what": "OF #004 order form to Carlos."
+  },
+  {
+   "when": "16 Nov",
+   "what": "OF #004 expected close; Dominik’s start."
+  },
+  {
+   "when": "18 Nov",
+   "what": "Tauseef at Fort Lauderdale HQ; sources disagree on whether Randy will be there."
+  },
+  {
+   "when": "19 Nov",
+   "what": "Onboarding visual into the SRR call."
+  },
+  {
+   "when": "20 Nov",
+   "what": "Saad’s last day."
+  },
+  {
+   "when": "30 Nov",
+   "what": "Operations, Finance, IT/Quality and AI COO milestones; WE’s architecture decision on how AI gets built."
+  }
+ ],
+ "feed": [
+  {
+   "meeting": "Check-In: World Emblem",
+   "date": "12 Nov",
+   "changes": [
+    "Delivery: Customer Service and Order Entry boards are in production.",
+    "Adoption: 22 activities waiting and 8-step rarely completed.",
+    "Chief: Randy and Martin Gonzalez have agents."
+   ]
+  },
+  {
+   "meeting": "Supernal Weekly Update",
+   "date": "12 Nov",
+   "changes": [
+    "Marketing runs daily huddles on the board with no manual updates.",
+    "Chief: Randy must add Chief to each Teams channel.",
+    "SRR: the onboarding visual goes into the SRR call on 19 Nov."
+   ]
+  },
+  {
+   "meeting": "AI-Native World Emblem: Scoping Next Phase",
+   "date": "11 Nov",
+   "changes": [
+    "Deal: Carlos verbally agreed the strategy retainer at $10K a month for months 1 to 3, with an option to step to $5K from month 4.",
+    "Plan: start 16 Nov if signed; Carlos signs after a check with Randy."
+   ]
+  },
+  {
+   "meeting": "Toyota FMDS Review",
+   "date": "10 Nov",
+   "changes": [
+    "Method: Toyota benchmark session held with David Heslop.",
+    "Follow-up: a recurrence-prevention form from the session has no Linear issue."
+   ]
+  },
+  {
+   "meeting": "CS/OE Review",
+   "date": "10 Nov",
+   "changes": [
+    "Scope: Customer Service and Order Entry split into two boards under a Client Services parent."
+   ]
+  }
+ ],
+ "people": [
+  {
+   "name": "Randy Carr",
+   "title": "Founder-CEO, acting CMO",
+   "note": "At the start: excited, doubled the budget on 21 May. Now: sponsor forcing adoption who wants KPI-to-dollar proof and Excel gone by 1 Jan 2027.",
+   "influence": "High",
+   "disposition": "Champion"
+  },
+  {
+   "name": "Carlos Mitchell",
+   "title": "Director of AI",
+   "note": "At the start: sceptical of FMDS. Now: brake turned buyer of OF #004, data-first, and owner of Business Central access and the AI budget.",
+   "influence": "High",
+   "disposition": "Supporter"
+  },
+  {
+   "name": "Eric Freeman",
+   "title": "Director of ODG, ex-Toyota, FMDS architect",
+   "note": "At the start: champion from June. Now: champion, method authority and buyer for SRR.",
+   "influence": "High",
+   "disposition": "Champion"
+  },
+  {
+   "name": "Phil Jarvis",
+   "title": "CIO",
+   "note": "At the start: cautious gatekeeper who criticised the first form. Now: active IT board user, retiring at the end of December.",
+   "influence": "High",
+   "disposition": "Supporter"
+  },
+  {
+   "name": "Tony Morando",
+   "title": "Head of sales and service (CSO/CRO)",
+   "note": "At the start: supportive but slow on configuration. Now: heaviest user, though activities are under-used.",
+   "influence": "Medium",
+   "disposition": "Supporter"
+  },
+  {
+   "name": "Gabriella (Gabby) Diorico",
+   "title": "Executive assistant to the CEO",
+   "note": "At the start: helpful conduit for files. Now: drives the T3 review, publishes the org chart and has her own board.",
+   "influence": "Medium",
+   "disposition": "Supporter"
+  },
+  {
+   "name": "Jim Kozel",
+   "title": "COO",
+   "note": "At the start: driver who opened the account through client services. Now: cutting operations standard work from 818 to under 75.",
+   "influence": "Medium",
+   "disposition": "Supporter"
+  },
+  {
+   "name": "Clarissa Lopez",
+   "title": "HR lead",
+   "note": "At the start: declined API access on confidentiality grounds. Now: cautious, with an ADP call pending; she controls ADP access.",
+   "influence": "Medium",
+   "disposition": "Skeptic"
+  },
+  {
+   "name": "Martin Gonzalez",
+   "title": "IT, taking over from Phil",
+   "note": "At the start: not involved. Now: engaged, the second person with an agent.",
+   "influence": "Medium",
+   "disposition": "Supporter"
+  }
+ ],
+ "metrics": [
+  {
+   "criterion": "Departments live on source data (6+ of 9 by 31 Dec; Randy wants all nine)",
+   "now": "4 of 9 on 5 Nov, plus CS/OE on 12 Nov",
+   "state": "Behind",
+   "tone": "warn"
+  },
+  {
+   "criterion": "Usage (60%+ over consecutive weeks)",
+   "now": "35 users; no percentage found",
+   "state": "Not measured",
+   "tone": "warn"
+  },
+  {
+   "criterion": "8-step completion (60%)",
+   "now": "Still at the 19% baseline; rarely completed",
+   "state": "Behind",
+   "tone": "err"
+  },
+  {
+   "criterion": "Executives using Leadership OS (2+)",
+   "now": "Randy and Martin have agents; T3 runs on it",
+   "state": "On track",
+   "tone": "ok"
+  },
+  {
+   "criterion": "Hoshin objectives on track",
+   "now": "27% in July; not updated",
+   "state": "Not updated",
+   "tone": ""
+  },
+  {
+   "criterion": "Commitments on time (80%)",
+   "now": "About 25% baseline; not updated",
+   "state": "Not updated",
+   "tone": ""
+  },
+  {
+   "criterion": "Priority-1 processes with a standard (100% by 31 Dec)",
+   "now": "Not stated",
+   "state": "Not stated",
+   "tone": ""
+  },
+  {
+   "criterion": "Time for a red to reach L3 (same day)",
+   "now": "Same day, where boards are live",
+   "state": "Met",
+   "tone": "ok"
+  },
+  {
+   "criterion": "CEO time on plan (85%)",
+   "now": "52.9%",
+   "state": "Behind",
+   "tone": "err"
+  },
+  {
+   "criterion": "Revenue per person (+50% by Dec 2027; +10% in 2027)",
+   "now": "About $59K baseline; not updated",
+   "state": "Not updated",
+   "tone": ""
+  }
+ ],
+ "accountos": [
+  {
+   "record": "Weekly health",
+   "now": "4.0 of 5, Healthy, for the week of 2 to 8 Nov; the week of 9 Nov is not recorded and history starts 5 Oct.",
+   "proposes": "A draft for the week of 9 Nov covering the CS/OE go-live, the verbal OF #004 agreement, the Business Central delay and the Power BI outage."
+  },
+  {
+   "record": "Stakeholders",
+   "now": "No stakeholders on the power map.",
+   "proposes": "A power map from the stakeholder table: Randy Carr, Carlos Mitchell, Eric Freeman, Phil Jarvis, Tony Morando and others with stance then and now."
+  },
+  {
+   "record": "Success plan",
+   "now": "No success-plan goals.",
+   "proposes": "Goals from the success criteria: departments live, usage, 8-step completion, executives on Leadership OS, commitments on time and CEO time on plan."
+  },
+  {
+   "record": "Cadence",
+   "now": "No cadence events.",
+   "proposes": "The weekly client update, near-daily check-ins, the weekly T3, the internal weekly planning sync and the quarterly business review."
+  },
+  {
+   "record": "Value",
+   "now": "No value entries.",
+   "proposes": "Entries from the QBR: 646 KPIs mapped, about $500K of service revenue found, $8.55M of safety targets corrected, two staff freed and 1,000+ commitments captured."
+  },
+  {
+   "record": "Whitespace",
+   "now": "Two open deals: OF #004 ($120,000, Order Form) and SRR ($120,000, Concept Alignment).",
+   "proposes": "Notes on SRR, the bid desk agent and Randy’s 2027 goal of 12 AI workflows, plus his idea of selling the system to others."
+  },
+  {
+   "record": "Renewal",
+   "now": "No renewal plan recorded; renewal risk Low, Healthy partnership.",
+   "proposes": "A plan with the inferred dates: Leadership OS term ends about 27 May 2027, FMDS OS about 21 Jul 2027, with the month-6 exit window about 22 Jan 2027."
+  }
+ ],
+ "rationale": [
+  {
+   "decision": "Platform first, role labels (AI CEO, AI COO) second",
+   "why": "Randy’s reframe: he wanted a system, not a persona.",
+   "source": "Advisory, 21 May"
+  },
+  {
+   "decision": "Leadership OS at L3, FMDS OS at L1/L2, one data layer",
+   "why": "Keeps the executive view and the floor system separate but consistent.",
+   "source": "Advisory, 4 Jun"
+  },
+  {
+   "decision": "Start on the spreadsheets with data-quality flags, then replace by integrations department by department",
+   "why": "Value early without waiting for clean data; Naveen’s call.",
+   "source": "World Emblem Eng Questions, 23 Jun"
+  },
+  {
+   "decision": "Hermes agent with persistent memory, not custom code",
+   "why": "Endorsed by Randy when shown.",
+   "source": "Advisory, 2 Jul"
+  },
+  {
+   "decision": "Show both posted and incoming revenue",
+   "why": "Commissions pay on posted and incoming gives the pipeline view; both are correct.",
+   "source": "BC Revenue Mapping, 18 Aug"
+  },
+  {
+   "decision": "8-step triggers on repeated or process-wide red, with approval gates at steps 6, 7 and 8",
+   "why": "Eric’s method: one-off misses are coaching, not problem solving.",
+   "source": "FMDS 8-Step & Standard Work, 12 Aug"
+  },
+  {
+   "decision": "No line-level transaction drill-down",
+   "why": "Randy: it is a management system, not a data lake.",
+   "source": "Supernal Weekly Update, 3 Sep"
+  },
+  {
+   "decision": "Per-user agents for the AI CEO",
+   "why": "A non-Randy user could read Randy’s email through the shared agent.",
+   "source": "WE Sync: Weekly Planning, 5 Oct"
+  },
+  {
+   "decision": "Floor boards stay physical; automate from plant manager upward",
+   "why": "The physical interaction develops people.",
+   "source": "Operations FMDS, 13 Oct"
+  },
+  {
+   "decision": "Activity approval queue removed",
+   "why": "Randy and Eric: coaching happens in huddles.",
+   "source": "Supernal Weekly Update, 5 Nov"
+  }
+ ],
+ "sections": [
+  {
+   "category": "Operating Method",
+   "group": 2,
+   "desc": "The client’s Toyota system that the product follows.",
+   "files": [
+    {
+     "name": "FMDS-Three-Levels",
+     "summary": "FMDS and the L1, L2 and L3 levels."
+    },
+    {
+     "name": "Hoshin-Planning",
+     "summary": "Three-year, one-year and quarterly Hoshin with catch-ball."
+    },
+    {
+     "name": "Eight-Step-Problem-Solving",
+     "summary": "The 8-step method and its triggers."
+    },
+    {
+     "name": "Standard-Work-Types",
+     "summary": "The standard work types in use."
+    },
+    {
+     "name": "SRR-And-IDMP",
+     "summary": "Self Reliance Ratio and IDMP."
+    }
+   ]
+  },
+  {
+   "category": "KPI Source Map",
+   "group": 2,
+   "desc": "Where each KPI comes from and what has no source.",
+   "files": [
+    {
+     "name": "KPI-Master-Sheet",
+     "summary": "The 646-KPI master sheet."
+    },
+    {
+     "name": "Parent-Child-Map",
+     "summary": "Parent-child map by department."
+    },
+    {
+     "name": "Source-System-Status",
+     "summary": "Source system per KPI with status."
+    },
+    {
+     "name": "KPIs-Without-Source",
+     "summary": "KPIs with no source."
+    }
+   ]
+  },
+  {
+   "category": "Findings Ledger",
+   "group": 0,
+   "desc": "Errors found in the client’s own data, one file per finding.",
+   "files": [
+    {
+     "name": "Hidden-Column-Revenue",
+     "summary": "About $500K of service revenue missing because of one hidden column."
+    },
+    {
+     "name": "DART-TRIR-Formulas",
+     "summary": "Safety formulas reading the wrong columns."
+    },
+    {
+     "name": "Time-To-Fill",
+     "summary": "Direct and indirect time-to-fill inverted."
+    },
+    {
+     "name": "Roll-Up-Omissions",
+     "summary": "Reps and teams dropped from revenue roll-ups."
+    },
+    {
+     "name": "Retractions",
+     "summary": "Findings withdrawn, such as the definitional Power BI variance."
+    }
+   ]
+  },
+  {
+   "category": "Access And Integration Gates",
+   "group": 2,
+   "desc": "Client-side access to core systems, with people, attempts and dates.",
+   "files": [
+    {
+     "name": "Business-Central",
+     "summary": "People, attempts and dates for the Business Central API."
+    },
+    {
+     "name": "ADP",
+     "summary": "Endpoints and the PII position."
+    },
+    {
+     "name": "Windsor-Varmus-Compact",
+     "summary": "Windsor connectors, Varmus attendance and the Compact finance system."
+    },
+    {
+     "name": "Microsoft-365",
+     "summary": "Sign-in, Teams bot and mail access."
+    }
+   ]
+  },
+  {
+   "category": "Client AI Strategy",
+   "group": 0,
+   "desc": "The buyer’s own AI plan and the other vendors around it.",
+   "files": [
+    {
+     "name": "Marketing-Memo-And-Decision-Log",
+     "summary": "Randy’s agentic marketing memo and decision log."
+    },
+    {
+     "name": "AI-Hoshin-2027",
+     "summary": "Carlos’s signed 2027 AI Department Hoshin."
+    },
+    {
+     "name": "Agent-Map",
+     "summary": "The 159-agent map."
+    },
+    {
+     "name": "Data-Layer-Plan",
+     "summary": "WE’s data-layer plan: Fabric and the company brain."
+    },
+    {
+     "name": "Other-Vendors",
+     "summary": "Other AI vendors engaged by the client."
+    }
+   ]
+  },
+  {
+   "category": "Department Onboarding Playbook",
+   "group": 3,
+   "desc": "Per department: owner, readiness, mapping status, go-live date, champion and lessons.",
+   "files": [
+    {
+     "name": "Sales-And-Service",
+     "summary": "First departments live, 28 Aug."
+    },
+    {
+     "name": "Marketing-And-IT",
+     "summary": "Boards live in October and November."
+    },
+    {
+     "name": "HR-And-ODG",
+     "summary": "Built, short of ADP endpoints."
+    },
+    {
+     "name": "Operations-And-Finance",
+     "summary": "Mapped, waiting on Business Central."
+    },
+    {
+     "name": "CS-And-Order-Entry",
+     "summary": "Two boards live 12 Nov."
+    }
+   ]
+  },
+  {
+   "category": "Adoption And Enforcement",
+   "group": 3,
+   "desc": "Whether people use the system and what the sponsor does about it.",
+   "files": [
+    {
+     "name": "Usage-By-Week",
+     "summary": "Users and usage by week."
+    },
+    {
+     "name": "Activity-And-Eight-Step-Counts",
+     "summary": "Activities waiting and 8-step completions."
+    },
+    {
+     "name": "Sponsor-Rules",
+     "summary": "Randy’s rules: bonuses tied to use, delete the spreadsheets."
+    },
+    {
+     "name": "Adoption-Owner",
+     "summary": "The named adoption owner."
+    }
+   ]
+  },
+  {
+   "category": "Executive Agent Design",
+   "group": 2,
+   "desc": "How Chief, the CEO’s agent, is designed.",
+   "files": [
+    {
+     "name": "Leader-Standard-Work",
+     "summary": "Leader standard work items."
+    },
+    {
+     "name": "Skills-And-Schedules",
+     "summary": "Skills and their schedules."
+    },
+    {
+     "name": "Privacy-Model",
+     "summary": "Per-user agents and email privacy."
+    },
+    {
+     "name": "Autonomy-Ladder",
+     "summary": "Brief, Draft, Act with approval, Act alone."
+    },
+    {
+     "name": "Memory-Sources",
+     "summary": "Memory sources such as Obsidian and Claude."
+    }
+   ]
+  }
+ ],
+ "artifacts": [
+  {
+   "kind": "Order form",
+   "title": "World Emblem International, Inc. + Supernal document.pdf",
+   "date": "5 May",
+   "what": "MSA 1 and Order Form #1 (advisory).",
+   "url": "https://drive.google.com/file/d/1iHxVCVhZ4Zef-hmRvkYL362Rhu55Thvs/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "world-emblem-of-002-v1-signed.pdf",
+   "date": "28 May",
+   "what": "Leadership OS order form, signed.",
+   "url": "https://drive.google.com/file/d/1yWtdj4QUuYQgCeayIn1YvDrXZx37BL0T/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "World Emblem Order Form #2 + Supernal document.pdf",
+   "date": "24 Jun",
+   "what": "Not opened; by title the same Leadership OS form (inferred).",
+   "url": "https://drive.google.com/file/d/1AKsy5Bsx6_wEOQgPZsK0CRz--5_HJICB/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "World_Emblem_-_Supernal_MSA.pdf",
+   "date": "22 Jul",
+   "what": "MSA 2 and OF-003 (FMDS OS).",
+   "url": "https://drive.google.com/file/d/1HP1viqEFc2tyBmLswmNajAldoCQV3TBo/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "Amendment_No1_World_Emblem_FINAL.pdf",
+   "date": "3 Sep",
+   "what": "Month-6 exit, Milestone 6 right and NDA exhibit.",
+   "url": "https://drive.google.com/file/d/120sxOTzWcC3gJ48g1O1yDIeFY3QGRPFD/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "World Emblem - Supernal MSA + Amendment No 1.pdf",
+   "date": "4 Sep",
+   "what": "Combined copy, not opened.",
+   "url": "https://drive.google.com/file/d/1PJLVqtlvjrJbjwImiKG8XGgN-pGg-adi/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "world-emblem-of-004-v1-draft.docx",
+   "date": "28 Oct",
+   "what": "Marketing strategy form at $3K a month.",
+   "url": "https://drive.google.com/file/d/1eqt6qTy9zUmwhzeT8W2c2akXJTMZCUTn/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "world-emblem-of-004-v2-draft.docx",
+   "date": "11 Nov",
+   "what": "Organisation strategy retainer draft.",
+   "url": "https://drive.google.com/file/d/1Hxia2mLF0_8esLUmJ02wQyeIpnrwEn72/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Order form",
+   "title": "World Emblem Order Form #004 (NEW)",
+   "date": "12 Nov",
+   "what": "Live working draft of the strategy retainer.",
+   "url": "https://docs.google.com/document/d/16k1lfk9BMXyAw-AIO8kfmBneB6c9AdqmlCuLLTrisAw/edit",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Proposal",
+   "title": "World_Emblem-Proposal-Leadership OS.html",
+   "date": "3 Jun",
+   "what": "Mislabelled: the content is the AI Client Services proposal.",
+   "url": "https://drive.google.com/file/d/1qrLOqodxqo1uR8830O3t4rzDOC-qoGjs/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "Executive Readout: World Emblem International",
+   "date": "18 Jun",
+   "what": "The advisory deliverable.",
+   "url": "https://docs.google.com/presentation/d/1NBj4E-_O_HU27ggt7HeUkr-qQJodQt35X0kmn4xgk10/edit",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Site",
+   "title": "sharepoint-map.html",
+   "date": "19 Jun",
+   "what": "Map of 52 SharePoint sites.",
+   "url": "https://drive.google.com/file/d/1oipjfTi6Uo8V5EIHnCL5CYQ5u4ADwcny/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "World Emblem: Weekly Review decks",
+   "date": "Jul to Nov",
+   "what": "The weekly client review, 13 decks from 2 Jul to 5 Nov; the link is the 5 Nov deck.",
+   "url": "https://docs.google.com/presentation/d/1X6jTgxddIy2znF16ygmOM1zXYKw1-92QTo3lYfYvTVE/edit",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "FMDS Onboarding: JC & Tony",
+   "date": "4 Aug",
+   "what": "First onboarding.",
+   "url": "https://docs.google.com/presentation/d/1LVrDiP_nkI6FLfq5zO9uiX7vhZjFR1FXYP9t9950MJQ/edit",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "FMDS Onboarding: Sales/Service",
+   "date": "28 Aug",
+   "what": "Full team onboarding.",
+   "url": "https://docs.google.com/presentation/d/19FFVtpQSYOsCICJV1RnMkyHLLNrqRcT3WScyTCy1W_w/edit",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "20260919_World-Emblem-Agent-Map-Charts",
+   "date": "10 Sep",
+   "what": "Carlos’s 159-agent map charted.",
+   "url": "https://drive.google.com/file/d/1VuFQenLjb9TslWYvGhvAfrXKeIGxjN-e/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "World Emblem — Marketing, Measurably.pptx",
+   "date": "21 Sep",
+   "what": "Marketing pitch.",
+   "url": "https://drive.google.com/file/d/1wtVeGUP4lzgUhjGrtvTYUFzYnAiwjxjk/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "20260922_strategy_draft.pptx",
+   "date": "22 Sep",
+   "what": "Marketing-centred strategy.",
+   "url": "https://drive.google.com/file/d/1Dg8nIggngvn-KD6NlVTn12wFUPq3g-z5/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "20261016_strategy_draft.pptx",
+   "date": "16 Oct",
+   "what": "Precursor of the QBR strategy.",
+   "url": "https://drive.google.com/file/d/1WIOFgjEl8_sCWNiKEeaaXVLDMz5XOa3u/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Deck",
+   "title": "20261021_qbr",
+   "date": "29 Oct",
+   "what": "The QBR deck; a shared copy and a backup also exist.",
+   "url": "https://docs.google.com/presentation/d/19RIEPmglUbS7A7zQs7dp_fy9DU70hyspr7IWCTha-z8/edit",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Video",
+   "title": "World Emblem: Q3 Product Recap.mp4",
+   "date": "29 Oct",
+   "what": "Recap shown at the QBR.",
+   "url": "https://drive.google.com/file/d/1m4zEcLVkJJI-VQZdwZ9ml97BPzWYJZL3/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Video",
+   "title": "we-product-recap-4k.mp4",
+   "date": "27 Oct",
+   "what": "Earlier cut of the recap video; a v3 cut also exists.",
+   "url": "https://drive.google.com/file/d/1t_Jul8avensR81ZgSaV2dhNHGN88kl2N/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Video",
+   "title": "Help Centre: Job Descriptions and Org Chart tutorials",
+   "date": "29 Oct",
+   "what": "Help centre tutorials; the link is the first of two.",
+   "url": "https://drive.google.com/file/d/1Jk_Mxn4PBGOrfp-7uTMwYe_H8lmFgOAO/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Video",
+   "title": "Additional Context_World Emblem_v1.mp4",
+   "date": "27 Jul",
+   "what": "Context for the team; a podcast version also exists.",
+   "url": "https://drive.google.com/file/d/1G4BMaKMnShfH0x0ErqBN0NEcoVMv2aQU/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "WE-Hoshin-Master 2027-AI - Better Format.pdf",
+   "date": "Oct",
+   "what": "Carlos’s signed 2027 AI Department Hoshin.",
+   "url": "https://drive.google.com/file/d/1Br7MrUI7ntayOV4rVefftHpHFBIXNqhJ/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "2026-07-21 - Marketing Leadership Memo.docx",
+   "date": "21 Jul",
+   "what": "Randy Carr’s agentic marketing decision.",
+   "url": "https://drive.google.com/file/d/1HpR6TU7EnvHtTYI38i1V2x1aGYBauEby/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "2026-07-21 - Agentic Marketing Org - Decision Log",
+   "date": "21 Jul",
+   "what": "Decisions and vendor lanes.",
+   "url": "https://docs.google.com/document/d/1o8EnWI0_o4M_T2xhYcDYH2BpdMpRXr6UkJ67nmyeKrc/edit",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Spreadsheet",
+   "title": "FMDS OS: Project Plan",
+   "date": "27 Jul",
+   "what": "Milestone plan for FMDS OS.",
+   "url": "https://docs.google.com/spreadsheets/d/1WeZr35eGGz9OS7Qvei4PTSYVPJhcwRqMUYCm-da_gic/edit",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Spreadsheet",
+   "title": "LeadershipOS: Project Plan",
+   "date": "27 Jul",
+   "what": "Milestone plan for Leadership OS.",
+   "url": "https://docs.google.com/spreadsheets/d/18L5K0msxrhFW0h7U9tXvLBXLeD71UB5mz2IAAVl57bI/edit",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Spreadsheet",
+   "title": "20260911_Marketing KPI Status - for Carlos.xlsx",
+   "date": "11 Sep",
+   "what": "Marketing KPI mapping status.",
+   "url": "https://drive.google.com/file/d/1XzzmvdIMUtvO0vW5LRDJfUBOpNyHU4iS/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Folder",
+   "title": "Gemini call notes, Apr to Jun",
+   "date": "Apr to Jun",
+   "what": "Early call record: discovery, proposal, Phil calls, FMDS/SRR/HR with Eric, next steps; also holds the marketing memo and decision log.",
+   "url": "https://drive.google.com/drive/folders/14DSNo7z4stAhNd-oNLiC-Fe4gjvr8BHJ",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Folder",
+   "title": "WE FMDS folder (about 57 files)",
+   "date": "24 Jun",
+   "what": "Client source workbooks: CEO dashboard, department FMDS, bowlers and the 8-step tracker.",
+   "url": "https://drive.google.com/drive/folders/175pIO57oIUnEZareIyZnlo2xRnYEPtdn",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Folder",
+   "title": "Hoshin & FMDS folder (about 50 files)",
+   "date": "9 Jul",
+   "what": "Toyota and Hoshin reference library from the client.",
+   "url": "https://drive.google.com/drive/folders/18O9UqQUt-HbrEHGIczf8ewIIQNDbN2L7",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Folder",
+   "title": "Account root",
+   "date": "",
+   "what": "Client Facing, Internal Facing, Transcripts, Commercial Contracts and the Hoshin Master PDF.",
+   "url": "https://drive.google.com/drive/folders/1Xutz2aOrxGKq1EkMz_aaQdM-nvy8QrYE",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Folder",
+   "title": "Client Facing",
+   "date": "",
+   "what": "Weekly reviews, QBR, strategy drafts, onboarding decks and Help Centre Videos.",
+   "url": "https://drive.google.com/drive/folders/1VkVF2vF2x8soA7q87RyqVTMuhxGPHbai",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Folder",
+   "title": "Commercial Contracts",
+   "date": "",
+   "what": "MSAs, order forms and the amendment.",
+   "url": "https://drive.google.com/drive/folders/1dxFYOfleSRDe4f5IMoczJF1oAZZCKa2M",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Folder",
+   "title": "Order form drafts",
+   "date": "",
+   "what": "OF-002 signed, OF-004 v1 and v2.",
+   "url": "https://drive.google.com/drive/folders/1smDmS10BAlASOjO_2ogZ4hKdvOvTu2Qc",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Folder",
+   "title": "Internal Facing",
+   "date": "",
+   "what": "Project plans, recap video cuts and client source libraries.",
+   "url": "https://drive.google.com/drive/folders/1xNIod3hIjGWV77Zfp63vGc6hoD65kSJK",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Folder",
+   "title": "Transcripts",
+   "date": "",
+   "what": "16 files, 14 May to 2 Jul.",
+   "url": "https://drive.google.com/drive/folders/19EsXwDJb_3wffkcs8_DSnH3_XDw4ZgAU",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Site",
+   "title": "FMDS OS production",
+   "date": "23 Oct",
+   "what": "Live app.",
+   "url": "https://fmdsos-world-emblem.links.getsupernal.ai/",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Site",
+   "title": "Leadership OS production",
+   "date": "23 Oct",
+   "what": "Live app.",
+   "url": "https://leadershipos-world-emblem.links.getsupernal.ai/",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Site",
+   "title": "Leadership OS staging",
+   "date": "Sep to Oct",
+   "what": "Test environment; a dev environment also exists.",
+   "url": "https://leadershiposstaging.up.railway.app/",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Video",
+   "title": "Leadership OS tutorial for Randy",
+   "date": "16 Oct",
+   "what": "Loom walkthrough.",
+   "url": "https://www.loom.com/share/be69134a873b4323a5336d46a56728f4",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Prototype",
+   "title": "Field Notes & Moonshots",
+   "date": "28 Oct",
+   "what": "QBR vision section.",
+   "url": "https://claude.ai/artifact/DRu9S9exRS3QSvxgYhE6tc",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Prototype",
+   "title": "T3 Operating Prototype",
+   "date": "25 Sep",
+   "what": "T3 design.",
+   "url": "https://claude.ai/artifact/RYzJEyeMHJHNNZXT32DZgP",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Prototype",
+   "title": "Accountability Flow",
+   "date": "25 Sep",
+   "what": "Red-KPI loop design.",
+   "url": "https://claude.ai/artifact/XTzhpzJ5DG3XqwsJHbaBih",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Prototype",
+   "title": "Leadership OS new UI",
+   "date": "27 Aug",
+   "what": "Department and T3 review views.",
+   "url": "https://claude.ai/code/artifact/88e3efd8-ac11-4a22-a4a8-c3251c8586fa",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Business Central revenue requirements",
+   "date": "2 Sep",
+   "what": "Scope for revenue direct from Business Central.",
+   "url": "https://claude.ai/code/artifact/a44f7788-80fe-4297-bd99-315220365e85",
+   "where": "claude.ai",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Milestone acceptance / quality framework draft",
+   "date": "Sep",
+   "what": "Required by Amendment 1; draft only.",
+   "url": "https://docs.google.com/document/d/1MUPT0ZMSh7v2_n2BV2JNbyC0KmuF9WlRX-QP6tkcwow/edit",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Video",
+   "title": "Standard Work Instructions video",
+   "date": "29 Oct",
+   "what": "Training; Eric wants it in the ADP LMS.",
+   "url": "https://drive.google.com/file/d/157xBanhEJKJMvlbeXBcWcT9TUYMb3EVg/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Video",
+   "title": "Help-centre video",
+   "date": "5 Nov",
+   "what": "Help centre.",
+   "url": "https://drive.google.com/file/d/1FbgqHifsXxGNFASC7xJ-ivFg1LVhnPvm/view",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Design",
+   "title": "KPI parent/child tree, 9 departments",
+   "date": "17 Jun",
+   "what": "Main-to-sub KPI map diagram.",
+   "url": "https://link.excalidraw.com/l/4dHYmVoE9py/A8lgIwm6qjy",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Design",
+   "title": "FMDS to Leadership OS flow chart",
+   "date": "11 Jun",
+   "what": "System breakdown diagram.",
+   "url": "https://link.excalidraw.com/l/4dHYmVoE9py/8zb8dDxLfJI",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Recording",
+   "title": "WE Marketing deep dive",
+   "date": "1 Sep",
+   "what": "Fathom call recording.",
+   "url": "https://fathom.video/calls/723754085",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Site",
+   "title": "Code repository",
+   "date": "",
+   "what": "Monorepo for both apps.",
+   "url": "https://github.com/Supernal-Technology/world-emblem-railway",
+   "where": "Web",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "World Emblem Products",
+   "date": "4 Sep",
+   "what": "Product strategy pages.",
+   "url": "https://app.notion.com/p/World-Emblem-Products-388bd5e8f318803cb89bfb74e296ed5b",
+   "where": "Notion",
+   "sensitive": false
+  },
+  {
+   "kind": "Document",
+   "title": "Case study draft",
+   "date": "Sep",
+   "what": "Needs Randy’s written permission.",
+   "url": "https://docs.google.com/document/d/1lfGeyRqgCwL_rKsk-u61f0CJEZ6gK_PRccBbnIqlvpQ/edit",
+   "where": "Drive",
+   "sensitive": false
+  },
+  {
+   "kind": "Prototype",
+   "title": "Leadership OS prototype (first)",
+   "date": "21 May",
+   "what": "The demo that led to the first platform form; location unknown.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Prototype",
+   "title": "fmds-os-prototype",
+   "date": "11 Jul",
+   "what": "The 9 Jul demo; held on local disk.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  },
+  {
+   "kind": "Demo",
+   "title": "Meridian OS and Meridian OS 2",
+   "date": "Aug to Sep",
+   "what": "Anonymised demo of this account; held on local disk.",
+   "url": "",
+   "where": "unknown",
+   "sensitive": false
+  }
+ ],
+ "book": [
+  {
+   "title": "The account in one page",
+   "minutes": 2,
+   "lenses": [
+    "all"
+   ],
+   "text": "World Emblem makes emblems, patches and badges. It has about $100M in revenue and about 1,600 to 1,700 people across the US, Mexico, the Dominican Republic and Canada. Its founder and CEO, Randy Carr, runs it on a Toyota-style system: annual Hoshin plans, a cascade of KPIs reviewed daily and weekly, 8-step problem solving, and standard work. Before Supernal, all of that lived in Excel, in more than 87 linked workbooks kept up by two full-time people.\n\nSupernal's work started in April 2026 as a small client-services scoping with the COO. It became a $10K advisory with the CEO in May, then two platforms. Leadership OS ($10K a month) gives the executive team one place to review KPIs, track commitments and work with an AI agent called Chief. FMDS OS ($15K a month) gives each department a live board, with an AI employee called Patch. Together they bring $25K a month.\n\nBy mid-November 2026 the weekly executive review runs on Leadership OS, and five department areas are live on FMDS OS. Two things hold the rest back: access to Business Central and ADP on the client side, and adoption of the problem-solving loop, which sits at its 19% baseline against a 60% target. A strategy retainer of up to $120K has been agreed verbally with the Director of AI, and a people-development extension called SRR is being scoped. Account health is 4.0 of 5, Healthy.",
+   "sources": [
+    "Account OS",
+    "Drive: Executive Readout",
+    "Drive: 20261021_qbr",
+    "Drive: World Emblem - Weekly review, 5 Nov",
+    "Linear"
+   ]
+  },
+  {
+   "title": "Why they bought",
+   "minutes": 2,
+   "lenses": [
+    "strategy",
+    "account"
+   ],
+   "text": "Three purchases, three sets of reasons.\n\nThe advisory was easy to buy. Nick Agresti already had the COO's attention and a master agreement, and his idea of rebuilding functions as if AI had always existed caught Randy, who asked for an “AI CEO”. The fee was $10K for 60 days.\n\nLeadership OS was won in two weeks. In discovery on 14 May, Randy described his week: cadence meetings, an Excel KPI cascade, a commitments list he kept by hand, and a wish for 80 to 85% of his time back. His assistant sent the org chart, meeting transcripts and objectives. On 21 May Tauseef showed a prototype built from those files in about a day. Randy saw his own system in his own terms, said he was doubling the budget, and asked for the floor-level system too. He signed at $10K a month on 28 May.\n\nFMDS OS took six more weeks and was earned by analysis. Through June the team walked the cascade with the people who run it, mapped parent and child KPIs, and mapped 76,000 SharePoint files. They found that safety formulas were reading the wrong columns, that one team's revenue had dropped out of the roll-up so the board read about $624K against nearly $2M a week, and that two people at about $100K a year did nothing but maintain sheets. On 2 Jul those findings were shown to Randy first, and he said the spreadsheets had to go. On 9 Jul he approved $180K on the call.",
+   "sources": [
+    "World Emblem: AI CEO Discovery, 14 May 2026",
+    "Advisory, 21 May, 2 Jul and 9 Jul 2026",
+    "AI through FMDS follow-up, 24 Jun and 2 Jul 2026",
+    "Advisory, 23 Jun 2026",
+    "World Emblem Context, 27 May 2026"
+   ]
+  },
+  {
+   "title": "How the deal is built",
+   "minutes": 2,
+   "lenses": [
+    "account",
+    "strategy"
+   ],
+   "text": "The paper is simple once the numbering is clear. There are two master agreements: one from 5 May 2026 signed by Randy, and one from 22 Jul 2026 signed by the CIO, Phil Jarvis. Under them sit three signed order forms. Order Form #1 is the advisory, $10K fixed. OF-002 is Leadership OS, $10K a month for 12 months from 28 May 2026, with no exit except for breach. OF-003 is FMDS OS, $15K a month for 12 months from 22 Jul 2026. Some internal notes and one Linear milestone call Leadership OS “OF-001”; the signed papers do not.\n\nThe two platform forms differ because the client learned between them. Randy felt he signed the first one too fast, and Phil called it vague. So the FMDS form carries six dated milestones, client ownership of the code and data, and, after an amendment on 3 Sep 2026, a right for either side to leave at the end of month six. That window opens around late January 2027.\n\nAround the signed forms are the ones that did not close. A client-services proposal was deferred by the client in June. Two marketing forms, $36K and $180K, were marked lost on 14 Oct when the Director of AI turned strategy away from marketing alone. The $36K form was then rewritten as OF #004, a strategy retainer for the whole organisation at $10K a month, stepping to $5K from month four if the client chooses. SRR, worth about $120K, is in early scoping.",
+   "sources": [
+    "Drive: signed order forms, MSAs and Amendment No. 1",
+    "Drive: OF-004 drafts",
+    "Account OS",
+    "Sync WE Strategy, 30 Jun 2026",
+    "Next Steps AI CS, 4 Jun 2026"
+   ]
+  },
+  {
+   "title": "The product and why it is built this way",
+   "minutes": 2,
+   "lenses": [
+    "product",
+    "engineering"
+   ],
+   "text": "The client's own system has three levels. L1 is the person doing the work, L2 the team board, L3 the executive board. The product follows that shape. FMDS OS serves L1 and L2: a board for each department with targets, daily readings, a place to give a reason and an activity when a KPI is red, the 8-step problem-solving flow, and a library of standard work. Leadership OS serves L3: the weekly T3 review in presentation mode, a ledger of commitments drawn from meetings and email, leader standard work, the org chart, and Hoshin planning. Both read one data store, and one login opens both.\n\nEach has an AI employee. Patch, inside FMDS OS, knows the 8-step method and the standard work, and can build a KPI, set targets from an uploaded sheet or draft a procedure, in English or Spanish. Chief, inside Leadership OS, is a Hermes agent with memory, one per executive, that sends a daily brief and follows up in Teams.\n\nSeveral choices explain the rest. The build started on the spreadsheets and replaces them one department at a time, so value came before clean data. The board shows both posted and incoming revenue because both are right and people are paid on one of them. There is no drill-down to single transactions, because Randy called it a management system and not a data lake. The 8-step only opens on repeated misses, because Eric Freeman's method treats a single miss as coaching. Each executive has a separate agent, because a shared one exposed the CEO's email. Floor boards stay on the wall, because standing at them is how people are developed.",
+   "sources": [
+    "Advisory, 4 Jun 2026",
+    "World Emblem Eng Questions, 23 Jun 2026",
+    "BC Revenue Mapping, 18 Aug 2026",
+    "Supernal Weekly Update, 3 Sep 2026",
+    "FMDS 8-Step & Standard Work, 12 Aug 2026",
+    "WE Sync: Weekly Planning, 5 Oct 2026",
+    "Operations FMDS, 13 Oct 2026",
+    "Check-In, 12 Nov 2026"
+   ]
+  },
+  {
+   "title": "How delivery has gone",
+   "minutes": 2,
+   "lenses": [
+    "delivery",
+    "engineering"
+   ],
+   "text": "Delivery has been fast on build and slow on everything that needs the client. The team began FMDS work a week before signature. By 30 Jul, 57 KPIs ran end to end. A soft launch with the sales leaders on 4 Aug stalled on target entry, so the team built templates and bulk assignment, piloted with two reps, and onboarded all 24 sales and service staff on 28 Aug, 13 days after the contract date. The 8-step engine met its 15 Sep date.\n\nThen the pace met three walls. First, revenue. Randy ruled that every number must tie to the general ledger, and the source was argued three ways in August. On 9 Sep he saw $1.54M on the board against about $2M elsewhere; nine days later the cause was found in a client-side roll-up that had missed two reps. The fix held, but full trust waits on a Business Central API that the client's own team took on in September and has not delivered. Second, HR data sits in ADP behind a privacy objection. Third, marketing missed its September date when a connector key died and the new Director of AI cooled on the work.\n\nHealth fell to At risk for two weeks around the end of September. It recovered in October: IT and Marketing boards went live, the executive review moved onto Leadership OS on 21 Oct, and Randy tied bonuses to using the system. In November the help centre launched and two more boards went live. Three Linear milestones are past their dates, and one engineer leaves on 20 Nov.",
+   "sources": [
+    "Linear",
+    "Supernal Weekly Update, 30 Jul 2026",
+    "FMDS Onboarding series, 4 to 28 Aug 2026",
+    "Supernal Dashboard Troubleshooting, 18 Sep 2026",
+    "Notion: Weekly Account Health Reporting",
+    "WE Sync: Weekly Planning, 26 Oct 2026",
+    "Drive: World Emblem - Weekly review, 5 Nov"
+   ]
+  },
+  {
+   "title": "The people",
+   "minutes": 2,
+   "lenses": [
+    "account",
+    "strategy"
+   ],
+   "text": "Randy Carr is the reason the account exists and its largest risk. He decides quickly, treats a verbal yes as binding, uses the product daily, and pushes his team to use it. He also judges value hard: at the QBR he dismissed a $100K saving because no one had left the payroll.\n\nEric Freeman, who runs organisational development and came from Toyota, is the authority on method. He became a champion in June, trained the Supernal team on 8-step and standard work in August, and is the buyer for SRR.\n\nCarlos Mitchell has changed most. In June he was a marketing lead who doubted the floor system was the best use of money. Randy made him Head of AI. In September he questioned Supernal's code and wanted to build in-house. By October he had a signed AI plan, a budget, and a target of three times his team's cost in value, and at the QBR Randy told him to use Supernal to get there. On 11 Nov he agreed the strategy retainer. He also holds the key to Business Central.\n\nPhil Jarvis, the CIO, signed the FMDS form after redlining it, uses the IT board, and retires at the end of December; Martin Gonzalez takes over. Tony Morando and JC Carr lead sales and service and were the first real users. Gabriella Diorico, Randy's assistant, moves files and runs the review.\n\nOn Supernal's side, Nick Agresti opened and holds the relationship, Tauseef Rahman built the prototypes and leads delivery, Ricardo Morel leads engineering, and Dominik Springer now leads strategy with Carlos.",
+   "sources": [
+    "Quarterly Business Review, 29 Oct 2026",
+    "Sync WE Strategy, 30 Jun 2026",
+    "WE Internal Bi-Weekly Sync, 16 Sep 2026",
+    "WE strategy update | WE offsite, 5 Oct 2026",
+    "Scoping Next Phase, 11 Nov 2026",
+    "Account OS"
+   ]
+  },
+  {
+   "title": "What value has shown",
+   "minutes": 2,
+   "lenses": [
+    "strategy",
+    "account",
+    "delivery"
+   ],
+   "text": "The clearest value so far is truth about the client's own numbers. The team produced the company's first map of where its KPIs come from: 646 KPIs, of which 99 had no source, 92 had never been filled and 66 pointed to sources that did not exist. Six of eight executive sheets were broken. About $500K of service revenue was missing from view because of one hidden column. Safety formulas carrying $8.55M of targets were reading the wrong data. Of 695 standard-work documents, 255 were duplicates.\n\nThe second value is speed. A red KPI used to take two weeks to reach a sheet and up to a month to reach an executive. Where boards are live it now shows the same day. Two people who compiled data have been freed, and more than 1,000 commitments have been captured from meetings that used to depend on the CEO's own list.\n\nWhat has not yet shown is the outcome the contract names: time recovered and problems solved. The 8-step completion rate has not moved from 19%. Randy has been direct about what he wants next: an activity logged against a red KPI, the KPI returning to green, and a dollar figure that ties to the annual plan. He also asked for shared KPIs to open the next quarterly review, in a form he can show his bank. Supernal has not yet mapped KPI movement to revenue.",
+   "sources": [
+    "Quarterly Business Review, 29 Oct 2026",
+    "Drive: 20261021_qbr",
+    "World Emblem QBR Walkthrough, 28 Oct 2026",
+    "Strat², 5 Nov 2026",
+    "Drive: World_Emblem_-_Supernal_MSA.pdf"
+   ]
+  },
+  {
+   "title": "Where it stands and what is next",
+   "minutes": 2,
+   "lenses": [
+    "delivery",
+    "account",
+    "strategy"
+   ],
+   "text": "The next 30 days carry a lot. The strategy retainer should go to Carlos on 14 Nov and start on 16 Nov if signed; it is still unsigned. Saad's last day is 20 Nov, with Doren newly in and an onboarding checklist not yet written. On 30 Nov four Linear milestones fall due (Operations, Finance, IT and Quality, and the AI COO), and the client owes its own decision on whether to build AI in-house, with a partner, or both. Operations and Finance cannot finish without the Business Central API.\n\nBehind those dates is a contract clock. The FMDS form lets either side leave at the end of month six, around late January 2027, and the client's notice could come as early as late December. Randy's own deadlines land in the same weeks: all nine boards live by 31 Dec, Excel gone by 1 Jan. Phil, who signed the FMDS form, retires then.\n\nThree things would make the account safe. Get the Business Central feed, so revenue on the board is beyond argument. Move the 8-step number, with Eric and a named adoption owner, so the contract's own measure improves. And show one red KPI turned green with a dollar value, because that is the proof Randy has asked for. The upside is real: Carlos named Supernal his AI partner for 2027, SRR is wanted by both Eric and Randy, and Randy and Eric already act as references.",
+   "sources": [
+    "Account OS",
+    "Linear",
+    "Drive: Amendment_No1_World_Emblem_FINAL.pdf (exit timing inferred)",
+    "Drive: 20261021_qbr",
+    "Supernal Weekly Touchpoint, 8 Oct 2026",
+    "Weekly Pipeline Meeting, 11 Nov 2026"
+   ]
+  },
+  {
+   "title": "Lessons this account teaches",
+   "minutes": 1,
+   "lenses": [
+    "all"
+   ],
+   "text": "A few things here are worth carrying to other accounts. The first sale came from showing the buyer his own system within a day of getting his files, not from a proposal. The second came from doing real analysis inside the first: errors found in the CEO's own dashboard did more than any demo. Presenting findings before features, as on 2 Jul, set the order of the conversation.\n\nThe contract improved with the client's criticism. Milestones, code ownership and a month-six exit made the second form easier to sign and gave the CIO a reason to put his name on it.\n\nThe hard lessons are about dependence. Client-side access to core systems was never in Supernal's hands, and it has gated three departments for three months. Building ahead of adoption left a working problem-solving engine with almost no completions. Pitching marketing while the new Director of AI was forming his own plan cost goodwill; stepping back and helping him meet his goals won it back and produced the retainer. And a single sponsor is both the engine and the exposure: two named users on the executive product is a concentration the Linear plan itself calls out.",
+   "sources": [
+    "Tauseef/Seb, 29 May 2026",
+    "Advisory, 2 Jul 2026",
+    "Sync WE Strategy, 30 Jun 2026",
+    "WE Internal Bi-Weekly Sync, 16 Sep 2026",
+    "Linear",
+    "Notion: World Emblem Strategy"
+   ]
+  }
+ ],
+ "answers": [
+  {
+   "q": "Why did World Emblem buy?",
+   "a": "There were three purchases. The $10K advisory was low risk and rode an open door with the COO. Leadership OS was won in two weeks by a prototype built from Randy Carr’s own files in about a day. FMDS OS was earned by analysis that found errors in the CEO’s own dashboard, and Randy approved $180K on the 9 Jul call."
+  },
+  {
+   "q": "What is the biggest risk on the account?",
+   "a": "Adoption trails the build. 8-step completion is still at its 19% baseline against a 60% target and activities are under-used. Two access gates on the client side, Business Central and ADP, hold back Operations, Finance and HR, and the FMDS form allows either side to exit at the end of month six, around late January 2027."
+  },
+  {
+   "q": "What is open commercially?",
+   "a": "OF #004, a strategy retainer of up to $120K with Carlos Mitchell, was verbally agreed on 11 Nov and is unsigned, with an expected close of 16 Nov. SRR, a $120K people-development extension with Eric Freeman, is in concept alignment with an expected close of 18 Dec. Two marketing deals were lost on 14 Oct."
+  }
+ ],
+ "workflows": [
+  {
+   "name": "Supernal Weekly Update",
+   "kind": "external",
+   "cadence": "Weekly",
+   "with": "Randy Carr, Eric Freeman and the client team",
+   "output": "World Emblem: Weekly Review deck",
+   "lastRun": "12 Nov",
+   "note": "The weekly client review; the latest deck on file is 5 Nov."
+  },
+  {
+   "name": "Check-In: World Emblem",
+   "kind": "external",
+   "cadence": "Near-daily",
+   "with": "Client users with Ricardo and the engineers",
+   "output": "",
+   "lastRun": "12 Nov",
+   "note": "Near-daily check-ins since 4 Jun."
+  },
+  {
+   "name": "T3 weekly KPI review",
+   "kind": "external",
+   "cadence": "Weekly",
+   "with": "Randy Carr and the executive team",
+   "output": "Wednesday T3 Marketing Report from Chief",
+   "lastRun": "11 Nov",
+   "note": "Run on Leadership OS since 21 Oct; the 11 Nov T3 has no notes yet."
+  },
+  {
+   "name": "Weekly AI Dept Meeting",
+   "kind": "external",
+   "cadence": "Weekly",
+   "with": "Carlos Mitchell",
+   "output": "",
+   "lastRun": "9 Nov",
+   "note": ""
+  },
+  {
+   "name": "Quarterly Business Review",
+   "kind": "external",
+   "cadence": "Quarterly",
+   "with": "Randy Carr, Carlos Mitchell and the executive team",
+   "output": "QBR deck and product recap video",
+   "lastRun": "29 Oct",
+   "note": "Randy asked for a mutual KPI visualisation to open the next one."
+  },
+  {
+   "name": "WE Sync: Weekly Planning",
+   "kind": "internal",
+   "cadence": "Weekly",
+   "with": "Nick, Tauseef, Ricardo and the pod",
+   "output": "",
+   "lastRun": "9 Nov",
+   "note": ""
+  },
+  {
+   "name": "WE Internal Bi-Weekly Sync",
+   "kind": "internal",
+   "cadence": "Every two weeks",
+   "with": "Supernal team",
+   "output": "Bi-weekly deck",
+   "lastRun": "16 Sep",
+   "note": ""
+  },
+  {
+   "name": "Weekly Account Health Reporting",
+   "kind": "internal",
+   "cadence": "Weekly",
+   "with": "Supernal delivery",
+   "output": "Health score in Notion and Account OS",
+   "lastRun": "8 Nov",
+   "note": "The week of 9 Nov is not yet recorded."
+  },
+  {
+   "name": "Strat Sync",
+   "kind": "internal",
+   "cadence": "",
+   "with": "Dominik and Tauseef",
+   "output": "",
+   "lastRun": "11 Nov",
+   "note": ""
+  }
+ ]
+}
