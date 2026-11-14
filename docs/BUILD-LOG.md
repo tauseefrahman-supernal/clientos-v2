@@ -101,7 +101,7 @@ How it was built:
 
 ## How to run and check
 
-- `npm run dev` (port 3100). The page header says edits last until restart.
+- `npm run dev` (port 3100). Never run `next build` while the dev server is running: both use `.next`, and the build leaves the dev server throwing server errors (14 Nov). Stop the dev server, `rm -rf .next`, then build. The page header says edits last until restart.
 - `curl 'localhost:3100/api/stella/search?slug=<slug>&q=<words>'` shows what Stella would retrieve.
 - `node scripts/eval.mjs [ids]` runs the evaluation (costs money).
 - Adding a scoping deal: write `docs/context/deals/<deal-slug>.md` per `_SPEC.md`; the app picks it up on the next request.
