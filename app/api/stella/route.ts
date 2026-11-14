@@ -1,6 +1,7 @@
 import { getAccount } from "@/lib/data";
 import { askStella } from "@/lib/stella/agent";
 import { saveExchange, validChatId } from "@/lib/data/chats";
+import { currentUser } from "@/lib/auth/server";
 
 export const dynamic = "force-dynamic";
 
@@ -17,6 +18,7 @@ export async function POST(req: Request) {
   if (!history.length || history[history.length - 1].role !== "user") return new Response("The last message must be a question.", { status: 400 });
 
   const chatId = validChatId(body.chatId) ? body.chatId : null;
+  const userId = chatId ? (await currentUser())?.id ?? null : null;
   const answer: { content: string; steps: string[]; error?: string; usage?: unknown } = { content: "", steps: [] };
   const enc = new TextEncoder();
   const stream = new ReadableStream({
@@ -36,7 +38,7 @@ export async function POST(req: Request) {
       } finally {
         // Save the exchange to the chat (Supabase only); a failed save never breaks the answer.
         if (chatId) {
-          const saved = await saveExchange(chatId, slug, history[history.length - 1].content, answer).then(() => ({ ok: true }), (e) => ({ ok: false, error: e instanceof Error ? e.message : String(e) }));
+          const saved = await saveExchange(chatId, slug, userId, history[history.length - 1].content, answer).then(() => ({ ok: true }), (e) => ({ ok: false, error: e instanceof Error ? e.message : String(e) }));
           if (!saved.ok) console.error("[stella] chat not saved:", saved);
           try { controller.enqueue(enc.encode(JSON.stringify({ type: "saved", ...saved }) + "\n")); } catch { /* reader gone */ }
         }

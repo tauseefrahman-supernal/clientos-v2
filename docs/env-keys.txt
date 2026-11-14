@@ -6,8 +6,9 @@
 # Needed now: Stella
 ANTHROPIC_API_KEY=
 
-# Supabase: the clientos schema (when the database backend lands)
+# Supabase: the clientos schema, and Google sign-in (anon key = the public "anon" / publishable key)
 NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
 SUPABASE_SERVICE_ROLE_KEY=
 
 # Account OS (production token, not the staging one)

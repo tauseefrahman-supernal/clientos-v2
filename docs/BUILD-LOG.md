@@ -71,6 +71,12 @@ How it was built:
 - Bugs met: a pasted project URL with a path broke requests (the client now uses the URL's origin); batch inserts send null for omitted columns (every row now sets every column).
 - The security advisor flagged existing issues outside `clientos` (anonymous-callable SECURITY DEFINER functions in `presales` and `we`, mutable search paths, vector in public, leaked-password protection off). Not changed; for their owners.
 
+### 14 Nov: Continue with Google
+- Sign-in through Supabase Auth with Google, limited to @getsupernal.ai: the login page (`/login`) passes Google's `hd` hint; the callback (`/auth/callback`) and the middleware refuse other domains and sign them out; the project's existing `presales.enforce_email_domain` trigger already refuses new auth users outside @getsupernal.ai.
+- The middleware sends anyone not signed in to `/login` and keeps the session cookie fresh. On a local dev server, API calls from scripts (no browser cookies) still pass so `npm run db:import` and the evaluation work.
+- Signed-out pages carry no project data (the root layout loads nothing until sign-in). Stella chats belong to the signed-in user (`created_by`); a chat can only be read, written or deleted by its owner. The sidebar shows the user and a sign-out button.
+- Switched on by `NEXT_PUBLIC_SUPABASE_ANON_KEY`; without it the app stays open.
+
 ## Findings worth keeping (deal research, 13 Nov)
 
 - **IEC Colleges** ($175K, Order Form, Zack / Diana, Origin): order form $178K, $9K a month for two months then $16K, billed quarterly, exit at day 90. Champion Esther Duong (VP Marketing) pushes on cost and billing; wants enrolment gains in about 60 days. World Emblem is the reference (Randy call, Eric Freeman walkthrough). Who signs is unclear.

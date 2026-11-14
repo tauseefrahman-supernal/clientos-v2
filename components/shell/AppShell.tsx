@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
-import { LayoutGrid, Library, PanelLeftClose, PanelLeftOpen, Search, Sparkles } from "lucide-react";
+import { LayoutGrid, Library, PanelLeftClose, PanelLeftOpen, Search, Sparkles, LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { SearchItem } from "@/lib/search";
 import { StellaDrawer } from "./StellaDrawer";
@@ -18,7 +18,7 @@ export const useShell = () => useContext(Ctx);
 const read = (k: string) => { try { return localStorage.getItem(k); } catch { return null; } };
 const write = (k: string, v: string) => { try { localStorage.setItem(k, v); } catch { /* private window */ } };
 
-export function AppShell({ children, searchIndex, names, saved = false }: { children: React.ReactNode; searchIndex: SearchItem[]; names: Record<string, string>; saved?: boolean }) {
+export function AppShell({ children, searchIndex, names, saved = false, user = null }: { children: React.ReactNode; searchIndex: SearchItem[]; names: Record<string, string>; saved?: boolean; user?: { name: string; email: string; avatar: string | null } | null }) {
   const [collapsed, setCollapsed] = useState(false);
   const [stella, setStella] = useState(false);
   const [stellaPrompt, setStellaPrompt] = useState<string | undefined>();
@@ -65,6 +65,18 @@ export function AppShell({ children, searchIndex, names, saved = false }: { chil
             ))}
           </nav>
           {!collapsed && <p className="mt-auto px-space-2 text-xs leading-relaxed text-muted-foreground">{saved ? "Saved to Supabase. Research imported from the repo; your edits are kept." : "Prototype data from the repo files. Edits last until the server restarts."}</p>}
+          {user && (
+            <div className={cn("flex items-center gap-space-2 border-t border-border px-space-2 pt-space-3", collapsed && "mt-auto flex-col")}>
+              {user.avatar
+                // eslint-disable-next-line @next/next/no-img-element -- a 28px Google avatar
+                ? <img src={user.avatar} alt="" referrerPolicy="no-referrer" className="h-7 w-7 shrink-0 rounded-full" />
+                : <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-muted text-xs font-semibold">{user.name.slice(0, 1).toUpperCase()}</span>}
+              {!collapsed && <span className="min-w-0 flex-1"><span className="block truncate text-xs font-medium">{user.name}</span><span className="block truncate text-xs text-muted-foreground">{user.email}</span></span>}
+              <form action="/auth/signout" method="post">
+                <button title="Sign out" aria-label="Sign out" className="rounded-md p-1.5 text-muted-foreground hover:bg-sidebar-accent hover:text-foreground"><LogOut className="h-4 w-4" /></button>
+              </form>
+            </div>
+          )}
         </aside>
 
         <div className="flex min-w-0 flex-1 flex-col">
