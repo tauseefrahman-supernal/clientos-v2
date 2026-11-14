@@ -1,0 +1,1422 @@
+{
+  "key": "jethq",
+  "title": "JetHQ",
+  "strat": "Sven Boettger",
+  "pod": "Stuart Childs (AM), Sven Boettger (strategist), Mauro Raia (FDE)",
+  "mrr": "$10,000",
+  "closedValue": "$317,000",
+  "closedCount": 2,
+  "health": {
+    "score": "3.2",
+    "band": "Watch",
+    "tone": "warn"
+  },
+  "fresh": [
+    "Current as of Mauro’s checkpoint and Value Curve write-ups, 12 to 13 Nov",
+    "About 50 JetHQ meetings since May",
+    "About 80,000 aircraft tracked across 184 markets"
+  ],
+  "transcripts": 1,
+  "deals": [
+    {
+      "name": "JetHQ deal (Marcus and Valerie)",
+      "value": "$249,500",
+      "stage": "Closed Won 8 May 2025",
+      "phase": 3,
+      "note": "$92,000 upfront plus $7,500 a month for 21 months; two AI employees for market tracking and valuation."
+    },
+    {
+      "name": "JetHQ Expansion (AI Hub Addendum)",
+      "value": "$67,500",
+      "stage": "Closed Won 9 Apr",
+      "phase": 3,
+      "note": "Six Hub modules for $2,500 a month, term to 30 Jun 2027. Contract arithmetic gives about $37,500, so the Account OS value does not reconcile."
+    },
+    {
+      "name": "JetHQ Expansion - Flight Control OS",
+      "value": "$50,000",
+      "stage": "Prototype",
+      "phase": 1,
+      "note": "Intranet and Flight Deck company OS; draft order form at $1,000 a month unsent; expected close 31 Dec, owner Stu, contact RJ Miller."
+    }
+  ],
+  "lost": "",
+  "sold": [
+    {
+      "form": "Order form, 8 May 2025",
+      "promised": "Two AI employees: Marcus automates market tracking from JetNet alerts and Valerie automates data collection and valuation reports.",
+      "met": "Marcus live since 12 Sep 2025 at over 95% accuracy; Valerie live since 24 Aug with an editor shipped about 12 Nov, but sales engineers still build many FMVs in Canva.",
+      "tone": "warn"
+    },
+    {
+      "form": "AI Hub Addendum, 10 Apr",
+      "promised": "Six Hub modules: inventory explorer, import and export, user management, JetHQ Estimate, testing, migration and go-live.",
+      "met": "Hub live since 20 Dec 2025 and moved off Lovable to Railway; adoption 80% toward company-wide use.",
+      "tone": "ok"
+    },
+    {
+      "form": "OF-001 draft, Aircraft Records and Intranet Discovery",
+      "promised": "One month of discovery, then every document for a serial number on that aircraft’s Hub page, for $1,000 a month.",
+      "met": "Not sent; scope and price wait on a session with RJ before 30 Nov.",
+      "tone": "info"
+    }
+  ],
+  "arc": [
+    {
+      "period": "Q2 2025",
+      "meetings": null,
+      "points": [
+        "Order form signed 8 May 2025 by Rebecca Johnson: $249,500 for Marcus and Valerie.",
+        "Kickoff 12 May 2025; weeks lost waiting on the Wunderbeast vendor."
+      ]
+    },
+    {
+      "period": "Q3 2025",
+      "meetings": null,
+      "points": [
+        "Decision to replace Wunderbeast with a Supernal-built Hub.",
+        "Marcus live in production 12 Sep 2025."
+      ]
+    },
+    {
+      "period": "Q4 2025",
+      "meetings": null,
+      "points": [
+        "VRef API blocked by a price rise from Oct 2025.",
+        "Phase 2 scoped at 155 hours; Hub live at hub.jethq.com on 20 Dec 2025."
+      ]
+    },
+    {
+      "period": "Q1 2026",
+      "meetings": null,
+      "points": [
+        "Data-quality sprint: 369 duplicates fixed; 89% of 215 logged hours spent on maintenance.",
+        "Valerie started as a Desktop FMV without VRef; Laurie Barringer left 17 Mar."
+      ]
+    },
+    {
+      "period": "Apr",
+      "meetings": null,
+      "points": [
+        "Phase 2 addendum signed by RJ Miller 9 Apr.",
+        "Client judged the Hub half done and asked to be taken off Supernal’s website; account red."
+      ]
+    },
+    {
+      "period": "May",
+      "meetings": 12,
+      "points": [
+        "Mauro added full time; red to yellow by 11 May.",
+        "Wall demo sparked the idea of the Hub as a company intranet."
+      ]
+    },
+    {
+      "period": "Jun",
+      "meetings": 10,
+      "points": [
+        "Back to green by 29 Jun.",
+        "Julie presented the FlightDeck vision on 26 Jun."
+      ]
+    },
+    {
+      "period": "Jul",
+      "meetings": 9,
+      "points": [
+        "RJ’s tech talk: 15 quotes, FMV from weeks to minutes; account boldly green.",
+        "Internal AI hire pitched Garrett on building it in-house; yellow by 27 Jul."
+      ]
+    },
+    {
+      "period": "Aug",
+      "meetings": 5,
+      "points": [
+        "Julie let go about 7 Aug; expansion in limbo.",
+        "Valerie live 24 Aug."
+      ]
+    },
+    {
+      "period": "Sep",
+      "meetings": 6,
+      "points": [
+        "Offsite with Garrett; JetHQ set four Valerie tasks for Q4.",
+        "Stuart joins as AM; intranet order form being priced."
+      ]
+    },
+    {
+      "period": "Oct",
+      "meetings": 8,
+      "points": [
+        "Jens off the account 1 Oct; Mauro leads every call.",
+        "First Valerie FMV used with a client; QBR run by Stuart and Johnny."
+      ]
+    },
+    {
+      "period": "Nov",
+      "meetings": 5,
+      "points": [
+        "FMV deep dive 6 Nov; ten data fixes and the Canva-style editor live by about 12 Nov.",
+        "RJ pushes the intranet every call; scoping session not yet booked."
+      ]
+    }
+  ],
+  "disagreements": [
+    "Health: Account OS says 3.2 with a Watch band and GM 2; the Notion report for 2 to 9 Nov says Healthy and the 9 Nov delivery sync said healthy.",
+    "Pod: Account OS lists Jens as FDE, but Jens left the account on 1 Oct and Mauro is the engineer.",
+    "“RJ”: the 360 doc calls Rebecca Johnson “RJ, VP Ops”; the addendum and Account OS name RJ Miller, the sales leader. They are two people.",
+    "Expansion value: Account OS $67,500; the contract gives about $37,500 ($2,500 a month from 10 Apr 2026 to 30 Jun 2027).",
+    "Next-sale price: $500, $750 or $1,042 a month (9 Oct); $1,000 a month in the draft OF; $2,000 MRR in Notion; $50,000 in Account OS.",
+    "Next-sale name: Flight Control OS in Account OS, Flight Deck in most sources, Aircraft Records and Intranet Discovery in the draft, Intranet in Linear.",
+    "Draft OF hours: about 100 hours per Mauro and Sven versus a 200-hour figure Johnny questioned on 6 Oct.",
+    "Pulse: “live with core metrics” on 1 Oct versus “far from ready” on 21 Oct.",
+    "QBR date: deck “for Tuesday” 27 Oct, then “for tomorrow” late on 27 Oct; Notion records the last business review as 6 Nov."
+  ],
+  "streams": [
+    {
+      "name": "Valerie (FMV)",
+      "state": "Live",
+      "tone": "warn",
+      "pct": 0,
+      "due": "31 Oct",
+      "measured": "Sales engineers building FMVs in Valerie instead of Canva; about one FMV a day.",
+      "learned": "Check usage data before treating an adoption complaint as a product defect.",
+      "attention": true
+    },
+    {
+      "name": "The Hub",
+      "state": "Live",
+      "tone": "ok",
+      "pct": 80,
+      "due": "31 Dec",
+      "measured": "Company-wide adoption; support-email count week over week.",
+      "learned": "Support-style email volume is the real risk indicator.",
+      "attention": false
+    },
+    {
+      "name": "Value Rank / Value Curve",
+      "state": "Building",
+      "tone": "info",
+      "pct": 0,
+      "due": "31 Mar 2027",
+      "measured": "Users (3) and accuracy against spec sheets.",
+      "learned": "Not shown to brokers until renamed and accurate for two quarters.",
+      "attention": false
+    },
+    {
+      "name": "Marcus",
+      "state": "Live",
+      "tone": "warn",
+      "pct": 14,
+      "due": "31 Oct",
+      "measured": "Alert accuracy; migration off n8n.",
+      "learned": "Sequenced behind Valerie at JetHQ’s request.",
+      "attention": true
+    },
+    {
+      "name": "Intranet / Flight Deck",
+      "state": "Not started",
+      "tone": "err",
+      "pct": 0,
+      "due": "30 Nov",
+      "measured": "Order form signed.",
+      "learned": "Re-verify the September scope; RJ may want the whole intranet, not only documents.",
+      "attention": true
+    },
+    {
+      "name": "Security and keys",
+      "state": "Blocked",
+      "tone": "warn",
+      "pct": null,
+      "due": "",
+      "measured": "Key rotation after the 22 Oct Railway incident.",
+      "learned": "An old unrevoked key cost $3,000 in one day.",
+      "attention": true
+    }
+  ],
+  "tiles": [
+    {
+      "file": "roadmap",
+      "section": "Roadmap › Success metrics",
+      "title": "Success metrics",
+      "headline": "Marcus passed 95% accuracy and Hub adoption is at 80%, but Valerie’s end-to-end FMV milestone shows 0% past its 31 Oct date.",
+      "tone": "warn",
+      "state": "Mixed"
+    },
+    {
+      "file": "roadmap",
+      "section": "Roadmap › Commercial model",
+      "title": "Commercial model",
+      "headline": "$10,000 a month to 30 Jun 2027, renewing at $10,000, with the next order form unpriced.",
+      "tone": "info",
+      "state": "Stable"
+    },
+    {
+      "file": "roadmap",
+      "section": "Roadmap › Opportunity map",
+      "title": "Opportunity map",
+      "headline": "Intranet first step at $500 to $2,000 a month, then a Flight Deck menu worth up to $11,500 a month.",
+      "tone": "ok",
+      "state": "In motion"
+    },
+    {
+      "file": "stakeholders",
+      "section": "Stakeholders › Power map",
+      "title": "Power map",
+      "headline": "RJ is now the champion; Garrett, who owns the money, remains distant and Julie has gone.",
+      "tone": "warn",
+      "state": "Single champion"
+    },
+    {
+      "file": "plan",
+      "section": "Plan › Dependencies",
+      "title": "Dependencies",
+      "headline": "Value Curve calibration and Valerie adoption wait on spec sheets from Brooks and on Hanan, who goes on leave mid-November.",
+      "tone": "warn",
+      "state": "Client inputs"
+    },
+    {
+      "file": "roadmap",
+      "section": "Roadmap › Health",
+      "title": "Health",
+      "headline": "Account OS reads 3.2 Watch on margin while the weekly report reads Healthy.",
+      "tone": "warn",
+      "state": "Watch"
+    }
+  ],
+  "decisions": [
+    {
+      "title": "Intranet scope and price",
+      "detail": "Choose documents-only or whole-intranet scope and a price between $500 and $2,000 a month before Johnny’s 30 Nov deadline.",
+      "action": "Draft pricing note"
+    },
+    {
+      "title": "Book the scoping session with RJ",
+      "detail": "Mauro asked Stuart on 10 Nov whether to email RJ; no date is set.",
+      "action": "Draft email to RJ"
+    },
+    {
+      "title": "Refresh the Flight Deck menu",
+      "detail": "The six-package proposal still shows Q3 and Q4 2026 timelines and was last seen by Julie.",
+      "action": "Update proposal"
+    },
+    {
+      "title": "Pulse for JetHQ",
+      "detail": "Decide whether to show Pulse after it was judged far from ready on 21 Oct.",
+      "action": "Decide"
+    },
+    {
+      "title": "Fix Account OS records",
+      "detail": "Pod still lists Jens; no stakeholders, goals, value entries or cadence are recorded.",
+      "action": "Draft updates"
+    }
+  ],
+  "slipping": [
+    {
+      "kind": "Past target",
+      "tone": "err",
+      "item": "Valerie end-to-end FMV",
+      "detail": "Linear milestone due 31 Oct shows 0%, though the editor shipped about 12 Nov."
+    },
+    {
+      "kind": "Past target",
+      "tone": "warn",
+      "item": "Marcus runs without n8n",
+      "detail": "14% against a 31 Oct target."
+    },
+    {
+      "kind": "Not started",
+      "tone": "err",
+      "item": "Intranet Milestone 1 sign-off",
+      "detail": "Due 30 Sep in Linear; scoping session with RJ still unbooked."
+    },
+    {
+      "kind": "Open risk",
+      "tone": "warn",
+      "item": "Key rotation",
+      "detail": "No JetNet or VRef key rotation confirmed since the 22 Oct Railway incident."
+    },
+    {
+      "kind": "Open risk",
+      "tone": "warn",
+      "item": "Lost sale prices",
+      "detail": "Recent sales lose their sale price after a JetNet status update; fix unconfirmed."
+    },
+    {
+      "kind": "Expectation gap",
+      "tone": "warn",
+      "item": "Intranet meaning",
+      "detail": "The draft covers documents on aircraft pages; RJ wants the whole company working in the Hub."
+    },
+    {
+      "kind": "Promised, no task",
+      "tone": "info",
+      "item": "Canva AI image tools",
+      "detail": "Magic expand and eraser asked for on 6 Nov; not confirmed as built."
+    }
+  ],
+  "dates": [
+    {
+      "when": "16 Nov",
+      "what": "JetHQ Weekly Planning (internal)"
+    },
+    {
+      "when": "17 Nov",
+      "what": "Weekly checkpoint; Hanan’s latest date for the FMV editor (already met)"
+    },
+    {
+      "when": "Mid-Nov",
+      "what": "Hanan’s leave begins"
+    },
+    {
+      "when": "23 Nov",
+      "what": "JetHQ Weekly Planning (internal)"
+    },
+    {
+      "when": "24 Nov",
+      "what": "Bi-weekly with Brooks and Clay (inferred from cadence)"
+    },
+    {
+      "when": "30 Nov",
+      "what": "Johnny’s deadline for the intranet order form and scoping with RJ; Linear company-search milestone"
+    },
+    {
+      "when": "7 Dec",
+      "what": "JetHQ Weekly Planning (internal)"
+    }
+  ],
+  "feed": [
+    {
+      "meeting": "Bi-weekly with Brooks and Clay",
+      "date": "10 Nov",
+      "changes": [
+        "Product: four Value Curve changes and price-reduction history live by 13 Nov",
+        "Plan: calibration waits on spec sheets and a features sheet",
+        "Rollout: Value Curve kept from brokers until accurate"
+      ]
+    },
+    {
+      "meeting": "Weekly Checkpoint",
+      "date": "10 Nov",
+      "changes": [
+        "Product: ten FMV data fixes live; Canva-style editor live about 12 Nov",
+        "Plan: intranet scoping with RJ still to be scheduled"
+      ]
+    },
+    {
+      "meeting": "Supernal // JetHQ FMV Deep Dive",
+      "date": "6 Nov",
+      "changes": [
+        "Priorities: data, then tables, then photos",
+        "Stakeholders: RJ stayed the full hour"
+      ]
+    },
+    {
+      "meeting": "Weekly Checkpoint",
+      "date": "5 Nov",
+      "changes": [
+        "Adoption: numbers no longer the blocker; editing takes 4 hours, same as Canva",
+        "Product: Value Rank shown, top 15 of 483 aircraft",
+        "Stakeholders: RJ more engaged than ever"
+      ]
+    },
+    {
+      "meeting": "Intranet thread (Slack)",
+      "date": "2 Nov",
+      "changes": [
+        "Deal: OF-001 draft circulated at about 100 hours",
+        "Scope: RJ may want the whole intranet moved into the Hub"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "name": "RJ Miller",
+      "title": "Sales leader (title not recorded)",
+      "note": "At the start: hot and cold, possibly limiting Supernal’s visible impact. Now: champion who signed Phase 2 and raises the intranet every call.",
+      "influence": "High",
+      "disposition": "Champion"
+    },
+    {
+      "name": "Garrett",
+      "title": "Owner and CEO",
+      "note": "At the start: never bought in; contract signed without his full buy-in. Now: distant and cost-focused; attended the September offsite.",
+      "influence": "High",
+      "disposition": "Skeptic"
+    },
+    {
+      "name": "Hanan Saliba",
+      "title": "Valuation expert",
+      "note": "At the start: gave the valuation methodology deep dive. Now: owns Valerie’s dates and feedback; on leave from mid-November.",
+      "influence": "Medium",
+      "disposition": "Supporter"
+    },
+    {
+      "name": "Brooks Boschert",
+      "title": "Market research lead",
+      "note": "At the start: gatekeeper of sales requests. Now: runs the bi-weekly and owes spec sheets for the Value Curve.",
+      "influence": "Medium",
+      "disposition": "Supporter"
+    },
+    {
+      "name": "Clay Marks",
+      "title": "Market research",
+      "note": "At the start: proposed the Value Rank tool. Now: reviewing the Value Curve and supplying engine data.",
+      "influence": "Low",
+      "disposition": "Supporter"
+    },
+    {
+      "name": "Fernando",
+      "title": "Sales engineer",
+      "note": "At the start: flagged landings and data gaps. Now: claims missing FMV data while PostHog shows no FMVs from him in two weeks.",
+      "influence": "Low",
+      "disposition": "Neutral"
+    },
+    {
+      "name": "Julie Boake",
+      "title": "Fractional CMO (left)",
+      "note": "At the start: defensive, then champion and author of the FlightDeck mockup. Now: let go about 7 Aug.",
+      "influence": "Low",
+      "disposition": "At risk"
+    },
+    {
+      "name": "Rebecca Johnson",
+      "title": "Signatory of the 2025 contract",
+      "note": "At the start: signed the May 2025 order form. Now: not seen in 2026 meetings.",
+      "influence": "Low",
+      "disposition": "Neutral"
+    },
+    {
+      "name": "Roxy",
+      "title": "Outsourced Salesforce admin",
+      "note": "At the start: building a JetNet-Salesforce integration that duplicates the Hub. Now: gatekeeper for any Salesforce move.",
+      "influence": "Low",
+      "disposition": "Neutral"
+    }
+  ],
+  "metrics": [
+    {
+      "criterion": "Marcus accuracy over 95%",
+      "now": "Achieved Mar 2026",
+      "state": "Achieved",
+      "tone": "ok"
+    },
+    {
+      "criterion": "JetHQ-wide Hub adoption",
+      "now": "80%, target 31 Dec",
+      "state": "On track",
+      "tone": "ok"
+    },
+    {
+      "criterion": "FMV built end to end in Valerie",
+      "now": "0% in Linear past 31 Oct; editor live about 12 Nov",
+      "state": "Behind",
+      "tone": "err"
+    },
+    {
+      "criterion": "FMV turnaround",
+      "now": "About 5 minutes versus 1.5 to 2 weeks, client claim",
+      "state": "Not measured",
+      "tone": "info"
+    },
+    {
+      "criterion": "For-sale data never more than a day old",
+      "now": "0%, target 31 Dec",
+      "state": "Not started",
+      "tone": "warn"
+    },
+    {
+      "criterion": "Adoption dashboard JetHQ reads itself",
+      "now": "0%, target 31 Dec",
+      "state": "Not started",
+      "tone": "warn"
+    },
+    {
+      "criterion": "Company search in the Hub",
+      "now": "100%",
+      "state": "Achieved",
+      "tone": "ok"
+    },
+    {
+      "criterion": "Value Rank buy recommendation",
+      "now": "0%, target 31 Mar 2027; 3 users of the Value Curve",
+      "state": "Building",
+      "tone": "info"
+    },
+    {
+      "criterion": "Revenue attribution (deals touched by AI)",
+      "now": "Not built",
+      "state": "Not started",
+      "tone": "err"
+    }
+  ],
+  "accountos": [
+    {
+      "record": "Weekly health",
+      "now": "3.2 for 9 to 15 Nov (previous 3.2): Tech 3, Strategic Defensibility 4, Exec Engagement 3, GM 2, Build 4; Watch, GM flagged low.",
+      "proposes": "A note reconciling Watch with the Notion Healthy reading, naming margin as the driver."
+    },
+    {
+      "record": "Stakeholders",
+      "now": "None on the power map.",
+      "proposes": "RJ Miller as champion, Garrett as high-influence skeptic, Hanan, Brooks and Clay as supporters."
+    },
+    {
+      "record": "Success plan",
+      "now": "No goals.",
+      "proposes": "Valerie adoption by sales engineers, Hub adoption 100% by 31 Dec, daily data freshness, revenue attribution."
+    },
+    {
+      "record": "Cadence",
+      "now": "No events.",
+      "proposes": "Weekly checkpoint (Tuesdays), bi-weekly with Brooks and Clay, QBR held late Oct."
+    },
+    {
+      "record": "Value",
+      "now": "No entries.",
+      "proposes": "FMV time from weeks to minutes, first client-facing Valerie FMV, 15 tech-talk quotes."
+    },
+    {
+      "record": "Whitespace",
+      "now": "JetHQ Expansion ($67,500, won) and Flight Control OS ($50,000, Prototype).",
+      "proposes": "Split the menu: intranet first step, Ask Jetty, Sales Ops, Admin and Finance."
+    },
+    {
+      "record": "Renewal",
+      "now": "No plan; risk Medium, driver margin pressure.",
+      "proposes": "Renewal 30 Jun 2027 at $10,000 a month, notice about 1 May 2027."
+    }
+  ],
+  "rationale": [
+    {
+      "decision": "Build a new Hub instead of waiting on Wunderbeast.",
+      "why": "The legacy vendor answered only twice a week and stalled the project for weeks.",
+      "source": "360 doc, Aug 2025"
+    },
+    {
+      "decision": "Start Valerie as a Desktop FMV on existing Hub data and Julie’s Canva template.",
+      "why": "VRef’s API was blocked by pricing and contract problems from Oct 2025.",
+      "source": "360 doc, 17 Feb"
+    },
+    {
+      "decision": "VRef wins over Blue Book; no option counted twice.",
+      "why": "The sources differ by up to $1.5M on one aircraft and double counting inflated estimates.",
+      "source": "Weekly Checkpoint, 28 Jul"
+    },
+    {
+      "decision": "Price from comps, using sales from the last six months.",
+      "why": "Book values are starting points and older sales mislead in a fast market.",
+      "source": "Weekly Checkpoint, 22 Sep; FMV Deep Dive, 6 Nov"
+    },
+    {
+      "decision": "A Canva-style FMV editor with Excel-like tables and photo grids.",
+      "why": "Editing a Valerie FMV took about 4 hours, as long as Canva, so sales engineers stayed in Canva.",
+      "source": "Weekly Checkpoint, 15 Sep; 5 Nov"
+    },
+    {
+      "decision": "Four sale types, with internal sales, new deliveries and foreclosures out of market stats.",
+      "why": "Statistics should reflect real market transactions only.",
+      "source": "QBR deck thread, 28 Oct"
+    },
+    {
+      "decision": "Hours and landings from JetNet’s standard record, not the paid ADS-B add-on.",
+      "why": "The sales team did not value the add-on; landings can be estimated from monthly flights.",
+      "source": "Weekly Checkpoint, 21 Jul; Slack, 28 Oct"
+    },
+    {
+      "decision": "JetNet refresh never overwrites manual edits.",
+      "why": "Off-market aircraft carry data JetNet does not have.",
+      "source": "Weekly Checkpoint, 1 Sep"
+    },
+    {
+      "decision": "Sell the intranet as a bounded first step: documents on the aircraft record.",
+      "why": "Keeps the first order form near 100 hours and lets discovery define the rest.",
+      "source": "OF-001 draft; Slack, 2 Nov"
+    },
+    {
+      "decision": "Price Flight Deck as a menu of modules.",
+      "why": "Lets JetHQ choose by priority and gives a clear path to $20,000 a month.",
+      "source": "JetHQ internal, 8 Jul"
+    }
+  ],
+  "sections": [
+    {
+      "category": "Aviation Data Sources",
+      "group": 2,
+      "desc": "What JetNet, VRef, Blue Book, AviaCost and ADS-B provide, what access costs and how each breaks.",
+      "files": [
+        {
+          "name": "Data-Provider-Map",
+          "summary": "Each source, what it feeds, its bias and its cost."
+        },
+        {
+          "name": "VRef-Blocker-History",
+          "summary": "The Oct 2025 to Mar 2026 API block and the Desktop FMV workaround."
+        },
+        {
+          "name": "JetNet-Format-Changes",
+          "summary": "Alert-format changes that broke Marcus and how they were handled."
+        },
+        {
+          "name": "Blue-Book-Upload-Process",
+          "summary": "Quarterly manual uploads and model matching."
+        }
+      ]
+    },
+    {
+      "category": "Valuation Methodology",
+      "group": 2,
+      "desc": "How JetHQ values an aircraft and how Valerie mirrors it.",
+      "files": [
+        {
+          "name": "FMV-Method",
+          "summary": "The seven-step method from Hanan’s deep dive."
+        },
+        {
+          "name": "Comps-Rules",
+          "summary": "Selection, recency and sorting of comparables."
+        },
+        {
+          "name": "Value-Driver-Rules",
+          "summary": "VRef precedence, depreciation and model-specific features."
+        }
+      ]
+    },
+    {
+      "category": "Platform Architecture",
+      "group": 2,
+      "desc": "The Hub, Marcus and Valerie stack, migrations and incidents.",
+      "files": [
+        {
+          "name": "Hub-Architecture",
+          "summary": "Supabase, front end, reports and sync schedule."
+        },
+        {
+          "name": "Marcus-Pipeline",
+          "summary": "Alert parsing, classification and the n8n exit."
+        },
+        {
+          "name": "Secrets-And-Incidents",
+          "summary": "Jul supply-chain incident, Oct Railway incident, key rotation, the $3,000 key charge."
+        }
+      ]
+    },
+    {
+      "category": "Expansion Menu (Flight Deck)",
+      "group": 1,
+      "desc": "The company-OS vision and every priced version of the next sale.",
+      "files": [
+        {
+          "name": "Flight-Deck-Vision",
+          "summary": "Modules, role views and what stays out."
+        },
+        {
+          "name": "Package-Menu-And-Prices",
+          "summary": "Six packages and every price discussed."
+        },
+        {
+          "name": "Intranet-OF-Draft",
+          "summary": "OF-001 scope, exclusions and open questions."
+        },
+        {
+          "name": "Salesforce-Exit-Case",
+          "summary": "Salesforce cost and duplicate integration."
+        }
+      ]
+    },
+    {
+      "category": "Champion and Power Map",
+      "group": 0,
+      "desc": "How the champion moved from Rebecca to Julie to RJ, and the Garrett problem.",
+      "files": [
+        {
+          "name": "Champion-History",
+          "summary": "Who championed the account and when they left or turned."
+        },
+        {
+          "name": "Garrett-Strategy",
+          "summary": "Reaching an owner who cares about jets sold."
+        },
+        {
+          "name": "DIY-Threat-Playbook",
+          "summary": "The in-house AI hire and how to answer it."
+        }
+      ]
+    },
+    {
+      "category": "Adoption Evidence",
+      "group": 3,
+      "desc": "Usage signals, quotes and the Canva gap.",
+      "files": [
+        {
+          "name": "Usage-Signals",
+          "summary": "PostHog FMV counts, support emails, Value Curve users."
+        },
+        {
+          "name": "Quotes-Bank",
+          "summary": "Quotes from the July tech talk and later calls."
+        },
+        {
+          "name": "Sales-Engineer-Canva-Gap",
+          "summary": "Why sales engineers stay in Canva and what changed."
+        }
+      ]
+    },
+    {
+      "category": "Product Experience and Design",
+      "group": 2,
+      "desc": "FMV report design, Canva parity and role views.",
+      "files": [
+        {
+          "name": "FMV-Design-System",
+          "summary": "Template, editor and photo grids."
+        },
+        {
+          "name": "Value-Curve-UX",
+          "summary": "Filters, markers and market-direction cards."
+        },
+        {
+          "name": "Role-Views",
+          "summary": "Sales Intel view versus researcher views; My Desk."
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "kind": "Order form",
+      "title": "JetHQ SOW.pdf (2025 order form)",
+      "date": "8 May 2025",
+      "what": "Signed terms and Phase 1 order form for Marcus and Valerie.",
+      "url": "https://drive.google.com/file/d/15sGRTIMkY9MFotrCx6DtRankM8FYnNlP/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Order form",
+      "title": "jethq-of-004-v1-signed.pdf",
+      "date": "8 May 2025",
+      "what": "Same order form, contracts filing.",
+      "url": "https://drive.google.com/file/d/1iklFtyGeP3NoZdPpAKysMEDFZli1zKRO/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Order form",
+      "title": "JetHQ AI HUB Addendum + Supernal.pdf",
+      "date": "10 Apr",
+      "what": "Phase 2 addendum with terms.",
+      "url": "https://drive.google.com/file/d/1X9hZ8CuoHkZ4xESjNAqHvhPWoyAIqyT3/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Order form",
+      "title": "jethq-of-005-v1-signed.pdf",
+      "date": "10 Apr",
+      "what": "Phase 2 order form, contracts filing.",
+      "url": "https://drive.google.com/file/d/19EFO_e1eW3zXg_O0GIt6bpAiPW2K3NMz/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "jethq-msa-v1-signed.pdf",
+      "date": "3 Nov",
+      "what": "Governing terms, version 1.",
+      "url": "https://drive.google.com/file/d/1I0epu7_jSgn1BSYEfF3uGDUMaFTK07LN/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "jethq-msa-v2-signed.pdf",
+      "date": "3 Nov",
+      "what": "Governing terms, version 2.",
+      "url": "https://drive.google.com/file/d/1nht9sHJc2JQ0eN9tlPCD58ntaG4L6yM0/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "jethq-bundle-v1-signed.pdf",
+      "date": "3 Nov",
+      "what": "Signed contract bundle.",
+      "url": "https://drive.google.com/file/d/1aL62DdEUgxd1RPF3Evul1mLjGWP6qYYu/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "jethq-bundle-v2-signed.pdf",
+      "date": "3 Nov",
+      "what": "Signed contract bundle, version 2.",
+      "url": "https://drive.google.com/file/d/1CUfX_SbuAXrzWz6ahiglR1gIWv7Xe3fA/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Order form",
+      "title": "jethq-of-001-v1-draft.docx",
+      "date": "28 Oct",
+      "what": "Earlier order form draft.",
+      "url": "https://drive.google.com/file/d/1HyEofehSQAPb5LB1NsjJTlDBhg0Vv5hu/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Order form",
+      "title": "jethq-of-002-v1-draft.docx",
+      "date": "28 Oct",
+      "what": "Earlier order form draft.",
+      "url": "https://drive.google.com/file/d/1VbQPUts4xhjRiT-wViKhX4uenhRcadNv/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Order form",
+      "title": "jethq-of-003-v1-draft.docx",
+      "date": "28 Oct",
+      "what": "Earlier order form draft.",
+      "url": "https://drive.google.com/file/d/167l9kOPd_pCLybkXYwuzTlVZpg3OBEEt/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Order form",
+      "title": "Order Form OF-001 – Aircraft Records and Intranet Discovery",
+      "date": "Oct",
+      "what": "The next sale, drafted and unsent.",
+      "url": "https://docs.google.com/document/d/1HFY9TD-1Kg8niRBFbBZnhfPGmv8iJajNuggrggG7gD0/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "260317 JetHQ – 360° Project Intelligence Document",
+      "date": "17 Mar",
+      "what": "Full history, architecture, contacts and finances.",
+      "url": "https://docs.google.com/document/d/1IXn4aM9CWTIYWxGl721c69Yue-rLApBj1cTmxgxsVu8/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Deck",
+      "title": "JetHQ Roadmap",
+      "date": "26 Oct",
+      "what": "Offsite and Q4 roadmap.",
+      "url": "https://docs.google.com/presentation/d/1sCCIsIXmq0WlNGrggjCtRe77JhjB62UL9RNGWx6zZVA/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Deck",
+      "title": "JetHQ-Roadmap (JHQ Edits).pptx",
+      "date": "15 Sep",
+      "what": "Client’s edits to the roadmap.",
+      "url": "https://drive.google.com/file/d/1nUVoD_Iv53EYdDqIA3rpDVb4F24jSIDH/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "JETHQ ROADMAP PLANNING",
+      "date": "31 Aug",
+      "what": "Roadmap planning notes.",
+      "url": "https://docs.google.com/document/d/1pIwioC12nDJMtkz6OWjeVyZXVjxvdobyNjoxryFtrBY/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "JetHQ-Hub-Talking-Points.pdf",
+      "date": "9 Oct",
+      "what": "Broker sales-enablement one-pager.",
+      "url": "https://drive.google.com/file/d/1SHakWaT7l0gXvW0XkRb1JJP_Skc3bTxp/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "JetHQ Quotes",
+      "date": "13 Jul",
+      "what": "Quotes from RJ’s tech talk.",
+      "url": "https://docs.google.com/document/d/1ygfoNQM6ztXWBkzZTDoLjgFskZqZ49QdCSDAG6DxzRY/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "JetHQ — Executive Decisions Needed",
+      "date": "18 May",
+      "what": "Decisions for JetHQ executives.",
+      "url": "https://docs.google.com/document/d/15jdF-4swtxVufehT5DvHimsSBs4y4H0ixBcfIGmBi9o/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Spreadsheet",
+      "title": "JetHQ · Roadmap Prioritization · 2026-05",
+      "date": "26 May",
+      "what": "May prioritisation.",
+      "url": "https://docs.google.com/spreadsheets/d/1ZKkrjEgHe3cgeFQBy2MKo_QVftPK1VqwI7xNKj_Vlww/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Spreadsheet",
+      "title": "JetHQ x Supernal – Project Plan",
+      "date": "26 May",
+      "what": "Project plan.",
+      "url": "https://docs.google.com/spreadsheets/d/1yRMFUKJoerTSMHaePzxp5ShDEYbF6h5by1tskrbRnns/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Spreadsheet",
+      "title": "JetHQ x Supernal – Support Tracker",
+      "date": "7 May",
+      "what": "Support requests.",
+      "url": "https://docs.google.com/spreadsheets/d/1oHmyCCqtG2S1UP5Dku2T4ob_7HW8E1UfjdBC9WGInV4/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Spreadsheet",
+      "title": "JetHQ Internal Tasks (to be cleaned up)",
+      "date": "27 May",
+      "what": "Internal task list.",
+      "url": "https://docs.google.com/spreadsheets/d/1fvvXkChPPF5PmgQKSOg09FyDAPn4S_i4y_GGJaWWrr0/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Spreadsheet",
+      "title": "JetHQ — AI Employee Work Products & Metrics",
+      "date": "23 Apr",
+      "what": "KPI definitions.",
+      "url": "https://docs.google.com/spreadsheets/d/13IbX_nCoZULaNIMdH-iA05qECtQP0g8eYdUWyYfZU1k/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Account Health Review - JetHQ - 4/28/26.docx",
+      "date": "28 Apr",
+      "what": "Health review from the red period.",
+      "url": "https://drive.google.com/file/d/1Ox8VJymiZngWi2MNcD4ESncUL9ONuxI2/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Spreadsheet",
+      "title": "JetHQ External Meetings — Last 3 Weeks (Mar 3–24)",
+      "date": "25 Mar",
+      "what": "Meeting log.",
+      "url": "https://docs.google.com/spreadsheets/d/1rajKj8fXwZubQmy1rk4fD_Ed6U0RsGgHH0rJ5qW4Wks/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "JetHQ Custom Supernal UI - Technical Project Scope & Migration Plan",
+      "date": "21 Oct 2025",
+      "what": "Phase 2 Hub scope.",
+      "url": "https://docs.google.com/document/d/1yaZhpVgE3bAWlJayrixz33hz8h4C1Jzg5vgnWwPqR3E/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "JetHQ: Technical Scope",
+      "date": "3 Feb",
+      "what": "Technical scope.",
+      "url": "https://docs.google.com/document/d/13C1gq4J9E4N70B2h4yQFAp6jXEPjiZd8C50UMHICf2Q/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "JetHQ Flags",
+      "date": "17 Mar",
+      "what": "Risk flags.",
+      "url": "https://docs.google.com/document/d/1CgnvGKfxgRUtTfj3km-rYSEVq15XHTZqjBab1FWN2DM/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Aviation Data Capabilities",
+      "date": "1 May",
+      "what": "Data-source capabilities.",
+      "url": "https://docs.google.com/document/d/169KNw42JtKLyYJl-boszj8KCzJs-RhdglCc8tpKqLTE/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Folder",
+      "title": "Weekly Checkpoint notes (Transcripts folder)",
+      "date": "Apr to Jul",
+      "what": "About 14 meeting-note documents.",
+      "url": "https://drive.google.com/drive/folders/18OtYnRcnMmoQHYUg-2TS9BX3m9ZFWK0z",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Recording",
+      "title": "JetHQ Internal Sync recording",
+      "date": "25 Mar",
+      "what": "Internal sync video.",
+      "url": "https://drive.google.com/file/d/1Zx50X-p37N8kBnr0fUPoT9jTap2HqOVJ/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Folder",
+      "title": "JetHQ account folder",
+      "date": "2025 to 2026",
+      "what": "Account root: client facing, internal facing, Marcus, Valerie, ABB data, contracts.",
+      "url": "https://drive.google.com/drive/folders/1FxXCcugUbcjq8mSWdLKMVJRATVarjtvv",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Folder",
+      "title": "JetHQ contracts folder",
+      "date": "28 Oct",
+      "what": "Signed and draft contracts.",
+      "url": "https://drive.google.com/drive/folders/1asb_rYRT5xlG0mO8UPx8z3CRD437Gytx",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Design",
+      "title": "ClientVoiceJetHQ.tsx",
+      "date": "15 Oct",
+      "what": "Website client-voice component.",
+      "url": "https://drive.google.com/file/d/1DVhdYgvFG1q-Tv2GdnfU0j_pNUfS7KUp/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Proposal",
+      "title": "Flight Deck proposal (six packages)",
+      "date": "Jul",
+      "what": "Menu of Flight Deck modules and prices.",
+      "url": "https://flightdeck-proposal-jethq.links.getsupernal.ai/",
+      "where": "Web",
+      "sensitive": false
+    },
+    {
+      "kind": "Deck",
+      "title": "Q3 workshop roadmap deck",
+      "date": "9 Sep",
+      "what": "Offsite presentation.",
+      "url": "https://workshop-q3-jethq.links.getsupernal.ai/",
+      "where": "Web",
+      "sensitive": false
+    },
+    {
+      "kind": "Prototype",
+      "title": "Flight Deck prototype",
+      "date": "Sep",
+      "what": "Company-OS prototype.",
+      "url": "https://svenboettger-supernal.github.io/jethq-os-prototype/",
+      "where": "Web",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Roadmap check artifact",
+      "date": "9 Sep",
+      "what": "Roadmap versus what exists.",
+      "url": "https://claude.ai/code/artifact/b4f93884-b2a6-42d6-a45f-ba55a1edb11b",
+      "where": "claude.ai",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Roadmap update artifact",
+      "date": "26 Oct",
+      "what": "Updated roadmap.",
+      "url": "https://claude.ai/artifact/QhBU9d35tXYpuopvSZecar",
+      "where": "claude.ai",
+      "sensitive": false
+    },
+    {
+      "kind": "Deck",
+      "title": "QBR deck",
+      "date": "27 Oct",
+      "what": "QBR presentation.",
+      "url": "https://claude.ai/artifact/FB4QM55wisdN1onLHRhNvS",
+      "where": "claude.ai",
+      "sensitive": false
+    },
+    {
+      "kind": "Prototype",
+      "title": "Value Rank / Best Buy artifact",
+      "date": "29 Oct",
+      "what": "Value Rank design.",
+      "url": "https://claude.ai/artifact/Dm3cyz5eXVAcYCvNBmhru9",
+      "where": "claude.ai",
+      "sensitive": false
+    },
+    {
+      "kind": "Site",
+      "title": "The Hub",
+      "date": "20 Dec 2025",
+      "what": "Production platform.",
+      "url": "https://hub.jethq.com/",
+      "where": "Web",
+      "sensitive": false
+    },
+    {
+      "kind": "Recording",
+      "title": "Supernal // JetHQ FMV Deep Dive",
+      "date": "6 Nov",
+      "what": "FMV workflow deep dive with sales engineers.",
+      "url": "https://fathom.video/calls/892587033",
+      "where": "Web",
+      "sensitive": false
+    },
+    {
+      "kind": "Recording",
+      "title": "Flight Deck scoping recording with Julie",
+      "date": "26 Jun",
+      "what": "FlightDeck vision session.",
+      "url": "",
+      "where": "unknown",
+      "sensitive": false
+    },
+    {
+      "kind": "Prototype",
+      "title": "Interactive pricing layer-cake HTML",
+      "date": "Jul",
+      "what": "Pricing menu prototype.",
+      "url": "",
+      "where": "unknown",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Notion JetHQ account page",
+      "date": "5 Oct",
+      "what": "Account record and hygiene checklist.",
+      "url": "https://app.notion.com/p/3a7bd5e8f31881389a66ca98d615f18a",
+      "where": "Notion",
+      "sensitive": false
+    }
+  ],
+  "book": [
+    {
+      "title": "The account in one page",
+      "minutes": 2,
+      "lenses": [
+        "all"
+      ],
+      "text": "JetHQ is a private-jet brokerage of about 75 people that tracks roughly 80,000 aircraft and sells valuations as part of how it wins deals. It signed with Supernal on 8 May 2025 for two AI employees: Marcus, who watches JetNet market alerts and keeps JetHQ's aircraft database current, and Valerie, who assembles Fair Market Value reports. That deal was $92,000 upfront plus $7,500 a month, $249,500 in all. Because the database JetHQ relied on was owned by a slow outside vendor, Supernal ended up building its own aircraft-intelligence web app, the Hub, launched on 20 December 2025. A second order form, signed by RJ Miller on 9 April 2026, added six Hub modules for $2,500 a month, bringing the account to $10,000 a month through 30 June 2027, with auto-renewal at the same rate.\n\nThe relationship nearly broke in late April 2026, when the client judged the Hub half done and asked to be removed from Supernal's website. A new engineer, Mauro, a roadmap the client could see and a run of fast deliveries turned it green by July. Since then the champion has changed twice: Julie, the fractional CMO, was let go in August, and RJ, once a sceptic, is now the strongest advocate. Valerie went live in August and a Canva-style editor landed in November. The open questions are whether JetHQ's sales engineers stop using Canva, and whether the next sale, an intranet and company operating system called Flight Deck, gets scoped and priced before 30 November. Account OS reads health 3.2, Watch, driven by margin.",
+      "sources": [
+        "Drive: JetHQ SOW.pdf",
+        "Drive: jethq-of-005",
+        "360 doc",
+        "JetHQ Internal Alignment, 1 May 2026",
+        "Notion weekly report, wk of 2 Nov 2026",
+        "Account OS"
+      ]
+    },
+    {
+      "title": "Why they bought, and why they keep buying",
+      "minutes": 2,
+      "lenses": [
+        "strategy",
+        "account"
+      ],
+      "text": "The first purchase was about labour. Market tracking meant reading JetNet alerts by hand and chasing brokers for missing details, and every valuation meant pulling numbers from Bluebook, VRef, JetNet and AviaCost and stitching them into a report. The order form promised to automate both, with JetHQ people checking key decision points. Behind it sat a frustration with Wunderbeast, the vendor that hosted their old Hub, which answered only twice a week; the owner, Garrett, had already spent more than half a million dollars on that Hub over three years. Who championed the 2025 deal and what alternatives were considered is not recorded; one internal note says Rebecca Johnson signed it without Garrett's full buy-in, which explains why he has stayed distant.\n\nPhase 2 followed the Hub itself. Once Supernal had replaced Wunderbeast, there was a module roadmap to sell, and an annual prepay with 5% off gave JetHQ a reason to commit, although its lawyer sat on the paperwork from December to April.\n\nThe next sale has several causes. JetHQ pays about $100,000 a year for Salesforce plus an admin, and an outside engineer is building a JetNet integration that duplicates the Hub. Its intranet is split between SharePoint and OneDrive and barely maintained, and Monday is used as a checklist. RJ has watched the Hub change how his brokers talk to buyers and now wants the whole company working inside it. Against that sits a real alternative: an in-house AI hire who told Garrett in July that he could build it all himself.",
+      "sources": [
+        "Drive: JetHQ SOW.pdf",
+        "360 doc",
+        "JetHQ – Internal Bi-Weekly Sync, 22 Jul 2026",
+        "JetHQ \"Flight Deck\" Scoping, 1 Jul 2026",
+        "Delivery Sync, 10 Aug 2026",
+        "Slack, 2 Nov 2026"
+      ]
+    },
+    {
+      "title": "How the deal is built",
+      "minutes": 2,
+      "lenses": [
+        "account",
+        "strategy"
+      ],
+      "text": "There are two signed order forms and one draft. The May 2025 form covers Marcus and Valerie: $92,000 in two development instalments, then $7,500 a month invoiced from August 2025 to March 2027, under Supernal's standard terms with California law, a 12-month liability cap and a duty to export agent instructions on request. The AI Hub Addendum restates that scope as Phase 1 and adds Phase 2: inventory explorer, import and export, user management, the JetHQ Estimate, testing and migration. It charges $2,500 a month on top, asks for one $114,000 annual payment on 1 January 2026, and moves the end of term to 30 June 2027, renewing for twelve months at $10,000 a month unless either side gives 60 days' notice.\n\nAccount OS records these as two closed deals, $249,500 and $67,500, both under Johnny. The second value does not match the contract arithmetic, which gives about $37,500 for Phase 2 over its term. A third deal, \"Flight Control OS\", sits at Prototype for $50,000, expected 31 December, under Stu.\n\nThe draft OF-001 is deliberately small: one month of discovery across SharePoint, Microsoft 365, Salesforce and Monday, then two months putting every document for a serial number onto that aircraft's Hub page, for $1,000 a month over twelve months. It excludes switching off SharePoint and every other Flight Deck module, which are priced separately on a menu from $1,000 to $2,500 a month each. Prices discussed for the same first step range from $500 to $2,000 a month, and nobody has yet chosen.",
+      "sources": [
+        "Drive: JetHQ SOW.pdf",
+        "Drive: jethq-of-005",
+        "Drive: OF-001 draft",
+        "Account OS",
+        "GTM + Scoping, 9 Oct 2026",
+        "Slack, 11 Nov 2026"
+      ]
+    },
+    {
+      "title": "The product and why it is built this way",
+      "minutes": 2,
+      "lenses": [
+        "product",
+        "engineering"
+      ],
+      "text": "Three systems work together. The Hub at hub.jethq.com holds about 80,000 aircraft, with status, days on market, the JetHQ Estimate, market reports and, more recently, a personal My Desk view, market charts and a Value Curve. Marcus reads JetNet alert emails every minute, classifies each change and writes it to the Hub; it passed 95% accuracy in March 2026 and is being moved off n8n into its own service. Valerie builds FMV reports from Hub data, VRef, Blue Book and uploaded spec sheets.\n\nMost design choices come from the data. VRef and Blue Book can differ by over a million dollars on the same jet, so VRef wins where both exist and no option is counted twice. Comps are taken from the last six months because the market moves fast. Internal sales, factory deliveries and foreclosures carry a badge but stay out of market statistics. JetNet refreshes never overwrite a researcher's manual edits, because off-market aircraft carry information JetNet lacks. Daily hours and landings come from JetNet's standard record rather than a paid flight-tracking add-on the sales team did not value.\n\nOther choices come from how people work. Valerie began as a \"Desktop FMV\" on Julie's Canva template because VRef's API was blocked. When sales engineers said editing a Valerie FMV took four hours, as long as Canva, Supernal built a full Canva-style editor with Excel-like tables and photo grids, shipped about 12 November. The Value Curve is held back from brokers until it has been accurate for two quarters.",
+      "sources": [
+        "360 doc",
+        "Linear",
+        "Weekly Checkpoints, 28 Jul, 1 Sep, 15 Sep, 22 Sep 2026",
+        "Supernal // JetHQ FMV Deep Dive, 6 Nov 2026",
+        "Slack, 28 Oct to 13 Nov 2026"
+      ]
+    },
+    {
+      "title": "How delivery has gone",
+      "minutes": 2,
+      "lenses": [
+        "delivery",
+        "engineering"
+      ],
+      "text": "Delivery has had three phases. The first year was slow for reasons mostly outside Supernal: weeks waiting on Wunderbeast, then VRef's pricing dispute that blocked Valerie from October 2025. Marcus still went live in September 2025 and the Hub in December. Early 2026 was a data-quality grind: 369 duplicate aircraft, JetNet format changes that broke Marcus twice, and 89% of 215 logged hours spent on maintenance rather than new features.\n\nThe second phase was the April crisis. JetHQ saw the Hub as half finished while Supernal thought it was nearly complete, the scope had drifted from a researcher's tool to a sales tool, and work had never been broken into small, visible pieces. The response, agreed on 1 May, was senior capacity in the form of Mauro, a three-month roadmap instead of a list of seventy items, a client-visible backlog, and bug fixes kept separate from new features. By July the account was green.\n\nThe third phase is Mauro's. Jens left on 1 October and Mauro now runs every call, writing a detailed note after each one in Slack. JetHQ prioritised four Valerie tasks for Q4; Supernal shipped faster than JetHQ's own dates, including the FMV editor ahead of Hanan's 17 November deadline. Linear shows two milestones past their 31 October dates, but Sven's standing rule is that internal dates do not on their own make the account at risk. Real watch items are a sales-price bug after JetNet updates, unrotated keys after the October Railway incident, and a $3,000 OpenAI charge from an old key.",
+      "sources": [
+        "360 doc",
+        "JetHQ Internal Alignment, 1 May 2026",
+        "Slack, 1 Oct to 13 Nov 2026",
+        "Linear",
+        "Notion: Delivery review standing context",
+        "Notion weekly report, wk of 2 Nov 2026"
+      ]
+    },
+    {
+      "title": "The people",
+      "minutes": 2,
+      "lenses": [
+        "account",
+        "strategy"
+      ],
+      "text": "On JetHQ's side, Garrett owns the company and has never fully bought in; internal notes describe him as caring about selling jets, not AI, and as someone reached through results rather than technology. RJ Miller, Garrett's college roommate and the sales leader, signed the Phase 2 addendum. In spring he was hot and cold and possibly limiting Supernal's visible impact; after the July tech talk, where twelve of fifteen praising quotes were his, he became the champion, and by November Stuart wrote that he had never seen him so engaged. Julie Boake, the fractional CMO, was the champion through the spring and the author of the FlightDeck mockup; she was let go in early August, and her departure briefly put the expansion in limbo. Hanan Saliba owns valuations and sets Valerie's dates; she goes on leave from mid-November. Brooks Boschert and Clay Marks run market research and the bi-weekly product session. Fernando, Vlad and Sameer are the sales engineers whose habits decide Valerie's adoption. Roxy runs Salesforce from outside. An unnamed in-house AI hire is the DIY risk.\n\nOn Supernal's side, Johnny sold the account and still co-owns it. Eric Kravitz drafted both contracts and left at the end of May. Sven Boettger is the strategist and ran the turnaround. Jens built most of the first year and left the account in October. Mauro is now the sole engineer and the client's main contact. Stuart Childs became account manager in the autumn and owns the intranet sale. Account OS still lists Jens as FDE and has nobody on the power map.",
+      "sources": [
+        "JetHQ – Internal Bi-Weekly Sync, 24 Jun, 29 May, 22 Jul 2026",
+        "local: 2026-07-13-all-hands.md",
+        "Weekly Pipeline Meeting, 12 Aug 2026",
+        "Slack, 1 Oct to 11 Nov 2026",
+        "Account OS"
+      ]
+    },
+    {
+      "title": "What value has shown",
+      "minutes": 2,
+      "lenses": [
+        "strategy",
+        "account"
+      ],
+      "text": "The strongest evidence is qualitative and comes from JetHQ's own people. In July, RJ's internal tech talk to more than fifty staff produced fifteen unsolicited quotes describing the Hub as JetNet on steroids and saying an FMV that once took a week and a half now takes five minutes. In October, a sales VP used the first Valerie FMV in a real client pitch. On 5 November the sales engineers agreed that Valerie's valuations were much better; their objection had moved from the numbers to the editing.\n\nThe measured side is thinner. Marcus passed 95% accuracy. Hub adoption is put at 80% of the way to company-wide use. The weekly report scores usage 4 out of 5, proactive. But Valerie produces about one FMV a day, PostHog showed one sales engineer who complained about missing data had not built an FMV in two weeks, and the Value Curve has three users. Account OS holds no success-plan goals or value entries, and Notion's checklist says value and usage metrics are only partly defined.\n\nThe gap that matters is attribution. Garrett wants to sell more jets, and nobody can yet show which deals the Hub or Valerie touched. In May the team named revenue attribution as the missing model; in July it suggested telling Garrett that 74 aircraft were sold during a two-week incident investigation. Neither has become a tracked number. Margin is the other weak spot: Notion says break-even and Account OS scores GM 2.",
+      "sources": [
+        "local: 2026-07-13-all-hands.md",
+        "Slack, 20 Oct and 5 Nov 2026",
+        "Linear",
+        "Notion weekly report, wk of 2 Nov 2026",
+        "JetHQ – Internal Bi-Weekly Sync, 29 May and 22 Jul 2026",
+        "Account OS",
+        "Notion account page"
+      ]
+    },
+    {
+      "title": "Where it stands and what is next",
+      "minutes": 2,
+      "lenses": [
+        "all"
+      ],
+      "text": "As of 14 November 2026 the account is delivering well and the client is engaged, but three things need a decision. First, Valerie's adoption: the Canva-style editor shipped about 12 November, and the next weeks show whether Hanan, Fernando, Vlad and Sameer build FMVs in Valerie while Hanan is on leave. A feedback call followed the release; the success signal is FMV counts in PostHog, not opinions.\n\nSecond, the intranet sale. RJ asks about it every week and wants the whole company working inside the Hub, but the draft order form only covers documents on aircraft pages, sized at about 100 hours. Stuart wants to rerun discovery with RJ, refresh the Flight Deck menu, whose dates still say Q3 and Q4, and close by year end with aggressive pricing. Johnny's deadline is 30 November. Prices on the table run from $500 to $2,000 a month for the first step and up to $11,500 a month across the menu.\n\nThird, hygiene: rotate JetNet and VRef keys, fix the lost-sale-price bug, update Account OS (pod, stakeholders, success plan, value) and decide whether Pulse is shown to JetHQ.\n\nFurther out, renewal notice falls around 1 May 2027 for a term ending 30 June 2027 at $10,000 a month. Margin pressure, the DIY alternative and Garrett's distance are the renewal risks; RJ's advocacy, the Hub's daily use and a signed intranet expansion are the counterweights.",
+      "sources": [
+        "Slack, 2 to 13 Nov 2026",
+        "Notion weekly report, wk of 2 Nov 2026",
+        "Notion GTM update, 12 Nov 2026",
+        "Drive: OF-001 draft",
+        "Drive: jethq-of-005",
+        "Account OS"
+      ]
+    }
+  ],
+  "answers": [
+    {
+      "q": "Why did JetHQ nearly churn in April, and what turned it around?",
+      "a": "The client judged the Hub half done while Supernal thought it nearly complete, the scope had drifted from a researcher’s tool to a sales tool, and work was never broken into visible pieces. The fix was a senior engineer (Mauro), a three-month roadmap and a client-visible backlog. By July RJ’s own tech talk produced 15 quotes and the account was green."
+    },
+    {
+      "q": "What is the next sale and why is it stuck?",
+      "a": "An intranet and Flight Deck company OS, starting with documents on each aircraft’s Hub page. The draft order form is $1,000 a month for about 100 hours, but RJ seems to want the whole intranet, and prices from $500 to $2,000 a month are still undecided. A scoping session with RJ must happen before Johnny’s 30 Nov deadline."
+    },
+    {
+      "q": "Is Valerie working?",
+      "a": "The numbers now satisfy the sales engineers, and the first Valerie FMV was used with a client in October. Editing was the gap, taking as long as Canva, so a Canva-style editor shipped about 12 Nov. Usage is still low, about one FMV a day, so PostHog counts over the next weeks are the test."
+    }
+  ],
+  "workflows": [
+    {
+      "name": "Weekly checkpoint",
+      "kind": "external",
+      "cadence": "Weekly, Tuesday",
+      "with": "RJ, Hanan, Brooks, Clay, Chris Hancock and sales engineers; run by Mauro",
+      "output": "Slack write-up in #acnt-jethq-internal",
+      "lastRun": "10 Nov",
+      "note": "Mauro posts the feedback and follow-ups after each call."
+    },
+    {
+      "name": "Bi-weekly with Brooks and Clay",
+      "kind": "external",
+      "cadence": "Every two weeks, Monday",
+      "with": "Brooks Boschert, Clay Marks",
+      "output": "Slack write-up",
+      "lastRun": "10 Nov",
+      "note": "Hub and Value Curve feature work."
+    },
+    {
+      "name": "Valerie deep-dive sessions",
+      "kind": "external",
+      "cadence": "Ad hoc, weekly in Q4",
+      "with": "Hanan and sales engineers",
+      "output": "Fix lists",
+      "lastRun": "6 Nov",
+      "note": "Added in Sep to avoid waiting a week between iterations."
+    },
+    {
+      "name": "JetHQ Weekly Planning",
+      "kind": "internal",
+      "cadence": "Weekly, Monday",
+      "with": "Sven, Mauro, Stuart",
+      "output": "Linear updates",
+      "lastRun": "9 Nov",
+      "note": "Sven posts a reminder to update Linear before each one."
+    },
+    {
+      "name": "Internal bi-weekly sync",
+      "kind": "internal",
+      "cadence": "Every two weeks",
+      "with": "Sven, Johnny, Stuart, Mauro",
+      "output": "",
+      "lastRun": "",
+      "note": "Ran through summer; last date not found."
+    },
+    {
+      "name": "Weekly account health report",
+      "kind": "internal",
+      "cadence": "Weekly",
+      "with": "Sven",
+      "output": "Notion weekly report",
+      "lastRun": "9 Nov",
+      "note": "Rated by a routine and overruled by Sven where needed."
+    },
+    {
+      "name": "QBR",
+      "kind": "external",
+      "cadence": "Quarterly (not yet agreed)",
+      "with": "RJ and JetHQ leadership; Stuart and Johnny",
+      "output": "QBR deck",
+      "lastRun": "27 to 28 Oct",
+      "note": "Notion says QBR cadence is not yet agreed with the client."
+    }
+  ]
+}

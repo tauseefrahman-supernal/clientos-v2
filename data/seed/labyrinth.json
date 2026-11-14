@@ -1,0 +1,1388 @@
+{
+  "key": "labyrinth",
+  "title": "Labyrinth",
+  "strat": "Jaime Garcia",
+  "pod": "Ryan Williams (AM), Jaime Garcia (strategist), Vitor Escalfoni (FDE)",
+  "mrr": "$15,000",
+  "closedValue": "$210,000",
+  "closedCount": 2,
+  "health": {
+    "score": "",
+    "band": "At risk",
+    "tone": "warn"
+  },
+  "fresh": [
+    "Current as of Delivery Sync, 9 Nov, and Seb sync, 13 Nov",
+    "63 internal meetings mention the account since Jun; no client meeting recorded",
+    "1 user (Chris), 2 Labrynth clients connected"
+  ],
+  "transcripts": 2,
+  "deals": [
+    {
+      "name": "OF-002 Account Management OS",
+      "value": "$180,000",
+      "stage": "Closed Won 29 Jul",
+      "phase": 3,
+      "note": "$15,000 a month for 12 months; exit after month 6. Not in Account OS."
+    },
+    {
+      "name": "Labrynth Consulting (first engagement)",
+      "value": "$30,000",
+      "stage": "Closed Won 4 Jun",
+      "phase": 3,
+      "note": "Account OS says $30,000 one-time; meetings say a $15,000 one-month engagement."
+    }
+  ],
+  "lost": "The $84,000 Content Factory order form was never signed; Stuart dropped it on 21 Jul as too slow.",
+  "sold": [
+    {
+      "form": "OF-001 one-month engagement",
+      "promised": "A first month of strategy work ahead of the main order form.",
+      "met": "Superseded by OF-002; document not found.",
+      "tone": ""
+    },
+    {
+      "form": "OF-002 Account Management OS",
+      "promised": "Strategy in 15 days, a month-1 prototype, a month-2 operational pilot, month-3 portfolio scale and a month-4 command center with an expectation scorecard.",
+      "met": "Prototype, pilot agent and security done; first core workflow due first week of Dec; portfolio scale and scorecard not started.",
+      "tone": "warn"
+    }
+  ],
+  "arc": [
+    {
+      "period": "Jun",
+      "meetings": 5,
+      "points": [
+        "Harold kickoff 22 Jun; one-month engagement signed.",
+        "Content factory scoped against a $100K a year handshake."
+      ]
+    },
+    {
+      "period": "Jul",
+      "meetings": 13,
+      "points": [
+        "Stuart killed the content factory on 21 Jul and named delivery capacity as the constraint.",
+        "OF-002 Account Management OS signed 29 Jul at $15,000 a month."
+      ]
+    },
+    {
+      "period": "Aug",
+      "meetings": 12,
+      "points": [
+        "Week 1 critical: Chris doubted the scope and access was pending.",
+        "Process maps and business case turned it green; approved by Chris and Sameen by 24 Aug."
+      ]
+    },
+    {
+      "period": "Sep",
+      "meetings": 16,
+      "points": [
+        "Product became a Hermes agent in Slack; Chris onboarded about 22 Sep.",
+        "Data access and security became the gate."
+      ]
+    },
+    {
+      "period": "Oct",
+      "meetings": 10,
+      "points": [
+        "Chris approved the approach 15 Oct; all 12 security items closed.",
+        "Smart Connector live on ClickUp and Granola 30 Oct."
+      ]
+    },
+    {
+      "period": "Nov",
+      "meetings": 7,
+      "points": [
+        "Kickoff skill built; Chris moved the 5 Nov sync to 10 Nov.",
+        "Labrynth layoffs took out the executive team; account at risk and folded back into Infinity."
+      ]
+    }
+  ],
+  "disagreements": [
+    "First engagement: $30,000 one-time (Account OS) versus a $15,000 one-month engagement (GTM + Scoping, 30 Jun).",
+    "Annual value: $100K handshake, $120K a year, $180K signed, and an about $200K content engine.",
+    "Revenue: $180K ARR announced at the 4 Aug All-Hands versus break-even and treated as internal (Squad Lab, 6 Oct).",
+    "Health: Healthy on 30 Oct and At risk on 6 Nov in Notion; Account OS unscored.",
+    "Pod: Account OS lists Jaime as FDE; delivery sources name Vitor as lead mason.",
+    "The 23 Oct Weekly Review heading Labyrinth (Ethic Select) describes Ethic Select's product, not Labrynth's.",
+    "Order form numbering: the content factory draft and the signed account management form are both OF-002.",
+    "Scope choice: one note says the client chose it; Stuart's stated priorities were agentic SDLC and RTI automation."
+  ],
+  "streams": [
+    {
+      "name": "Strategy and prototype (M1)",
+      "state": "Live",
+      "tone": "ok",
+      "pct": 100,
+      "due": "Sep",
+      "measured": "Business case approved",
+      "learned": "Chris doubted the scope until the process maps.",
+      "attention": false
+    },
+    {
+      "name": "Security setup",
+      "state": "Live",
+      "tone": "ok",
+      "pct": 100,
+      "due": "30 Oct",
+      "measured": "12 of 12 checklist items",
+      "learned": "Security approval gated about four weeks of work.",
+      "attention": false
+    },
+    {
+      "name": "Smart Connector",
+      "state": "Waiting on client",
+      "tone": "warn",
+      "pct": null,
+      "due": "30 Oct",
+      "measured": "2 ClickUp clients, 2 Granola folders",
+      "learned": "Personal Granola notes need client-side admin action.",
+      "attention": true
+    },
+    {
+      "name": "Kickoff Kit",
+      "state": "Building",
+      "tone": "warn",
+      "pct": null,
+      "due": "12 Nov",
+      "measured": "Under 4 minutes from SOW to deck",
+      "learned": "Real SOWs are the critical input; synthetic ones cannot validate.",
+      "attention": true
+    },
+    {
+      "name": "Daily Delivery Check",
+      "state": "Not started",
+      "tone": "warn",
+      "pct": null,
+      "due": "3 Dec",
+      "measured": "",
+      "learned": "",
+      "attention": false
+    },
+    {
+      "name": "Scope Sentinel, Demo Gate, Release Notes",
+      "state": "Not started",
+      "tone": "",
+      "pct": null,
+      "due": "",
+      "measured": "",
+      "learned": "",
+      "attention": false
+    },
+    {
+      "name": "Account continuity",
+      "state": "Blocked",
+      "tone": "err",
+      "pct": null,
+      "due": "10 Nov",
+      "measured": "",
+      "learned": "Labrynth's leadership is gone; who sponsors and pays is unknown.",
+      "attention": true
+    }
+  ],
+  "tiles": [
+    {
+      "file": "roadmap",
+      "section": "Roadmap › Success",
+      "title": "Success metrics",
+      "headline": "Value is modeled at $605K to $839K a year but nothing is measured; one user logs in when prompted.",
+      "tone": "err",
+      "state": "Unmeasured"
+    },
+    {
+      "file": "roadmap",
+      "section": "Roadmap › Commercials",
+      "title": "Commercial model",
+      "headline": "$15,000 a month between two Infinity companies, counted internally as break-even.",
+      "tone": "warn",
+      "state": "Intercompany"
+    },
+    {
+      "file": "plan",
+      "section": "Plan › Dependencies",
+      "title": "Dependencies",
+      "headline": "The core workflow waits on Chris's SOWs, Granola access and ClickUp write access.",
+      "tone": "err",
+      "state": "Client blocked"
+    },
+    {
+      "file": "stakeholders",
+      "section": "Stakeholders › Power",
+      "title": "Power map",
+      "headline": "The executive team is gone after the layoffs; Chris is the only contact and sponsor is unknown.",
+      "tone": "err",
+      "state": "Sponsor gone"
+    },
+    {
+      "file": "plan",
+      "section": "Plan › Rhythm",
+      "title": "Rhythm",
+      "headline": "Weekly working session with Chris and a weekly brief; the 5 Nov session slipped to 10 Nov.",
+      "tone": "warn",
+      "state": "Slipping"
+    },
+    {
+      "file": "stakeholders",
+      "section": "Stakeholders › Health",
+      "title": "Health",
+      "headline": "At risk in Notion for 2 to 6 Nov; Account OS has no score.",
+      "tone": "warn",
+      "state": "At risk"
+    }
+  ],
+  "decisions": [
+    {
+      "title": "Confirm continuity after the layoffs",
+      "detail": "Record the outcome of the 10 Nov session with Chris and whether the work and fees continue.",
+      "action": "Record outcome"
+    },
+    {
+      "title": "Loop in Ryan, Scott and Devan",
+      "detail": "Stuart is out and Labrynth is folded into Infinity; commercial impact needs an owner.",
+      "action": "Draft note"
+    },
+    {
+      "title": "Get the inputs for the core workflow",
+      "detail": "Real SOWs, full Granola access via Renan, ClickUp write access with its own security review.",
+      "action": "Draft ask"
+    },
+    {
+      "title": "Answer the SOC 2 question",
+      "detail": "Chris asked on 30 Oct and got an unverified answer.",
+      "action": "Verify answer"
+    },
+    {
+      "title": "Put the account into Account OS",
+      "detail": "OF-002, stakeholders, health and renewal are missing from Account OS.",
+      "action": "Draft records"
+    }
+  ],
+  "slipping": [
+    {
+      "kind": "Blocked on client",
+      "tone": "err",
+      "item": "SOWs and Granola access",
+      "detail": "Asked for since late Oct; Granola limited to two public folders."
+    },
+    {
+      "kind": "Past target",
+      "tone": "err",
+      "item": "OF-002 month-3 portfolio scale",
+      "detail": "The order form expected it about early Nov; delivery is still on the first workflow."
+    },
+    {
+      "kind": "Past target",
+      "tone": "warn",
+      "item": "Client sync and demo",
+      "detail": "5 Nov session moved to 10 Nov; outcome not recorded."
+    },
+    {
+      "kind": "Promised, no task",
+      "tone": "warn",
+      "item": "Verified SOC 2 answer",
+      "detail": "Owed to Chris since 30 Oct."
+    },
+    {
+      "kind": "Promised, no task",
+      "tone": "warn",
+      "item": "Labrynth-side migration owners",
+      "detail": "Asked of Chris since mid-Oct."
+    },
+    {
+      "kind": "Open risk",
+      "tone": "err",
+      "item": "Labrynth layoffs and fold-back into Infinity",
+      "detail": "Executive team gone; whether fees continue is unknown."
+    },
+    {
+      "kind": "Expectation gap",
+      "tone": "warn",
+      "item": "Difference from Claude",
+      "detail": "Chris keeps asking how the agent beats a general assistant."
+    }
+  ],
+  "dates": [
+    {
+      "when": "3 Dec",
+      "what": "Core workflow (Kickoff Kit plus Daily Delivery Check) due, first week of Dec"
+    }
+  ],
+  "feed": [
+    {
+      "meeting": "Sync: Seb & Tauseef",
+      "date": "13 Nov",
+      "changes": [
+        "Client status: Labrynth rebranded and pulled back into Infinity amid a profitability push."
+      ]
+    },
+    {
+      "meeting": "Delivery Sync",
+      "date": "9 Nov",
+      "changes": [
+        "Health: at risk after Labrynth layoffs took out the executive team.",
+        "Plan: loop in Ryan before the Chris session; Devan if revenue is affected."
+      ]
+    },
+    {
+      "meeting": "Weekly Review",
+      "date": "6 Nov",
+      "changes": [
+        "Priorities: presentation-generation skill ahead of the ClickUp integration."
+      ]
+    },
+    {
+      "meeting": "Slack #supernal-squad-the-origin",
+      "date": "5 Nov",
+      "changes": [
+        "Product: kickoff skill shipped to dev and production, with a checker for unsourced facts."
+      ]
+    },
+    {
+      "meeting": "Delivery Sync",
+      "date": "2 Nov",
+      "changes": [
+        "Security: checklist complete and shown to Chris; ClickUp tested with Belongil.",
+        "Team: Harvy added as backup to Vitor."
+      ]
+    }
+  ],
+  "people": [
+    {
+      "name": "Chris Kuss",
+      "title": "Head of Customer Success; day-to-day lead and only user",
+      "note": "At the start: doubted the scope. Now: engaged but slow to share SOWs and access; keeps asking how it beats Claude.",
+      "influence": "High",
+      "disposition": "Supporter"
+    },
+    {
+      "name": "Stuart Lacey",
+      "title": "CEO, signer of OF-002",
+      "note": "At the start: sponsor who engaged on 21 Jul and set priorities. Now: reported out after the early-Nov layoffs.",
+      "influence": "High",
+      "disposition": "Neutral"
+    },
+    {
+      "name": "Sameen Kashfi",
+      "title": "Executive sponsor and approver on OF-002",
+      "note": "Approved the business case with Chris by 24 Aug. Current role after the layoffs unknown.",
+      "influence": "High",
+      "disposition": "Supporter"
+    },
+    {
+      "name": "Renan Lima",
+      "title": "Head of Engineering; Granola admin",
+      "note": "At the start: untested gatekeeper. Now: holds the Granola access Chris needs.",
+      "influence": "Medium",
+      "disposition": "Neutral"
+    },
+    {
+      "name": "Harold",
+      "title": "Head of Product",
+      "note": "At the start: Stuart's delegate who steered to marketing. Now: not engaged since Aug.",
+      "influence": "Medium",
+      "disposition": "Neutral"
+    },
+    {
+      "name": "Athena",
+      "title": "Security reviewer",
+      "note": "Ran the security review; named as an approved reader.",
+      "influence": "Medium",
+      "disposition": "Neutral"
+    },
+    {
+      "name": "Daniel Zaitsev",
+      "title": "Head of Marketing",
+      "note": "Owned the content need that was dropped; ran the index press release with Supernal marketing.",
+      "influence": "Low",
+      "disposition": "Neutral"
+    },
+    {
+      "name": "Ryan Williams",
+      "title": "AM, Supernal",
+      "note": "Account lead and deal owner in Account OS.",
+      "influence": "",
+      "disposition": ""
+    },
+    {
+      "name": "Jaime Garcia",
+      "title": "Strategist, Supernal",
+      "note": "Supernal Lead on OF-002; owns the weekly brief.",
+      "influence": "",
+      "disposition": ""
+    },
+    {
+      "name": "Vitor Escalfoni",
+      "title": "Lead mason, Supernal",
+      "note": "Built the agent, vault and Smart Connector; split with Super73.",
+      "influence": "",
+      "disposition": ""
+    },
+    {
+      "name": "Harvy Leyton",
+      "title": "Mason, Supernal",
+      "note": "Added in Nov; built the kickoff skill.",
+      "influence": "",
+      "disposition": ""
+    }
+  ],
+  "metrics": [
+    {
+      "criterion": "Accounts Chris can run without hiring (8 to 12 to 15)",
+      "now": "Not measured",
+      "state": "Not tracked",
+      "tone": ""
+    },
+    {
+      "criterion": "Expectation scorecard of 3 or better",
+      "now": "Not built (M4)",
+      "state": "Not started",
+      "tone": "warn"
+    },
+    {
+      "criterion": "Chris's time on QA and demo prep (80 to 90% today)",
+      "now": "Not measured",
+      "state": "Not tracked",
+      "tone": ""
+    },
+    {
+      "criterion": "Hours returned by the core workflow (1,364 to 2,069 a year)",
+      "now": "Modeled only",
+      "state": "Modeled",
+      "tone": "warn"
+    },
+    {
+      "criterion": "SOW to kickoff deck time",
+      "now": "Under 4 minutes on synthetic data",
+      "state": "Early",
+      "tone": "ok"
+    },
+    {
+      "criterion": "Pilot usage",
+      "now": "1 user, logs in when prompted",
+      "state": "Behind",
+      "tone": "err"
+    }
+  ],
+  "accountos": [
+    {
+      "record": "Weekly health",
+      "now": "Not scored; week 46 due.",
+      "proposes": "At risk: layoffs and sponsor loss, with delivery on track and inputs blocked."
+    },
+    {
+      "record": "Stakeholders",
+      "now": "None recorded.",
+      "proposes": "Add Chris Kuss, Sameen Kashfi, Stuart Lacey (out), Renan Lima, Harold and Athena."
+    },
+    {
+      "record": "Success plan",
+      "now": "No goals.",
+      "proposes": "Accounts per CS lead, Chris's QA time, hours returned and the expectation scorecard."
+    },
+    {
+      "record": "Cadence",
+      "now": "No cadence events.",
+      "proposes": "Weekly working session with Weekly Brief; milestone launch for the core workflow in early Dec."
+    },
+    {
+      "record": "Value",
+      "now": "No value entries.",
+      "proposes": "Modeled $605K to $839K a year; SOW to deck in under 4 minutes; nothing measured yet."
+    },
+    {
+      "record": "Whitespace",
+      "now": "No ideas.",
+      "proposes": "Scope Sentinel, Demo Gate and Release Notes; prebuilt content factory at about $15K a month; RTI automation."
+    },
+    {
+      "record": "Renewal",
+      "now": "No renewal plan; risk Unknown. OF-002 not recorded.",
+      "proposes": "Add OF-002; month-6 exit about early Feb 2027; auto-renews 12 months about end of Jul 2027."
+    }
+  ],
+  "rationale": [
+    {
+      "decision": "A Hermes agent in Slack, not a standalone app",
+      "why": "Memory, skills and connections come ready-made, and Chris preferred it.",
+      "source": "Squad - Teamback, 3 Sep"
+    },
+    {
+      "decision": "Agent skills and Chris's voice before vault optimisation",
+      "why": "Skills improve over time, Chris could own it, and the team controls vault ingestion for privacy.",
+      "source": "Weekly Review + Next Cycle Plan, 11 Sep"
+    },
+    {
+      "decision": "Restricted access, not redaction",
+      "why": "Chosen in the security review; human maintenance access is logged.",
+      "source": "Delivery Sync, 24 Aug"
+    },
+    {
+      "decision": "Smart Connector with every client off by default",
+      "why": "Connects ClickUp and Granola while keeping Supernal out of Labrynth's data, avoiding a slower self-host.",
+      "source": "Delivery Sync, 28 Sep; health report, 15 Oct"
+    },
+    {
+      "decision": "Build the core workflow first",
+      "why": "Kickoff Kit plus Daily Delivery Check carry most of the modeled business case.",
+      "source": "Weekly Brief W14, Nov"
+    },
+    {
+      "decision": "Never guess: a checker blocks unsourced dates, names and owners",
+      "why": "Client-facing trust, and the workflow must clearly beat prompting the agent.",
+      "source": "Weekly Brief W14; Slack, 5 Nov"
+    },
+    {
+      "decision": "Belongil, not Validity, as the first build client",
+      "why": "A better starting point for workflow design.",
+      "source": "Health report, 26 to 30 Oct"
+    },
+    {
+      "decision": "A synthetic SOW to keep building",
+      "why": "Real SOWs were not shared; synthetic data keeps the build moving.",
+      "source": "Health report, 2 to 6 Nov"
+    },
+    {
+      "decision": "Adversarial testing of agent output",
+      "why": "Prove faithfulness before demos and give Chris a QA story.",
+      "source": "Weekly Review + Next Cycle Plan, 23 Oct"
+    },
+    {
+      "decision": "Start on one pilot account, then scale",
+      "why": "Speed to visible value; a counter-view said one account is too small a sample.",
+      "source": "Strat ², 6 Aug"
+    }
+  ],
+  "sections": [
+    {
+      "category": "Sister-company commercials",
+      "group": 1,
+      "desc": "Infinity Constellation on both sides; thin material but it decides the account.",
+      "files": [
+        {
+          "name": "Intercompany-Structure",
+          "summary": "Both parties are Infinity Constellation; billing to Infinity finance."
+        },
+        {
+          "name": "Revenue-Treatment",
+          "summary": "Break-even, internal, and its effect on squad leverage."
+        },
+        {
+          "name": "Infinity-Fold-Back",
+          "summary": "Labrynth pulled back into Infinity and what it means for fees."
+        },
+        {
+          "name": "Handshake-History",
+          "summary": "From $100K handshake to $180K signed."
+        }
+      ]
+    },
+    {
+      "category": "Scope history",
+      "group": 1,
+      "desc": "Three pitches, one signed: content factory, Stuart's priorities, customer success.",
+      "files": [
+        {
+          "name": "Content-Factory-Order-Form",
+          "summary": "The $84K form and why Stuart dropped it."
+        },
+        {
+          "name": "Stuart-Priorities-Jul-21",
+          "summary": "Delivery capacity, agentic SDLC and RTI automation."
+        },
+        {
+          "name": "Two-Proposals-Jul-28",
+          "summary": "The proposals for Stuart, Harold and Sameen."
+        },
+        {
+          "name": "Why-Account-Management",
+          "summary": "Why the customer success scope was chosen."
+        }
+      ]
+    },
+    {
+      "category": "Security and data access",
+      "group": 2,
+      "desc": "The gate for most of Sep and Oct; a lot of material.",
+      "files": [
+        {
+          "name": "Security-Checklist",
+          "summary": "12 items with evidence, closed 15 to 30 Oct."
+        },
+        {
+          "name": "Smart-Connector-Architecture",
+          "summary": "Broker, gateway, audit log, clients off by default."
+        },
+        {
+          "name": "Approved-Readers-And-Delegation",
+          "summary": "Who can ask the agent what."
+        },
+        {
+          "name": "Open-Security-Items",
+          "summary": "SOC 2 answer, migration owners, ClickUp write review."
+        }
+      ]
+    },
+    {
+      "category": "End-customer layer",
+      "group": 0,
+      "desc": "Labrynth's own clients and delivery playbook; SOWs still missing.",
+      "files": [
+        {
+          "name": "Client-Roster",
+          "summary": "Validity, Belongil, Local Aid and the excluded nuclear client."
+        },
+        {
+          "name": "Labrynth-Delivery-Playbook",
+          "summary": "4-week discovery, 2-week gate, 8-week plan."
+        },
+        {
+          "name": "SOW-Register",
+          "summary": "SOWs received and pending."
+        }
+      ]
+    },
+    {
+      "category": "AI employee design",
+      "group": 2,
+      "desc": "Cabana Boy: soul, skills, workflows and incidents; mostly in the repo.",
+      "files": [
+        {
+          "name": "Cabana-Boy-Soul-And-Prompt",
+          "summary": "Agent identity and voice."
+        },
+        {
+          "name": "Skills-Catalogue",
+          "summary": "Kickoff, diagrams, reports, presentations."
+        },
+        {
+          "name": "Workflow-Catalogue",
+          "summary": "Kickoff Kit, Daily Delivery Check, Scope Sentinel and later workflows."
+        },
+        {
+          "name": "Agent-Incident-Log",
+          "summary": "Unprompted message, vault mix-up."
+        },
+        {
+          "name": "Dev-And-Production-Setup",
+          "summary": "Hermes on Railway, Slack apps, staging copy."
+        }
+      ]
+    },
+    {
+      "category": "Business case",
+      "group": 1,
+      "desc": "Benefit model by workflow and the inputs still to confirm.",
+      "files": [
+        {
+          "name": "Benefit-Cases",
+          "summary": "$605K to $839K a year modeled."
+        },
+        {
+          "name": "Inputs-To-Confirm",
+          "summary": "Hours returned, late-build duration, upsell target, renewal basis."
+        },
+        {
+          "name": "Chris-Time-Baseline",
+          "summary": "80 to 90% of time on QA and demo prep."
+        }
+      ]
+    },
+    {
+      "category": "Client people and continuity",
+      "group": 3,
+      "desc": "Org map before and after the Nov layoffs.",
+      "files": [
+        {
+          "name": "Org-Map-Before-Layoffs",
+          "summary": "Stuart, Sameen, Harold, Renan, Athena, Daniel, Chris."
+        },
+        {
+          "name": "Sponsor-Succession",
+          "summary": "Who sponsors and pays after Stuart."
+        },
+        {
+          "name": "Approvals-Map",
+          "summary": "Who approves access, clients and documents."
+        }
+      ]
+    },
+    {
+      "category": "Design and product experience",
+      "group": 2,
+      "desc": "How Chris experiences the agent and its outputs in Slack.",
+      "files": [
+        {
+          "name": "Slack-Experience",
+          "summary": "Chat versus channel, unsolicited replies, unboxing onboarding."
+        },
+        {
+          "name": "Kickoff-Deck-Format",
+          "summary": "Labrynth's kickoff and gate deck formats the agent fills."
+        },
+        {
+          "name": "Command-Center",
+          "summary": "Config panel and monitoring views."
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "kind": "Order form",
+      "title": "OF-002 Account Management OS (signed)",
+      "date": "29 Jul",
+      "what": "The contract, $180,000.",
+      "url": "https://drive.google.com/file/d/1aCfrzizuQmel-ZA40L9oEZFPl-nmezkT/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Order form",
+      "title": "Labrynth - Order Form OF002.docx",
+      "date": "29 Jul",
+      "what": "Working draft of OF-002.",
+      "url": "https://drive.google.com/file/d/1PQYvsiAoSi3_1dZTVWXDDO1AAZZdhRwg/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Order form",
+      "title": "(old) Labrynth - Order Form - Content Factory",
+      "date": "Jul",
+      "what": "The $84,000 content factory, not signed.",
+      "url": "https://docs.google.com/document/d/1EJEsu1KcZnCmmpkFdGSlZWzF6qQjwrwqpeNdMh2mnMU/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Deck",
+      "title": "[Case Studies] Labrynth x Supernal.pptx",
+      "date": "Jul",
+      "what": "Case studies for Stuart (not opened).",
+      "url": "https://drive.google.com/file/d/12RCnc_ifXHOQ2ULTj0nN8ljmLo02sKEQ/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Labrynth - Account Map.docx",
+      "date": "21 Jul",
+      "what": "Stakeholder map (not opened).",
+      "url": "https://drive.google.com/file/d/1Yoau_lS9tYl9fm7TjCnsUOZup8bYg7yK/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Recording",
+      "title": "Harold kickoff with Seb, 22 Jun (transcript)",
+      "date": "22 Jun",
+      "what": "Record of the sale (not opened).",
+      "url": "https://drive.google.com/file/d/1JUJng8kayYtOJ23jgVEXCVr94dxb7_v8/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Recording",
+      "title": "Meeting with Stuart, 21 Jul (transcript)",
+      "date": "21 Jul",
+      "what": "The meeting where Stuart reset priorities (not opened).",
+      "url": "https://drive.google.com/file/d/1ABa5mEIABvvNbYhC27VUKbKtsop3vSt5/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Chris OKRs H2",
+      "date": "Jul",
+      "what": "Chris's goals and KPIs (not opened).",
+      "url": "https://docs.google.com/document/d/1uSoJ5l_J23lF-BsIjLqWWj-gZcyTPeqj-z7RCtEl1-0/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Deck",
+      "title": "Labrynth x Supernal - Kickoff.pptx",
+      "date": "4 to 11 Aug",
+      "what": "Client kickoff; template also saved.",
+      "url": "https://drive.google.com/file/d/1FcoFcjTlPlVgiqvrV-GNUy97bWOtdoHH/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Kick-off Labrynth notes",
+      "date": "11 Aug",
+      "what": "Kickoff record (not opened).",
+      "url": "https://docs.google.com/document/d/1XhIqFYVTKWDzKXdolrSZeetkEz--2_TQgIkQOJE7D7s/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Deep Dive Session - Labrynth",
+      "date": "11 Aug",
+      "what": "Discovery deep dive (not opened).",
+      "url": "https://docs.google.com/document/d/14MHJNyW0-Efme3Up8OthOGGuQtKGly6rTAVTQd12HQo/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Labrynth <> Local Aid (verandis 1 to 3)",
+      "date": "11 Aug",
+      "what": "Sessions about a Labrynth customer (not opened).",
+      "url": "https://docs.google.com/document/d/1i7PmsnqeY3goZpGtPFrw_hsw0lv9D-nEQV1B1iV-Xv8/edit",
+      "where": "Drive",
+      "sensitive": true
+    },
+    {
+      "kind": "Document",
+      "title": "Account Management - AS IS - Validity",
+      "date": "12 Aug",
+      "what": "Current-state process map for the pilot client.",
+      "url": "https://docs.google.com/document/d/1BxPniJDRFh1MvPjm1qK4frFTrDqUT9YgM4iM1yRz0sM/edit",
+      "where": "Drive",
+      "sensitive": true
+    },
+    {
+      "kind": "Document",
+      "title": "Account Management - TO BE",
+      "date": "12 Aug",
+      "what": "Future-state process map.",
+      "url": "https://docs.google.com/document/d/1inIq2AlDglQltBZ4vZLKSf4rSDRdrnNxGim5-cZOI_I/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Account Management OS - Strategy & Technical Alignment",
+      "date": "25 Aug and 19 Oct",
+      "what": "Strategy and architecture, two versions (not opened).",
+      "url": "https://drive.google.com/file/d/1i8mkHfEjK_ajFaZu-ujroY8NHohaeDgv/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Labrynth Account Management OS - Product Vision and Delivery Record",
+      "date": "31 Aug",
+      "what": "Product vision (not opened).",
+      "url": "https://drive.google.com/file/d/1XMi4mK33oSu2NKIhyVHc2qpgflK67xlv/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Deck",
+      "title": "Labrynth - Operating Model Discussion",
+      "date": "24 Sep",
+      "what": "Infrastructure and access options (not opened).",
+      "url": "https://docs.google.com/presentation/d/1j9goInbzzxc5ju21Unsr842VaImGm7gP1NODGuzY7bo/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Labrynth security review document pack 2026-10-08",
+      "date": "8 Oct",
+      "what": "Security evidence for Labrynth (not opened).",
+      "url": "https://docs.google.com/document/d/1QazL6oqgogOcOA2owZO-XVYTTg_crWaFauUNX8Zuxco/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Railway and Supabase access client-labrynth",
+      "date": "9 Oct",
+      "what": "Infrastructure access setup (not opened).",
+      "url": "https://docs.google.com/document/d/1ARIIzp14IgAs1Ob3BzV6PFeThHUXJSzivGo7-Gg8ZU4/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "OpenRouter ZDR setup client-labrynth",
+      "date": "9 Oct",
+      "what": "Zero-data-retention model setup (not opened).",
+      "url": "https://docs.google.com/document/d/1BQ-6PlpLUAeZdiOiMoq4hCpuBhm33uvXc5oz-OE7lus/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Smart Connector architecture and reading guide",
+      "date": "21 Oct",
+      "what": "Connector design (not opened).",
+      "url": "https://docs.google.com/document/d/1s3SyiHOEgi0sSfyuZWatTv0VmV60CX2FCAwMRISCgWs/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Engineering specifications and implementation handoff",
+      "date": "21 Oct",
+      "what": "Connector build handoff (not opened).",
+      "url": "https://docs.google.com/document/d/10YWbdQ0CIt68e2OFQf7zqwwfTPzkc7HU83THFdsvDjc/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Test Guides and Evaluation Criteria",
+      "date": "21 Oct",
+      "what": "Connector tests (not opened).",
+      "url": "https://docs.google.com/document/d/1aBov5JbDb3i9CkIInx5wKxHgSExiMuq1j_0r7e1EKTo/edit",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Spreadsheet",
+      "title": "Labrynth - Benefit Cases.xlsx",
+      "date": "23 Oct",
+      "what": "The business case model (not opened).",
+      "url": "https://drive.google.com/file/d/1ignHuyJ7QMPwJfsd-SBgam4CadP-MPmy/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Requirements - Labrynth.docx",
+      "date": "30 Oct",
+      "what": "Requirements (not opened).",
+      "url": "https://drive.google.com/file/d/1oMNIfLyTj3uiCDxM2ssZ0fgUzxM3LVca/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Deck",
+      "title": "Weekly Brief W14",
+      "date": "5 Nov",
+      "what": "Latest weekly client status: security done, Kickoff Kit in build.",
+      "url": "https://drive.google.com/file/d/1Vn0Uglaf13b76ghMAK0KkrBmjHHSkHJv/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Deck",
+      "title": "Weekly Brief W13 (changes highlighted)",
+      "date": "29 Oct",
+      "what": "Weekly client status.",
+      "url": "https://drive.google.com/file/d/14IB-HZR6Pen4xl4mqY1kV7dHrZGMzy8u/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Deck",
+      "title": "Weekly Brief W12 - final",
+      "date": "23 Oct",
+      "what": "Weekly client status.",
+      "url": "https://drive.google.com/file/d/1sWOZVUhmpwQLQnD_xjzCMANE71mzhJv2/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Deck",
+      "title": "Weekly Brief W11",
+      "date": "15 Oct",
+      "what": "Weekly client status.",
+      "url": "https://drive.google.com/file/d/1S8FzUE07--akc78_iZA9wmzeCz_QpzvK/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Deck",
+      "title": "Weekly Brief W10",
+      "date": "8 Oct",
+      "what": "Weekly client status.",
+      "url": "https://drive.google.com/file/d/1_RBO83xU_10D4-S65n33sKj6xS7CutDf/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Deck",
+      "title": "Weekly Brief W8",
+      "date": "6 Oct",
+      "what": "Weekly client status.",
+      "url": "https://drive.google.com/file/d/1jCjTDEwimoXUElRILOYi342hlglfECgo/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Deck",
+      "title": "Weekly Brief W7",
+      "date": "17 Sep",
+      "what": "Weekly client status.",
+      "url": "https://drive.google.com/file/d/15MMTLLCRjYVFKzJzM7FRsvULqu4XZdHL/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Deck",
+      "title": "Weekly Brief W6",
+      "date": "14 Sep",
+      "what": "Weekly client status.",
+      "url": "https://drive.google.com/file/d/1eZgAv9x4N7S4WXFkkibKLeRO-PzUt7Tr/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Deck",
+      "title": "Weekly Brief W5",
+      "date": "3 Sep",
+      "what": "Weekly client status.",
+      "url": "https://drive.google.com/file/d/1Chb5alpK-keSNU2sZNqevxD2sYLwvWKk/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Deck",
+      "title": "Weekly Brief W4",
+      "date": "2 Sep",
+      "what": "Weekly client status.",
+      "url": "https://drive.google.com/file/d/1YBSgrnUOTv7Rat5olxOFuVd3tlCDdhKK/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Deck",
+      "title": "Weekly Brief W3",
+      "date": "20 Aug",
+      "what": "Weekly client status.",
+      "url": "https://drive.google.com/file/d/1UfNkWgkqsO9uXaK8hNcodgoOrgA_XLJc/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Deck",
+      "title": "Weekly Brief W2",
+      "date": "13 Aug",
+      "what": "Weekly client status.",
+      "url": "https://drive.google.com/file/d/1iqqvKP_4Zt7UyybUduY_h6L_lqQymP6V/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Folder",
+      "title": "Labrynth account folder",
+      "date": "Jun on",
+      "what": "Sales, discovery and engineering subfolders.",
+      "url": "https://drive.google.com/drive/folders/1ArPjOhBNz152vFDrqyZBpHCaLq0T6jC1",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Folder",
+      "title": "state.zip and red-tape-index.md",
+      "date": "13 Nov",
+      "what": "Matched the search; contents unknown (not opened).",
+      "url": "https://drive.google.com/file/d/16RROgXWgp-3U02EiC09iTnSdNwRJscCs/view",
+      "where": "Drive",
+      "sensitive": false
+    },
+    {
+      "kind": "Folder",
+      "title": "client-labrynth repository (PRs 52 to 65)",
+      "date": "29 Oct to 10 Nov",
+      "what": "Product code; kickoff skill PR 61, tracker and gate pack PR 62.",
+      "url": "https://github.com/Supernal-Technology/client-labrynth",
+      "where": "Slack",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Kickoff deck demo plan and Hermes DEVELOPING.md",
+      "date": "5 Nov",
+      "what": "Build guidance for Harvy, in the repo.",
+      "url": "",
+      "where": "Slack",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Labrynth Strategy",
+      "date": "21 Jul",
+      "what": "Account strategy, org map and competitors.",
+      "url": "https://app.notion.com/p/3a4bd5e8f31880e9bf96fe67a8545206",
+      "where": "Notion",
+      "sensitive": false
+    },
+    {
+      "kind": "Dashboard",
+      "title": "Weekly account health reports",
+      "date": "Aug to Nov",
+      "what": "Weekly health; latest At risk.",
+      "url": "https://app.notion.com/p/413bd5e8f31881abb132e0d61d0f6ef2",
+      "where": "Notion",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Sep 28 Delivery Planning Weekly",
+      "date": "28 Sep",
+      "what": "Portfolio planning (not opened).",
+      "url": "https://app.notion.com/p/3e9bd5e8f31881cbba65fb3621dd7256",
+      "where": "Notion",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Squad Thesis",
+      "date": "24 Aug",
+      "what": "Squad economics; Labyrinth at $180K.",
+      "url": "https://app.notion.com/p/3c6bd5e8f318818eacc0e0d7c7f37664",
+      "where": "Notion",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Red Tape Index Launch (Stack Tax Index)",
+      "date": "27 Oct",
+      "what": "Joint press release with Labrynth; not part of OF-002.",
+      "url": "https://app.notion.com/p/3c6bd5e8f31881eaaaf1e4d411693665",
+      "where": "Notion",
+      "sensitive": false
+    },
+    {
+      "kind": "Prototype",
+      "title": "Cabana Boy agent (production and dev)",
+      "date": "22 Sep on",
+      "what": "The product, in Labrynth's Slack.",
+      "url": "",
+      "where": "unknown",
+      "sensitive": false
+    },
+    {
+      "kind": "Proposal",
+      "title": "Content engine proposal and prototype",
+      "date": "Jul",
+      "what": "The about $200K content pitch.",
+      "url": "",
+      "where": "unknown",
+      "sensitive": false
+    },
+    {
+      "kind": "Proposal",
+      "title": "Two proposals for 28 Jul (agentic SDLC, RTI automation)",
+      "date": "28 Jul",
+      "what": "Stuart's priorities.",
+      "url": "",
+      "where": "unknown",
+      "sensitive": false
+    },
+    {
+      "kind": "Document",
+      "title": "Delegation matrix, migration plan, SOC 2 answer",
+      "date": "Oct to Nov",
+      "what": "Security commitments.",
+      "url": "",
+      "where": "unknown",
+      "sensitive": false
+    }
+  ],
+  "book": [
+    {
+      "title": "The account in one page",
+      "minutes": 2,
+      "lenses": [
+        "all"
+      ],
+      "text": "Labrynth is a small RegTech company, about 18 people and about $3M in annual revenue, that helps governments and the firms that deal with them get through regulation: it checks permit and licensing applications, builds narrow regulatory assistants and publishes a city-level index of regulatory burden. It is also Supernal's sister company. Both are owned by Infinity Constellation, and the order form names Infinity on both sides of the deal.\n\nSupernal is building Labrynth an Account Management OS: in practice an AI account manager called Cabana Boy that lives in Labrynth's Slack and works for one person, Chris Kuss, the Head of Customer Success. The contract, signed on 29 Jul 2026, is $15,000 a month for 12 months, $180,000 in all, with an exit after month 6. An earlier one-month engagement sits in Account OS as $30,000.\n\nThree things set the account apart. The money is internal to Infinity, so the squad counts it as break-even while it still makes up about 40% of the squad's managed revenue. The scope changed twice before signing, from a content factory to Stuart's priorities to customer success. And progress has been gated less by building than by data access and security, because Labrynth handles sensitive government and nuclear work.\n\nToday the security work is done, the connector is live, and the first workflow, which turns a signed SOW into a kickoff deck, plan and task list, works in testing. The core workflow is due in the first week of December. But Labrynth laid off much of its staff in early November, including its executive team, and has since been folded back into Infinity. The account is at risk.",
+      "sources": [
+        "Drive: OF-002",
+        "Notion: Labrynth Strategy",
+        "Account OS",
+        "Squad Lab, 6 and 13 Oct 2026",
+        "Delivery Sync, 9 Nov 2026",
+        "Sync: Seb & Tauseef, 13 Nov 2026"
+      ]
+    },
+    {
+      "title": "Why they bought, and why the scope moved twice",
+      "minutes": 2,
+      "lenses": [
+        "strategy",
+        "account"
+      ],
+      "text": "The deal began as a handshake between two chief executives inside Infinity: about $100,000 a year, agreed before anyone knew what would be built. Stuart Lacey, Labrynth's CEO, delegated discovery to Harold, his head of product, who steered Supernal toward marketing. By late June the team had a content factory scoped: a knowledge vault, an app and an agent system to produce LinkedIn, X and Substack posts, priced at $7,000 a month.\n\nIt did not survive Stuart. When the team finally met him directly on 21 Jul, he said marketing was not his problem. His constraint was delivery capacity: his product and engineering people were saturated, hiring was frozen unless each hire paid for itself, and a new product launch was about to take everyone. He would buy a content factory ready-made, but not wait seven months for one. He asked instead for two things: agents that extend his forward-deployed product and engineering work, and automation of the regulatory index.\n\nWhat was signed eight days later was neither. It was a system for customer success. The reasons are only partly recorded. Chris had the clearest pain of anyone: about ten parallel projects, no time to keep clients informed or to stop scope creep, and his tools already connected. The account scope fitted Stuart's rule of growing without hiring, since the target was to let Chris take on 12 to 15 accounts instead of 8. One internal note says the client chose this scope. Another says the strategist thought the business case weak. Both are true, and that tension shaped August.",
+      "sources": [
+        "GTM + Scoping, 30 Jun, 2 Jul and 10 Jul 2026",
+        "Notion: Labrynth Strategy › 5, 8, 9",
+        "Drive: OF-002",
+        "Tauseef / Jaime, 14 Aug 2026",
+        "Squad - Metrics Definition, 17 Sep 2026"
+      ]
+    },
+    {
+      "title": "How the deal is built",
+      "minutes": 2,
+      "lenses": [
+        "account",
+        "delivery"
+      ],
+      "text": "The signed order form, OF-002, is a monthly fee for strategy and build, $15,000 a month, $180,000 over the term. It describes four monthly milestones: a data foundation and prototype in month 1, an operational pilot with automated client updates in month 2, extension across a cohort of Labrynth's customers in month 3, and a portfolio command center with a calibrated expectation scorecard in month 4. After that, the fee continues for maintenance and refinement. There are no numeric success targets other than an expectation score of 3 or better.\n\nThe parties line is unusual: Infinity Constellation trading as Supernal, selling to Infinity Constellation trading as Labrynth, billed to Infinity's finance team. That is why the squad calls it break-even and internal, and why Account OS showed no revenue for it. Stuart had said he was open to cash, trade or equity, and that the money was not his worry.\n\nThe order form puts a lot on the client. Sameen Kashfi approves, Chris runs day to day, and Labrynth must supply a pilot account, the contract repository, ClickUp, Granola and Notion within five business days of a request, keep task statuses accurate, and attend a weekly working session. Delays move dates day for day. Labrynth owns the strategy, code and workflows; Supernal runs the infrastructure.\n\nDelivery has not followed the month-by-month plan. The client deck re-cut the work into strategy, a pilot, a security phase and a workflow build, because security was not in the order form but became the gate for everything.",
+      "sources": [
+        "Drive: OF-002 › 1 to 9",
+        "Squad Lab, 6 Oct 2026",
+        "Notion: Labrynth Strategy › 1",
+        "Drive: Weekly Brief W14"
+      ]
+    },
+    {
+      "title": "The product and why it is built this way",
+      "minutes": 2,
+      "lenses": [
+        "product",
+        "engineering"
+      ],
+      "text": "The first prototype in August was a conventional app. By early September it had become something else: a Hermes agent connected to Slack, where Chris already works, with the app kept only as a panel to configure and watch the agent. Hermes was chosen because memory, skills and connections came ready-made, and Chris liked it more than the app. The squad chose to invest in the agent's skills and in Chris's way of writing before tuning the knowledge store, so that the agent could improve over time and Chris could one day own it.\n\nSecurity drove the next two months. Labrynth works with government and nuclear clients and was cautious about letting an outside system read its meetings and contracts. An early incident, an agent messaging Chris unprompted in a shared channel, did not help. The team chose restricted access over redaction, then designed a Smart Connector: a gateway that holds the credentials, logs every action and keeps each Labrynth client switched off until Labrynth turns it on. Twelve security items were closed between 15 and 30 Oct, and the connector went live on ClickUp and Granola on 30 Oct.\n\nThe work now centres on one core workflow. The Kickoff Kit reads a signed SOW and drafts a kickoff deck, an 8-week plan and a ClickUp list, asking questions instead of guessing; a checker refuses any date, name or owner without a source. The Daily Delivery Check will then review each account every day. This pair was put first because it carries most of the modeled value, and because Chris needs to see it beat simply prompting the agent.",
+      "sources": [
+        "Squad - Teamback, 3 Sep 2026",
+        "Weekly Review + Next Cycle Plan, 11 Sep and 23 Oct 2026",
+        "Delivery Sync, 24 Aug and 28 Sep 2026",
+        "NEW Strat Team Standup, 24 Aug 2026",
+        "Drive: Weekly Brief W14"
+      ]
+    },
+    {
+      "title": "How delivery has gone",
+      "minutes": 2,
+      "lenses": [
+        "delivery",
+        "engineering"
+      ],
+      "text": "The first week was the low point. The weekly report rated the account critical: Chris said plainly he was not sure this was the right thing to build, access to contracts, ClickUp and transcripts was pending, and privacy concerns were open. Within a week Chris was suggesting a pivot, and the issue went to Ryan, Scott and Tauseef. The strategist wanted to leave the account.\n\nTwo things turned it. Process maps of how Chris works today and could work tomorrow landed well on 17 Aug, and a business case built with Chris was approved by him and Sameen by 24 Aug. Vitor, the lead engineer, then moved quickly: agent deployed by 11 Sep, Chris onboarded on Slack around 22 Sep.\n\nFrom late September to late October the work was held by security. Only one client's data was in the system, wider access needed approval, and the squad itself flagged 19 and then 23 open security alerts in the repository. The team estimated that approval would unlock about four weeks of work. Chris approved the approach on 15 Oct, the controls were tested by 22 Oct, and the connector went live on 30 Oct. Chris was pleased with the pace.\n\nSince then the build has moved and the inputs have not. Chris has not shared real SOWs, Granola access is limited to two public folders, and the 5 Nov session moved to 10 Nov. The team used a synthetic SOW to keep going. Measured against the order form, which expected portfolio scale by month 3, delivery is about two months behind, with the core workflow due in early December.",
+      "sources": [
+        "Notion: LABRYNTH (Aug 3 - Aug 9",
+        "NEW Strat Team Standup, 10 Aug 2026",
+        "Delivery Sync, 17 Aug, 24 Aug and 21 Sep 2026",
+        "Squad Lab, 22 Sep, 13 Oct and 20 Oct 2026",
+        "Notion: Labrynth (Oct 26 - Oct 30), (Nov 2 - Nov 6"
+      ]
+    },
+    {
+      "title": "The people",
+      "minutes": 2,
+      "lenses": [
+        "account",
+        "strategy"
+      ],
+      "text": "At the start, Labrynth's people pulled in different directions. Stuart Lacey, the CEO, was the sponsor who had made the deal but had not spoken to anyone at Supernal until 21 Jul; when he did, he set priorities himself and blamed the earlier misdirection on his delegate. Harold, head of product and a former colleague from another company, had routed Supernal to marketing; he has not been engaged since August. Daniel Zaitsev, head of marketing, owned the content need that was dropped. Renan Lima, head of engineering, says little but must approve anything that touches Labrynth's systems, and he holds the Granola access Chris needs. Athena reviewed security. Sameen Kashfi signed off as executive sponsor on the order form.\n\nChris Kuss is the account. He is the only user, the source of every requirement and the person who must share SOWs and access. He started doubtful, became engaged once the maps and business case reflected his work, and keeps testing whether Cabana Boy does more than a general assistant would. He prefers workflows to metrics and has a deep backlog of his own clients to serve.\n\nThe November layoffs changed the map. Labrynth's executive team is gone and Stuart is out. Chris remains the contact, but who now sponsors the work and pays for it is unknown. Seb heard on 13 Nov that Labrynth has been folded back into Infinity.\n\nOn Supernal's side, Ryan holds the commercial relationship and Scott the original handshake. Jaime leads strategy and owns the weekly brief. Vitor leads the build, with Harvy and Peter added in November. Diana is the other strategist in the squad. Katie, Devan and Thomas know Chris personally and were named as backup levers.",
+      "sources": [
+        "Notion: Labrynth Strategy › 3, 9",
+        "Delivery Sync, 24 Aug and 9 Nov 2026",
+        "Notion: Labrynth (Nov 2 - Nov 6",
+        "Drive: OF-002",
+        "Sync: Seb & Tauseef, 13 Nov 2026"
+      ]
+    },
+    {
+      "title": "What the account means for the squad",
+      "minutes": 1,
+      "lenses": [
+        "strategy",
+        "delivery"
+      ],
+      "text": "Labrynth is one of four accounts run by Supernal's first squad, The Origin: Jaime and Diana as strategists, Vitor and Harvy as engineers, carrying Ethic Select, Hooray, Super73 and Labrynth together. The squad is measured on leverage, managed revenue divided by its cost. Labrynth's $180,000 is the largest single line, about 40% of the squad's roughly $455,000, and it holds the squad's leverage at 1.20x. Without it, leverage falls to 0.73x, well below the 1.5x goal.\n\nThat makes the account matter more than its internal, break-even revenue suggests. It is also where the squad learned things it now reuses. The Hermes agent pattern was meant to be recycled for other clients. The way the team handled Chris's first 90 days, a clear pace and a measurable result, became the model for onboarding a new college client. The security checklist and connector design answer questions other clients will ask.\n\nThe risk runs the other way too. Vitor's time has been split between Labrynth and Super73, and the squad added Harvy to Labrynth in November partly to cover that. If Labrynth's fees stop or shrink after the layoffs, the squad's numbers change sharply.",
+      "sources": [
+        "Notion: Squad Thesis",
+        "Squad Lab, 13 Oct 2026",
+        "Squad - Teamback, 3 Sep 2026",
+        "Strat Team Standup, 9 Nov 2026",
+        "Delivery Sync, 2 Nov 2026"
+      ]
+    },
+    {
+      "title": "What value has shown, and what is next",
+      "minutes": 2,
+      "lenses": [
+        "all"
+      ],
+      "text": "There is no measured value yet. The business case, shared with Chris on 23 Oct, models $605,000 to $839,000 a year across the planned workflows. The core workflow alone is modeled at $376,000 to $444,000: 1,364 to 2,069 hours returned, worth $76,000 to $144,000, plus $300,000 of renewal protection that the team itself marks as needing validation. Four inputs to that case are still unconfirmed by Chris. The one measured number is speed: under four minutes from a SOW to a kickoff deck, on a synthetic SOW.\n\nChris's baseline is clear: he runs about 8 engagements and spends 80 to 90% of his time on QA and demo preparation, against a normal 10 to 25%. Nobody has yet measured whether Cabana Boy changes that. Usage is one person who logs in when prompted.\n\nWhat happens next depends less on the build than on Labrynth's situation. The 10 Nov session with Chris was meant to show the full flow and to confirm whether the account continues after the layoffs; its outcome is not recorded in any source read. If the work continues, the next steps are real SOWs, full Granola access, ClickUp write access with its own security review, and the core workflow in the first week of December. Commercially, the strategist was to alert Ryan before the session and bring in Devan if revenue was affected. With Labrynth folded back into Infinity, the decision may sit with Infinity, not Labrynth. The month-6 exit window opens about early February 2027.",
+      "sources": [
+        "Drive: Weekly Brief W14",
+        "Notion: Labrynth (Oct 12 - Oct 16), (Nov 2 - Nov 6",
+        "Delivery Sync, 9 Nov 2026",
+        "Sync: Seb & Tauseef, 13 Nov 2026",
+        "Drive: OF-002"
+      ]
+    }
+  ],
+  "answers": [
+    {
+      "q": "Is anyone still paying for this?",
+      "a": "Unknown. The contract is $15,000 a month between two Infinity companies and the squad counts it as break-even. After the early-Nov layoffs took out Labrynth's executive team and Labrynth was folded back into Infinity, the 10 Nov session was meant to confirm continuity; its outcome is not recorded."
+    },
+    {
+      "q": "Why has delivery been slow?",
+      "a": "Inputs and security, not the build. Most of Sep and Oct went to security approval and the Smart Connector, closed on 30 Oct. Since then Chris has not shared real SOWs and Granola access is limited to two folders, so the team builds on a synthetic SOW."
+    },
+    {
+      "q": "What does Chris need to see?",
+      "a": "That the workflow beats prompting the agent himself, and why it is better than Claude. The core workflow turns a SOW into a kickoff deck, plan and task list in under 4 minutes and is due in the first week of Dec; he also needs a verified SOC 2 answer."
+    }
+  ],
+  "workflows": [
+    {
+      "name": "Weekly working session with Chris",
+      "kind": "external",
+      "cadence": "Weekly",
+      "with": "Chris Kuss",
+      "output": "Weekly Brief deck",
+      "lastRun": "30 Oct",
+      "note": "5 Nov session moved to 10 Nov; W2 to W14 briefs."
+    },
+    {
+      "name": "Weekly account health report",
+      "kind": "internal",
+      "cadence": "Weekly",
+      "with": "Jaime Garcia",
+      "output": "Notion health report",
+      "lastRun": "6 Nov",
+      "note": "Latest At risk."
+    },
+    {
+      "name": "Delivery Sync",
+      "kind": "internal",
+      "cadence": "Weekly, Monday",
+      "with": "Strategists and masons",
+      "output": "",
+      "lastRun": "9 Nov",
+      "note": ""
+    },
+    {
+      "name": "Weekly Review + Next Cycle Plan",
+      "kind": "internal",
+      "cadence": "Weekly, Friday",
+      "with": "The Origin squad",
+      "output": "",
+      "lastRun": "6 Nov",
+      "note": ""
+    },
+    {
+      "name": "Squad Lab",
+      "kind": "internal",
+      "cadence": "Weekly",
+      "with": "The Origin squad",
+      "output": "",
+      "lastRun": "20 Oct",
+      "note": ""
+    },
+    {
+      "name": "Strat Team Standup",
+      "kind": "internal",
+      "cadence": "Weekly, Monday",
+      "with": "Strategy team",
+      "output": "",
+      "lastRun": "9 Nov",
+      "note": ""
+    },
+    {
+      "name": "Squad daily updates",
+      "kind": "internal",
+      "cadence": "Daily",
+      "with": "The Origin squad",
+      "output": "Slack update",
+      "lastRun": "10 Nov",
+      "note": "Slack #supernal-squad-the-origin."
+    }
+  ]
+}

@@ -83,6 +83,11 @@ How it was built:
 - Fixes: the server copy is served at once and reloaded in the background after 30 s (only the very first load waits); sessions are verified locally with `getClaims()` (the project signs with ES256), once per request; Supabase reads skip Next's fetch cache, which had been serving cached database responses. Page data now takes under 1 ms.
 - Still slow in development: `npm run dev` compiles each page on its first visit and after code changes.
 
+### 14 Nov: Stella features, JetHQ and Labyrinth
+- Stella: chats span one, several or all projects (scope on stella_chats); create_document and compile_export tools with document cards (download, copy, print to PDF, save to vault); PDF and text attachments; dictation, read-aloud and hands-free voice mode (browser speech); About at /stella, chat at /stella/chat; side panel with chat history. Export button on every project (`/api/export`).
+- JetHQ (Sven; business aviation; $249.5K original, $67.5K expansion, Flight Control OS $50K at Prototype) and Labyrinth (Jaime, Origin; RegTech, Supernal's sister company; at risk after Labrynth's Nov layoffs; signed OF-002 at $15K a month is not in Account OS) added as delivery projects. The import now removes sales projects whose deal left the open pipeline.
+- My View mockup for confirmation: `~/ric-os/drafts/clientos-my-view.html` (built from real data by a script in the job folder).
+
 ## Findings worth keeping (deal research, 13 Nov)
 
 - **IEC Colleges** ($175K, Order Form, Zack / Diana, Origin): order form $178K, $9K a month for two months then $16K, billed quarterly, exit at day 90. Champion Esther Duong (VP Marketing) pushes on cost and billing; wants enrolment gains in about 60 days. World Emblem is the reference (Randy call, Eric Freeman walkthrough). Who signs is unclear.

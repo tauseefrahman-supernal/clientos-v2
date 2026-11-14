@@ -151,6 +151,12 @@ export async function importToDb(seed: Store, root: string) {
   }
   log.push(`${ids.size} projects`);
 
+  // Deals that left the open pipeline (closed, or folded into an account in delivery): remove their sales projects.
+  const keep = new Set(bundles.map((b) => b.account.slug));
+  const stale = (await all("accounts", "id,slug,name", (q) => q.eq("stage", "sales"))).filter((r) => !keep.has(r.slug));
+  for (const r of stale) check(await db().from("accounts").delete().eq("id", r.id), "remove stale deal");
+  if (stale.length) log.push(`removed ${stale.length} sales project${stale.length === 1 ? "" : "s"} no longer open: ${stale.map((r) => r.name).join(", ")}`);
+
   // sales deals
   const dealRows = bundles.filter((b) => b.account.deal?.id).map((b) => {
     const d = b.account.deal!;
