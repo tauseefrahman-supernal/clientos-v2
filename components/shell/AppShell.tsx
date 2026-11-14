@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
-import { LayoutGrid, Library, PanelLeftClose, PanelLeftOpen, Search, Sparkles, LogOut } from "lucide-react";
+import { LayoutGrid, Library, PanelLeftClose, PanelLeftOpen, Search, Sparkles, LogOut, Home, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { SearchItem } from "@/lib/search";
 import { StellaDrawer } from "./StellaDrawer";
@@ -19,7 +19,7 @@ export const useShell = () => useContext(Ctx);
 const read = (k: string) => { try { return localStorage.getItem(k); } catch { return null; } };
 const write = (k: string, v: string) => { try { localStorage.setItem(k, v); } catch { /* private window */ } };
 
-export function AppShell({ children, searchIndex, names, projects = [], saved = false, user = null }: { children: React.ReactNode; searchIndex: SearchItem[]; names: Record<string, string>; projects?: PickProject[]; saved?: boolean; user?: { name: string; email: string; avatar: string | null } | null }) {
+export function AppShell({ children, searchIndex, names, projects = [], saved = false, user = null, admin = false }: { children: React.ReactNode; searchIndex: SearchItem[]; names: Record<string, string>; projects?: PickProject[]; saved?: boolean; admin?: boolean; user?: { name: string; email: string; avatar: string | null } | null }) {
   const [collapsed, setCollapsed] = useState(false);
   const [stella, setStella] = useState(false);
   const [stellaPrompt, setStellaPrompt] = useState<string | undefined>();
@@ -39,7 +39,9 @@ export function AppShell({ children, searchIndex, names, projects = [], saved = 
   const project = pathname.match(/^\/projects\/([^/]+)/)?.[1] ?? null;
 
   const nav = [
-    { href: "/", label: "Projects", icon: LayoutGrid, active: pathname === "/" || pathname.startsWith("/projects") },
+    { href: "/", label: "My View", icon: Home, active: pathname === "/" },
+    { href: "/projects", label: "Projects", icon: LayoutGrid, active: pathname.startsWith("/projects") },
+    ...(admin ? [{ href: "/admin/people", label: "People", icon: Users, active: pathname.startsWith("/admin") }] : []),
     { href: "/library", label: "Template Library", icon: Library, active: pathname.startsWith("/library") },
     { href: "/stella", label: "Stella", icon: Sparkles, active: pathname.startsWith("/stella") },
   ];
@@ -106,10 +108,12 @@ function Crumbs({ pathname, names }: { pathname: string; names: Record<string, s
   if (parts[0] === "library") crumbs.push({ label: "Template Library" });
   else if (parts[0] === "stella") { crumbs.push({ label: "Stella", href: parts[1] ? "/stella" : undefined }); if (parts[1] === "chat") crumbs.push({ label: "Chat" }); }
   else if (parts[0] === "projects" && parts[1]) {
-    crumbs.push({ label: "Projects", href: "/" });
+    crumbs.push({ label: "Projects", href: "/projects" });
     crumbs.push({ label: names[parts[1]] ?? parts[1], href: parts[2] ? `/projects/${parts[1]}` : undefined });
     if (parts[2]) crumbs.push({ label: parts[2][0].toUpperCase() + parts[2].slice(1) });
-  } else crumbs.push({ label: "Projects" });
+  } else if (parts[0] === "projects") crumbs.push({ label: "Projects" });
+  else if (parts[0] === "admin") crumbs.push({ label: "People" });
+  else crumbs.push({ label: "My View" });
   return (
     <nav aria-label="Breadcrumb" className="flex min-w-0 flex-wrap items-center gap-space-1 text-xs text-muted-foreground">
       {crumbs.map((c, i) => (

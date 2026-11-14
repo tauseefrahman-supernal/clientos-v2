@@ -6,6 +6,7 @@ import { ChevronDown, ChevronRight, Sparkles } from "lucide-react";
 import { Pill } from "@/components/kit";
 import { useShell } from "@/components/shell/AppShell";
 import { cn } from "@/lib/utils";
+import { RunControl, type RunInfo } from "@/components/work/RunControl";
 import type { Workflow } from "@/lib/types";
 
 export type WorkflowDetail =
@@ -15,7 +16,9 @@ export type WorkflowDetail =
 
 const FILTERS = ["All", "With the client", "Internal", "Makes an artifact"] as const;
 
-export function WorkView({ slug, items, openSlug }: { slug: string; items: (Workflow & { detail: WorkflowDetail })[]; openSlug: string | null }) {
+const RUN_LABEL: Record<string, string> = { running: "Running", draft: "Draft ready", approved: "Approved", sent: "Sent", failed: "Failed" };
+
+export function WorkView({ slug, items, openSlug }: { slug: string; items: (Workflow & { detail: WorkflowDetail; run: RunInfo })[]; openSlug: string | null }) {
   const [filter, setFilter] = useState<(typeof FILTERS)[number]>("All");
   const [open, setOpen] = useState<string | null>(openSlug);
   const { openStella } = useShell();
@@ -40,14 +43,17 @@ export function WorkView({ slug, items, openSlug }: { slug: string; items: (Work
                 {isOpen ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
                 <span><span className="block text-sm font-semibold">{w.name}</span><span className="block text-xs text-muted-foreground">{[w.cadence, w.audience].filter(Boolean).join(" · ")}</span></span>
                 <span className="hidden text-xs text-muted-foreground md:block">{w.output ? `Produces: ${w.output}` : "No artifact"}</span>
-                <span className="flex gap-1">{w.kind === "external" ? <Pill tone="info">With client</Pill> : <Pill>Internal</Pill>}{!w.standard && <Pill>This account</Pill>}</span>
+                <span className="flex gap-1">{w.run && <Pill tone={w.run.status === "draft" ? "warn" : w.run.status === "failed" ? "err" : "ok"}>{RUN_LABEL[w.run.status]}</Pill>}{w.kind === "external" ? <Pill tone="info">With client</Pill> : <Pill>Internal</Pill>}{!w.standard && <Pill>This account</Pill>}</span>
               </button>
               {isOpen && (
                 <div className="flex flex-col gap-space-3 px-space-4 pb-space-4 pl-[52px]">
                   <Detail d={w.detail} note={w.note} />
                   <div className="flex flex-wrap items-center gap-space-2">
                     {w.inputs.length > 0 && <><span className="font-mono text-xs text-muted-foreground">Draws on</span>{w.inputs.map((i) => <Link key={i} href={`/projects/${slug}/vault?file=${encodeURIComponent(i)}`} className="rounded border border-border px-1.5 py-0.5 font-mono text-xs text-muted-foreground no-underline hover:text-foreground">{i}.md</Link>)}</>}
-                    <button onClick={() => openStella(`Run the “${w.name}” workflow and draft ${w.output || "the output"}.`)} className="ml-auto flex items-center gap-1 rounded-md bg-primary px-space-3 py-1 text-xs font-medium text-primary-foreground"><Sparkles className="h-3.5 w-3.5" />Run with Stella</button>
+                    <span className="ml-auto flex items-center gap-space-2">
+                      <RunControl slug={slug} workflow={w.slug} name={w.name} run={w.run} external={w.kind === "external"} label="Run with Stella" />
+                      <button onClick={() => openStella(`About the “${w.name}” workflow: `)} title="Ask Stella about this workflow" className="rounded-md border border-border px-space-2 py-0.5 text-xs hover:bg-muted"><Sparkles className="h-3 w-3 text-primary" /></button>
+                    </span>
                   </div>
                 </div>
               )}

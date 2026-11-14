@@ -1,9 +1,10 @@
 import { notFound } from "next/navigation";
 import { getAccount } from "@/lib/data";
+import { latestRuns } from "@/lib/data/runs";
 import { WorkView, type WorkflowDetail } from "@/components/project/WorkView";
 
 // Work: how client work gets delivered on this account. Each workflow carries what it
-// draws on and a preview of what Stella would prepare. Running it arrives with phase 2.
+// draws on and a preview of what Stella would prepare; Run has Stella draft it (shared with My View).
 
 export default async function WorkPage({ params, searchParams }: { params: { slug: string }; searchParams: { w?: string } }) {
   const b = (await getAccount(params.slug));
@@ -22,6 +23,7 @@ export default async function WorkPage({ params, searchParams }: { params: { slu
       default: return { kind: "none" };
     }
   };
-  const items = b.workflows.map((w) => ({ ...w, detail: detail(w.slug) }));
+  const runs = await latestRuns([b.account.slug]);
+  const items = b.workflows.map((w) => ({ ...w, detail: detail(w.slug), run: runs.get(`${b.account.slug}/${w.slug}`) ?? null }));
   return <WorkView slug={b.account.slug} items={items} openSlug={searchParams.w ?? null} />;
 }

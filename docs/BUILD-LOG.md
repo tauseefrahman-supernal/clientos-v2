@@ -88,6 +88,13 @@ How it was built:
 - JetHQ (Sven; business aviation; $249.5K original, $67.5K expansion, Flight Control OS $50K at Prototype) and Labyrinth (Jaime, Origin; RegTech, Supernal's sister company; at risk after Labrynth's Nov layoffs; signed OF-002 at $15K a month is not in Account OS) added as delivery projects. The import now removes sales projects whose deal left the open pipeline.
 - My View mockup for confirmation: `~/ric-os/drafts/clientos-my-view.html` (built from real data by a script in the job folder).
 
+### 14 Nov: My View, team access, workflow runs, tests
+- **My View** is the first page after sign-in (`/`; Projects moved to `/projects`). For the signed-in person: deals in scoping first (furthest stage, then soonest close), each with its eight-step scoping track (done = output file filled or run approved; behind = due by the stage and not done), the next step and a Run button; this week's workflows on their accounts; what needs a decision; dates; account cards. Admins can view anyone's (`?as=`).
+- **People and access** (`clientos.people`, `clientos.assignments`): 23 people and 110 assignments imported from Account OS pods and deal owners/pod strategists (expansions get their account's pod). Admins see every project; members see their assignments, enforced in the data API (pages, Stella, export, search). A Google sign-in links to a person by email, else name. Each project shows its team; admins and the project's strategists add or remove people; `/admin/people` sets roles. Tauseef is admin.
+- **Expansions** on delivery accounts are scoping projects of their own (`parent_slug`), e.g. "RxVIP · Order Form #2".
+- **Workflow runs** (`lib/data/runs.ts`, `/api/workflows/run`, `/decide`): Stella reads a workflow's inputs and drafts its output as a run; approve, mark sent or discard. Approving a scoping step writes the draft into that step's vault file. My View and the Work page read the same runs.
+- **Tests:** `npm test` (19 unit tests: scoping, team building, export, access rules, sign-in domain, URL handling; caught an unknown-stage bug). `npm run test:live` (13 live checks: sign-in gate, anonymous key locked out of all clientos tables, Google and ES256 keys, assignments, data API vs database, export, search, chats, My View for every person; `-- --stella` also runs a real workflow, about $0.20).
+
 ## Findings worth keeping (deal research, 13 Nov)
 
 - **IEC Colleges** ($175K, Order Form, Zack / Diana, Origin): order form $178K, $9K a month for two months then $16K, billed quarterly, exit at day 90. Champion Esther Duong (VP Marketing) pushes on cost and billing; wants enrolment gains in about 60 days. World Emblem is the reference (Randy call, Eric Freeman walkthrough). Who signs is unclear.
@@ -102,7 +109,7 @@ How it was built:
 - Account OS corrections spotted (not made; read-only): Brill NDA status and value reason; Waterfall incumbent spelled "Via Pages"; ARS Wealth close date 25 Dec 2025.
 - Seven scoping deals have no call material (Mission Coast, Insurance CRM, Palm, Infusion, SRR, Tax/Accounting, HMS).
 - MECE-Framework still mentions the old A1 to B5 numbering.
-- Next phases: sign-in (Supabase auth, Supernal emails) and per-user access so Jaime and Sven can use it; deploy; connectors (Account OS sync first); workflows that run; Stella retrieval on the `chunks` table with embeddings.
+- Next phases: deploy so the team can sign in; Account OS live sync (pods, deals, health) replacing the snapshot; Granola/Fathom into each project's notes; per-step workflow templates; Stella retrieval on the `chunks` table with embeddings.
 
 ## How to run and check
 

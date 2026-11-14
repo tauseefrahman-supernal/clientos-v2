@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { addDocumentFile, addTemplateFile, decide, proposeTemplate, setFileState } from "@/lib/data";
 import type { FileState, GroupId } from "@/lib/types";
+import { addMember, removeMember, setPersonRole } from "@/lib/data/team";
 
 // Server actions for the prototype store. Each one revalidates every page so the
 // library, vault and search reflect the change.
@@ -48,4 +49,19 @@ export async function saveDocumentAction(slug: string, group: number, title: str
   const f = await addDocumentFile(slug, Math.min(3, Math.max(0, group)) as GroupId, title, content.slice(0, 500_000), "You");
   revalidatePath("/", "layout");
   return f?.path ?? null;
+}
+
+export async function addMemberAction(slug: string, personId: string, role: string) {
+  await addMember(slug, personId, role);
+  revalidatePath("/", "layout");
+}
+
+export async function removeMemberAction(slug: string, personId: string, role: string) {
+  await removeMember(slug, personId, role);
+  revalidatePath("/", "layout");
+}
+
+export async function setPersonRoleAction(personId: string, role: "admin" | "member") {
+  await setPersonRole(personId, role);
+  revalidatePath("/", "layout");
 }

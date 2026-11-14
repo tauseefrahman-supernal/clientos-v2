@@ -2,6 +2,7 @@ import "server-only";
 import type { AccountBundle, Category, GroupId, Template, VaultFile } from "@/lib/types";
 import { GROUPS } from "@/lib/types";
 import { store as seedStore, type Store } from "./seed";
+import { canSee, currentAccess } from "@/lib/auth/access";
 import { dbEnabled, insertFile, loadFromDb, setCategoryStatus, setTemplateStatus, updateFile, type DbStore } from "./db";
 
 // The one data API the pages use. With Supabase configured (NEXT_PUBLIC_SUPABASE_URL and
@@ -42,12 +43,16 @@ export function invalidate() {
 
 const accountId = (s: Store, slug: string) => (s as DbStore).ids?.get(slug) ?? null;
 
+/** Every project this person may see (all of them for admins). */
 export async function listAccounts(): Promise<AccountBundle[]> {
-  return [...(await current()).accounts.values()];
+  const [s, access] = await Promise.all([current(), currentAccess()]);
+  return [...s.accounts.values()].filter((b) => canSee(access, b.account.slug));
 }
 
+/** One project, or null when it does not exist or this person is not assigned to it. */
 export async function getAccount(slug: string): Promise<AccountBundle | null> {
-  return (await current()).accounts.get(slug) ?? null;
+  const [s, access] = await Promise.all([current(), currentAccess()]);
+  return canSee(access, slug) ? s.accounts.get(slug) ?? null : null;
 }
 
 export async function listCategories(): Promise<Category[]> {
@@ -61,7 +66,7 @@ export async function listTemplates(): Promise<Template[]> {
 /** Accounts whose vault holds a file made from this category (or template). */
 export async function usage(category: string, template?: string) {
   const out: { slug: string; name: string; path: string }[] = [];
-  for (const b of (await current()).accounts.values()) {
+  for (const b of await listAccounts()) {
     const f = b.files.find((x) => x.category === category && (!template || x.template === template) && x.state !== "deleted");
     if (f) out.push({ slug: b.account.slug, name: b.account.name, path: f.path });
   }
@@ -69,6 +74,7 @@ export async function usage(category: string, template?: string) {
 }
 
 export async function setFileState(slug: string, path: string, patch: Partial<Pick<VaultFile, "state" | "inBook" | "content" | "shown">>, by = "You") {
+  if (!(await getAccount(slug))) return null;
   const s = await current();
   const f = s.accounts.get(slug)?.files.find((x) => x.path === path);
   if (!f) return null;
@@ -80,6 +86,7 @@ export async function setFileState(slug: string, path: string, patch: Partial<Pi
 }
 
 export async function proposeTemplate(slug: string, path: string, by: string) {
+  if (!(await getAccount(slug))) return null;
   const s = await current();
   const f = s.accounts.get(slug)?.files.find((x) => x.path === path);
   if (!f || !f.category || !f.template) return null;
@@ -120,6 +127,7 @@ export async function pendingApprovals() {
 
 /** Put a template into a project's vault, in the given group. Brings back an existing file instead of duplicating it. */
 export async function addTemplateFile(slug: string, category: string, template: string, group: GroupId) {
+  if (!(await getAccount(slug))) return null;
   const s = await current();
   const b = s.accounts.get(slug);
   const t = s.templates.find((x) => x.category === category && x.name === template);
@@ -141,6 +149,7 @@ const CATEGORY_OF_GROUP = ["core-sales", "core-deal", "core-tech", "core-deliver
 
 /** Save a document (from Stella, or a file someone uploaded) into a project's vault as a new file in a group. */
 export async function addDocumentFile(slug: string, group: GroupId, title: string, content: string, by: string) {
+  if (!(await getAccount(slug))) return null;
   const s = await current();
   const b = s.accounts.get(slug);
   if (!b) return null;

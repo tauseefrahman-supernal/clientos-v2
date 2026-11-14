@@ -7,6 +7,7 @@ import { backend, listAccounts, listCategories, listTemplates } from "@/lib/data
 import { buildSearchIndex } from "@/lib/search";
 import { authEnabled } from "@/lib/auth/config";
 import { currentUser } from "@/lib/auth/server";
+import { currentAccess } from "@/lib/auth/access";
 
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-inter" });
 const lora = Lora({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-lora" });
@@ -16,6 +17,7 @@ export const metadata: Metadata = { title: "ClientOS — Supernal" };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const user = await currentUser();
+  const access = await currentAccess();
   // Signed out (only the login page is reachable): render it bare, with no project data in the page.
   const signedOut = authEnabled() && !user;
   const accounts = signedOut ? [] : await listAccounts();
@@ -25,7 +27,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body className="m-0 min-h-screen bg-background font-sans text-foreground">
         <TooltipProvider delayDuration={300}>
           {signedOut ? children : (
-            <AppShell saved={backend() === "supabase"} user={user} searchIndex={index} names={Object.fromEntries(accounts.map((b) => [b.account.slug, b.account.name]))} projects={accounts.map((b) => ({ slug: b.account.slug, name: b.account.name, stage: b.account.stage }))}>{children}</AppShell>
+            <AppShell saved={backend() === "supabase"} user={user} admin={access.admin && !!access.person} searchIndex={index} names={Object.fromEntries(accounts.map((b) => [b.account.slug, b.account.name]))} projects={accounts.map((b) => ({ slug: b.account.slug, name: b.account.name, stage: b.account.stage }))}>{children}</AppShell>
           )}
         </TooltipProvider>
       </body>

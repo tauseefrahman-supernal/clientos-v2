@@ -1,5 +1,6 @@
-import type { AccountBundle } from "@/lib/types";
-import { GROUPS } from "@/lib/types";
+import type { AccountBundle } from "./types";
+
+const GROUPS = ["Sales Strategy", "Deal Strategy", "Technical Strategy", "Delivery Strategy"];
 
 // Builds one contextualised markdown document from one or more projects: a header, a contents
 // list, then each project's overview, filled vault files (by group), book and artifacts.

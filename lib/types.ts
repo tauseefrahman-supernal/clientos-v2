@@ -19,6 +19,8 @@ export interface Account {
   industry: string;
   squad: string | null;
   deal: SalesDeal | null;
+  /** For an expansion deal: the slug of the account in delivery it expands. */
+  parent: string | null;
   name: string;
   strategist: string;
   pod: string;

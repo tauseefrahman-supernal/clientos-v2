@@ -1,6 +1,7 @@
 import { store as seedStore } from "@/lib/data/seed";
 import { dbEnabled, importToDb } from "@/lib/data/db";
 import { invalidate } from "@/lib/data";
+import { resetAccess } from "@/lib/auth/access";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 300;
@@ -17,6 +18,7 @@ export async function POST(req: Request) {
     const t0 = Date.now();
     const log = await importToDb(seedStore(), process.cwd());
     invalidate();
+    resetAccess();
     return Response.json({ ok: true, seconds: Math.round((Date.now() - t0) / 1000), log });
   } catch (e) {
     return Response.json({ ok: false, error: e instanceof Error ? e.message : String(e) }, { status: 500 });

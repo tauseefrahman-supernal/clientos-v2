@@ -5,6 +5,7 @@ import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import type { AccountBundle, Artifact, Category, Chapter, GroupId, ShareStatus, Template, VaultFile, Workflow } from "@/lib/types";
 import { GROUPS } from "@/lib/types";
 import type { Store } from "./seed";
+import { buildTeam } from "./people-seed";
 
 // Supabase backend for the `clientos` schema. The server uses the service role; row-level
 // security keeps the anon and signed-in roles out until per-user policies exist.
@@ -80,7 +81,7 @@ export async function loadFromDb(): Promise<DbStore> {
     const d = dealOf.get(a.id);
     const bundle: AccountBundle = {
       account: {
-        slug: a.slug, stage: a.stage, industry: a.industry ?? "", squad: a.squad, name: a.name, strategist: a.strategist ?? "",
+        slug: a.slug, stage: a.stage, parent: a.parent_slug ?? null, industry: a.industry ?? "", squad: a.squad, name: a.name, strategist: a.strategist ?? "",
         pod: sum.pod ?? "", mrr: sum.mrr ?? "", closedValue: sum.closedValue ?? "", closedCount: sum.closedCount ?? 0, health: sum.health ?? null,
         freshness: sum.freshness ?? [], transcriptCount: sum.transcriptCount ?? 0,
         deal: d ? { id: d.accountos_id ?? "", stage: d.stage ?? "", motion: d.motion ?? "", owner: d.owner ?? "", people: d.people ?? [], confidence: d.confidence ?? "", value: d.value ?? "", mrr: d.mrr ?? "", expectedClose: d.expected_close ?? "", nextStep: d.next_step ?? "", description: d.description ?? "", updatedAt: d.accountos_updated_at ?? "" } : null,
@@ -140,7 +141,7 @@ export async function importToDb(seed: Store, root: string) {
   // projects
   const accRows = bundles.map((b) => {
     const a = b.account;
-    return { slug: a.slug, accountos_id: a.deal?.id || null, name: a.name, stage: a.stage, industry: a.industry || null, squad: a.squad, strategist: a.strategist || null, pod: { label: a.pod },
+    return { slug: a.slug, parent_slug: a.parent, accountos_id: a.deal?.id || null, name: a.name, stage: a.stage, industry: a.industry || null, squad: a.squad, strategist: a.strategist || null, pod: { label: a.pod },
       summary: { pod: a.pod, mrr: a.mrr, closedValue: a.closedValue, closedCount: a.closedCount, health: a.health, freshness: a.freshness, transcriptCount: a.transcriptCount, overview: b.overview },
       synced_at: new Date().toISOString() };
   });
@@ -223,5 +224,18 @@ export async function importToDb(seed: Store, root: string) {
     if (b.workflows.length) check(await db().from("workflows").insert(b.workflows.map((w) => ({ account_id: aid, slug: w.slug, name: w.name, kind: w.kind, cadence: w.cadence || null, audience: w.audience || null, inputs: w.inputs, output: w.output || null, note: w.note || null, standard: w.standard }))), "insert workflows");
   }
   log.push(`files: ${added} added, ${refreshed} refreshed, ${kept} kept as edited`);
+
+  // team and assignments: imported assignments are refreshed; ones a strategist added by hand stay
+  const team = buildTeam(seed, existsSync(pipe) ? JSON.parse(readFileSync(pipe, "utf8")) : {});
+  const known = new Map((await all("people", "id,name")).map((r) => [r.name as string, r.id as string]));
+  const fresh = team.people.filter((p) => !known.has(p.name));
+  if (fresh.length) check(await db().from("people").insert(fresh.map((p) => ({ name: p.name, title: p.title, squad: p.squad, role: p.admin ? "admin" : "member", source: "import" }))), "insert people");
+  // Existing people keep their role, except that listed admins are always admins (never demoted here).
+  for (const p of team.people.filter((x) => known.has(x.name))) check(await db().from("people").update({ title: p.title, squad: p.squad, ...(p.admin ? { role: "admin" } : {}) }).eq("name", p.name), "update person");
+  const personId = new Map((await all("people", "id,name")).map((r) => [r.name as string, r.id as string]));
+  check(await db().from("assignments").delete().eq("source", "import"), "clear imported assignments");
+  const rows = team.assignments.filter((x) => ids.has(x.slug) && personId.has(x.name)).map((x) => ({ account_id: ids.get(x.slug), person_id: personId.get(x.name), role: x.role, source: "import" }));
+  for (let i = 0; i < rows.length; i += 200) check(await db().from("assignments").upsert(rows.slice(i, i + 200), { onConflict: "account_id,person_id,role", ignoreDuplicates: true }), "insert assignments");
+  log.push(`team: ${team.people.length} people (${fresh.length} new), ${rows.length} assignments from Account OS`);
   return log;
 }

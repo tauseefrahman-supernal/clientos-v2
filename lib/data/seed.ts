@@ -107,7 +107,7 @@ function bundleFrom(d: any, s: Store, meta: Meta): AccountBundle {
   const h = d.health || {};
   const m = meta.accounts.get(slug);
   const account = {
-    slug, stage: "delivery" as const, industry: m?.industry ?? "", squad: m?.squad ?? null, deal: null,
+    slug, stage: "delivery" as const, industry: m?.industry ?? "", squad: m?.squad ?? null, deal: null, parent: null,
     name, strategist: str(d.strat), pod: str(d.pod), mrr: str(d.mrr), closedValue: str(d.closedValue), closedCount: Number(d.closedCount) || 0,
     health: h.score ? { score: str(h.score), band: str(h.band), tone: tone(h.tone) } : null, freshness: (d.fresh || []).map(str), transcriptCount: Number(d.transcripts) || 0,
   };
@@ -259,8 +259,11 @@ function reviewsFor(title: string): string | undefined {
   return hit ? all.get(hit) : undefined;
 }
 
-function salesBundle(x: any, s: Store): AccountBundle {
-  const name = str(x.organization) || str(x.title);
+function salesBundle(x: any, s: Store, parentSlug: string | null = null): AccountBundle {
+  const parent = parentSlug ? s.accounts.get(parentSlug)?.account ?? null : null;
+  // An expansion is named after its account: "RxVIP · Order Form #2".
+  const title = str(x.title).replace(new RegExp(`^${(parent?.name ?? "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\s*(expansion)?\\s*[-:·]?\\s*`, "i"), "").replace(/^expansion\s*[-:·]\s*/i, "") || str(x.title);
+  const name = parent ? `${parent.name} · ${title}` : str(x.organization) || str(x.title);
   const slug = `deal-${slugify(str(x.title) || name).toLowerCase()}`;
   const deal = { id: str(x.id), stage: str(x.stage), motion: str(x.motion), owner: str(x.owner), people: (x.people || []).map(str), confidence: str(x.confidence), value: money(x.value), mrr: money(x.mrr), expectedClose: str(x.expected_close), nextStep: str(x.next_step), description: str(x.description), updatedAt: str(x.updated_at) };
   const files: VaultFile[] = s.templates.filter((t) => t.status === "standard").map((t) => {
@@ -304,7 +307,7 @@ function salesBundle(x: any, s: Store): AccountBundle {
   const book: Chapter[] = (doc?.book ?? []).map((c, i) => ({ sort: i, title: c.title, minutes: Math.max(1, Math.ceil(c.body.split(/\s+/).length / 200)), lenses: ["all"], body: c.body, sources: c.sources }));
   const artifacts: Artifact[] = (doc?.artifacts ?? []).map((a, i) => ({ id: `${slug}-a${i}`, kind: a[1] || "Document", title: a[0], dated: a[2], description: a[5], url: /^https?:\/\//.test(a[4]) ? a[4] : (a[4].match(/\((https?:[^)]+)\)/)?.[1] ?? ""), provider: a[3], sensitive: false }));
   return {
-    account: { slug, stage: "sales", industry: str(x.industry), squad: x.squad ? str(x.squad) : null, deal, name, strategist: str(x.pod_strategist), pod: deal.owner ? `${deal.owner} (AE)` : "", mrr: deal.mrr, closedValue: "", closedCount: 0, health: null, freshness: [`From Account OS, updated ${deal.updatedAt.slice(0, 10) || "unknown"}`], transcriptCount: 0 },
+    account: { slug, stage: "sales", industry: parent?.industry || str(x.industry), squad: x.squad ? str(x.squad) : parent?.squad ?? null, deal, parent: parentSlug, name, strategist: str(x.pod_strategist), pod: deal.owner ? `${deal.owner} (AE)` : "", mrr: deal.mrr, closedValue: "", closedCount: 0, health: null, freshness: [`From Account OS, updated ${deal.updatedAt.slice(0, 10) || "unknown"}`], transcriptCount: 0 },
     overview: { deals: [{ name: str(x.title), value: deal.value, stage: deal.stage, phase, note: deal.nextStep }], lost: "", sold: [], arc: [], disagreements: [], streams: [], tiles: [], decisions: [], slipping: [], dates: deal.expectedClose ? [{ when: deal.expectedClose, what: "Expected close" }] : [], feed: [], people: deal.people.map((p: string) => ({ name: p, title: "", note: "", influence: "Medium", disposition: "Neutral" })), metrics: [], accountOs: [], rationale: [], answers: [] },
     book, artifacts, files,
     workflows: SALES_WORKFLOWS.map((w) => ({ ...w, inputs: [...w.inputs], kind: w.kind as Workflow["kind"], note: "", standard: true })),
@@ -344,8 +347,8 @@ export function store(): Store {
     catch (e) { console.error(`[seed] skipped ${basename(f)}:`, e); }
   }
   for (const x of meta.deals) {
-    if (x.account_id && DELIVERY_ACCOUNT_IDS[str(x.account_id)]) continue; // expansion of an account already in delivery
-    const b = salesBundle(x, s);
+    // An expansion on an account in delivery is its own scoping project, linked to that account.
+    const b = salesBundle(x, s, x.account_id ? DELIVERY_ACCOUNT_IDS[str(x.account_id)] ?? null : null);
     if (!s.accounts.has(b.account.slug)) s.accounts.set(b.account.slug, b);
   }
   G.__clientos = { store: s, stamp, checked: now };

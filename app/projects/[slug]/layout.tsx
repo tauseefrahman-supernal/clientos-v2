@@ -3,12 +3,17 @@ import { getAccount } from "@/lib/data";
 import { Pill } from "@/components/kit";
 import { ProjectTabs } from "@/components/project/ProjectTabs";
 import { ExportButton } from "@/components/project/ExportButton";
+import { TeamBar } from "@/components/project/TeamBar";
+import { listPeople, projectTeam } from "@/lib/data/team";
+import { canAssign, currentAccess } from "@/lib/auth/access";
 
 export default async function ProjectLayout({ params, children }: { params: { slug: string }; children: React.ReactNode }) {
   const b = (await getAccount(params.slug));
   if (!b) notFound();
   const a = b.account;
   const d = a.deal;
+  const [team, people, access] = await Promise.all([projectTeam(a.slug), listPeople(), currentAccess()]);
+  const editable = canAssign(access, a.slug);
   return (
     <div className="flex min-h-full flex-col">
       <div className="border-b border-border px-space-6 pt-space-4">
@@ -32,6 +37,7 @@ export default async function ProjectLayout({ params, children }: { params: { sl
             {a.health && <Pill tone={a.health.tone}>Health {a.health.score} · {a.health.band}</Pill>}
           </>}
         </div>
+        <TeamBar slug={a.slug} members={team} people={people.map((p) => ({ id: p.id, name: p.name, title: p.title }))} canEdit={editable} />
         <ProjectTabs slug={a.slug} hasBook={a.stage === "delivery" || b.book.length > 0} hasArtifacts={a.stage === "delivery" || b.artifacts.length > 0} />
       </div>
       <div className="flex-1">{children}</div>
