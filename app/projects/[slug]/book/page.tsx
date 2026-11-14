@@ -5,8 +5,8 @@ import { cn } from "@/lib/utils";
 
 const LENSES = [["all", "Everyone"], ["strategy", "Strategy"], ["product", "Product"], ["engineering", "Engineering"], ["delivery", "Delivery"], ["account", "Account management"]];
 
-export default function BookPage({ params, searchParams }: { params: { slug: string }; searchParams: { c?: string; lens?: string } }) {
-  const b = getAccount(params.slug);
+export default async function BookPage({ params, searchParams }: { params: { slug: string }; searchParams: { c?: string; lens?: string } }) {
+  const b = (await getAccount(params.slug));
   if (!b) notFound();
   const lens = searchParams.lens ?? "all";
   const chapters = b.book.filter((c) => lens === "all" || c.lenses.includes("all") || c.lenses.includes(lens));

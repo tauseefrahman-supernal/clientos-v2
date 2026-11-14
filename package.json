@@ -11,7 +11,8 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "scan": "node scripts/scan-configs.mjs"
+    "scan": "node scripts/scan-configs.mjs",
+    "db:import": "node scripts/import.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "1.3.0",
@@ -35,7 +36,7 @@
     "@radix-ui/react-toggle-group": "1.1.12",
     "@radix-ui/react-tooltip": "1.2.9",
     "@supabase/ssr": "0.9.0",
-    "@supabase/supabase-js": "2.100.0",
+    "@supabase/supabase-js": "2.118.0",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
     "lucide-react": "1.8.0",

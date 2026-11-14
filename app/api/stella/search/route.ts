@@ -8,5 +8,5 @@ export async function GET(req: Request) {
   const u = new URL(req.url);
   const slug = u.searchParams.get("slug") ?? "";
   const q = u.searchParams.get("q") ?? "";
-  return Response.json(search(slug, q, Number(u.searchParams.get("limit")) || 8));
+  return Response.json(await search(slug, q, Number(u.searchParams.get("limit")) || 8));
 }

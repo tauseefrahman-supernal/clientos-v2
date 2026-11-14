@@ -3,8 +3,8 @@ import { StellaChat } from "@/components/stella/StellaChat";
 
 export const dynamic = "force-dynamic";
 
-export default function StellaPage({ searchParams }: { searchParams: { project?: string; chat?: string } }) {
-  const projects = listAccounts().map((b) => ({
+export default async function StellaPage({ searchParams }: { searchParams: { project?: string; chat?: string } }) {
+  const projects = (await listAccounts()).map((b) => ({
     slug: b.account.slug, name: b.account.name, stage: b.account.stage,
     suggestions: b.account.stage === "sales"
       ? ["What do we know about this deal so far?", "What have similar delivered projects taught us that should shape the proposal?", "What should we ask on the next discovery call?"]

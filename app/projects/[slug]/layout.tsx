@@ -3,8 +3,8 @@ import { getAccount } from "@/lib/data";
 import { Pill } from "@/components/kit";
 import { ProjectTabs } from "@/components/project/ProjectTabs";
 
-export default function ProjectLayout({ params, children }: { params: { slug: string }; children: React.ReactNode }) {
-  const b = getAccount(params.slug);
+export default async function ProjectLayout({ params, children }: { params: { slug: string }; children: React.ReactNode }) {
+  const b = (await getAccount(params.slug));
   if (!b) notFound();
   const a = b.account;
   const d = a.deal;

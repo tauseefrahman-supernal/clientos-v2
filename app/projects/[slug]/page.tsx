@@ -8,12 +8,12 @@ import { cn } from "@/lib/utils";
 
 const PHASES = ["Sales", "Deal", "Technical", "Delivery"];
 
-export default function OverviewPage({ params }: { params: { slug: string } }) {
-  const b = getAccount(params.slug);
+export default async function OverviewPage({ params }: { params: { slug: string } }) {
+  const b = (await getAccount(params.slug));
   if (!b) notFound();
   const { account: a, overview: o } = b;
   if (a.stage === "sales") {
-    const all = listAccounts();
+    const all = (await listAccounts());
     return <SalesOverview b={b} related={relatedByIndustry(b, all)} others={all.filter((x) => x.account.stage === "delivery")} />;
   }
   const attention = o.streams.filter((s) => s.attention);

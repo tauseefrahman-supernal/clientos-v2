@@ -8,7 +8,8 @@ How ClientOS was redesigned into the Strategy Vault, what was decided and why, a
 - **Projects:** 9 accounts in delivery and 32 deals in sales/scoping (from Account OS). Four scoping deals are fully researched: IEC Colleges, Waterfall, Brill Building, Owner.com.
 - **Stella:** works end to end with Tauseef's key (`claude-opus-5-5`, medium effort, streaming, citations). Full chat page at `/stella`; About page at `/stella/about`. **Evaluation (14 Nov): 34 of 38 on the first run, every answer cited; 38 of 38 after fixing data gaps.** Cost about $5.60 in total.
 - **Code and database:** private GitHub repo https://github.com/tauseefrahman-supernal/clientos-v2 (his account cannot create repos in the Supernal-Technology org; transfer later). The `clientos` schema (18 tables, row-level security on, service role only) is applied to the existing Supabase project "Client OS" (`chgkhaxogaipafngvjqx`, beside `presales` and `we`) on 14 Nov.
-- **Not built yet:** the app still reads its in-memory store; moving it onto the Supabase tables is next, live connectors (Account OS sync, Granola, Drive, Linear, Slack, Notion), workflows that actually run, team access for Jaime and Sven.
+- **Data on Supabase (14 Nov):** with `NEXT_PUBLIC_SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` set, the app reads and writes the `clientos` schema (`lib/data/db.ts`): reads from a 15-second server copy, every edit written to the database first. Vault edits, visibility, approvals and Stella chats (`/api/chats`, saved by `/api/stella` after each answer) persist and are shared. `npm run db:import` copies the repo's research docs and seed files in, keeping edits made in the app. Without the keys it falls back to the repo files.
+- **Not built yet:** live connectors (Account OS sync, Granola, Drive, Linear, Slack, Notion), workflows that actually run, team access for Jaime and Sven.
 
 ## The strategy, in Tauseef's words and decisions
 
@@ -63,6 +64,13 @@ How it was built:
 - Heritage's Security-and-Compliance file gained an Incident-Log and Identifier-Masking entry (`data/seed/heritage.json`), because Stella looks for incidents there. Re-runs passed (about $0.68).
 - Lesson: when Stella says something is not in the vault, check the data before the prompt; the eval mostly measures coverage of the research docs.
 
+### 14 Nov: GitHub and Supabase
+- Repo pushed to https://github.com/tauseefrahman-supernal/clientos-v2 (private); the Supernal-Technology org needs an admin to create or transfer it.
+- `clientos` schema applied to the Client OS project (`chgkhaxogaipafngvjqx`): 18 tables, row-level security on, service role only; a second migration added round-trip columns (template and category names on files, origins, chapter sources, workflow standard flag, artifact keys) and per-project template uniqueness.
+- Data layer switched: the data API is async; Supabase is the source of truth when configured; first import loaded 41 projects, 32 deals, 2 squads, 4 categories, 71 templates, 1,153 vault files, 102 chapters, 492 artifacts, 384 workflows. Re-import refreshes without duplicating. Checked: a hidden file stays hidden after reload; a Stella exchange saves both messages; 3 evaluation questions pass on the database.
+- Bugs met: a pasted project URL with a path broke requests (the client now uses the URL's origin); batch inserts send null for omitted columns (every row now sets every column).
+- The security advisor flagged existing issues outside `clientos` (anonymous-callable SECURITY DEFINER functions in `presales` and `we`, mutable search paths, vector in public, leaked-password protection off). Not changed; for their owners.
+
 ## Findings worth keeping (deal research, 13 Nov)
 
 - **IEC Colleges** ($175K, Order Form, Zack / Diana, Origin): order form $178K, $9K a month for two months then $16K, billed quarterly, exit at day 90. Champion Esther Duong (VP Marketing) pushes on cost and billing; wants enrolment gains in about 60 days. World Emblem is the reference (Randy call, Eric Freeman walkthrough). Who signs is unclear.
@@ -77,7 +85,7 @@ How it was built:
 - Account OS corrections spotted (not made; read-only): Brill NDA status and value reason; Waterfall incumbent spelled "Via Pages"; ARS Wealth close date 25 Dec 2025.
 - Seven scoping deals have no call material (Mission Coast, Insurance CRM, Palm, Infusion, SRR, Tax/Accounting, HMS).
 - MECE-Framework still mentions the old A1 to B5 numbering.
-- Next phases: apply the Supabase schema and move the store there; connectors; workflows that run; give Jaime and Sven access; commit and push when Tauseef asks.
+- Next phases: sign-in (Supabase auth, Supernal emails) and per-user access so Jaime and Sven can use it; deploy; connectors (Account OS sync first); workflows that run; Stella retrieval on the `chunks` table with embeddings.
 
 ## How to run and check
 

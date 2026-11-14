@@ -28,14 +28,14 @@ function split(id: string, kind: Source["kind"], label: string, text: string): S
 
 const cache = new Map<string, { stamp: string; sources: Source[] }>();
 
-export function corpus(slug: string): Source[] {
-  const b = getAccount(slug);
+export async function corpus(slug: string): Promise<Source[]> {
+  const b = await getAccount(slug);
   if (!b) return [];
   const stamp = b.files.map((f) => `${f.path}:${f.state}:${f.content.length}`).join("|");
   const hit = cache.get(slug);
   if (hit && hit.stamp === stamp) return hit.sources;
 
-  const templates = listTemplates();
+  const templates = await listTemplates();
   const out: Source[] = [];
   for (const f of b.files.filter((x) => x.state === "active")) {
     const { markdown } = fileMarkdown(b, f, templates);
@@ -59,8 +59,8 @@ const stem = (w: string) => IRREGULAR[w] ?? (w.length > 5 ? w.replace(/(ations?|
 const terms = (s: string) => s.toLowerCase().replace(/[^\p{L}\p{N}$%.]+/gu, " ").split(" ").filter((w) => w.length > 1 && !STOP.has(w)).map(stem);
 
 /** BM25-style ranking over the account's sources. */
-export function search(slug: string, query: string, limit = 8): Hit[] {
-  const docs = corpus(slug);
+export async function search(slug: string, query: string, limit = 8): Promise<Hit[]> {
+  const docs = await corpus(slug);
   const q = Array.from(new Set(terms(query)));
   if (!q.length) return [];
   const toks = docs.map((d) => { const l = terms(d.label); return [...l, ...l, ...l, ...terms(d.text)]; }); // label words count three times
@@ -86,29 +86,30 @@ function excerpt(text: string, q: string[]): string {
   return (at > 0 ? "…" : "") + text.slice(at, at + 700) + (at + 700 < text.length ? "…" : "");
 }
 
-export function readSource(slug: string, id: string): Source | null {
-  const docs = corpus(slug);
+export async function readSource(slug: string, id: string): Promise<Source | null> {
+  const docs = await corpus(slug);
   const exact = docs.find((d) => d.id === id);
   if (exact) return exact;
   const parts = docs.filter((d) => d.id.startsWith(`${id}#`));
   return parts.length ? { ...parts[0], id, label: parts[0].label.replace(/ \(part \d+\)$/, ""), text: parts.map((p) => p.text).join("\n\n") } : null;
 }
 
-export function listSources(slug: string) {
+export async function listSources(slug: string) {
   const seen = new Set<string>();
-  return corpus(slug).map((d) => ({ id: d.id.split("#")[0], label: d.label.replace(/ \(part \d+\)$/, "") })).filter((d) => !seen.has(d.id) && seen.add(d.id));
+  return (await corpus(slug)).map((d) => ({ id: d.id.split("#")[0], label: d.label.replace(/ \(part \d+\)$/, "") })).filter((d) => !seen.has(d.id) && seen.add(d.id));
 }
 
 /** Search the delivered projects other than this one. Projects in the same industry rank first. */
-export function searchExpertise(slug: string, query: string, limit = 8): (Hit & { project: string; sameIndustry: boolean })[] {
-  const me = getAccount(slug);
+export async function searchExpertise(slug: string, query: string, limit = 8): Promise<(Hit & { project: string; sameIndustry: boolean })[]> {
+  const me = await getAccount(slug);
+  const all = await listAccounts();
   if (!me) return [];
-  const same = new Set(relatedByIndustry(me, listAccounts()).map((r) => r.bundle.account.slug));
+  const same = new Set(relatedByIndustry(me, all).map((r) => r.bundle.account.slug));
   const out: (Hit & { project: string; sameIndustry: boolean })[] = [];
-  for (const b of listAccounts()) {
+  for (const b of all) {
     if (b.account.slug === slug || b.account.stage !== "delivery") continue;
     const boost = same.has(b.account.slug) ? 1.5 : 1;
-    for (const h of search(b.account.slug, query, 4)) out.push({ ...h, id: `${b.account.slug}|${h.id}`, label: `${b.account.name} · ${h.label}`, score: Math.round(h.score * boost * 100) / 100, project: b.account.name, sameIndustry: boost > 1 });
+    for (const h of await search(b.account.slug, query, 4)) out.push({ ...h, id: `${b.account.slug}|${h.id}`, label: `${b.account.name} · ${h.label}`, score: Math.round(h.score * boost * 100) / 100, project: b.account.name, sameIndustry: boost > 1 });
   }
   return out.sort((a, b) => b.score - a.score).slice(0, limit);
 }

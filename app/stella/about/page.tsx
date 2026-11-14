@@ -17,18 +17,18 @@ const CAN = [
 ];
 const NOT_YET = ["Write to the vault (she drafts; you save)", "Read meetings directly from Granola or Fathom", "Read Linear, Account OS, Slack or Drive live", "Search across projects in one question"];
 
-export default function StellaPage() {
-  const accounts = listAccounts();
-  const cats = listCategories();
-  const templates = listTemplates();
+export default async function StellaPage() {
+  const accounts = (await listAccounts());
+  const cats = (await listCategories());
+  const templates = (await listTemplates());
   const dir = join(process.cwd(), "templates", "stella", "Frameworks");
   const frameworks = readdirSync(dir).filter((f) => f.endsWith(".md")).sort().map((f) => {
     const body = readFileSync(join(dir, f), "utf8");
     const blurb = body.split("\n").find((l) => l.startsWith(">") || (l.trim() && !l.startsWith("#") && !l.startsWith("**")))?.replace(/^>\s*/, "").replace(/\*\*/g, "") ?? "";
     return { name: f.replace(/\.md$/, ""), blurb, body };
   });
-  const coverage = accounts.map((b) => {
-    const src = corpus(b.account.slug);
+  const coverage = await Promise.all(accounts.map(async (b) => {
+    const src = await corpus(b.account.slug);
     const files = b.files.filter((f) => f.state === "active");
     return {
       slug: b.account.slug, name: b.account.name,
@@ -36,7 +36,7 @@ export default function StellaPage() {
       hidden: b.files.filter((f) => f.state === "hidden" || f.state === "archived").length,
       chapters: b.book.length, chunks: src.length, sensitive: b.artifacts.filter((a) => a.sensitive).length,
     };
-  });
+  }));
 
   return (
     <div className="mx-auto flex max-w-[1100px] flex-col gap-space-6 px-space-6 py-space-5">

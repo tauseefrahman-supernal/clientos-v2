@@ -1,0 +1,117 @@
+{
+  "at": "2026-11-14T10:48:57.787Z",
+  "passed": 3,
+  "total": 3,
+  "tokens": {
+    "input": 68296,
+    "output": 4046,
+    "cacheRead": 124838
+  },
+  "results": [
+    {
+      "id": "we-01",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "Book, chapter 2: Why they bought",
+        "File Sales Strategy/Concept-Alignment.md (part 3)",
+        "File Sales Strategy/Concept-Alignment.md (part 4)",
+        "File Sales Strategy/Concept-Alignment.md (part 3)",
+        "File Sales Strategy/Concept-Alignment.md (part 3)",
+        "File Sales Strategy/Concept-Alignment.md (part 4)",
+        "File Sales Strategy/Concept-Alignment.md (part 4)",
+        "File Sales Strategy/Concept-Alignment.md (part 4)",
+        "File Sales Strategy/Concept-Alignment.md (part 3)",
+        "File Sales Strategy/Concept-Alignment.md (part 2)",
+        "File Sales Strategy/Concept-Alignment.md (part 3)",
+        "File Sales Strategy/Concept-Alignment.md (part 2)",
+        "Book, chapter 2: Why they bought",
+        "File Sales Strategy/Concept-Alignment.md (part 4)",
+        "Account: where sources disagree"
+      ],
+      "seconds": 18,
+      "answer": "Randy Carr bought Leadership OS because, within a week of describing his own week to us, he saw a prototype of his own operating system rebuilt as AI-native. It used his own terms and data. The deal took two weeks from discovery on 14 May to signature on 28 May at $10K a month ($120K) [Book, chapter 2: Why they bought] [File Sales Strategy/Concept-Alignment.md (part 3)].\n\n**The causes, most important first:**\n\n1. **His pain was specific and he felt it every day.** He spent about 15% of his time on KPI work and chasing reds. He kept a 300-line commitments list by hand, and about three-quarters of it was not done [File Sales Strategy/Concept-Alignment.md (part 4)]. He wanted 80 to 85% of his time back and didn't want to have to ask twice. He didn't want his Excel KPI cascade replaced. He wanted it made AI-native [File Sales Strategy/Concept-Alignment.md (part 3)].\n\n2. **He saw his own system in a prototype, not a proposal.** His assistant Gabriella sent the org chart, T3 transcripts, objectives and the meeting-system template. On 21 May Tauseef demoed a Leadership OS prototype built from those files in about a day. Randy said he was doubling the budget and could see it replacing his whole FMDS system [File Sales Strategy/Concept-Alignment.md (part 3)]. The team's own view afterwards was that it worked because it was a prototype, not a proposal [File Sales Strategy/Concept-Alignment.md (part 4)].\n\n3. **We matched what he said against what his data showed.** Tauseef's read at the time was that this is what excited Randy [File Sales Strategy/Concept-Alignment.md (part 4)].\n\n4. **He could see a clear return.** He expected to free about three people from spreadsheet work [File Sales Strategy/Concept-Alignment.md (part 4)].\n\n5. **It was easy to buy.**\n   - He had asked for an early standalone order form rather than one proposal at day 60 [File Sales Strategy/Concept-Alignment.md (part 3)].\n   - An MSA was already in place from the advisory, so order forms could be added quickly [File Sales Strategy/Concept-Alignment.md (part 2)].\n   - Our internal price dropped from $15K to $10K a month. The form listed the deliverables plainly and promised value within 30 days, felt by 90. Randy said to treat it as signed and not slow down [File Sales Strategy/Concept-Alignment.md (part 3)].\n\n**Context:**\n- **He already spends on technology.** He puts about 10% of revenue into it and paid another vendor about $1M the year before [File Sales Strategy/Concept-Alignment.md (part 2)].\n- **The \"AI CEO\" framing was already in his head from the advisory** [Book, chapter 2: Why they bought].\n\n**Limits and a conflict in the sources:**\n- **No written pre-sale pitch exists in the vault.** No \"pattern\" deck shown to Randy before 28 May was found. The only pre-sale evidence is the prototype and the verbal read-back. The deep analysis (cascade errors, SharePoint mapping) came afterwards and won FMDS OS, not Leadership OS [File Sales Strategy/Concept-Alignment.md (part 4)].\n- **The price differs between sources.** The signed form says $10K a month ($120K), but the case study says $15K [Account: where sources disagree].",
+      "steps": [
+        "searched “Leadership OS why bought” · 8 hits",
+        "searched “Concept-Alignment Leadership OS causes” · 8 hits",
+        "read File Sales Strategy/Concept-Alignment.md (part 1)",
+        "read File Sales Strategy/Concept-Alignment.md (part 3)",
+        "read Book, chapter 2: Why they bought",
+        "read File Sales Strategy/Concept-Alignment.md (part 4)",
+        "read File Sales Strategy/Concept-Alignment.md (part 2)"
+      ],
+      "error": null,
+      "usage": {
+        "input": 23993,
+        "output": 1662,
+        "cacheRead": 38272
+      }
+    },
+    {
+      "id": "he-08",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Deal Strategy/Product-Segmentation.md (part 6)",
+        "File Technical Strategy/Security-and-Compliance.md (part 2)",
+        "File Deal Strategy/Product-Segmentation.md (part 6)",
+        "File Deal Strategy/Product-Segmentation.md (part 6)",
+        "File Technical Strategy/Security-and-Compliance.md (part 2)",
+        "File Delivery Strategy/Weekly.md (part 2)",
+        "File Delivery Strategy/Project-Plan.md (part 2)",
+        "File Technical Strategy/Security-and-Compliance.md (part 2)"
+      ],
+      "seconds": 15,
+      "answer": "The issue Heritage found themselves was **client file uploads.** They asked what would happen if one of their clients uploaded a virus to the Vault, and whether it could spread. Supernal confirmed the gap was real: uploads were not yet scanned or quarantined. The only protection was that files are read only when someone fetches them [File Deal Strategy/Product-Segmentation.md (part 6)] [File Technical Strategy/Security-and-Compliance.md (part 2)].\n\n- **When:** Supernal answered on the 23 Oct 2026 security call. In the 28 Oct Weekly Sync, Heritage was described as having raised it \"the week before\" [File Deal Strategy/Product-Segmentation.md (part 6)].\n- **What happened next:** Sven used the question to bring Roger Lee (security) onto the calls [File Deal Strategy/Product-Segmentation.md (part 6)]. Upload scanning and quarantine now sit with the security programme, HER-1306 [File Technical Strategy/Security-and-Compliance.md (part 2)].\n- **Still open:** Roger promised a written security assessment on 28 Oct, due in 1 to 2 weeks. No Linear issue was found for it, though issue-level Linear wasn't checked [File Delivery Strategy/Weekly.md (part 2)]. The cyber security one-pager for Heritage's clients has no Linear issue found either [File Delivery Strategy/Project-Plan.md (part 2)].\n\nThe incident log has other security problems, but it doesn't say who found most of them:\n- **Jul 2026, malware at Supernal:** Supernal found it. It was contained in 58 minutes and no Heritage data was affected.\n- **5 Oct, hosting breach:** the database was in Central Europe, against the MSA's US-only clause.\n- **25 Oct, 2FA lockout:** turning on 2FA locked clients out.\n- **10 Nov, Chris Halvey's email:** his \"Concerns with platform\" email opened the HER-1306 security programme.\n\n[File Technical Strategy/Security-and-Compliance.md (part 2)]\n\nThe upload question is the only one the vault records as Heritage's own finding.",
+      "steps": [
+        "searched “security issue found by client” · 8 hits",
+        "searched “Security-and-Compliance incident” · 8 hits",
+        "read File Technical Strategy/Security-and-Compliance.md (part 2)",
+        "read File Deal Strategy/Product-Segmentation.md (part 6)"
+      ],
+      "error": null,
+      "usage": {
+        "input": 18502,
+        "output": 1107,
+        "cacheRead": 38458
+      }
+    },
+    {
+      "id": "ho-09",
+      "pass": true,
+      "facts": true,
+      "cited": true,
+      "missing": [],
+      "cites": [
+        "File Delivery Strategy/Stakeholders.md (part 1)",
+        "Book, chapter 7: The people",
+        "File Sales Strategy/Sales-One-Pager.md (part 1)",
+        "File Delivery Strategy/Stakeholders.md (part 1)",
+        "File Delivery Strategy/Weekly.md (part 2)",
+        "File Delivery Strategy/Stakeholders.md (part 2)",
+        "File Technical Strategy/Proposal-v2.md (part 9)",
+        "File Delivery Strategy/Stakeholders.md (part 2)",
+        "Book, chapter 7: The people"
+      ],
+      "seconds": 16,
+      "answer": "**David Metze** is the day-to-day contact. He is Hooray's point of contact and AI lead, and their main champion from the start [File Delivery Strategy/Stakeholders.md (part 1)]. He has staked his standing on an outside partner working [Book, chapter 7: The people]. Roger Burns is the secondary contact and co-champion [File Sales Strategy/Sales-One-Pager.md (part 1)].\n\nThe friction, from most to least pressing right now:\n\n1. **Holding up the hotel rollout.** David pushed back on the 9 Nov hotel onboarding. Our last notable contact with him was the Weekly Review on 6 Nov [File Delivery Strategy/Stakeholders.md (part 1)]. Hotel onboarding is marked \"blocked on client\": rollout moved from mid-Oct to 2 Nov, then to 9 Nov, and we're still waiting for a go. Meanwhile M4 is at 75% against a 16 Oct target and M5 at 54% against 30 Oct [File Delivery Strategy/Weekly.md (part 2)]. The vault doesn't say why he pushed back. The 6 Nov Weekly Review meeting notes would be the place to check.\n\n2. **Slow on reviews and homework.** The team finds David slow on anything sent for review or homework. They called it a small but real problem that needs better async ways of working (Squad Lab - 1% better, 22 Sep 2026) [File Delivery Strategy/Stakeholders.md (part 2)]. The Proposal-v2 asked for sign-off within 5 business days, with the milestone clock paused while a sign-off is pending [File Technical Strategy/Proposal-v2.md (part 9)]. That's the lever if this keeps happening.\n\n3. **Limited access and gated exposure.** David and Roger didn't want to give Supernal direct access to Looker Studio. That's the source behind the KPIs, and the team needed it to trace how the numbers are calculated (Weekly Review, 18 Sep 2026). Presenting to Hooray's account managers was also gated on their review first (Delivery Sync, 21 Sep 2026) [File Delivery Strategy/Stakeholders.md (part 2)].\n\n4. **Caught in the middle.** David and Roger have said they get caught between the CEO (Steven Seghers) and Randy Stuck. The team reports that decisions made by the working group get overridden by the CEO [Book, chapter 7: The people]. Some of the slowness may come from David waiting on people above him rather than from David himself. That's an inference; no source says so directly.",
+      "steps": [
+        "searched “day-to-day contact friction” · 8 hits",
+        "searched “Stakeholders disposition last contact” · 8 hits",
+        "read File Delivery Strategy/Stakeholders.md (part 2)",
+        "read File Delivery Strategy/Stakeholders.md (part 1)",
+        "searched “David pushed back 9 Nov hotel onboarding” · 5 hits"
+      ],
+      "error": null,
+      "usage": {
+        "input": 25801,
+        "output": 1277,
+        "cacheRead": 48108
+      }
+    }
+  ]
+}

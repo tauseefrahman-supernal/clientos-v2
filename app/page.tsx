@@ -3,8 +3,8 @@ import { DeliveryTable, SalesTable, type DeliveryRow, type SalesRow } from "@/co
 
 const STAGE_ORDER = ["Order Form", "Proposal", "Prototype", "Concept Alignment", "Idea", "Nurture"];
 
-export default function ProjectsPage() {
-  const all = listAccounts();
+export default async function ProjectsPage() {
+  const all = (await listAccounts());
   const delivery = all.filter((b) => b.account.stage === "delivery");
   const sales = all.filter((b) => b.account.stage === "sales").sort((a, b) => STAGE_ORDER.indexOf(a.account.deal!.stage) - STAGE_ORDER.indexOf(b.account.deal!.stage));
   // "Tauseef" and "Tauseef Rahman" are one person: use the fullest name that shares a first name.

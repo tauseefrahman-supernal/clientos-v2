@@ -4,13 +4,14 @@ import { fileMarkdown, findFile } from "@/lib/data/render";
 import { VaultView } from "@/components/project/VaultView";
 import { GROUPS } from "@/lib/types";
 
-export default function VaultPage({ params, searchParams }: { params: { slug: string }; searchParams: { file?: string } }) {
-  const b = getAccount(params.slug);
+export default async function VaultPage({ params, searchParams }: { params: { slug: string }; searchParams: { file?: string } }) {
+  const b = (await getAccount(params.slug));
   if (!b) notFound();
-  const cats = listCategories();
-  const templates = listTemplates();
+  const cats = (await listCategories());
+  const templates = (await listTemplates());
   const found = findFile(b.files, searchParams.file);
   const file = found && found.state !== "deleted" ? found : null;
+  const others = file?.category ? (await usage(file.category, file.template ?? undefined)).filter((u) => u.slug !== b.account.slug) : [];
   const selected = file && (() => {
     const t = templates.find((x) => x.category === file.category && x.name === file.template) ?? null;
     const c = cats.find((x) => x.slug === file.category) ?? null;
@@ -19,7 +20,7 @@ export default function VaultPage({ params, searchParams }: { params: { slug: st
       ...fileMarkdown(b, file, templates),
       category: c ? { slug: c.slug, name: c.name, status: c.status, isCore: c.isCore } : null,
       template: t ? { name: t.name, status: t.status, onlyAccount: t.onlyAccount } : null,
-      otherProjects: file.category ? usage(file.category, file.template ?? undefined).filter((u) => u.slug !== b.account.slug) : [],
+      otherProjects: others,
     };
   })();
 

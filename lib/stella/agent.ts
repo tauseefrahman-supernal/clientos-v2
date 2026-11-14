@@ -56,34 +56,34 @@ const tools: Anthropic.Tool[] = [
   },
 ];
 
-function runTool(slug: string, name: string, input: unknown): { ok: boolean; content: string; summary: string } {
+async function runTool(slug: string, name: string, input: unknown): Promise<{ ok: boolean; content: string; summary: string }> {
   const args = (input && typeof input === "object" ? input : {}) as Record<string, unknown>;
   if (name === "search_context") {
     if (typeof args.query !== "string" || !args.query.trim()) return { ok: false, content: "query must be a non-empty string", summary: "invalid search" };
     const limit = Math.min(12, Math.max(1, Number(args.limit) || 8));
-    const hits = search(slug, args.query, limit);
+    const hits = await search(slug, args.query, limit);
     return { ok: true, content: hits.length ? JSON.stringify(hits) : "No matches. Try other words: names, products, dates.", summary: `searched “${args.query}” · ${hits.length} hits` };
   }
   if (name === "read_source") {
     if (typeof args.id !== "string") return { ok: false, content: "id must be a string", summary: "invalid read" };
     const [other, inner] = args.id.includes("|") ? args.id.split("|", 2) : [slug, args.id];
-    const s = readSource(other, inner);
+    const s = await readSource(other, inner);
     return s ? { ok: true, content: JSON.stringify({ id: s.id, label: s.label, text: s.text }), summary: `read ${s.label}` } : { ok: false, content: `No source with id ${args.id}. Call list_sources.`, summary: "source not found" };
   }
   if (name === "list_sources") {
-    const l = listSources(slug);
+    const l = await listSources(slug);
     return { ok: true, content: JSON.stringify(l), summary: `listed ${l.length} sources` };
   }
   if (name === "search_expertise") {
     if (typeof args.query !== "string" || !args.query.trim()) return { ok: false, content: "query must be a non-empty string", summary: "invalid search" };
-    const hits = searchExpertise(slug, args.query, Math.min(12, Math.max(1, Number(args.limit) || 8)));
+    const hits = await searchExpertise(slug, args.query, Math.min(12, Math.max(1, Number(args.limit) || 8)));
     return { ok: true, content: hits.length ? JSON.stringify(hits) : "No matches in other projects.", summary: `searched other projects for “${args.query}” · ${hits.length} hits` };
   }
   return { ok: false, content: `Unknown tool ${name}`, summary: "unknown tool" };
 }
 
-function projectHeader(slug: string): string {
-  const b = getAccount(slug)!;
+async function projectHeader(slug: string): Promise<string> {
+  const b = (await getAccount(slug))!;
   const a = b.account;
   const who = a.stage === "sales"
     ? `The deal: ${a.name}, in sales at stage ${a.deal?.stage}. Value ${a.deal?.value || "not set"}. Owner ${a.deal?.owner || "not set"}. Next step: ${a.deal?.nextStep || "none recorded"}. This deal is being scoped: most of its files are still empty templates. Use search_expertise to bring in what similar delivered projects learned, and label it as theirs.`
@@ -107,7 +107,7 @@ export async function* askStella(slug: string, history: { role: "user" | "assist
   const messages: Anthropic.Beta.BetaMessageParam[] = history.map((m) => ({ role: m.role, content: m.content }));
   const system: Anthropic.Beta.BetaTextBlockParam[] = [
     { type: "text", text: `${RULES}\n\n# Your frameworks\n\n${frameworks()}`, cache_control: { type: "ephemeral" } },
-    { type: "text", text: projectHeader(slug), cache_control: { type: "ephemeral" } },
+    { type: "text", text: await projectHeader(slug), cache_control: { type: "ephemeral" } },
   ];
   const usage = { input: 0, output: 0, cacheRead: 0 };
 
@@ -147,10 +147,10 @@ export async function* askStella(slug: string, history: { role: "user" | "assist
 
     yield { type: "reset" };
     messages.push({ role: "assistant", content: m.content });
-    const results: Anthropic.Beta.BetaToolResultBlockParam[] = calls.map((c) => {
-      const r = runTool(slug, c.name, c.input);
+    const results: Anthropic.Beta.BetaToolResultBlockParam[] = await Promise.all(calls.map(async (c) => {
+      const r = await runTool(slug, c.name, c.input);
       return { type: "tool_result", tool_use_id: c.id, content: r.content, is_error: !r.ok, _summary: r.summary } as Anthropic.Beta.BetaToolResultBlockParam & { _summary: string };
-    });
+    }));
     for (const r of results as (Anthropic.Beta.BetaToolResultBlockParam & { _summary: string })[]) { yield { type: "tool", name: calls.find((c) => c.id === r.tool_use_id)!.name, summary: r._summary }; delete (r as { _summary?: string })._summary; }
     messages.push({ role: "user", content: results });
   }

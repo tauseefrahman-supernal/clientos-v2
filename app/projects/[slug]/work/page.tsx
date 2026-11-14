@@ -5,8 +5,8 @@ import { WorkView, type WorkflowDetail } from "@/components/project/WorkView";
 // Work: how client work gets delivered on this account. Each workflow carries what it
 // draws on and a preview of what Stella would prepare. Running it arrives with phase 2.
 
-export default function WorkPage({ params, searchParams }: { params: { slug: string }; searchParams: { w?: string } }) {
-  const b = getAccount(params.slug);
+export default async function WorkPage({ params, searchParams }: { params: { slug: string }; searchParams: { w?: string } }) {
+  const b = (await getAccount(params.slug));
   if (!b) notFound();
   const o = b.overview;
   const open = o.deals.filter((d) => d.phase < 3);

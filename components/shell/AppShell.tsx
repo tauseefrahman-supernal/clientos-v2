@@ -18,7 +18,7 @@ export const useShell = () => useContext(Ctx);
 const read = (k: string) => { try { return localStorage.getItem(k); } catch { return null; } };
 const write = (k: string, v: string) => { try { localStorage.setItem(k, v); } catch { /* private window */ } };
 
-export function AppShell({ children, searchIndex, names }: { children: React.ReactNode; searchIndex: SearchItem[]; names: Record<string, string> }) {
+export function AppShell({ children, searchIndex, names, saved = false }: { children: React.ReactNode; searchIndex: SearchItem[]; names: Record<string, string>; saved?: boolean }) {
   const [collapsed, setCollapsed] = useState(false);
   const [stella, setStella] = useState(false);
   const [stellaPrompt, setStellaPrompt] = useState<string | undefined>();
@@ -64,7 +64,7 @@ export function AppShell({ children, searchIndex, names }: { children: React.Rea
               </Link>
             ))}
           </nav>
-          {!collapsed && <p className="mt-auto px-space-2 text-xs leading-relaxed text-muted-foreground">Prototype data from the account research of 13 Nov. Edits last until the server restarts.</p>}
+          {!collapsed && <p className="mt-auto px-space-2 text-xs leading-relaxed text-muted-foreground">{saved ? "Saved to Supabase. Research imported from the repo; your edits are kept." : "Prototype data from the repo files. Edits last until the server restarts."}</p>}
         </aside>
 
         <div className="flex min-w-0 flex-1 flex-col">
