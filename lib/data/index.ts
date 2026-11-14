@@ -136,3 +136,21 @@ export async function addTemplateFile(slug: string, category: string, template: 
   b.files.push(f);
   return f;
 }
+
+const CATEGORY_OF_GROUP = ["core-sales", "core-deal", "core-tech", "core-delivery"];
+
+/** Save a document (from Stella, or a file someone uploaded) into a project's vault as a new file in a group. */
+export async function addDocumentFile(slug: string, group: GroupId, title: string, content: string, by: string) {
+  const s = await current();
+  const b = s.accounts.get(slug);
+  if (!b) return null;
+  const base = title.replace(/\.(md|markdown|txt)$/i, "").replace(/[^\p{L}\p{N}]+/gu, "-").replace(/^-|-$/g, "").slice(0, 60) || "Document";
+  let name = base, n = 2;
+  while (b.files.some((f) => f.path === `${GROUPS[group]}/${name}` && f.state !== "deleted")) name = `${base}-${n++}`;
+  const f: VaultFile = { path: `${GROUPS[group]}/${name}`, category: CATEGORY_OF_GROUP[group], template: null, group, summary: title.slice(0, 160), content, source: "stella", state: "active", shown: true, inBook: false };
+  const id = accountId(s, slug);
+  if (id) await insertFile(id, f);
+  b.files.push(f);
+  void by;
+  return f;
+}

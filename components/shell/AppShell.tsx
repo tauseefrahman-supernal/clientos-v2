@@ -7,6 +7,7 @@ import { LayoutGrid, Library, PanelLeftClose, PanelLeftOpen, Search, Sparkles, L
 import { cn } from "@/lib/utils";
 import type { SearchItem } from "@/lib/search";
 import { StellaDrawer } from "./StellaDrawer";
+import type { PickProject } from "@/components/stella/ScopePicker";
 
 // App frame: collapsible sidebar, top bar with search, and a Stella drawer that
 // persists across pages. ⌘K opens the search palette from anywhere.
@@ -18,7 +19,7 @@ export const useShell = () => useContext(Ctx);
 const read = (k: string) => { try { return localStorage.getItem(k); } catch { return null; } };
 const write = (k: string, v: string) => { try { localStorage.setItem(k, v); } catch { /* private window */ } };
 
-export function AppShell({ children, searchIndex, names, saved = false, user = null }: { children: React.ReactNode; searchIndex: SearchItem[]; names: Record<string, string>; saved?: boolean; user?: { name: string; email: string; avatar: string | null } | null }) {
+export function AppShell({ children, searchIndex, names, projects = [], saved = false, user = null }: { children: React.ReactNode; searchIndex: SearchItem[]; names: Record<string, string>; projects?: PickProject[]; saved?: boolean; user?: { name: string; email: string; avatar: string | null } | null }) {
   const [collapsed, setCollapsed] = useState(false);
   const [stella, setStella] = useState(false);
   const [stellaPrompt, setStellaPrompt] = useState<string | undefined>();
@@ -92,7 +93,7 @@ export function AppShell({ children, searchIndex, names, saved = false, user = n
           <main className="min-h-0 flex-1 overflow-y-auto">{children}</main>
         </div>
 
-        {stella && !pathname.startsWith("/stella") && <StellaDrawer project={project} projectName={project ? names[project] ?? project : null} prompt={stellaPrompt} onClose={() => toggleStella(false)} />}
+        {stella && !pathname.startsWith("/stella") && <StellaDrawer project={project} projects={projects} prompt={stellaPrompt} onClose={() => toggleStella(false)} />}
       </div>
       {palette && <Palette items={searchIndex} onClose={() => setPalette(false)} />}
     </Ctx.Provider>
@@ -103,7 +104,7 @@ function Crumbs({ pathname, names }: { pathname: string; names: Record<string, s
   const parts = pathname.split("/").filter(Boolean);
   const crumbs: { label: string; href?: string }[] = [];
   if (parts[0] === "library") crumbs.push({ label: "Template Library" });
-  else if (parts[0] === "stella") { crumbs.push({ label: "Stella", href: parts[1] ? "/stella" : undefined }); if (parts[1] === "about") crumbs.push({ label: "About" }); }
+  else if (parts[0] === "stella") { crumbs.push({ label: "Stella", href: parts[1] ? "/stella" : undefined }); if (parts[1] === "chat") crumbs.push({ label: "Chat" }); }
   else if (parts[0] === "projects" && parts[1]) {
     crumbs.push({ label: "Projects", href: "/" });
     crumbs.push({ label: names[parts[1]] ?? parts[1], href: parts[2] ? `/projects/${parts[1]}` : undefined });

@@ -25,7 +25,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body className="m-0 min-h-screen bg-background font-sans text-foreground">
         <TooltipProvider delayDuration={300}>
           {signedOut ? children : (
-            <AppShell saved={backend() === "supabase"} user={user} searchIndex={index} names={Object.fromEntries(accounts.map((b) => [b.account.slug, b.account.name]))}>{children}</AppShell>
+            <AppShell saved={backend() === "supabase"} user={user} searchIndex={index} names={Object.fromEntries(accounts.map((b) => [b.account.slug, b.account.name]))} projects={accounts.map((b) => ({ slug: b.account.slug, name: b.account.name, stage: b.account.stage }))}>{children}</AppShell>
           )}
         </TooltipProvider>
       </body>

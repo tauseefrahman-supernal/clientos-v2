@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getAccount } from "@/lib/data";
 import { Pill } from "@/components/kit";
 import { ProjectTabs } from "@/components/project/ProjectTabs";
+import { ExportButton } from "@/components/project/ExportButton";
 
 export default async function ProjectLayout({ params, children }: { params: { slug: string }; children: React.ReactNode }) {
   const b = (await getAccount(params.slug));
@@ -14,6 +15,7 @@ export default async function ProjectLayout({ params, children }: { params: { sl
         <div className="flex flex-wrap items-baseline gap-space-3">
           <h1 className="font-display text-3xl font-semibold">{a.name}</h1>
           <Pill tone={a.stage === "sales" ? "warn" : "ok"}>{a.stage === "sales" ? "In sales" : "In delivery"}</Pill>
+          <span className="ml-auto self-center"><ExportButton slug={a.slug} /></span>
         </div>
         <div className="mt-space-1 flex flex-wrap items-center gap-x-space-3 gap-y-space-1 text-xs text-muted-foreground">
           {a.industry && <span className="font-medium text-foreground">{a.industry}</span>}

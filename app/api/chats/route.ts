@@ -1,4 +1,4 @@
-import { createChat, listChats, validChatId } from "@/lib/data/chats";
+import { createChat, listChats, setChatScope, validChatId } from "@/lib/data/chats";
 import { currentUser } from "@/lib/auth/server";
 
 export const dynamic = "force-dynamic";
@@ -13,10 +13,18 @@ export async function GET() {
   }
 }
 
-// POST { id, project }: start a chat (id is a UUID made by the browser).
+// POST { id, scope }: start a chat (id is a UUID made by the browser). PATCH { id, scope }: change its projects.
 export async function POST(req: Request) {
   const body = await req.json().catch(() => ({}));
-  if (!validChatId(body.id) || typeof body.project !== "string") return new Response("id (uuid) and project are required.", { status: 400 });
-  try { await createChat(body.id, body.project, (await currentUser())?.id ?? null); return Response.json({ ok: true }); }
+  const scope = Array.isArray(body.scope) ? body.scope : typeof body.project === "string" ? [body.project] : [];
+  if (!validChatId(body.id) || !scope.length) return new Response("id (uuid) and scope are required.", { status: 400 });
+  try { await createChat(body.id, scope, (await currentUser())?.id ?? null); return Response.json({ ok: true }); }
+  catch (e) { return new Response(e instanceof Error ? e.message : String(e), { status: 500 }); }
+}
+
+export async function PATCH(req: Request) {
+  const body = await req.json().catch(() => ({}));
+  if (!validChatId(body.id) || !Array.isArray(body.scope)) return new Response("id (uuid) and scope are required.", { status: 400 });
+  try { await setChatScope(body.id, body.scope, (await currentUser())?.id ?? null); return Response.json({ ok: true }); }
   catch (e) { return new Response(e instanceof Error ? e.message : String(e), { status: 500 }); }
 }

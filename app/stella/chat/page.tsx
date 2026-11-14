@@ -1,0 +1,15 @@
+import { listAccounts } from "@/lib/data";
+import { StellaChat } from "@/components/stella/StellaChat";
+
+export const dynamic = "force-dynamic";
+
+export default async function StellaChatPage({ searchParams }: { searchParams: { project?: string; projects?: string; chat?: string } }) {
+  const projects = (await listAccounts()).map((b) => ({
+    slug: b.account.slug, name: b.account.name, stage: b.account.stage,
+    suggestions: b.account.stage === "sales"
+      ? ["What do we know about this deal so far?", "What have similar delivered projects taught us that should shape the proposal?", "Write a one-page brief for the next discovery call"]
+      : [...b.overview.answers.map((x) => x.q).slice(0, 2), "What needs my attention this week?", "Export this project’s vault and book"].slice(0, 4),
+  }));
+  const initialScope = searchParams.projects ? searchParams.projects.split(",") : searchParams.project ? [searchParams.project] : null;
+  return <StellaChat projects={projects} initialScope={initialScope} initialChat={searchParams.chat ?? null} />;
+}
