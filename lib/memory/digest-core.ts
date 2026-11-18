@@ -191,7 +191,10 @@ export function sectionLayout(markdown: string): { markdown: string; heading: st
   return chunks.map((c) => ({ markdown: c.lines.join("\n").replace(/\s+$/, ""), heading: c.heading, closes: c.closes }));
 }
 
-/** Suggestion text as stored: images and raw HTML removed, links reduced to their words, whitespace tidied. */
+/**
+ * Suggestion text as stored (markdown that renders as the plain text): images and raw HTML removed, links reduced to
+ * their words, whitespace tidied, then every remaining \\ ! [ ] < > escaped. Bare URLs stay as text.
+ */
 export function plainSuggestionText(text: string): string {
   return text
     .replace(/!\[[^\]]*\]\([^)]*\)/g, "")                 // images
@@ -201,7 +204,14 @@ export function plainSuggestionText(text: string): string {
     .replace(/\[([^\]]*)\]\[[^\]]*\]/g, "$1")              // reference links
     .replace(/<(https?:\/\/[^>\s]+)>/g, "$1")              // autolinks keep the address as text
     .replace(/<\/?[a-zA-Z][^>]*>/g, "")                    // raw HTML tags
-    .replace(/[ \t]+/g, " ").replace(/ *\n */g, "\n").replace(/ ([.,;:!?])/g, "$1").trim();
+    .replace(/[ \t]+/g, " ").replace(/ *\n */g, "\n").trim()
+    // Whatever the patterns above missed (nested or escaped brackets), escaped so it can never form an image, link or tag.
+    .replace(/[\\![\]<>]/g, "\\$&");
+}
+
+/** Stored suggestion text back to what it says, for showing as plain text. */
+export function unescapeSuggestionText(text: string): string {
+  return text.replace(/\\([\\![\]<>])/g, "$1");
 }
 
 // ---------------------------------------------------------------- duplicates

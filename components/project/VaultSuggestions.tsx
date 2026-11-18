@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 import { Check, Sparkles, X } from "lucide-react";
 import { decideSuggestionAction } from "@/app/actions";
+import { unescapeSuggestionText } from "@/lib/memory/digest-core";
 
 export type SuggestionItem = { id: string; section: string; text: string; callTitle: string; callDate: string };
 
@@ -32,7 +33,7 @@ export function VaultSuggestions({ items, canDecide, newSection }: { items: Sugg
             {newSection && s.section && <span className="rounded border border-border px-1">New section: {s.section}</span>}
           </div>
           {/* Plain text on purpose: model-written markdown could load images or links on view. */}
-          <p className="mt-1 whitespace-pre-wrap text-sm leading-relaxed">{s.text}</p>
+          <p className="mt-1 whitespace-pre-wrap text-sm leading-relaxed">{unescapeSuggestionText(s.text)}</p>
           {canDecide && (
             <div className="mt-space-2 flex gap-space-2">
               <button type="button" disabled={pending} onClick={() => decide(s.id, true)} className="inline-flex items-center gap-1 rounded-md bg-primary px-space-3 py-1 text-xs font-medium text-primary-foreground disabled:opacity-50"><Check className="h-3 w-3" />Accept</button>

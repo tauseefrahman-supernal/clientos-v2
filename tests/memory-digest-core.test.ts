@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
   appendUnderSection, buildDigestPrompt, DIGEST_SYSTEM, dropDuplicates, fromCallLine, headingsOf, parseDigestReply,
-  plainSuggestionText, runDigest, sectionLayout, type CallForDigest, type DigestDeps, type DigestWrite,
+  plainSuggestionText, unescapeSuggestionText, runDigest, sectionLayout, type CallForDigest, type DigestDeps, type DigestWrite,
 } from "../lib/memory/digest-core.ts";
 
 const lines = (n: number) => Array.from({ length: n }, (_, i) => `line ${i + 1}`).join("\n");
@@ -113,6 +113,17 @@ test("plainSuggestionText strips images, links and HTML, keeping link words", ()
   assert.equal(plainSuggestionText("A <img src=x onerror=y> b <b>bold</b>"), "A b bold");
   assert.equal(plainSuggestionText("Ref [a][1] here\n[1]: https://evil.example"), "Ref a here");
   assert.equal(plainSuggestionText("Auto <https://evil.example> link"), "Auto https://evil.example link");
+  assert.equal(plainSuggestionText("Revenue is up , not down ."), "Revenue is up , not down .");
+});
+
+test("plainSuggestionText escapes what is left, so nested or escaped brackets can never form an image", () => {
+  const a = plainSuggestionText("A ![a [b] c](https://evil.example/x.png?d=1) z");
+  assert.equal(a, "A \\!\\[a \\[b\\] c\\](https://evil.example/x.png?d=1) z");
+  const b = plainSuggestionText("A ![a\\]b](https://evil.example/x.png) z");
+  assert.equal(b, "A \\!\\[a\\\\\\]b\\](https://evil.example/x.png) z");
+  // no unescaped "!" "[" "]" "<" ">" remain: every one is preceded by an odd run of backslashes
+  for (const out of [a, b]) for (const m of out.matchAll(/(\\*)[!\[\]<>]/g)) assert.equal(m[1].length % 2, 1, out);
+  assert.equal(unescapeSuggestionText(a), "A ![a [b] c](https://evil.example/x.png?d=1) z");
 });
 
 // ---------------------------------------------------------------- duplicates

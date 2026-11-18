@@ -3,11 +3,10 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState, useTransition } from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import { Archive, ArchiveRestore, ChevronDown, ChevronRight, Eye, EyeOff, Folder, Plus, Search, Sparkles, Trash2 } from "lucide-react";
 import { StatusTag } from "@/components/kit";
 import { VaultUpload } from "@/components/project/VaultUpload";
+import { SafeMarkdown } from "@/components/project/SafeMarkdown";
 import { VaultSuggestions, type SuggestionItem } from "@/components/project/VaultSuggestions";
 import { headingKey, sectionLayout } from "@/lib/memory/digest-core";
 import { useShell } from "@/components/shell/AppShell";
@@ -235,7 +234,7 @@ function FileView({ slug, s }: { slug: string; s: NonNullable<Selected> }) {
 
 /** The file's text, with pending suggestions shown at the end of the section each would be added to. */
 function FileBody({ markdown, suggestions, canDecide }: { markdown: string; suggestions: SuggestionItem[]; canDecide: boolean }) {
-  if (!suggestions.length) return <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>;
+  if (!suggestions.length) return <SafeMarkdown>{markdown}</SafeMarkdown>;
   const layout = sectionLayout(markdown);
   // Where each section ends (its first heading, as an accept would use). An empty file shows its template, and an
   // accept appends into that same text. H1s are titles, never sections: a suggestion naming one is a new section.
@@ -247,7 +246,7 @@ function FileBody({ markdown, suggestions, canDecide }: { markdown: string; sugg
     <>
       {layout.map((c, i) => (
         <div key={i}>
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{c.markdown}</ReactMarkdown>
+          <SafeMarkdown>{c.markdown}</SafeMarkdown>
           <VaultSuggestions items={at(i)} canDecide={canDecide} />
         </div>
       ))}
