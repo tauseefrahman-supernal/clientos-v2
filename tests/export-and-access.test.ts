@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { buildExport } from "../lib/export.ts";
-import { canAssign, canSee } from "../lib/auth/rules.ts";
+import { canAssign, canSee, runDecisionGate } from "../lib/auth/rules.ts";
 import { allowedEmail, supabaseUrl } from "../lib/auth/config.ts";
 
 const file = (path: string, content: string, state = "active", group = 0) => ({ path, content, state, group, category: null, template: null, summary: "", source: "import", inBook: true });
@@ -54,6 +54,16 @@ test("admins see everything; members only their projects; strategists and admins
   assert.ok(canAssign(admin, "anything"));
   assert.ok(!canAssign(member, "rxvip"));
   assert.ok(canAssign(member, "deal-x"));
+});
+
+test("only admins and the project's strategists may approve, send or discard its runs", () => {
+  const admin = { admin: true, slugs: null, roles: new Map() };
+  const member = { admin: false, slugs: new Set(["rxvip", "deal-x"]), roles: new Map([["rxvip", ["am"]], ["deal-x", ["strategist"]]]) };
+  assert.equal(runDecisionGate(admin, "anything"), null);
+  assert.equal(runDecisionGate(member, "deal-x"), null);
+  assert.equal(runDecisionGate(member, "rxvip"), 403);
+  assert.equal(runDecisionGate(member, "heritage"), 403);
+  assert.equal(runDecisionGate(member, null), 404);
 });
 
 test("only @getsupernal.ai emails may sign in", () => {

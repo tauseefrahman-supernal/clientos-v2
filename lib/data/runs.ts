@@ -4,7 +4,7 @@ import { getAccount, listTemplates, setFileState } from "./index";
 import { askStella } from "@/lib/stella/agent";
 import { splitEvidence } from "@/lib/stella/evidence";
 import { SCOPING_STEPS } from "@/lib/scoping";
-import { workflowBrief } from "@/lib/workflow-brief";
+import { searchableCallFilter, workflowBrief } from "@/lib/workflow-brief";
 import { GONE_GRACE_DAYS } from "@/lib/memory/index-rules";
 
 // Workflow runs (clientos.workflow_runs): Stella drafts a workflow's output from its input files; a
@@ -26,13 +26,22 @@ async function accountId(slug: string) {
   return (data?.id as string) ?? null;
 }
 
-/** Usable calls linked to a project (not personnel, not gone for more than 14 days). A count, no rows. */
-async function usableCallCount(accountId: string): Promise<number> {
+/**
+ * Searchable calls linked to a project (digested or with a transcript; not personnel; not gone for more
+ * than 14 days). A count, no rows. null when the count fails, so the brief does not claim there are none.
+ */
+async function usableCallCount(accountId: string): Promise<number | null> {
   const cutoff = new Date(Date.now() - GONE_GRACE_DAYS * 86_400_000).toISOString();
   const { count, error } = await db().from("transcript_accounts").select("transcript_id,transcripts!inner(id)", { count: "exact", head: true })
-    .eq("account_id", accountId).neq("transcripts.status", "personnel").or(`gone_at.is.null,gone_at.gte.${cutoff}`, { referencedTable: "transcripts" });
-  if (error) { console.error("[runs] counting the project's calls failed:", error.message); return 0; }
-  return count ?? 0;
+    .eq("account_id", accountId).or(searchableCallFilter(cutoff), { referencedTable: "transcripts" });
+  if (error) { console.error("[runs] counting the project's calls failed:", error.message); return null; }
+  return count ?? null;
+}
+
+/** The project (slug) a run belongs to, or null when there is no such run. */
+export async function runProject(runId: string): Promise<string | null> {
+  const { data } = await db().from("workflow_runs").select("accounts!inner(slug)").eq("id", runId).maybeSingle();
+  return ((data as { accounts?: { slug?: string } } | null)?.accounts?.slug as string) ?? null;
 }
 
 const toRun = (r: Record<string, unknown>, project: string, workflow: string): Run => ({
@@ -78,7 +87,7 @@ export async function runWorkflow(slug: string, workflowSlug: string, by: string
     `It is for: ${w.audience}. Cadence: ${w.cadence}. It produces: ${w.output}.`,
     workflowBrief(w, callCount),
     file ? `Once approved, your document becomes this project's ${file} file. Write it as that file: start with "# ${file.replace(/-/g, " ")}" and keep the template's section headings:\n\n${template}` : `Title the document "${w.name}: ${b.account.name} (${date})".`,
-    `Write the output with create_document, then reply in one or two lines with what it covers and what is missing. Mark anything the vault${callCount ? " and calls do" : " does"} not hold as a gap rather than guessing.`,
+    `Write the output with create_document, then reply in one or two lines with what it covers and what is missing. Mark anything the vault${callCount !== 0 ? " and calls do" : " does"} not hold as a gap rather than guessing.`,
   ].filter(Boolean).join("\n\n");
 
   let draft = "", reply = "", failure: string | null = null;

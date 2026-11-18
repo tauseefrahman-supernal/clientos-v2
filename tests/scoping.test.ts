@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { byPriority, daysUntil, nextStep, scopingTrack } from "../lib/scoping.ts";
-import { workflowBrief } from "../lib/workflow-brief.ts";
+import { searchableCallFilter, workflowBrief } from "../lib/workflow-brief.ts";
 
 const states = (t: { state: string }[]) => t.map((s) => s.state).join(",");
 
@@ -78,4 +78,27 @@ test("without calls, the workflow brief says there are none and marks call facts
 
 test("a workflow with no input files still points Stella at the vault", () => {
   assert.match(workflowBrief({ name: "Discovery readout", inputs: [] }, 0), /vault/);
+});
+
+test("with calls, the brief says documents cite calls inline, not in an evidence block", () => {
+  const b = workflowBrief(intake, 2);
+  assert.match(b, /inline/);
+  assert.match(b, /\[Call: <title>, <date>\]/);
+  assert.doesNotMatch(b, /evidence block/);
+});
+
+test("when the call count is unknown, the brief neither claims calls nor says there are none", () => {
+  const b = workflowBrief(intake, null);
+  assert.match(b, /Sales-Intake, Deal-Brief/);
+  assert.match(b, /search_calls/);
+  assert.match(b, /if it returns nothing/i);
+  assert.match(b, /gap/);
+  assert.doesNotMatch(b, /no calls yet/i);
+  assert.doesNotMatch(b, /also has \d/);
+});
+
+test("the usable-call filter keeps searchable calls that are not personnel and not long gone", () => {
+  const f = searchableCallFilter("2026-11-04T00:00:00.000Z");
+  for (const part of ["status.eq.digested", "body.not.is.null", "status.neq.personnel", "gone_at.is.null", 'gone_at.gte."2026-11-04T00:00:00.000Z"']) assert.ok(f.includes(part), part);
+  assert.ok(!/\s/.test(f), "no spaces in a PostgREST filter");
 });
