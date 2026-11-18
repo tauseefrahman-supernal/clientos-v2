@@ -141,8 +141,13 @@ export function ArtifactGallery({ artifacts, recordings, heldBack, project, slug
                       <div className="text-xs"><div className="font-semibold">{when(r.date)}</div><div className="text-muted-foreground">{r.provider === "granola" ? "Granola" : r.provider === "fathom" ? "Fathom" : "Upload"} · {KIND_LABEL[r.kind]}</div></div>
                       <div className="min-w-0">
                         <div className="text-sm font-semibold">{r.title}</div>
-                        {r.headline && <div className="text-sm">{r.headline}</div>}
-                        {r.summary && <div className="mt-0.5 whitespace-pre-line text-sm text-muted-foreground">{r.summary}</div>}
+                        {r.headline && <div className="text-sm text-muted-foreground">{r.headline}</div>}
+                        {r.summary && (
+                          <details className="mt-0.5 text-sm">
+                            <summary className="cursor-pointer select-none text-xs text-[hsl(var(--color-action-text))]">Summary</summary>
+                            <div className="mt-0.5 whitespace-pre-line text-muted-foreground">{r.summary}</div>
+                          </details>
+                        )}
                         {r.participants.length > 0 && <div className="mt-0.5 truncate text-xs text-muted-foreground">{r.participants.slice(0, 8).join(", ")}{r.participants.length > 8 ? ` +${r.participants.length - 8}` : ""}</div>}
                       </div>
                       <div className="flex items-start gap-space-2">

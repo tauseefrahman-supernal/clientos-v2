@@ -118,7 +118,7 @@ export interface Workflow {
 }
 
 /** A meeting pulled in for a project from Granola or Fathom (listed, never its transcript text). */
-/** summary is the call's 5 to 8 line summary; headline this project's one line; transcriptId opens the transcript panel. */
+/** summary is the call's 5 to 8 line summary (digested calls only, else empty); headline this project's one line; transcriptId opens the transcript panel. */
 export interface Recording { provider: "granola" | "fathom" | "upload"; id: string; title: string; date: string; participants: string[]; kind: "client" | "internal" | "multi"; summary: string; url: string; altUrl: string; headline?: string; transcriptId?: string }
 
 export interface AccountBundle {

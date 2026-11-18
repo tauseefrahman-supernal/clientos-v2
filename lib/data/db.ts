@@ -6,7 +6,7 @@ import type { AccountBundle, Artifact, Category, Chapter, GroupId, Recording, Sh
 import { GROUPS } from "@/lib/types";
 import type { Store } from "./seed";
 import { buildTeam } from "./people-seed";
-import { recordingShown } from "@/lib/memory/index-rules";
+import { recordingShown, recordingText } from "@/lib/memory/index-rules";
 
 // Supabase backend for the `clientos` schema. The server uses the service role; row-level
 // security keeps the anon and signed-in roles out until per-user policies exist.
@@ -76,10 +76,10 @@ export async function loadFromDb(): Promise<DbStore> {
   const booksBy = by<Chapter>(chapters, (r) => ({ sort: r.sort, title: r.title, minutes: r.minutes, lenses: r.lenses, body: r.body, sources: r.sources ?? [] }));
   const artsBy = by<Artifact>(arts, (r) => ({ id: r.key ?? r.id, kind: r.kind, title: r.title, dated: r.dated ?? "", description: r.description, url: r.url ?? "", provider: r.provider ?? "", sensitive: r.sensitive }));
   const wfBy = by<Workflow>(wfs, (r) => ({ slug: r.slug, name: r.name, kind: r.kind, cadence: r.cadence ?? "", audience: r.audience ?? "", inputs: r.inputs ?? [], output: r.output ?? "", note: r.note ?? "", standard: r.standard }));
-  // The Recordings list shows the project's headline and the call's summary (never the body: the panel loads that).
+  // The Recordings list shows this project's headline, and the call's summary only once digested (never the body: the panel loads that).
   // Personnel calls and calls gone from their source for more than 14 days are not listed.
   const shownNow = new Date();
-  const recsBy = by<Recording>(recs.filter((r) => r.transcripts && recordingShown(r.transcripts, shownNow)), ({ headline, transcripts: t }) => ({ provider: t.provider, id: t.external_id, title: t.title, date: t.met_at ?? "", participants: t.participants ?? [], kind: t.kind, headline: headline ?? "", summary: t.summary ?? "", transcriptId: t.id, url: t.url ?? "", altUrl: t.alt_url ?? "" }));
+  const recsBy = by<Recording>(recs.filter((r) => r.transcripts && recordingShown(r.transcripts, shownNow)), ({ headline, transcripts: t }) => ({ provider: t.provider, id: t.external_id, title: t.title, date: t.met_at ?? "", participants: t.participants ?? [], kind: t.kind, ...recordingText(headline, t), transcriptId: t.id, url: t.url ?? "", altUrl: t.alt_url ?? "" }));
   const dealOf = new Map(deals.map((d) => [d.account_id as string, d]));
 
   const s: DbStore = { accounts: new Map(), categories: new Map(), templates: [], ids: new Map() };

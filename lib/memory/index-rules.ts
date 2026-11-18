@@ -56,6 +56,16 @@ export function recordingShown(t: { status?: string | null; gone_at?: string | n
   return isUsable({ status: t.status ?? null, goneAt: t.gone_at ?? null }, now);
 }
 
+/**
+ * What a project's Recordings list shows for one call: always that project's own headline, and the call's 5 to 8 line
+ * summary only once the call is digested (before that the stored summary can be a source one-liner or another
+ * project's seeded line, so it is not sent to the page at all).
+ */
+export function recordingText(headline: string | null | undefined, call: { status?: string | null; summary?: string | null }): { headline: string; summary: string } {
+  const summary = call.status === "digested" ? (call.summary ?? "").trim() : "";
+  return { headline: (headline ?? "").trim(), summary };
+}
+
 // ---------------------------------------------------------------- batching
 
 export function batches<T>(xs: T[], size = EMBED_BATCH): T[][] {

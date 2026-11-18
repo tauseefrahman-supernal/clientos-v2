@@ -216,3 +216,13 @@ test("provider links render only for http and https URLs", () => {
   assert.equal(httpUrl(""), null);
   assert.equal(httpUrl(undefined), null);
 });
+
+test("a recording shows only its project's headline; the call summary rides along only for a digested call", async () => {
+  const { recordingText } = await import("../lib/memory/index-rules.ts");
+  assert.deepEqual(recordingText("RxVIP part: pricing agreed", { status: "digested", summary: "Line one\nLine two" }), { headline: "RxVIP part: pricing agreed", summary: "Line one\nLine two" });
+  // Undigested: the stored summary may be a source one-liner or another project's seeded line; never sent.
+  assert.deepEqual(recordingText("Pricing call", { status: "pending", summary: "Squad review with another project's section" }), { headline: "Pricing call", summary: "" });
+  assert.deepEqual(recordingText("", { status: "failed", summary: "x" }), { headline: "", summary: "" });
+  assert.deepEqual(recordingText(null, { status: "digested", summary: "  " }), { headline: "", summary: "" });
+  assert.deepEqual(recordingText("H", { status: "digested", summary: null }), { headline: "H", summary: "" });
+});
