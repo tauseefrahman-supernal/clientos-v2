@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import { useRef, useState, useTransition } from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import { SafeMarkdown } from "@/components/project/SafeMarkdown";
 import { Check, ChevronDown, ChevronRight, Copy, Download, FileText, Printer, Save } from "lucide-react";
 import { saveDocumentAction } from "@/app/actions";
 import { cn } from "@/lib/utils";
@@ -72,7 +71,7 @@ export function DocumentCard({ doc, projects, defaultOpen = false }: { doc: Chat
         </div>
       )}
       <div className={cn("border-t border-border px-space-4 py-space-3", !open && "hidden")}>
-        <div ref={body} className="prose-vault max-h-[480px] overflow-y-auto text-sm"><ReactMarkdown remarkPlugins={[remarkGfm]}>{doc.content}</ReactMarkdown></div>
+        <div ref={body} className="prose-vault max-h-[480px] overflow-y-auto text-sm"><SafeMarkdown>{doc.content}</SafeMarkdown></div>
       </div>
     </div>
   );

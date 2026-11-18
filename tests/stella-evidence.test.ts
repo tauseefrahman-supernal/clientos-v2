@@ -138,3 +138,24 @@ test("history sent back to Stella has no evidence and no empty assistant turns",
   assert.deepEqual(out.map((t) => t.content), ["Q1", "A1.", "Q2", "(answered)", "Q3"]);
   for (let i = 1; i < out.length; i++) assert.notEqual(out[i].role, out[i - 1].role);
 });
+
+test("a call label resolves to the recording link with its date", () => {
+  const known = [
+    { label: "Call: Weekly sync, 2026-11-12", slug: "rxvip", id: "call:t1", url: "https://fathom.video/calls/1", at: "2026-11-12" },
+    { label: "Call: Kickoff, 2026-10-01", slug: "rxvip", id: "call:t2", url: "javascript:alert(1)", at: "2026-10-01" },
+  ];
+  const ev = splitEvidence(`A.\n\n${block(JSON.stringify([
+    { point: "Price cut", source: "Call: Weekly sync, 2026-11-12", quote: "we should cut the price" },
+    { point: "Kickoff", source: "RxVIP · Call: Kickoff, 2026-10-01", quote: null },
+  ]))}`).evidence;
+  const r = resolveRefs(ev, known);
+  assert.deepEqual(r[0].ref, { kind: "call", slug: "rxvip", id: "t1", at: "2026-11-12", url: "https://fathom.video/calls/1" });
+  assert.equal(evidenceHref(r[0].ref), "https://fathom.video/calls/1");
+  // an unsafe link is never kept
+  assert.equal(r[1].ref.kind, "call");
+  assert.equal(evidenceHref(r[1].ref), null);
+  // stored and read back, the link survives
+  const back = splitEvidence(joinEvidence("A.", r)).evidence;
+  assert.equal(evidenceHref(back[0].ref), "https://fathom.video/calls/1");
+  assert.equal(evidenceHref(back[1].ref), null);
+});

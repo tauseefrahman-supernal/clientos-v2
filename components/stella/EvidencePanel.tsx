@@ -21,7 +21,9 @@ export function EvidencePanel({ evidence }: { evidence: Evidence[] }) {
             return (
               <li key={i} className="flex flex-col gap-0.5">
                 <span className="text-sm text-foreground">{e.point}</span>
-                {href
+                {href && e.ref.kind === "call"
+                  ? <a href={href} target="_blank" rel="noopener noreferrer" className="w-fit font-mono text-muted-foreground underline-offset-2 hover:text-foreground hover:underline">{e.source} ↗</a>
+                  : href
                   ? <Link href={href} className="w-fit font-mono text-muted-foreground underline-offset-2 hover:text-foreground hover:underline">{e.source}</Link>
                   : <span className="font-mono text-muted-foreground">{e.source}</span>}
                 {e.quote && <blockquote className="border-l-2 border-border pl-space-2 italic text-muted-foreground">“{e.quote}”</blockquote>}

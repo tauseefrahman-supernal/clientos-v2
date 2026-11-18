@@ -4,10 +4,11 @@
 // storage and the browser.
 
 export type EvidenceKind = "file" | "chapter" | "call" | "project" | "attachment" | "other";
-export type EvidenceRef = { kind: EvidenceKind; slug: string | null; id: string | null; at: string | null };
+/** url: a call's recording link (http or https only), set on call refs. */
+export type EvidenceRef = { kind: EvidenceKind; slug: string | null; id: string | null; at: string | null; url?: string | null };
 export type Evidence = { point: string; source: string; quote: string | null; ref: EvidenceRef };
 /** A source a tool returned in this turn: its label as shown to Stella, the project, and its corpus id. */
-export type KnownSource = { label: string; slug: string; id: string };
+export type KnownSource = { label: string; slug: string; id: string; url?: string | null; at?: string | null };
 
 const KINDS: EvidenceKind[] = ["file", "chapter", "call", "project", "attachment", "other"];
 const MAX_QUOTE = 200;
@@ -18,12 +19,15 @@ const FINAL_JSON = /(^|\n)[ \t]*```json[^\n]*\n([\s\S]*?)```\s*$/;
 export const noRef = (): EvidenceRef => ({ kind: "other", slug: null, id: null, at: null });
 
 const str = (v: unknown): string | null => (typeof v === "string" && v.trim() ? v.trim() : null);
+const webUrl = (v: unknown): string | null => { const s = str(v); return s && /^https?:\/\/[^\s]+$/i.test(s) ? s : null; };
 
 function cleanRef(raw: unknown): EvidenceRef {
   if (!raw || typeof raw !== "object") return noRef();
   const r = raw as Record<string, unknown>;
   if (!KINDS.includes(r.kind as EvidenceKind)) return noRef();
-  return { kind: r.kind as EvidenceKind, slug: str(r.slug), id: str(r.id), at: str(r.at) };
+  const ref: EvidenceRef = { kind: r.kind as EvidenceKind, slug: str(r.slug), id: str(r.id), at: str(r.at) };
+  if (ref.kind === "call") ref.url = webUrl(r.url);
+  return ref;
 }
 
 function cleanItem(raw: unknown): Evidence | null {
@@ -101,6 +105,7 @@ function refFor(k: KnownSource): EvidenceRef {
   if (id.startsWith("file:")) return { kind: "file", slug, id: id.slice(5), at: null };
   if (id.startsWith("chapter:")) return { kind: "chapter", slug, id: id.slice(8), at: null };
   if (id.startsWith("account:")) return { kind: "project", slug, id, at: null };
+  if (id.startsWith("call:")) return { kind: "call", slug, id: id.slice(5), at: k.at ?? null, url: webUrl(k.url) };
   return noRef();
 }
 
@@ -115,8 +120,9 @@ export function resolveRefs(evidence: Evidence[], known: KnownSource[]): Evidenc
   });
 }
 
-/** Where a source opens in ClientOS, or null when it has no page. */
+/** Where a source opens: a ClientOS page, a call's recording link (opens outside ClientOS), or null. */
 export function evidenceHref(ref: EvidenceRef): string | null {
+  if (ref.kind === "call") return webUrl(ref.url);
   if (!ref.slug) return null;
   const base = `/projects/${encodeURIComponent(ref.slug)}`;
   if (ref.kind === "file" && ref.id) return `${base}/vault?file=${encodeURIComponent(ref.id)}`;

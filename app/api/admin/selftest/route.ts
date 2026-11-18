@@ -1,9 +1,9 @@
 import { createClient } from "@supabase/supabase-js";
 import { db, dbEnabled, noStore } from "@/lib/data/db";
 import { anonKey, authEnabled, supabaseUrl } from "@/lib/auth/config";
-import { getAccount, listAccounts } from "@/lib/data";
+import { listAccounts } from "@/lib/data";
 import { buildExport } from "@/lib/export";
-import { search } from "@/lib/stella/corpus";
+import { searchChunks } from "@/lib/memory/search";
 import { createChat, deleteChat, listChats } from "@/lib/data/chats";
 import { decideRun, runWorkflow } from "@/lib/data/runs";
 import { myView } from "@/lib/myview";
@@ -79,11 +79,92 @@ export async function GET(req: Request) {
   });
 
   await check("Stella's search finds project context", async () => {
-    const b = await getAccount("heritage");
-    must(b, "Heritage not found");
-    const hits = await search("heritage", "accuracy", 5);
+    const hits = await searchChunks({ slugs: ["heritage"], query: "accuracy", layers: ["vault", "chapter"], k: 5 });
     must(hits.length > 0, "no hits");
+    must(hits.every((h) => h.slug === "heritage"), "a hit from another project");
     return `${hits.length} hits, top: ${hits[0].label}`;
+  });
+
+  // Retrieval access (Stella memory, Task 8). Read-only, except the last check, which marks one call gone for the
+  // length of the check and restores it in a finally block.
+  const slugsOf = async (personId: string) => {
+    const { data } = await db().from("assignments").select("accounts(slug)").eq("person_id", personId);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return [...new Set(((data ?? []) as any[]).map((r) => r.accounts?.slug).filter(Boolean) as string[])];
+  };
+  const accountIdOf = async (slug: string) => (await db().from("accounts").select("id").eq("slug", slug).maybeSingle()).data?.id as string | undefined;
+
+  await check("search as a person with no assignments returns nothing", async () => {
+    const { data: people } = await db().from("people").select("id,name,role");
+    const { data: asg } = await db().from("assignments").select("person_id");
+    const assigned = new Set((asg ?? []).map((a) => a.person_id));
+    const lone = (people ?? []).find((p) => p.role !== "admin" && !assigned.has(p.id));
+    const slugs = lone ? await slugsOf(lone.id) : [];
+    must(slugs.length === 0, "that person has assignments");
+    const hits = await searchChunks({ slugs, query: "World Emblem pricing", layers: ["vault", "chapter", "summary", "transcript"], k: 10 });
+    must(hits.length === 0, `${hits.length} hits`);
+    return `${lone ? lone.name : "an empty project list"}: 0 hits`;
+  });
+
+  await check("a person on rxvip only gets no World Emblem calls unless they are also linked to rxvip", async () => {
+    const rx = await accountIdOf("rxvip");
+    must(rx, "no rxvip project");
+    const queries = ["World Emblem", "FMDS leadership operating system", "Elena", "weekly sync"];
+    const seen = new Map<string, string>();
+    let total = 0;
+    for (const q of queries) {
+      const hits = await searchChunks({ slugs: ["rxvip"], query: q, layers: ["summary", "transcript"], k: 20 });
+      total += hits.length;
+      for (const h of hits) { must(h.slug === "rxvip", `hit labelled ${h.slug}`); if (h.transcriptId) seen.set(h.transcriptId, h.label); }
+    }
+    const ids = [...seen.keys()];
+    const { data: links } = ids.length ? await db().from("transcript_accounts").select("transcript_id,account_id").in("transcript_id", ids) : { data: [] };
+    const onRx = new Set((links ?? []).filter((l) => l.account_id === rx).map((l) => l.transcript_id));
+    const leaks = ids.filter((id) => !onRx.has(id));
+    must(!leaks.length, `calls not linked to rxvip: ${leaks.map((id) => seen.get(id)).join("; ")}`);
+    const control = await searchChunks({ slugs: ["world-emblem"], query: "World Emblem", layers: ["summary", "transcript"], k: 5 });
+    return `${total} hits over ${ids.length} calls, all linked to rxvip · World Emblem itself finds ${control.length}`;
+  });
+
+  await check("no hit comes from a personnel call", async () => {
+    const { data: personnel } = await db().from("transcripts").select("id").eq("status", "personnel");
+    const pids = new Set((personnel ?? []).map((t) => t.id));
+    const tids = new Set<string>();
+    for (const q of ["performance review", "salary compensation raise", "resignation leaving notice", "World Emblem", "pricing"]) {
+      for (const h of await searchChunks({ slugs: [], allProjects: true, query: q, layers: ["summary", "transcript"], k: 30 })) if (h.transcriptId) tids.add(h.transcriptId);
+    }
+    const bad = [...tids].filter((id) => pids.has(id));
+    must(!bad.length, `${bad.length} hits from personnel calls`);
+    let usable = 0;
+    const list = [...pids];
+    for (let i = 0; i < list.length; i += 100) {
+      const { count } = await db().from("chunks").select("id", { count: "exact", head: true }).eq("usable", true).in("transcript_id", list.slice(i, i + 100));
+      usable += count ?? 0;
+    }
+    must(usable === 0, `${usable} usable chunks belong to personnel calls`);
+    return `${tids.size} calls hit, none personnel · ${pids.size} personnel calls, 0 usable chunks`;
+  });
+
+  await check("a call gone from its source 15 days ago returns no hits", async () => {
+    // A digested call that has transcript chunks; marked gone 15 days ago for the check, then restored.
+    const { data: chunk } = await db().from("chunks").select("transcript_id").eq("layer", "transcript").eq("usable", true).not("transcript_id", "is", null).limit(1).maybeSingle();
+    must(chunk?.transcript_id, "no indexed call to test with");
+    const { data: call } = await db().from("transcripts").select("id,title,met_at,gone_at").eq("id", chunk!.transcript_id).single();
+    must(call, "call not found");
+    const day = 86_400_000, at = call!.met_at ? Date.parse(call!.met_at) : null;
+    const opts = { slugs: [], allProjects: true, query: call!.title, layers: ["summary", "transcript"] as ("summary" | "transcript")[], k: 30,
+      ...(at ? { since: new Date(at - day).toISOString(), until: new Date(at + day).toISOString() } : {}) };
+    const before = (await searchChunks(opts)).filter((h) => h.transcriptId === call!.id).length;
+    let after = -1;
+    try {
+      const r = await db().from("transcripts").update({ gone_at: new Date(Date.now() - 15 * day).toISOString() }).eq("id", call!.id);
+      must(!r.error, r.error?.message);
+      after = (await searchChunks(opts)).filter((h) => h.transcriptId === call!.id).length;
+    } finally {
+      await db().from("transcripts").update({ gone_at: call!.gone_at }).eq("id", call!.id);
+    }
+    must(after === 0, `${after} hits while gone`);
+    return `“${call!.title}”: ${before} hits before, 0 while gone 15 days (restored)`;
   });
 
   await check("chats save, list and delete", async () => {

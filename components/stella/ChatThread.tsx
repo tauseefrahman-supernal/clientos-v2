@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import { SafeMarkdown } from "@/components/project/SafeMarkdown";
 import { ArrowUp, AudioLines, ChevronDown, ChevronRight, FileText, Mic, Paperclip, Search, Sparkles, Square, Volume2, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ask, newChat, readFiles, type Chat, type ChatFile } from "./store";
@@ -104,7 +103,7 @@ export function ChatThread({ chat, scope, scopeName, projects, suggestions = [],
             <div key={i} className="flex flex-col gap-space-2">
               {!!m.steps?.length && <Steps steps={m.steps} live={!!m.pending && !m.content} />}
               {m.pending && !m.content && !m.error && !m.steps?.length && <span className="text-sm text-muted-foreground">Reading the vault…</span>}
-              {m.content && <div className="prose-vault stella-answer text-[15px]"><ReactMarkdown remarkPlugins={[remarkGfm]}>{visibleAnswer(m.content).replace(SOURCE, " `$1`")}</ReactMarkdown></div>}
+              {m.content && <div className="prose-vault stella-answer text-[15px]"><SafeMarkdown>{visibleAnswer(m.content).replace(SOURCE, " `$1`")}</SafeMarkdown></div>}
               {!m.pending && !!m.evidence?.length && <EvidencePanel evidence={m.evidence} />}
               {m.documents?.map((d) => <DocumentCard key={d.id} doc={d} projects={projects} defaultOpen={!compact && d.kind === "written"} />)}
               {m.content && !m.pending && voice.supported.speak && (
