@@ -1,4 +1,6 @@
-import { currentAccess } from "@/lib/auth/access";
+import { canOverride, currentAccess } from "@/lib/auth/access";
+import { InvalidRequest, parseGone, parseOverride, parseRule } from "@/lib/memory/admin-rules";
+import { applyOverride, editRule, NotThere, settleGone } from "@/lib/memory/admin";
 import { dbEnabled } from "@/lib/data/db";
 import { indexPending } from "@/lib/memory/embed";
 import { runSync } from "@/lib/memory/sync";
@@ -33,6 +35,15 @@ export const maxDuration = 300;
 //                      estimate. Returns dollarsActual by part (input, cache read, cache write, output, estimated), usage and
 //                      per-call averages.
 //                      retryFailed also takes calls an earlier digest marked failed.
+//   override { override, transcriptId, slug? }: override is the kind (action already names this route action): assign | unassign (with slug; admins and that project's strategists),
+//                      personnel | not_personnel (admins). Stored as an override every later sync respects, and applied
+//                      now: assign/unassign change the call's project links; personnel deletes the body, chunks,
+//                      headlines and pending facts; not_personnel fetches the call again and screens it for private
+//                      details only (a paid screen call), or says it will come back at the next pull when the source
+//                      can't be reached.
+//   gone { transcriptId, keep }: keep clears the gone mark (a later full sync marks it again if still missing);
+//                      keep false deletes the call for good.
+//   rule { slug, kind: keyword|email|domain, value, remove? }: add or remove one of a project's match rules.
 type Body = Record<string, unknown> & { action?: string };
 
 class BadRequest extends Error {}
@@ -107,21 +118,34 @@ const actions: Record<string, (body: Body) => Promise<unknown>> = {
   sync: (body) => runSync(syncOptions(body)),
   estimate: (body) => estimatePending(digestOptions(body)),
   digest,
+  gone: (body) => settleGone(parseGone(body)),
+  rule: (body) => editRule(parseRule(body)),
 };
 
 export async function POST(req: Request) {
-  if (!(await currentAccess()).admin) return new Response("Not allowed.", { status: 403 });
-  if (!dbEnabled()) return new Response("Supabase is not configured.", { status: 400 });
+  const access = await currentAccess();
   let body: Body;
-  try { body = (await req.json()) as Body; } catch { return new Response("Send a JSON body with an action.", { status: 400 }); }
-  const run = typeof body.action === "string" ? actions[body.action] : undefined;
-  if (!run) return new Response(`Unknown action. Use one of: ${Object.keys(actions).join(", ")}.`, { status: 400 });
+  try { body = (await req.json()) as Body; } catch { return access.admin ? new Response("Send a JSON body with an action.", { status: 400 }) : new Response("Not allowed.", { status: 403 }); }
+  // override is the one action a project's strategist may use (assign / unassign on their project); everything else is admin only.
+  let run: ((body: Body) => Promise<unknown>) | undefined;
+  if (body.action === "override") {
+    let o: ReturnType<typeof parseOverride>;
+    try { o = parseOverride(body); } catch (e) { return new Response(access.admin && e instanceof Error ? e.message : "Not allowed.", { status: access.admin ? 400 : 403 }); }
+    if (!canOverride(access, o.slug, o.action)) return new Response("Not allowed.", { status: 403 });
+    run = () => applyOverride(o, access.person?.name ?? access.person?.email ?? "admin");
+  } else {
+    if (!access.admin) return new Response("Not allowed.", { status: 403 });
+    run = typeof body.action === "string" ? actions[body.action] : undefined;
+    if (!run) return new Response(`Unknown action. Use one of: ${[...Object.keys(actions), "override"].join(", ")}.`, { status: 400 });
+  }
+  if (!dbEnabled()) return new Response("Supabase is not configured.", { status: 400 });
   try {
     const t0 = Date.now();
     const result = await run(body);
     return Response.json({ ok: true, action: body.action, seconds: Math.round((Date.now() - t0) / 1000), result });
   } catch (e) {
-    if (e instanceof BadRequest) return new Response(e.message, { status: 400 });
+    if (e instanceof BadRequest || e instanceof InvalidRequest) return new Response(e.message, { status: 400 });
+    if (e instanceof NotThere) return new Response(e.message, { status: 404 });
     const error = e instanceof Error ? e.message : String(e);
     if (/^Unknown project/.test(error)) return new Response(error, { status: 400 });
     return Response.json({ ok: false, action: body.action, error }, { status: /already in progress|run a preview first/.test(error) ? 409 : 500 });

@@ -64,7 +64,7 @@ export async function loadFromDb(): Promise<DbStore> {
     all("vault_files", "account_id,path,category_slug,template_name,summary,content,source,state,in_book,shown"),
     all("book_chapters"), all("artifacts"), all("workflows"),
     // One row per project link: that project's headline, plus the call it points to.
-    all("transcript_accounts", "account_id,headline,transcripts(provider,external_id,title,met_at,participants,kind,summary,url,alt_url,status,gone_at)", (q) => q.order("transcript_id").order("account_id")),
+    all("transcript_accounts", "account_id,headline,transcripts(id,provider,external_id,title,met_at,participants,kind,summary,url,alt_url,status,gone_at)", (q) => q.order("transcript_id").order("account_id")),
   ]);
   const slugOf = new Map(accounts.map((a) => [a.id as string, a.slug as string]));
   const by = <T,>(rows: Row[], map: (r: Row) => T) => {
@@ -76,10 +76,10 @@ export async function loadFromDb(): Promise<DbStore> {
   const booksBy = by<Chapter>(chapters, (r) => ({ sort: r.sort, title: r.title, minutes: r.minutes, lenses: r.lenses, body: r.body, sources: r.sources ?? [] }));
   const artsBy = by<Artifact>(arts, (r) => ({ id: r.key ?? r.id, kind: r.kind, title: r.title, dated: r.dated ?? "", description: r.description, url: r.url ?? "", provider: r.provider ?? "", sensitive: r.sensitive }));
   const wfBy = by<Workflow>(wfs, (r) => ({ slug: r.slug, name: r.name, kind: r.kind, cadence: r.cadence ?? "", audience: r.audience ?? "", inputs: r.inputs ?? [], output: r.output ?? "", note: r.note ?? "", standard: r.standard }));
-  // The Recordings list shows the project's headline; the call's own summary stands in when there is none.
+  // The Recordings list shows the project's headline and the call's summary (never the body: the panel loads that).
   // Personnel calls and calls gone from their source for more than 14 days are not listed.
   const shownNow = new Date();
-  const recsBy = by<Recording>(recs.filter((r) => r.transcripts && recordingShown(r.transcripts, shownNow)), ({ headline, transcripts: t }) => ({ provider: t.provider, id: t.external_id, title: t.title, date: t.met_at ?? "", participants: t.participants ?? [], kind: t.kind, summary: headline || t.summary || "", url: t.url ?? "", altUrl: t.alt_url ?? "" }));
+  const recsBy = by<Recording>(recs.filter((r) => r.transcripts && recordingShown(r.transcripts, shownNow)), ({ headline, transcripts: t }) => ({ provider: t.provider, id: t.external_id, title: t.title, date: t.met_at ?? "", participants: t.participants ?? [], kind: t.kind, headline: headline ?? "", summary: t.summary ?? "", transcriptId: t.id, url: t.url ?? "", altUrl: t.alt_url ?? "" }));
   const dealOf = new Map(deals.map((d) => [d.account_id as string, d]));
 
   const s: DbStore = { accounts: new Map(), categories: new Map(), templates: [], ids: new Map() };

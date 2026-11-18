@@ -13,7 +13,7 @@ const BATCH = 100;
 const chunked = <T,>(xs: T[], n = BATCH) => Array.from({ length: Math.ceil(xs.length / n) }, (_, i) => xs.slice(i * n, i * n + n));
 
 // A personnel call's chunks, pending suggested facts, body and headlines (see personnel-cleanup.ts).
-const personnelOps: PersonnelOps = {
+export const personnelOps: PersonnelOps = {
   async deleteChunks(part) { check(await db().from("chunks").delete().in("transcript_id", part), "remove personnel chunks"); },
   async rejectSuggestions(part) {
     check(await db().from("vault_suggestions").update(rejectPatch(new Date())).in("transcript_id", part).eq("status", "pending"), "reject personnel suggestions");

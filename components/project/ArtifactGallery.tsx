@@ -2,10 +2,11 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
-import { ArrowDown, ArrowUp, ExternalLink, LayoutGrid, Mic, Search, Table2 } from "lucide-react";
+import { ArrowDown, ArrowUp, ExternalLink, FileText, LayoutGrid, Mic, Search, Table2 } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Empty } from "@/components/kit";
 import { useShell } from "@/components/shell/AppShell";
+import { TranscriptPanel } from "@/components/project/TranscriptPanel";
 import { formatOf } from "@/lib/formats";
 import { cn } from "@/lib/utils";
 import type { Artifact, Recording } from "@/lib/types";
@@ -18,7 +19,7 @@ const KIND_LABEL: Record<Recording["kind"], string> = { client: "With the client
 const when = (iso: string) => { const t = Date.parse(iso); return Number.isNaN(t) ? iso || "—" : new Date(t).toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" }); };
 
 /** Artifacts as a gallery or a table (with formats), and every recording pulled in for the project. */
-export function ArtifactGallery({ artifacts, recordings, heldBack, project, openId, view: initialView }: { artifacts: Artifact[]; recordings: Recording[]; heldBack: number; project: string; openId: string | null; view: View }) {
+export function ArtifactGallery({ artifacts, recordings, heldBack, project, slug, canUnassign = false, openId, view: initialView }: { artifacts: Artifact[]; recordings: Recording[]; heldBack: number; project: string; slug?: string; canUnassign?: boolean; openId: string | null; view: View }) {
   const router = useRouter();
   const pathname = usePathname();
   const [view, setViewState] = useState<View>(initialView);
@@ -27,6 +28,22 @@ export function ArtifactGallery({ artifacts, recordings, heldBack, project, open
   const [sort, setSort] = useState<{ key: SortKey; up: boolean }>({ key: "dated", up: false });
   const [open, setOpen] = useState<Artifact | null>(() => artifacts.find((a) => a.id === openId) ?? null);
   const { openStella } = useShell();
+  const [reading, setReading] = useState<Recording | null>(null);
+  const [unassigning, setUnassigning] = useState<string | null>(null);
+  const [recNote, setRecNote] = useState<string | null>(null);
+
+  // A strategist (or admin) takes a call off this project; the override keeps later syncs from adding it back.
+  const unassign = async (r: Recording) => {
+    if (!slug || !r.transcriptId || !window.confirm(`Remove “${r.title}” from ${project}? Later syncs will not add it back.`)) return;
+    setUnassigning(r.transcriptId); setRecNote(null);
+    try {
+      const res = await fetch("/api/admin/memory", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "override", override: "unassign", transcriptId: r.transcriptId, slug }) });
+      if (!res.ok) { setRecNote(res.status === 403 ? "Only this project’s strategists and admins can do that." : await res.text()); return; }
+      setRecNote(`Removed “${r.title}” from ${project}.`);
+      router.refresh();
+    } catch (e) { setRecNote(e instanceof Error ? e.message : String(e)); }
+    finally { setUnassigning(null); }
+  };
 
   const setView = (v: View) => { setViewState(v); router.replace(v === "gallery" ? pathname : `${pathname}?view=${v}`, { scroll: false }); };
   const rows = useMemo(() => artifacts.map((a) => ({ ...a, format: formatOf(a.url, a.title) })), [artifacts]);
@@ -40,7 +57,7 @@ export function ArtifactGallery({ artifacts, recordings, heldBack, project, open
   const formats = useMemo(() => Array.from(rows.reduce((m, a) => m.set(a.format.label, (m.get(a.format.label) ?? 0) + 1), new Map<string, number>())).sort((a, b) => b[1] - a[1]), [rows]);
 
   const [recKind, setRecKind] = useState<"All" | Recording["kind"]>("All");
-  const recs = recordings.filter((r) => (recKind === "All" || r.kind === recKind) && (!needle || `${r.title} ${r.summary} ${r.participants.join(" ")}`.toLowerCase().includes(needle)));
+  const recs = recordings.filter((r) => (recKind === "All" || r.kind === recKind) && (!needle || `${r.title} ${r.headline ?? ""} ${r.summary} ${r.participants.join(" ")}`.toLowerCase().includes(needle)));
   const byMonth = recs.reduce((m, r) => { const k = Number.isNaN(Date.parse(r.date)) ? "Undated" : new Date(r.date).toLocaleDateString(undefined, { month: "long", year: "numeric" }); m.set(k, [...(m.get(k) ?? []), r]); return m; }, new Map<string, Recording[]>());
 
   const head = (key: SortKey, label: string) => (
@@ -112,7 +129,8 @@ export function ArtifactGallery({ artifacts, recordings, heldBack, project, open
       {view === "recordings" && (
         recordings.length ? (
           <div className="flex flex-col gap-space-4">
-            <p className="text-xs text-muted-foreground">Every meeting pulled in for this project from Granola and Fathom. Stella can see this list; open a meeting to read its notes and transcript where it lives.</p>
+            <p className="text-xs text-muted-foreground">Every meeting pulled in for this project from Granola and Fathom, with Stella’s summary. Open a transcript to read it here, with private matters removed, or open the meeting where it lives.</p>
+            {recNote && <p role="status" className="text-xs text-muted-foreground">{recNote}</p>}
             {Array.from(byMonth).map(([month, items]) => (
               <section key={month} className="flex flex-col gap-space-1">
                 <h3 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">{month} <span className="font-mono font-normal">{items.length}</span></h3>
@@ -122,13 +140,16 @@ export function ArtifactGallery({ artifacts, recordings, heldBack, project, open
                       <div className="text-xs"><div className="font-semibold">{when(r.date)}</div><div className="text-muted-foreground">{r.provider === "granola" ? "Granola" : r.provider === "fathom" ? "Fathom" : "Upload"} · {KIND_LABEL[r.kind]}</div></div>
                       <div className="min-w-0">
                         <div className="text-sm font-semibold">{r.title}</div>
-                        {r.summary && <div className="text-sm text-muted-foreground">{r.summary}</div>}
+                        {r.headline && <div className="text-sm">{r.headline}</div>}
+                        {r.summary && <div className="mt-0.5 whitespace-pre-line text-sm text-muted-foreground">{r.summary}</div>}
                         {r.participants.length > 0 && <div className="mt-0.5 truncate text-xs text-muted-foreground">{r.participants.slice(0, 8).join(", ")}{r.participants.length > 8 ? ` +${r.participants.length - 8}` : ""}</div>}
                       </div>
                       <div className="flex items-start gap-space-2">
+                        {r.transcriptId && <button onClick={() => setReading(r)} className="inline-flex items-center gap-1 rounded-md border border-border px-space-2 py-0.5 text-xs hover:bg-muted"><FileText className="h-3 w-3" />Transcript</button>}
                         <button onClick={() => openStella(`What happened in the meeting “${r.title}” on ${when(r.date)}?`)} className="rounded-md border border-border px-space-2 py-0.5 text-xs hover:bg-muted">Ask Stella</button>
                         {r.url && <a href={r.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 rounded-md border border-border px-space-2 py-0.5 text-xs no-underline hover:bg-muted">Open<ExternalLink className="h-3 w-3" /></a>}
                         {r.altUrl && <a href={r.altUrl} target="_blank" rel="noopener noreferrer" className="text-xs">Also in {r.provider === "granola" ? "Fathom" : "Granola"}</a>}
+                        {canUnassign && r.transcriptId && <button onClick={() => unassign(r)} disabled={unassigning === r.transcriptId} className="text-xs text-muted-foreground hover:text-foreground disabled:opacity-60" title="This call is not about this project">Not this project</button>}
                       </div>
                     </div>
                   ))}
@@ -139,6 +160,8 @@ export function ArtifactGallery({ artifacts, recordings, heldBack, project, open
           </div>
         ) : <Empty>No recordings pulled in for this project yet. They come from Granola and Fathom.</Empty>
       )}
+
+      <TranscriptPanel recording={reading} when={when} onClose={() => setReading(null)} />
 
       <Dialog open={!!open} onOpenChange={(o) => !o && setOpen(null)}>
         <DialogContent className="max-w-lg">

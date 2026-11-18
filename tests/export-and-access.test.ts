@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { buildExport } from "../lib/export.ts";
-import { canAssign, canSee, runDecisionGate } from "../lib/auth/rules.ts";
+import { canAssign, canOverride, canSee, runDecisionGate } from "../lib/auth/rules.ts";
 import { allowedEmail, supabaseUrl } from "../lib/auth/config.ts";
 
 const file = (path: string, content: string, state = "active", group = 0) => ({ path, content, state, group, category: null, template: null, summary: "", source: "import", inBook: true });
@@ -64,6 +64,24 @@ test("only admins and the project's strategists may approve, send or discard its
   assert.equal(runDecisionGate(member, "rxvip"), 403);
   assert.equal(runDecisionGate(member, "heritage"), 403);
   assert.equal(runDecisionGate(member, null), 404);
+});
+
+test("admins override everything; a project's strategist only assigns or unassigns its calls; members never screen", () => {
+  const admin = { admin: true, slugs: null, roles: new Map() };
+  const strategist = { admin: false, slugs: new Set(["rxvip", "heritage"]), roles: new Map([["rxvip", ["strategist"]], ["heritage", ["am"]]]) };
+  const member = { admin: false, slugs: new Set(["rxvip"]), roles: new Map([["rxvip", ["am"]]]) };
+  for (const action of ["assign", "unassign", "personnel", "not_personnel"]) assert.ok(canOverride(admin, action.endsWith("assign") ? "rxvip" : null, action), action);
+  assert.ok(canOverride(strategist, "rxvip", "assign"));
+  assert.ok(canOverride(strategist, "rxvip", "unassign"));
+  assert.ok(!canOverride(strategist, "heritage", "assign"));
+  assert.ok(!canOverride(strategist, "we", "unassign"));
+  assert.ok(!canOverride(strategist, null, "assign"));
+  assert.ok(!canOverride(strategist, "rxvip", "personnel"));
+  assert.ok(!canOverride(strategist, "rxvip", "not_personnel"));
+  assert.ok(!canOverride(member, "rxvip", "personnel"));
+  assert.ok(!canOverride(member, null, "not_personnel"));
+  assert.ok(!canOverride(member, "rxvip", "assign"));
+  assert.ok(!canOverride(admin, "rxvip", "delete"));
 });
 
 test("only @getsupernal.ai emails may sign in", () => {

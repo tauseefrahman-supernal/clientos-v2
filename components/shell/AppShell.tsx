@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
-import { LayoutGrid, Library, PanelLeftClose, PanelLeftOpen, Search, Sparkles, LogOut, Home, Users } from "lucide-react";
+import { LayoutGrid, Library, PanelLeftClose, PanelLeftOpen, Search, Sparkles, LogOut, Home, Users, Mic } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { SearchItem } from "@/lib/search";
 import { StellaDrawer } from "./StellaDrawer";
@@ -41,7 +41,10 @@ export function AppShell({ children, searchIndex, names, projects = [], saved = 
   const nav = [
     { href: "/", label: "My View", icon: Home, active: pathname === "/" },
     { href: "/projects", label: "Projects", icon: LayoutGrid, active: pathname.startsWith("/projects") },
-    ...(admin ? [{ href: "/admin/people", label: "People", icon: Users, active: pathname.startsWith("/admin") }] : []),
+    ...(admin ? [
+      { href: "/admin/people", label: "People", icon: Users, active: pathname.startsWith("/admin/people") },
+      { href: "/admin/memory", label: "Memory", icon: Mic, active: pathname.startsWith("/admin/memory") },
+    ] : []),
     { href: "/library", label: "Template Library", icon: Library, active: pathname.startsWith("/library") },
     { href: "/stella", label: "Stella", icon: Sparkles, active: pathname.startsWith("/stella") },
   ];
