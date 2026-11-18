@@ -7,6 +7,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Archive, ArchiveRestore, ChevronDown, ChevronRight, Eye, EyeOff, Folder, Plus, Search, Sparkles, Trash2 } from "lucide-react";
 import { StatusTag } from "@/components/kit";
+import { VaultUpload } from "@/components/project/VaultUpload";
 import { useShell } from "@/components/shell/AppShell";
 import { addTemplateAction, proposeTemplateAction, saveFileAction, setFileShownAction, setFileStateAction, toggleInBookAction } from "@/app/actions";
 import { cn } from "@/lib/utils";
@@ -37,6 +38,7 @@ export function VaultView({ slug, groups, selected, picker }: { slug: string; gr
   return (
     <div className="grid min-h-[calc(100vh-170px)] grid-cols-1 lg:grid-cols-[300px_minmax(0,1fr)]">
       <nav aria-label="Vault files" className="relative border-b border-border bg-card p-space-3 font-mono text-xs lg:border-b-0 lg:border-r">
+        <VaultUpload slug={slug} groups={groups.map((g) => g.name)} />
         {groups.map((g, gi) => {
           const isOpen = open[g.name] ?? false;
           const all = g.sections.flatMap((s) => s.files);
