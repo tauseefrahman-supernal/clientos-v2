@@ -1039,3 +1039,42 @@ test("a rescreen that yields the same body leaves the status alone", async () =>
   assert.equal(r.status, "digested");
   assert.equal(r.pulled_at, NOW);
 });
+
+// ---------------------------------------------------------------- rescreen fix round 2
+
+test("a personnel row that hits a 429 or the time budget is not stamped and is retried by a resumed run", async () => {
+  const { RateLimitedError } = await import("../lib/memory/sources/shared.ts");
+  for (const stop of ["429", "budget"] as const) {
+    const { store, r } = rescreenStore();
+    Object.assign(r, { body: null, cuts: [], status: "personnel", pulled_at: "2026-11-01T00:00:00.000Z" });
+    let t = NOW_MS;
+    const first = await runSyncWith({ ...TRIAL, budgetMs: 1_000 }, deps(store, {
+      ...listing,
+      transcript: async () => { throw new RateLimitedError("Granola"); },
+      clock: () => (stop === "budget" ? (t += 5_000) : t),
+    }).d);
+    assert.equal(r.pulled_at, "2026-11-01T00:00:00.000Z", stop);
+    assert.equal(r.status, "personnel", stop);
+    assert.equal(first.more, true, stop);
+    const x = deps(store, { ...listing, screen: async () => ({ verdict: "clean", cuts: [] }), clock: () => NOW_MS + 60_000 });
+    await runSyncWith({ ...TRIAL, rescreenBefore: first.rescreen!.rescreenBefore }, x.d);
+    assert.deepEqual(x.seen.screened, ["granola:g1"], stop);
+    assert.equal(r.status, "pending", stop);
+  }
+});
+
+test("a personnel row whose rescreen errors is not stamped", async () => {
+  const { store, r } = rescreenStore();
+  Object.assign(r, { body: null, cuts: [], status: "personnel", pulled_at: "2026-11-01T00:00:00.000Z" });
+  await runSyncWith(TRIAL, deps(store, { ...listing, screen: async () => ({ verdict: "error" }) }).d);
+  assert.equal(r.pulled_at, "2026-11-01T00:00:00.000Z");
+  assert.equal(r.status, "personnel");
+});
+
+test("a released personnel call kept as stored counts as pending", async () => {
+  const { store, r } = rescreenStore();
+  Object.assign(r, { body: null, cuts: [], status: "personnel" });
+  store.overrides = [{ transcriptId: r.id, accountId: null, action: "not_personnel" }];
+  const out = await runSyncWith(TRIAL, deps(store, { ...listing, screen: async () => ({ verdict: "error" }) }).d);
+  assert.equal(out.pending, 1);
+});

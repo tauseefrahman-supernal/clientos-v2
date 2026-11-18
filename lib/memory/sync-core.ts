@@ -136,6 +136,9 @@ export interface SyncResult {
  * A manual not_personnel override: the call is not a personnel call, so a personnel verdict and personnel-reason cuts
  * are dropped; private-detail cuts still apply. Errors pass through.
  */
+type Screened = Exclude<ScreenResult, { verdict: "error" }>;
+export function applyNotPersonnel(result: Screened): Screened;
+export function applyNotPersonnel(result: ScreenResult): ScreenResult;
 export function applyNotPersonnel(result: ScreenResult): ScreenResult {
   if (result.verdict === "error") return result;
   const cuts = result.verdict === "personnel" ? [] : result.cuts.filter((c) => c.reason === "private");
@@ -633,7 +636,7 @@ export async function runSyncWith(opts: SyncOptions, deps: SyncDeps): Promise<Sy
     const result = await deps.screen(call);
     if (manualPersonnel.get(key) !== false || result.verdict === "error") return result;
     const kept = applyNotPersonnel(result);
-    if (result.verdict === "personnel" || (result.verdict === "cut" && kept.verdict !== "error" && kept.cuts.length !== result.cuts.length))
+    if (result.verdict === "personnel" || (result.verdict === "cut" && kept.cuts.length !== result.cuts.length))
       log.push(`"${title}" is marked not personnel by hand: personnel removal dropped, private-detail cuts kept`);
     return kept;
   };
@@ -688,8 +691,9 @@ export async function runSyncWith(opts: SyncOptions, deps: SyncDeps): Promise<Sy
    * Screens one stored call again. Anything short of a usable screen (no transcript, out of time, 429, a screen
    * error) keeps the call exactly as stored: a personnel row stays personnel, any other row is only refreshed.
    */
-  const rescreenOne = async (p: PlannedCall, st: StoredRow, src: SyncCall | undefined): Promise<Outcome> => {
-    const keep: Outcome = p.status === "personnel" ? { kind: "screened", result: { verdict: "personnel", cuts: [] }, turns: [] } : { kind: "meta" };
+  const rescreenOne = async (p: PlannedCall, st: StoredRow, src: SyncCall | undefined): Promise<{ outcome: Outcome; screened: boolean }> => {
+    // Kept as stored: not a new screen, so the row is not stamped and a resumed run tries it again.
+    const keep = { outcome: (p.status === "personnel" ? { kind: "screened", result: { verdict: "personnel", cuts: [] }, turns: [] } : { kind: "meta" }) as Outcome, screened: false };
     let turns = src?.turns?.length ? src.turns : null;
     if (!turns) {
       if (fetchStopped || overBudget()) return keep;
@@ -728,7 +732,7 @@ export async function runSyncWith(opts: SyncOptions, deps: SyncDeps): Promise<Sy
       stats.cutsAfter += result.cuts.length;
       stats.minutesCutAfter += markerMinutes(turnsToBody(applyCuts(turns, result.cuts)));
     }
-    return { kind: "screened", result, turns };
+    return { outcome: { kind: "screened", result, turns }, screened: true };
   };
 
   for (const p of plan.upserts) {
@@ -736,7 +740,11 @@ export async function runSyncWith(opts: SyncOptions, deps: SyncDeps): Promise<Sy
     const src = callByKey.get(p.externalKey);
     let outcome: Outcome = { kind: "meta" };
     const rescreening = isRescreen(p, st);
-    if (rescreening && st) outcome = await rescreenOne(p, st, src);
+    let screenedNow = false;
+    if (rescreening && st) {
+      ({ outcome, screened: screenedNow } = await rescreenOne(p, st, src));
+      if (!screenedNow && p.status === "pending" && !st.hasBody) pending++; // released personnel call, still without a body
+    }
     else if (p.status === "personnel") outcome = { kind: "screened", result: { verdict: "personnel", cuts: [] }, turns: [] };
     else if (p.status === "pending" && !st?.hasBody)
       outcome = await obtain(p, src?.fetchFrom ?? { provider: p.provider, id: src?.fetchId ?? p.externalId });
@@ -744,7 +752,7 @@ export async function runSyncWith(opts: SyncOptions, deps: SyncDeps): Promise<Sy
     const forRow = rescreening && p.status === "personnel" && outcome.kind === "screened" && outcome.result.verdict !== "personnel"
       ? { ...p, sourceSummary: src?.sourceSummary ?? "" } : p;
     const row = withUrl(rowForCall(forRow, outcome, { summaryEmpty: st ? st.summaryEmpty : true, now, storedTitle: st?.title, absorbed: src?.absorbed }), p.externalKey, st?.url);
-    if (rescreening && outcome.kind === "screened" && outcome.result.verdict !== "error") {
+    if (screenedNow && outcome.kind === "screened") {
       row.pulled_at = now; // marks the call rescreened, personnel rows included
       if ("body" in row && row.body === before.get(st!.id)?.body && row.status !== "personnel") delete row.status;
     }
