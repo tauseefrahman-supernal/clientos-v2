@@ -105,9 +105,9 @@ export const dbSyncStore: SyncStore = {
     const fill: Row = {};
     if (to && from && !to.url && from.url) fill.url = from.url;
     if (to && from && !to.alt_url && from.alt_url) fill.alt_url = from.alt_url;
-    // The duplicate goes first, so a url moved across never collides with a constraint on the old row.
-    check(await db().from("transcripts").delete().eq("id", fromId), "delete duplicate call");
+    // Links are filled on the kept row before the duplicate goes, so nothing is lost if the delete fails.
     if (Object.keys(fill).length) check(await db().from("transcripts").update(fill).eq("id", toId), "fill kept call links");
+    check(await db().from("transcripts").delete().eq("id", fromId), "delete duplicate call");
   },
 
 

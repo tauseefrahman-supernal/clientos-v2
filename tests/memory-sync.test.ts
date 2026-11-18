@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
-  absorbAltUrls, absorbStored, decodeCursor, encodeCursor, goneIsFinal, listingStart, PreviewRequiredError, rowForCall, runSyncWith,
+  absorbAltUrls, absorbStored, uniqueTwin, decodeCursor, encodeCursor, goneIsFinal, listingStart, PreviewRequiredError, rowForCall, runSyncWith,
   sameMeetingAs, seededPairs, speakersOf, type Snapshot, type StoredRow, type SyncDeps, type SyncStore,
 } from "../lib/memory/sync-core.ts";
 import type { PlannedCall } from "../lib/memory/plan-sync.ts";
@@ -777,4 +777,74 @@ test("repairOnly folds duplicates and does nothing else", async () => {
   assert.equal(store.row("fathom", "42"), undefined);
   assert.ok(store.rows.find((r) => r.id === kept.id));
   assert.ok(out.log.some((l) => /repair: 2 duplicate rows folded/.test(l)));
+});
+
+// ---------------------------------------------------------------- fix round 4: one-to-one matches only
+
+const UUID2 = "b42e472a-1152-4517-a0df-3982a134c884";
+
+test("uniqueTwin: one candidate and no rival peer is a match; two either way is ambiguous", () => {
+  const at = (m: number) => new Date(Date.parse("2026-11-10T10:00:00.000Z") + m * 60_000).toISOString();
+  const item = { title: "T3", metAt: at(0) };
+  assert.equal(uniqueTwin(item, [{ title: "T3", metAt: at(5) }], [item]).kind, "match");
+  assert.equal(uniqueTwin(item, [{ title: "T3", metAt: at(5) }, { title: "t3", metAt: at(-5) }], [item]).kind, "ambiguous");
+  assert.equal(uniqueTwin(item, [{ title: "T3", metAt: at(5) }], [item, { title: "T3", metAt: at(10) }]).kind, "ambiguous");
+  assert.equal(uniqueTwin(item, [{ title: "T3", metAt: at(30) }], [item]).kind, "none");
+});
+
+test("back-to-back same-title stored rows, each with a twin, are not folded (ambiguous, logged)", async () => {
+  const store = new FakeStore();
+  const a = store.seed({ provider: "granola", external_id: "not_a", title: "T3", met_at: "2026-11-10T10:00:00.000Z", body: "a" });
+  const b = store.seed({ provider: "granola", external_id: "not_b", title: "T3", met_at: "2026-11-10T10:10:00.000Z", body: "b" });
+  store.seed({ provider: "granola", external_id: UUID, title: "T3", met_at: "2026-11-10T10:01:00.000Z" });
+  store.seed({ provider: "granola", external_id: UUID2, title: "T3", met_at: "2026-11-10T10:11:00.000Z" });
+  const out = await runSyncWith({ repairOnly: true }, deps(store, {}).d);
+  assert.equal(store.rows.length, 4);
+  assert.equal(store.writes, 0);
+  assert.ok(a && b);
+  assert.ok(out.log.some((l) => l.startsWith("ambiguous match skipped: T3 2026-11-10 10:")));
+  assert.ok(out.log.some((l) => /repair: 0 duplicate rows folded/.test(l)));
+});
+
+test("back-to-back same-title listed calls never rekey seeded UUID rows", async () => {
+  const store = new FakeStore();
+  const u1 = store.seed({ provider: "granola", external_id: UUID, title: "World Emblem T3", met_at: "2026-11-10T10:02:00.000Z" });
+  const u2 = store.seed({ provider: "granola", external_id: UUID2, title: "World Emblem T3", met_at: "2026-11-10T10:12:00.000Z" });
+  const c1 = call({ externalId: "not_1", title: "World Emblem T3", metAt: "2026-11-10T10:00:00.000Z", url: "u1" });
+  const c2 = call({ externalId: "not_2", title: "World Emblem T3", metAt: "2026-11-10T10:10:00.000Z", url: "u2" });
+  const out = await runSyncWith({ since: "2026-11-01T00:00:00.000Z" }, deps(store, { granola: { calls: [c1, c2], cursor: null, rateLimited: false, skipped: 0 } }).d);
+  assert.equal(u1.external_id, UUID);
+  assert.equal(u2.external_id, UUID2);
+  assert.ok(out.log.some((l) => l.startsWith("ambiguous match skipped: World Emblem T3")));
+});
+
+test("a listed Fathom call between two same-title Granola rows is not absorbed into either", () => {
+  const rows = [
+    stored({ id: "g1", externalId: "ga", title: "T3", metAt: "2026-11-10T10:00:00.000Z" }),
+    stored({ id: "g2", externalId: "gb", title: "T3", metAt: "2026-11-10T10:08:00.000Z" }),
+  ];
+  const f = { ...call({ provider: "fathom", externalId: "77", title: "T3", metAt: "2026-11-10T10:04:00.000Z", url: "https://fathom.video/calls/77" }), altUrl: null };
+  const out = absorbStored([f], rows);
+  assert.equal(out.calls[0].provider, "fathom");
+  assert.ok(out.notes.some((n) => n.text.startsWith("ambiguous match skipped: T3")));
+  // And a listed Granola call between two same-title Fathom rows rekeys neither.
+  const frows = [
+    stored({ id: "f1", provider: "fathom", externalId: "1", title: "T4", metAt: "2026-11-10T10:00:00.000Z" }),
+    stored({ id: "f2", provider: "fathom", externalId: "2", title: "T4", metAt: "2026-11-10T10:08:00.000Z" }),
+  ];
+  const g = { ...call({ externalId: "gx", title: "T4", metAt: "2026-11-10T10:04:00.000Z" }), altUrl: null };
+  assert.equal(absorbStored([g], frows).rekeys.length, 0);
+});
+
+test("a fold never deletes the row holding the body when the kept row has none", () => {
+  const rows = [
+    stored({ id: "k", externalId: "not_x", title: "Ops", metAt: "2026-11-10T10:00:00.000Z", hasBody: false }),
+    stored({ id: "u", externalId: UUID, title: "Ops", metAt: "2026-11-10T10:05:00.000Z", hasBody: true }),
+    stored({ id: "g", externalId: "gq", altUrl: "https://fathom.video/calls/9", hasBody: false }),
+    stored({ id: "f", provider: "fathom", externalId: "9", hasBody: true }),
+  ];
+  const out = seededPairs(rows);
+  assert.deepEqual(out.folds, []);
+  assert.equal(out.skipped.length, 2);
+  assert.ok(out.skipped.every((x) => /the row to delete holds the body/.test(x)));
 });

@@ -178,33 +178,62 @@ export function sameMeetingAs(a: { title: string; metAt: string | null }, b: { t
 
 export interface Fold { fromId: string; toId: string; title: string; kind: "fathom" | "granola-id" }
 
+type Meeting = { title: string; metAt: string | null };
+
+/**
+ * A title-and-time match only when it is one-to-one: exactly one candidate meets the item, and no other peer (same
+ * side as the item) meets that candidate. "none" when nothing matches; "ambiguous" when back-to-back calls with the
+ * same title make the pairing a guess.
+ */
+export function uniqueTwin<T extends Meeting, U extends Meeting>(item: T, candidates: U[], peers: Meeting[], windowMs = SAME_MEETING_MS):
+  { kind: "match"; twin: U } | { kind: "none" } | { kind: "ambiguous" } {
+  const hits = candidates.filter((c) => sameMeetingAs(c, item, windowMs));
+  if (hits.length === 0) return { kind: "none" };
+  if (hits.length > 1) return { kind: "ambiguous" };
+  const twin = hits[0];
+  return peers.some((p) => p !== item && sameMeetingAs(twin, p, windowMs)) ? { kind: "ambiguous" } : { kind: "match", twin };
+}
+
+export const ambiguousNote = (m: Meeting) => `ambiguous match skipped: ${m.title} ${(m.metAt ?? "").slice(0, 16).replace("T", " ")}`;
+
 /**
  * Stored duplicates, folded in this order:
  * - a stored Granola row whose alt_url is the link of a stored Fathom row: the Fathom row folds into the Granola row;
  * - a Granola row stored under the API's public id (not_…) and one under the web UUID with the same title and a start
  *   within 15 minutes: the UUID row folds into the public-id row (which the sync now owns and which has the body).
+ * The title-and-time pairing must be one-to-one (uniqueTwin); an ambiguous one is skipped. A fold never deletes the
+ * row holding the body when the kept row has none; that pair is skipped. Skips are reported in `skipped`.
  * Returns the folds in order (a row can be folded into, then folded on) and the rows that remain.
  */
-export function seededPairs(rows: StoredRow[]): { folds: Fold[]; rows: StoredRow[] } {
+export function seededPairs(rows: StoredRow[]): { folds: Fold[]; rows: StoredRow[]; skipped: string[] } {
   const byKey = new Map(rows.map((r) => [keyOf(r.provider, r.externalId), r]));
   const folds: Fold[] = [];
+  const skipped: string[] = [];
   const gone = new Set<string>();
+  const fold = (from: StoredRow, to: StoredRow, kind: Fold["kind"]) => {
+    if (from.hasBody && !to.hasBody) {
+      skipped.push(`fold skipped: ${to.title} ${(to.metAt ?? "").slice(0, 16).replace("T", " ")}: the row to delete holds the body`);
+      return;
+    }
+    folds.push({ fromId: from.id, toId: to.id, title: to.title, kind });
+    gone.add(from.id);
+  };
   for (const g of rows) {
     if (g.provider !== "granola" || gone.has(g.id)) continue;
     const id = fathomCallId(g.altUrl);
     const f = id ? byKey.get(keyOf("fathom", id)) : undefined;
     if (!f || gone.has(f.id)) continue;
-    folds.push({ fromId: f.id, toId: g.id, title: g.title, kind: "fathom" });
-    gone.add(f.id);
+    fold(f, g, "fathom");
   }
-  for (const n of rows) {
-    if (n.provider !== "granola" || isWebUuid(n.externalId) || gone.has(n.id)) continue;
-    const u = rows.find((r) => r.provider === "granola" && isWebUuid(r.externalId) && !gone.has(r.id) && sameMeetingAs(r, n, GRANOLA_ID_WINDOW_MS));
-    if (!u) continue;
-    folds.push({ fromId: u.id, toId: n.id, title: n.title, kind: "granola-id" });
-    gone.add(u.id);
+  const publicIds = rows.filter((r) => r.provider === "granola" && !isWebUuid(r.externalId));
+  for (const n of publicIds) {
+    if (gone.has(n.id)) continue;
+    const uuids = rows.filter((r) => r.provider === "granola" && isWebUuid(r.externalId) && !gone.has(r.id));
+    const m = uniqueTwin(n, uuids, publicIds.filter((p) => !gone.has(p.id)), GRANOLA_ID_WINDOW_MS);
+    if (m.kind === "ambiguous") skipped.push(ambiguousNote(n));
+    if (m.kind === "match") fold(m.twin, n, "granola-id");
   }
-  return { folds, rows: rows.filter((r) => !gone.has(r.id)) };
+  return { folds, rows: rows.filter((r) => !gone.has(r.id)), skipped };
 }
 
 /**
@@ -230,12 +259,24 @@ export function absorbStored(calls: SyncCall[], rows: StoredRow[]): { calls: Syn
   const push = (c: SyncCall) => { at.set(keyOf(c.provider, c.externalId), out.length); out.push(c); };
   const fathoms: SyncCall[] = [];
 
+  const granolaCalls = calls.filter((c) => c.provider === "granola");
+  const fathomCalls = calls.filter((c) => c.provider === "fathom");
+  // Peers for the one-to-one check: listed calls and stored rows on the item's side.
+  const publicPeers: Meeting[] = [...granolaCalls.filter((c) => !isWebUuid(c.externalId)), ...live.filter((r) => r.provider === "granola" && !isWebUuid(r.externalId))];
+  const granolaPeers: Meeting[] = [...granolaCalls, ...live.filter((r) => r.provider === "granola")];
+  const fathomPeers: Meeting[] = [...fathomCalls, ...live.filter((r) => r.provider === "fathom")];
+  const ambiguous = (c: SyncCall) => notes.push({ key: keyOf(c.provider, c.externalId), text: ambiguousNote(c) });
+
   for (const c of calls) {
     const own = byKey.get(keyOf(c.provider, c.externalId));
     if (own) { claimed.add(own.id); push(c); continue; }
     if (c.provider === "fathom") { fathoms.push(c); continue; }
-    const seeded = isWebUuid(c.externalId) ? undefined
-      : live.find((r) => r.provider === "granola" && isWebUuid(r.externalId) && !claimed.has(r.id) && sameMeetingAs(r, c, GRANOLA_ID_WINDOW_MS));
+    let seeded: StoredRow | undefined;
+    if (!isWebUuid(c.externalId)) {
+      const m = uniqueTwin(c, live.filter((r) => r.provider === "granola" && isWebUuid(r.externalId) && !claimed.has(r.id)), publicPeers, GRANOLA_ID_WINDOW_MS);
+      if (m.kind === "ambiguous") { ambiguous(c); push(c); continue; }
+      if (m.kind === "match") seeded = m.twin;
+    }
     if (seeded) {
       const fromKey = keyOf(seeded.provider, seeded.externalId);
       const altUrl = c.altUrl ?? seeded.altUrl;
@@ -250,7 +291,11 @@ export function absorbStored(calls: SyncCall[], rows: StoredRow[]): { calls: Syn
     const fid = fathomCallId(c.altUrl);
     let target = fid ? byKey.get(keyOf("fathom", fid)) : undefined;
     if (target && claimed.has(target.id)) target = undefined;
-    target ??= live.find((r) => r.provider === "fathom" && !claimed.has(r.id) && sameMeetingAs(r, c));
+    if (!target) {
+      const m = uniqueTwin(c, live.filter((r) => r.provider === "fathom" && !claimed.has(r.id)), granolaPeers);
+      if (m.kind === "ambiguous") ambiguous(c);
+      if (m.kind === "match") target = m.twin;
+    }
     if (!target) { push(c); continue; }
     const fromKey = keyOf(target.provider, target.externalId);
     const altUrl = c.altUrl ?? target.url ?? null;
@@ -268,7 +313,12 @@ export function absorbStored(calls: SyncCall[], rows: StoredRow[]): { calls: Syn
     if (id && !(r.provider === "fathom" && r.externalId === id) && !byAlt.has(id)) byAlt.set(id, r);
   }
   for (const c of fathoms) {
-    const target = byAlt.get(c.externalId) ?? live.find((r) => r.provider === "granola" && sameMeetingAs(r, c));
+    let target = byAlt.get(c.externalId);
+    if (!target) {
+      const m = uniqueTwin(c, live.filter((r) => r.provider === "granola"), fathomPeers);
+      if (m.kind === "ambiguous") ambiguous(c);
+      if (m.kind === "match") target = m.twin;
+    }
     if (!target) { push(c); continue; }
     const key = keyOf(target.provider, target.externalId);
     const i = at.get(key);
@@ -389,9 +439,11 @@ export async function runSyncWith(opts: SyncOptions, deps: SyncDeps): Promise<Sy
 
   // ---- repairOnly: fold stored duplicates and nothing else
   if (opts.repairOnly) {
-    const { folds } = seededPairs(snap.rows);
+    const { folds, skipped } = seededPairs(snap.rows);
     for (const f of folds) await applyFold(f);
-    log.push(`repair: ${folds.length} duplicate row${folds.length === 1 ? "" : "s"} folded`);
+    log.push(...skipped);
+    const by = (k: Fold["kind"]) => folds.filter((f) => f.kind === k).length;
+    log.push(`repair: ${folds.length} duplicate row${folds.length === 1 ? "" : "s"} folded (${by("granola-id")} Granola web-UUID, ${by("fathom")} Fathom)${skipped.length ? `, ${skipped.length} skipped` : ""}`);
     return { added: 0, updated: 0, pending: 0, gone: 0, rateLimited: false, more: false, log };
   }
 
@@ -437,7 +489,7 @@ export async function runSyncWith(opts: SyncOptions, deps: SyncDeps): Promise<Sy
 
   // ---- one row per meeting: fold seeded pairs, then match listed calls against stored rows
   // Folding seeded pairs deletes rows, so an onlySlugs (trial) run leaves them alone.
-  const paired = only ? { folds: [] as Fold[], rows: snap.rows } : seededPairs(snap.rows);
+  const paired = only ? { folds: [] as Fold[], rows: snap.rows, skipped: [] as string[] } : seededPairs(snap.rows);
   const foldedInto = new Map(paired.folds.map((f) => [f.fromId, f.toId]));
   const keptRow = (id: string) => { let x = id; for (let i = 0; i < 5 && foldedInto.has(x); i++) x = foldedInto.get(x)!; return x; };
   const accountById = new Map(snap.accounts.map((a) => [a.id, a]));
@@ -500,6 +552,7 @@ export async function runSyncWith(opts: SyncOptions, deps: SyncDeps): Promise<Sy
 
   // ---- apply: folds and rekeys, then bodies that must go and unlinks
   for (const f of paired.folds) await applyFold(f);
+  log.push(...paired.skipped);
   for (const k of rekeys) { await store.rekey(k.rowId, k.provider, k.externalId, k.altUrl); log.push(k.note); }
   for (const n of absorbed.notes) if (callByKey.has(n.key)) log.push(n.text);
   const drop = plan.dropBodies.map((k) => rowByKey.get(k)).filter((r): r is StoredRow => !!r && (r.hasBody || r.status !== "personnel")).map((r) => r.id);
