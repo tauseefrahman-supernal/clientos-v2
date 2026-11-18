@@ -130,7 +130,7 @@ export function ArtifactGallery({ artifacts, recordings, heldBack, project, slug
       {view === "recordings" && (
         recordings.length ? (
           <div className="flex flex-col gap-space-4">
-            <p className="text-xs text-muted-foreground">Every meeting pulled in for this project from Granola and Fathom, with Stella’s summary. Open a transcript to read it here, with private matters removed, or open the meeting where it lives.</p>
+            <p className="text-xs text-muted-foreground">Every meeting pulled in for this project from Granola and Fathom, with its headline for this project, and Stella’s summary on calls she has summarised. Open a transcript to read it here, with private matters removed, or open the meeting where it lives.</p>
             {recNote && <p role="status" className="text-xs text-muted-foreground">{recNote}</p>}
             {Array.from(byMonth).map(([month, items]) => (
               <section key={month} className="flex flex-col gap-space-1">

@@ -14,7 +14,7 @@ import type { Layer, SearchHit } from "@/lib/memory/types";
 import { listSources, readSource } from "./corpus";
 import { resolveRefs, splitEvidence, stripHistory, type Evidence, type KnownSource } from "./evidence";
 import {
-  allotCalls, callDigest, callLabel, callVisible, contextManagement, finalTurnNote, formatHit, matchSuggestions, parseReadCall,
+  allotCalls, callDigest, callLabel, callOverview, callVisible, contextManagement, finalTurnNote, formatHit, matchSuggestions, parseReadCall,
   parseSearchCalls, parseSearchContext, parseSearchExpertise, DIGEST_DAYS, DIGEST_LINES, FULL_CALL_CHARS, SKIPPED, SUGGESTED, type FormattedHit, type SuggestionRow,
 } from "./tool-rules";
 
@@ -217,7 +217,7 @@ async function runTool(scope: Scope, name: string, input: unknown, emit: (d: Ste
       { id: string; title: string; met_at: string | null; url: string | null; alt_url: string | null; status: string; gone_at: string | null; summary: string | null; body: string | null; speakers: unknown } | null;
     if (!call || !keepHit(call, new Date())) return notFound;
     const maps = await accountMaps();
-    const links = check(await db().from("transcript_accounts").select("account_id").eq("transcript_id", p.id), "read call projects") as { account_id: string }[];
+    const links = check(await db().from("transcript_accounts").select("account_id,headline").eq("transcript_id", p.id), "read call projects") as { account_id: string; headline: string | null }[];
     const linked = links.map((l) => maps.byId.get(l.account_id)).filter((x): x is string => !!x);
     if (!callVisible(linked, scope.visible)) return notFound;
     const slug = linked.find((x) => scope.slugs.includes(x)) ?? linked.find((x) => scope.visible === null || scope.visible.has(x)) ?? scope.slugs[0];
@@ -225,10 +225,15 @@ async function runTool(scope: Scope, name: string, input: unknown, emit: (d: Ste
     const label = multi || !scope.slugs.includes(slug) ? `${scope.names.get(slug) ?? slug} · ${base}` : base;
     const link = [call.url, call.alt_url].find((u) => !!u && /^https?:\/\//i.test(u)) ?? null;
     const body = call.body ?? "";
-    let part: Record<string, string>;
+    let part: Record<string, unknown>;
     if (p.full) part = { transcript: body.length > FULL_CALL_CHARS ? `${body.slice(0, FULL_CALL_CHARS)}\n[transcript cut at ${FULL_CALL_CHARS} characters]` : body || "No transcript is stored for this call." };
     else if (p.around) part = { transcript_window: body ? callWindow(body, p.around) : "No transcript is stored for this call." };
-    else part = call.summary?.trim() ? { summary: call.summary.trim() } : { summary: "No summary yet.", transcript_start: body ? callWindow(body, "") : "No transcript is stored for this call." };
+    else {
+      // Digested calls give their summary; others the headlines of the projects this person can see, plus the opening.
+      const heads = links.flatMap((l) => { const s = maps.byId.get(l.account_id); return s && (scope.visible === null || scope.visible.has(s)) ? [{ project: scope.names.get(s) ?? s, headline: l.headline }] : []; });
+      const o = callOverview(call, heads);
+      part = call.status === "digested" && o.summary !== "No summary yet." ? o : { ...o, transcript_start: body ? callWindow(body, "") : "No transcript is stored for this call." };
+    }
     const speakers = Array.isArray(call.speakers) ? call.speakers.map((x) => (typeof x === "string" ? x : (x as { name?: string })?.name)).filter((x): x is string => !!x) : [];
     const content = JSON.stringify({ id: `call:${call.id}`, label, title: call.title, date: call.met_at?.slice(0, 10) ?? null, speakers, projects: linked.filter((x) => scope.visible === null || scope.visible.has(x)).map((x) => scope.names.get(x) ?? x), link, ...part });
     return { ok: true, content, summary: `read ${base}${p.full ? " (whole transcript)" : p.around ? ` around “${p.around}”` : ""}`, sources: [{ label, slug, id: `call:${call.id}`, url: link, at: call.met_at?.slice(0, 10) ?? null }] };

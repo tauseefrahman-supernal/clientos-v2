@@ -146,6 +146,17 @@ export function callDigest(rows: { metAt: string | null; headline: string | null
 // ---------------------------------------------------------------- budget and context
 
 /** How many of the requested tool calls may run, given how many ran already this answer. */
+/**
+ * What read_call returns by default: the call's summary once it is digested. Before that the stored summary can be a
+ * source one-liner or another project's seeded line, so it is never returned; the visible projects' headlines are.
+ */
+export function callOverview(call: { status: string | null; summary: string | null }, headlines: { project: string; headline: string | null }[]): { summary: string; headlines?: { project: string; headline: string }[] } {
+  const summary = call.status === "digested" ? (call.summary ?? "").trim() : "";
+  if (summary) return { summary };
+  const heads = headlines.map((h) => ({ project: h.project, headline: (h.headline ?? "").trim() })).filter((h) => h.headline);
+  return heads.length ? { summary: "No summary yet.", headlines: heads } : { summary: "No summary yet." };
+}
+
 export function allotCalls(used: number, requested: number, max = MAX_TOOL_CALLS): { run: number; skip: number; exhausted: boolean } {
   const run = Math.max(0, Math.min(requested, max - used));
   return { run, skip: requested - run, exhausted: used + run >= max };

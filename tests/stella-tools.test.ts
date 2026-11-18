@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
-  allotCalls, callDigest, callVisible, excerpt, formatHit, matchSuggestions, parseReadCall, parseSearchCalls,
+  allotCalls, callDigest, callOverview, callVisible, excerpt, formatHit, matchSuggestions, parseReadCall, parseSearchCalls,
   parseSearchContext, parseSearchExpertise, sourceIdFor, keepHit, finalTurnNote, MAX_TOOL_CALLS, contextManagement,
 } from "../lib/stella/tool-rules.ts";
 import type { SearchHit } from "../lib/memory/types.ts";
@@ -148,4 +148,14 @@ test("matchSuggestions ranks pending facts by shared words and labels them uncon
   assert.deepEqual(out.map((r) => r.id), ["s3", "s1"]);
   assert.equal(matchSuggestions(rows, "the of", 5).length, 0);
   assert.equal(matchSuggestions(rows, "pricing", 1).length, 1);
+});
+
+test("read_call gives a call's summary only once it is digested; before that the visible projects' headlines", () => {
+  const heads = [{ project: "RxVIP", headline: "RxVIP part: pricing agreed" }, { project: "Hooray", headline: "" }];
+  assert.deepEqual(callOverview({ status: "digested", summary: " Line one\nLine two " }, heads), { summary: "Line one\nLine two" });
+  // A pending call's stored summary can be a source one-liner or another project's seeded line: never returned.
+  assert.deepEqual(callOverview({ status: "pending", summary: "Squad review with another project's section" }, heads),
+    { summary: "No summary yet.", headlines: [{ project: "RxVIP", headline: "RxVIP part: pricing agreed" }] });
+  assert.deepEqual(callOverview({ status: "digested", summary: "  " }, []), { summary: "No summary yet." });
+  assert.deepEqual(callOverview({ status: "failed", summary: "x" }, []), { summary: "No summary yet." });
 });
