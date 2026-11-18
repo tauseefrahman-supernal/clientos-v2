@@ -271,7 +271,7 @@ test("the screen prompt carries the keep-list for HR and org business context", 
   for (const s of [
     "KEEP", "hiring and recruiting metrics and process", "open roles and job descriptions",
     "headcount, staffing and shift coverage", "training and certification numbers", "team structure, org design",
-    "announced role or leadership changes", "workload and process problems", "aggregate employee survey or rating scores",
+    "announced role or leadership changes (stated as already decided and communicated)", "workload and process problems", "aggregate employee survey or rating scores",
     "mentions people by name in their work roles",
   ]) assert.ok(SCREEN_SYSTEM.includes(s), s);
 });
@@ -285,4 +285,24 @@ test("the screen prompt carries the tie-breaks, whole-call rule and data-not-ins
 
 test("a batch prompt limits a personnel verdict to an individual's private matter", () => {
   assert.match(buildPrompt(call(), turns(), { contextFrom: 3, from: 5, to: 7 }), /one individual's private matter/);
+});
+
+// ---- fix round 1: precedence, announced changes, tie-break ----
+
+test("the screen prompt says a person's state is cut even inside a business discussion", () => {
+  assert.ok(SCREEN_SYSTEM.includes("if a stretch is about how a specific named or identifiable person is doing (performing, coping, behaving), CUT it even inside a business discussion; keep the process, workload or metric point itself only when it can be stated without the person."));
+  assert.ok(SCREEN_SYSTEM.includes("Maria is struggling with the new workload and keeps missing handoffs"));
+  assert.ok(SCREEN_SYSTEM.includes("handoffs are slipping because the new workload doubled tickets per agent"));
+});
+
+test("the screen prompt keeps only announced changes and cuts plans to move a person", () => {
+  assert.ok(SCREEN_SYSTEM.includes("plans, rumours or discussion of replacing, removing or moving a specific person are CUT"));
+  assert.ok(SCREEN_SYSTEM.includes("we're going to let the ops lead go after the quarter"));
+  assert.ok(SCREEN_SYSTEM.includes("restructuring talk with no individual named stays"));
+});
+
+test("the screen prompt treats a named individual's performance, pay, health or departure as private", () => {
+  assert.ok(SCREEN_SYSTEM.includes("If a stretch is about a named individual's performance, pay, health or departure, treat it as a private matter, not as work content."));
+  assert.ok(SCREEN_SYSTEM.includes("the plant manager is underperforming"));
+  assert.ok(SCREEN_SYSTEM.includes("a working complaint about a process stays"));
 });

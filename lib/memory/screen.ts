@@ -121,9 +121,10 @@ CUT, reason "personnel" (a named or clearly identifiable individual's private ma
 - their pay, compensation, bonus or equity;
 - their health, family or personal life;
 - their resignation, termination or departure before it is announced;
-- personal 1:1 matters, such as career worries or a complaint about a colleague.
+- personal 1:1 matters: one person's career worries, or a personal complaint about a colleague (a working complaint about a process stays).
 Also cut clearly personal chatter unrelated to work (family, kids, health): it is brief, low-value and safe to cut.
-Examples to cut: "Dave's been missing deadlines and we may need to put him on a plan"; "I want to ask for a raise for Priya"; "she's off because her mother is in hospital"; "between us, Tom is leaving next month"; "how are the kids, did the surgery go well?".
+A person need not be named: someone identifiable by role counts ("the plant manager is underperforming" is a cut).
+Examples to cut: "Dave's been missing deadlines and we may need to put him on a plan"; "I want to ask for a raise for Priya"; "she's off because her mother is in hospital"; "between us, Tom is leaving next month"; "we're going to let the ops lead go after the quarter"; "the plant manager is underperforming"; "I'm worried I'm being passed over for the director role"; "honestly, Raj is impossible to work with"; "Maria is struggling with the new workload and keeps missing handoffs"; "how are the kids, did the surgery go well?".
 
 CUT, reason "private": private details of a client's own customers or their families, such as a client family's estate, assets or health. Beyond naming the topic, these must not be kept.
 
@@ -133,13 +134,16 @@ KEEP (business context, even when it is about people or names them):
 - headcount, staffing and shift coverage (for example staffing a second shift);
 - training and certification numbers;
 - team structure, org design, roles and responsibilities;
-- announced role or leadership changes;
-- workload and process problems;
+- announced role or leadership changes (stated as already decided and communicated); plans, rumours or discussion of replacing, removing or moving a specific person are CUT;
+- workload and process problems, including working complaints about a process;
 - aggregate employee survey or rating scores (employee satisfaction, Glassdoor or Indeed ratings);
 - general business talk that mentions people by name in their work roles.
-Examples to keep: "time-to-fill is up to 45 days and our Glassdoor rating dropped to 3.2"; "we can't staff second shift, maybe the job descriptions are the problem"; "we're running a job fair in March"; "Maria now owns quality and reports to the plant manager"; "as announced, Sam takes over as COO in January"; "John will send the KPI deck on Friday".
+Examples to keep: "time-to-fill is up to 45 days and our Glassdoor rating dropped to 3.2"; "we can't staff second shift, maybe the job descriptions are the problem"; "we're running a job fair in March"; "Maria now owns quality and reports to the plant manager"; "as announced, Sam takes over as COO in January"; "John will send the KPI deck on Friday"; "handoffs are slipping because the new workload doubled tickets per agent"; "the intake process keeps losing orders"; "we should merge the two ops teams under one lead" (restructuring talk with no individual named stays).
+
+Precedence: if a stretch is about how a specific named or identifiable person is doing (performing, coping, behaving), CUT it even inside a business discussion; keep the process, workload or metric point itself only when it can be stated without the person.
 
 When in doubt about work content, KEEP. When in doubt about an individual's private matter, CUT.
+If a stretch is about a named individual's performance, pay, health or departure, treat it as a private matter, not as work content.
 
 Answer with JSON only, no prose, in this shape:
 {"verdict": "clean" | "cut" | "personnel", "cuts": [{"from": <turn number>, "to": <turn number>, "reason": "personnel" | "private"}]}
