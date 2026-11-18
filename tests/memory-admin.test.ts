@@ -4,7 +4,7 @@ import {
   InvalidRequest, goneList, httpUrl, parseGone, parseOverride, parseRule, rulesByProject, screenedList, splitMarkers, syncStatus,
   transcriptGate, turnsForPanel, unassignedList,
 } from "../lib/memory/admin-rules.ts";
-import { reFetchNotPersonnel, type NotPersonnelDeps } from "../lib/memory/override-core.ts";
+import { ADMIN_LIST_WAIT_MS, reFetchNotPersonnel, type NotPersonnelDeps } from "../lib/memory/override-core.ts";
 
 const ID = "0b8f3c2e-1d4a-4c5b-9e6f-7a8b9c0d1e2f";
 const NOW = new Date("2026-11-18T12:00:00Z");
@@ -225,4 +225,13 @@ test("a recording shows only its project's headline; the call summary rides alon
   assert.deepEqual(recordingText("", { status: "failed", summary: "x" }), { headline: "", summary: "" });
   assert.deepEqual(recordingText(null, { status: "digested", summary: "  " }), { headline: "", summary: "" });
   assert.deepEqual(recordingText("H", { status: "digested", summary: null }), { headline: "H", summary: "" });
+});
+
+test("the not-personnel Fathom listing is bounded: its deadline is now + 20 s", async () => {
+  let got: number | null = null;
+  const { deps } = fakeDeps({ listFathom: async (_since, deadline) => { got = deadline; return { calls: [], cursor: null, rateLimited: true, skipped: 0 }; } });
+  const out = await reFetchNotPersonnel(row({ provider: "fathom", externalId: "123" }), deps);
+  assert.equal(ADMIN_LIST_WAIT_MS, 20_000);
+  assert.equal(got, Date.parse("2026-11-18T12:00:00.000Z") + 20_000);
+  assert.deepEqual(out, { kind: "later", reason: "Fathom is rate limiting requests" });
 });

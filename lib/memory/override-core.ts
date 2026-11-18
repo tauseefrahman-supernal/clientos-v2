@@ -8,11 +8,16 @@ import type { ListResult, TranscriptResult } from "./sources/shared.ts";
 import type { SourceCall, Turn } from "./types.ts";
 
 const DAY_MS = 86_400_000;
+/** How long an admin re-fetch may spend waiting out Fathom rate limits while listing. */
+export const ADMIN_LIST_WAIT_MS = 20_000;
 
 export interface NotPersonnelDeps {
   fetchTranscript(provider: SourceCall["provider"], id: string): Promise<TranscriptResult>;
-  /** Fathom meetings created after since (ISO), transcripts included. */
-  listFathom(since: string): Promise<ListResult>;
+  /**
+   * Fathom meetings created after since (ISO), transcripts included. `deadline` (epoch ms): no rate-limit wait may
+   * end after it, so an admin request can't hang on Fathom.
+   */
+  listFathom(since: string, deadline: number): Promise<ListResult>;
   screen(call: SourceCall): Promise<ScreenResult>;
   now(): string;
 }
@@ -42,7 +47,7 @@ async function turnsFor(row: StoredCall, deps: NotPersonnelDeps): Promise<{ turn
   if (row.externalId.startsWith("rec:")) return fromFetch("fathom", row.externalId.slice(4));
   const met = row.metAt ? Date.parse(row.metAt) : NaN;
   if (Number.isNaN(met)) return "the call has no date to find it by in Fathom";
-  const listed = await deps.listFathom(new Date(met - DAY_MS).toISOString());
+  const listed = await deps.listFathom(new Date(met - DAY_MS).toISOString(), Date.parse(deps.now()) + ADMIN_LIST_WAIT_MS);
   const call = listed.calls.find((c) => c.externalId === row.externalId);
   if (!call) return listed.rateLimited ? "Fathom is rate limiting requests" : "Fathom did not list this call";
   if (call.turns?.length) return { turns: call.turns, summary: call.sourceSummary };

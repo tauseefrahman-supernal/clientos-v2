@@ -115,7 +115,7 @@ async function applyNow(o: { transcriptId: string; slug: string | null; action: 
     url: (call.url as string) ?? "", sourceSummary: "",
   }, {
     fetchTranscript: (provider, id) => fetchTranscript(provider, id),
-    listFathom: (since) => listFathom(since, null),
+    listFathom: (since, deadline) => listFathom(since, null, { deadline }),
     screen: screenCall,
     now: () => new Date().toISOString(),
   });
