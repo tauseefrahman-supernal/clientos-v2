@@ -2,7 +2,7 @@ import "server-only";
 import { randomUUID } from "node:crypto";
 import { all, check, db } from "@/lib/data/db";
 import {
-  batches, callChunks, chapterChunks, estimateTokens, planOwner, vaultChunks,
+  applyPlan, callChunks, chapterChunks, estimateTokens, planOwner, vaultChunks,
   type CallRow, type ChapterRow, type ChunkRow, type ExistingChunk, type OwnerPlan, type VaultFileRow,
 } from "./index-rules.ts";
 import { voyageEmbedder, type EmbedKind } from "./voyage.ts";
@@ -25,6 +25,7 @@ export async function embed(texts: string[], kind: EmbedKind): Promise<number[][
 
 export interface IndexResult {
   chunks: number;          // chunks embedded (or, in a dry run, that would be)
+  skipped: number;         // new or changed rows not embedded because their owner is not usable
   tokens: number;          // Voyage's count, or chars / 4 in a dry run
   dryRun: boolean;
   byLayer: Record<string, number>;
@@ -39,7 +40,8 @@ const ownerKey = (type: string, id: string) => `${type}:${id}`;
 
 /** Every owner's wanted chunks and stored chunks, planned. Reads only. */
 async function plan(now: Date) {
-  const [files, chapters, calls, links, stored, unembedded, storedLinks] = await Promise.all([
+  const [accounts, files, chapters, calls, links, stored, unembedded, storedLinks] = await Promise.all([
+    all("accounts", "id,name", (q) => q.order("id")),
     all("vault_files", "id,account_id,path,content,state,shown", (q) => q.order("id")),
     all("book_chapters", "id,account_id,sort,title,body,sources", (q) => q.order("id")),
     // Calls that can yield chunks: a body, or a digested summary. Personnel rows never carry a body.
@@ -55,7 +57,8 @@ async function plan(now: Date) {
 
   const want = new Map<string, ChunkRow[]>();
   for (const f of files as VaultFileRow[]) want.set(ownerKey("file", f.id), vaultChunks(f, now));
-  for (const c of chapters as ChapterRow[]) want.set(ownerKey("chapter", c.id), chapterChunks(c));
+  const projectName = new Map(accounts.map((a) => [a.id as string, a.name as string]));
+  for (const c of chapters) want.set(ownerKey("chapter", c.id), chapterChunks({ ...(c as Omit<ChapterRow, "project">), project: projectName.get(c.account_id) ?? "" }));
   for (const t of calls) {
     const accounts = accountsOf.get(t.id) ?? [];
     // A call linked to no project is not searchable by anyone but admins; it is indexed once it is linked.
@@ -93,33 +96,43 @@ const toRow = (r: ChunkRow, id: string, vector: number[]) => ({
   chapter_id: r.ownerType === "chapter" ? r.ownerId : null,
 });
 
+// One index run at a time in this server process. There is no database lock: no advisory-lock RPC exists and
+// this task adds no migration, so two server processes could still overlap; the next run removes any duplicates.
+const G = globalThis as unknown as { __clientosIndexing?: boolean };
+
 /**
- * Re-chunks every vault file, chapter, call summary and call body; embeds only new or changed text,
- * refreshes usable, labels, dates, speakers and project links on the rest, and removes leftovers.
+ * Re-chunks every vault file, chapter, call summary and call body; embeds only new or changed text of usable owners,
+ * refreshes usable, labels, dates, speakers and project links on the rest, and removes leftovers. Safety writes
+ * (removals, usable = false, dropped links) go first, so a failed embedding run never leaves hidden chunks searchable.
  * With dryRun, reads only: counts what would be embedded and estimates tokens as chars / 4.
  */
 export async function indexPending(opts: { dryRun?: boolean } = {}): Promise<IndexResult> {
-  const p = await plan(new Date());
-  const byLayer: Record<string, number> = {};
-  for (const r of p.embed) byLayer[r.layer] = (byLayer[r.layer] ?? 0) + 1;
-  const summary = { byLayer, kept: p.kept, removed: p.remove.length, patched: p.patch.length, linked: p.link.length, unlinked: p.unlink.length };
-  if (opts.dryRun) return { chunks: p.embed.length, tokens: estimateTokens(p.embed.map((r) => r.body)), dryRun: true, ...summary };
+  if (!opts.dryRun && G.__clientosIndexing) throw new Error("An index run is already in progress.");
+  if (!opts.dryRun) G.__clientosIndexing = true;
+  try {
+    const p = await plan(new Date());
+    const usable = p.embed.filter((r) => r.usable);
+    const byLayer: Record<string, number> = {};
+    for (const r of usable) byLayer[r.layer] = (byLayer[r.layer] ?? 0) + 1;
+    const summary = { byLayer, kept: p.kept, removed: p.remove.length, patched: p.patch.length, linked: p.link.length, unlinked: p.unlink.length };
+    if (opts.dryRun) return { chunks: usable.length, skipped: p.embed.length - usable.length, tokens: estimateTokens(usable.map((r) => r.body)), dryRun: true, ...summary };
 
-  const run = embedder();
-  let tokens = 0, embedded = 0;
-  // Insert new chunks batch by batch, so a failure part-way keeps what was embedded; old versions are removed after.
-  for (const batch of batches(p.embed)) {
-    const out = await run(batch.map((r) => r.body), "document");
-    tokens += out.tokens;
-    const rows = batch.map((r, i) => toRow(r, randomUUID(), out.vectors[i]));
-    check(await db().from("chunks").insert(rows), "insert chunks");
-    const linkRows = rows.flatMap((row, i) => batch[i].accounts.map((a) => ({ chunk_id: row.id, account_id: a })));
-    for (const lb of batches(linkRows, 500)) check(await db().from("chunk_accounts").insert(lb), "link chunks");
-    embedded += batch.length;
+    const run = embedder();
+    const out = await applyPlan(p, {
+      embed: (texts) => run(texts, "document"),
+      insert: async (items) => {
+        check(await db().from("chunks").insert(items.map((x) => toRow(x.row, x.id, x.vector))), "insert chunks");
+        const linkRows = items.flatMap((x) => x.row.accounts.map((a) => ({ chunk_id: x.id, account_id: a })));
+        if (linkRows.length) check(await db().from("chunk_accounts").insert(linkRows), "link chunks");
+      },
+      remove: async (ids) => { check(await db().from("chunks").delete().in("id", ids), "remove chunks"); },
+      patch: async (x) => { check(await db().from("chunks").update(x.fields).eq("id", x.id), "update chunk"); },
+      link: async (rows) => { check(await db().from("chunk_accounts").upsert(rows, { onConflict: "chunk_id,account_id", ignoreDuplicates: true }), "link chunks"); },
+      unlink: async (rows) => { for (const u of rows) check(await db().from("chunk_accounts").delete().eq("chunk_id", u.chunk_id).eq("account_id", u.account_id), "unlink chunk"); },
+      newId: randomUUID,
+    });
+    return { chunks: out.embedded, skipped: out.skipped, tokens: out.tokens, dryRun: false, ...summary };
+  } finally {
+    if (!opts.dryRun) G.__clientosIndexing = false;
   }
-  for (const u of p.patch) check(await db().from("chunks").update(u.fields).eq("id", u.id), "update chunk");
-  for (const lb of batches(p.link, 500)) check(await db().from("chunk_accounts").upsert(lb, { onConflict: "chunk_id,account_id", ignoreDuplicates: true }), "link chunks");
-  for (const u of p.unlink) check(await db().from("chunk_accounts").delete().eq("chunk_id", u.chunk_id).eq("account_id", u.account_id), "unlink chunk");
-  for (const ids of batches(p.remove, 200)) check(await db().from("chunks").delete().in("id", ids), "remove chunks");
-  return { chunks: embedded, tokens, dryRun: false, ...summary };
 }

@@ -75,7 +75,7 @@ export interface ChunkRow {
 }
 
 export interface VaultFileRow { id: string; account_id: string; path: string; content: string; state: string; shown: boolean | null }
-export interface ChapterRow { id: string; account_id: string; sort: number; title: string; body: string; sources: string[] | null }
+export interface ChapterRow { id: string; account_id: string; sort: number; title: string; body: string; sources: string[] | null; project: string }
 export interface CallRow {
   id: string; title: string; met_at: string | null; status: string; summary: string | null; body: string | null;
   gone_at: string | null; speakers: unknown; accounts: string[];
@@ -83,12 +83,23 @@ export interface CallRow {
 
 const part = (label: string, seq: number, n: number) => (n > 1 ? `${label} (part ${seq + 1} of ${n})` : label);
 
+/**
+ * Every stored chunk body starts with a one-line header naming its owner (a call's title and date, a file's path,
+ * a chapter's project and title), so embeddings and full-text search see it and a rename re-embeds.
+ */
+export const withHeader = (header: string, text: string) => `${oneLine(header)}\n${text}`;
+/** Splits a stored chunk body into its header line and its text; use the text, not the body, for bodyToTurns. */
+export function splitHeader(body: string): { header: string; text: string } {
+  const i = body.indexOf("\n");
+  return i === -1 ? { header: body, text: "" } : { header: body.slice(0, i), text: body.slice(i + 1) };
+}
+
 export function vaultChunks(f: VaultFileRow, now: Date): ChunkRow[] {
   const pieces = chunkText(f.content ?? "");
   const usable = isUsable({ state: f.state, shown: f.shown }, now);
   return pieces.map((p) => ({
     layer: "vault", ownerType: "file", ownerId: f.id, accountId: f.account_id, seq: p.seq,
-    label: part(`File ${f.path}.md`, p.seq, pieces.length), body: p.text, metAt: null, speakers: [], usable, accounts: [f.account_id],
+    label: part(`File ${f.path}.md`, p.seq, pieces.length), body: withHeader(`File: ${f.path}`, p.text), metAt: null, speakers: [], usable, accounts: [f.account_id],
   }));
 }
 
@@ -97,7 +108,7 @@ export function chapterChunks(c: ChapterRow): ChunkRow[] {
   const pieces = chunkText(text ?? "");
   return pieces.map((p) => ({
     layer: "chapter", ownerType: "chapter", ownerId: c.id, accountId: c.account_id, seq: p.seq,
-    label: part(`Book, chapter ${c.sort + 1}: ${c.title}`, p.seq, pieces.length), body: p.text, metAt: null, speakers: [], usable: true, accounts: [c.account_id],
+    label: part(`Book, chapter ${c.sort + 1}: ${c.title}`, p.seq, pieces.length), body: withHeader(`Book: ${c.project} — ${c.title}`, p.text), metAt: null, speakers: [], usable: true, accounts: [c.account_id],
   }));
 }
 
@@ -126,7 +137,7 @@ export function callChunks(c: CallRow, now: Date): ChunkRow[] {
     out.push({ ...base, layer: "summary", seq: 0, label: `Call summary: ${c.title}, ${date}`, body: `${c.title} (${date})\n\n${c.summary.trim()}`, speakers });
   }
   const pieces = chunkTurns(turns);
-  for (const p of pieces) out.push({ ...base, layer: "transcript", seq: p.seq, label: part(`Call: ${c.title}, ${date}`, p.seq, pieces.length), body: p.text, speakers: p.speakers });
+  for (const p of pieces) out.push({ ...base, layer: "transcript", seq: p.seq, label: part(`Call: ${c.title}, ${date}`, p.seq, pieces.length), body: withHeader(`Call: ${c.title}, ${date}`, p.text), speakers: p.speakers });
   return out;
 }
 
@@ -138,9 +149,12 @@ export interface ExistingChunk {
   speakers: string[]; usable: boolean; accountId: string | null; accounts: string[];
 }
 
+/** A row to embed and insert; replaces is the stored chunk it supersedes, removed once the new one is in. */
+export type EmbedItem = ChunkRow & { replaces?: string };
+
 export interface OwnerPlan {
-  embed: ChunkRow[];                                     // new or changed text: embed and insert
-  remove: string[];                                      // stored chunks to delete (changed, left over, duplicates)
+  embed: EmbedItem[];                                    // new or changed text: embed and insert
+  remove: string[];                                      // stored chunks to delete (left over, duplicates)
   patch: { id: string; fields: Record<string, unknown> }[]; // same text, other columns changed
   link: { chunk_id: string; account_id: string }[];
   unlink: { chunk_id: string; account_id: string }[];
@@ -166,8 +180,7 @@ export function planOwner(want: ChunkRow[], have: ExistingChunk[]): OwnerPlan {
     const h = stored.get(key);
     stored.delete(key);
     if (!h || h.body !== w.body) {
-      if (h) plan.remove.push(h.id);
-      plan.embed.push(w);
+      plan.embed.push(h ? { ...w, replaces: h.id } : w);
       continue;
     }
     const fields: Record<string, unknown> = {};
@@ -182,4 +195,51 @@ export function planOwner(want: ChunkRow[], have: ExistingChunk[]): OwnerPlan {
   }
   for (const h of stored.values()) plan.remove.push(h.id);
   return plan;
+}
+
+// ---------------------------------------------------------------- applying a plan
+
+export type Patch = OwnerPlan["patch"][number];
+export type Link = OwnerPlan["link"][number];
+
+/** The writes applyPlan makes, injected so the order can be tested without a database or Voyage. */
+export interface ApplyDeps {
+  embed: (texts: string[]) => Promise<{ vectors: number[][]; tokens: number }>;
+  insert: (items: { id: string; row: ChunkRow; vector: number[] }[]) => Promise<void>; // chunks and their project links
+  remove: (ids: string[]) => Promise<void>;
+  patch: (p: Patch) => Promise<void>;
+  link: (rows: Link[]) => Promise<void>;
+  unlink: (rows: Link[]) => Promise<void>;
+  newId: () => string;
+}
+
+/**
+ * Applies a plan, safety first, so a failed or cut-off embedding run never leaves private or stale chunks searchable:
+ * 1. remove left-over chunks, and the stored versions of rows that are no longer usable (those are not re-embedded);
+ *    set usable = false where it changed; drop project links that went;
+ * 2. embed usable new or changed rows in batches of 128, inserting each batch and then removing the versions it replaced;
+ * 3. the remaining patches (usable again, labels, dates, speakers) and new project links.
+ */
+export async function applyPlan(p: Pick<OwnerPlan, "embed" | "remove" | "patch" | "link" | "unlink">, deps: ApplyDeps): Promise<{ embedded: number; tokens: number; skipped: number }> {
+  const unusable = p.embed.filter((r) => !r.usable);
+  const toEmbed = p.embed.filter((r) => r.usable);
+  const safeRemove = [...p.remove, ...unusable.flatMap((r) => (r.replaces ? [r.replaces] : []))];
+  for (const ids of batches(safeRemove, 200)) await deps.remove(ids);
+  const hide = p.patch.filter((x) => x.fields.usable === false);
+  for (const x of hide) await deps.patch(x);
+  for (const rows of batches(p.unlink, 500)) await deps.unlink(rows);
+
+  let embedded = 0, tokens = 0;
+  for (const batch of batches(toEmbed)) {
+    const out = await deps.embed(batch.map((r) => r.body));
+    tokens += out.tokens;
+    await deps.insert(batch.map((row, i) => ({ id: deps.newId(), row, vector: out.vectors[i] })));
+    const replaced = batch.flatMap((r) => (r.replaces ? [r.replaces] : []));
+    if (replaced.length) await deps.remove(replaced);
+    embedded += batch.length;
+  }
+
+  for (const x of p.patch) if (x.fields.usable !== false) await deps.patch(x);
+  for (const rows of batches(p.link, 500)) await deps.link(rows);
+  return { embedded, tokens, skipped: unusable.length };
 }

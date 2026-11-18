@@ -2,7 +2,8 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
   turnsToBody, bodyToTurns, isUsable, batches, estimateTokens,
-  vaultChunks, chapterChunks, callChunks, planOwner, type ChunkRow, type ExistingChunk,
+  vaultChunks, chapterChunks, callChunks, planOwner, applyPlan, splitHeader,
+  type ChunkRow, type ExistingChunk, type ApplyDeps, type EmbedItem,
 } from "../lib/memory/index-rules.ts";
 import { voyageEmbedder } from "../lib/memory/voyage.ts";
 import type { Turn } from "../lib/memory/types.ts";
@@ -81,18 +82,21 @@ test("a vault file yields vault-layer rows tied to the file and its project", ()
     assert.equal(r.usable, true);
     assert.equal(r.metAt, null);
     assert.match(r.label, /^File Deal Strategy\/Goals\.md/);
+    assert.equal(splitHeader(r.body).header, "File: Deal Strategy/Goals");
+    assert.ok(content.includes(splitHeader(r.body).text.split("\n")[0]));
   });
   assert.deepEqual(vaultChunks({ id: "f2", account_id: "a1", path: "X/Empty", content: "", state: "active", shown: null }, NOW), []);
   assert.equal(vaultChunks({ id: "f3", account_id: "a1", path: "X/H", content: "hi", state: "hidden", shown: null }, NOW)[0].usable, false);
 });
 
 test("a chapter yields chapter-layer rows with its sources", () => {
-  const rows = chapterChunks({ id: "c1", account_id: "a1", sort: 0, title: "Why now", body: "The case.", sources: ["Call 3 Jun"] });
+  const rows = chapterChunks({ id: "c1", account_id: "a1", sort: 0, title: "Why now", body: "The case.", sources: ["Call 3 Jun"], project: "World Emblem" });
   assert.equal(rows.length, 1);
   assert.equal(rows[0].layer, "chapter");
   assert.equal(rows[0].ownerType, "chapter");
   assert.equal(rows[0].label, "Book, chapter 1: Why now");
-  assert.ok(rows[0].body.includes("The case.") && rows[0].body.includes("Sources: Call 3 Jun"));
+  assert.ok(rows[0].body.startsWith("Book: World Emblem — Why now\nThe case."));
+  assert.ok(rows[0].body.includes("Sources: Call 3 Jun"));
   assert.deepEqual(rows[0].accounts, ["a1"]);
 });
 
@@ -111,7 +115,15 @@ test("a digested call yields one summary row and transcript rows, linked to ever
   assert.ok(summary[0].body.includes("We agreed the plan."));
   assert.deepEqual(summary[0].speakers, ["Ann", "Bob"]);
   assert.ok(parts.length > 1);
-  parts.forEach((r, i) => { assert.equal(r.seq, i); assert.ok(r.speakers.length > 0); });
+  parts.forEach((r, i) => {
+    assert.equal(r.seq, i);
+    assert.ok(r.speakers.length > 0);
+    // the header names the call and is not mistaken for a turn once split off
+    const { header, text } = splitHeader(r.body);
+    assert.equal(header, "Call: Weekly sync, 2026-11-10");
+    const turns = bodyToTurns(text);
+    assert.ok(turns.length > 0 && turns.every((t) => t.speaker === "Ann" || t.speaker === "Bob"));
+  });
   for (const r of rows) {
     assert.equal(r.ownerType, "transcript");
     assert.equal(r.ownerId, "t1");
@@ -150,7 +162,8 @@ const have = (id: string, seq: number, body: string, over: Partial<ExistingChunk
 test("unchanged chunks are kept, changed and new ones re-embedded, leftovers removed", () => {
   const p = planOwner([want(0, "same"), want(1, "new text"), want(2, "added")], [have("k0", 0, "same"), have("k1", 1, "old text"), have("k3", 3, "gone")]);
   assert.deepEqual(p.embed.map((r) => r.seq), [1, 2]);
-  assert.deepEqual(p.remove.sort(), ["k1", "k3"]);
+  assert.deepEqual(p.embed.map((r) => r.replaces), ["k1", undefined]);
+  assert.deepEqual(p.remove, ["k3"]);
   assert.deepEqual(p.patch, []);
   assert.deepEqual(p.link, []);
   assert.deepEqual(p.unlink, []);
@@ -239,4 +252,52 @@ test("embed fails clearly on other errors and on a missing key", async () => {
   await assert.rejects(voyageEmbedder({ key: undefined, fetch: bad.fetch as never, sleep: async () => {} })(["a"], "document"), /VOYAGE_API_KEY is not set/);
   const empty = await voyageEmbedder({ key: undefined, fetch: bad.fetch as never, sleep: async () => {} })([], "document");
   assert.deepEqual(empty, { vectors: [], tokens: 0 });
+});
+
+// ---------------------------------------------------------------- applying a plan
+
+const recorder = (embed: ApplyDeps["embed"]) => {
+  const log: string[] = [];
+  let n = 0;
+  const deps: ApplyDeps = {
+    embed: async (texts) => { log.push(`embed ${texts.length}`); return embed(texts); },
+    insert: async (items) => { log.push(`insert ${items.map((i) => i.row.body).join(",")}`); },
+    remove: async (ids) => { log.push(`remove ${ids.join(",")}`); },
+    patch: async (p) => { log.push(`patch ${p.id} ${JSON.stringify(p.fields)}`); },
+    link: async (rows) => { log.push(`link ${rows.map((r) => r.chunk_id).join(",")}`); },
+    unlink: async (rows) => { log.push(`unlink ${rows.map((r) => r.chunk_id).join(",")}`); },
+    newId: () => `n${n++}`,
+  };
+  return { log, deps };
+};
+const item = (body: string, over: Partial<EmbedItem> = {}): EmbedItem => ({ ...want(0, body), ...over });
+const vectors = async (texts: string[]) => ({ vectors: texts.map(() => [0]), tokens: texts.length });
+
+test("safety writes are applied even when embedding fails", async () => {
+  const { log, deps } = recorder(async () => { throw new Error("VOYAGE_API_KEY is not set"); });
+  await assert.rejects(applyPlan({
+    embed: [item("new", { replaces: "old" })],
+    remove: ["personnel-chunk"],
+    patch: [{ id: "gone", fields: { usable: false } }, { id: "renamed", fields: { label: "L" } }],
+    link: [{ chunk_id: "k", account_id: "a2" }],
+    unlink: [{ chunk_id: "k", account_id: "a9" }],
+  }, deps), /VOYAGE_API_KEY/);
+  assert.deepEqual(log, ["remove personnel-chunk", 'patch gone {"usable":false}', "unlink k", "embed 1"]);
+});
+
+test("each replaced chunk is removed right after its replacement batch is inserted", async () => {
+  const { log, deps } = recorder(vectors);
+  const many = Array.from({ length: 130 }, (_, i) => item(`b${i}`, { seq: i, replaces: `old${i}` }));
+  const out = await applyPlan({ embed: many, remove: [], patch: [{ id: "x", fields: { usable: true } }], link: [{ chunk_id: "x", account_id: "a" }], unlink: [] }, deps);
+  assert.deepEqual(out, { embedded: 130, tokens: 130, skipped: 0 });
+  assert.deepEqual(log.map((l) => l.split(" ")[0]), ["embed", "insert", "remove", "embed", "insert", "remove", "patch", "link"]);
+  assert.equal(log[2], `remove ${many.slice(0, 128).map((r) => r.replaces).join(",")}`);
+  assert.equal(log[5], "remove old128,old129");
+});
+
+test("rows that are not usable are not embedded, and the versions they replace are removed first", async () => {
+  const { log, deps } = recorder(vectors);
+  const out = await applyPlan({ embed: [item("hidden", { usable: false, replaces: "old" }), item("fresh hidden", { usable: false })], remove: [], patch: [], link: [], unlink: [] }, deps);
+  assert.deepEqual(out, { embedded: 0, tokens: 0, skipped: 2 });
+  assert.deepEqual(log, ["remove old"]);
 });

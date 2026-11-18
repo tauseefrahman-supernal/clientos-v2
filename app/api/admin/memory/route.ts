@@ -25,6 +25,7 @@ export async function POST(req: Request) {
     const result = await run(body);
     return Response.json({ ok: true, action: body.action, seconds: Math.round((Date.now() - t0) / 1000), result });
   } catch (e) {
-    return Response.json({ ok: false, action: body.action, error: e instanceof Error ? e.message : String(e) }, { status: 500 });
+    const error = e instanceof Error ? e.message : String(e);
+    return Response.json({ ok: false, action: body.action, error }, { status: /already in progress/.test(error) ? 409 : 500 });
   }
 }
