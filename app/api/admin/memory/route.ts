@@ -17,10 +17,15 @@ export const maxDuration = 300;
 //                      refused (409) without a preview in the last hour or confirmFull. repairOnly only folds stored duplicate rows. rescreen (needs
 //                      onlySlugs) screens those projects' stored calls again from their source; pass the returned
 //                      rescreen.rescreenBefore back on re-runs to skip calls already rescreened. Stops early and says when more remains.
-//   estimate { onlySlugs?, limit?, retryFailed? }: what digesting the waiting calls (status pending, with a stored body) would cost.
+//   estimate { onlySlugs?, limit?, retryFailed?, outputTokens? }: what digesting the waiting calls (status pending, with a stored
+//                      body) would cost, counted as the requests are sent: system prompt + project outline as a cache write on
+//                      each project's first call and a cache read after, the transcript as input, and output at outputTokens
+//                      per call (else the last run's measured average, else 2,500).
 //   digest { confirm: true, maxDollars, onlySlugs?, limit?, retryFailed? }: summary, project headlines and suggested vault facts
 //                      for those calls, newest first. Refused without confirm or when the estimate is over maxDollars.
-//                      Stops starting calls after about 150 s; says how many remain (more), so run it again until done.
+//                      Stops starting calls after about 150 s, or before a call whose estimate would take actual spend (plus
+//                      calls in flight) past maxDollars; says how many remain (more), so run it again until done. Returns
+//                      dollarsActual by part (input, cache read, cache write, output), usage and per-call averages.
 //                      retryFailed also takes calls an earlier digest marked failed.
 type Body = Record<string, unknown> & { action?: string };
 
@@ -65,6 +70,10 @@ function digestOptions(body: Body): DigestOptions {
     o.limit = body.limit as number;
   }
   if (body.retryFailed === true) o.retryFailed = true;
+  if (body.outputTokens !== undefined) {
+    if (!Number.isInteger(body.outputTokens) || (body.outputTokens as number) < 1) throw new BadRequest("outputTokens must be a whole number above 0.");
+    o.outputTokens = body.outputTokens as number;
+  }
   return o;
 }
 

@@ -1,7 +1,7 @@
 // Call digests, the testable half: the prompt, reply parsing, the section-append text builder, the duplicate
 // check, and runDigest, which drives one call through an injected model client and DB writer.
 // No "server-only" import and no SDK, so node --test runs it against fakes. lib/memory/digest.ts wires it up.
-import { HEADLINE_MAX_CHARS, SECTION_MAX_CHARS, SUGGESTION_MAX_CHARS, SUMMARY_MAX_LINES, SUMMARY_MIN_LINES, validateDigest, type Digest } from "./digest-rules.ts";
+import { costOf, HEADLINE_MAX_CHARS, SECTION_MAX_CHARS, SUGGESTION_MAX_CHARS, SUMMARY_MAX_LINES, SUMMARY_MIN_LINES, validateDigest, type Digest, type Usage } from "./digest-rules.ts";
 
 export type FileForDigest = { path: string; headings: string[] };
 export type ProjectForDigest = { slug: string; name: string; accountId: string; files: FileForDigest[] };
@@ -15,8 +15,10 @@ export type DigestWrite = {
   headlines: { accountId: string; headline: string }[];
   suggestions: SuggestionRow[];
 };
-export type AskMessage = { role: "user" | "assistant"; content: string };
-export type AskReply = { stopReason: string | null; text: string; usage: { input: number; output: number } };
+export type TextBlock = { type: "text"; text: string; cache_control?: { type: "ephemeral" } };
+export type AskMessage = { role: "user" | "assistant"; content: string | TextBlock[] };
+export type AskReply = { stopReason: string | null; text: string; usage: Usage };
+export type CallUsage = { input: number; output: number; cacheRead: number; cacheWrite: number };
 
 export interface DigestDeps {
   load(id: string): Promise<CallForDigest | null>;
@@ -36,8 +38,8 @@ export interface DigestDeps {
 export const MIN_START_MS = 1500;
 
 export type DigestOutcome =
-  | { ok: true; digest: Digest; suggestions: number; usage: { input: number; output: number } }
-  | { ok: false; reason: string; failed: boolean; usage: { input: number; output: number } };
+  | { ok: true; digest: Digest; suggestions: number; usage: CallUsage }
+  | { ok: false; reason: string; failed: boolean; usage: CallUsage };
 
 /** Bodies longer than this are not sent (about 150k tokens). */
 export const MAX_BODY_CHARS = 600_000;
@@ -89,18 +91,64 @@ export function fmtDate(iso: string | null): string {
   return new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
 }
 
-export function buildDigestPrompt(c: CallForDigest): string {
-  const out = [`Call: ${clean(c.title)}`, `Date: ${fmtDate(c.metAt)}`, ""];
-  if (!c.projects.length) out.push("Linked projects: none. Return an empty headlines list and no suggestions.");
-  else {
-    out.push("Linked projects (write one headline for each):");
-    for (const p of c.projects) {
-      out.push(`- ${clean(p.slug)} (${clean(p.name)})`, "  Vault files and their section headings:");
-      for (const f of p.files) out.push(`  - "${clean(f.path)}": ${f.headings.length ? f.headings.slice(0, 40).map(clean).join(" | ") : "(no headings yet)"}`);
-    }
+/** The system prompt as sent: identical bytes on every call, the start of the cached prefix. */
+export const DIGEST_SYSTEM_BLOCKS: TextBlock[] = [{ type: "text", text: DIGEST_SYSTEM }];
+
+/** The linked projects' vault outline: the same for every call of the same projects, so it ends the cached prefix. */
+export function buildOutline(projects: ProjectForDigest[]): string {
+  if (!projects.length) return "Linked projects: none. Return an empty headlines list and no suggestions.";
+  const out = ["Linked projects (write one headline for each):"];
+  for (const p of projects) {
+    out.push(`- ${clean(p.slug)} (${clean(p.name)})`, "  Vault files and their section headings:");
+    for (const f of p.files) out.push(`  - "${clean(f.path)}": ${f.headings.length ? f.headings.slice(0, 40).map(clean).join(" | ") : "(no headings yet)"}`);
   }
-  out.push("", "<transcript>", (c.body ?? "").replace(/[<>]/g, ""), "</transcript>");
   return out.join("\n");
+}
+
+/** The per-call part, after the cache breakpoint: title, date and the stored transcript. */
+export function buildCallText(c: CallForDigest): string {
+  return [`Call: ${clean(c.title)}`, `Date: ${fmtDate(c.metAt)}`, "", "<transcript>", (c.body ?? "").replace(/[<>]/g, ""), "</transcript>"].join("\n");
+}
+
+export function buildDigestPrompt(c: CallForDigest): string {
+  return `${buildOutline(c.projects)}\n\n${buildCallText(c)}`;
+}
+
+/** The request: system, then the outline with the cache breakpoint, then the call. Calls of the same projects share the prefix. */
+export function buildDigestRequest(c: CallForDigest): { system: TextBlock[]; messages: AskMessage[] } {
+  return {
+    system: DIGEST_SYSTEM_BLOCKS,
+    messages: [{ role: "user", content: [
+      { type: "text", text: buildOutline(c.projects), cache_control: { type: "ephemeral" } },
+      { type: "text", text: buildCallText(c) },
+    ] }],
+  };
+}
+
+// ---------------------------------------------------------------- slim outline
+
+/** Words in a file name or heading that mark a place a call fact can land. */
+const LANDING_WORDS = [
+  "stakeholder", "scope", "pricing", "price", "commercial", "proposal", "decision", "open item", "open question", "risk",
+  "integration", "adoption", "project plan", "delivery plan", "use case", "feedback", "slipping", "coming up", "next step",
+  "action item", "commitment", "timeline", "milestone",
+];
+const LANDING = LANDING_WORDS.map((w) => new RegExp(`(^|[^a-z])${w}`));
+const lands = (s: string) => { const n = s.toLowerCase().replace(/[-_/]+/g, " "); return LANDING.some((r) => r.test(n)); };
+
+/**
+ * Only the vault files and sections a call fact can land in: a file whose name names one (all its headings), else the
+ * headings that name one, plus every file that already has an accepted suggestion (all its headings).
+ */
+export function slimOutline(files: (FileForDigest & { accepted?: boolean })[]): FileForDigest[] {
+  const out: FileForDigest[] = [];
+  for (const f of files) {
+    const name = f.path.split("/").pop() ?? f.path;
+    if (f.accepted || lands(name)) { out.push({ path: f.path, headings: f.headings }); continue; }
+    const hs = f.headings.filter(lands);
+    if (hs.length) out.push({ path: f.path, headings: hs });
+  }
+  return out;
 }
 
 // ---------------------------------------------------------------- reply
@@ -239,22 +287,29 @@ function check(raw: Record<string, unknown> | null, c: CallForDigest): { ok: tru
 
 /** Digests one call: asks the model (one retry on an invalid reply), then writes once. Never throws. */
 export async function runDigest(id: string, deps: DigestDeps): Promise<DigestOutcome> {
-  const usage = { input: 0, output: 0 };
+  const usage: CallUsage = { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 };
   const c = await deps.load(id);
-  const skip = (reason: string): DigestOutcome => { deps.log(`skipped ${c ? `"${c.title}"` : id}: ${reason}`); return { ok: false, reason, failed: false, usage }; };
+  let asked = false;
+  const logUsage = () => {
+    if (!asked) return;
+    const d = costOf(usage);
+    deps.log(`usage ${c ? `"${c.title}"` : id}: in ${usage.input} · cache read ${usage.cacheRead} · cache write ${usage.cacheWrite} · out ${usage.output} · $${d.total.toFixed(4)}`);
+  };
+  const skip = (reason: string): DigestOutcome => { logUsage(); deps.log(`skipped ${c ? `"${c.title}"` : id}: ${reason}`); return { ok: false, reason, failed: false, usage }; };
   if (!c) return skip("not found");
   if (c.status === "personnel") return skip("personnel call");
   if (!c.body || !c.body.trim()) return skip("no stored body");
   if (c.status !== "pending" && c.status !== "failed") return skip(`status is ${c.status}`);
   const label = `"${c.title}" (${fmtDate(c.metAt)})`;
   const fail = async (reason: string): Promise<DigestOutcome> => {
+    logUsage();
     deps.log(`failed ${label}: ${reason}`);
     try { await deps.markFailed(c.id, reason); } catch (e) { deps.log(`could not mark ${label} failed: ${e instanceof Error ? e.message : String(e)}`); }
     return { ok: false, reason, failed: true, usage };
   };
   if (c.body.length > MAX_BODY_CHARS) return fail(`body is ${c.body.length} characters, over ${MAX_BODY_CHARS}`);
 
-  const messages: AskMessage[] = [{ role: "user", content: buildDigestPrompt(c) }];
+  const messages: AskMessage[] = buildDigestRequest(c).messages;
   let errors: string[] = [];
   for (let attempt = 0; attempt < 2; attempt++) {
     let reply: AskReply;
@@ -262,6 +317,7 @@ export async function runDigest(id: string, deps: DigestDeps): Promise<DigestOut
     if (left < MIN_START_MS) return skip("out of time; left pending for the next run");
     const abort = new AbortController();
     const timer = left === Infinity ? null : setTimeout(() => abort.abort(), left);
+    asked = true;
     try { reply = await deps.ask(messages.map((m) => ({ ...m })), { signal: abort.signal }); }
     catch (e) {
       if (abort.signal.aborted) return skip("out of time; aborted and left pending for the next run");
@@ -269,6 +325,7 @@ export async function runDigest(id: string, deps: DigestDeps): Promise<DigestOut
     }
     finally { if (timer) clearTimeout(timer); }
     usage.input += reply.usage.input; usage.output += reply.usage.output;
+    usage.cacheRead += reply.usage.cacheRead ?? 0; usage.cacheWrite += reply.usage.cacheWrite ?? 0;
     if (reply.stopReason === "refusal" || reply.stopReason === "max_tokens") return fail(`model stopped: ${reply.stopReason}`);
     const v = check(parseDigestReply(reply.text), c);
     if (v.ok) {
@@ -284,6 +341,7 @@ export async function runDigest(id: string, deps: DigestDeps): Promise<DigestOut
           suggestions,
         });
       } catch (e) { return fail(`write error: ${e instanceof Error ? e.message : String(e)}`); }
+      logUsage();
       deps.log(`digested ${label}: ${suggestions.length} suggestion${suggestions.length === 1 ? "" : "s"}`);
       return { ok: true, digest: v.digest, suggestions: suggestions.length, usage };
     }

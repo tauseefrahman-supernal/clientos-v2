@@ -5,8 +5,11 @@ export const DIGEST_MODEL = "claude-opus-5-5";
 /** Dollars per million tokens. */
 export const INPUT_PER_M = 4;
 export const OUTPUT_PER_M = 20;
-/** Assumed output size of one digest call, in tokens. */
-export const ASSUMED_OUTPUT_TOKENS = 1500;
+/** Prompt cache prices on claude-opus-5-5: reads $0.20/M, 5-minute writes 1.25x input. */
+export const CACHE_READ_PER_M = 0.2;
+export const CACHE_WRITE_PER_M = 5;
+/** Assumed output size of one digest call, in tokens, until a run has measured it. */
+export const ASSUMED_OUTPUT_TOKENS = 2500;
 const CHARS_PER_TOKEN = 4;
 
 export function estimateCost(calls: { chars: number }[]): { calls: number; inputTokens: number; dollars: number } {
@@ -14,6 +17,57 @@ export function estimateCost(calls: { chars: number }[]): { calls: number; input
   const outputTokens = calls.length * ASSUMED_OUTPUT_TOKENS;
   const dollars = (inputTokens / 1e6) * INPUT_PER_M + (outputTokens / 1e6) * OUTPUT_PER_M;
   return { calls: calls.length, inputTokens, dollars };
+}
+
+export type Usage = { input: number; output: number; cacheRead?: number; cacheWrite?: number };
+export type Dollars = { input: number; cacheRead: number; cacheWrite: number; output: number; total: number };
+
+/** What a call's token usage cost, by part. */
+export function costOf(u: Usage): Dollars {
+  const input = (u.input / 1e6) * INPUT_PER_M;
+  const cacheRead = ((u.cacheRead ?? 0) / 1e6) * CACHE_READ_PER_M;
+  const cacheWrite = ((u.cacheWrite ?? 0) / 1e6) * CACHE_WRITE_PER_M;
+  const output = (u.output / 1e6) * OUTPUT_PER_M;
+  return { input, cacheRead, cacheWrite, output, total: input + cacheRead + cacheWrite + output };
+}
+
+/**
+ * The estimate of the real requests: each call's stable prefix (system prompt + its projects' outline, stableChars) is
+ * a cache write on the first call of its group and a cache read after; its transcript is plain input; output is the
+ * measured average, else ASSUMED_OUTPUT_TOKENS. Calls are counted in the order given (the order they will run).
+ */
+export function estimateRun(calls: { chars: number; group: string; stableChars: number }[], o: { outputTokens?: number } = {}) {
+  const tok = (chars: number) => Math.ceil(Math.max(0, chars) / CHARS_PER_TOKEN);
+  const out = Math.max(0, Math.round(o.outputTokens ?? ASSUMED_OUTPUT_TOKENS));
+  const seen = new Set<string>();
+  let inputTokens = 0, cacheWriteTokens = 0, cacheReadTokens = 0;
+  const perCall = calls.map((c) => {
+    const input = tok(c.chars), stable = tok(c.stableChars);
+    const first = !seen.has(c.group);
+    seen.add(c.group);
+    inputTokens += input;
+    if (first) cacheWriteTokens += stable; else cacheReadTokens += stable;
+    return costOf({ input, output: out, cacheWrite: first ? stable : 0, cacheRead: first ? 0 : stable }).total;
+  });
+  return { calls: calls.length, inputTokens, cacheWriteTokens, cacheReadTokens, outputTokens: out * calls.length, dollars: perCall.reduce((a, b) => a + b, 0), perCall };
+}
+
+/** Caps actual spend: a call starts only if spent + in-flight reservations + its estimate stay within the cap. */
+export class SpendGate {
+  spent = 0;
+  reserved = 0;
+  readonly max: number;
+  constructor(max: number) { this.max = max; }
+  tryReserve(estimate: number): boolean {
+    if (this.spent + this.reserved + estimate > this.max + 1e-9) return false;
+    this.reserved += estimate;
+    return true;
+  }
+  /** A reserved call finished: release its estimate and record what it really cost. */
+  settle(estimate: number, actual: number) {
+    this.reserved = Math.max(0, this.reserved - estimate);
+    this.spent += actual;
+  }
 }
 
 export type Suggestion = { slug: string; filePath: string; section: string; text: string };

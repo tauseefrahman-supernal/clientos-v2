@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
   appendUnderSection, buildDigestPrompt, DIGEST_SYSTEM, dropDuplicates, fromCallLine, headingsOf, parseDigestReply,
-  plainSuggestionText, unescapeSuggestionText, runDigest, sectionLayout, type CallForDigest, type DigestDeps, type DigestWrite,
+  plainSuggestionText, unescapeSuggestionText, runDigest, buildDigestRequest, buildOutline, slimOutline, DIGEST_SYSTEM_BLOCKS, sectionLayout, type CallForDigest, type DigestDeps, type DigestWrite,
 } from "../lib/memory/digest-core.ts";
 
 const lines = (n: number) => Array.from({ length: n }, (_, i) => `line ${i + 1}`).join("\n");
@@ -276,4 +276,81 @@ test("a call is not started when too little time is left", async () => {
   assert.equal(r.ok, false);
   assert.equal(f.asked.length, 0);
   assert.equal(f.failed.length, 0);
+});
+
+// ---------------------------------------------------------------- caching and the slim outline
+
+test("the request puts system and outline first, with the cache breakpoint on the outline and the transcript after it", () => {
+  const r = buildDigestRequest(call());
+  assert.equal(r.system, DIGEST_SYSTEM_BLOCKS);
+  assert.ok(r.system.every((b) => !("cache_control" in b)));
+  assert.equal(r.messages.length, 1);
+  const content = r.messages[0].content;
+  assert.ok(Array.isArray(content));
+  const blocks = content as { type: string; text: string; cache_control?: { type: string } }[];
+  assert.equal(blocks.length, 2);
+  assert.deepEqual(blocks[0].cache_control, { type: "ephemeral" });
+  assert.equal(blocks[0].text, buildOutline(call().projects));
+  assert.ok(!blocks[0].text.includes("Weekly sync"), "nothing call-specific before the breakpoint");
+  assert.ok(!blocks[0].text.includes("<transcript>"));
+  assert.equal(blocks[1].cache_control, undefined);
+  assert.match(blocks[1].text, /^Call: Weekly sync script\nDate: 12 Nov 2026/);
+  assert.ok(blocks[1].text.trim().endsWith("</transcript>"));
+});
+
+test("two calls of the same projects send a byte-identical prefix", () => {
+  const a = buildDigestRequest(call());
+  const b = buildDigestRequest(call({ id: "t2", title: "Other", body: "x", metAt: null }));
+  assert.deepEqual(a.system, b.system);
+  assert.equal((a.messages[0].content as { text: string }[])[0].text, (b.messages[0].content as { text: string }[])[0].text);
+});
+
+test("a retry keeps the first message, so it reads the same cache", async () => {
+  const f = fakes(call(), [{ stop: "end_turn", text: reply({ summary: lines(3) }) }, { stop: "end_turn", text: reply() }]);
+  await runDigest("t1", f.deps);
+  assert.deepEqual(f.asked[1][0], f.asked[0][0]);
+});
+
+test("slimOutline keeps files and headings a call fact can land in, plus files with accepted facts", () => {
+  const out = slimOutline([
+    { path: "Delivery Strategy/Stakeholders", headings: ["Stakeholders", "Client", "Power map"] },
+    { path: "Delivery Strategy/Weekly", headings: ["Decisions", "Slipping", "Coming up"] },
+    { path: "Sales Strategy/Sales-Context", headings: ["Arc", "May 2026 (about 15 meetings)"] },
+    { path: "Deal Strategy/Concept-Alignment", headings: ["4.1 The advisory", "4.5 Objections raised"] },
+    { path: "Technical Strategy/Integrations", headings: ["KPI Source Map"] },
+    { path: "Delivery Strategy/Project-Plan", headings: ["Delivery now"] },
+    { path: "Delivery Strategy/Adoption-Plan", headings: [] },
+    { path: "Deal Strategy/Scope-Definition", headings: [] },
+    { path: "Deal Strategy/Proposal", headings: [] },
+    { path: "Technical Strategy/Feature-Rationale", headings: ["Decisions"] },
+    { path: "Sales Strategy/Findings-Ledger", headings: ["Old"], accepted: true },
+    { path: "Sales Strategy/Sales-Research", headings: [] },
+    { path: "Delivery Strategy/AI-Strategy-Roadmap", headings: ["Opportunity map", "Use cases", "Account OS records"] },
+    { path: "Sales Strategy/Client-Feedback", headings: [] },
+    { path: "Deal Strategy/Pricing", headings: [] },
+    { path: "Deal Strategy/Risk-Register", headings: [] },
+  ]);
+  assert.deepEqual(out, [
+    { path: "Delivery Strategy/Stakeholders", headings: ["Stakeholders", "Client", "Power map"] },
+    { path: "Delivery Strategy/Weekly", headings: ["Decisions", "Slipping", "Coming up"] },
+    { path: "Technical Strategy/Integrations", headings: ["KPI Source Map"] },
+    { path: "Delivery Strategy/Project-Plan", headings: ["Delivery now"] },
+    { path: "Delivery Strategy/Adoption-Plan", headings: [] },
+    { path: "Deal Strategy/Scope-Definition", headings: [] },
+    { path: "Deal Strategy/Proposal", headings: [] },
+    { path: "Technical Strategy/Feature-Rationale", headings: ["Decisions"] },
+    { path: "Sales Strategy/Findings-Ledger", headings: ["Old"] },
+    { path: "Delivery Strategy/AI-Strategy-Roadmap", headings: ["Use cases"] },
+    { path: "Sales Strategy/Client-Feedback", headings: [] },
+    { path: "Deal Strategy/Pricing", headings: [] },
+    { path: "Deal Strategy/Risk-Register", headings: [] },
+  ]);
+});
+
+test("usage is logged per call with cache reads and writes", async () => {
+  const f = fakes(call(), [{ stop: "end_turn", text: reply() }]);
+  f.deps.ask = async () => ({ stopReason: "end_turn", text: reply(), usage: { input: 2000, output: 900, cacheRead: 1500, cacheWrite: 0 } });
+  const r = await runDigest("t1", f.deps);
+  assert.deepEqual(r.usage, { input: 2000, output: 900, cacheRead: 1500, cacheWrite: 0 });
+  assert.ok(f.log.some((l) => /usage .*in 2000 .*cache read 1500 .*cache write 0 .*out 900/.test(l)), f.log.join("\n"));
 });
