@@ -7,6 +7,7 @@ export type Rules = Map<string, { keywords: string[]; emails: string[]; domains:
 const WINDOW_MS = 10 * 60 * 1000;
 const MIN_CONTAINED_TITLE = 8; // guards short/generic titles from matching by containment
 const SHARED_EMAIL_RATIO = 0.6;
+const MIN_SHARED_EMAILS = 2; // one shared email is usually just the recorder
 
 function normTitle(t: string): string {
   return t.toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, " ").replace(/\s+/g, " ").trim();
@@ -32,7 +33,7 @@ function mostlySamePeople(a: SourceCall, b: SourceCall): boolean {
   if (smaller === 0) return false;
   let shared = 0;
   for (const e of ea) if (eb.has(e)) shared++;
-  return shared / smaller >= SHARED_EMAIL_RATIO;
+  return shared >= MIN_SHARED_EMAILS && shared / smaller >= SHARED_EMAIL_RATIO;
 }
 
 function sameMeeting(a: SourceCall, b: SourceCall): boolean {
@@ -66,23 +67,28 @@ export function mergeDuplicates(calls: SourceCall[]): MergedCall[] {
     const members = groups.get(r)!.slice().sort(rank);
     const [keep, ...others] = members;
     if (others.length === 0) return { ...keep, altUrl: null };
+    const turns = keep.turns && keep.turns.length > 0 ? keep.turns : (others.find((o) => o.turns && o.turns.length > 0)?.turns ?? keep.turns);
+    const sourceSummary = keep.sourceSummary?.trim() ? keep.sourceSummary : (others.find((o) => o.sourceSummary?.trim())?.sourceSummary ?? keep.sourceSummary);
     const byEmail = new Map<string, { name: string; email: string | null }>();
     const noEmail: { name: string; email: string | null }[] = [];
     for (const m of members)
       for (const p of m.participants) {
-        if (!p.email) { if (!noEmail.some((n) => n.name === p.name)) noEmail.push(p); continue; }
+        if (!p.email) { if (!noEmail.some((n) => n.name.trim().toLowerCase() === p.name.trim().toLowerCase())) noEmail.push(p); continue; }
         const k = p.email.trim().toLowerCase();
         if (!byEmail.has(k)) byEmail.set(k, { name: p.name, email: k });
       }
-    return { ...keep, participants: [...byEmail.values(), ...noEmail], altUrl: others[0].url };
+    const named = new Set([...byEmail.values()].map((p) => p.name.trim().toLowerCase()));
+    const loose = noEmail.filter((p) => !named.has(p.name.trim().toLowerCase()));
+    return { ...keep, turns, sourceSummary, participants: [...byEmail.values(), ...loose], altUrl: others[0].url };
   });
 }
 
-function hasWord(text: string, kw: string): boolean {
+function hasWord(text: string | null | undefined, kw: string): boolean {
+  const t = text ?? "";
   const k = kw.trim().toLowerCase().replace(/\s+/g, " ");
   if (!k) return false;
   const esc = k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/ /g, "\\s+");
-  return new RegExp(`(?<![\\p{L}\\p{N}])${esc}(?![\\p{L}\\p{N}])`, "iu").test(text);
+  return new RegExp(`(?<![\\p{L}\\p{N}])${esc}(?![\\p{L}\\p{N}])`, "iu").test(t);
 }
 
 export function matchCall(call: SourceCall, rules: Rules): { slug: string; strength: "strong" | "mention" }[] {
