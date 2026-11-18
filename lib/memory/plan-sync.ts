@@ -18,8 +18,10 @@ export interface PlanInput {
 
 /**
  * "pending": needs screening and storage (new calls, calls still pending, personnel rows released by
- * a not_personnel override). "keep": an existing digested/personnel/failed row; only its metadata
- * (title, url, altUrl, participants) is refreshed, never its status or body.
+ * a not_personnel override). "keep": an existing digested/failed row; only its metadata
+ * (title, url, altUrl, participants) is refreshed, never its status or body. "personnel": store or
+ * keep a title-only row with status personnel, no body and no chunks; such a call carries no turns
+ * and no summary in the plan.
  */
 export interface PlannedCall {
   externalKey: string;
@@ -32,7 +34,7 @@ export interface PlannedCall {
   altUrl: string | null;
   sourceSummary: string;
   turns: Turn[] | null;
-  status: "pending" | "keep";
+  status: "pending" | "keep" | "personnel";
   dropBody: boolean;
   isNew: boolean;
 }
@@ -47,6 +49,10 @@ export interface SyncPlan {
   goneAt: string;
   unGone: string[];
   hide: string[];
+  /** Stored rows whose body must be absent: an active personnel override, or a stored personnel row. */
+  dropBodies: string[];
+  /** Every active unassign override, re-asserted on each sync whether or not the call was listed. */
+  unlinks: { externalKey: string; slug: string }[];
 }
 
 const keyOf = (provider: string, externalId: string) => `${provider}:${externalId}`;
@@ -55,6 +61,7 @@ const cmp = (a: string, b: string) => (a < b ? -1 : a > b ? 1 : 0);
 export function planSync(input: PlanInput): SyncPlan {
   const { incoming, existing, overrides, listedInFull, now } = input;
   const nowMs = Date.parse(now);
+  if (!Number.isFinite(nowMs)) throw new Error(`planSync: now is not a date: ${JSON.stringify(now)}`);
 
   // Last word per (call, slug) for assign/unassign, and per call for personnel/not_personnel.
   const slugVerdict = new Map<string, Map<string, "assign" | "unassign">>();
@@ -66,6 +73,10 @@ export function planSync(input: PlanInput): SyncPlan {
     } else if (o.action === "personnel") personnel.set(o.externalKey, true);
     else if (o.action === "not_personnel") personnel.set(o.externalKey, false);
   }
+
+  // A call is personnel if the latest override says so, or it is stored as personnel and not released.
+  const personnelNow = (key: string, storedStatus: string | undefined) =>
+    personnel.get(key) ?? storedStatus === "personnel";
 
   const stored = new Map(existing.map((e) => [keyOf(e.provider, e.externalId), e]));
   const seen = new Set<string>();
@@ -79,11 +90,11 @@ export function planSync(input: PlanInput): SyncPlan {
     if (seen.has(externalKey)) continue;
     seen.add(externalKey);
     const row = stored.get(externalKey);
-    const isPersonnel = personnel.get(externalKey) === true;
+    const isPersonnel = personnelNow(externalKey, row?.status);
     const released = personnel.get(externalKey) === false && row?.status === "personnel";
 
-    let status: "pending" | "keep";
-    if (isPersonnel) status = "keep";
+    let status: PlannedCall["status"];
+    if (isPersonnel) status = "personnel";
     else if (released) status = "pending";
     else if (row && row.status !== "pending") status = "keep";
     else status = "pending";
@@ -91,7 +102,8 @@ export function planSync(input: PlanInput): SyncPlan {
     upserts.push({
       externalKey, provider: call.provider, externalId: call.externalId, title: call.title,
       metAt: call.metAt, participants: call.participants, url: call.url, altUrl: call.altUrl,
-      sourceSummary: call.sourceSummary, turns: call.turns, status, dropBody: isPersonnel, isNew: !row,
+      sourceSummary: isPersonnel ? "" : call.sourceSummary, turns: isPersonnel ? null : call.turns,
+      status, dropBody: isPersonnel, isNew: !row,
     });
     if (row?.goneAt) unGone.push(externalKey);
 
@@ -107,6 +119,11 @@ export function planSync(input: PlanInput): SyncPlan {
   for (const [externalKey, verdicts] of slugVerdict)
     for (const [slug, action] of verdicts)
       if (action === "assign") links.set(`${externalKey}|${slug}`, { externalKey, slug, source: "manual" });
+
+  const dropBodies = [...stored].filter(([key, row]) => personnelNow(key, row.status)).map(([key]) => key);
+  const unlinks: { externalKey: string; slug: string }[] = [];
+  for (const [externalKey, verdicts] of slugVerdict)
+    for (const [slug, action] of verdicts) if (action === "unassign") unlinks.push({ externalKey, slug });
 
   const markGone: string[] = [];
   const hide: string[] = [];
@@ -130,5 +147,7 @@ export function planSync(input: PlanInput): SyncPlan {
     goneAt: now,
     unGone: unGone.sort(cmp),
     hide: hide.sort(cmp),
+    dropBodies: dropBodies.sort(cmp),
+    unlinks: unlinks.sort(byKeySlug),
   };
 }
