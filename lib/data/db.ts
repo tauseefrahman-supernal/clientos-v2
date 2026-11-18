@@ -36,13 +36,13 @@ export function db(): SupabaseClient<any, any, any> {
   return client;
 }
 
-function check<T>(res: { data: T; error: { message: string } | null }, what: string): T {
+export function check<T>(res: { data: T; error: { message: string } | null }, what: string): T {
   if (res.error) throw new Error(`Supabase ${what}: ${res.error.message}`);
   return res.data;
 }
 
 /** Every row of a table, paging past the 1,000-row response limit. */
-async function all(table: string, cols = "*", filter?: (q: any) => any): Promise<Row[]> {
+export async function all(table: string, cols = "*", filter?: (q: any) => any): Promise<Row[]> {
   const out: Row[] = [];
   for (let from = 0; ; from += 1000) {
     let q = db().from(table).select(cols).range(from, from + 999);
