@@ -302,7 +302,16 @@ test("the screen prompt keeps only announced changes and cuts plans to move a pe
 });
 
 test("the screen prompt treats a named individual's performance, pay, health or departure as private", () => {
-  assert.ok(SCREEN_SYSTEM.includes("If a stretch is about a named individual's performance, pay, health or departure, treat it as a private matter, not as work content."));
+  assert.ok(SCREEN_SYSTEM.includes("If a stretch is about a named individual's performance, pay, health or unannounced departure, treat it as a private matter, not as work content."));
   assert.ok(SCREEN_SYSTEM.includes("the plant manager is underperforming"));
   assert.ok(SCREEN_SYSTEM.includes("a working complaint about a process stays"));
+});
+
+// ---- fix round 2: what a person does vs how they are doing ----
+
+test("the screen prompt keeps neutral role activity and announced departures", () => {
+  assert.ok(SCREEN_SYSTEM.includes("What a person is doing in their role is KEEP; how they are doing (performing, coping, behaving) is CUT."));
+  assert.ok(SCREEN_SYSTEM.includes("Jenna is screening 40 candidates a week"));
+  assert.ok(SCREEN_SYSTEM.includes("as announced, Priya leaves Friday, who covers her accounts?"));
+  assert.ok(!/health or departure/.test(SCREEN_SYSTEM), "tie-break names only unannounced departures");
 });
