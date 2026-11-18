@@ -27,11 +27,12 @@ test("normalizeFathom maps the fixture", () => {
   const raw = load("fathom-meeting.json");
   const c = normalizeFathom(raw);
   assert.equal(c.provider, "fathom");
-  assert.equal(c.externalId, "123456789");
+  assert.equal(c.externalId, "555000111");
+  assert.equal(c.fetchId, "123456789");
   assert.ok(isIso(c.metAt));
   assert.equal(Date.parse(c.metAt), Date.parse(raw.recording_start_time));
   assert.equal(c.title, "<title>");
-  assert.equal(c.url, raw.share_url);
+  assert.equal(c.url, raw.url);
   assert.equal(c.turns?.length, raw.transcript.length);
   assert.deepEqual(c.turns?.[0], { speaker: "<display_name>", start: 83, text: "<text>" });
   assert.equal(c.sourceSummary, "");
@@ -54,11 +55,12 @@ test("normalizeFathom: metAt falls back recording -> scheduled -> created; summa
   raw.recording_start_time = null;
   raw.scheduled_start_time = "2026-11-10T09:00:00Z";
   raw.default_summary = { template_name: "general", markdown_formatted: "## Summary\nok" };
-  delete raw.share_url;
+  delete raw.url;
   let c = normalizeFathom(raw);
   assert.equal(c.metAt, "2026-11-10T09:00:00.000Z");
   assert.equal(c.sourceSummary, "## Summary\nok");
-  assert.equal(c.url, raw.url);
+  assert.equal(c.url, raw.share_url);
+  assert.equal(c.externalId, "rec:123456789");
   raw.scheduled_start_time = null;
   raw.created_at = "2026-11-01T08:00:00Z";
   c = normalizeFathom(raw);
@@ -181,12 +183,12 @@ test("listFathom pages with cursor, sends key and created_after, and includes tr
   const m = load("fathom-meeting.json");
   const f = fakeFetch([
     { status: 200, body: { items: [m], next_cursor: "c2" } },
-    { status: 200, body: { items: [{ ...m, recording_id: 2 }], next_cursor: null } },
+    { status: 200, body: { items: [{ ...m, recording_id: 2, url: "https://fathom.video/calls/2000" }], next_cursor: null } },
   ]);
   const r = await listFathom("2026-11-01T00:00:00Z", null, { fetch: f.fn, key: "k" });
   assert.equal(r.rateLimited, false);
   assert.equal(r.cursor, null);
-  assert.deepEqual(r.calls.map((c) => c.externalId), ["123456789", "2"]);
+  assert.deepEqual(r.calls.map((c) => c.externalId), ["555000111", "2000"]);
   assert.equal(f.calls[0].headers["X-Api-Key"], "k");
   const u0 = new URL(f.calls[0].url);
   assert.equal(u0.origin + u0.pathname, "https://api.fathom.ai/external/v1/meetings");
@@ -238,7 +240,7 @@ test("listFathom skips and counts items that fail to normalize", async () => {
   const m = load("fathom-meeting.json");
   const f = fakeFetch([{ status: 200, body: { items: [m, { title: "no id" }, { ...m, recording_id: 7, recording_start_time: null, scheduled_start_time: null, created_at: null }], next_cursor: null } }]);
   const r = await listFathom(null, null, { fetch: f.fn, key: "k" });
-  assert.deepEqual(r.calls.map((c) => c.externalId), ["123456789"]);
+  assert.deepEqual(r.calls.map((c) => c.externalId), ["555000111"]);
   assert.equal(r.skipped, 2);
 });
 

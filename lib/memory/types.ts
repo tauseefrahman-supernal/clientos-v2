@@ -14,6 +14,8 @@ export interface SourceCall {
   url: string;
   sourceSummary: string;
   turns: Turn[] | null;
+  /** The id to re-fetch the transcript with when it differs from externalId (Fathom: the recording_id). */
+  fetchId?: string;
 }
 
 export type Layer = "vault" | "chapter" | "summary" | "transcript";

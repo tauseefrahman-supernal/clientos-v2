@@ -216,8 +216,9 @@ export async function screenCall(call: SourceCall): Promise<ScreenResult> {
       const message = await client.messages.create({
         model: SCREEN_MODEL,
         max_tokens: 4000,
-        // This SDK takes no sampling parameters; a JSON schema fixes the reply's shape instead.
-        output_config: { format: { type: "json_schema", schema: REPLY_SCHEMA } },
+        // This SDK takes no sampling parameters; a JSON schema fixes the reply's shape instead. Low effort
+        // keeps the model's thinking from eating the token budget.
+        output_config: { effort: "low", format: { type: "json_schema", schema: REPLY_SCHEMA } },
         system: SYSTEM,
         messages: [{ role: "user", content: buildPrompt(call, turns, batch) }],
       });

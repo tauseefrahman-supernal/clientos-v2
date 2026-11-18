@@ -32,7 +32,17 @@ function summaryText(v: unknown): string {
   return str(o.markdown_formatted) ?? str(o.markdown) ?? str(o.text) ?? "";
 }
 
-/** One Fathom meeting (from /meetings) to a SourceCall. Throws when it has no recording id or no usable date. */
+/** The call id in a Fathom call link (https://fathom.video/calls/<id>), else null. */
+export function fathomCallId(url: unknown): string | null {
+  const m = /^https?:\/\/(?:[\w-]+\.)*fathom\.video\/calls\/(\d+)(?:[/?#]|$)/i.exec(str(url)?.trim() ?? "");
+  return m ? m[1] : null;
+}
+
+/**
+ * One Fathom meeting (from /meetings) to a SourceCall. Throws when it has no recording id or no usable date.
+ * externalId is the call id from the call link (the id stored rows use), or "rec:<recording_id>" when the
+ * link has none; fetchId carries the recording_id, which the transcript endpoint takes.
+ */
 export function normalizeFathom(raw: unknown): SourceCall {
   const m = obj(raw);
   const id = m?.recording_id;
@@ -44,11 +54,12 @@ export function normalizeFathom(raw: unknown): SourceCall {
   if (!metAt) throw new Error("Fathom meeting has no usable date");
   return {
     provider: "fathom",
-    externalId: String(id),
+    externalId: fathomCallId(m.url) ?? `rec:${id}`,
+    fetchId: String(id),
     title: str(m.title) ?? str(m.meeting_title) ?? "Untitled call",
     metAt,
     participants,
-    url: str(m.share_url) ?? str(m.url) ?? "",
+    url: str(m.url) ?? str(m.share_url) ?? "",
     sourceSummary: summaryText(m.default_summary),
     turns: fathomTurns(m.transcript),
   };
