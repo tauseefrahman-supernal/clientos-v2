@@ -125,7 +125,16 @@ export const dbSyncStore: SyncStore = {
     for (const part of chunked(ids)) check(await db().from("transcripts").update({ kind }).in("id", part), "set call kind");
   },
 
-  async setGone(ids, at) {
+  async readScreened(ids) {
+    const out = new Map<string, { body: string | null; cuts: never[] }>();
+    for (const part of chunked(ids)) {
+      const rows = check(await db().from("transcripts").select("id,body,cuts").in("id", part), "read stored screens") as Row[];
+      for (const r of rows) out.set(r.id as string, { body: (r.body as string) ?? null, cuts: (Array.isArray(r.cuts) ? r.cuts : []) as never[] });
+    }
+    return out;
+  },
+
+    async setGone(ids, at) {
     for (const part of chunked(ids)) check(await db().from("transcripts").update({ gone_at: at }).in("id", part), "mark gone");
   },
 };
@@ -136,7 +145,7 @@ let lastPreviewAt: number | null = null;
 /**
  * One sync run against the real sources and database. Stops starting new work after ~270 s and says when more
  * remains. `since` and `onlySlugs` make an ad-hoc run that leaves sync_state alone and never marks calls gone.
- * `repairOnly` folds stored duplicates and does nothing else.
+ * `repairOnly` folds stored duplicates and does nothing else. `rescreen` (with onlySlugs) screens stored calls again.
  * `preview` lists everything and reports what a full run would do without writing; a full (gone-marking) run is
  * refused unless a complete preview ran in this process within the hour, or `confirmFull` is passed.
  */

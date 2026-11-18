@@ -4,7 +4,7 @@
 import { turnsToBody } from "./index-rules.ts";
 import { matchCall, mergeDuplicates, normTitle, type MergedCall, type Rules } from "./match.ts";
 import { planSync, type PlannedCall } from "./plan-sync.ts";
-import { applyCuts, SCREEN_MODEL, type ScreenResult } from "./screen.ts";
+import { applyCuts, SCREEN_MODEL, type Cut, type ScreenResult } from "./screen.ts";
 import { fathomCallId } from "./sources/fathom.ts";
 import { isRateLimited, type ListResult, type TranscriptResult } from "./sources/shared.ts";
 import type { SourceCall, Turn } from "./types.ts";
@@ -72,6 +72,8 @@ export interface SyncStore {
   link(rows: { transcriptId: string; accountId: string; source: "auto" | "manual" }[]): Promise<void>;
   setKind(ids: string[], kind: string): Promise<void>;
   setGone(ids: string[], at: string | null): Promise<void>;
+  /** The stored body and cuts of these rows (for a rescreen's before-and-after counts). */
+  readScreened(ids: string[]): Promise<Map<string, { body: string | null; cuts: Cut[] }>>;
 }
 
 export interface SyncDeps {
@@ -99,6 +101,12 @@ export interface SyncOptions {
   confirmFull?: boolean;
   /** Only fold stored duplicates (seeded Fathom pairs, Granola web-UUID rows): no listing, screening or other writes. */
   repairOnly?: boolean;
+  /**
+   * With onlySlugs only: listed calls of those projects that already have a body, or are stored as personnel, are
+   * screened again from their source and their body, cuts, speakers and status overwritten. A screen error keeps the
+   * stored body; a manual personnel / not_personnel override wins over the screen.
+   */
+  rescreen?: boolean;
   budgetMs?: number;
 }
 
@@ -108,9 +116,21 @@ export interface PreviewReport {
   wouldMarkGone: { title: string; provider: string; metAt: string | null }[];
 }
 
+export interface RescreenReport {
+  rescreened: number; cutsBefore: number; cutsAfter: number; minutesCutBefore: number; minutesCutAfter: number; personnel: number; errors: number;
+}
+
 export interface SyncResult {
   added: number; updated: number; pending: number; gone: number; rateLimited: boolean; more: boolean; log: string[];
   preview?: PreviewReport;
+  rescreen?: RescreenReport;
+}
+
+/** Minutes cut, summed from the markers applyCuts writes into a body ("[… removed, N min]"). */
+export function markerMinutes(body: string | null | undefined): number {
+  let n = 0;
+  for (const m of (body ?? "").matchAll(/\[(?:personnel section|private details) removed, (\d+) min\]/g)) n += Number(m[1]);
+  return n;
 }
 
 /**
@@ -418,6 +438,7 @@ export async function runSyncWith(opts: SyncOptions, deps: SyncDeps): Promise<Sy
   const now = new Date(t0).toISOString();
   const deadline = t0 + (opts.budgetMs ?? DEFAULT_BUDGET_MS);
   const only = opts.onlySlugs?.length ? new Set(opts.onlySlugs) : null;
+  if (opts.rescreen && !only) throw new Error("rescreen needs onlySlugs");
   const preview = opts.preview === true;
   const adhoc = !preview && (opts.since !== undefined || !!only);
   const log: string[] = [];
@@ -620,11 +641,66 @@ export async function runSyncWith(opts: SyncOptions, deps: SyncDeps): Promise<Sy
     return { kind: "screened", result, turns };
   };
 
+  // ---- rescreen (onlySlugs runs that ask for it): stored calls screened again from their source
+  const manualPersonnel = new Map<string, boolean>();
+  for (const o of overrides) {
+    if (o.action === "personnel") manualPersonnel.set(o.externalKey, true);
+    else if (o.action === "not_personnel") manualPersonnel.set(o.externalKey, false);
+  }
+  const isRescreen = (p: PlannedCall, st: StoredRow | undefined): st is StoredRow =>
+    !!opts.rescreen && !!st && (st.hasBody || st.status === "personnel") && manualPersonnel.get(p.externalKey) !== true;
+  const stats: RescreenReport = { rescreened: 0, cutsBefore: 0, cutsAfter: 0, minutesCutBefore: 0, minutesCutAfter: 0, personnel: 0, errors: 0 };
+  const before = opts.rescreen
+    ? await store.readScreened(plan.upserts.map((p) => rowByKey.get(p.externalKey)).filter((st): st is StoredRow => !!st && isRescreen(plannedFor(st), st)).map((st) => st.id))
+    : new Map<string, { body: string | null; cuts: Cut[] }>();
+  function plannedFor(st: StoredRow): PlannedCall { return plan.upserts.find((p) => p.externalKey === keyOf(st.provider, st.externalId))!; }
+
+  /** Screens one stored call again; null leaves it as it is (no turns, out of time, 429, or a screen error). */
+  const rescreenOne = async (p: PlannedCall, st: StoredRow, src: SyncCall | undefined): Promise<Outcome | null> => {
+    let turns = src?.turns?.length ? src.turns : null;
+    if (!turns) {
+      if (fetchStopped || overBudget()) return null;
+      const from = src?.fetchFrom ?? { provider: p.provider, id: src?.fetchId ?? p.externalId };
+      let r: TranscriptResult;
+      try { r = await deps.fetchTranscript(from.provider, from.id); } catch (e) {
+        if (isRateLimited(e)) { fetchStopped = true; rateLimited = true; log.push(`${from.provider} rate limited fetching transcripts; the rest keep their stored screen`); }
+        else log.push(`rescreen: transcript fetch failed for ${p.externalKey}: ${errText(e)}`);
+        return null;
+      }
+      if (r.status !== "ready") { log.push(`rescreen: no transcript for "${st.title}" (${r.status}); kept as stored`); return null; }
+      turns = r.turns;
+      if (r.url) fetchedUrl.set(p.externalKey, r.url);
+    }
+    if (overBudget()) return null;
+    if (deadline - deps.now() < FLUSH_MARGIN_MS) await flush();
+    let result = await deps.screen({
+      provider: p.provider, externalId: p.externalId, title: p.title, metAt: p.metAt, participants: p.participants,
+      url: p.url, sourceSummary: src?.sourceSummary ?? p.sourceSummary, turns,
+    });
+    const old = before.get(st.id);
+    stats.rescreened++;
+    stats.cutsBefore += old?.cuts.length ?? 0;
+    stats.minutesCutBefore += markerMinutes(old?.body);
+    if (result.verdict === "error") { stats.errors++; log.push(`rescreen: screen error for "${st.title}"; stored body kept`); return null; }
+    if (result.verdict === "personnel" && manualPersonnel.get(p.externalKey) === false) {
+      log.push(`rescreen: "${st.title}" marked not personnel by hand; stored without whole-call removal`);
+      result = { verdict: "clean", cuts: [] };
+    }
+    if (result.verdict === "personnel") { stats.personnel++; personnelKeys.add(p.externalKey); }
+    else {
+      stats.cutsAfter += result.cuts.length;
+      stats.minutesCutAfter += markerMinutes(turnsToBody(applyCuts(turns, result.cuts)));
+    }
+    return { kind: "screened", result, turns };
+  };
+
   for (const p of plan.upserts) {
     const st = rowByKey.get(p.externalKey);
     const src = callByKey.get(p.externalKey);
     let outcome: Outcome = { kind: "meta" };
-    if (p.status === "personnel") outcome = { kind: "screened", result: { verdict: "personnel", cuts: [] }, turns: [] };
+    const again = isRescreen(p, st) ? await rescreenOne(p, st, src) : null;
+    if (again) outcome = again;
+    else if (p.status === "personnel") outcome = { kind: "screened", result: { verdict: "personnel", cuts: [] }, turns: [] };
     else if (p.status === "pending" && !st?.hasBody)
       outcome = await obtain(p, src?.fetchFrom ?? { provider: p.provider, id: src?.fetchId ?? p.externalId });
     const row = withUrl(rowForCall(p, outcome, { summaryEmpty: st ? st.summaryEmpty : true, now, storedTitle: st?.title, absorbed: src?.absorbed }), p.externalKey, st?.url);
@@ -707,9 +783,11 @@ export async function runSyncWith(opts: SyncOptions, deps: SyncDeps): Promise<Sy
     if (retried) log.push(`retried ${retried} of ${stranded.length} stored pending calls: ${retryStored} stored with a body, ${pending - before.pending} still pending`);
   }
 
+  if (opts.rescreen)
+    log.push(`rescreen: ${stats.rescreened} calls; cuts ${stats.cutsBefore} -> ${stats.cutsAfter}, minutes cut ${stats.minutesCutBefore} -> ${stats.minutesCutAfter}; ${stats.personnel} personnel, ${stats.errors} errors`);
   const more = stopped || fetchStopped || listingIncomplete;
   if (stopped) log.push("stopped early to stay inside the time limit; more remains, run the sync again");
   else if (more) log.push("more remains; run the sync again later");
 
-  return { added, updated, pending, gone: goneIds.length, rateLimited, more, log };
+  return { added, updated, pending, gone: goneIds.length, rateLimited, more, log, ...(opts.rescreen ? { rescreen: stats } : {}) };
 }

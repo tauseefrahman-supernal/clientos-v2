@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
-  absorbAltUrls, absorbStored, uniqueTwin, decodeCursor, encodeCursor, goneIsFinal, listingStart, PreviewRequiredError, rowForCall, runSyncWith,
+  absorbAltUrls, absorbStored, uniqueTwin, markerMinutes, decodeCursor, encodeCursor, goneIsFinal, listingStart, PreviewRequiredError, rowForCall, runSyncWith,
   sameMeetingAs, seededPairs, speakersOf, type Snapshot, type StoredRow, type SyncDeps, type SyncStore,
 } from "../lib/memory/sync-core.ts";
 import type { PlannedCall } from "../lib/memory/plan-sync.ts";
@@ -215,7 +215,10 @@ class FakeStore implements SyncStore {
     for (const l of rows) if (!this.links.some((x) => x.transcriptId === l.transcriptId && x.accountId === l.accountId)) this.links.push(l);
   }
   async setKind(ids: string[], kind: string) { this.kinds.push({ ids, kind }); for (const r of this.rows) if (ids.includes(r.id)) r.kind = kind; }
-  async setGone(ids: string[], at: string | null) { this.goneCalls.push({ ids, at }); for (const r of this.rows) if (ids.includes(r.id)) r.gone_at = at; }
+  async readScreened(ids: string[]) {
+    return new Map(this.rows.filter((r) => ids.includes(r.id)).map((r) => [r.id, { body: (r.body as string) ?? null, cuts: (r.cuts as never[]) ?? [] }]));
+  }
+    async setGone(ids: string[], at: string | null) { this.goneCalls.push({ ids, at }); for (const r of this.rows) if (ids.includes(r.id)) r.gone_at = at; }
 }
 
 function call(over: Partial<SourceCall> = {}): SourceCall {
@@ -847,4 +850,87 @@ test("a fold never deletes the row holding the body when the kept row has none",
   assert.deepEqual(out.folds, []);
   assert.equal(out.skipped.length, 2);
   assert.ok(out.skipped.every((x) => /the row to delete holds the body/.test(x)));
+});
+
+// ---------------------------------------------------------------- rescreen
+
+const OLD_CUTS = [{ from: 0, to: 1, reason: "personnel" as const }];
+const OLD_BODY = turnsToBody(applyCuts(TURNS, OLD_CUTS));
+
+function rescreenStore() {
+  const store = new FakeStore();
+  const r = store.seed({ provider: "granola", external_id: "g1", title: "World Emblem weekly", met_at: "2026-11-10T10:00:00.000Z", body: OLD_BODY, cuts: OLD_CUTS, status: "digested", summary: "digest" });
+  store.links.push({ transcriptId: r.id, accountId: "a-we", source: "auto", headline: "WE headline" });
+  return { store, r };
+}
+const listing = { granola: { calls: [call()], cursor: null, rateLimited: false, skipped: 0 } };
+const TRIAL = { since: "2026-11-01T00:00:00.000Z", onlySlugs: ["world-emblem"], rescreen: true };
+
+test("markerMinutes sums the minutes in cut markers", () => {
+  assert.equal(markerMinutes("a\n[personnel section removed, 3 min]\nb\n[private details removed, 2 min]"), 5);
+  assert.equal(markerMinutes(null), 0);
+});
+
+test("rescreen re-reads the call and replaces its body, cuts and status", async () => {
+  const { store, r } = rescreenStore();
+  const newCuts = [{ from: 2, to: 2, reason: "private" as const }];
+  const { d, seen } = deps(store, { ...listing, screen: async () => ({ verdict: "cut", cuts: newCuts }) });
+  const out = await runSyncWith(TRIAL, d);
+  assert.deepEqual(seen.fetched, ["granola:g1"]);
+  assert.equal(r.body, turnsToBody(applyCuts(TURNS, newCuts)));
+  assert.deepEqual(r.cuts, newCuts);
+  assert.equal(r.status, "pending");
+  assert.deepEqual(out.rescreen, { rescreened: 1, cutsBefore: 1, cutsAfter: 1, minutesCutBefore: markerMinutes(OLD_BODY), minutesCutAfter: markerMinutes(String(r.body)), personnel: 0, errors: 0 });
+  assert.ok(markerMinutes(OLD_BODY) > 0);
+});
+
+test("rescreen: a screen error keeps the stored body and cuts", async () => {
+  const { store, r } = rescreenStore();
+  const { d } = deps(store, { ...listing, screen: async () => ({ verdict: "error" }) });
+  const out = await runSyncWith(TRIAL, d);
+  assert.equal(r.body, OLD_BODY);
+  assert.deepEqual(r.cuts, OLD_CUTS);
+  assert.equal(r.status, "digested");
+  assert.equal(out.rescreen!.errors, 1);
+  assert.ok(out.log.some((l) => /screen error .*stored body kept/.test(l)));
+});
+
+test("rescreen: a personnel verdict makes a title-only row and blanks its headlines", async () => {
+  const { store, r } = rescreenStore();
+  const { d } = deps(store, { ...listing, screen: async () => ({ verdict: "personnel", cuts: [] }) });
+  const out = await runSyncWith(TRIAL, d);
+  assert.equal(r.status, "personnel");
+  assert.equal(r.body, null);
+  assert.equal(store.links[0].headline, "");
+  assert.ok(store.chunkDeletes.includes(r.id));
+  assert.equal(out.rescreen!.personnel, 1);
+});
+
+test("rescreen: manual overrides win over the screen", async () => {
+  // personnel by hand: not screened at all
+  let { store, r } = rescreenStore();
+  store.overrides = [{ transcriptId: r.id, accountId: null, action: "personnel" }];
+  let x = deps(store, listing);
+  await runSyncWith(TRIAL, x.d);
+  assert.deepEqual(x.seen.screened, []);
+  assert.equal(r.status, "personnel");
+  // not personnel by hand: a stored personnel row is screened, and a personnel verdict is not applied
+  ({ store, r } = rescreenStore());
+  Object.assign(r, { body: null, cuts: [], status: "personnel" });
+  store.overrides = [{ transcriptId: r.id, accountId: null, action: "not_personnel" }];
+  x = deps(store, { ...listing, screen: async () => ({ verdict: "personnel", cuts: [] }) });
+  await runSyncWith(TRIAL, x.d);
+  assert.deepEqual(x.seen.screened, ["granola:g1"]);
+  assert.equal(r.status, "pending");
+  assert.equal(r.body, turnsToBody(TURNS));
+});
+
+test("rescreen is refused without onlySlugs, and ordinary runs never rescreen", async () => {
+  const { store, r } = rescreenStore();
+  await assert.rejects(runSyncWith({ rescreen: true }, deps(store, listing).d), /rescreen needs onlySlugs/);
+  const x = deps(store, listing);
+  const out = await runSyncWith({ since: "2026-11-01T00:00:00.000Z", onlySlugs: ["world-emblem"] }, x.d);
+  assert.deepEqual(x.seen.screened, []);
+  assert.equal(r.body, OLD_BODY);
+  assert.equal(out.rescreen, undefined);
 });
