@@ -8,6 +8,24 @@ export const LIMITS = { pdf: 6_000_000, text: 300_000 } as const;
 export const MAX_CSV_ROWS = 200;
 export const ACCEPT = ".pdf,.md,.markdown,.txt,.csv,.json,.html,.htm,application/pdf,text/markdown,text/plain,text/csv,application/json,text/html";
 export const UNSUPPORTED = "not a supported type (PDF, markdown, text, CSV, JSON or HTML)";
+export const PDF_NOT_SET_UP = "PDF conversion is not set up";
+
+/** PDF conversion needs an Anthropic key the SDK can find. */
+export function pdfConversionReady(env: Record<string, string | undefined>): boolean {
+  return !!env.ANTHROPIC_API_KEY?.trim();
+}
+
+/** A plain reason for a failure; the raw error is logged on the server, never shown. */
+export function failureReason(kind: UploadKind, stage: "read" | "convert" | "save"): string {
+  if (stage === "save") return "it could not be saved to the vault";
+  if (stage === "convert" && kind === "pdf") return "the PDF could not be converted right now; try again";
+  return "could not be read";
+}
+
+/** One line in the upload results, with exactly one closing full stop. */
+export function refusalLine(name: string, reason: string): string {
+  return `Not uploaded: ${name}: ${reason.trim().replace(/\.+$/, "")}.`;
+}
 
 const BY_EXT: Record<string, UploadKind> = { md: "markdown", markdown: "markdown", txt: "text", csv: "csv", json: "json", html: "html", htm: "html", pdf: "pdf" };
 const BY_MIME: Record<string, UploadKind> = { "text/markdown": "markdown", "text/x-markdown": "markdown", "text/plain": "text", "text/csv": "csv", "application/json": "json", "text/html": "html", "application/pdf": "pdf" };
@@ -36,7 +54,8 @@ export function uploadTitle(name: string): string {
 
 /** First line of every uploaded file. */
 export function uploadHeader(by: string, at: Date, name: string): string {
-  return `Uploaded by ${by} on ${at.toISOString().slice(0, 10)} from ${name}.`;
+  const clean = name.replace(/[\r\n\t\u2028\u2029]+/g, " ").replace(/[\u0000-\u001f\u007f-\u009f]/g, "").replace(/\s+/g, " ").trim();
+  return `Uploaded by ${by} on ${at.toISOString().slice(0, 10)} from ${clean}.`;
 }
 
 /** Text kinds to markdown. A PDF arrives already converted and is kept as is. */
@@ -81,12 +100,13 @@ function parseCsv(text: string): string[][] {
 function csvTable(text: string): string {
   const rows = parseCsv(text);
   if (!rows.length) return "";
-  const width = Math.max(...rows.map((r) => r.length));
+  const head = rows[0], more = rows.length - 1 - MAX_CSV_ROWS;
+  const shown = rows.slice(1, 1 + MAX_CSV_ROWS);
+  const width = [head, ...shown].reduce((w, r) => Math.max(w, r.length), 0);
   const cell = (c: string) => c.replace(/\r?\n/g, " ").replace(/\|/g, "\\|").trim();
   const line = (r: string[]) => `| ${Array.from({ length: width }, (_, i) => cell(r[i] ?? "")).join(" | ")} |`;
-  const [head, ...body] = rows;
-  const out = [line(head), `| ${Array(width).fill("---").join(" | ")} |`, ...body.slice(0, MAX_CSV_ROWS).map(line)];
-  if (body.length > MAX_CSV_ROWS) out.push("", `… ${body.length - MAX_CSV_ROWS} more rows`);
+  const out = [line(head), `| ${Array(width).fill("---").join(" | ")} |`, ...shown.map(line)];
+  if (more > 0) out.push("", `… ${more} more rows`);
   return `${out.join("\n")}\n`;
 }
 
@@ -106,7 +126,7 @@ function htmlText(html: string): string {
     .replace(/<\/(p|div|h[1-6]|li|tr|section|article|header|footer|blockquote|pre|table|ul|ol)\s*>/gi, "\n\n")
     .replace(/<[^>]*>/g, "")
     .replace(/&(#\d+|#x[0-9a-f]+|[a-z]+);/gi, (m, e: string) => {
-      if (e[0] === "#") { const code = e[1] === "x" || e[1] === "X" ? parseInt(e.slice(2), 16) : parseInt(e.slice(1), 10); return Number.isFinite(code) ? String.fromCodePoint(code) : m; }
+      if (e[0] === "#") { const code = e[1] === "x" || e[1] === "X" ? parseInt(e.slice(2), 16) : parseInt(e.slice(1), 10); return Number.isInteger(code) && code >= 0 && code <= 0x10ffff ? String.fromCodePoint(code) : ""; }
       return ENTITIES[e.toLowerCase()] ?? m;
     })
     .replace(/[ \t]+/g, " ")

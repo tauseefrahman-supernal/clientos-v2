@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { pdfOutcome, sizeRefusal, toMarkdown, uploadHeader, uploadKind, uploadTitle } from "../lib/vault-upload.ts";
+import { failureReason, PDF_NOT_SET_UP, pdfConversionReady, pdfOutcome, refusalLine, sizeRefusal, toMarkdown, uploadHeader, uploadKind, uploadTitle } from "../lib/vault-upload.ts";
 
 test("uploadKind accepts markdown, text, csv, json, html and pdf by extension or mime", () => {
   assert.equal(uploadKind("notes.md", ""), "markdown");
@@ -101,4 +101,38 @@ test("pdfOutcome refuses refusals, cut-off and empty conversions", () => {
   assert.match((pdfOutcome("max_tokens", "# partial") as { reason: string }).reason, /too long to convert; split the PDF/);
   assert.ok("reason" in pdfOutcome("refusal", "anything"));
   assert.ok("reason" in pdfOutcome("end_turn", "   "));
+});
+
+test("failureReason gives plain reasons, never raw error text", () => {
+  assert.equal(failureReason("pdf", "convert"), "the PDF could not be converted right now; try again");
+  assert.equal(failureReason("csv", "read"), "could not be read");
+  assert.equal(failureReason("pdf", "read"), "could not be read");
+  assert.equal(failureReason("text", "save"), "it could not be saved to the vault");
+});
+
+test("pdfConversionReady needs an Anthropic key in the environment", () => {
+  assert.equal(pdfConversionReady({}), false);
+  assert.equal(pdfConversionReady({ ANTHROPIC_API_KEY: "  " }), false);
+  assert.equal(pdfConversionReady({ ANTHROPIC_API_KEY: "sk-test" }), true);
+  assert.equal(PDF_NOT_SET_UP, "PDF conversion is not set up");
+});
+
+test("refusalLine ends with exactly one full stop", () => {
+  assert.equal(refusalLine("a.pdf", "too long to convert; split the PDF"), "Not uploaded: a.pdf: too long to convert; split the PDF.");
+  assert.equal(refusalLine("a.pdf", "You do not have access to this project."), "Not uploaded: a.pdf: You do not have access to this project.");
+});
+
+test("csv width only counts the rows shown, so huge files do not overflow", () => {
+  const big = `h\n${"x\n".repeat(150_000)}`;
+  const md = toMarkdown("csv", "big.csv", big);
+  assert.match(md, /^\| h \|\n\| --- \|/);
+  assert.match(md.trim(), /… 149800 more rows$/);
+});
+
+test("out-of-range numeric html entities are dropped", () => {
+  assert.equal(toMarkdown("html", "x.html", "<p>a&#99999999;b &#x41;</p>"), "ab A");
+});
+
+test("uploadHeader strips control characters and newlines from the file name", () => {
+  assert.equal(uploadHeader("T", new Date("2026-11-18T00:00:00Z"), "evil\nname\u0007.md"), "Uploaded by T on 2026-11-18 from evil name.md.");
 });

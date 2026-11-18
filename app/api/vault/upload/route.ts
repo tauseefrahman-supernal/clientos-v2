@@ -2,7 +2,7 @@ import { revalidatePath } from "next/cache";
 import { addDocumentFile, getAccount } from "@/lib/data";
 import { canSee, currentAccess } from "@/lib/auth/access";
 import { pdfToMarkdown } from "@/lib/stella/pdf-markdown";
-import { sizeRefusal, toMarkdown, UNSUPPORTED, uploadHeader, uploadKind, uploadTitle } from "@/lib/vault-upload";
+import { failureReason, PDF_NOT_SET_UP, pdfConversionReady, sizeRefusal, toMarkdown, UNSUPPORTED, uploadHeader, uploadKind, uploadTitle } from "@/lib/vault-upload";
 import type { GroupId } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
@@ -34,22 +34,28 @@ export async function POST(req: Request) {
     if (!kind) { refused.push({ name, reason: UNSUPPORTED }); continue; }
     const tooBig = sizeRefusal(kind, f.size);
     if (tooBig) { refused.push({ name, reason: tooBig }); continue; }
+    if (kind === "pdf" && !pdfConversionReady(process.env)) { refused.push({ name, reason: PDF_NOT_SET_UP }); continue; }
     let markdown: string;
+    let stage: "read" | "convert" = "read";
     try {
       if (kind === "pdf") {
-        const out = await pdfToMarkdown(Buffer.from(await f.arrayBuffer()).toString("base64"), name);
+        const data = Buffer.from(await f.arrayBuffer()).toString("base64");
+        stage = "convert";
+        const out = await pdfToMarkdown(data, name);
         if ("reason" in out) { refused.push({ name, reason: out.reason }); continue; }
         markdown = out.markdown;
       } else markdown = toMarkdown(kind, name, await f.text());
     } catch (e) {
-      refused.push({ name, reason: `could not be read (${e instanceof Error ? e.message : String(e)})` });
+      // The raw error (SDK or API text) stays in the server log; the strategist gets a plain reason.
+      console.error(`[vault upload] ${slug}: ${stage} failed for ${JSON.stringify(name)}`, e);
+      refused.push({ name, reason: failureReason(kind, stage) });
       continue;
     }
     if (!markdown.trim()) { refused.push({ name, reason: "no text could be read from it" }); continue; }
     const content = `${uploadHeader(by, new Date(), name)}\n\n${markdown}`.slice(0, 500_000);
-    const file = await addDocumentFile(slug, group, uploadTitle(name), content, by).catch(() => null);
+    const file = await addDocumentFile(slug, group, uploadTitle(name), content, by).catch((e) => { console.error(`[vault upload] ${slug}: save failed for ${JSON.stringify(name)}`, e); return null; });
     if (file) saved.push({ name, path: file.path });
-    else refused.push({ name, reason: "it could not be saved to the vault" });
+    else refused.push({ name, reason: failureReason(kind, "save") });
   }
   if (saved.length) revalidatePath("/", "layout");
   return Response.json({ saved, refused });

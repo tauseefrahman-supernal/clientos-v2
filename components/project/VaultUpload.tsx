@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import { Upload, X } from "lucide-react";
-import { ACCEPT } from "@/lib/vault-upload";
+import { ACCEPT, refusalLine } from "@/lib/vault-upload";
 
 type Result = { saved: { name: string; path: string }[]; refused: { name: string; reason: string }[] };
 
@@ -29,11 +29,18 @@ export function VaultUpload({ slug, groups }: { slug: string; groups: string[] }
       body.set("slug", slug); body.set("group", String(group)); body.append("file", f);
       try {
         const res = await fetch("/api/vault/upload", { method: "POST", body });
-        if (!res.ok) { out.refused.push({ name: f.name, reason: (await res.text()) || `error ${res.status}` }); continue; }
+        if (res.status === 413) { out.refused.push({ name: f.name, reason: "too large to upload" }); continue; }
+        const isJson = (res.headers.get("content-type") ?? "").includes("application/json");
+        if (!res.ok || !isJson) {
+          // Our own 4xx replies are short plain sentences; anything else (an HTML error page) gets a plain message.
+          const text = !isJson && res.status >= 400 && res.status < 500 ? (await res.text()).trim() : "";
+          out.refused.push({ name: f.name, reason: text && text.length < 200 && !text.startsWith("<") ? text : "the upload failed; try again" });
+          continue;
+        }
         const r = (await res.json()) as Result;
         out.saved.push(...r.saved); out.refused.push(...r.refused);
-      } catch (e) {
-        out.refused.push({ name: f.name, reason: e instanceof Error ? e.message : String(e) });
+      } catch {
+        out.refused.push({ name: f.name, reason: "the upload failed; try again" });
       }
     }
     setProgress(null);
@@ -65,7 +72,7 @@ export function VaultUpload({ slug, groups }: { slug: string; groups: string[] }
               <ul className="mt-0.5">{result.saved.map((s) => <li key={s.path}><Link href={href(s.path)} className="break-all">{s.name}</Link></li>)}</ul>
             </div>
           )}
-          {result.refused.map((r, i) => <p key={`${r.name}-${i}`} className="text-[hsl(var(--color-status-warning-text))]">Not uploaded: {r.name}: {r.reason}.</p>)}
+          {result.refused.map((r, i) => <p key={`${r.name}-${i}`} className="text-[hsl(var(--color-status-warning-text))]">{refusalLine(r.name, r.reason)}</p>)}
         </div>
       )}
     </div>
