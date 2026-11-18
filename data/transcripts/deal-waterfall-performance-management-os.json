@@ -1,0 +1,127 @@
+{
+  "slug": "deal-waterfall-performance-management-os",
+  "pulled": "2026-11-15",
+  "searched": [
+    "Waterfall",
+    "Waterfall Asset Management",
+    "Alyssa Ciardullo",
+    "viaPeople",
+    "Sam Kent",
+    "performance management"
+  ],
+  "meetings": [
+    {
+      "provider": "fathom",
+      "id": "897388894",
+      "title": "Waterfall Prototype Walkthrough",
+      "date": "2026-11-12",
+      "participants": [
+        "Zack Young",
+        "Dominik Springer",
+        "Alyssa Ciardullo",
+        "Sam Kent"
+      ],
+      "kind": "client",
+      "summary": "Walked the HR team through the performance management prototype, which they approved, and opened the pricing talk.",
+      "url": "https://fathom.video/calls/897388894",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "4fdea124-bae8-4458-88d9-20685b448f1c",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-11-11T19:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Ryan Williams",
+        "Zack Young"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review; Waterfall at prototype stage with the reveal call next day and a $180K to $190K pricing target.",
+      "url": "https://notes.granola.ai/d/4fdea124-bae8-4458-88d9-20685b448f1c",
+      "alt_url": "https://fathom.video/calls/895772867"
+    },
+    {
+      "provider": "granola",
+      "id": "daf9fd40-d47c-4308-af2c-f5f965d423c8",
+      "title": "Deal Desk Weekly Review",
+      "date": "2026-11-10T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Stuart Childs",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Diana Pedroza"
+      ],
+      "kind": "multi",
+      "summary": "Deal desk; Dominik's deep Waterfall prototype noted with the demo set for Thursday.",
+      "url": "https://notes.granola.ai/d/daf9fd40-d47c-4308-af2c-f5f965d423c8",
+      "alt_url": "https://fathom.video/calls/893840018"
+    },
+    {
+      "provider": "granola",
+      "id": "c4477f29-e0f2-48e0-93e8-1cc4de3694d4",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-11-04T19:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Ryan Williams",
+        "Zack Young"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review; Waterfall replacing an incumbent, pricing hinged on what they pay today.",
+      "url": "https://notes.granola.ai/d/c4477f29-e0f2-48e0-93e8-1cc4de3694d4",
+      "alt_url": "https://fathom.video/calls/887018725"
+    },
+    {
+      "provider": "granola",
+      "id": "27070f37-34c0-4d93-a620-f786ab63f2eb",
+      "title": "Deal Desk Weekly Review",
+      "date": "2026-11-03T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Stuart Childs",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Diana Pedroza"
+      ],
+      "kind": "multi",
+      "summary": "Deal desk; strong Waterfall call that morning and a prototype planned for later that week.",
+      "url": "https://notes.granola.ai/d/27070f37-34c0-4d93-a620-f786ab63f2eb",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "884600856",
+      "title": "Supernal / Waterfall - Process Discussion",
+      "date": "2026-11-03",
+      "participants": [
+        "Zack Young",
+        "Dominik Springer",
+        "Alyssa Ciardullo"
+      ],
+      "kind": "client",
+      "summary": "Mapped Waterfall's review cycles and the pain of their current HR platform to shape the prototype.",
+      "url": "https://fathom.video/calls/884600856",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "877122684",
+      "title": "Supernal <> Waterfall Asset Management",
+      "date": "2026-10-28",
+      "participants": [
+        "Zack Young",
+        "Alyssa Ciardullo"
+      ],
+      "kind": "client",
+      "summary": "Intro and discovery: failures and security gaps in the current performance system and the case for a custom build.",
+      "url": "https://fathom.video/calls/877122684",
+      "alt_url": null
+    }
+  ]
+}

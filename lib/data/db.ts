@@ -2,7 +2,7 @@ import "server-only";
 import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
-import type { AccountBundle, Artifact, Category, Chapter, GroupId, ShareStatus, Template, VaultFile, Workflow } from "@/lib/types";
+import type { AccountBundle, Artifact, Category, Chapter, GroupId, Recording, ShareStatus, Template, VaultFile, Workflow } from "@/lib/types";
 import { GROUPS } from "@/lib/types";
 import type { Store } from "./seed";
 import { buildTeam } from "./people-seed";
@@ -58,10 +58,11 @@ const groupOf = (path: string): GroupId => Math.max(0, GROUPS.indexOf(path.split
 // ---------------------------------------------------------------- read
 
 export async function loadFromDb(): Promise<DbStore> {
-  const [accounts, deals, cats, tpls, files, chapters, arts, wfs] = await Promise.all([
+  const [accounts, deals, cats, tpls, files, chapters, arts, wfs, recs] = await Promise.all([
     all("accounts"), all("deals"), all("template_categories"), all("templates"),
     all("vault_files", "account_id,path,category_slug,template_name,summary,content,source,state,in_book,shown"),
     all("book_chapters"), all("artifacts"), all("workflows"),
+    all("transcripts", "account_id,provider,external_id,title,met_at,participants,kind,summary,url,alt_url"),
   ]);
   const slugOf = new Map(accounts.map((a) => [a.id as string, a.slug as string]));
   const by = <T,>(rows: Row[], map: (r: Row) => T) => {
@@ -73,6 +74,7 @@ export async function loadFromDb(): Promise<DbStore> {
   const booksBy = by<Chapter>(chapters, (r) => ({ sort: r.sort, title: r.title, minutes: r.minutes, lenses: r.lenses, body: r.body, sources: r.sources ?? [] }));
   const artsBy = by<Artifact>(arts, (r) => ({ id: r.key ?? r.id, kind: r.kind, title: r.title, dated: r.dated ?? "", description: r.description, url: r.url ?? "", provider: r.provider ?? "", sensitive: r.sensitive }));
   const wfBy = by<Workflow>(wfs, (r) => ({ slug: r.slug, name: r.name, kind: r.kind, cadence: r.cadence ?? "", audience: r.audience ?? "", inputs: r.inputs ?? [], output: r.output ?? "", note: r.note ?? "", standard: r.standard }));
+  const recsBy = by<Recording>(recs, (r) => ({ provider: r.provider, id: r.external_id, title: r.title, date: r.met_at ?? "", participants: r.participants ?? [], kind: r.kind, summary: r.summary ?? "", url: r.url ?? "", altUrl: r.alt_url ?? "" }));
   const dealOf = new Map(deals.map((d) => [d.account_id as string, d]));
 
   const s: DbStore = { accounts: new Map(), categories: new Map(), templates: [], ids: new Map() };
@@ -89,6 +91,7 @@ export async function loadFromDb(): Promise<DbStore> {
       overview: sum.overview,
       book: (booksBy.get(a.id) ?? []).sort((x, y) => x.sort - y.sort),
       artifacts: artsBy.get(a.id) ?? [],
+      recordings: (recsBy.get(a.id) ?? []).sort((x, y) => y.date.localeCompare(x.date)),
       files: filesBy.get(a.id) ?? [],
       workflows: wfBy.get(a.id) ?? [],
     };
@@ -204,7 +207,7 @@ export async function importToDb(seed: Store, root: string) {
   log.push(`${seed.templates.length} templates (${newT} new)`);
 
   // vault files: new ones in full; existing ones get fresh imported content unless a person edited them
-  let added = 0, refreshed = 0, kept = 0;
+  let added = 0, refreshed = 0, kept = 0, recordings = 0;
   for (const b of bundles) {
     const aid = ids.get(b.account.slug)!;
     const existing = new Map((await all("vault_files", "path,source", (q) => q.eq("account_id", aid))).map((r) => [r.path as string, r.source as string]));
@@ -220,10 +223,14 @@ export async function importToDb(seed: Store, root: string) {
     if (b.book.length) check(await db().from("book_chapters").insert(b.book.map((c) => ({ account_id: aid, sort: c.sort, title: c.title, minutes: c.minutes, lenses: c.lenses, body: c.body, sources: c.sources }))), "insert book");
     check(await db().from("artifacts").delete().eq("account_id", aid), "clear artifacts");
     if (b.artifacts.length) check(await db().from("artifacts").insert(b.artifacts.map((x) => ({ account_id: aid, key: x.id, kind: x.kind, title: x.title, dated: x.dated || null, description: x.description, url: x.url || null, provider: x.provider || null, sensitive: x.sensitive }))), "insert artifacts");
+    check(await db().from("transcripts").delete().eq("account_id", aid), "clear recordings");
+    for (let i = 0; i < b.recordings.length; i += 200) check(await db().from("transcripts").insert(b.recordings.slice(i, i + 200).map((m) => ({ account_id: aid, provider: m.provider, external_id: m.id, title: m.title, met_at: m.date || null, participants: m.participants, kind: m.kind, summary: m.summary, url: m.url || null, alt_url: m.altUrl || null }))), "insert recordings");
+    recordings += b.recordings.length;
     check(await db().from("workflows").delete().eq("account_id", aid), "clear workflows");
     if (b.workflows.length) check(await db().from("workflows").insert(b.workflows.map((w) => ({ account_id: aid, slug: w.slug, name: w.name, kind: w.kind, cadence: w.cadence || null, audience: w.audience || null, inputs: w.inputs, output: w.output || null, note: w.note || null, standard: w.standard }))), "insert workflows");
   }
   log.push(`files: ${added} added, ${refreshed} refreshed, ${kept} kept as edited`);
+  log.push(`${recordings} recordings`);
 
   // team and assignments: imported assignments are refreshed; ones a strategist added by hand stay
   const team = buildTeam(seed, existsSync(pipe) ? JSON.parse(readFileSync(pipe, "utf8")) : {});

@@ -1,0 +1,170 @@
+{
+  "slug": "deal-owner-com",
+  "pulled": "2026-11-15",
+  "searched": [
+    "Owner.com",
+    "Owner",
+    "Juan Bernal",
+    "Sebastian Lozano",
+    "Matt Rosenberg",
+    "Menu QA",
+    "menu sync",
+    "Carthele",
+    "Woflow"
+  ],
+  "meetings": [
+    {
+      "provider": "granola",
+      "id": "4fdea124-bae8-4458-88d9-20685b448f1c",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-11-11T19:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Ryan Williams",
+        "Carthele Kelly"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review; Ryan met Owner's new CRO and got the go-ahead to pitch AI work.",
+      "url": "https://notes.granola.ai/d/4fdea124-bae8-4458-88d9-20685b448f1c",
+      "alt_url": "https://fathom.video/calls/895772867"
+    },
+    {
+      "provider": "granola",
+      "id": "0d376598-f605-4f38-b61e-55e1b8c0bf76",
+      "title": "Supernal <> Owner: Intro & Renewal",
+      "date": "2026-11-06T22:00:00Z",
+      "participants": [
+        "Ryan Williams",
+        "Matt Rosenberg",
+        "Juan Bernal"
+      ],
+      "kind": "client",
+      "summary": "Intro with Owner's new CRO: relationship history, Owner's business, and Supernal's pitch to expand into AI services.",
+      "url": "https://notes.granola.ai/d/0d376598-f605-4f38-b61e-55e1b8c0bf76",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "c4477f29-e0f2-48e0-93e8-1cc4de3694d4",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-11-04T19:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Ryan Williams",
+        "Carthele Kelly"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review; the Owner CRO connection was moved to Friday.",
+      "url": "https://notes.granola.ai/d/c4477f29-e0f2-48e0-93e8-1cc4de3694d4",
+      "alt_url": "https://fathom.video/calls/887018725"
+    },
+    {
+      "provider": "fathom",
+      "id": "859023845",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-10-14",
+      "participants": [],
+      "kind": "multi",
+      "summary": "Pipeline review; prototype work on three Owner AI areas and anonymised demo environments discussed.",
+      "url": "https://fathom.video/calls/859023845",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "857657356",
+      "title": "Owner x Supernal: AI Opportunities & Contract Review",
+      "date": "2026-10-13",
+      "participants": [],
+      "kind": "client",
+      "summary": "Walked through the renewal amendment and brainstormed where AI could automate Owner's launch operations work.",
+      "url": "https://fathom.video/calls/857657356",
+      "alt_url": "https://fathom.video/calls/857311597"
+    },
+    {
+      "provider": "fathom",
+      "id": "846717890",
+      "title": "Owner.com renewal sync",
+      "date": "2026-10-05",
+      "participants": [],
+      "kind": "internal",
+      "summary": "Internal alignment on shifting the renewal from human-led services to an AI contract, and on pricing.",
+      "url": "https://fathom.video/calls/846717890",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "842449134",
+      "title": "Owner x Supernal Sync",
+      "date": "2026-09-30",
+      "participants": [],
+      "kind": "client",
+      "summary": "Performance review of the current engagement and kickoff of the renewal conversation.",
+      "url": "https://fathom.video/calls/842449134",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "841362207",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-09-30",
+      "participants": [],
+      "kind": "multi",
+      "summary": "Pipeline review; Owner's October renewal framed as the chance to pivot to a full AI services model.",
+      "url": "https://fathom.video/calls/841362207",
+      "alt_url": "https://fathom.video/calls/842405244"
+    },
+    {
+      "provider": "granola",
+      "id": "0b159f0b-63d9-4e47-875c-14b99d18016f",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-09-09T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Ryan Williams",
+        "Carthele Kelly"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review; outreach to Owner had no reply and a CEO-to-CEO email was drafted.",
+      "url": "https://notes.granola.ai/d/0b159f0b-63d9-4e47-875c-14b99d18016f",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "90ef3eae-ee0d-4bd9-a557-2a55a8dd452e",
+      "title": "GTM + Scoping",
+      "date": "2026-09-02T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk"
+      ],
+      "kind": "multi",
+      "summary": "GTM review; Carthele lining up initial discovery calls with Owner and Artsy.",
+      "url": "https://notes.granola.ai/d/90ef3eae-ee0d-4bd9-a557-2a55a8dd452e",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "8a2bf558-0441-439e-86eb-ce200106bc5a",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-06-22T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas"
+      ],
+      "kind": "multi",
+      "summary": "Weekly delivery planning with a section on the Owner app build pipeline.",
+      "url": "https://notes.granola.ai/d/8a2bf558-0441-439e-86eb-ce200106bc5a",
+      "alt_url": null
+    }
+  ]
+}

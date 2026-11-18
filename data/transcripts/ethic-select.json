@@ -1,0 +1,327 @@
+{
+  "slug": "ethic-select",
+  "pulled": "2026-11-15",
+  "searched": [
+    "Ethic Select",
+    "EthicSelect",
+    "Ethics Select",
+    "Epic Select",
+    "Etix Select",
+    "Xelect",
+    "N6 Select",
+    "Todd",
+    "Todd Capps",
+    "UC pilot",
+    "certifier",
+    "LabViva",
+    "SABRC",
+    "punch-out",
+    "Zohar"
+  ],
+  "meetings": [
+    {
+      "provider": "granola",
+      "id": "7497714a-f6d8-4009-8877-3ec3909e9dda",
+      "title": "Delivery Sync",
+      "date": "2026-11-09T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Ryan Williams",
+        "Harvy Leyton"
+      ],
+      "kind": "multi",
+      "summary": "Company delivery sync rating Ethic Select healthy, with a runway risk flagged for year two.",
+      "url": "https://notes.granola.ai/d/7497714a-f6d8-4009-8877-3ec3909e9dda",
+      "alt_url": "https://fathom.video/calls/891407302"
+    },
+    {
+      "provider": "granola",
+      "id": "f8d589cd-0340-46c9-82dc-02372aa0ae08",
+      "title": "Weekly Review + Next Cycle Plan",
+      "date": "2026-11-06T18:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad review with an Ethic Select update on the expected upsell and a proposal to send to Todd.",
+      "url": "https://notes.granola.ai/d/f8d589cd-0340-46c9-82dc-02372aa0ae08",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "a5358d60-d5f2-41a5-b3b5-5ed8ab851c48",
+      "title": "Weekly Review + Next Cycle Plan",
+      "date": "2026-10-23T18:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad review with an Ethic Select section on product vision, including a browser extension that addresses the procurement punch-out problem.",
+      "url": "https://notes.granola.ai/d/a5358d60-d5f2-41a5-b3b5-5ed8ab851c48",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "e3faff7a-6ca5-4f8a-b4de-4b97bd1fc403",
+      "title": "Strat ²",
+      "date": "2026-10-15T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Seb Van Kuyk",
+        "Thomas Bustos",
+        "Jaime Garcia",
+        "Katie Jefferson",
+        "Diana Pedroza"
+      ],
+      "kind": "multi",
+      "summary": "Strategy session led by an Ethic Select product demo, the upsell vision and team feedback, followed by a portfolio margin review.",
+      "url": "https://notes.granola.ai/d/e3faff7a-6ca5-4f8a-b4de-4b97bd1fc403",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "77f13142-ce0c-4256-b578-981d7397600b",
+      "title": "Squad Lab - 1% better",
+      "date": "2026-10-13T15:30:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad lab whose account status noted the Ethic Select API live with LabViva and a UC pilot meeting deciding Phase 2.",
+      "url": "https://notes.granola.ai/d/77f13142-ce0c-4256-b578-981d7397600b",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "9f983ae2-8586-4103-b816-fe5ced08b5d1",
+      "title": "GTM + Scoping",
+      "date": "2026-10-06T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Sven Boettger",
+        "Thomas Bustos"
+      ],
+      "kind": "multi",
+      "summary": "Deal review that opened with a presale pricing misalignment on the Ethic Select expansion.",
+      "url": "https://notes.granola.ai/d/9f983ae2-8586-4103-b816-fe5ced08b5d1",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "b272b998-1279-4546-b6ce-1b234a90e146",
+      "title": "Weekly Review + Next Cycle Plan",
+      "date": "2026-09-25T18:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad review with an Ethic Select status section on data source comparison.",
+      "url": "https://notes.granola.ai/d/b272b998-1279-4546-b6ce-1b234a90e146",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "575db999-7e0e-4922-bb62-856f94f85e6a",
+      "title": "Squad Lab - 1% better",
+      "date": "2026-09-22T15:30:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad lab with a section on the Ethic Select upsell opportunity given UC's funding.",
+      "url": "https://notes.granola.ai/d/575db999-7e0e-4922-bb62-856f94f85e6a",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "dc54d7a5-b7f8-434e-b553-8b96ec0f662e",
+      "title": "Weekly Review + Next Cycle Plan",
+      "date": "2026-09-18T18:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad review with an Ethic Select update on a blocked certification and the pivot it required.",
+      "url": "https://notes.granola.ai/d/dc54d7a5-b7f8-434e-b553-8b96ec0f662e",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "5c2592c5-448b-417d-bfbd-5a740b061780",
+      "title": "Squad - Metrics Definition ",
+      "date": "2026-09-16T19:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad metrics definition session that ended with internal scoping for Ethic Select.",
+      "url": "https://notes.granola.ai/d/5c2592c5-448b-417d-bfbd-5a740b061780",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "80515628-898c-4312-a165-ad241b08d45b",
+      "title": "Weekly Review + Next Cycle Plan",
+      "date": "2026-09-11T18:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad cycle review covering Ethic Select progress and the timeline for a new certifier integration.",
+      "url": "https://notes.granola.ai/d/80515628-898c-4312-a165-ad241b08d45b",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "dcb43263-4696-4673-9819-16b90cfd4dbd",
+      "title": "Squad Portfolio Sync",
+      "date": "2026-09-08T16:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Portfolio sync with a section on the Ethic Select upsell, a new order form and API and certifier work.",
+      "url": "https://notes.granola.ai/d/dcb43263-4696-4673-9819-16b90cfd4dbd",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "3c788c52-02cd-45de-9b5c-333acca32af8",
+      "title": "Delivery Sync",
+      "date": "2026-08-31T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Harvy Leyton",
+        "Fran Abenza"
+      ],
+      "kind": "multi",
+      "summary": "Company delivery sync with an Ethic Select update on API finalisation and the next certifier.",
+      "url": "https://notes.granola.ai/d/3c788c52-02cd-45de-9b5c-333acca32af8",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "6166bc70-3fa6-4787-bb8c-ede43271ea1f",
+      "title": "Delivery Sync",
+      "date": "2026-08-24T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Devan Leibowitz",
+        "Naveen Lekkalapudi",
+        "Jens Haakaas"
+      ],
+      "kind": "multi",
+      "summary": "Company delivery sync that opened with Ethic Select: certifiers integrated early, API progress and product coverage.",
+      "url": "https://notes.granola.ai/d/6166bc70-3fa6-4787-bb8c-ede43271ea1f",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "388a820e-e552-40ef-9086-0382610b21bf",
+      "title": "Delivery Sync",
+      "date": "2026-08-17T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Naveen Lekkalapudi",
+        "Jens Haakaas",
+        "Belu Zerboni",
+        "Devan Leibowitz"
+      ],
+      "kind": "multi",
+      "summary": "Company delivery sync covering Ethic Select product coverage and the next certifier integration.",
+      "url": "https://notes.granola.ai/d/388a820e-e552-40ef-9086-0382610b21bf",
+      "alt_url": "https://fathom.video/calls/784724415"
+    },
+    {
+      "provider": "granola",
+      "id": "b6aebd1b-5ede-4588-ad4c-8e10f15cebc3",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-07-27T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Fran Abenza",
+        "Scott Downes",
+        "Saad Ali"
+      ],
+      "kind": "multi",
+      "summary": "Delivery planning noting Ethic Select's first certifier integration via API and the LabViva pilot.",
+      "url": "https://notes.granola.ai/d/b6aebd1b-5ede-4588-ad4c-8e10f15cebc3",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "3822120f-d2e0-4a8d-8431-7d3ca0034bcf",
+      "title": "GTM + Scoping",
+      "date": "2026-07-06T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Thomas Bustos",
+        "Naveen Lekkalapudi",
+        "Jaime Garcia",
+        "Jack Parham",
+        "Dexter Tortoriello"
+      ],
+      "kind": "multi",
+      "summary": "Scoping review with a section on Ethic Select and the certifier pipeline Todd is managing.",
+      "url": "https://notes.granola.ai/d/3822120f-d2e0-4a8d-8431-7d3ca0034bcf",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "970ce414-54b1-4210-ad1f-5739de4411a1",
+      "title": "Weekly Pipeline Review",
+      "date": "2026-07-01T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Seb Van Kuyk",
+        "Eric Kravitz",
+        "Ryan Williams",
+        "Nick Agresti"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review reporting the Ethic Select deal closed.",
+      "url": "https://notes.granola.ai/d/970ce414-54b1-4210-ad1f-5739de4411a1",
+      "alt_url": null
+    }
+  ]
+}

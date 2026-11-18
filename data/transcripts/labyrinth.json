@@ -1,0 +1,517 @@
+{
+  "slug": "labyrinth",
+  "pulled": "2026-11-15",
+  "searched": [
+    "Labyrinth",
+    "Labrynth",
+    "Cabana Boy",
+    "Chris Kuss",
+    "Stuart Lacey",
+    "Red Tape Index",
+    "Stack Tax"
+  ],
+  "meetings": [
+    {
+      "provider": "granola",
+      "id": "0391399f-b56f-4da2-985d-4d3dd750a44e",
+      "title": "Sync: \"Seb & Tauseef\"",
+      "date": "2026-11-13T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk"
+      ],
+      "kind": "multi",
+      "summary": "1:1 on the company situation; noted Labyrinth has been rebranded and folded back into Infinity.",
+      "url": "https://notes.granola.ai/d/0391399f-b56f-4da2-985d-4d3dd750a44e",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "7497714a-f6d8-4009-8877-3ec3909e9dda",
+      "title": "Delivery Sync",
+      "date": "2026-11-09T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Ryan Williams",
+        "Harvy Leyton"
+      ],
+      "kind": "multi",
+      "summary": "Delivery review; Labyrinth flagged at risk after client layoffs, with the Cabana Boy work in question.",
+      "url": "https://notes.granola.ai/d/7497714a-f6d8-4009-8877-3ec3909e9dda",
+      "alt_url": "https://fathom.video/calls/891407302"
+    },
+    {
+      "provider": "granola",
+      "id": "f8d589cd-0340-46c9-82dc-02372aa0ae08",
+      "title": "Weekly Review + Next Cycle Plan",
+      "date": "2026-11-06T18:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad weekly review; Labyrinth priority was refining the presentation generator.",
+      "url": "https://notes.granola.ai/d/f8d589cd-0340-46c9-82dc-02372aa0ae08",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "c77ccf9c-e184-41d1-a8a5-8c1354531a90",
+      "title": "Delivery Sync",
+      "date": "2026-11-02T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Ryan Williams",
+        "Vitor Escalfoni"
+      ],
+      "kind": "multi",
+      "summary": "Delivery review with a Labyrinth status update alongside Heritage and Rafferty.",
+      "url": "https://notes.granola.ai/d/c77ccf9c-e184-41d1-a8a5-8c1354531a90",
+      "alt_url": "https://fathom.video/calls/882864595"
+    },
+    {
+      "provider": "granola",
+      "id": "a5358d60-d5f2-41a5-b3b5-5ed8ab851c48",
+      "title": "Weekly Review + Next Cycle Plan",
+      "date": "2026-10-23T18:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad weekly review with a section on Labyrinth status and product vision.",
+      "url": "https://notes.granola.ai/d/a5358d60-d5f2-41a5-b3b5-5ed8ab851c48",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "6f81d6ad-b9ff-48de-bbd1-17783aaf61e1",
+      "title": "Mason Feedback new",
+      "date": "2026-10-07T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Naveen Lekkalapudi",
+        "Jaime Garcia",
+        "Diana Pedroza"
+      ],
+      "kind": "multi",
+      "summary": "Mason performance review with feedback on the Ethic Select, Hooray and Labyrinth pod.",
+      "url": "https://notes.granola.ai/d/6f81d6ad-b9ff-48de-bbd1-17783aaf61e1",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "cc77a502-84ea-4971-8ef5-7c22259d4b38",
+      "title": "Delivery Sync",
+      "date": "2026-10-05T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Ryan Williams",
+        "Sven Boettger"
+      ],
+      "kind": "multi",
+      "summary": "Delivery review; Labyrinth update from Jaime including a security approval meeting.",
+      "url": "https://notes.granola.ai/d/cc77a502-84ea-4971-8ef5-7c22259d4b38",
+      "alt_url": "https://fathom.video/calls/846711109"
+    },
+    {
+      "provider": "granola",
+      "id": "3296088e-fbb0-4b57-8f1a-574053008b08",
+      "title": "Delivery Sync",
+      "date": "2026-09-28T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Ryan Williams"
+      ],
+      "kind": "multi",
+      "summary": "Delivery review; Labyrinth led the at-risk list, awaiting client approval of the Smart Connectors approach.",
+      "url": "https://notes.granola.ai/d/3296088e-fbb0-4b57-8f1a-574053008b08",
+      "alt_url": "https://fathom.video/calls/838015067"
+    },
+    {
+      "provider": "granola",
+      "id": "b272b998-1279-4546-b6ce-1b234a90e146",
+      "title": "Weekly Review + Next Cycle Plan",
+      "date": "2026-09-25T18:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad weekly review with an Ethic Select and Labyrinth status section.",
+      "url": "https://notes.granola.ai/d/b272b998-1279-4546-b6ce-1b234a90e146",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "3f107402-6f4a-4c5c-ad64-e9b978250048",
+      "title": "Delivery Sync",
+      "date": "2026-09-21T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Ryan Williams"
+      ],
+      "kind": "multi",
+      "summary": "Delivery review with a Labyrinth section on the next onboarding milestone.",
+      "url": "https://notes.granola.ai/d/3f107402-6f4a-4c5c-ad64-e9b978250048",
+      "alt_url": "https://fathom.video/calls/827964071"
+    },
+    {
+      "provider": "granola",
+      "id": "dc54d7a5-b7f8-434e-b553-8b96ec0f662e",
+      "title": "Weekly Review + Next Cycle Plan",
+      "date": "2026-09-18T18:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad weekly review; prepared onboarding of Chris to the Labyrinth agent.",
+      "url": "https://notes.granola.ai/d/dc54d7a5-b7f8-434e-b553-8b96ec0f662e",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "4997470a-0ed9-4944-b268-95d7da456155",
+      "title": "Squad Portfolio Sync",
+      "date": "2026-09-15T15:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad sync covering Labyrinth and Hooray data issues and a competing-tool demo.",
+      "url": "https://notes.granola.ai/d/4997470a-0ed9-4944-b268-95d7da456155",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "819309043",
+      "title": "Delivery Sync",
+      "date": "2026-09-14",
+      "participants": [],
+      "kind": "multi",
+      "summary": "Delivery review that included a Labyrinth update.",
+      "url": "https://fathom.video/calls/819309043",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "80515628-898c-4312-a165-ad241b08d45b",
+      "title": "Weekly Review + Next Cycle Plan",
+      "date": "2026-09-11T18:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad cycle review; Vitor reported the Hermes agent deployment for Labyrinth.",
+      "url": "https://notes.granola.ai/d/80515628-898c-4312-a165-ad241b08d45b",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "8ae8fd0c-0385-4c20-a9eb-ee822fa9af56",
+      "title": "Squad - Planning Next Week",
+      "date": "2026-09-04T18:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad weekly planning; Labyrinth focus was getting the Hermes agent running.",
+      "url": "https://notes.granola.ai/d/8ae8fd0c-0385-4c20-a9eb-ee822fa9af56",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "c1c835a7-c459-484b-b18f-7543d2c78453",
+      "title": "Squad - Teamback",
+      "date": "2026-09-03T18:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad session opening with the Labyrinth update: demo shifted from a basic app to a Hermes agent.",
+      "url": "https://notes.granola.ai/d/c1c835a7-c459-484b-b18f-7543d2c78453",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "6166bc70-3fa6-4787-bb8c-ede43271ea1f",
+      "title": "Delivery Sync",
+      "date": "2026-08-24T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Devan Leibowitz",
+        "Naveen Lekkalapudi",
+        "Belu Zerboni"
+      ],
+      "kind": "multi",
+      "summary": "Delivery review with a Labyrinth section: business case and strategy approved by the client.",
+      "url": "https://notes.granola.ai/d/6166bc70-3fa6-4787-bb8c-ede43271ea1f",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "388a820e-e552-40ef-9086-0382610b21bf",
+      "title": "Delivery Sync",
+      "date": "2026-08-17T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Devan Leibowitz",
+        "Naveen Lekkalapudi",
+        "Belu Zerboni"
+      ],
+      "kind": "multi",
+      "summary": "Delivery review with Labyrinth grouped with Heritage, Ethic Select and Hooray.",
+      "url": "https://notes.granola.ai/d/388a820e-e552-40ef-9086-0382610b21bf",
+      "alt_url": "https://fathom.video/calls/784724415"
+    },
+    {
+      "provider": "fathom",
+      "id": "776711360",
+      "title": "Delivery Sync",
+      "date": "2026-08-10",
+      "participants": [],
+      "kind": "multi",
+      "summary": "Delivery review that included a Labyrinth update.",
+      "url": "https://fathom.video/calls/776711360",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "1de142e1-4b14-4431-828e-634fd3babe98",
+      "title": "GTM + Scoping",
+      "date": "2026-07-31T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Thomas Bustos",
+        "Johnny Borbone",
+        "Ryan Williams",
+        "Jaime Garcia",
+        "Nick Agresti"
+      ],
+      "kind": "multi",
+      "summary": "GTM review; Labyrinth kickoff set for the following Tuesday.",
+      "url": "https://notes.granola.ai/d/1de142e1-4b14-4431-828e-634fd3babe98",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "30adab59-e4da-4399-a33d-1880b69ec88d",
+      "title": "GTM + Scoping",
+      "date": "2026-07-30T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Thomas Bustos",
+        "Johnny Borbone",
+        "Ryan Williams",
+        "Jaime Garcia",
+        "Nick Agresti"
+      ],
+      "kind": "multi",
+      "summary": "GTM review; Labyrinth contract signed the day before.",
+      "url": "https://notes.granola.ai/d/30adab59-e4da-4399-a33d-1880b69ec88d",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "b47abb70-a75b-48b6-9441-2b8ba3543c2b",
+      "title": "GTM + Scoping",
+      "date": "2026-07-14T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Thomas Bustos",
+        "Johnny Borbone",
+        "Ryan Williams",
+        "Jaime Garcia",
+        "Nick Agresti"
+      ],
+      "kind": "multi",
+      "summary": "GTM review; call with the Labyrinth CEO planned to present the proposal.",
+      "url": "https://notes.granola.ai/d/b47abb70-a75b-48b6-9441-2b8ba3543c2b",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "fd279d9e-26a7-4fce-a4e1-d2c285dfe9de",
+      "title": "GTM + Scoping",
+      "date": "2026-07-13T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Thomas Bustos",
+        "Johnny Borbone",
+        "Ryan Williams",
+        "Jaime Garcia",
+        "Nick Agresti"
+      ],
+      "kind": "multi",
+      "summary": "GTM review; next Labyrinth call lined up with its CEO and Scott.",
+      "url": "https://notes.granola.ai/d/fd279d9e-26a7-4fce-a4e1-d2c285dfe9de",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "0da9398d-ec03-4813-9a7e-912c03c75eef",
+      "title": "GTM + Scoping",
+      "date": "2026-07-10T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Thomas Bustos",
+        "Johnny Borbone",
+        "Ryan Williams",
+        "Jaime Garcia",
+        "Nick Agresti"
+      ],
+      "kind": "multi",
+      "summary": "GTM review; Labyrinth discussed as a sister-company deal of about $100K a year.",
+      "url": "https://notes.granola.ai/d/0da9398d-ec03-4813-9a7e-912c03c75eef",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "a4e6492e-0a8d-4222-959b-01608286c5f9",
+      "title": "GTM + Scoping",
+      "date": "2026-07-03T16:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Thomas Bustos",
+        "Ryan Williams",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "GTM review; Labyrinth proposal, order form and prototype reported ready.",
+      "url": "https://notes.granola.ai/d/a4e6492e-0a8d-4222-959b-01608286c5f9",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "7192881e-912b-42d6-941a-c4331fe8ddef",
+      "title": "GTM + Scoping",
+      "date": "2026-07-02T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Thomas Bustos",
+        "Johnny Borbone",
+        "Ryan Williams",
+        "Jaime Garcia",
+        "Nick Agresti"
+      ],
+      "kind": "multi",
+      "summary": "GTM review opening with Labyrinth deal structure and scope.",
+      "url": "https://notes.granola.ai/d/7192881e-912b-42d6-941a-c4331fe8ddef",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "75bb7a8b-c937-4097-9eb3-f4ec6f157e9e",
+      "title": "GTM + Scoping",
+      "date": "2026-07-01T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Thomas Bustos",
+        "Johnny Borbone",
+        "Ryan Williams",
+        "Jaime Garcia",
+        "Nick Agresti"
+      ],
+      "kind": "multi",
+      "summary": "GTM review; technical feasibility check requested on the Labyrinth proposal.",
+      "url": "https://notes.granola.ai/d/75bb7a8b-c937-4097-9eb3-f4ec6f157e9e",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "147d7245-172e-4398-a2cf-e2dc120d1a14",
+      "title": "GTM + Scoping",
+      "date": "2026-06-30T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Thomas Bustos",
+        "Johnny Borbone",
+        "Ryan Williams",
+        "Jaime Garcia",
+        "Nick Agresti"
+      ],
+      "kind": "multi",
+      "summary": "GTM review opening with Labyrinth: annual value versus the single month signed so far.",
+      "url": "https://notes.granola.ai/d/147d7245-172e-4398-a2cf-e2dc120d1a14",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "d97c1870-3dac-4324-ab5a-5dd3ed031018",
+      "title": "GTM + Scoping",
+      "date": "2026-06-25T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Thomas Bustos",
+        "Johnny Borbone",
+        "Ryan Williams",
+        "Jaime Garcia",
+        "Nick Agresti"
+      ],
+      "kind": "multi",
+      "summary": "GTM review; Labyrinth deep dive with its head of marketing went well.",
+      "url": "https://notes.granola.ai/d/d97c1870-3dac-4324-ab5a-5dd3ed031018",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "8119da77-1313-4788-a37d-27671461a7d8",
+      "title": "GTM + Scoping",
+      "date": "2026-06-11T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Thomas Bustos",
+        "Johnny Borbone",
+        "Ryan Williams",
+        "Jaime Garcia",
+        "Nick Agresti"
+      ],
+      "kind": "multi",
+      "summary": "GTM review; first Labyrinth discovery call being scheduled.",
+      "url": "https://notes.granola.ai/d/8119da77-1313-4788-a37d-27671461a7d8",
+      "alt_url": null
+    }
+  ]
+}

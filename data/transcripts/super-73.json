@@ -1,0 +1,646 @@
+{
+  "slug": "super-73",
+  "pulled": "2026-11-15",
+  "searched": [
+    "Super73",
+    "Super 73",
+    "Keith",
+    "Dyno",
+    "Taylor",
+    "Bryson",
+    "Command Center"
+  ],
+  "meetings": [
+    {
+      "provider": "granola",
+      "id": "7776509f-077f-4e9b-92c2-3aa4f502ddf5",
+      "title": "Super73 <> Supernal ",
+      "date": "2026-11-10T18:45:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Johnny Borbone",
+        "Mac",
+        "Vitor Escalfoni",
+        "Bryson Eastwood"
+      ],
+      "kind": "client",
+      "summary": "Weekly client call on call routing and escalation, handling existing customers via Slack, PII checks, the testing rollout and Twilio ownership.",
+      "url": "https://notes.granola.ai/d/7776509f-077f-4e9b-92c2-3aa4f502ddf5",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "af61fdc1-a669-471f-b445-349ace82e24c",
+      "title": "Super73 Internal Sync",
+      "date": "2026-11-06T16:30:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni"
+      ],
+      "kind": "internal",
+      "summary": "Internal sync on GitHub collaboration, the testing plan, architecture and sub-milestone 4 priorities.",
+      "url": "https://notes.granola.ai/d/af61fdc1-a669-471f-b445-349ace82e24c",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "17f7deb2-a6d8-4786-b195-cbbf780e1e56",
+      "title": "Super73 <> Supernal ",
+      "date": "2026-11-03T19:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Johnny Borbone",
+        "Mac",
+        "Vitor Escalfoni",
+        "Bryson Eastwood"
+      ],
+      "kind": "client",
+      "summary": "Weekly client call on timeline and build status, a Command Center walkthrough, diagnostic pathways, Test Lab feedback and Twilio ownership.",
+      "url": "https://notes.granola.ai/d/17f7deb2-a6d8-4786-b195-cbbf780e1e56",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "204226a4-a2c1-479d-81f9-948c317a7652",
+      "title": "Vitor / Diana Super73 Internal Sync",
+      "date": "2026-11-03T15:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni"
+      ],
+      "kind": "internal",
+      "summary": "Internal sync wrapping up sub-milestone 3: engine trade-offs, framing for the client call and the testing rollout plan.",
+      "url": "https://notes.granola.ai/d/204226a4-a2c1-479d-81f9-948c317a7652",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "9c50e171-cc0d-498b-8038-f63afbc92fd1",
+      "title": "Strat ²",
+      "date": "2026-10-29T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Seb Van Kuyk",
+        "Sven Boettger",
+        "Thomas Bustos",
+        "Jaime Garcia",
+        "Katie Jefferson"
+      ],
+      "kind": "multi",
+      "summary": "Strategy session led by a presentation of Keith, the Super73 voice agent: background, build status, testing and expansion.",
+      "url": "https://notes.granola.ai/d/9c50e171-cc0d-498b-8038-f63afbc92fd1",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "bce38025-2b37-4d14-8026-b65986638c0e",
+      "title": "Vitor / Diana - Command Center Review (Prelaunch)",
+      "date": "2026-10-29T14:30:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni"
+      ],
+      "kind": "internal",
+      "summary": "Pre-launch review of the Command Center: brain and engine migration, Zendesk knowledge updates, feedback flow, Test Lab UX and launch tracker.",
+      "url": "https://notes.granola.ai/d/bce38025-2b37-4d14-8026-b65986638c0e",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "3b7668cb-7c69-41c3-a902-34249e6758ad",
+      "title": "Super73 <> Supernal ",
+      "date": "2026-10-27T19:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Johnny Borbone",
+        "Mac",
+        "Vitor Escalfoni",
+        "Taylor",
+        "Bryson Eastwood"
+      ],
+      "kind": "client",
+      "summary": "Weekly client call on Twilio telephony setup, a Command Center preview, testing the agent's personality and feedback and handoff mechanics.",
+      "url": "https://notes.granola.ai/d/3b7668cb-7c69-41c3-a902-34249e6758ad",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "c47e6e45-863b-4641-9bb8-7e9675036dd8",
+      "title": "Vitor Diana Super73 Internal Sync",
+      "date": "2026-10-27T14:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni"
+      ],
+      "kind": "internal",
+      "summary": "Internal sync on demo readiness, agent behaviour from live tests, brain and engine status, testing rollout and the source catalog.",
+      "url": "https://notes.granola.ai/d/c47e6e45-863b-4641-9bb8-7e9675036dd8",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "bbde1813-542f-48d4-b307-ab9230549550",
+      "title": "New note",
+      "date": "2026-10-26T16:31:00Z",
+      "participants": [
+        "Tauseef Rahman"
+      ],
+      "kind": "multi",
+      "summary": "Account update round-up with a Super73 section on applying lessons from another voice-agent account.",
+      "url": "https://notes.granola.ai/d/bbde1813-542f-48d4-b307-ab9230549550",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "a5358d60-d5f2-41a5-b3b5-5ed8ab851c48",
+      "title": "Weekly Review + Next Cycle Plan",
+      "date": "2026-10-23T18:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad review that opened with Super73 and Command Center updates, including the telephony dependency.",
+      "url": "https://notes.granola.ai/d/a5358d60-d5f2-41a5-b3b5-5ed8ab851c48",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "e07485d2-21c6-4b89-a5bc-c19247bc3402",
+      "title": "Super73 Internal Sync",
+      "date": "2026-10-22T19:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni"
+      ],
+      "kind": "internal",
+      "summary": "Internal sync on the Railway incident's impact, the catalog and Linear automation, and the next delivery and testing phase.",
+      "url": "https://notes.granola.ai/d/e07485d2-21c6-4b89-a5bc-c19247bc3402",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "128ab4a5-b337-4a59-90a5-52f1bb165646",
+      "title": "Super73 <> Supernal ",
+      "date": "2026-10-20T19:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Mac",
+        "Vitor Escalfoni",
+        "Taylor",
+        "Bryson Eastwood"
+      ],
+      "kind": "client",
+      "summary": "Weekly client call with a Pools walkthrough, a demo of voice and brain improvements, the knowledge source catalog and telephony as the critical path.",
+      "url": "https://notes.granola.ai/d/128ab4a5-b337-4a59-90a5-52f1bb165646",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "3a2a58b6-f79d-47c0-a51a-c7f1da54d37b",
+      "title": "Super73 - Internal Sync",
+      "date": "2026-10-19T14:30:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni"
+      ],
+      "kind": "internal",
+      "summary": "Internal sync on the next client call, sub-milestone 2 scope, Keith's knowledge architecture, backend design and a Zendesk deep dive.",
+      "url": "https://notes.granola.ai/d/3a2a58b6-f79d-47c0-a51a-c7f1da54d37b",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "4673ae6e-5dab-410b-a0c4-2331fddcf266",
+      "title": "Super73 <> Supernal ",
+      "date": "2026-10-13T19:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Johnny Borbone",
+        "Mac",
+        "Vitor Escalfoni",
+        "Taylor",
+        "Bryson Eastwood"
+      ],
+      "kind": "client",
+      "summary": "Weekly client call on status and timeline, Command Center and communication plan, KPI baseline, Zendesk and Shopify, and a Keith voice demo.",
+      "url": "https://notes.granola.ai/d/4673ae6e-5dab-410b-a0c4-2331fddcf266",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "a01dfa56-2996-457d-81eb-223b09c173cc",
+      "title": "Vitor / Diana Internal Sync Super73",
+      "date": "2026-10-13T13:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni"
+      ],
+      "kind": "internal",
+      "summary": "Internal sync on build milestones, Linear structure, testing and feedback flow, knowledge architecture and that day's demo.",
+      "url": "https://notes.granola.ai/d/a01dfa56-2996-457d-81eb-223b09c173cc",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "229097d3-6d02-4eea-8f3f-7cbbd2e794b0",
+      "title": "Vitor / Diana Super 73 Sync",
+      "date": "2026-10-12T21:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni"
+      ],
+      "kind": "internal",
+      "summary": "Prep for the next client call: agent demo, Command Center design, building and testing plan.",
+      "url": "https://notes.granola.ai/d/229097d3-6d02-4eea-8f3f-7cbbd2e794b0",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "be1d8864-cbdc-4ccd-865d-efc7adc349e7",
+      "title": "Super73 Internal Sync",
+      "date": "2026-10-08T14:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni"
+      ],
+      "kind": "internal",
+      "summary": "Internal sync on the next client agenda, architecture and build plan, and Command Center priorities for testing.",
+      "url": "https://notes.granola.ai/d/be1d8864-cbdc-4ccd-865d-efc7adc349e7",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "76d093a7-3998-4e65-a60a-05e03d4134c9",
+      "title": "Product Standup - WB/Pulse rollout",
+      "date": "2026-10-07T18:00:00Z",
+      "participants": [
+        "Katie Jefferson",
+        "Roger Lee",
+        "Lucas Stein",
+        "Seb Van Kuyk",
+        "Thomas Bustos",
+        "Ellen Smith",
+        "Diana Pedroza"
+      ],
+      "kind": "multi",
+      "summary": "Product standup reviewing the Super73 Pulse rollout, including missing org chart data.",
+      "url": "https://notes.granola.ai/d/76d093a7-3998-4e65-a60a-05e03d4134c9",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "44f2fa55-218f-45bb-87fe-c2f8c4f39233",
+      "title": "Super73 <> Supernal ",
+      "date": "2026-10-06T19:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Johnny Borbone",
+        "Mac",
+        "Vitor Escalfoni",
+        "Bryson Eastwood"
+      ],
+      "kind": "client",
+      "summary": "Weekly client call on project status, Keith's role and call routing, workflow questionnaire, Command Center prototype and voice persona.",
+      "url": "https://notes.granola.ai/d/44f2fa55-218f-45bb-87fe-c2f8c4f39233",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "203abc43-d534-436e-af8f-3518ad26597c",
+      "title": "Product Standup - WB/Pulse rollout",
+      "date": "2026-10-05T18:00:00Z",
+      "participants": [
+        "Katie Jefferson",
+        "Roger Lee",
+        "Lucas Stein",
+        "Seb Van Kuyk",
+        "Naveen Lekkalapudi",
+        "Thomas Bustos",
+        "Ellen Smith"
+      ],
+      "kind": "multi",
+      "summary": "Product standup that opened with Super73 access and data issues in the Pulse rollout.",
+      "url": "https://notes.granola.ai/d/203abc43-d534-436e-af8f-3518ad26597c",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "fbecb295-f55d-4bd6-bb7c-e29d529375bb",
+      "title": "Weekly Review + Next Cycle Plan",
+      "date": "2026-10-02T18:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton"
+      ],
+      "kind": "internal",
+      "summary": "Squad review focused on the Super73 agent: status, scope finalisation, testing phases, Zendesk strategy and ticket hygiene.",
+      "url": "https://notes.granola.ai/d/fbecb295-f55d-4bd6-bb7c-e29d529375bb",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "cff6e742-a161-424a-82e8-f56e95cccbda",
+      "title": "Super73 <> Supernal ",
+      "date": "2026-09-29T19:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Johnny Borbone",
+        "Mac",
+        "Vitor Escalfoni",
+        "Taylor"
+      ],
+      "kind": "client",
+      "summary": "Client call clarifying Tier 1 scope, outsourced-support SOPs, identity and PII rules, Zendesk routing and the voice agent's personality.",
+      "url": "https://notes.granola.ai/d/cff6e742-a161-424a-82e8-f56e95cccbda",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "085a603d-3d4f-4752-a960-47970600781c",
+      "title": "Squad Lab - 1% better",
+      "date": "2026-09-29T15:30:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad lab covering the Super73 voice agent tech stack and architecture and the Zendesk knowledge base.",
+      "url": "https://notes.granola.ai/d/085a603d-3d4f-4752-a960-47970600781c",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "927a56d4-698a-4bfe-ba2b-a1cec8d5d4a0",
+      "title": "Supernal <> Super73 Discovery Call",
+      "date": "2026-09-25T19:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Mac",
+        "Vitor Escalfoni",
+        "Taylor"
+      ],
+      "kind": "client",
+      "summary": "Discovery of Super73's support channels, intake and triage, troubleshooting and ticket lifecycle, and where an AI agent fits.",
+      "url": "https://notes.granola.ai/d/927a56d4-698a-4bfe-ba2b-a1cec8d5d4a0",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "84d04afa-739d-4114-aa8d-2fbdc4969a9f",
+      "title": "Placeholder if needed - Super73 Internal Sync",
+      "date": "2026-09-24T19:30:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni"
+      ],
+      "kind": "internal",
+      "summary": "Prep for the discovery call: scope, structure, sequencing from discovery to build, and workload.",
+      "url": "https://notes.granola.ai/d/84d04afa-739d-4114-aa8d-2fbdc4969a9f",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "575db999-7e0e-4922-bb62-856f94f85e6a",
+      "title": "Squad Lab - 1% better",
+      "date": "2026-09-22T15:30:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad lab with a section on Super73 Pools access and the discovery workshop.",
+      "url": "https://notes.granola.ai/d/575db999-7e0e-4922-bb62-856f94f85e6a",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "4f3f551d-44e4-4c9f-89e0-eaaf080b1a63",
+      "title": "Super73 <> Supernal Kick-Off",
+      "date": "2026-09-18T19:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Johnny Borbone",
+        "Mac",
+        "Vitor Escalfoni",
+        "Jaime Garcia",
+        "Taylor"
+      ],
+      "kind": "client",
+      "summary": "Project kick-off: Super73's goals, the design of the Dyno AI employee, baseline metrics, timeline and build plan.",
+      "url": "https://notes.granola.ai/d/4f3f551d-44e4-4c9f-89e0-eaaf080b1a63",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "dc54d7a5-b7f8-434e-b553-8b96ec0f662e",
+      "title": "Weekly Review + Next Cycle Plan",
+      "date": "2026-09-18T18:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad review with a section on Super73 next to Ethic Select.",
+      "url": "https://notes.granola.ai/d/dc54d7a5-b7f8-434e-b553-8b96ec0f662e",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "152c186b-48d0-4069-9bfa-a58f6d01f596",
+      "title": "Squad Lab - 1% better",
+      "date": "2026-09-17T19:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad lab that included Super73 milestone planning.",
+      "url": "https://notes.granola.ai/d/152c186b-48d0-4069-9bfa-a58f6d01f596",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "e1ba0dff-0712-4bc2-aa61-741eec740a61",
+      "title": "Super73 Internal Alignment",
+      "date": "2026-09-17T17:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Johnny Borbone",
+        "Vitor Escalfoni",
+        "Jaime Garcia"
+      ],
+      "kind": "internal",
+      "summary": "Internal alignment before kickoff: relationship background, kickoff plan, technical approach, risks and testing philosophy.",
+      "url": "https://notes.granola.ai/d/e1ba0dff-0712-4bc2-aa61-741eec740a61",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "80515628-898c-4312-a165-ad241b08d45b",
+      "title": "Weekly Review + Next Cycle Plan",
+      "date": "2026-09-11T18:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad cycle review covering Super73 alongside Labyrinth.",
+      "url": "https://notes.granola.ai/d/80515628-898c-4312-a165-ad241b08d45b",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "cb7da25e-19d8-4e24-963d-efb2ca3f0148",
+      "title": "Squad Lab - 1% better",
+      "date": "2026-09-10T18:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad lab with a section on the Super73 timeline.",
+      "url": "https://notes.granola.ai/d/cb7da25e-19d8-4e24-963d-efb2ca3f0148",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "dcb43263-4696-4673-9819-16b90cfd4dbd",
+      "title": "Squad Portfolio Sync",
+      "date": "2026-09-08T16:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Portfolio sync that opened with Super73 status and what to do while waiting on the client.",
+      "url": "https://notes.granola.ai/d/dcb43263-4696-4673-9819-16b90cfd4dbd",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "bd30e2df-fece-4c03-bc07-a01d2b0c7369",
+      "title": "Super 73 Sync",
+      "date": "2026-08-20T19:30:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Jaime Garcia"
+      ],
+      "kind": "internal",
+      "summary": "Internal pre-kickoff sync on project scope, strategy, build approach and what is needed before kickoff.",
+      "url": "https://notes.granola.ai/d/bd30e2df-fece-4c03-bc07-a01d2b0c7369",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "e2da0ba3-94af-4434-8261-fe2b9ae354a0",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-08-12T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Ellen Smith",
+        "Johnny Borbone",
+        "Devan Leibowitz",
+        "Nick Agresti",
+        "Naveen Lekkalapudi",
+        "Ryan Williams"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline meeting that led with the Super73 contract sitting with the client's procurement.",
+      "url": "https://notes.granola.ai/d/e2da0ba3-94af-4434-8261-fe2b9ae354a0",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "daa36c56-c22a-442e-bb32-37d233e25fd4",
+      "title": "GTM + Scoping",
+      "date": "2026-06-18T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Naveen Lekkalapudi",
+        "Jaime Garcia",
+        "Jack Parham",
+        "Dexter Tortoriello"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review noting the initial Super73 proposal had been presented and was awaiting a response.",
+      "url": "https://notes.granola.ai/d/daa36c56-c22a-442e-bb32-37d233e25fd4",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "8119da77-1313-4788-a37d-27671461a7d8",
+      "title": "GTM + Scoping",
+      "date": "2026-06-11T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Belu Zerboni",
+        "Thomas Bustos",
+        "Naveen Lekkalapudi",
+        "Johnny Borbone",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Deal review with a Super73 section on the proposal's status.",
+      "url": "https://notes.granola.ai/d/8119da77-1313-4788-a37d-27671461a7d8",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "8adf29fa-c5e3-49c0-a380-031c25ffaf76",
+      "title": "GTM + Scoping",
+      "date": "2026-06-08T17:30:00Z",
+      "participants": [
+        "Thomas Bustos",
+        "Belu Zerboni",
+        "Naveen Lekkalapudi",
+        "Tauseef Rahman",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Proposal review that included the first Super73 proposal draft.",
+      "url": "https://notes.granola.ai/d/8adf29fa-c5e3-49c0-a380-031c25ffaf76",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "e88f3b4b-650d-4d68-991e-27faf94c1b54",
+      "title": "GTM + Scoping",
+      "date": "2026-06-05T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Thomas Bustos",
+        "Naveen Lekkalapudi",
+        "Johnny Borbone",
+        "Ryan Williams",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review noting concept alignment work for the Super73 deal.",
+      "url": "https://notes.granola.ai/d/e88f3b4b-650d-4d68-991e-27faf94c1b54",
+      "alt_url": null
+    }
+  ]
+}

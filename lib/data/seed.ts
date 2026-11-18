@@ -2,7 +2,7 @@
 import "server-only";
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { basename, join } from "node:path";
-import type { AccountBundle, Artifact, Category, Chapter, GroupId, Overview, Template, Tone, VaultFile, Workflow } from "@/lib/types";
+import type { AccountBundle, Artifact, Category, Chapter, GroupId, Overview, Recording, Template, Tone, VaultFile, Workflow } from "@/lib/types";
 import { GROUPS } from "@/lib/types";
 import { CORE, DELIVERY_ACCOUNT_IDS, RESEARCH_TO_FILE, SALES_WORKFLOWS, SECTION_TO_FILE, SHARED, STANDARD_WORKFLOWS, coreName } from "./library-seed";
 
@@ -174,7 +174,7 @@ function bundleFrom(d: any, s: Store, meta: Meta): AccountBundle {
   const rank = (f: VaultFile) => { const t = f.template ? tplOf(f.template) : null; return f.group * 10 + (t?.status === "standard" ? 0 : t ? 1 : 2); };
 
   return {
-    account, overview: o, book, artifacts,
+    account, overview: o, book, artifacts, recordings: [],
     files: Array.from(files.values()).sort((a, b) => rank(a) - rank(b)),
     workflows: [...standard, ...custom.filter((c) => !standard.some((x) => x.name.toLowerCase() === c.name.toLowerCase()))],
   };
@@ -259,6 +259,18 @@ function reviewsFor(title: string): string | undefined {
   return hit ? all.get(hit) : undefined;
 }
 
+/** The meetings pulled in for a project (data/transcripts/<slug>.json), newest first. */
+function recordingsFor(slug: string): Recording[] {
+  const p = join(ROOT, "data", "transcripts", `${slug}.json`);
+  if (!existsSync(p)) return [];
+  try {
+    const j = JSON.parse(readFileSync(p, "utf8"));
+    return (j.meetings ?? []).map((m: any) => ({ provider: ["granola", "fathom"].includes(m.provider) ? m.provider : "upload", id: str(m.id), title: str(m.title), date: str(m.date),
+      participants: (m.participants ?? []).map(str), kind: ["client", "internal", "multi"].includes(m.kind) ? m.kind : "client", summary: str(m.summary), url: str(m.url), altUrl: str(m.alt_url) }))
+      .filter((m: Recording) => m.id && m.title).sort((a: Recording, b: Recording) => b.date.localeCompare(a.date));
+  } catch (e) { console.error(`[seed] recordings for ${slug} unreadable:`, e); return []; }
+}
+
 function salesBundle(x: any, s: Store, parentSlug: string | null = null): AccountBundle {
   const parent = parentSlug ? s.accounts.get(parentSlug)?.account ?? null : null;
   // An expansion is named after its account: "RxVIP · Order Form #2".
@@ -309,7 +321,7 @@ function salesBundle(x: any, s: Store, parentSlug: string | null = null): Accoun
   return {
     account: { slug, stage: "sales", industry: parent?.industry || str(x.industry), squad: x.squad ? str(x.squad) : parent?.squad ?? null, deal, parent: parentSlug, name, strategist: str(x.pod_strategist), pod: deal.owner ? `${deal.owner} (AE)` : "", mrr: deal.mrr, closedValue: "", closedCount: 0, health: null, freshness: [`From Account OS, updated ${deal.updatedAt.slice(0, 10) || "unknown"}`], transcriptCount: 0 },
     overview: { deals: [{ name: str(x.title), value: deal.value, stage: deal.stage, phase, note: deal.nextStep }], lost: "", sold: [], arc: [], disagreements: [], streams: [], tiles: [], decisions: [], slipping: [], dates: deal.expectedClose ? [{ when: deal.expectedClose, what: "Expected close" }] : [], feed: [], people: deal.people.map((p: string) => ({ name: p, title: "", note: "", influence: "Medium", disposition: "Neutral" })), metrics: [], accountOs: [], rationale: [], answers: [] },
-    book, artifacts, files,
+    book, artifacts, recordings: [], files,
     workflows: SALES_WORKFLOWS.map((w) => ({ ...w, inputs: [...w.inputs], kind: w.kind as Workflow["kind"], note: "", standard: true })),
   };
 }
@@ -351,6 +363,7 @@ export function store(): Store {
     const b = salesBundle(x, s, x.account_id ? DELIVERY_ACCOUNT_IDS[str(x.account_id)] ?? null : null);
     if (!s.accounts.has(b.account.slug)) s.accounts.set(b.account.slug, b);
   }
+  for (const b of s.accounts.values()) b.recordings = recordingsFor(b.account.slug);
   G.__clientos = { store: s, stamp, checked: now };
   return s;
 }

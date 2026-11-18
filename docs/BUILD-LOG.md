@@ -95,6 +95,12 @@ How it was built:
 - **Workflow runs** (`lib/data/runs.ts`, `/api/workflows/run`, `/decide`): Stella reads a workflow's inputs and drafts its output as a run; approve, mark sent or discard. Approving a scoping step writes the draft into that step's vault file. My View and the Work page read the same runs.
 - **Tests:** `npm test` (19 unit tests: scoping, team building, export, access rules, sign-in domain, URL handling; caught an unknown-stage bug). `npm run test:live` (13 live checks: sign-in gate, anonymous key locked out of all clientos tables, Google and ES256 keys, assignments, data API vs database, export, search, chats, My View for every person; `-- --stella` also runs a real workflow, about $0.20).
 
+### 15 Nov: Recordings and artifact formats (committed 18 Nov after an interrupted session)
+
+- **Recordings:** each project lists the Granola and Fathom meetings about it (links and a one-line summary, never transcript text). Pulled per `data/transcripts/_SPEC.md` into `data/transcripts/<slug>.json` (11 projects), imported into `clientos.transcripts` by `npm run db:import`. Migration `recordings` (kind, url, alt_url, pulled_at; unique per account, provider and id) is applied on Client OS.
+- **Artifacts page:** gallery, table (sortable, searchable, with the format of each link from `lib/formats.ts`) and recordings views, chosen by `?view=`. The Artifacts tab now shows when a project has only recordings.
+- **Tests:** 20 unit tests (adds `tests/formats.test.ts`); typecheck clean.
+
 ## Findings worth keeping (deal research, 13 Nov)
 
 - **IEC Colleges** ($175K, Order Form, Zack / Diana, Origin): order form $178K, $9K a month for two months then $16K, billed quarterly, exit at day 90. Champion Esther Duong (VP Marketing) pushes on cost and billing; wants enrolment gains in about 60 days. World Emblem is the reference (Randy call, Eric Freeman walkthrough). Who signs is unclear.

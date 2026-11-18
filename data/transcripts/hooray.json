@@ -1,0 +1,476 @@
+{
+  "slug": "hooray",
+  "pulled": "2026-11-15",
+  "searched": [
+    "Hooray",
+    "Genome",
+    "Metze",
+    "Roger Burns",
+    "Seghers",
+    "hooray.agency"
+  ],
+  "meetings": [
+    {
+      "provider": "granola",
+      "id": "7497714a-f6d8-4009-8877-3ec3909e9dda",
+      "title": "Delivery Sync",
+      "date": "2026-11-09T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Ryan Williams",
+        "Harvy Leyton"
+      ],
+      "kind": "multi",
+      "summary": "Company delivery sync; Hooray's status, readiness and waiting on client go-ahead were reviewed with other accounts.",
+      "url": "https://notes.granola.ai/d/7497714a-f6d8-4009-8877-3ec3909e9dda",
+      "alt_url": "https://fathom.video/calls/891407302"
+    },
+    {
+      "provider": "granola",
+      "id": "f8d589cd-0340-46c9-82dc-02372aa0ae08",
+      "title": "Weekly Review + Next Cycle Plan",
+      "date": "2026-11-06T18:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad review covering project updates, including plans to onboard all Hooray hotel users into Genome.",
+      "url": "https://notes.granola.ai/d/f8d589cd-0340-46c9-82dc-02372aa0ae08",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "bbde1813-542f-48d4-b307-ab9230549550",
+      "title": "New note",
+      "date": "2026-10-26T16:31:00Z",
+      "participants": [
+        "Tauseef Rahman"
+      ],
+      "kind": "multi",
+      "summary": "Account update round-up with a Hooray section next to Columbus Capital and Super73.",
+      "url": "https://notes.granola.ai/d/bbde1813-542f-48d4-b307-ab9230549550",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "2acb9b9b-80c7-4422-9fcf-34211bc0678f",
+      "title": "Strat Team Standup",
+      "date": "2026-10-26T15:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Devan Leibowitz",
+        "Seb Van Kuyk",
+        "Naveen Lekkalapudi",
+        "Thomas Bustos",
+        "Jaime Garcia",
+        "Sven Boettger",
+        "Katie Jefferson"
+      ],
+      "kind": "multi",
+      "summary": "Strategy standup on account risks, including a Hooray request that ran in parallel with Genome onboarding.",
+      "url": "https://notes.granola.ai/d/2acb9b9b-80c7-4422-9fcf-34211bc0678f",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "a5358d60-d5f2-41a5-b3b5-5ed8ab851c48",
+      "title": "Weekly Review + Next Cycle Plan",
+      "date": "2026-10-23T18:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad review with a Hooray section on status and how engineer time is split with Ethic Select.",
+      "url": "https://notes.granola.ai/d/a5358d60-d5f2-41a5-b3b5-5ed8ab851c48",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "b272b998-1279-4546-b6ce-1b234a90e146",
+      "title": "Weekly Review + Next Cycle Plan",
+      "date": "2026-09-25T18:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad review with a Hooray status section on completed and open HOO tickets.",
+      "url": "https://notes.granola.ai/d/b272b998-1279-4546-b6ce-1b234a90e146",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "e8ed44e1-c97d-411f-a440-bcf5c305f850",
+      "title": "Genome Feedback Session",
+      "date": "2026-09-24T15:30:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Rstuck",
+        "David Metze",
+        "Jaime Garcia",
+        "Roger Burns"
+      ],
+      "kind": "client",
+      "summary": "Hooray feedback on Genome home-screen metrics, data disclaimers, reports, data refresh logic and automating GTM reporting.",
+      "url": "https://notes.granola.ai/d/e8ed44e1-c97d-411f-a440-bcf5c305f850",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "6a86178b-f07d-4a50-bef5-691cf16d42c3",
+      "title": "Feedback Session | David & Roger",
+      "date": "2026-09-23T15:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "David Metze",
+        "Roger Burns",
+        "Jaime Garcia"
+      ],
+      "kind": "client",
+      "summary": "Walked David and Roger through Genome onboarding and collected feedback on the home dashboard, connections, Ask Genome, reports and live view.",
+      "url": "https://notes.granola.ai/d/6a86178b-f07d-4a50-bef5-691cf16d42c3",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "575db999-7e0e-4922-bb62-856f94f85e6a",
+      "title": "Squad Lab - 1% better",
+      "date": "2026-09-22T15:30:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad lab that opened with how to collect Hooray feedback through live sessions.",
+      "url": "https://notes.granola.ai/d/575db999-7e0e-4922-bb62-856f94f85e6a",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "3f107402-6f4a-4c5c-ad64-e9b978250048",
+      "title": "Delivery Sync",
+      "date": "2026-09-21T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Ryan Williams",
+        "Harvy Leyton"
+      ],
+      "kind": "multi",
+      "summary": "Company delivery sync with a section on Hooray status alongside Columbus, VHC and other accounts.",
+      "url": "https://notes.granola.ai/d/3f107402-6f4a-4c5c-ad64-e9b978250048",
+      "alt_url": "https://fathom.video/calls/827964071"
+    },
+    {
+      "provider": "granola",
+      "id": "dc54d7a5-b7f8-434e-b553-8b96ec0f662e",
+      "title": "Weekly Review + Next Cycle Plan",
+      "date": "2026-09-18T18:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad review led by Hooray metrics alignment after the first Genome version went live in production.",
+      "url": "https://notes.granola.ai/d/dc54d7a5-b7f8-434e-b553-8b96ec0f662e",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "4997470a-0ed9-4944-b268-95d7da456155",
+      "title": "Squad Portfolio Sync",
+      "date": "2026-09-15T15:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Portfolio sync including Hooray data issues alongside Labyrinth.",
+      "url": "https://notes.granola.ai/d/4997470a-0ed9-4944-b268-95d7da456155",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "80515628-898c-4312-a165-ad241b08d45b",
+      "title": "Weekly Review + Next Cycle Plan",
+      "date": "2026-09-11T18:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad cycle review; Hooray was slightly delayed and its next-cycle work was planned alongside other accounts.",
+      "url": "https://notes.granola.ai/d/80515628-898c-4312-a165-ad241b08d45b",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "cb7da25e-19d8-4e24-963d-efb2ca3f0148",
+      "title": "Squad Lab - 1% better",
+      "date": "2026-09-10T18:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad lab that worked through the AskGenome architecture, including letting Hooray clients connect their own Claude.",
+      "url": "https://notes.granola.ai/d/cb7da25e-19d8-4e24-963d-efb2ca3f0148",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "dcb43263-4696-4673-9819-16b90cfd4dbd",
+      "title": "Squad Portfolio Sync",
+      "date": "2026-09-08T16:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Portfolio sync including Hooray's internal app, repo access and a review of workflows and internal UX.",
+      "url": "https://notes.granola.ai/d/dcb43263-4696-4673-9819-16b90cfd4dbd",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "fdb52248-ac1d-4c45-b7de-239a73f8dec0",
+      "title": "Client View Portal - Workshop",
+      "date": "2026-09-01T16:30:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "David Metze",
+        "Roger Burns",
+        "Jaime Garcia",
+        "Vitor Escalfoni"
+      ],
+      "kind": "client",
+      "summary": "Demoed the client view portal to Hooray, agreed product direction and planned account manager onboarding and go-to-market.",
+      "url": "https://notes.granola.ai/d/fdb52248-ac1d-4c45-b7de-239a73f8dec0",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "6166bc70-3fa6-4787-bb8c-ede43271ea1f",
+      "title": "Delivery Sync",
+      "date": "2026-08-24T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Devan Leibowitz",
+        "Naveen Lekkalapudi",
+        "Jens Haakaas",
+        "Belu Zerboni",
+        "Dexter Tortoriello"
+      ],
+      "kind": "multi",
+      "summary": "Company delivery sync with a Hooray section on the internal client console prototype handover.",
+      "url": "https://notes.granola.ai/d/6166bc70-3fa6-4787-bb8c-ede43271ea1f",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "fe6db2a0-5dee-4118-94db-c80734977b2d",
+      "title": "Supernal <> Hooray | Weekly Sync",
+      "date": "2026-08-19T15:30:00Z",
+      "participants": [
+        "Harvy Leyton",
+        "David Metze",
+        "Rstuck",
+        "Nick Agresti",
+        "Roger Burns",
+        "Jaime Garcia",
+        "Steven Seghers"
+      ],
+      "kind": "client",
+      "summary": "Weekly sync with Hooray: roadmap progress, demo of the Command Center and client portal, open items and risks.",
+      "url": "https://notes.granola.ai/d/fe6db2a0-5dee-4118-94db-c80734977b2d",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "b0b8eaab-7707-43d3-94db-6f41a56aceed",
+      "title": "Prep Hooray",
+      "date": "2026-08-19T15:00:00Z",
+      "participants": [
+        "Harvy Leyton",
+        "Jaime Garcia",
+        "Nick Agresti"
+      ],
+      "kind": "internal",
+      "summary": "Internal prep before the Hooray weekly sync: data readiness, metrics validation and how to present the platform demo.",
+      "url": "https://notes.granola.ai/d/b0b8eaab-7707-43d3-94db-6f41a56aceed",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "388a820e-e552-40ef-9086-0382610b21bf",
+      "title": "Delivery Sync",
+      "date": "2026-08-17T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Naveen Lekkalapudi",
+        "Jens Haakaas",
+        "Belu Zerboni",
+        "Devan Leibowitz"
+      ],
+      "kind": "multi",
+      "summary": "Company delivery sync covering Hooray with Heritage, Ethic Select and Labyrinth.",
+      "url": "https://notes.granola.ai/d/388a820e-e552-40ef-9086-0382610b21bf",
+      "alt_url": "https://fathom.video/calls/784724415"
+    },
+    {
+      "provider": "granola",
+      "id": "970ce414-54b1-4210-ad1f-5739de4411a1",
+      "title": "Weekly Pipeline Review",
+      "date": "2026-07-01T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Seb Van Kuyk",
+        "Eric Kravitz",
+        "Ryan Williams",
+        "Nick Agresti"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review noting a setback on the Hooray Agency deal and what the signers had asked for.",
+      "url": "https://notes.granola.ai/d/970ce414-54b1-4210-ad1f-5739de4411a1",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "daa36c56-c22a-442e-bb32-37d233e25fd4",
+      "title": "GTM + Scoping",
+      "date": "2026-06-18T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Naveen Lekkalapudi",
+        "Jaime Garcia",
+        "Jack Parham",
+        "Dexter Tortoriello"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review noting the Hooray CEO's wish to start with a phase-one account manager portal.",
+      "url": "https://notes.granola.ai/d/daa36c56-c22a-442e-bb32-37d233e25fd4",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "e5ce515a-aa67-4ca0-b4ea-b779dc1f2589",
+      "title": "GTM + Scoping",
+      "date": "2026-06-17T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Naveen Lekkalapudi",
+        "Johnny Borbone",
+        "Ryan Williams",
+        "Jaime Garcia",
+        "Jack Parham",
+        "Nick Agresti",
+        "Dexter Tortoriello"
+      ],
+      "kind": "multi",
+      "summary": "Deal desk session that opened with revisions to the Hooray order form and the concerns raised about it.",
+      "url": "https://notes.granola.ai/d/e5ce515a-aa67-4ca0-b4ea-b779dc1f2589",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "8119da77-1313-4788-a37d-27671461a7d8",
+      "title": "GTM + Scoping",
+      "date": "2026-06-11T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Belu Zerboni",
+        "Thomas Bustos",
+        "Naveen Lekkalapudi",
+        "Johnny Borbone",
+        "Jaime Garcia",
+        "Jack Parham",
+        "Nick Agresti"
+      ],
+      "kind": "multi",
+      "summary": "Deal review with a Hooray pipeline section on folding client feedback into the proposal.",
+      "url": "https://notes.granola.ai/d/8119da77-1313-4788-a37d-27671461a7d8",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "8adf29fa-c5e3-49c0-a380-031c25ffaf76",
+      "title": "GTM + Scoping",
+      "date": "2026-06-08T17:30:00Z",
+      "participants": [
+        "Thomas Bustos",
+        "Belu Zerboni",
+        "Naveen Lekkalapudi",
+        "Tauseef Rahman",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Proposal review covering the Hooray Agency proposal and its presentation timing.",
+      "url": "https://notes.granola.ai/d/8adf29fa-c5e3-49c0-a380-031c25ffaf76",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "e88f3b4b-650d-4d68-991e-27faf94c1b54",
+      "title": "GTM + Scoping",
+      "date": "2026-06-05T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Thomas Bustos",
+        "Naveen Lekkalapudi",
+        "Johnny Borbone",
+        "Ryan Williams",
+        "Jaime Garcia",
+        "Nick Agresti"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline and scoping review; the Hooray Agency HTML proposal and next steps were discussed.",
+      "url": "https://notes.granola.ai/d/e88f3b4b-650d-4d68-991e-27faf94c1b54",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "2f06d4da-7ff2-495a-a1b7-c025ea95e9c1",
+      "title": "Hooray agency proposal — scoping setup and Client OS workflow with Jose",
+      "date": "2026-06-04T14:22:37Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Jaime Garcia"
+      ],
+      "kind": "internal",
+      "summary": "Set up the Hooray proposal: timeline, ClientOS document setup, scoping inputs and proposal approach.",
+      "url": "https://notes.granola.ai/d/2f06d4da-7ff2-495a-a1b7-c025ea95e9c1",
+      "alt_url": null
+    }
+  ]
+}

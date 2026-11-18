@@ -1,0 +1,302 @@
+{
+  "slug": "deal-brill-building-agent",
+  "pulled": "2026-11-15",
+  "searched": [
+    "Brill",
+    "Brill Building",
+    "Benjamin Groff",
+    "Real Building",
+    "We Are The Guard"
+  ],
+  "meetings": [
+    {
+      "provider": "granola",
+      "id": "54797cd5-a41c-4bdd-a0f1-0c3dc18ef2ac",
+      "title": "Strat ²",
+      "date": "2026-11-12T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Seb Van Kuyk",
+        "Sven Boettger",
+        "Naveen Lekkalapudi",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Strat team case study of the Brill deal: prototype-first scoping and making prototypes feel real.",
+      "url": "https://notes.granola.ai/d/54797cd5-a41c-4bdd-a0f1-0c3dc18ef2ac",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "4fdea124-bae8-4458-88d9-20685b448f1c",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-11-11T19:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Ryan Williams",
+        "Zack Young"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review; Brill in proposal after Benjamin pushed back on price, awaiting his counter.",
+      "url": "https://notes.granola.ai/d/4fdea124-bae8-4458-88d9-20685b448f1c",
+      "alt_url": "https://fathom.video/calls/895772867"
+    },
+    {
+      "provider": "granola",
+      "id": "daf9fd40-d47c-4308-af2c-f5f965d423c8",
+      "title": "Deal Desk Weekly Review",
+      "date": "2026-11-10T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Stuart Childs",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Diana Pedroza"
+      ],
+      "kind": "multi",
+      "summary": "Deal desk; Brill pricing discussion ongoing, no help needed.",
+      "url": "https://notes.granola.ai/d/daf9fd40-d47c-4308-af2c-f5f965d423c8",
+      "alt_url": "https://fathom.video/calls/893840018"
+    },
+    {
+      "provider": "granola",
+      "id": "c4477f29-e0f2-48e0-93e8-1cc4de3694d4",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-11-04T19:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Ryan Williams",
+        "Zack Young"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review; final Brill proposal presentation booked and order form ready.",
+      "url": "https://notes.granola.ai/d/c4477f29-e0f2-48e0-93e8-1cc4de3694d4",
+      "alt_url": "https://fathom.video/calls/887018725"
+    },
+    {
+      "provider": "granola",
+      "id": "27070f37-34c0-4d93-a620-f786ab63f2eb",
+      "title": "Deal Desk Weekly Review",
+      "date": "2026-11-03T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Stuart Childs",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Diana Pedroza"
+      ],
+      "kind": "multi",
+      "summary": "Deal desk; strong Brill meeting the prior week and its order form held up as a template.",
+      "url": "https://notes.granola.ai/d/27070f37-34c0-4d93-a620-f786ab63f2eb",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "ebaa217b-95e5-4eb1-bd5c-9f3b05c5fc7c",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-10-28T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Ryan Williams",
+        "Zack Young"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review; Brill pricing model discussed against Benjamin's own view of value.",
+      "url": "https://notes.granola.ai/d/ebaa217b-95e5-4eb1-bd5c-9f3b05c5fc7c",
+      "alt_url": "https://fathom.video/calls/877122683"
+    },
+    {
+      "provider": "granola",
+      "id": "511079e0-f271-4ef2-a1b7-5212dcb23c38",
+      "title": "Deal Desk Weekly Review",
+      "date": "2026-10-27T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Stuart Childs",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Diana Pedroza"
+      ],
+      "kind": "multi",
+      "summary": "Deal desk; Brill call scheduled that day, aiming for order form.",
+      "url": "https://notes.granola.ai/d/511079e0-f271-4ef2-a1b7-5212dcb23c38",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "859023845",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-10-14",
+      "participants": [],
+      "kind": "multi",
+      "summary": "Pipeline review; Brill around $200K, SoundCloud data extraction and a 2+12 contract structure discussed.",
+      "url": "https://fathom.video/calls/859023845",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "3f3176c7-e40b-435c-be71-cccf04cce487",
+      "title": "GTM + Scoping",
+      "date": "2026-10-09T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Johnny Borbone",
+        "Seb Van Kuyk",
+        "Sven Boettger",
+        "Thomas Bustos"
+      ],
+      "kind": "multi",
+      "summary": "GTM review; Brill awaiting Benjamin's NDA with the proposal in progress.",
+      "url": "https://notes.granola.ai/d/3f3176c7-e40b-435c-be71-cccf04cce487",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "bc6e679e-1e37-43fd-9e23-47133ac226ab",
+      "title": "GTM + Scoping",
+      "date": "2026-10-02T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Johnny Borbone",
+        "Seb Van Kuyk",
+        "Sven Boettger",
+        "Thomas Bustos"
+      ],
+      "kind": "multi",
+      "summary": "GTM review; Brill prototype ready and proposal structure being set.",
+      "url": "https://notes.granola.ai/d/bc6e679e-1e37-43fd-9e23-47133ac226ab",
+      "alt_url": "https://fathom.video/calls/844798806"
+    },
+    {
+      "provider": "granola",
+      "id": "809a3547-6629-47c4-aef7-a19b3e5597f7",
+      "title": "GTM + Scoping",
+      "date": "2026-09-17T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Johnny Borbone",
+        "Seb Van Kuyk",
+        "Sven Boettger",
+        "Thomas Bustos"
+      ],
+      "kind": "multi",
+      "summary": "GTM review; second Brill prototype version under way with Zack and Belu.",
+      "url": "https://notes.granola.ai/d/809a3547-6629-47c4-aef7-a19b3e5597f7",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "dde55f9d-140b-444c-8914-ebcda048e318",
+      "title": "GTM + Scoping",
+      "date": "2026-09-15T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Johnny Borbone",
+        "Seb Van Kuyk",
+        "Sven Boettger",
+        "Thomas Bustos"
+      ],
+      "kind": "multi",
+      "summary": "GTM review; Brill prototype changes in progress after client feedback.",
+      "url": "https://notes.granola.ai/d/dde55f9d-140b-444c-8914-ebcda048e318",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "0b159f0b-63d9-4e47-875c-14b99d18016f",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-09-09T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Ryan Williams",
+        "Zack Young"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review; Belu's Brill prototype built and due for Scott's review before the client meeting.",
+      "url": "https://notes.granola.ai/d/0b159f0b-63d9-4e47-875c-14b99d18016f",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "21933914-b64b-4a9f-ad34-f9044ea34674",
+      "title": "GTM + Scoping",
+      "date": "2026-09-09T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Johnny Borbone",
+        "Seb Van Kuyk",
+        "Sven Boettger",
+        "Thomas Bustos"
+      ],
+      "kind": "multi",
+      "summary": "GTM review; new Brill scope with Zack and a prototype presentation planned.",
+      "url": "https://notes.granola.ai/d/21933914-b64b-4a9f-ad34-f9044ea34674",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "c1a781fa-e684-49b8-a2ff-9d7ab95613ee",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-09-02T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Ryan Williams",
+        "Zack Young"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review; Brill introduced as a music-industry prospect with a follow-up call next day.",
+      "url": "https://notes.granola.ai/d/c1a781fa-e684-49b8-a2ff-9d7ab95613ee",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "90ef3eae-ee0d-4bd9-a557-2a55a8dd452e",
+      "title": "GTM + Scoping",
+      "date": "2026-09-02T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Johnny Borbone",
+        "Seb Van Kuyk",
+        "Sven Boettger",
+        "Thomas Bustos"
+      ],
+      "kind": "multi",
+      "summary": "GTM review; Zack asked the strat team for support on Brill.",
+      "url": "https://notes.granola.ai/d/90ef3eae-ee0d-4bd9-a557-2a55a8dd452e",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "a5fbfad7-9701-4c10-b5d4-d5beda3b1a9e",
+      "title": "Supernal Follow Up",
+      "date": "2026-08-26T19:30:00Z",
+      "participants": [
+        "Ryan Williams",
+        "Zack Young",
+        "Scott Downes",
+        "Benjamin Groff"
+      ],
+      "kind": "client",
+      "summary": "Discovery with Benjamin: his background, AI journey, two priority use cases, a safe-music moonshot and the Thorn Protocol demo.",
+      "url": "https://notes.granola.ai/d/a5fbfad7-9701-4c10-b5d4-d5beda3b1a9e",
+      "alt_url": null
+    }
+  ]
+}

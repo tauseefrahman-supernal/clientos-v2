@@ -117,11 +117,15 @@ export interface Workflow {
   standard: boolean;
 }
 
+/** A meeting pulled in for a project from Granola or Fathom (listed, never its transcript text). */
+export interface Recording { provider: "granola" | "fathom" | "upload"; id: string; title: string; date: string; participants: string[]; kind: "client" | "internal" | "multi"; summary: string; url: string; altUrl: string }
+
 export interface AccountBundle {
   account: Account;
   overview: Overview;
   book: Chapter[];
   artifacts: Artifact[];
+  recordings: Recording[];
   files: VaultFile[];
   workflows: Workflow[];
 }

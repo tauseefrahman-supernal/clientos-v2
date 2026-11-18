@@ -1,0 +1,538 @@
+{
+  "slug": "deal-iec-colleges",
+  "pulled": "2026-11-15",
+  "searched": [
+    "IEC",
+    "IEC Colleges",
+    "UEI",
+    "Esther Duong",
+    "International Education",
+    "Berggruen",
+    "EIC"
+  ],
+  "meetings": [
+    {
+      "provider": "granola",
+      "id": "2c131276-c135-4434-83b2-18abee401c81",
+      "title": "Supernal Walkthrough",
+      "date": "2026-11-12T20:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Nick Agresti",
+        "Zack Young",
+        "Esther Duong",
+        "Eric Freeman (World Emblem)"
+      ],
+      "kind": "client",
+      "summary": "Reference walkthrough for Esther with a World Emblem leader: IEC's use case and what worked at World Emblem.",
+      "url": "https://notes.granola.ai/d/2c131276-c135-4434-83b2-18abee401c81",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "4fdea124-bae8-4458-88d9-20685b448f1c",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-11-11T19:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Ryan Williams",
+        "Zack Young"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review; IEC in order form at about $175K, reference call done, contract nearly final.",
+      "url": "https://notes.granola.ai/d/4fdea124-bae8-4458-88d9-20685b448f1c",
+      "alt_url": "https://fathom.video/calls/895772867"
+    },
+    {
+      "provider": "granola",
+      "id": "daf9fd40-d47c-4308-af2c-f5f965d423c8",
+      "title": "Deal Desk Weekly Review",
+      "date": "2026-11-10T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Stuart Childs",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Diana Pedroza"
+      ],
+      "kind": "multi",
+      "summary": "Deal desk; second IEC reference call with the World Emblem team booked, no blockers.",
+      "url": "https://notes.granola.ai/d/daf9fd40-d47c-4308-af2c-f5f965d423c8",
+      "alt_url": "https://fathom.video/calls/893840018"
+    },
+    {
+      "provider": "granola",
+      "id": "fbebcb53-59f2-4cc9-a036-ea375d024291",
+      "title": "Strat Team Standup",
+      "date": "2026-11-09T16:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Seb Van Kuyk",
+        "Thomas Bustos",
+        "Diana Pedroza",
+        "Dominik Springer"
+      ],
+      "kind": "multi",
+      "summary": "Strat standup with an IEC section: likely close that week and a hypercare plan for the first 90 days.",
+      "url": "https://notes.granola.ai/d/fbebcb53-59f2-4cc9-a036-ea375d024291",
+      "alt_url": "https://fathom.video/calls/891631358"
+    },
+    {
+      "provider": "granola",
+      "id": "62e4cc0b-7391-4ef0-853a-883469790139",
+      "title": "Sync: \"Diana & Tauseef\"",
+      "date": "2026-11-05T17:45:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Diana Pedroza"
+      ],
+      "kind": "internal",
+      "summary": "Talked through IEC scoping and discovery and which World Emblem lessons apply.",
+      "url": "https://notes.granola.ai/d/62e4cc0b-7391-4ef0-853a-883469790139",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "c4477f29-e0f2-48e0-93e8-1cc4de3694d4",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-11-04T19:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Ryan Williams",
+        "Zack Young"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review; IEC reference call booked and leverage from parent-company pressure discussed.",
+      "url": "https://notes.granola.ai/d/c4477f29-e0f2-48e0-93e8-1cc4de3694d4",
+      "alt_url": "https://fathom.video/calls/887018725"
+    },
+    {
+      "provider": "granola",
+      "id": "27070f37-34c0-4d93-a620-f786ab63f2eb",
+      "title": "Deal Desk Weekly Review",
+      "date": "2026-11-03T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Stuart Childs",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Diana Pedroza"
+      ],
+      "kind": "multi",
+      "summary": "Deal desk; IEC order form back with minor comments, signer identified, deliverables kept high-level.",
+      "url": "https://notes.granola.ai/d/27070f37-34c0-4d93-a620-f786ab63f2eb",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "190088bc-6d7a-4e19-bfcb-dc2b09f6f362",
+      "title": "Contract scope and milestone refinements with Zack",
+      "date": "2026-10-29T16:02:00Z",
+      "participants": [
+        "Diana Pedroza"
+      ],
+      "kind": "internal",
+      "summary": "Refined contract tone, milestones and deliverables, baseline lead measurement and Sprout Social access.",
+      "url": "https://notes.granola.ai/d/190088bc-6d7a-4e19-bfcb-dc2b09f6f362",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "ebaa217b-95e5-4eb1-bd5c-9f3b05c5fc7c",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-10-28T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Ryan Williams",
+        "Zack Young"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review; IEC holding price ahead of one more push, close expected in one to two weeks.",
+      "url": "https://notes.granola.ai/d/ebaa217b-95e5-4eb1-bd5c-9f3b05c5fc7c",
+      "alt_url": "https://fathom.video/calls/877122683"
+    },
+    {
+      "provider": "granola",
+      "id": "a657292d-6b7c-4620-9f78-955060122e5a",
+      "title": "Z & D Sync",
+      "date": "2026-10-28T16:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Zack Young"
+      ],
+      "kind": "internal",
+      "summary": "Order form review: ROI and forecast section, termination clause, pricing, references and send plan.",
+      "url": "https://notes.granola.ai/d/a657292d-6b7c-4620-9f78-955060122e5a",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "d3f14fba-8ddb-4aa6-96ee-97d808cf5a3f",
+      "title": "IEC Colleges Internal Sync",
+      "date": "2026-10-27T20:44:00Z",
+      "participants": [
+        "Diana Pedroza"
+      ],
+      "kind": "internal",
+      "summary": "Deal status, risks and mitigation, and the contract and order form after the check-in.",
+      "url": "https://notes.granola.ai/d/d3f14fba-8ddb-4aa6-96ee-97d808cf5a3f",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "bea04318-4402-45ba-9bb1-4c47da1aab8e",
+      "title": "IEC / Supernal Check In",
+      "date": "2026-10-27T20:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Zack Young",
+        "Esther Duong"
+      ],
+      "kind": "client",
+      "summary": "Walked Esther through the proposal, took her feedback, and discussed commercial terms and pricing.",
+      "url": "https://notes.granola.ai/d/bea04318-4402-45ba-9bb1-4c47da1aab8e",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "511079e0-f271-4ef2-a1b7-5212dcb23c38",
+      "title": "Deal Desk Weekly Review",
+      "date": "2026-10-27T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Stuart Childs",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Diana Pedroza"
+      ],
+      "kind": "multi",
+      "summary": "Deal desk; IEC call that day, aiming to move to order form above $175K.",
+      "url": "https://notes.granola.ai/d/511079e0-f271-4ef2-a1b7-5212dcb23c38",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "a5358d60-d5f2-41a5-b3b5-5ed8ab851c48",
+      "title": "Weekly Review + Next Cycle Plan",
+      "date": "2026-10-23T18:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad weekly review with a section on IEC as an incoming deal close to signing.",
+      "url": "https://notes.granola.ai/d/a5358d60-d5f2-41a5-b3b5-5ed8ab851c48",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "c5faae3f-9317-4300-bc9b-aba507214915",
+      "title": "Quick Sync - IEC",
+      "date": "2026-10-19T20:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Zack Young"
+      ],
+      "kind": "internal",
+      "summary": "Pilot versus full deployment, pricing and contract terms, and the proposal and signing timeline.",
+      "url": "https://notes.granola.ai/d/c5faae3f-9317-4300-bc9b-aba507214915",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "8c47bd34-ea56-45f4-b893-8763b4248353",
+      "title": "Supernal Walkthrough - IEC Platform",
+      "date": "2026-10-16T20:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Zack Young",
+        "Esther Duong"
+      ],
+      "kind": "client",
+      "summary": "Walked through the prototype platform: architecture, role-based workflows, compliance and multi-brand CMS handling.",
+      "url": "https://notes.granola.ai/d/8c47bd34-ea56-45f4-b893-8763b4248353",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "fa7cbb14-ec5b-4232-8af1-e4bdc1ad218e",
+      "title": "AI prototype ROI strategy  - Internal",
+      "date": "2026-10-15T20:31:00Z",
+      "participants": [
+        "Diana Pedroza"
+      ],
+      "kind": "internal",
+      "summary": "Debriefed the demo: ROI questions from the client side, deal structure, sprint scope and prototype changes.",
+      "url": "https://notes.granola.ai/d/fa7cbb14-ec5b-4232-8af1-e4bdc1ad218e",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "7d49e62e-eb3d-4a6f-ac0c-d1751e280abc",
+      "title": "Supernal / IEC Demo",
+      "date": "2026-10-15T19:30:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Zack Young",
+        "Esther Duong"
+      ],
+      "kind": "client",
+      "summary": "Demoed the platform to Esther; covered her concerns, the ROI and revenue focus, and contract structure.",
+      "url": "https://notes.granola.ai/d/7d49e62e-eb3d-4a6f-ac0c-d1751e280abc",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "859023845",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-10-14",
+      "participants": [],
+      "kind": "multi",
+      "summary": "Pipeline review; IEC healthy at about $192K with a CEO demo set for the next day.",
+      "url": "https://fathom.video/calls/859023845",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "3ddb49ae-db04-4241-b76f-a43790f64671",
+      "title": "GTM + Scoping",
+      "date": "2026-10-13T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Thomas Bustos",
+        "Diana Pedroza"
+      ],
+      "kind": "multi",
+      "summary": "GTM review with a section on IEC pricing and the ROI model.",
+      "url": "https://notes.granola.ai/d/3ddb49ae-db04-4241-b76f-a43790f64671",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "3f3176c7-e40b-435c-be71-cccf04cce487",
+      "title": "GTM + Scoping",
+      "date": "2026-10-09T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Thomas Bustos",
+        "Diana Pedroza"
+      ],
+      "kind": "multi",
+      "summary": "GTM review; IEC proposal about 80% done with pricing to be presented.",
+      "url": "https://notes.granola.ai/d/3f3176c7-e40b-435c-be71-cccf04cce487",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "fd347db0-7da4-42d4-86ac-640252f25782",
+      "title": "IEC Colleges Internal Sync",
+      "date": "2026-10-08T18:48:00Z",
+      "participants": [
+        "Diana Pedroza"
+      ],
+      "kind": "internal",
+      "summary": "Built the revenue case, supporting metrics, and the phasing and proposal approach.",
+      "url": "https://notes.granola.ai/d/fd347db0-7da4-42d4-86ac-640252f25782",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "1fd7607a-1fef-4899-9f8a-82f2c6ab7d2f",
+      "title": "GTM + Scoping",
+      "date": "2026-10-08T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Thomas Bustos",
+        "Diana Pedroza"
+      ],
+      "kind": "multi",
+      "summary": "GTM review with a section on IEC marketing scoping from Diana.",
+      "url": "https://notes.granola.ai/d/1fd7607a-1fef-4899-9f8a-82f2c6ab7d2f",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "8fbe484c-a0c5-4d02-ac59-8a4e9b0cd23f",
+      "title": "IEC - Supernal Sync",
+      "date": "2026-10-08T16:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Zack Young",
+        "Esther Duong"
+      ],
+      "kind": "client",
+      "summary": "Discovery on team workflows: web and landing pages, SEO agency, social, inbox, events and graduate testimonials.",
+      "url": "https://notes.granola.ai/d/8fbe484c-a0c5-4d02-ac59-8a4e9b0cd23f",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "9f983ae2-8586-4103-b816-fe5ced08b5d1",
+      "title": "GTM + Scoping",
+      "date": "2026-10-06T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Thomas Bustos",
+        "Diana Pedroza"
+      ],
+      "kind": "multi",
+      "summary": "GTM review; IEC in-depth discovery under way with Diana and Zack.",
+      "url": "https://notes.granola.ai/d/9f983ae2-8586-4103-b816-fe5ced08b5d1",
+      "alt_url": "https://fathom.video/calls/851524770"
+    },
+    {
+      "provider": "granola",
+      "id": "de6932c1-f7d2-44fd-89a1-b7c3b8a0ab09",
+      "title": "IEC / Supernal Sync - 2PM PST",
+      "date": "2026-10-05T21:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Zack Young",
+        "Esther Duong"
+      ],
+      "kind": "client",
+      "summary": "Discovery on IEC's priority goals, creative as the key unlock, Stacy's pain points, tech stack and compliance.",
+      "url": "https://notes.granola.ai/d/de6932c1-f7d2-44fd-89a1-b7c3b8a0ab09",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "bc6e679e-1e37-43fd-9e23-47133ac226ab",
+      "title": "GTM + Scoping",
+      "date": "2026-10-02T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Thomas Bustos",
+        "Diana Pedroza"
+      ],
+      "kind": "multi",
+      "summary": "GTM review; the next Esther meeting was confirmed and its agenda set.",
+      "url": "https://notes.granola.ai/d/bc6e679e-1e37-43fd-9e23-47133ac226ab",
+      "alt_url": "https://fathom.video/calls/844798806"
+    },
+    {
+      "provider": "granola",
+      "id": "43119689-e620-458b-bf10-0efc3265abf7",
+      "title": "Diana / Zack - IEC Discussion - Internal",
+      "date": "2026-09-24T18:30:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Zack Young"
+      ],
+      "kind": "internal",
+      "summary": "Planned the approach for the next Esther meeting, prototype focus, proposal storytelling and travel.",
+      "url": "https://notes.granola.ai/d/43119689-e620-458b-bf10-0efc3265abf7",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "fd07f549-88e4-4296-ab4a-0bb1838d0211",
+      "title": "GTM + Scoping",
+      "date": "2026-09-23T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Thomas Bustos",
+        "Diana Pedroza"
+      ],
+      "kind": "multi",
+      "summary": "GTM review; IEC meeting offered for 24 Sep.",
+      "url": "https://notes.granola.ai/d/fd07f549-88e4-4296-ab4a-0bb1838d0211",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "809a3547-6629-47c4-aef7-a19b3e5597f7",
+      "title": "GTM + Scoping",
+      "date": "2026-09-17T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Thomas Bustos",
+        "Diana Pedroza"
+      ],
+      "kind": "multi",
+      "summary": "GTM review; IEC waiting on Zack to schedule the next step.",
+      "url": "https://notes.granola.ai/d/809a3547-6629-47c4-aef7-a19b3e5597f7",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "9896b3c0-91da-489e-b888-46ef7eeca54b",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-09-02T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Ryan Williams",
+        "Zack Young"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review; IEC framed as a 50-campus college group and early deal shape discussed.",
+      "url": "https://notes.granola.ai/d/9896b3c0-91da-489e-b888-46ef7eeca54b",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "df6f3ee5-1c29-494c-9313-5179bae8fcd8",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-08-26T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Ryan Williams",
+        "Zack Young"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review introducing IEC as a new opportunity through the board network.",
+      "url": "https://notes.granola.ai/d/df6f3ee5-1c29-494c-9313-5179bae8fcd8",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "4132480f-6c9b-4e94-9359-97a604cfa3ae",
+      "title": "EIC / Supernal Discussion",
+      "date": "2026-08-26T16:30:00Z",
+      "participants": [
+        "Ryan Williams",
+        "Zack Young",
+        "Jonathan Hayes",
+        "Esther Duong"
+      ],
+      "kind": "client",
+      "summary": "First working call with Esther: her team and scope, marketing pain points, AI landscape and fit.",
+      "url": "https://notes.granola.ai/d/4132480f-6c9b-4e94-9359-97a604cfa3ae",
+      "alt_url": null
+    }
+  ]
+}

@@ -1,0 +1,1257 @@
+{
+  "slug": "jethq",
+  "pulled": "2026-11-15",
+  "searched": [
+    "JetHQ",
+    "Jet HQ",
+    "JHQ",
+    "Flight Deck",
+    "FlightDeck",
+    "Flight Control",
+    "Valerie",
+    "Marcus",
+    "FMV",
+    "Garrett",
+    "RJ Miller"
+  ],
+  "meetings": [
+    {
+      "provider": "granola",
+      "id": "7497714a-f6d8-4009-8877-3ec3909e9dda",
+      "title": "Delivery Sync",
+      "date": "2026-11-09T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Ryan Williams"
+      ],
+      "kind": "multi",
+      "summary": "Weekly delivery review; JetHQ status covered alongside Labyrinth and Breaker.",
+      "url": "https://notes.granola.ai/d/7497714a-f6d8-4009-8877-3ec3909e9dda",
+      "alt_url": "https://fathom.video/calls/891407302"
+    },
+    {
+      "provider": "fathom",
+      "id": "892587033",
+      "title": "Supernal // JetHQ FMV Deep Dive",
+      "date": "2026-11-06",
+      "participants": [],
+      "kind": "client",
+      "summary": "Walked through how JetHQ builds FMV reports; data accuracy and table editing were flagged as top fixes, plus Canva-style image tools.",
+      "url": "https://fathom.video/calls/892587033",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "c77ccf9c-e184-41d1-a8a5-8c1354531a90",
+      "title": "Delivery Sync",
+      "date": "2026-11-02T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Ryan Williams"
+      ],
+      "kind": "multi",
+      "summary": "Weekly delivery review; JetHQ status covered alongside TechPipe and World Emblem.",
+      "url": "https://notes.granola.ai/d/c77ccf9c-e184-41d1-a8a5-8c1354531a90",
+      "alt_url": "https://fathom.video/calls/882864595"
+    },
+    {
+      "provider": "granola",
+      "id": "6a78356f-c8fb-4229-83f1-3fedfaa48c10",
+      "title": "Bug Bash: BoD Demo of Pulse, JetHQ, Columbus Cap, WE",
+      "date": "2026-10-22T17:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Ellen Smith",
+        "Lucas Stein",
+        "Seb Van Kuyk",
+        "Naveen Lekkalapudi"
+      ],
+      "kind": "multi",
+      "summary": "Bug bash before a board demo of Pulse using JetHQ among the showcase tenants.",
+      "url": "https://notes.granola.ai/d/6a78356f-c8fb-4229-83f1-3fedfaa48c10",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "77193ae6-1af9-4b8b-8b2d-7145f1700367",
+      "title": "Pulse Roll out - Strat Readiness",
+      "date": "2026-10-20T19:30:00Z",
+      "participants": [
+        "Katie Jefferson",
+        "Lucas Stein",
+        "Diana Pedroza",
+        "Belu Zerboni",
+        "Sven Boettger"
+      ],
+      "kind": "internal",
+      "summary": "Walked through Pulse configured for JetHQ to log bugs and blockers before the client rollout.",
+      "url": "https://notes.granola.ai/d/77193ae6-1af9-4b8b-8b2d-7145f1700367",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "3f3176c7-e40b-435c-be71-cccf04cce487",
+      "title": "GTM + Scoping",
+      "date": "2026-10-09T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Nick Agresti",
+        "Sven Boettger",
+        "Thomas Bustos"
+      ],
+      "kind": "multi",
+      "summary": "GTM review; JetHQ's aircraft-records order form was drafted with pricing pending.",
+      "url": "https://notes.granola.ai/d/3f3176c7-e40b-435c-be71-cccf04cce487",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "6f81d6ad-b9ff-48de-bbd1-17783aaf61e1",
+      "title": "Mason Feedback new",
+      "date": "2026-10-07T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Naveen Lekkalapudi",
+        "Sven Boettger"
+      ],
+      "kind": "multi",
+      "summary": "Mason performance review with a section on the JetHQ and Heritage pod.",
+      "url": "https://notes.granola.ai/d/6f81d6ad-b9ff-48de-bbd1-17783aaf61e1",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "cc77a502-84ea-4971-8ef5-7c22259d4b38",
+      "title": "Delivery Sync",
+      "date": "2026-10-05T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Sven Boettger",
+        "Ryan Williams"
+      ],
+      "kind": "multi",
+      "summary": "Weekly delivery review with a JetHQ update from Sven.",
+      "url": "https://notes.granola.ai/d/cc77a502-84ea-4971-8ef5-7c22259d4b38",
+      "alt_url": "https://fathom.video/calls/846711109"
+    },
+    {
+      "provider": "granola",
+      "id": "3296088e-fbb0-4b57-8f1a-574053008b08",
+      "title": "Delivery Sync",
+      "date": "2026-09-28T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Ryan Williams"
+      ],
+      "kind": "multi",
+      "summary": "Weekly delivery review with a JetHQ status item.",
+      "url": "https://notes.granola.ai/d/3296088e-fbb0-4b57-8f1a-574053008b08",
+      "alt_url": "https://fathom.video/calls/838015067"
+    },
+    {
+      "provider": "granola",
+      "id": "a6d9167e-3264-40e2-af81-c18823da7b73",
+      "title": "JetHQ Weekly Planning",
+      "date": "2026-09-28T14:00:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Saad Farooq",
+        "Sven Boettger",
+        "Mauro Raia",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Marcus cleanup, Valerie updates, a pricing estimate fix and Hub progress.",
+      "url": "https://notes.granola.ai/d/a6d9167e-3264-40e2-af81-c18823da7b73",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "ea623054-e9c5-4a66-9f1b-3a246d9b7ebd",
+      "title": "Supernal <> JetHQ - Weekly Checkpoint",
+      "date": "2026-09-22T15:30:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Johnny Borbone",
+        "Sven Boettger",
+        "Mauro Raia",
+        "Stuart Childs",
+        "Julie Boake",
+        "Brooks Boschert",
+        "Hanan Saliba"
+      ],
+      "kind": "client",
+      "summary": "Hub performance and bug fixes, plus progress on Valerie market data and FMV output.",
+      "url": "https://notes.granola.ai/d/ea623054-e9c5-4a66-9f1b-3a246d9b7ebd",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "830394530",
+      "title": "GTM + Scoping",
+      "date": "2026-09-22",
+      "participants": [],
+      "kind": "multi",
+      "summary": "GTM review; pricing for a small JetHQ file-migration add-on was revised downward.",
+      "url": "https://fathom.video/calls/830394530",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "3f107402-6f4a-4c5c-ad64-e9b978250048",
+      "title": "Delivery Sync",
+      "date": "2026-09-21T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Ryan Williams"
+      ],
+      "kind": "multi",
+      "summary": "Weekly delivery review that touched on JetHQ.",
+      "url": "https://notes.granola.ai/d/3f107402-6f4a-4c5c-ad64-e9b978250048",
+      "alt_url": "https://fathom.video/calls/827964071"
+    },
+    {
+      "provider": "granola",
+      "id": "6b8a2b49-1890-4ab6-a9b3-3fe69e329bf3",
+      "title": "Supernal <> JetHQ - Weekly Checkpoint",
+      "date": "2026-09-15T15:30:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Johnny Borbone",
+        "Sven Boettger",
+        "Mauro Raia",
+        "Stuart Childs",
+        "Julie Boake",
+        "Brooks Boschert",
+        "Hanan Saliba"
+      ],
+      "kind": "client",
+      "summary": "Demoed the Valerie FMV prototype, reviewed roadmap priorities and agreed the meeting cadence.",
+      "url": "https://notes.granola.ai/d/6b8a2b49-1890-4ab6-a9b3-3fe69e329bf3",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "819309043",
+      "title": "Delivery Sync",
+      "date": "2026-09-14",
+      "participants": [],
+      "kind": "multi",
+      "summary": "Weekly delivery review that touched on JetHQ.",
+      "url": "https://fathom.video/calls/819309043",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "ebe0e0d0-6ca7-496e-97dc-6d515db0b461",
+      "title": "Supernal <> JetHQ - Weekly Checkpoint",
+      "date": "2026-09-01T15:30:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Johnny Borbone",
+        "Sven Boettger",
+        "Mauro Raia",
+        "Julie Boake",
+        "Brooks Boschert",
+        "RJ Miller"
+      ],
+      "kind": "client",
+      "summary": "My Desk demo, Valerie FMV fixes, a landings data bug, historical market snapshots and JetNet refresh behaviour.",
+      "url": "https://notes.granola.ai/d/ebe0e0d0-6ca7-496e-97dc-6d515db0b461",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "3c788c52-02cd-45de-9b5c-333acca32af8",
+      "title": "Delivery Sync",
+      "date": "2026-08-31T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Sven Boettger"
+      ],
+      "kind": "multi",
+      "summary": "Weekly delivery review opening with JetHQ: Valerie and Marcus status.",
+      "url": "https://notes.granola.ai/d/3c788c52-02cd-45de-9b5c-333acca32af8",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "c17ce996-bd90-40c2-8e50-c793c23f47ac",
+      "title": "JetHQ Weekly Planning",
+      "date": "2026-08-31T14:00:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Saad Farooq",
+        "Sven Boettger",
+        "Mauro Raia",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Marcus and Hub updates, Valerie progress and the Flight Deck opportunity.",
+      "url": "https://notes.granola.ai/d/c17ce996-bd90-40c2-8e50-c793c23f47ac",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "7f56bfb6-2dde-4b3f-8b38-0232888f5d32",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-08-19T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Ryan Williams"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review; JetHQ expansion noted as stalled after the key contact left.",
+      "url": "https://notes.granola.ai/d/7f56bfb6-2dde-4b3f-8b38-0232888f5d32",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "98d6ce80-68db-4079-bd6e-1885385dc857",
+      "title": "Bi-Weekly Product Workshop",
+      "date": "2026-08-18T16:00:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Jens Haakaas",
+        "Mauro Raia",
+        "Julie Boake",
+        "Brooks Boschert",
+        "Hanan Saliba",
+        "RJ Miller"
+      ],
+      "kind": "client",
+      "summary": "Product workshop on the market analytics roadmap, a value-rank best-buy tool and quality-of-life requests.",
+      "url": "https://notes.granola.ai/d/98d6ce80-68db-4079-bd6e-1885385dc857",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "a8b14e5f-97c4-40da-9f59-50b1c6673c6c",
+      "title": "Supernal <> JetHQ - Weekly Checkpoint",
+      "date": "2026-08-18T15:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Jens Haakaas",
+        "Mauro Raia",
+        "Johnny Borbone",
+        "Julie Boake",
+        "Brooks Boschert",
+        "RJ Miller"
+      ],
+      "kind": "client",
+      "summary": "Valerie FMV updates, filtering internal sales and new deliveries out of Hub data, and access feedback.",
+      "url": "https://notes.granola.ai/d/a8b14e5f-97c4-40da-9f59-50b1c6673c6c",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "388a820e-e552-40ef-9086-0382610b21bf",
+      "title": "Delivery Sync",
+      "date": "2026-08-17T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Jens Haakaas",
+        "Belu Zerboni",
+        "Naveen Lekkalapudi"
+      ],
+      "kind": "multi",
+      "summary": "Weekly delivery review opening with JetHQ: Marcus and Valerie near complete.",
+      "url": "https://notes.granola.ai/d/388a820e-e552-40ef-9086-0382610b21bf",
+      "alt_url": "https://fathom.video/calls/784724415"
+    },
+    {
+      "provider": "granola",
+      "id": "0ac6be83-f855-487d-b85b-e74f870ea673",
+      "title": "JetHQ Weekly Planning",
+      "date": "2026-08-17T14:00:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Saad Farooq",
+        "Jens Haakaas",
+        "Mauro Raia",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Valerie status and direction, Hub cleanup and August roadmap, Marcus migration.",
+      "url": "https://notes.granola.ai/d/0ac6be83-f855-487d-b85b-e74f870ea673",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "e2da0ba3-94af-4434-8261-fe2b9ae354a0",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-08-12T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Ryan Williams"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review; JetHQ's key contact had left and a reconnect was planned.",
+      "url": "https://notes.granola.ai/d/e2da0ba3-94af-4434-8261-fe2b9ae354a0",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "776711360",
+      "title": "Delivery Sync",
+      "date": "2026-08-10",
+      "participants": [],
+      "kind": "multi",
+      "summary": "Delivery review; JetHQ's wish to leave Salesforce framed as the Flight Deck opportunity.",
+      "url": "https://fathom.video/calls/776711360",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "5c778d12-a5c2-4d27-8317-27edafacc426",
+      "title": "Supernal <> JetHQ - Weekly Checkpoint",
+      "date": "2026-08-04T15:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Jens Haakaas",
+        "Mauro Raia",
+        "Julie Boake",
+        "Brooks Boschert",
+        "Hanan Saliba",
+        "RJ Miller"
+      ],
+      "kind": "client",
+      "summary": "Broker citation fix, CTQ estimate logic, Blue Book historical upload and a listing spec design review.",
+      "url": "https://notes.granola.ai/d/5c778d12-a5c2-4d27-8317-27edafacc426",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "27f9a7fe-01c1-4208-a7ff-5cd907b07329",
+      "title": "JetHQ Weekly Planning",
+      "date": "2026-08-03T14:00:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Jens Haakaas",
+        "Mauro Raia",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Marcus migration from n8n into the codebase and the Valerie FMV report redesign.",
+      "url": "https://notes.granola.ai/d/27f9a7fe-01c1-4208-a7ff-5cd907b07329",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "9a63fbd5-b205-4759-a43f-58ae52b6cae9",
+      "title": "Supernal <> JetHQ - Weekly Checkpoint",
+      "date": "2026-07-28T15:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Jens Haakaas",
+        "Mauro Raia",
+        "Johnny Borbone",
+        "Julie Boake",
+        "Brooks Boschert"
+      ],
+      "kind": "client",
+      "summary": "Disclosed the security incident to the client and covered Valerie and BRF updates plus DNS next steps.",
+      "url": "https://notes.granola.ai/d/9a63fbd5-b205-4759-a43f-58ae52b6cae9",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "b6aebd1b-5ede-4588-ad4c-8e10f15cebc3",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-07-27T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas"
+      ],
+      "kind": "multi",
+      "summary": "Weekly delivery planning with a JetHQ status update (yellow, value metrics added).",
+      "url": "https://notes.granola.ai/d/b6aebd1b-5ede-4588-ad4c-8e10f15cebc3",
+      "alt_url": "https://fathom.video/calls/760212683"
+    },
+    {
+      "provider": "granola",
+      "id": "4880281b-883e-41ca-84d9-40bdd0ac8b1f",
+      "title": "JetHQ Weekly Planning",
+      "date": "2026-07-27T14:00:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Jens Haakaas",
+        "Mauro Raia",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Valerie go-live decision and a DNS / Railway blocker ahead of the client call.",
+      "url": "https://notes.granola.ai/d/4880281b-883e-41ca-84d9-40bdd0ac8b1f",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "0af141f7-b33b-482f-946e-edd67da6f164",
+      "title": "JetHQ – Internal Bi-Weekly Sync",
+      "date": "2026-07-22T17:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Johnny Borbone",
+        "Ryan Williams",
+        "Mauro Raia",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Account risk from a client staffer pushing to build in-house, how to answer it, and the incident call plan.",
+      "url": "https://notes.granola.ai/d/0af141f7-b33b-482f-946e-edd67da6f164",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "2874253f-c4c5-45cd-8910-f547c8478fdd",
+      "title": "Supernal <> JetHQ - Weekly Checkpoint",
+      "date": "2026-07-21T15:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Jens Haakaas",
+        "Mauro Raia",
+        "Julie Boake",
+        "Brooks Boschert",
+        "Hanan Saliba",
+        "RJ Miller"
+      ],
+      "kind": "client",
+      "summary": "ADS-B tracking via JetNet, aircraft image fixes, value adds, depreciation and vRef data, Valerie watermark removal.",
+      "url": "https://notes.granola.ai/d/2874253f-c4c5-45cd-8910-f547c8478fdd",
+      "alt_url": "https://fathom.video/calls/752567083"
+    },
+    {
+      "provider": "fathom",
+      "id": "752567085",
+      "title": "Bi-Weekly Product Workshop",
+      "date": "2026-07-21",
+      "participants": [],
+      "kind": "client",
+      "summary": "Brainstormed inventory buy alerts built on Valerie, ADS-B data sources and Hub usability.",
+      "url": "https://fathom.video/calls/752567085",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "079661f0-2ed8-4a76-b103-56d535a6a812",
+      "title": "JetHQ Weekly Planning",
+      "date": "2026-07-20T14:00:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Mauro Raia",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Hub migration status, logic for internally sold aircraft, Marcus and Valerie updates.",
+      "url": "https://notes.granola.ai/d/079661f0-2ed8-4a76-b103-56d535a6a812",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "95b1c6f6-ab88-494e-91a4-e164e91d5bf2",
+      "title": "Supernal <> JetHQ - Weekly Checkpoint",
+      "date": "2026-07-16T15:00:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Jens Haakaas",
+        "Mauro Raia",
+        "Brooks Boschert",
+        "Hanan Saliba",
+        "RJ Miller"
+      ],
+      "kind": "client",
+      "summary": "Hub issues under investigation, a proposed Companies view and a roadmap review.",
+      "url": "https://notes.granola.ai/d/95b1c6f6-ab88-494e-91a4-e164e91d5bf2",
+      "alt_url": "https://fathom.video/calls/747770780"
+    },
+    {
+      "provider": "granola",
+      "id": "4cc0a43d-8af1-4507-82b1-372cbd76b61a",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-07-13T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk"
+      ],
+      "kind": "multi",
+      "summary": "Weekly delivery planning with a JetHQ section on next milestones.",
+      "url": "https://notes.granola.ai/d/4cc0a43d-8af1-4507-82b1-372cbd76b61a",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "190e095e-3080-4c6b-af67-dd0c30f9d58d",
+      "title": "JetHQ Weekly Planning",
+      "date": "2026-07-13T14:00:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Mauro Raia"
+      ],
+      "kind": "internal",
+      "summary": "GitHub security incident, Hub task review, Marcus updates and prep for the client meeting.",
+      "url": "https://notes.granola.ai/d/190e095e-3080-4c6b-af67-dd0c30f9d58d",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "87d54970-9f79-4097-aba3-9b5eaa3e8634",
+      "title": "JetHQ",
+      "date": "2026-07-08T17:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Seb Van Kuyk",
+        "Belu Zerboni",
+        "Thomas Bustos",
+        "Naveen Lekkalapudi",
+        "Tauseef Rahman",
+        "Ryan Williams",
+        "Jaime Garcia"
+      ],
+      "kind": "internal",
+      "summary": "Prepped RJ's tech talk, a Flight Control pricing menu, the Julie meeting timeline and chat agent scope.",
+      "url": "https://notes.granola.ai/d/87d54970-9f79-4097-aba3-9b5eaa3e8634",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "078efb31-3144-4e71-951b-4c9bbc6966e8",
+      "title": "Supernal <> JetHQ - Weekly Checkpoint",
+      "date": "2026-07-07T15:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Jens Haakaas",
+        "Mauro Raia",
+        "Julie Boake",
+        "Brooks Boschert",
+        "Hanan Saliba",
+        "RJ Miller"
+      ],
+      "kind": "client",
+      "summary": "FMV report tool demo, sales enablement session prep, usage tracking and the June/July roadmap.",
+      "url": "https://notes.granola.ai/d/078efb31-3144-4e71-951b-4c9bbc6966e8",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "e6b458f3-b0b0-4f58-b1db-08534dafe456",
+      "title": "JetHQ Weekly Planning",
+      "date": "2026-07-06T14:00:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Jens Haakaas",
+        "Mauro Raia"
+      ],
+      "kind": "internal",
+      "summary": "Valerie and Hub migration work and open tickets before the client checkpoint.",
+      "url": "https://notes.granola.ai/d/e6b458f3-b0b0-4f58-b1db-08534dafe456",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "bdbb856d-4cbc-44d2-98fa-6a6a5fea19ec",
+      "title": "JetHQ \"Flight Deck\" Scoping",
+      "date": "2026-07-01T16:00:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Johnny Borbone",
+        "Jens Haakaas",
+        "Mauro Raia"
+      ],
+      "kind": "internal",
+      "summary": "Scoped the Flight Deck idea, the risk of duplicating Salesforce, and pricing.",
+      "url": "https://notes.granola.ai/d/bdbb856d-4cbc-44d2-98fa-6a6a5fea19ec",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "6fb53353-f7f9-4bb4-adf6-da564083b275",
+      "title": "Supernal <> JetHQ - Weekly Checkpoint",
+      "date": "2026-06-30T15:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Jens Haakaas",
+        "Mauro Raia",
+        "Julie Boake",
+        "Brooks Boschert",
+        "Hanan Saliba",
+        "RJ Miller"
+      ],
+      "kind": "client",
+      "summary": "Market report enhancements, Blue Book data uploads, the Valerie launch and the July roadmap.",
+      "url": "https://notes.granola.ai/d/6fb53353-f7f9-4bb4-adf6-da564083b275",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "71b7650e-51d0-4528-b692-c498422303ac",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-06-29T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas"
+      ],
+      "kind": "multi",
+      "summary": "Weekly delivery planning; JetHQ reported back to green.",
+      "url": "https://notes.granola.ai/d/71b7650e-51d0-4528-b692-c498422303ac",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "8ccf611f-7657-4f1d-899c-efdd972014e2",
+      "title": "JetHQ Weekly Planning",
+      "date": "2026-06-29T14:00:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Jens Haakaas",
+        "Mauro Raia"
+      ],
+      "kind": "internal",
+      "summary": "Closing out Valerie for June, Hub and Marcus cleanup, and the next client agenda.",
+      "url": "https://notes.granola.ai/d/8ccf611f-7657-4f1d-899c-efdd972014e2",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "f1068e19-5f71-48fc-863f-294c6cb87baa",
+      "title": "JetHQ AI Operating System - Further Technical Scoping",
+      "date": "2026-06-26T17:00:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Johnny Borbone",
+        "Julie Boake"
+      ],
+      "kind": "client",
+      "summary": "Scoped FlightDeck with Julie: current tools, aircraft files in the Hub, a project OS and intranet modernisation.",
+      "url": "https://notes.granola.ai/d/f1068e19-5f71-48fc-863f-294c6cb87baa",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "16c7f011-5932-4263-9722-a8b200695b46",
+      "title": "Johnny / Sven - JetHQ Prep",
+      "date": "2026-06-25T20:00:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Johnny Borbone"
+      ],
+      "kind": "internal",
+      "summary": "Prepared for the FlightDeck scoping call with Julie: likely priorities, ideal outcome and approach.",
+      "url": "https://notes.granola.ai/d/16c7f011-5932-4263-9722-a8b200695b46",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "991cca3b-279c-4674-9fa0-0700dbb2bc5a",
+      "title": "JetHQ – Internal Bi-Weekly Sync",
+      "date": "2026-06-24T17:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Johnny Borbone",
+        "Jens Haakaas",
+        "Ryan Williams",
+        "Mauro Raia"
+      ],
+      "kind": "internal",
+      "summary": "Broker one-pager and tech talk, the Julie call and Salesforce overlap, Pulse feedback.",
+      "url": "https://notes.granola.ai/d/991cca3b-279c-4674-9fa0-0700dbb2bc5a",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "5ef760ee-5184-4465-ba13-bd3aaa9a5dd5",
+      "title": "Supernal <> JetHQ - Weekly Checkpoint",
+      "date": "2026-06-23T15:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Jens Haakaas",
+        "Mauro Raia",
+        "Johnny Borbone",
+        "Julie Boake",
+        "Brooks Boschert",
+        "Hanan Saliba"
+      ],
+      "kind": "client",
+      "summary": "Blue Book quarterly data, dashboard UI, market report builder, Valerie depreciation and VREF, deployment issues.",
+      "url": "https://notes.granola.ai/d/5ef760ee-5184-4465-ba13-bd3aaa9a5dd5",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "8a2bf558-0441-439e-86eb-ce200106bc5a",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-06-22T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas"
+      ],
+      "kind": "multi",
+      "summary": "Weekly delivery planning; JetHQ yellow and trending to green.",
+      "url": "https://notes.granola.ai/d/8a2bf558-0441-439e-86eb-ce200106bc5a",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "d3e80740-6922-40f0-b462-3834f82a1c64",
+      "title": "JetHQ Weekly Planning",
+      "date": "2026-06-22T14:00:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Jens Haakaas",
+        "Mauro Raia",
+        "Saad Farooq"
+      ],
+      "kind": "internal",
+      "summary": "Valerie and Blue Book workstream, Hub task status and the next client agenda.",
+      "url": "https://notes.granola.ai/d/d3e80740-6922-40f0-b462-3834f82a1c64",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "edf37b20-5b54-41c3-8f29-e5ff61d97315",
+      "title": "Supernal <> JetHQ - Weekly Checkpoint",
+      "date": "2026-06-16T15:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Jens Haakaas",
+        "Mauro Raia",
+        "Julie Boake",
+        "Brooks Boschert",
+        "Hanan Saliba",
+        "RJ Miller"
+      ],
+      "kind": "client",
+      "summary": "Pulse dashboard access and metrics, then Valerie value adds and FMV report improvements.",
+      "url": "https://notes.granola.ai/d/edf37b20-5b54-41c3-8f29-e5ff61d97315",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "aa18de57-d1a3-43ef-9f25-4ba2e11b5eab",
+      "title": "JetHQ Weekly Planning",
+      "date": "2026-06-15T14:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Jens Haakaas",
+        "Mauro Raia",
+        "Saad Farooq"
+      ],
+      "kind": "internal",
+      "summary": "Valerie HTML report proof of concept, Hub and Pulse KPI dashboard, ticket priorities.",
+      "url": "https://notes.granola.ai/d/aa18de57-d1a3-43ef-9f25-4ba2e11b5eab",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "35bbed96-bf7a-4ad1-a4ff-67b43e182b74",
+      "title": "Supernal <> JetHQ - Weekly Checkpoint",
+      "date": "2026-06-09T15:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Jens Haakaas",
+        "Mauro Raia",
+        "Julie Boake",
+        "Brooks Boschert",
+        "Hanan Saliba"
+      ],
+      "kind": "client",
+      "summary": "Pulse dashboard feedback, Hub adoption blockers, and Marcus alert accuracy.",
+      "url": "https://notes.granola.ai/d/35bbed96-bf7a-4ad1-a4ff-67b43e182b74",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "d2a21b08-1b4b-4b57-96c2-a97955135d72",
+      "title": "JetHQ Weekly Planning",
+      "date": "2026-06-08T14:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Jens Haakaas",
+        "Mauro Raia"
+      ],
+      "kind": "internal",
+      "summary": "Project status and Valerie development challenges.",
+      "url": "https://notes.granola.ai/d/d2a21b08-1b4b-4b57-96c2-a97955135d72",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "cb7c298c-5eed-43d6-b70b-22d3c0be6e3b",
+      "title": "Supernal <> JetHQ - Weekly Checkpoint",
+      "date": "2026-06-02T15:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Jens Haakaas",
+        "Mauro Raia",
+        "Johnny Borbone",
+        "Julie Boake",
+        "Brooks Boschert",
+        "Hanan Saliba"
+      ],
+      "kind": "client",
+      "summary": "June development priorities, Valerie progress and a proposed design session, Hub UX feedback.",
+      "url": "https://notes.granola.ai/d/cb7c298c-5eed-43d6-b70b-22d3c0be6e3b",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "118d19de-d6f6-48dd-b799-53b7cce6e266",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-06-01T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas"
+      ],
+      "kind": "multi",
+      "summary": "Weekly delivery planning with a JetHQ update on accuracy tracking.",
+      "url": "https://notes.granola.ai/d/118d19de-d6f6-48dd-b799-53b7cce6e266",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "04302f33-0327-4786-9369-033297049edd",
+      "title": "JetHQ Weekly Planning",
+      "date": "2026-06-01T14:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Jens Haakaas",
+        "Mauro Raia",
+        "Saad Farooq"
+      ],
+      "kind": "internal",
+      "summary": "Project status, the next client agenda and June development priorities.",
+      "url": "https://notes.granola.ai/d/04302f33-0327-4786-9369-033297049edd",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "a68f14f6-9eb1-4fd4-937b-e1e8bb6139ab",
+      "title": "JetHQ – Internal Bi-Weekly Sync",
+      "date": "2026-05-29T15:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Johnny Borbone",
+        "Jens Haakaas",
+        "Eric Kravitz",
+        "Ryan Williams"
+      ],
+      "kind": "internal",
+      "summary": "Handover after Eric's departure and alignment on account status.",
+      "url": "https://notes.granola.ai/d/a68f14f6-9eb1-4fd4-937b-e1e8bb6139ab",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "2c0662f0-5e07-4a0c-a6ce-704efc0216ae",
+      "title": "Supernal <> JetHQ - Weekly Checkpoint",
+      "date": "2026-05-26T15:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Jens Haakaas",
+        "Mauro Raia",
+        "Julie Boake",
+        "Brooks Boschert",
+        "Hanan Saliba",
+        "RJ Miller"
+      ],
+      "kind": "client",
+      "summary": "Data integrity features demo, Valerie report updates, Hub prioritisation and off-market aircraft tracking.",
+      "url": "https://notes.granola.ai/d/2c0662f0-5e07-4a0c-a6ce-704efc0216ae",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "c9404763-4218-4d12-9c11-20cfe35d6040",
+      "title": "JetHQ Weekly Planning",
+      "date": "2026-05-26T13:00:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Jens Haakaas",
+        "Mauro Raia",
+        "Saad Farooq"
+      ],
+      "kind": "internal",
+      "summary": "Task management, development demos and Valerie planning.",
+      "url": "https://notes.granola.ai/d/c9404763-4218-4d12-9c11-20cfe35d6040",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "ad9c237b-aad1-4bb2-a791-16517a7028a0",
+      "title": "JetHQ Marcus Onboarding Jens",
+      "date": "2026-05-19T15:57:00Z",
+      "participants": [
+        "Sven Boettger"
+      ],
+      "kind": "internal",
+      "summary": "Onboarded Jens to the Marcus system and an infrastructure issue.",
+      "url": "https://notes.granola.ai/d/ad9c237b-aad1-4bb2-a791-16517a7028a0",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "27d76c06-9968-47bc-9792-d84584c700e6",
+      "title": "Supernal <> JetHQ - Weekly Checkpoint (Roadmap Special)",
+      "date": "2026-05-19T15:00:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Johnny Borbone",
+        "Jens Haakaas",
+        "Mauro Raia",
+        "Hanan Saliba",
+        "Julie Boake",
+        "Brooks Boschert"
+      ],
+      "kind": "client",
+      "summary": "Roadmap session covering Valerie development status and how to prioritise Hub work.",
+      "url": "https://notes.granola.ai/d/27d76c06-9968-47bc-9792-d84584c700e6",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "12d54bdc-c554-4e67-a471-1449758bdd51",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-05-18T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas"
+      ],
+      "kind": "multi",
+      "summary": "Weekly delivery planning with a JetHQ section ahead of the roadmap meeting.",
+      "url": "https://notes.granola.ai/d/12d54bdc-c554-4e67-a471-1449758bdd51",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "63fe7f6e-72c4-4aaf-957c-16e413f281f6",
+      "title": "JetHQ Weekly Planning",
+      "date": "2026-05-18T14:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Jens Haakaas",
+        "Mauro Raia",
+        "Saad Farooq"
+      ],
+      "kind": "internal",
+      "summary": "Project status, a new project management tool and the KPI dashboard.",
+      "url": "https://notes.granola.ai/d/63fe7f6e-72c4-4aaf-957c-16e413f281f6",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "2f472c0c-a644-45b2-865c-6edebdcc81a8",
+      "title": "JetHQ – Internal Bi-Weekly Sync",
+      "date": "2026-05-15T16:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Johnny Borbone",
+        "Jens Haakaas",
+        "Eric Kravitz",
+        "Ryan Williams"
+      ],
+      "kind": "internal",
+      "summary": "Status and capacity, Hub naming, roadmap meeting prep and revenue expansion pricing.",
+      "url": "https://notes.granola.ai/d/2f472c0c-a644-45b2-865c-6edebdcc81a8",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "6320c295-77df-4136-b828-e9b39c634466",
+      "title": "JetHQ Follow up",
+      "date": "2026-05-12T19:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Jens Haakaas",
+        "Seb Van Kuyk"
+      ],
+      "kind": "internal",
+      "summary": "Client relationship and pricing strategy, resourcing, and new requirements after a successful demo.",
+      "url": "https://notes.granola.ai/d/6320c295-77df-4136-b828-e9b39c634466",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "00555fa0-a8df-4302-9942-7b354589bd0b",
+      "title": "Supernal <> JetHQ - Weekly Checkpoint",
+      "date": "2026-05-12T15:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Johnny Borbone",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Hanan Saliba",
+        "Julie Boake"
+      ],
+      "kind": "client",
+      "summary": "Team introductions, Hub feature updates and Valerie technical progress.",
+      "url": "https://notes.granola.ai/d/00555fa0-a8df-4302-9942-7b354589bd0b",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "dd995bde-759f-44cd-bf20-499f34cf6562",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-05-11T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas"
+      ],
+      "kind": "multi",
+      "summary": "Weekly delivery planning; JetHQ moved from red to yellow and its scope was clarified.",
+      "url": "https://notes.granola.ai/d/dd995bde-759f-44cd-bf20-499f34cf6562",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "2f524683-d99d-4888-938b-7f11d1ea7a9d",
+      "title": "JetHQ Weekly Planning",
+      "date": "2026-05-11T14:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Jens Haakaas",
+        "Mauro Raia",
+        "Saad Farooq"
+      ],
+      "kind": "internal",
+      "summary": "Weekly work allocation, aircraft image enhancement and front-end updates.",
+      "url": "https://notes.granola.ai/d/2f524683-d99d-4888-938b-7f11d1ea7a9d",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "fac394b9-6646-4dde-b6b8-cea24c39cbaa",
+      "title": "Supernal <> JetHQ - Weekly Checkpoint",
+      "date": "2026-05-05T15:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Johnny Borbone",
+        "Jens Haakaas",
+        "Saad Farooq",
+        "Hanan Saliba",
+        "Julie Boake",
+        "RJ Miller"
+      ],
+      "kind": "client",
+      "summary": "Product enhancement requests, on-watch and withdrawn aircraft handling, UI and market analytics.",
+      "url": "https://notes.granola.ai/d/fac394b9-6646-4dde-b6b8-cea24c39cbaa",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "9ba05626-0280-40e3-a7b6-1d0e00d49a5a",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-05-04T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Jens Haakaas"
+      ],
+      "kind": "multi",
+      "summary": "Weekly delivery planning; JetHQ rated red after client feedback.",
+      "url": "https://notes.granola.ai/d/9ba05626-0280-40e3-a7b6-1d0e00d49a5a",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "cc2eecf3-4ba4-4176-881e-11ac4ebc9868",
+      "title": "Delivery Team Sync",
+      "date": "2026-05-04T15:45:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Devan Leibowitz",
+        "Eric Kravitz",
+        "Sven Boettger",
+        "Belu Zerboni"
+      ],
+      "kind": "multi",
+      "summary": "Delivery team sync with a section on JetHQ's red status and recovery.",
+      "url": "https://notes.granola.ai/d/cc2eecf3-4ba4-4176-881e-11ac4ebc9868",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "0701816a-37e2-4985-a4a3-e46eda221ace",
+      "title": "Brooks Email JetHQ Jens",
+      "date": "2026-05-01T19:20:00Z",
+      "participants": [
+        "Sven Boettger"
+      ],
+      "kind": "internal",
+      "summary": "Sorted and prioritised a batch of feature requests from Brooks.",
+      "url": "https://notes.granola.ai/d/0701816a-37e2-4985-a4a3-e46eda221ace",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "bd0daba7-0627-459d-a0b4-6901261647e2",
+      "title": "JetHQ Internal Alignment",
+      "date": "2026-05-01T16:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Johnny Borbone",
+        "Jens Haakaas",
+        "Ryan Williams",
+        "Eric Kravitz",
+        "Naveen Lekkalapudi"
+      ],
+      "kind": "internal",
+      "summary": "Move to the Flexible Build Program, staffing changes, scope and risk.",
+      "url": "https://notes.granola.ai/d/bd0daba7-0627-459d-a0b4-6901261647e2",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "ae223ecb-2562-456b-b31c-94b05afaeb22",
+      "title": "Weekly Pipeline Review",
+      "date": "2026-04-08T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Seb Van Kuyk",
+        "Eric Kravitz",
+        "Scott Downes",
+        "Ryan Williams"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review including the JetHQ expansion deal.",
+      "url": "https://notes.granola.ai/d/ae223ecb-2562-456b-b31c-94b05afaeb22",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "f6334280-61ee-42d2-8c39-00282f12566a",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-03-16T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas"
+      ],
+      "kind": "multi",
+      "summary": "Weekly delivery planning with a JetHQ and Heritage progress section.",
+      "url": "https://notes.granola.ai/d/f6334280-61ee-42d2-8c39-00282f12566a",
+      "alt_url": null
+    }
+  ]
+}

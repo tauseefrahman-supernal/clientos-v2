@@ -1,0 +1,1287 @@
+{
+  "slug": "rafferty",
+  "pulled": "2026-11-15",
+  "searched": [
+    "Rafferty",
+    "Raff Ventures",
+    "Refer Ventures",
+    "Direxion",
+    "Argus",
+    "Atlas",
+    "Mulholland",
+    "Ventures OS",
+    "Holdings OS",
+    "SMPL"
+  ],
+  "meetings": [
+    {
+      "provider": "granola",
+      "id": "7497714a-f6d8-4009-8877-3ec3909e9dda",
+      "title": "Delivery Sync",
+      "date": "2026-11-09T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Ryan Williams",
+        "Harvy Leyton"
+      ],
+      "kind": "multi",
+      "summary": "Company delivery sync with a Rafferty Ventures section alongside TechPipe and World Emblem.",
+      "url": "https://notes.granola.ai/d/7497714a-f6d8-4009-8877-3ec3909e9dda",
+      "alt_url": "https://fathom.video/calls/891407302"
+    },
+    {
+      "provider": "granola",
+      "id": "7c24c538-cbef-4ab5-b70e-7868dc650e3a",
+      "title": "Rafferty Ventures Sync: \"Weekly Planning\"",
+      "date": "2026-11-09T15:00:00Z",
+      "participants": [
+        "Katie Jefferson",
+        "Abdelaaziz Bellout",
+        "Thomas Bustos",
+        "Felipe Orlando"
+      ],
+      "kind": "internal",
+      "summary": "Weekly planning on dashboard performance, email triage priorities, remaining features and API key handoff.",
+      "url": "https://notes.granola.ai/d/7c24c538-cbef-4ab5-b70e-7868dc650e3a",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "24db47fd-3ee0-456e-b70b-45076ebdb469",
+      "title": "Raf debrief - ventures and CAIO",
+      "date": "2026-11-04T22:00:00Z",
+      "participants": [
+        "Katie Jefferson"
+      ],
+      "kind": "internal",
+      "summary": "Debrief on recovering the Rafferty account, training and workshop progress, and a related order form.",
+      "url": "https://notes.granola.ai/d/24db47fd-3ee0-456e-b70b-45076ebdb469",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "2ff040ed-b119-41e1-a489-6ba2996eb00f",
+      "title": "Raff Venture AI OS - Weekly Checkpoint",
+      "date": "2026-11-04T19:30:00Z",
+      "participants": [
+        "Katie Jefferson",
+        "Johnny Borbone",
+        "Thomas Bustos",
+        "Abdelaaziz Bellout",
+        "Felipe Orlando",
+        "Henry Mulholland",
+        "Jack Grady"
+      ],
+      "kind": "client",
+      "summary": "Weekly checkpoint on bugs Jack reported, their suspected cause, an email edge case and open API items; the demo was rescheduled.",
+      "url": "https://notes.granola.ai/d/2ff040ed-b119-41e1-a489-6ba2996eb00f",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "db286cea-06ee-46e1-b5a4-cf065a5095f0",
+      "title": "Workshops sync",
+      "date": "2026-11-03T18:30:00Z",
+      "participants": [
+        "Thomas Bustos",
+        "Johnny Borbone",
+        "Katie Jefferson",
+        "Shari James"
+      ],
+      "kind": "client",
+      "summary": "Prep for the CAIO workshops across Rafferty Holdings entities: session goals, participants and a Ventures update.",
+      "url": "https://notes.granola.ai/d/db286cea-06ee-46e1-b5a4-cf065a5095f0",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "c77ccf9c-e184-41d1-a8a5-8c1354531a90",
+      "title": "Delivery Sync",
+      "date": "2026-11-02T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Ryan Williams",
+        "Harvy Leyton",
+        "Fran Abenza"
+      ],
+      "kind": "multi",
+      "summary": "Company delivery sync with a Rafferty section alongside Heritage AI and Labyrinth.",
+      "url": "https://notes.granola.ai/d/c77ccf9c-e184-41d1-a8a5-8c1354531a90",
+      "alt_url": "https://fathom.video/calls/882864595"
+    },
+    {
+      "provider": "granola",
+      "id": "a5b06ada-889d-492d-aeec-6a3e01495622",
+      "title": "Rafferty <> Supernal AI -  BiWeekly SMPL Technology & AI Coordination",
+      "date": "2026-10-27T16:00:00Z",
+      "participants": [
+        "Katie Jefferson",
+        "Abdelaaziz Bellout",
+        "Arto Akyemeniciyan",
+        "Johnny Borbone",
+        "Thomas Bustos",
+        "Naveen Lekkalapudi",
+        "Felipe Orlando"
+      ],
+      "kind": "client",
+      "summary": "Coordination with Rafferty's IT provider after the incident: API key rotation, calendar access scope and a Teams app for call briefs.",
+      "url": "https://notes.granola.ai/d/a5b06ada-889d-492d-aeec-6a3e01495622",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "b1be2bbc-b300-4bc1-9991-013b982f76b7",
+      "title": "Rafferty Ventures Sync: \"Weekly Planning\"",
+      "date": "2026-10-26T15:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Abdelaaziz Bellout",
+        "Katie Jefferson",
+        "Thomas Bustos",
+        "Felipe Orlando"
+      ],
+      "kind": "internal",
+      "summary": "Weekly planning after the Railway incident: credential rotation, the IT provider call, the Milestone 4 review deck and priorities.",
+      "url": "https://notes.granola.ai/d/b1be2bbc-b300-4bc1-9991-013b982f76b7",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "8416557e-8943-4992-8cea-144189e0a944",
+      "title": "Raff Venture AI OS - Weekly Checkpoint",
+      "date": "2026-10-21T18:30:00Z",
+      "participants": [
+        "Katie Jefferson",
+        "Thomas Bustos",
+        "Abdelaaziz Bellout",
+        "Felipe Orlando",
+        "Henry Mulholland",
+        "Jack Grady"
+      ],
+      "kind": "client",
+      "summary": "Weekly client checkpoint on what shipped, confirmed decisions, the monthly deck and Milestone 4 status.",
+      "url": "https://notes.granola.ai/d/8416557e-8943-4992-8cea-144189e0a944",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "da9e75d0-c654-4d19-9657-f801c9daf8af",
+      "title": "Rafferty - Team AI Training Session Prep",
+      "date": "2026-10-20T15:30:00Z",
+      "participants": [
+        "Katie Jefferson",
+        "Johnny Borbone",
+        "Thomas Bustos",
+        "Shari James",
+        "Michael Radzicki"
+      ],
+      "kind": "client",
+      "summary": "Prep with Rafferty and Direxion for team AI training: approach, department rollout and hiring two lead AI engineers.",
+      "url": "https://notes.granola.ai/d/da9e75d0-c654-4d19-9657-f801c9daf8af",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "6041665b-b31e-4524-b886-94dc2e36aa1f",
+      "title": "Rafferty Ventures Sync: \"Weekly Planning\"",
+      "date": "2026-10-19T15:00:00Z",
+      "participants": [
+        "Katie Jefferson",
+        "Abdelaaziz Bellout",
+        "Thomas Bustos",
+        "Felipe Orlando"
+      ],
+      "kind": "internal",
+      "summary": "Weekly planning on staging features ready for production, dashboard navigation, a deployment blocker and prep for the client call.",
+      "url": "https://notes.granola.ai/d/6041665b-b31e-4524-b886-94dc2e36aa1f",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "25493682-fcb5-4aa7-9405-6d867a22cf09",
+      "title": "Raff Venture AI OS - Weekly Checkpoint",
+      "date": "2026-10-14T18:30:00Z",
+      "participants": [
+        "Katie Jefferson",
+        "Johnny Borbone",
+        "Thomas Bustos",
+        "Tauseef Rahman",
+        "Abdelaaziz Bellout",
+        "Felipe Orlando",
+        "Henry Mulholland"
+      ],
+      "kind": "client",
+      "summary": "Weekly checkpoint on monthly review deck feedback, data source coverage gaps and pipeline stages.",
+      "url": "https://notes.granola.ai/d/25493682-fcb5-4aa7-9405-6d867a22cf09",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "5fd2cb7b-fd37-4a0e-98cd-551854001560",
+      "title": "Sync: \"Rafferty Ventures\"",
+      "date": "2026-10-14T15:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Abdelaaziz Bellout",
+        "Felipe Orlando",
+        "Katie Jefferson"
+      ],
+      "kind": "internal",
+      "summary": "Internal sync on the monthly deck format and data gaps, staging updates to promote and the SharePoint connection.",
+      "url": "https://notes.granola.ai/d/5fd2cb7b-fd37-4a0e-98cd-551854001560",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "cb0f0cd0-2a7a-4bef-902f-2e5f1093a559",
+      "title": "Rafferty Ventures Sync: \"Weekly Planning\"",
+      "date": "2026-10-13T15:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Abdelaaziz Bellout",
+        "Katie Jefferson",
+        "Thomas Bustos",
+        "Felipe Orlando"
+      ],
+      "kind": "internal",
+      "summary": "Weekly planning on blockers and access issues, staging updates and the handoff to Felipe.",
+      "url": "https://notes.granola.ai/d/cb0f0cd0-2a7a-4bef-902f-2e5f1093a559",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "703ef994-ef50-4cbc-9983-dbdb83940ad1",
+      "title": "Raff Venture AI OS - Weekly Checkpoint (Updated time)",
+      "date": "2026-10-08T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Felipe Orlando",
+        "Abdelaaziz Bellout",
+        "Johnny Borbone",
+        "Katie Jefferson",
+        "Henry Mulholland",
+        "Jack Grady"
+      ],
+      "kind": "client",
+      "summary": "Weekly checkpoint walking through email ingestion security, a product demo, milestone status and handoff.",
+      "url": "https://notes.granola.ai/d/703ef994-ef50-4cbc-9983-dbdb83940ad1",
+      "alt_url": "https://fathom.video/calls/853803737"
+    },
+    {
+      "provider": "granola",
+      "id": "e7b855b0-43ee-4b17-b027-47a892f8deb7",
+      "title": "Rafferty Handover: Part 1",
+      "date": "2026-10-07T15:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Katie Jefferson"
+      ],
+      "kind": "internal",
+      "summary": "Handover of the Rafferty account to Katie: timeline, account strategy and that day's client call.",
+      "url": "https://notes.granola.ai/d/e7b855b0-43ee-4b17-b027-47a892f8deb7",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "fdd6dfea-28c1-4f96-ab3f-3f3ab6715b18",
+      "title": "Sync: \"Rafferty Ventures\"",
+      "date": "2026-10-07T15:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Abdelaaziz Bellout",
+        "Felipe Orlando",
+        "Katie Jefferson"
+      ],
+      "kind": "internal",
+      "summary": "Handover sync on Felipe's onboarding, SharePoint and email access, priorities and milestone status.",
+      "url": "https://notes.granola.ai/d/fdd6dfea-28c1-4f96-ab3f-3f3ab6715b18",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "cc77a502-84ea-4971-8ef5-7c22259d4b38",
+      "title": "Delivery Sync",
+      "date": "2026-10-05T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Ryan Williams",
+        "Harvy Leyton"
+      ],
+      "kind": "multi",
+      "summary": "Company delivery sync with a Rafferty section led by Tauseef.",
+      "url": "https://notes.granola.ai/d/cc77a502-84ea-4971-8ef5-7c22259d4b38",
+      "alt_url": "https://fathom.video/calls/846711109"
+    },
+    {
+      "provider": "granola",
+      "id": "13888edc-7316-439a-9411-b37d3fac164f",
+      "title": "Rafferty Ventures Sync: \"Weekly Planning\"",
+      "date": "2026-10-05T15:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Abdelaaziz Bellout",
+        "Katie Jefferson",
+        "Thomas Bustos",
+        "Felipe Orlando"
+      ],
+      "kind": "internal",
+      "summary": "Weekly planning on Felipe's onboarding, email integration, the deal directory and milestone priorities.",
+      "url": "https://notes.granola.ai/d/13888edc-7316-439a-9411-b37d3fac164f",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "4c14f080-4b8b-42ff-a2a8-274c8055307f",
+      "title": "Debrief",
+      "date": "2026-10-01T19:24:26Z",
+      "participants": [
+        "Katie Jefferson"
+      ],
+      "kind": "internal",
+      "summary": "Debrief on Rafferty account status after a shortened client meeting, plus an account health dashboard idea.",
+      "url": "https://notes.granola.ai/d/4c14f080-4b8b-42ff-a2a8-274c8055307f",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "dd35d982-c2b6-4b54-99c2-6f9c8fbc3649",
+      "title": "Supernal AI <> Rafferty - Chief AI Officer MOR",
+      "date": "2026-10-01T19:00:00Z",
+      "participants": [
+        "Katie Jefferson",
+        "Johnny Borbone",
+        "Thomas Bustos",
+        "Shari James"
+      ],
+      "kind": "client",
+      "summary": "Chief AI Officer monthly review: Rafferty's revised AI strategy, Supernal's ongoing role, survey and workshop approach, governance.",
+      "url": "https://notes.granola.ai/d/dd35d982-c2b6-4b54-99c2-6f9c8fbc3649",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "f2df6628-4beb-487f-95b8-95dae1d3e894",
+      "title": "Raff Venture AI OS - Weekly Checkpoint",
+      "date": "2026-09-30T18:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Thomas Bustos",
+        "Katie Jefferson",
+        "Abdelaaziz Bellout",
+        "Felipe Orlando",
+        "Henry Mulholland"
+      ],
+      "kind": "client",
+      "summary": "Week 9 checkpoint on what shipped, a deal stage walkthrough with Jack's feedback and milestone status.",
+      "url": "https://notes.granola.ai/d/f2df6628-4beb-487f-95b8-95dae1d3e894",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "e7647b1d-7e50-4195-9ed7-3a7eb72a2b3b",
+      "title": "Sync: \"Rafferty Ventures\"",
+      "date": "2026-09-30T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Abdelaaziz Bellout",
+        "Felipe Orlando",
+        "Katie Jefferson"
+      ],
+      "kind": "internal",
+      "summary": "Onboarded Felipe to Rafferty Ventures: client background, Ventures OS overview, week 8 milestone status and pending Granola and iMessage integrations.",
+      "url": "https://notes.granola.ai/d/e7647b1d-7e50-4195-9ed7-3a7eb72a2b3b",
+      "alt_url": "https://fathom.video/calls/840786530"
+    },
+    {
+      "provider": "granola",
+      "id": "60921884-da32-4e2d-bb4e-415117a1bae0",
+      "title": "Rafferty Ventures | Internal Tri-Weekly Sync",
+      "date": "2026-09-29T16:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Abdelaaziz Bellout",
+        "Johnny Borbone",
+        "Katie Jefferson",
+        "Thomas Bustos",
+        "Felipe Orlando"
+      ],
+      "kind": "internal",
+      "summary": "Internal review of Rafferty account health, relationship and strategy concerns, KPIs and transitions.",
+      "url": "https://notes.granola.ai/d/60921884-da32-4e2d-bb4e-415117a1bae0",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "70750853-9e50-4749-88f8-d2cafd27e673",
+      "title": "Rafferty <> Supernal AI -  BiWeekly SMPL Technology & AI Coordination",
+      "date": "2026-09-29T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Abdelaaziz Bellout",
+        "Arto Akyemeniciyan",
+        "Johnny Borbone",
+        "Katie Jefferson",
+        "Naveen Lekkalapudi",
+        "Shari James"
+      ],
+      "kind": "client",
+      "summary": "Coordination with Rafferty's IT provider on Microsoft 365 integration, iMessage integration and guardrails, and Granola setup.",
+      "url": "https://notes.granola.ai/d/70750853-9e50-4749-88f8-d2cafd27e673",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "3ce37cd9-5337-4480-84b5-6e5fdeef8bd6",
+      "title": "Rafferty Ventures Sync: \"Weekly Planning\"",
+      "date": "2026-09-28T15:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Abdelaaziz Bellout",
+        "Katie Jefferson",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Weekly planning on the UI redesign, a design tool audit, a standard deal structure document and prep for the IT provider call.",
+      "url": "https://notes.granola.ai/d/3ce37cd9-5337-4480-84b5-6e5fdeef8bd6",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "0ff5d2ce-084e-4458-91b0-53d8adcb060a",
+      "title": "Raff Ventures <> Supernal | Deal Structure Q & A",
+      "date": "2026-09-25T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Abdelaaziz Bellout",
+        "Drew Quinn",
+        "Katie Jefferson",
+        "Jack Grady"
+      ],
+      "kind": "client",
+      "summary": "Q&A on deal stage structure, stage progression logic, company briefs, diligence data and portfolio monitoring.",
+      "url": "https://notes.granola.ai/d/0ff5d2ce-084e-4458-91b0-53d8adcb060a",
+      "alt_url": "https://fathom.video/calls/835353873"
+    },
+    {
+      "provider": "granola",
+      "id": "ba820349-8c83-40dc-a2c7-d964bf3e0e1f",
+      "title": "Tauseef / Thomas",
+      "date": "2026-09-24T18:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Thomas Bustos"
+      ],
+      "kind": "multi",
+      "summary": "One-to-one covering capacity and the handoff of Rafferty to Katie.",
+      "url": "https://notes.granola.ai/d/ba820349-8c83-40dc-a2c7-d964bf3e0e1f",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "75a1e31d-ed41-4071-a4cb-2bf1bf9dca2e",
+      "title": "Raff Venture AI OS - Weekly Checkpoint",
+      "date": "2026-09-23T18:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Thomas Bustos",
+        "Katie Jefferson",
+        "Abdelaaziz Bellout",
+        "Henry Mulholland",
+        "Jack Grady"
+      ],
+      "kind": "client",
+      "summary": "Week 8 checkpoint on platform progress, iMessage integration and recording devices, and the deal framework.",
+      "url": "https://notes.granola.ai/d/75a1e31d-ed41-4071-a4cb-2bf1bf9dca2e",
+      "alt_url": "https://fathom.video/calls/833516512"
+    },
+    {
+      "provider": "granola",
+      "id": "d8dde546-2c3d-4236-98b5-2f73d4f2c9f0",
+      "title": "Tauseef / Diana",
+      "date": "2026-09-21T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Diana Pedroza"
+      ],
+      "kind": "internal",
+      "summary": "Walked Diana through the Rafferty Ventures account and the product build: app, vault and AI employee.",
+      "url": "https://notes.granola.ai/d/d8dde546-2c3d-4236-98b5-2f73d4f2c9f0",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "3f107402-6f4a-4c5c-ad64-e9b978250048",
+      "title": "Delivery Sync",
+      "date": "2026-09-21T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Ryan Williams",
+        "Harvy Leyton"
+      ],
+      "kind": "multi",
+      "summary": "Company delivery sync with a Rafferty and SMPL section.",
+      "url": "https://notes.granola.ai/d/3f107402-6f4a-4c5c-ad64-e9b978250048",
+      "alt_url": "https://fathom.video/calls/827964071"
+    },
+    {
+      "provider": "granola",
+      "id": "e252e707-cb08-4d78-ae98-45ddcea3fd68",
+      "title": "Rafferty Ventures Sync: \"Weekly Planning\"",
+      "date": "2026-09-21T15:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Abdelaaziz Bellout",
+        "Katie Jefferson",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Weekly planning on the milestone due that week, deal brief quality, mobile UI and the monthly review deck.",
+      "url": "https://notes.granola.ai/d/e252e707-cb08-4d78-ae98-45ddcea3fd68",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "3cfd54f5-18ce-4ae2-ab9f-b13b494f87b4",
+      "title": "Sync: \"Katie & Tauseef\"",
+      "date": "2026-09-18T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Katie Jefferson"
+      ],
+      "kind": "multi",
+      "summary": "One-to-one that opened with a Rafferty update: the life app and Direxion work both paused.",
+      "url": "https://notes.granola.ai/d/3cfd54f5-18ce-4ae2-ab9f-b13b494f87b4",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "652e8186-7622-4b33-b3fc-60ecb29c2d75",
+      "title": "Rafferty <> Supernal AI - BiWeekly SMPL Technology & AI Coordination",
+      "date": "2026-09-17T18:30:00Z",
+      "participants": [
+        "Katie Jefferson",
+        "Abdelaaziz Bellout",
+        "Arto Akyemeniciyan",
+        "Johnny Borbone",
+        "Shari James",
+        "Naveen Lekkalapudi"
+      ],
+      "kind": "client",
+      "summary": "Coordination with Rafferty's IT provider on Granola and app bridge setup, email ingestion and data privacy.",
+      "url": "https://notes.granola.ai/d/652e8186-7622-4b33-b3fc-60ecb29c2d75",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "def002bd-d071-49c9-95a8-44162ae17e82",
+      "title": "Raff Venture AI OS - Weekly Checkpoint",
+      "date": "2026-09-16T18:30:00Z",
+      "participants": [
+        "Katie Jefferson",
+        "Johnny Borbone",
+        "Thomas Bustos",
+        "Tauseef Rahman",
+        "Abdelaaziz Bellout",
+        "Henry Mulholland",
+        "Jack Grady"
+      ],
+      "kind": "client",
+      "summary": "Weekly checkpoint demoing platform updates, Milestone 3 and roadmap, portfolio financials and devices.",
+      "url": "https://notes.granola.ai/d/def002bd-d071-49c9-95a8-44162ae17e82",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "18fa4b58-7389-48d7-88fa-12c016b65a52",
+      "title": "Rafferty Ventures Sync: \"Weekly Planning\"",
+      "date": "2026-09-15T16:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Abdelaaziz Bellout",
+        "Katie Jefferson",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Weekly internal planning for the Ventures OS build; the note has no section summary.",
+      "url": "https://notes.granola.ai/d/18fa4b58-7389-48d7-88fa-12c016b65a52",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "b18b825d-da64-4c2a-8612-7814944ef033",
+      "title": "Sync: \"Rafferty Ventures Next Steps\"",
+      "date": "2026-09-10T15:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Abdelaaziz Bellout"
+      ],
+      "kind": "internal",
+      "summary": "Recap of the client call and plan for meeting briefs, dashboard design, tasks and signals, the monthly report and Argus fixes.",
+      "url": "https://notes.granola.ai/d/b18b825d-da64-4c2a-8612-7814944ef033",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "01e80fad-ddd3-4df3-ae64-dd6c6628f77d",
+      "title": "Raff Venture AI OS - Weekly Checkpoint",
+      "date": "2026-09-09T18:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Thomas Bustos",
+        "Katie Jefferson",
+        "Abdelaaziz Bellout",
+        "Henry Mulholland",
+        "Jack Grady"
+      ],
+      "kind": "client",
+      "summary": "Weekly checkpoint closing Milestone 2: Argus in production, GP View and portfolio reporting, Argus demo and feedback.",
+      "url": "https://notes.granola.ai/d/01e80fad-ddd3-4df3-ae64-dd6c6628f77d",
+      "alt_url": "https://fathom.video/calls/815533970"
+    },
+    {
+      "provider": "granola",
+      "id": "9214791a-9497-40cf-8897-ef41e9ad8922",
+      "title": "Rafferty Ventures Sync: \"Weekly Planning\"",
+      "date": "2026-09-08T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Abdelaaziz Bellout",
+        "Katie Jefferson",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Demo prep and UI fixes, design review, Argus capabilities, Milestone 3 planning and a security questionnaire response.",
+      "url": "https://notes.granola.ai/d/9214791a-9497-40cf-8897-ef41e9ad8922",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "c81644e3-f0a9-4ce3-b3ca-c5c51f437384",
+      "title": "Raff Venture AI OS - Weekly Checkpoint",
+      "date": "2026-09-03T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Thomas Bustos",
+        "Katie Jefferson",
+        "Abdelaaziz Bellout",
+        "Dominik Springer",
+        "Henry Mulholland"
+      ],
+      "kind": "client",
+      "summary": "Weekly checkpoint on the deals view and UI updates, an Argus demo, scheduling and workflows.",
+      "url": "https://notes.granola.ai/d/c81644e3-f0a9-4ce3-b3ca-c5c51f437384",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "2e1f9404-f573-4337-9610-2d3405efaf04",
+      "title": "Rafferty <> Supernal AI -  BiWeekly SMPL Technology & AI Coordination",
+      "date": "2026-09-01T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Abdelaaziz Bellout",
+        "Arto Akyemeniciyan",
+        "Johnny Borbone",
+        "Katie Jefferson",
+        "Thomas Bustos",
+        "Naveen Lekkalapudi"
+      ],
+      "kind": "client",
+      "summary": "Security concerns raised by Rafferty's IT provider, a Ventures OS demo and architecture explanation, and proposed mitigations.",
+      "url": "https://notes.granola.ai/d/2e1f9404-f573-4337-9610-2d3405efaf04",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "ab094eee-6801-4a53-8f7b-30bc68eaec70",
+      "title": "Rafferty Ventures Sync: \"Weekly Planning\"",
+      "date": "2026-08-31T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Abdelaaziz Bellout",
+        "Katie Jefferson",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Weekly planning on Jack and Drew's feedback on the deals view, and the contacts, meetings and email tabs.",
+      "url": "https://notes.granola.ai/d/ab094eee-6801-4a53-8f7b-30bc68eaec70",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "354516b0-f814-4fe2-a357-280b9805f89f",
+      "title": "AI Coworker for Rafferty Ventures",
+      "date": "2026-08-27T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Abdelaaziz Bellout",
+        "Katie Jefferson",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Shaped Argus as an AI coworker for Rafferty Ventures: concept, KPIs, scope, cost and milestones.",
+      "url": "https://notes.granola.ai/d/354516b0-f814-4fe2-a357-280b9805f89f",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "d4a86d98-a0f1-452d-93c2-484e862b112b",
+      "title": "Raff Venture AI OS - Weekly Checkpoing",
+      "date": "2026-08-26T18:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Thomas Bustos",
+        "Katie Jefferson",
+        "Abdelaaziz Bellout",
+        "Henry Mulholland",
+        "Jack Grady"
+      ],
+      "kind": "client",
+      "summary": "Weekly checkpoint with a platform demo, Jack's feedback and access, SharePoint status, agent capabilities and roadmap.",
+      "url": "https://notes.granola.ai/d/d4a86d98-a0f1-452d-93c2-484e862b112b",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "7e44e987-e41a-40da-83a4-7d4306e0d792",
+      "title": "Sync: \"Rafferty Ventures\"",
+      "date": "2026-08-26T15:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Abdelaaziz Bellout"
+      ],
+      "kind": "internal",
+      "summary": "Reviewed staging views, onboarding readiness, agent context requirements and role-based access.",
+      "url": "https://notes.granola.ai/d/7e44e987-e41a-40da-83a4-7d4306e0d792",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "4a478cb0-f90e-4565-b5f5-bf885c575bee",
+      "title": "Tauseef / Thomas",
+      "date": "2026-08-25T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Thomas Bustos"
+      ],
+      "kind": "multi",
+      "summary": "One-to-one with a section on Rafferty scope and marketing work.",
+      "url": "https://notes.granola.ai/d/4a478cb0-f90e-4565-b5f5-bf885c575bee",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "6166bc70-3fa6-4787-bb8c-ede43271ea1f",
+      "title": "Delivery Sync",
+      "date": "2026-08-24T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Devan Leibowitz",
+        "Naveen Lekkalapudi",
+        "Jens Haakaas"
+      ],
+      "kind": "multi",
+      "summary": "Company delivery sync with a section on Rafferty alongside World Emblem and Columbus.",
+      "url": "https://notes.granola.ai/d/6166bc70-3fa6-4787-bb8c-ede43271ea1f",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "233e76c1-a966-4513-bf95-ced7ddb145b3",
+      "title": "Rafferty Ventures Sync: \"Weekly Planning\"",
+      "date": "2026-08-24T15:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Abdelaaziz Bellout",
+        "Katie Jefferson",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Weekly planning on the deal portfolio UI, the approach to GP View financial data and task assignments.",
+      "url": "https://notes.granola.ai/d/233e76c1-a966-4513-bf95-ced7ddb145b3",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "a78e487a-5fa1-4698-8cc7-f7e5b5fc24d4",
+      "title": "NEW GTM + Scoping",
+      "date": "2026-08-21T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Thomas Bustos",
+        "Katie Jefferson"
+      ],
+      "kind": "multi",
+      "summary": "Deal review led by the restructured Rafferty Holdings deal, split into two order forms, and technical concerns.",
+      "url": "https://notes.granola.ai/d/a78e487a-5fa1-4698-8cc7-f7e5b5fc24d4",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "fdd13558-caf1-4ce7-943a-1b7b356419b9",
+      "title": "Rafferty \"Life App\" & Overall Supernal AI Update",
+      "date": "2026-08-20T19:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Thomas Bustos",
+        "Scott Downes",
+        "Katie Jefferson",
+        "Shari James",
+        "Michael Rafferty"
+      ],
+      "kind": "client",
+      "summary": "Demoed Ventures OS and the Holdings OS life app to Michael Rafferty and collected feedback.",
+      "url": "https://notes.granola.ai/d/fdd13558-caf1-4ce7-943a-1b7b356419b9",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "7ad3e838-66d1-420d-80ec-febca254e9cc",
+      "title": "NEW GTM + Scoping",
+      "date": "2026-08-20T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Thomas Bustos",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Deal session preparing the Rafferty pricing conversation with Michael: tech cost breakdown for Holdings OS and comparable accounts.",
+      "url": "https://notes.granola.ai/d/7ad3e838-66d1-420d-80ec-febca254e9cc",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "7359c441-fa63-48a9-8c78-3253bc7def22",
+      "title": "Rafferty <> Supernal AI -  BiWeekly SMPL Technology & AI Coordination",
+      "date": "2026-08-20T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Abdelaaziz Bellout",
+        "Arto Akyemeniciyan",
+        "Johnny Borbone",
+        "Katie Jefferson",
+        "Thomas Bustos",
+        "Naveen Lekkalapudi"
+      ],
+      "kind": "client",
+      "summary": "Coordination with Rafferty's IT provider on SharePoint versus OneDrive, Granola rollout for Ventures and recording devices.",
+      "url": "https://notes.granola.ai/d/7359c441-fa63-48a9-8c78-3253bc7def22",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "6383dbae-033d-4839-8abe-870c3dd18d14",
+      "title": "Tauseef / Katie",
+      "date": "2026-08-20T16:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Katie Jefferson"
+      ],
+      "kind": "internal",
+      "summary": "Split Rafferty account responsibilities, prepped the Holdings OS life app pitch and onboarded Katie to Ventures OS.",
+      "url": "https://notes.granola.ai/d/6383dbae-033d-4839-8abe-870c3dd18d14",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "2c71ff69-4267-416e-8ad0-0e715181a3d7",
+      "title": "Sync: \"Rafferty Ventures\"",
+      "date": "2026-08-19T15:45:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Abdelaaziz Bellout"
+      ],
+      "kind": "internal",
+      "summary": "Reviewed the staging UI and Affinity sync, product direction, authentication and task tracking.",
+      "url": "https://notes.granola.ai/d/2c71ff69-4267-416e-8ad0-0e715181a3d7",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "789785089",
+      "title": "Raff Venture AI OS - Engineering Kickoff",
+      "date": "2026-08-19",
+      "participants": [
+        "Tauseef Rahman",
+        "Jack Grady",
+        "Henry Mulholland",
+        "Johnny Borbone",
+        "Thomas Bustos",
+        "Abdelaaziz Bellout",
+        "Katie Jefferson"
+      ],
+      "kind": "client",
+      "summary": "Weekly client session in the Ventures OS kickoff series with the Rafferty Ventures team.",
+      "url": "https://fathom.video/calls/789785089",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "dcf28a9a-44e4-4adb-8bd2-aea7f74c2cdb",
+      "title": "Strats Onboarding: Client OS, WE, RxVIP, Raff",
+      "date": "2026-08-18T15:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Katie Jefferson",
+        "Diana Pedroza"
+      ],
+      "kind": "multi",
+      "summary": "Onboarding for new strategists across ClientOS and several accounts, including how memory applies to Rafferty.",
+      "url": "https://notes.granola.ai/d/dcf28a9a-44e4-4adb-8bd2-aea7f74c2cdb",
+      "alt_url": "https://fathom.video/calls/786552020"
+    },
+    {
+      "provider": "granola",
+      "id": "da8f3afa-0a21-4703-889f-b0db369f0cbb",
+      "title": "Rafferty Ventures Sync: \"Weekly Planning\"",
+      "date": "2026-08-17T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Abdelaaziz Bellout",
+        "Katie Jefferson",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Weekly planning on Milestone 1 status, the account data model and the plan to the 4 September milestone.",
+      "url": "https://notes.granola.ai/d/da8f3afa-0a21-4703-889f-b0db369f0cbb",
+      "alt_url": "https://fathom.video/calls/786552012"
+    },
+    {
+      "provider": "granola",
+      "id": "75c64c3f-f7ac-4419-9ba5-4eae228b0cca",
+      "title": "Raff Venture AI OS - Engineering Kickoff",
+      "date": "2026-08-12T18:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Thomas Bustos",
+        "Katie Jefferson",
+        "Abdelaaziz Bellout",
+        "Henry Mulholland",
+        "Jack Grady"
+      ],
+      "kind": "client",
+      "summary": "Weekly client session on Milestone 1 progress, OneDrive scope and the Milestone 2 interface direction.",
+      "url": "https://notes.granola.ai/d/75c64c3f-f7ac-4419-9ba5-4eae228b0cca",
+      "alt_url": "https://fathom.video/calls/781194998"
+    },
+    {
+      "provider": "granola",
+      "id": "02a06256-7eeb-403a-a765-3f0d40645b9c",
+      "title": "Rafferty Ventures <> Supernal | Affinity Deep Dive",
+      "date": "2026-08-11T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Abdelaaziz Bellout",
+        "Drew Quinn",
+        "Johnny Borbone",
+        "Katie Jefferson",
+        "Jack Grady",
+        "Thomas Bustos"
+      ],
+      "kind": "client",
+      "summary": "Deep dive on the Affinity platform update, API and data access, and portfolio financial reporting.",
+      "url": "https://notes.granola.ai/d/02a06256-7eeb-403a-a765-3f0d40645b9c",
+      "alt_url": "https://fathom.video/calls/779606014"
+    },
+    {
+      "provider": "granola",
+      "id": "82ba3a0f-da89-468e-b3e6-2202e35af30c",
+      "title": "Rafferty Ventures Sync: \"Weekly Planning\"",
+      "date": "2026-08-10T19:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Abdelaaziz Bellout",
+        "Katie Jefferson",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Week 1 status of the Ventures OS build, product defensibility and onboarding next steps.",
+      "url": "https://notes.granola.ai/d/82ba3a0f-da89-468e-b3e6-2202e35af30c",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "1ba74520-ee39-4aa3-9861-e96767e1ff1f",
+      "title": "Sync: \"Rafferty Ventures\"",
+      "date": "2026-08-07T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Abdelaaziz Bellout"
+      ],
+      "kind": "internal",
+      "summary": "Briefed the engineer on the Ventures OS project: technical scope, Milestone 1 goals and early UI direction.",
+      "url": "https://notes.granola.ai/d/1ba74520-ee39-4aa3-9861-e96767e1ff1f",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "91d5b1d8-2458-42f1-abb9-98b48a4b94bf",
+      "title": "Raff Venture AI OS - Engineering Kickoff",
+      "date": "2026-08-05T18:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Thomas Bustos",
+        "Katie Jefferson",
+        "Abdelaaziz Bellout",
+        "Henry Mulholland",
+        "Jack Grady"
+      ],
+      "kind": "client",
+      "summary": "Engineering kickoff for Ventures OS: platform overview, 90-day milestones, access checklist and workstreams.",
+      "url": "https://notes.granola.ai/d/91d5b1d8-2458-42f1-abb9-98b48a4b94bf",
+      "alt_url": "https://fathom.video/calls/772791876"
+    },
+    {
+      "provider": "granola",
+      "id": "3d2ba2c0-7c74-48eb-9a90-c593fd00f2fc",
+      "title": "Asset Mgmt OS - Feedback and Next Steps",
+      "date": "2026-07-23T15:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Thomas Bustos",
+        "Shari James",
+        "Jacqueline Bader"
+      ],
+      "kind": "client",
+      "summary": "Holdings OS prototype feedback, build timeline and milestones, and the order form and kickoff plan.",
+      "url": "https://notes.granola.ai/d/3d2ba2c0-7c74-48eb-9a90-c593fd00f2fc",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "b47abb70-a75b-48b6-9441-2b8ba3543c2b",
+      "title": "GTM + Scoping",
+      "date": "2026-07-14T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Belu Zerboni",
+        "Thomas Bustos",
+        "Naveen Lekkalapudi",
+        "Johnny Borbone",
+        "Ryan Williams"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review with a section scoping the wider Rafferty portfolio.",
+      "url": "https://notes.granola.ai/d/b47abb70-a75b-48b6-9441-2b8ba3543c2b",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "02351707-b441-4ecb-b93a-939785c27ba1",
+      "title": "Supernal AI <> Rafferty Asset Management OS/Prototype",
+      "date": "2026-07-08T20:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Thomas Bustos",
+        "Shari James",
+        "Jacqueline Bader"
+      ],
+      "kind": "client",
+      "summary": "Walkthrough of the Holdings OS prototype and the Atlas AI chief of staff, plus enterprise Claude governance.",
+      "url": "https://notes.granola.ai/d/02351707-b441-4ecb-b93a-939785c27ba1",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "1da2948b-8f86-4573-b4ff-d2c53b5bc3d1",
+      "title": "SMPL <> Supernal - AI Implementations for Rafferty",
+      "date": "2026-07-08T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Thomas Bustos",
+        "Shari James"
+      ],
+      "kind": "client",
+      "summary": "First call with Rafferty's IT provider on the three planned AI implementations and security alignment.",
+      "url": "https://notes.granola.ai/d/1da2948b-8f86-4573-b4ff-d2c53b5bc3d1",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "a4e6492e-0a8d-4222-959b-01608286c5f9",
+      "title": "GTM + Scoping",
+      "date": "2026-07-03T16:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Thomas Bustos",
+        "Ryan Williams",
+        "Jaime Garcia",
+        "Jack Parham",
+        "Dexter Tortoriello"
+      ],
+      "kind": "multi",
+      "summary": "Deal review with a section on feedback from the Rafferty Holdings demo.",
+      "url": "https://notes.granola.ai/d/a4e6492e-0a8d-4222-959b-01608286c5f9",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "b8b71dfc-e9e7-4d46-8a02-184fe8ae6992",
+      "title": "GTM + Scoping",
+      "date": "2026-06-22T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Thomas Bustos",
+        "Naveen Lekkalapudi",
+        "Johnny Borbone",
+        "Jaime Garcia",
+        "Jack Parham"
+      ],
+      "kind": "multi",
+      "summary": "Deal review with a section on the Rafferty order form and signing timeline.",
+      "url": "https://notes.granola.ai/d/b8b71dfc-e9e7-4d46-8a02-184fe8ae6992",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "8119da77-1313-4788-a37d-27671461a7d8",
+      "title": "GTM + Scoping",
+      "date": "2026-06-11T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Belu Zerboni",
+        "Thomas Bustos",
+        "Naveen Lekkalapudi",
+        "Johnny Borbone",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Deal review with a Rafferty update on the pending NDA.",
+      "url": "https://notes.granola.ai/d/8119da77-1313-4788-a37d-27671461a7d8",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "921f15d9-0b5e-441c-9444-bc6840e6d84c",
+      "title": "Supernal AI <> Rafferty Ventures - Next Steps",
+      "date": "2026-06-08T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Thomas Bustos",
+        "Henry Mulholland",
+        "Jack Grady"
+      ],
+      "kind": "client",
+      "summary": "Pre-sale demo of the platform to Rafferty Ventures, covering data security, mobile access, engagement structure and pricing.",
+      "url": "https://notes.granola.ai/d/921f15d9-0b5e-441c-9444-bc6840e6d84c",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "e88f3b4b-650d-4d68-991e-27faf94c1b54",
+      "title": "GTM + Scoping",
+      "date": "2026-06-05T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Thomas Bustos",
+        "Naveen Lekkalapudi",
+        "Johnny Borbone",
+        "Ryan Williams",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline and scoping review with a section on Rafferty Holdings priority items.",
+      "url": "https://notes.granola.ai/d/e88f3b4b-650d-4d68-991e-27faf94c1b54",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "ebcec720-a1f0-4b75-b793-bbe97109312a",
+      "title": "Raff Scoping/Order Forms/Proposal",
+      "date": "2026-05-26T21:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Thomas Bustos",
+        "Naveen Lekkalapudi"
+      ],
+      "kind": "internal",
+      "summary": "Internal scoping of the Rafferty deal structure, staffing, concerns about the AI OS scope and positioning.",
+      "url": "https://notes.granola.ai/d/ebcec720-a1f0-4b75-b793-bbe97109312a",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "196fdfb7-d96c-412c-b05e-7e6d64ed81e1",
+      "title": "Supernal <> Raff Ventures - Prototype Review & Next Steps",
+      "date": "2026-05-13T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Jack Grady"
+      ],
+      "kind": "client",
+      "summary": "Reviewed the Ventures prototype with Jack, technical requirements and business terms.",
+      "url": "https://notes.granola.ai/d/196fdfb7-d96c-412c-b05e-7e6d64ed81e1",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "054a426b-3c2a-4837-bb2d-1b9933d950af",
+      "title": "Supernal AI <> Rafferty Ventures - Technical Scoping",
+      "date": "2026-05-01T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Jack Grady"
+      ],
+      "kind": "client",
+      "summary": "Scoping call with Jack on his workflow and pain points, the current tech stack and a proposed AI executive assistant.",
+      "url": "https://notes.granola.ai/d/054a426b-3c2a-4837-bb2d-1b9933d950af",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "653926215",
+      "title": "Rafferty + Supernal AI next steps",
+      "date": "2026-04-29",
+      "participants": [
+        "Ryan Williams",
+        "Seb Van Kuyk",
+        "Johnny Borbone",
+        "Jack Grady",
+        "Henry Mulholland"
+      ],
+      "kind": "client",
+      "summary": "Early call with Rafferty Ventures on next steps for working with Supernal.",
+      "url": "https://fathom.video/calls/653926215",
+      "alt_url": null
+    }
+  ]
+}

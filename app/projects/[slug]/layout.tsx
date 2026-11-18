@@ -38,7 +38,7 @@ export default async function ProjectLayout({ params, children }: { params: { sl
           </>}
         </div>
         <TeamBar slug={a.slug} members={team} people={people.map((p) => ({ id: p.id, name: p.name, title: p.title }))} canEdit={editable} />
-        <ProjectTabs slug={a.slug} hasBook={a.stage === "delivery" || b.book.length > 0} hasArtifacts={a.stage === "delivery" || b.artifacts.length > 0} />
+        <ProjectTabs slug={a.slug} hasBook={a.stage === "delivery" || b.book.length > 0} hasArtifacts={a.stage === "delivery" || b.artifacts.length > 0 || b.recordings.length > 0} />
       </div>
       <div className="flex-1">{children}</div>
     </div>

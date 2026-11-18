@@ -1,0 +1,3510 @@
+{
+  "slug": "heritage",
+  "pulled": "2026-11-15",
+  "searched": [
+    "Heritage",
+    "Heritage Vault",
+    "Heritage AI",
+    "Super Whale",
+    "Fanning",
+    "Halvey",
+    "Ridgeback",
+    "Keith McMahon",
+    "heritagesllc.com"
+  ],
+  "meetings": [
+    {
+      "provider": "granola",
+      "id": "5c5b54a2-ef9e-4988-8a25-6bddbf2bcffa",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-11-13T16:45:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sven Boettger",
+        "Stuart Childs",
+        "Chris Halvey",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Short weekly sync that rescheduled the meeting, confirmed availability and recapped a talk Sven gave.",
+      "url": "https://notes.granola.ai/d/5c5b54a2-ef9e-4988-8a25-6bddbf2bcffa",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "54797cd5-a41c-4bdd-a0f1-0c3dc18ef2ac",
+      "title": "Strat ²",
+      "date": "2026-11-12T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Seb Van Kuyk",
+        "Sven Boettger",
+        "Naveen Lekkalapudi",
+        "Thomas Bustos",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Strategy session on prototype-first scoping that included Sven's Heritage client portal and design tooling.",
+      "url": "https://notes.granola.ai/d/54797cd5-a41c-4bdd-a0f1-0c3dc18ef2ac",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "0b5c359c-46aa-4964-b1ff-aa87064c2553",
+      "title": "All-Hands",
+      "date": "2026-11-09T19:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Peyton Gray Koch"
+      ],
+      "kind": "multi",
+      "summary": "Company all-hands with a section on the team's in-person Heritage visit and the momentum from it.",
+      "url": "https://notes.granola.ai/d/0b5c359c-46aa-4964-b1ff-aa87064c2553",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "7497714a-f6d8-4009-8877-3ec3909e9dda",
+      "title": "Delivery Sync",
+      "date": "2026-11-09T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Ryan Williams",
+        "Harvy Leyton"
+      ],
+      "kind": "multi",
+      "summary": "Company delivery sync that opened with Heritage: five active projects, the build threshold and the open commercial model.",
+      "url": "https://notes.granola.ai/d/7497714a-f6d8-4009-8877-3ec3909e9dda",
+      "alt_url": "https://fathom.video/calls/891407302"
+    },
+    {
+      "provider": "granola",
+      "id": "7ee154d5-5cce-4ca9-b0e9-6f0537c33a42",
+      "title": "Heritage Weekly Planning",
+      "date": "2026-11-09T15:45:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sergio Matos",
+        "Manish Chintha",
+        "Daniel Cuellar",
+        "Sven Boettger",
+        "Deep Sarker",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Internal Heritage pod planning: items in review, November cycle work and the DPE security upgrade roadmap.",
+      "url": "https://notes.granola.ai/d/7ee154d5-5cce-4ca9-b0e9-6f0537c33a42",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "1b52bc32-2a2b-41a1-86d2-f635609ea7f8",
+      "title": "Supernal Weekly Check In/Training",
+      "date": "2026-11-04T16:00:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sven Boettger",
+        "Diane Carnesi",
+        "Alex Cover",
+        "Chris Halvey"
+      ],
+      "kind": "client",
+      "summary": "Weekly training that introduced Stuart Childs and covered new features, email retitling, document handling and question set decisions.",
+      "url": "https://notes.granola.ai/d/1b52bc32-2a2b-41a1-86d2-f635609ea7f8",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "d754a90d-20c6-4cc7-849c-7cbc11e98384",
+      "title": "Jr, Jens, Chris",
+      "date": "2026-11-03T14:30:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Chris Halvey",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Working session on item resolutions, firm-level permissions, the estate distribution chart, demo book feedback, pilot firm setup and disclosures.",
+      "url": "https://notes.granola.ai/d/d754a90d-20c6-4cc7-849c-7cbc11e98384",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "c77ccf9c-e184-41d1-a8a5-8c1354531a90",
+      "title": "Delivery Sync",
+      "date": "2026-11-02T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Ryan Williams",
+        "Harvy Leyton",
+        "Fran Abenza"
+      ],
+      "kind": "multi",
+      "summary": "Company delivery sync with a Heritage AI section alongside Rafferty and Labyrinth.",
+      "url": "https://notes.granola.ai/d/c77ccf9c-e184-41d1-a8a5-8c1354531a90",
+      "alt_url": "https://fathom.video/calls/882864595"
+    },
+    {
+      "provider": "granola",
+      "id": "b673d75f-a440-4fae-8913-cc0bdb702f09",
+      "title": "Heritage Weekly Planning",
+      "date": "2026-11-02T14:30:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sergio Matos",
+        "Manish Chintha",
+        "Daniel Cuellar",
+        "Sven Boettger",
+        "Deep Sarker",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Internal Heritage pod planning: item status and feedback, LaunchDarkly and CI, November capacity.",
+      "url": "https://notes.granola.ai/d/b673d75f-a440-4fae-8913-cc0bdb702f09",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "f6d532a4-9c47-49ee-927d-62b90794ad26",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-10-28T13:30:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sven Boettger",
+        "Zack Young",
+        "Chris Halvey",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly sync on the on-site visit and GTM workshop, KPI dashboard, client status redesign, document versioning, security questions and notifications.",
+      "url": "https://notes.granola.ai/d/f6d532a4-9c47-49ee-927d-62b90794ad26",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "875861931",
+      "title": "Supernal <> Heritage Insurance",
+      "date": "2026-10-27",
+      "participants": [
+        "Chris Halvey",
+        "Jessica Varkey",
+        "Ryan Williams",
+        "Micah Barker"
+      ],
+      "kind": "client",
+      "summary": "Heritage call with the client team (from title; summary not read).",
+      "url": "https://fathom.video/calls/875861931",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "e8f3f296-4484-4b38-ab98-7b2e6b734bf5",
+      "title": "LLM Cost Forecast",
+      "date": "2026-10-26T20:15:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Rodrigo Viana",
+        "Sven Boettger"
+      ],
+      "kind": "internal",
+      "summary": "Built and reviewed a model of Heritage's in-app LLM chat costs through 2027: assumptions, pricing and coverage.",
+      "url": "https://notes.granola.ai/d/e8f3f296-4484-4b38-ab98-7b2e6b734bf5",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "53cd18d1-e245-49e1-8218-294f5bd9af96",
+      "title": "Heritage Weekly Planning",
+      "date": "2026-10-26T17:00:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sergio Matos",
+        "Manish Chintha",
+        "Daniel Cuellar",
+        "Sven Boettger",
+        "Deep Sarker",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Internal Heritage pod planning: team changes, sprint status and November capacity.",
+      "url": "https://notes.granola.ai/d/53cd18d1-e245-49e1-8218-294f5bd9af96",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "615f1bc9-61d4-4cc7-910d-df6ff859b636",
+      "title": "ByAllAccounts <> Heritage Strategies Connect",
+      "date": "2026-10-23T16:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Hazal Sabah",
+        "Brendan Costello",
+        "Chris Halvey",
+        "Eric Eklund",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Call with Morningstar's ByAllAccounts on account-data aggregation for the Heritage platform: capabilities, advisor authorisation, data quality and pricing.",
+      "url": "https://notes.granola.ai/d/615f1bc9-61d4-4cc7-910d-df6ff859b636",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "c08546c5-0666-4071-8d03-bbefb7121a9e",
+      "title": "Heritage requesting \"Cyber Security Measures One-Pager\" + \"Security Meeting\"",
+      "date": "2026-10-22T19:15:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Roger Lee",
+        "Jens Haakaas",
+        "Ryan Williams"
+      ],
+      "kind": "internal",
+      "summary": "Internal response to Heritage's security questions: upload attack vectors, a security one-pager for their clients and DPE data isolation.",
+      "url": "https://notes.granola.ai/d/c08546c5-0666-4071-8d03-bbefb7121a9e",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "883af0b5-c11a-475b-a657-da2ca7eac073",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-10-21T13:30:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sven Boettger",
+        "Zack Young",
+        "Chris Halvey",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly sync on insurance-sheet flagging, asset sheet requests, readiness for a 50-client rollout, firm permissions, in-app chat and white labelling.",
+      "url": "https://notes.granola.ai/d/883af0b5-c11a-475b-a657-da2ca7eac073",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "58a5b93b-95e7-447b-9032-bc6d41e1b973",
+      "title": "30-min call with Chris, Jr and Sven",
+      "date": "2026-10-19T16:01:03Z",
+      "participants": [
+        "Jens Haakaas",
+        "Chris Halvey",
+        "Thomas Fanning Jr.",
+        "Sven Boettger"
+      ],
+      "kind": "client",
+      "summary": "Call on the guided dummy-data demo, Ask the Vault permissions and a Heritage Vault book review.",
+      "url": "https://notes.granola.ai/d/58a5b93b-95e7-447b-9032-bc6d41e1b973",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "2cfd291a-9e09-4ef2-a246-b2b778f0a656",
+      "title": "Heritage Weekly Planning",
+      "date": "2026-10-19T14:45:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sergio Matos",
+        "Manish Chintha",
+        "Daniel Cuellar",
+        "Sven Boettger",
+        "Deep Sarker",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Internal Heritage pod planning: item status, velocity, blockers and process improvement ideas.",
+      "url": "https://notes.granola.ai/d/2cfd291a-9e09-4ef2-a246-b2b778f0a656",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "92b82456-f31a-4351-aae4-f8b246fd50d0",
+      "title": "(M) Supernal & Heritage Call: Heritage AI & HS Website Kick Off",
+      "date": "2026-10-15T17:00:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Jonathan Hayes",
+        "Ryan Williams",
+        "Michelle Hayes",
+        "Majo Landa",
+        "Brendan Costello",
+        "Chris Halvey"
+      ],
+      "kind": "client",
+      "summary": "Kick-off for the brand video and websites: shoot schedule, on-camera participants, interview prep and review of the Heritage AI website draft.",
+      "url": "https://notes.granola.ai/d/92b82456-f31a-4351-aae4-f8b246fd50d0",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "49faa655-e7a8-430b-b8fc-51a1552be3b2",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-10-15T15:00:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sven Boettger",
+        "Zack Young",
+        "Chris Halvey",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly sync on meeting restructure, 2027 engagement and cost planning, November scope, notifications and insurance sheet improvements.",
+      "url": "https://notes.granola.ai/d/49faa655-e7a8-430b-b8fc-51a1552be3b2",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "dc4d6066-76f3-40db-a759-1cea2ced0924",
+      "title": "Supernal Weekly Check In/Training",
+      "date": "2026-10-14T15:00:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sven Boettger",
+        "Diane Carnesi",
+        "Alex Cover",
+        "Chris Halvey"
+      ],
+      "kind": "client",
+      "summary": "Weekly training on the AI quality-control mapper from documents to question sets, asset sheet requests, flow diagram updates and book formatting.",
+      "url": "https://notes.granola.ai/d/dc4d6066-76f3-40db-a759-1cea2ced0924",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "eb0e140a-ec60-46b4-be0c-5533f0d629f2",
+      "title": "Supernal Weekly Check In/Training",
+      "date": "2026-10-07T15:00:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sven Boettger",
+        "Diane Carnesi",
+        "Alex Cover",
+        "Chris Halvey"
+      ],
+      "kind": "client",
+      "summary": "Weekly training with Heritage staff on the automated eval pipeline roadmap, question sets by domain, trust asset routing and duplicate uploads.",
+      "url": "https://notes.granola.ai/d/eb0e140a-ec60-46b4-be0c-5533f0d629f2",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "fd7b629b-3401-414e-a4ca-6c29ff2dc648",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-10-06T13:30:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sven Boettger",
+        "Zack Young",
+        "Chris Halvey",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly sync on testing ownership, PDF width, AI chat disclaimer, flow diagram evals, client intake questions and the demo dummy book.",
+      "url": "https://notes.granola.ai/d/fd7b629b-3401-414e-a4ca-6c29ff2dc648",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "cc77a502-84ea-4971-8ef5-7c22259d4b38",
+      "title": "Delivery Sync",
+      "date": "2026-10-05T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Ryan Williams",
+        "Harvy Leyton"
+      ],
+      "kind": "multi",
+      "summary": "Company delivery sync with a Heritage section run by Sven alongside Labyrinth and JetHQ.",
+      "url": "https://notes.granola.ai/d/cc77a502-84ea-4971-8ef5-7c22259d4b38",
+      "alt_url": "https://fathom.video/calls/846711109"
+    },
+    {
+      "provider": "granola",
+      "id": "89c7019c-2d24-423a-94fc-3ff523f881cc",
+      "title": "Heritage Weekly Planning",
+      "date": "2026-10-05T14:45:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sergio Matos",
+        "Manish Chintha",
+        "Daniel Cuellar",
+        "Sven Boettger",
+        "Deep Sarker",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Internal Heritage pod planning: project item status, maintenance items and ticket workflow.",
+      "url": "https://notes.granola.ai/d/89c7019c-2d24-423a-94fc-3ff523f881cc",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "846602272",
+      "title": "Heritage, Ridgeback, Supernal Weekly Call",
+      "date": "2026-10-05",
+      "participants": [
+        "Eric Eklund",
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Thomas J. Fanning Sr.",
+        "Brendan Costello",
+        "Jessica Varkey",
+        "Sven Boettger"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/846602272",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "8f165cc1-24d1-4fba-901d-164951a41e1f",
+      "title": "Cornerstone Discussion",
+      "date": "2026-10-02T14:15:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Chris Halvey",
+        "Keith McMahon",
+        "Lisa Siegfried",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Discussion of flow diagram failures on low-quality documents from a peer firm, proposed fixes and an immediate eval test.",
+      "url": "https://notes.granola.ai/d/8f165cc1-24d1-4fba-901d-164951a41e1f",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "844970133",
+      "title": "Website & Brand Videos Pt 2",
+      "date": "2026-10-02",
+      "participants": [
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Thomas J. Fanning Sr.",
+        "Jessica Varkey",
+        "Sven Boettger",
+        "Majo Landa",
+        "Jonathan Hayes"
+      ],
+      "kind": "client",
+      "summary": "Session on the Heritage brand videos and websites (from title; summary not read).",
+      "url": "https://fathom.video/calls/844970133",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "8c75fe4a-5cf1-412f-aae6-ebcf045f2ecd",
+      "title": "(C) Supernal/Heritage - Asset Sheet",
+      "date": "2026-10-01T17:00:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sven Boettger",
+        "Chris Halvey",
+        "Thomas Fanning Jr.",
+        "William Morales"
+      ],
+      "kind": "client",
+      "summary": "Working session on asset sheet extraction problems: duplicate K-1 entries, income tax return extraction and other platform issues.",
+      "url": "https://notes.granola.ai/d/8c75fe4a-5cf1-412f-aae6-ebcf045f2ecd",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "f954cb78-1986-47c4-9fd8-b724920bbd1c",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-10-01T13:30:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sven Boettger",
+        "Zack Young",
+        "Chris Halvey",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly sync on the October roadmap, AI employee naming, vault viewer permissions, auto-labelling accuracy, automated book creation and Ask the Vault.",
+      "url": "https://notes.granola.ai/d/f954cb78-1986-47c4-9fd8-b724920bbd1c",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "5acf5c94-d597-4f24-8402-1b923a08bc93",
+      "title": "Webinar re: Heritage Vault",
+      "date": "2026-09-29T20:00:00Z",
+      "participants": [
+        "Scott Downes",
+        "Ryan Williams",
+        "Chris Halvey",
+        "Bob Lord",
+        "Joe McQuaid",
+        "Justin Ward",
+        "Nate Lenz"
+      ],
+      "kind": "client",
+      "summary": "Webinar presenting the Heritage AI platform to broker-dealer partners: platform sections, document ingestion, Ask the Vault, integration and partnership model.",
+      "url": "https://notes.granola.ai/d/5acf5c94-d597-4f24-8402-1b923a08bc93",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "3296088e-fbb0-4b57-8f1a-574053008b08",
+      "title": "Delivery Sync",
+      "date": "2026-09-28T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Ryan Williams",
+        "Harvy Leyton"
+      ],
+      "kind": "multi",
+      "summary": "Company delivery sync with a Heritage update next to Breakr and Stanbridge.",
+      "url": "https://notes.granola.ai/d/3296088e-fbb0-4b57-8f1a-574053008b08",
+      "alt_url": "https://fathom.video/calls/838015067"
+    },
+    {
+      "provider": "granola",
+      "id": "d5d4a8d6-4d41-4f98-a48e-a08b7f8ed295",
+      "title": "Heritage Weekly Planning",
+      "date": "2026-09-28T14:30:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sergio Matos",
+        "Manish Chintha",
+        "Daniel Cuellar",
+        "Sven Boettger",
+        "Deep Sarker",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Internal Heritage pod planning: project item status and maintenance items.",
+      "url": "https://notes.granola.ai/d/d5d4a8d6-4d41-4f98-a48e-a08b7f8ed295",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "db61853f-4756-4d2e-b351-fab5bffbaf8a",
+      "title": "Project Item #51 Handover",
+      "date": "2026-09-23T16:00:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sergio Matos",
+        "Sven Boettger",
+        "Deep Sarker"
+      ],
+      "kind": "internal",
+      "summary": "Handover of the automated book-creation pipeline item and the PostHog wiring it depends on.",
+      "url": "https://notes.granola.ai/d/db61853f-4756-4d2e-b351-fab5bffbaf8a",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "ffbd38e0-7514-4125-94f8-e051f05cdfbd",
+      "title": "Heritage Weekly Planning [Marketing Pod]",
+      "date": "2026-09-22T18:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Aidan Klein",
+        "Majo Landa",
+        "Jonathan Hayes",
+        "Otto"
+      ],
+      "kind": "internal",
+      "summary": "Marketing pod planning for Heritage: brand video shoot schedule, brand artifact and website, and a tool demo.",
+      "url": "https://notes.granola.ai/d/ffbd38e0-7514-4125-94f8-e051f05cdfbd",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "7acd5c2c-951c-4edf-bee9-1e1d7541c5cb",
+      "title": "#42: Heritage onboarding flow demo and success criteria with",
+      "date": "2026-09-22T16:05:04Z",
+      "participants": [
+        "Jens Haakaas"
+      ],
+      "kind": "internal",
+      "summary": "Reviewed the Heritage onboarding tour, client data collection flow, pilot success criteria and in-app feedback.",
+      "url": "https://notes.granola.ai/d/7acd5c2c-951c-4edf-bee9-1e1d7541c5cb",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "de0524b9-1be9-4cfb-bb60-43f3fd18ec90",
+      "title": "Heritage Weekly Planning",
+      "date": "2026-09-21T14:45:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sergio Matos",
+        "Manish Chintha",
+        "Daniel Cuellar",
+        "Sven Boettger",
+        "Deep Sarker",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Internal Heritage pod planning: project status, this week's client priority, maintenance process and the GCP migration plan.",
+      "url": "https://notes.granola.ai/d/de0524b9-1be9-4cfb-bb60-43f3fd18ec90",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "3b03e7e9-ef5b-4a1f-9d9f-e9c219e60776",
+      "title": "Heritage Website + Video Kick-off Blocker",
+      "date": "2026-09-18T13:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Jonathan Hayes",
+        "Majo Landa"
+      ],
+      "kind": "internal",
+      "summary": "Internal planning for the Heritage brand video and website redesign: scope, on-camera talent, shoot logistics and creative direction.",
+      "url": "https://notes.granola.ai/d/3b03e7e9-ef5b-4a1f-9d9f-e9c219e60776",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "7d32be97-654f-4c46-b7ea-a46c8c6fc7cb",
+      "title": "Budget Plan",
+      "date": "2026-09-17T14:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Ryan Williams",
+        "Thomas Fanning Jr.",
+        "Chris Halvey"
+      ],
+      "kind": "client",
+      "summary": "Budget planning with Heritage: remaining roadmap and points overage, build versus maintain options, naming risks and pilot sales strategy.",
+      "url": "https://notes.granola.ai/d/7d32be97-654f-4c46-b7ea-a46c8c6fc7cb",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "0b3c270c-80e2-4252-98d5-0de9344e4c63",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-09-16T13:30:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sven Boettger",
+        "Zack Young",
+        "Chris Halvey",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly sync on October planning, co-branding as powered by Heritage AI, testing ownership, viewer permissions, intake questions and disclosures.",
+      "url": "https://notes.granola.ai/d/0b3c270c-80e2-4252-98d5-0de9344e4c63",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "fbbca3d9-1227-48d6-9b4c-dc0937fea15a",
+      "title": "LLM Chat discussion (Rodrigo / Jens)",
+      "date": "2026-09-10T15:26:21Z",
+      "participants": [
+        "Jens Haakaas",
+        "Rodrigo Viana"
+      ],
+      "kind": "internal",
+      "summary": "Design of Heritage's in-app LLM chat: UI, data privacy decisions and pointing the scope.",
+      "url": "https://notes.granola.ai/d/fbbca3d9-1227-48d6-9b4c-dc0937fea15a",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "05a9735b-95a9-45f1-867a-8d4bbe5f0396",
+      "title": "Asset Sheet Discussion",
+      "date": "2026-09-09T15:00:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sven Boettger",
+        "William Morales"
+      ],
+      "kind": "client",
+      "summary": "Asset sheet session on handling income tax returns, eval questions to add, display logic and client onboarding progress.",
+      "url": "https://notes.granola.ai/d/05a9735b-95a9-45f1-867a-8d4bbe5f0396",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "1825ac9c-bb36-4fd1-b3e3-3c58b24ade5d",
+      "title": "Platform testing, timing, and accuracy — rollout plan with Chris",
+      "date": "2026-09-09T14:02:31Z",
+      "participants": [
+        "Jens Haakaas",
+        "Chris Halvey"
+      ],
+      "kind": "client",
+      "summary": "Planned platform testing and timing with Chris, a testing proposal for Tom and the issues flagged so far.",
+      "url": "https://notes.granola.ai/d/1825ac9c-bb36-4fd1-b3e3-3c58b24ade5d",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "92c9a3fd-3508-4a3f-82f3-40e4ddb3984a",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-09-09T12:30:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sven Boettger",
+        "Zack Young",
+        "Chris Halvey",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly sync on the data room multi-vault fix, insurance sheet items, branding and PDF decisions, LLM chat versus Ask the Vault, and testing.",
+      "url": "https://notes.granola.ai/d/92c9a3fd-3508-4a3f-82f3-40e4ddb3984a",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "7f4fe52e-4aae-4fb7-a41f-567c43652087",
+      "title": "Heritage Weekly Planning",
+      "date": "2026-09-08T14:00:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sergio Matos",
+        "Manish Chintha",
+        "Daniel Cuellar",
+        "Sven Boettger",
+        "Deep Sarker",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Internal Heritage pod planning: new team members, the OCR pipeline, ticket status and in-app LLM chat architecture.",
+      "url": "https://notes.granola.ai/d/7f4fe52e-4aae-4fb7-a41f-567c43652087",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "22c39a9a-178c-437f-9268-5c4dd8d28264",
+      "title": "Supernal Weekly Check In/Training",
+      "date": "2026-09-02T14:00:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sven Boettger",
+        "Diane Carnesi",
+        "Alex Cover",
+        "Chris Halvey",
+        "Jennifer Mejia"
+      ],
+      "kind": "client",
+      "summary": "Weekly training on platform updates, duplicate eval results for cash investments and K-1s, and bank statement reference documents.",
+      "url": "https://notes.granola.ai/d/22c39a9a-178c-437f-9268-5c4dd8d28264",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "6cc4db80-a004-4df2-a732-2df23b59c5bc",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-09-02T12:30:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sven Boettger",
+        "Zack Young",
+        "Chris Halvey",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly sync on October roadmap priorities, approvals, version control and disclosure testing, client sorting, eval validation and pilot onboarding.",
+      "url": "https://notes.granola.ai/d/6cc4db80-a004-4df2-a732-2df23b59c5bc",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "1b40892c-3567-4c21-a997-3d075605d057",
+      "title": "Heritage Pod Subscription",
+      "date": "2026-08-31T18:00:00Z",
+      "participants": [
+        "Ryan Williams",
+        "Sven Boettger",
+        "Zack Young",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Internal discussion on replacing the points system with a pod subscription model for Heritage, plus account health.",
+      "url": "https://notes.granola.ai/d/1b40892c-3567-4c21-a997-3d075605d057",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "3c788c52-02cd-45de-9b5c-333acca32af8",
+      "title": "Delivery Sync",
+      "date": "2026-08-31T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Harvy Leyton",
+        "Fran Abenza"
+      ],
+      "kind": "multi",
+      "summary": "Company delivery sync with a Heritage update alongside JetHQ and Ethic Select.",
+      "url": "https://notes.granola.ai/d/3c788c52-02cd-45de-9b5c-333acca32af8",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "3eef01a3-304a-45df-af0a-8a2a32896267",
+      "title": "Heritage Weekly Planning",
+      "date": "2026-08-31T14:45:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sergio Matos",
+        "Manish Chintha",
+        "Daniel Cuellar",
+        "Sven Boettger",
+        "Deep Sarker",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Internal Heritage pod planning: August items in review, September assignments and backend priorities.",
+      "url": "https://notes.granola.ai/d/3eef01a3-304a-45df-af0a-8a2a32896267",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "802424541",
+      "title": "Heritage, Ridgeback, Supernal Weekly Call",
+      "date": "2026-08-31",
+      "participants": [
+        "Brendan Costello",
+        "Sven Boettger",
+        "Chris Halvey",
+        "Eric Eklund",
+        "Jessica Varkey",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/802424541",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "64826cc0-1c09-4568-902d-ccdd6dd391cc",
+      "title": "Catch Up: \"Sven & Tauseef\"",
+      "date": "2026-08-28T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Sven Boettger"
+      ],
+      "kind": "multi",
+      "summary": "Catch-up in which Sven walked Tauseef through the Heritage account, among other topics.",
+      "url": "https://notes.granola.ai/d/64826cc0-1c09-4568-902d-ccdd6dd391cc",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "e80549e4-9e40-4aa2-838d-5f47edd74436",
+      "title": "Jens + Chris",
+      "date": "2026-08-28T12:20:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Chris Halvey"
+      ],
+      "kind": "client",
+      "summary": "Agreed eval testing scope, the push-to-production decision and testing against real client books by sheet type.",
+      "url": "https://notes.granola.ai/d/e80549e4-9e40-4aa2-838d-5f47edd74436",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "a14b4b77-e0f8-49c2-99fd-1ce5dcde0d26",
+      "title": "Supernal Weekly Check In/Training",
+      "date": "2026-08-26T14:30:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sven Boettger",
+        "Diane Carnesi",
+        "Alex Cover",
+        "Chris Halvey",
+        "Jennifer Mejia"
+      ],
+      "kind": "client",
+      "summary": "Weekly training with Heritage staff on testing the eval engine in staging and secure book user access.",
+      "url": "https://notes.granola.ai/d/a14b4b77-e0f8-49c2-99fd-1ce5dcde0d26",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "2ea39407-11cc-4e44-a79c-0f4342c8dfb9",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-08-26T13:30:00Z",
+      "participants": [
+        "Sven Boettger",
+        "Jens Haakaas",
+        "Chris Halvey",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly sync on revenue and cost projections, a move to an always-on pod model, meeting cadence and the Dedicated Private Environment security review.",
+      "url": "https://notes.granola.ai/d/2ea39407-11cc-4e44-a79c-0f4342c8dfb9",
+      "alt_url": "https://fathom.video/calls/797507696"
+    },
+    {
+      "provider": "fathom",
+      "id": "793847097",
+      "title": "Heritage, Ridgeback, Supernal Weekly Call",
+      "date": "2026-08-24",
+      "participants": [
+        "Brendan Costello",
+        "Sven Boettger",
+        "Chris Halvey",
+        "Eric Eklund",
+        "Jessica Varkey",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/793847097",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "d398fdba-a87f-440e-abaf-a767186d080d",
+      "title": "Supernal Weekly Check In/Training",
+      "date": "2026-08-19T14:00:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sven Boettger",
+        "Diane Carnesi",
+        "Alex Cover",
+        "Chris Halvey",
+        "Jennifer Mejia"
+      ],
+      "kind": "client",
+      "summary": "Weekly training with Heritage staff on data sheet sync, book sharing and vault viewer access, and testing Talk to the Vault.",
+      "url": "https://notes.granola.ai/d/d398fdba-a87f-440e-abaf-a767186d080d",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "d391270a-8032-42a1-aaa6-a51bbdd8a720",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-08-18T14:00:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sven Boettger",
+        "Chris Halvey",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly sync on item status, the new sub-assets and sibling asset sharing features, multi-tenancy and secure access.",
+      "url": "https://notes.granola.ai/d/d391270a-8032-42a1-aaa6-a51bbdd8a720",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "388a820e-e552-40ef-9086-0382610b21bf",
+      "title": "Delivery Sync",
+      "date": "2026-08-17T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Naveen Lekkalapudi",
+        "Jens Haakaas",
+        "Belu Zerboni",
+        "Devan Leibowitz"
+      ],
+      "kind": "multi",
+      "summary": "Company delivery sync that reviewed Heritage alongside Ethic Select, Hooray and Labyrinth.",
+      "url": "https://notes.granola.ai/d/388a820e-e552-40ef-9086-0382610b21bf",
+      "alt_url": "https://fathom.video/calls/784724415"
+    },
+    {
+      "provider": "fathom",
+      "id": "784822010",
+      "title": "Heritage, Ridgeback, Supernal Weekly Call",
+      "date": "2026-08-17",
+      "participants": [
+        "Brendan Costello",
+        "Sven Boettger",
+        "Chris Halvey",
+        "Eric Eklund",
+        "Jessica Varkey",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/784822010",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "c7a83792-5f7a-451e-83a8-487698fd56a8",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-08-12T19:00:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sven Boettger",
+        "Chris Halvey",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly platform sync on natural-language search, automated Heritage Book ingestion, timing benchmarks, multi-tenancy and PDF branding.",
+      "url": "https://notes.granola.ai/d/c7a83792-5f7a-451e-83a8-487698fd56a8",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "e2da0ba3-94af-4434-8261-fe2b9ae354a0",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-08-12T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Ellen Smith",
+        "Johnny Borbone",
+        "Devan Leibowitz",
+        "Nick Agresti",
+        "Naveen Lekkalapudi",
+        "Ryan Williams"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline meeting with a section on Heritage and Drystone opportunities.",
+      "url": "https://notes.granola.ai/d/e2da0ba3-94af-4434-8261-fe2b9ae354a0",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "cd0590aa-449a-4c69-a0b1-ef267a3c976c",
+      "title": "Supernal Weekly Check In/Training",
+      "date": "2026-08-12T14:00:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sven Boettger",
+        "Diane Carnesi",
+        "Alex Cover",
+        "Chris Halvey",
+        "Jennifer Mejia"
+      ],
+      "kind": "client",
+      "summary": "Weekly training with Heritage staff on platform status, UI updates coming to staging, eval feature development and testing feedback.",
+      "url": "https://notes.granola.ai/d/cd0590aa-449a-4c69-a0b1-ef267a3c976c",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "9470c6c6-8295-4dc8-ad15-34304fba5194",
+      "title": "Join Heritage Call",
+      "date": "2026-08-10T19:30:00Z",
+      "participants": [
+        "Jens Haakaas"
+      ],
+      "kind": "client",
+      "summary": "Heritage call reviewing the feature list and a breakdown in communication, with agreed next steps.",
+      "url": "https://notes.granola.ai/d/9470c6c6-8295-4dc8-ad15-34304fba5194",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "69a563b0-8559-4de9-b010-c690e260e1c8",
+      "title": "USE THIS ONE All-Hands",
+      "date": "2026-08-10T18:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Peyton Gray Koch",
+        "Zack Young",
+        "Manish Chintha",
+        "Ricardo Morel",
+        "Corey Beebe"
+      ],
+      "kind": "multi",
+      "summary": "Company all-hands that reported back from a Heritage client visit and how Heritage rated Supernal.",
+      "url": "https://notes.granola.ai/d/69a563b0-8559-4de9-b010-c690e260e1c8",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "7cd4b066-4898-4339-b362-d4cf48df2e26",
+      "title": "Heritage Weekly Planning",
+      "date": "2026-08-10T14:45:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sergio Matos",
+        "Manish Chintha",
+        "Daniel Cuellar",
+        "Deep Sarker",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Internal Heritage pod planning: in-progress items and upcoming multi-tenancy and security priorities.",
+      "url": "https://notes.granola.ai/d/7cd4b066-4898-4339-b362-d4cf48df2e26",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "779562491",
+      "title": "Heritage, Ridgeback, Supernal Weekly Call",
+      "date": "2026-08-10",
+      "participants": [
+        "Brendan Costello",
+        "Sven Boettger",
+        "Chris Halvey",
+        "Eric Eklund",
+        "Jessica Varkey",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/779562491",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "759455592",
+      "title": "Heritage, Ridgeback, Supernal Weekly Call",
+      "date": "2026-07-27",
+      "participants": [
+        "Sven Boettger",
+        "Brendan Costello",
+        "Chris Halvey",
+        "Eric Eklund",
+        "Jessica Varkey",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/759455592",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "750979409",
+      "title": "(S) Foreman Review - Supernal, Sr & Jess",
+      "date": "2026-07-21",
+      "participants": [
+        "Ryan Williams",
+        "Sven Boettger",
+        "Jessica Varkey",
+        "Thomas J. Fanning Sr."
+      ],
+      "kind": "client",
+      "summary": "Discussion with Heritage on the Foreman and CRM workstream (from title; summary not read).",
+      "url": "https://fathom.video/calls/750979409",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "750979419",
+      "title": "Heritage, Ridgeback, Supernal Weekly Call",
+      "date": "2026-07-20",
+      "participants": [],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/750979419",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "748500607",
+      "title": "Heritage Project Items #36 & #37",
+      "date": "2026-07-16",
+      "participants": [
+        "Jens Haakaas",
+        "Ellen Smith",
+        "Daniel Cuellar"
+      ],
+      "kind": "internal",
+      "summary": "Internal Heritage working session (from title; summary not read).",
+      "url": "https://fathom.video/calls/748500607",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "747716880",
+      "title": "Heritage, Ridgeback, Supernal Weekly Call (Discuss Operations)",
+      "date": "2026-07-16",
+      "participants": [],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/747716880",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "5144c62f-b87e-4705-9913-5273363d67a3",
+      "title": "Marketing Open House (Very Optional)",
+      "date": "2026-07-10T20:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Damilola Jimoh",
+        "Devan Leibowitz",
+        "Ellen Smith",
+        "Eric Kravitz",
+        "Fran Abenza",
+        "Jack Parham"
+      ],
+      "kind": "multi",
+      "summary": "Marketing session that covered the Heritage deal and the pivot toward marketing services.",
+      "url": "https://notes.granola.ai/d/5144c62f-b87e-4705-9913-5273363d67a3",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "739343695",
+      "title": "Heritage + Supernal Weekly Call",
+      "date": "2026-07-09",
+      "participants": [
+        "Eric Eklund",
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Thomas J. Fanning Sr.",
+        "Brendan Costello",
+        "Seb Van Kuyk",
+        "Jessica Varkey",
+        "Sven Boettger"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/739343695",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "736974127",
+      "title": "Assets UX Interview",
+      "date": "2026-07-08",
+      "participants": [
+        "Jens Haakaas",
+        "Chris Halvey",
+        "William Morales",
+        "Ellen Smith",
+        "Alex Cover"
+      ],
+      "kind": "client",
+      "summary": "UX interview with Heritage staff on one section of the Heritage Book to inform platform design (from title; summary not read).",
+      "url": "https://fathom.video/calls/736974127",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "736974116",
+      "title": "Insurance UX Interview",
+      "date": "2026-07-08",
+      "participants": [
+        "Jens Haakaas",
+        "Chris Halvey",
+        "Ellen Smith"
+      ],
+      "kind": "client",
+      "summary": "UX interview with Heritage staff on one section of the Heritage Book to inform platform design (from title; summary not read).",
+      "url": "https://fathom.video/calls/736974116",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "736974114",
+      "title": "Flow Diagram UX Interview",
+      "date": "2026-07-08",
+      "participants": [
+        "Jens Haakaas",
+        "Chris Halvey",
+        "Keith McMahon",
+        "Ellen Smith"
+      ],
+      "kind": "client",
+      "summary": "UX interview with Heritage staff on one section of the Heritage Book to inform platform design (from title; summary not read).",
+      "url": "https://fathom.video/calls/736974114",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "736974122",
+      "title": "Data Sheet UX Interview",
+      "date": "2026-07-08",
+      "participants": [
+        "Jens Haakaas",
+        "Chris Halvey",
+        "Lisa Siegfried",
+        "Ellen Smith"
+      ],
+      "kind": "client",
+      "summary": "UX interview with Heritage staff on one section of the Heritage Book to inform platform design (from title; summary not read).",
+      "url": "https://fathom.video/calls/736974122",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "736974121",
+      "title": "UX Interview",
+      "date": "2026-07-08",
+      "participants": [
+        "Jens Haakaas",
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Ellen Smith"
+      ],
+      "kind": "client",
+      "summary": "UX interview with Heritage staff on one section of the Heritage Book to inform platform design (from title; summary not read).",
+      "url": "https://fathom.video/calls/736974121",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "721132531",
+      "title": "Heritage + Supernal Weekly Call (Tom Sr. joins if available)",
+      "date": "2026-06-24",
+      "participants": [
+        "Eric Eklund",
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Thomas J. Fanning Sr.",
+        "Brendan Costello",
+        "Seb Van Kuyk",
+        "Jessica Varkey",
+        "Sven Boettger"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/721132531",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "8f3d93dc-88cb-4b2a-85e7-e5907779aa97",
+      "title": "Product demos — account management OS, generative UI, second brain, and Heritage infrastructure",
+      "date": "2026-06-22T18:50:20Z",
+      "participants": [
+        "Tauseef Rahman"
+      ],
+      "kind": "multi",
+      "summary": "Internal product demo session that included a walkthrough of the Heritage platform infrastructure.",
+      "url": "https://notes.granola.ai/d/8f3d93dc-88cb-4b2a-85e7-e5907779aa97",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "719395714",
+      "title": "Jess, Sven, Chris, Tom Jr - Discuss Foreman and CRM",
+      "date": "2026-06-22",
+      "participants": [
+        "Ryan Williams",
+        "Sven Boettger",
+        "Chris Halvey",
+        "Jessica Varkey",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Discussion with Heritage on the Foreman and CRM workstream (from title; summary not read).",
+      "url": "https://fathom.video/calls/719395714",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "babae83e-2323-419f-a39b-9441a86fa562",
+      "title": "All Hands ",
+      "date": "2026-06-15T18:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Devan Leibowitz",
+        "Seb Van Kuyk",
+        "Ryan Williams",
+        "Nick Agresti"
+      ],
+      "kind": "multi",
+      "summary": "Company all-hands that celebrated a Heritage Strategies milestone among other updates.",
+      "url": "https://notes.granola.ai/d/babae83e-2323-419f-a39b-9441a86fa562",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "711092693",
+      "title": "Supernal / Heritage: Walkthrough Items #43 & #12",
+      "date": "2026-06-15",
+      "participants": [
+        "Jens Haakaas",
+        "Sven Boettger",
+        "Chris Halvey",
+        "Thomas Fanning Jr.",
+        "Jessica Varkey"
+      ],
+      "kind": "client",
+      "summary": "Heritage call with the client team (from title; summary not read).",
+      "url": "https://fathom.video/calls/711092693",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "706014612",
+      "title": "Heritage + Supernal Weekly Call (Tom Sr. joins if available)",
+      "date": "2026-06-11",
+      "participants": [
+        "Ryan Williams",
+        "Seb Van Kuyk",
+        "Brendan Costello",
+        "Chris Halvey",
+        "Eric Eklund",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/706014612",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "f2d75c68-551c-4c57-9147-a58bce758cb1",
+      "title": "Jens, Jr, Keith, Willy, Chris - Review FD and EDC",
+      "date": "2026-06-04T13:30:00Z",
+      "participants": [
+        "Jens Haakaas",
+        "Sven Boettger",
+        "Chris Halvey",
+        "Keith McMahon",
+        "Thomas Fanning Jr.",
+        "William Morales"
+      ],
+      "kind": "client",
+      "summary": "Review of the flow diagram and estate distribution chart: asset allocation issues, insurance box setup and licensing UX.",
+      "url": "https://notes.granola.ai/d/f2d75c68-551c-4c57-9147-a58bce758cb1",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "694009341",
+      "title": "Heritage + Supernal Weekly Call (Tom Sr. joins if available)",
+      "date": "2026-06-02",
+      "participants": [
+        "Seb Van Kuyk",
+        "Sven Boettger",
+        "Brendan Costello",
+        "Chris Halvey",
+        "Eric Eklund",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr.",
+        "Jessica Varkey"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/694009341",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "118d19de-d6f6-48dd-b799-53b7cce6e266",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-06-01T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Fran Abenza",
+        "Scott Downes",
+        "Saad Ali",
+        "Lucas Stein"
+      ],
+      "kind": "multi",
+      "summary": "Delivery planning that reviewed Heritage relationship health and a delayed May pipeline delivery.",
+      "url": "https://notes.granola.ai/d/118d19de-d6f6-48dd-b799-53b7cce6e266",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "679052656",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-05-20",
+      "participants": [
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Jessica Varkey",
+        "Sven Boettger"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "url": "https://fathom.video/calls/679052656",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "675022326",
+      "title": "EDC & FD Check-In",
+      "date": "2026-05-19",
+      "participants": [
+        "Chris Halvey",
+        "Keith McMahon"
+      ],
+      "kind": "client",
+      "summary": "Heritage call with the client team (from title; summary not read).",
+      "url": "https://fathom.video/calls/675022326",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "668434515",
+      "title": "EDC & FD Feedback",
+      "date": "2026-05-12",
+      "participants": [
+        "Keith McMahon",
+        "Chris Halvey"
+      ],
+      "kind": "client",
+      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "url": "https://fathom.video/calls/668434515",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "dd995bde-759f-44cd-bf20-499f34cf6562",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-05-11T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Fran Abenza",
+        "Scott Downes",
+        "Saad Ali",
+        "Lucas Stein"
+      ],
+      "kind": "multi",
+      "summary": "Delivery planning with a Heritage progress section on flow diagram and other build items.",
+      "url": "https://notes.granola.ai/d/dd995bde-759f-44cd-bf20-499f34cf6562",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "662618603",
+      "title": "Heritage + Supernal Weekly Call (Tom Sr. joins if available)",
+      "date": "2026-05-06",
+      "participants": [
+        "Eric Eklund",
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Thomas J. Fanning Sr.",
+        "Brendan Costello",
+        "Seb Van Kuyk",
+        "Jessica Varkey",
+        "Sven Boettger"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/662618603",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "661431988",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-05-06",
+      "participants": [
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Jessica Varkey",
+        "Sven Boettger"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "url": "https://fathom.video/calls/661431988",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "9ba05626-0280-40e3-a7b6-1d0e00d49a5a",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-05-04T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Jens Haakaas",
+        "Fran Abenza",
+        "Scott Downes",
+        "Saad Ali",
+        "Lucas Stein"
+      ],
+      "kind": "multi",
+      "summary": "Delivery planning with a section on scaling the Heritage project and its monthly cadence.",
+      "url": "https://notes.granola.ai/d/9ba05626-0280-40e3-a7b6-1d0e00d49a5a",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "cc2eecf3-4ba4-4176-881e-11ac4ebc9868",
+      "title": "Delivery Team Sync",
+      "date": "2026-05-04T15:45:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Devan Leibowitz",
+        "Nana Williams",
+        "Eric Kravitz",
+        "Sven Boettger",
+        "Belu Zerboni"
+      ],
+      "kind": "multi",
+      "summary": "Delivery team sync with Heritage at yellow status and the new engagement being planned.",
+      "url": "https://notes.granola.ai/d/cc2eecf3-4ba4-4176-881e-11ac4ebc9868",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "654704853",
+      "title": "Staging Env Setup for Heritage",
+      "date": "2026-04-30",
+      "participants": [
+        "Damilola Jimoh",
+        "Naveen Lekkalapudi",
+        "Saad Ali",
+        "Sven Boettger"
+      ],
+      "kind": "internal",
+      "summary": "Internal Heritage working session (from title; summary not read).",
+      "url": "https://fathom.video/calls/654704853",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "655588010",
+      "title": "Heritage + Supernal Weekly Call (Tom Sr. joins if available)",
+      "date": "2026-04-30",
+      "participants": [
+        "Seb Van Kuyk",
+        "Brendan Costello",
+        "Chris Halvey",
+        "Eric Eklund",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/655588010",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "655751789",
+      "title": "Flow Diagram Feedback",
+      "date": "2026-04-30",
+      "participants": [
+        "Jessica Varkey",
+        "Keith McMahon",
+        "Chris Halvey"
+      ],
+      "kind": "client",
+      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "url": "https://fathom.video/calls/655751789",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "653064660",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-04-29",
+      "participants": [
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Keith McMahon",
+        "Jessica Varkey",
+        "Sven Boettger"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "url": "https://fathom.video/calls/653064660",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "e749243d-ae0e-4c90-8842-b4c30a7e5b9f",
+      "title": "All Hands ",
+      "date": "2026-04-27T18:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Devan Leibowitz",
+        "Seb Van Kuyk",
+        "Ryan Williams",
+        "Nick Agresti"
+      ],
+      "kind": "multi",
+      "summary": "Company all-hands that led with the Heritage Phase 2 deal closing as the largest win.",
+      "url": "https://notes.granola.ai/d/e749243d-ae0e-4c90-8842-b4c30a7e5b9f",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "d2070803-b108-42f9-9fd3-4069c6faf7c2",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-04-27T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Fran Abenza",
+        "Scott Downes",
+        "Saad Ali",
+        "Santi Martin"
+      ],
+      "kind": "multi",
+      "summary": "Delivery planning noting the Heritage contract was signed and the team was scaling up.",
+      "url": "https://notes.granola.ai/d/d2070803-b108-42f9-9fd3-4069c6faf7c2",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "647373473",
+      "title": "Flow Diagram Questions",
+      "date": "2026-04-23",
+      "participants": [
+        "Keith McMahon",
+        "Chris Halvey"
+      ],
+      "kind": "client",
+      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "url": "https://fathom.video/calls/647373473",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "645593317",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-04-22",
+      "participants": [
+        "Sven Boettger",
+        "Jessica Varkey",
+        "Thomas Fanning Jr.",
+        "Chris Halvey"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "url": "https://fathom.video/calls/645593317",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "12a92dbd-1f85-437a-bc9c-6368fc26ade9",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-04-20T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Fran Abenza",
+        "Scott Downes",
+        "Saad Ali",
+        "Santi Martin"
+      ],
+      "kind": "multi",
+      "summary": "Delivery planning with a Heritage update on contract status before the Phase 2 signing.",
+      "url": "https://notes.granola.ai/d/12a92dbd-1f85-437a-bc9c-6368fc26ade9",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "bc983cf8-59a1-4667-8f58-84f1273a8f74",
+      "title": "Delivery Team Sync",
+      "date": "2026-04-20T15:45:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Devan Leibowitz",
+        "Nana Williams",
+        "Eric Kravitz",
+        "Sven Boettger"
+      ],
+      "kind": "multi",
+      "summary": "Delivery team sync including Heritage delivery challenges and points running behind.",
+      "url": "https://notes.granola.ai/d/bc983cf8-59a1-4667-8f58-84f1273a8f74",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "636528579",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-04-15",
+      "participants": [
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Jessica Varkey",
+        "Sven Boettger"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "url": "https://fathom.video/calls/636528579",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "99e12869-46a1-4a75-b9db-798a2e50f39e",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-04-13T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Fran Abenza",
+        "Scott Downes",
+        "Saad Ali",
+        "Santi Martin"
+      ],
+      "kind": "multi",
+      "summary": "Delivery planning with a section on Heritage milestone progress.",
+      "url": "https://notes.granola.ai/d/99e12869-46a1-4a75-b9db-798a2e50f39e",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "630653840",
+      "title": "Heritage x Supernal – May Planning",
+      "date": "2026-04-09",
+      "participants": [
+        "Sven Boettger",
+        "Thomas Fanning Jr.",
+        "Chris Halvey"
+      ],
+      "kind": "client",
+      "summary": "Heritage call with the client team (from title; summary not read).",
+      "url": "https://fathom.video/calls/630653840",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "627974726",
+      "title": "Heritage + Supernal Weekly Call (Tom Sr. joins if available)",
+      "date": "2026-04-08",
+      "participants": [
+        "Seb Van Kuyk",
+        "Sven Boettger",
+        "Brendan Costello",
+        "Chris Halvey",
+        "Eric Eklund",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr.",
+        "Jessica Varkey"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/627974726",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "627602336",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-04-08",
+      "participants": [
+        "Sven Boettger",
+        "Jessica Varkey",
+        "Thomas Fanning Jr.",
+        "Chris Halvey"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "url": "https://fathom.video/calls/627602336",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "623737819",
+      "title": "Heritage + Supernal Weekly Call",
+      "date": "2026-04-02",
+      "participants": [
+        "Seb Van Kuyk",
+        "Sven Boettger",
+        "Brendan Costello",
+        "Chris Halvey",
+        "Eric Eklund",
+        "Jessica Varkey",
+        "Kemberlyn Aguirre Portillo",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/623737819",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "620008265",
+      "title": "Process Walkthrough: Flow Diagram & Estate Distribution Chart",
+      "date": "2026-04-01",
+      "participants": [
+        "Sven Boettger",
+        "Keith McMahon",
+        "Thomas Fanning Jr.",
+        "Chris Halvey"
+      ],
+      "kind": "client",
+      "summary": "Heritage call with the client team (from title; summary not read).",
+      "url": "https://fathom.video/calls/620008265",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "620008277",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-04-01",
+      "participants": [
+        "Sven Boettger",
+        "Jessica Varkey",
+        "Thomas Fanning Jr.",
+        "Chris Halvey"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "url": "https://fathom.video/calls/620008277",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "613700434",
+      "title": "Heritage + Supernal Weekly Call (Tom Sr. joins if available)",
+      "date": "2026-03-26",
+      "participants": [
+        "Eric Eklund",
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Thomas J. Fanning Sr.",
+        "Scott Downes",
+        "Brendan Costello",
+        "Seb Van Kuyk",
+        "Jessi"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/613700434",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "611628444",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-03-25",
+      "participants": [
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Jessica Varkey",
+        "Sven Boettger"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "url": "https://fathom.video/calls/611628444",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "603950211",
+      "title": "Heritage + Supernal Weekly Call (Tom Sr. joins if available)",
+      "date": "2026-03-20",
+      "participants": [
+        "Seb Van Kuyk",
+        "Sven Boettger",
+        "Brendan Costello",
+        "Chris Halvey",
+        "Eric Eklund",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr.",
+        "Jessica Varkey"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/603950211",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "603368264",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-03-18",
+      "participants": [
+        "Sven Boettger",
+        "Jessica Varkey",
+        "Thomas Fanning Jr.",
+        "Chris Halvey"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "url": "https://fathom.video/calls/603368264",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "f6334280-61ee-42d2-8c39-00282f12566a",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-03-16T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Fran Abenza",
+        "Saad Ali",
+        "Santi Martin"
+      ],
+      "kind": "multi",
+      "summary": "Delivery planning with a section on Heritage progress next to JetHQ.",
+      "url": "https://notes.granola.ai/d/f6334280-61ee-42d2-8c39-00282f12566a",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "595067562",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-03-11",
+      "participants": [
+        "Sven Boettger",
+        "Jessica Varkey",
+        "Thomas Fanning Jr.",
+        "Chris Halvey"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "url": "https://fathom.video/calls/595067562",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "588686080",
+      "title": "Heritage + Supernal Weekly Call (Tom Sr. joins if available)",
+      "date": "2026-03-05",
+      "participants": [
+        "Seb Van Kuyk",
+        "Brendan Costello",
+        "Chris Halvey",
+        "Eric Eklund",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/588686080",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "587103846",
+      "title": "Supernal + Heritage",
+      "date": "2026-03-04",
+      "participants": [
+        "Sven Boettger",
+        "Peyton Gray Koch",
+        "Jens Haakaas",
+        "Scott Downes",
+        "Brendan Costello",
+        "Chris Halvey",
+        "Eric Eklund",
+        "Jessica Varkey",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr"
+      ],
+      "kind": "client",
+      "summary": "Heritage call with the client team (from title; summary not read).",
+      "url": "https://fathom.video/calls/587103846",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "587458517",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-03-04",
+      "participants": [
+        "Jessica Varkey",
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Sven Boettger"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "url": "https://fathom.video/calls/587458517",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "586331417",
+      "title": "Supernal & Heritage RE Flow Diagram",
+      "date": "2026-03-02",
+      "participants": [
+        "Jens Haakaas",
+        "Chris Halvey",
+        "Jessica Varkey",
+        "Keith McMahon",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Heritage call with the client team (from title; summary not read).",
+      "url": "https://fathom.video/calls/586331417",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "579346747",
+      "title": "Heritage + Supernal Weekly Call",
+      "date": "2026-02-25",
+      "participants": [
+        "Seb Van Kuyk",
+        "Sven Boettger",
+        "Brendan Costello",
+        "Eric Eklund",
+        "Jessica Varkey",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr.",
+        "Chris Halvey"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/579346747",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "578737714",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-02-25",
+      "participants": [
+        "Jessica Varkey",
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Sven Boettger"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "url": "https://fathom.video/calls/578737714",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "572276022",
+      "title": "Heritage + Supernal Weekly Call (Tom Sr. joins if available)",
+      "date": "2026-02-19",
+      "participants": [
+        "Seb Van Kuyk",
+        "Brendan Costello",
+        "Chris Halvey",
+        "Eric Eklund",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/572276022",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "572887343",
+      "title": "Supernal Weekly Check In/Training",
+      "date": "2026-02-19",
+      "participants": [
+        "Diane Carnesi",
+        "Amanda Sparks",
+        "Alan Temiryaev",
+        "Chris Halvey",
+        "Internal Review",
+        "Jennifer Mejia",
+        "Jessica Varkey",
+        "Keith McMahon",
+        "Lisa Siegfried",
+        "Marcus Vetter",
+        "Rosie Salsone",
+        "T"
+      ],
+      "kind": "client",
+      "summary": "Weekly training and check-in with Heritage staff on using the platform (from title; summary not read).",
+      "url": "https://fathom.video/calls/572887343",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "570202311",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-02-18",
+      "participants": [
+        "Jessica Varkey",
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Sven Boettger"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "url": "https://fathom.video/calls/570202311",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "564234273",
+      "title": "Supernal Weekly Check In/Training",
+      "date": "2026-02-12",
+      "participants": [
+        "Diane Carnesi",
+        "Amanda Sparks",
+        "Alan Temiryaev",
+        "Chris Halvey",
+        "Internal Review",
+        "Jennifer Mejia",
+        "Jessica Varkey",
+        "Keith McMahon",
+        "Lisa Siegfried",
+        "Marcus Vetter",
+        "Rosie Salsone",
+        "T"
+      ],
+      "kind": "client",
+      "summary": "Weekly training and check-in with Heritage staff on using the platform (from title; summary not read).",
+      "url": "https://fathom.video/calls/564234273",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "563716036",
+      "title": "Heritage + Supernal Weekly",
+      "date": "2026-02-11",
+      "participants": [
+        "Seb Van Kuyk",
+        "Sven Boettger",
+        "Brendan Costello",
+        "Angeline Bailly",
+        "Chris Halvey",
+        "Eric Eklund",
+        "Jessica Varkey",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/563716036",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "562337840",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-02-11",
+      "participants": [
+        "Jessica Varkey",
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Sven Boettger"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "url": "https://fathom.video/calls/562337840",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "556338487",
+      "title": "Heritage + Supernal Weekly Call (Tom Sr. joins if available)",
+      "date": "2026-02-05",
+      "participants": [
+        "Eric Eklund",
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Thomas J. Fanning Sr.",
+        "Brendan Costello",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Jessica Varkey",
+        "Sven Boettge"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/556338487",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "555803751",
+      "title": "Supernal Weekly Check In/Training",
+      "date": "2026-02-05",
+      "participants": [
+        "Diane Carnesi",
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Keith McMahon",
+        "Jennifer Mejia",
+        "Jessica Varkey",
+        "Alan Temiryaev",
+        "Lisa Siegfried",
+        "Marcus Vetter",
+        "Amanda Sparks",
+        "Internal Revi"
+      ],
+      "kind": "client",
+      "summary": "Weekly training and check-in with Heritage staff on using the platform (from title; summary not read).",
+      "url": "https://fathom.video/calls/555803751",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "554534562",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-02-04",
+      "participants": [
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Seb Van Kuyk",
+        "Jessica Varkey"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "url": "https://fathom.video/calls/554534562",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "547993496",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-01-30",
+      "participants": [
+        "Seb Van Kuyk",
+        "Jessica Varkey",
+        "Thomas Fanning Jr.",
+        "Chris Halvey"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "url": "https://fathom.video/calls/547993496",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "548247066",
+      "title": "Heritage + Supernal Weekly Call (Tom Sr. joins if available)",
+      "date": "2026-01-29",
+      "participants": [
+        "Seb Van Kuyk",
+        "Brendan Costello",
+        "Chris Halvey",
+        "Eric Eklund",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr.",
+        "Jessica Varkey"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/548247066",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "547993493",
+      "title": "Supernal Weekly Check In/Training",
+      "date": "2026-01-29",
+      "participants": [
+        "Diane Carnesi",
+        "Amanda Sparks",
+        "Alan Temiryaev",
+        "Chris Halvey",
+        "Internal Review",
+        "Jennifer Mejia",
+        "Jessica Varkey",
+        "Keith McMahon",
+        "Lisa Siegfried",
+        "Marcus Vetter",
+        "Rosie Salsone",
+        "T"
+      ],
+      "kind": "client",
+      "summary": "Weekly training and check-in with Heritage staff on using the platform (from title; summary not read).",
+      "url": "https://fathom.video/calls/547993493",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "543991469",
+      "title": "Client family Heritage Book Creation",
+      "date": "2026-01-26",
+      "participants": [
+        "Lisa Siegfried",
+        "Jessica Varkey",
+        "Keith McMahon",
+        "Chris Halvey",
+        "Thomas Fanning Jr.",
+        "Rosie Salsone"
+      ],
+      "kind": "client",
+      "summary": "Heritage call with the client team (from title; summary not read).",
+      "url": "https://fathom.video/calls/543991469",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "536617244",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-01-20",
+      "participants": [
+        "Jens Haakaas",
+        "Seb Van Kuyk",
+        "Jessica Varkey",
+        "Thomas Fanning Jr.",
+        "Chris Halvey"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "url": "https://fathom.video/calls/536617244",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "530814065",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-01-15",
+      "participants": [
+        "Jens Haakaas",
+        "Seb Van Kuyk",
+        "Jessica Varkey",
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Keith McMahon"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "url": "https://fathom.video/calls/530814065",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "533299022",
+      "title": "Supernal Weekly Check In/Training",
+      "date": "2026-01-15",
+      "participants": [
+        "Jens Haakaas",
+        "Diane Carnesi",
+        "Amanda Sparks",
+        "Alan Temiryaev",
+        "Chris Halvey",
+        "Jennifer Mejia",
+        "Jessica Varkey",
+        "Keith McMahon",
+        "Lisa Siegfried",
+        "Marcus Vetter",
+        "Rosie Salsone",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly training and check-in with Heritage staff on using the platform (from title; summary not read).",
+      "url": "https://fathom.video/calls/533299022",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "525908822",
+      "title": "Supernal & Heritage - Demo Follow Up",
+      "date": "2026-01-09",
+      "participants": [
+        "Ryan Williams",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Scott Downes",
+        "Chris Halvey",
+        "Eric Eklund",
+        "Jessica Varkey",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "url": "https://fathom.video/calls/525908822",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "523783619",
+      "title": "Flow Diagram Training w/Supernal",
+      "date": "2026-01-08",
+      "participants": [
+        "Jens Haakaas",
+        "Chris Halvey",
+        "Eric Eklund",
+        "Jennifer Mejia",
+        "Jessica Varkey",
+        "Keith McMahon",
+        "Marcus Vetter",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Training session with Heritage staff on a platform section (from title; summary not read).",
+      "url": "https://fathom.video/calls/523783619",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "524472357",
+      "title": "Insurance Sheet Training w/Supernal",
+      "date": "2026-01-08",
+      "participants": [
+        "Jens Haakaas",
+        "Diane Carnesi",
+        "Amanda Sparks",
+        "Chris Halvey",
+        "Eric Eklund",
+        "Jennifer Mejia",
+        "Jessica Varkey",
+        "Marcus Vetter",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Training session with Heritage staff on a platform section (from title; summary not read).",
+      "url": "https://fathom.video/calls/524472357",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "523111854",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2026-01-07",
+      "participants": [
+        "Jens Haakaas",
+        "Seb Van Kuyk",
+        "Jessica Varkey",
+        "Thomas Fanning Jr.",
+        "Chris Halvey"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "url": "https://fathom.video/calls/523111854",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "520207683",
+      "title": "Supernal + Heritage - Book Demo",
+      "date": "2026-01-05",
+      "participants": [
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Scott Downes",
+        "Ryan Williams",
+        "Chris Halvey",
+        "Jessica Varkey",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Demo of the Heritage platform to the Heritage team and follow-up discussion (from title; summary not read).",
+      "url": "https://fathom.video/calls/520207683",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "519825010",
+      "title": "Heritage AI Platform Sync",
+      "date": "2026-01-02",
+      "participants": [
+        "Jens Haakaas",
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Seb Van Kuyk",
+        "Jessica Varkey"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "url": "https://fathom.video/calls/519825010",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "517462743",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2025-12-29",
+      "participants": [
+        "Jens Haakaas",
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Seb Van Kuyk",
+        "Jessica Varkey"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "url": "https://fathom.video/calls/517462743",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "513356616",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2025-12-23",
+      "participants": [],
+      "kind": "client",
+      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "url": "https://fathom.video/calls/513356616",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "510348809",
+      "title": "Heritage + Supernal Weekly Call (Tom Sr. joins if available)",
+      "date": "2025-12-18",
+      "participants": [
+        "Ryan Williams",
+        "Seb Van Kuyk",
+        "Brendan Costello",
+        "Chris Halvey",
+        "Eric Eklund",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/510348809",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "509849222",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2025-12-18",
+      "participants": [],
+      "kind": "client",
+      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "url": "https://fathom.video/calls/509849222",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "507480497",
+      "title": "Supernal + Heritage",
+      "date": "2025-12-16",
+      "participants": [
+        "Ryan Williams",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Chris Halvey",
+        "Jessica Varkey",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Heritage call with the client team (from title; summary not read).",
+      "url": "https://fathom.video/calls/507480497",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "504703105",
+      "title": "AI Project Manager (Supernal & Heritage)",
+      "date": "2025-12-11",
+      "participants": [
+        "Tauseef Rahman",
+        "Ryan Williams",
+        "Angeline Bailly",
+        "Jessica Varkey"
+      ],
+      "kind": "client",
+      "summary": "Heritage call with the client team (from title; summary not read).",
+      "url": "https://fathom.video/calls/504703105",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "500701814",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2025-12-10",
+      "participants": [],
+      "kind": "client",
+      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "url": "https://fathom.video/calls/500701814",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "494429059",
+      "title": "Heritage Platform Weekly Sync",
+      "date": "2025-12-04",
+      "participants": [
+        "Jens Haakaas",
+        "Seb Van Kuyk",
+        "Jessica Varkey",
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Lisa Siegfried"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "url": "https://fathom.video/calls/494429059",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "481200640",
+      "title": "Heritage + Supernal Weekly Call (Tom Sr. joins if available)",
+      "date": "2025-11-20",
+      "participants": [
+        "Ryan Williams",
+        "Seb Van Kuyk",
+        "Peyton Gray Koch",
+        "Scott Downes",
+        "Brendan Costello",
+        "Chris Halvey",
+        "Eric Eklund",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr.",
+        "Jessica Varkey"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/481200640",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "472520597",
+      "title": "Heritage + Supernal Weekly Call (Tom Sr. joins if available)",
+      "date": "2025-11-13",
+      "participants": [
+        "Seb Van Kuyk",
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Thomas J. Fanning Sr.",
+        "Chris Chavez"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/472520597",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "465279751",
+      "title": "Heritage + Supernal Weekly Call (Tom Sr. joins if available)",
+      "date": "2025-11-06",
+      "participants": [
+        "Chris Chavez",
+        "Jens Haakaas",
+        "Ryan Williams",
+        "Chris Halvey",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr.",
+        "Brendan Costello",
+        "Eric E"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/465279751",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "457231323",
+      "title": "Heritage + Supernal Weekly Call (Tom Sr. joins if available)",
+      "date": "2025-10-30",
+      "participants": [
+        "Chris Chavez",
+        "Chris Halvey",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/457231323",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "447923046",
+      "title": "(I) AI Discussion - Sr, Jr, Chris, Ryan Williams",
+      "date": "2025-10-21",
+      "participants": [
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Thomas J. Fanning Sr.",
+        "Ryan Williams"
+      ],
+      "kind": "client",
+      "summary": "Heritage presentation, rehearsal or prep session on AI and the platform (from title; summary not read).",
+      "url": "https://fathom.video/calls/447923046",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "442051111",
+      "title": "Heritage + Supernal Weekly Call (Tom Sr. joins if available)",
+      "date": "2025-10-16",
+      "participants": [
+        "Chris Chavez",
+        "Chris Halvey",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/442051111",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "441949142",
+      "title": "Debrief",
+      "date": "2025-10-14",
+      "participants": [
+        "Ryan Williams",
+        "Chris Halvey",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Heritage call with the client team (from title; summary not read).",
+      "url": "https://fathom.video/calls/441949142",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "439267624",
+      "title": "(S) AI Discussion - Moritt Hock & Hamroff LLP, Heritage Strategies + Supernal",
+      "date": "2025-10-14",
+      "participants": [
+        "Ryan Williams",
+        "Chris Halvey",
+        "David J. Borkon",
+        "Gary C. Hisiger",
+        "Esq.",
+        "Kemberlyn Aguirre Portillo",
+        "Thomas J."
+      ],
+      "kind": "client",
+      "summary": "Heritage presentation, rehearsal or prep session on AI and the platform (from title; summary not read).",
+      "url": "https://fathom.video/calls/439267624",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "439267626",
+      "title": "2:00 PM (IR) AI Presentation Dry Run  - Seb, Ryan, Sr, Jr & Chris",
+      "date": "2025-10-13",
+      "participants": [
+        "Ryan Williams",
+        "Chris Halvey",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Heritage presentation, rehearsal or prep session on AI and the platform (from title; summary not read).",
+      "url": "https://fathom.video/calls/439267626",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "434975479",
+      "title": "Heritage + Supernal Weekly Call (Tom Sr. joins if available)",
+      "date": "2025-10-09",
+      "participants": [
+        "Chris Chavez",
+        "Chris Halvey",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/434975479",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "427744917",
+      "title": "Heritage + Supernal Weekly Call (Tom Sr. joins if available)",
+      "date": "2025-10-02",
+      "participants": [
+        "Chris Chavez",
+        "Chris Halvey",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr.",
+        "Ryan Williams",
+        "Brendan Costello",
+        "Eric Eklund"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/427744917",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "406356302",
+      "title": "Heritage + Supernal Weekly Call (Tom Sr. joins if available)",
+      "date": "2025-09-11",
+      "participants": [
+        "Seb Van Kuyk",
+        "Scott Downes",
+        "Ryan Williams",
+        "Chris Halvey",
+        "Thomas Fanning Jr.",
+        "Thomas J. Fanning Sr."
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/406356302",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "389129953",
+      "title": "Chavez & Jr. Connect",
+      "date": "2025-08-22",
+      "participants": [
+        "Chris Halvey",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Heritage call with the client team (from title; summary not read).",
+      "url": "https://fathom.video/calls/389129953",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "379776552",
+      "title": "Teams Webinar - Supernal + Heritage",
+      "date": "2025-08-14",
+      "participants": [
+        "Peyton Gray Koch",
+        "Scott Downes",
+        "Ryan Williams",
+        "Chris Halvey",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Heritage presentation, rehearsal or prep session on AI and the platform (from title; summary not read).",
+      "url": "https://fathom.video/calls/379776552",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "381316432",
+      "title": "Heritage Prep Meeting",
+      "date": "2025-08-14",
+      "participants": [
+        "Ryan Williams",
+        "Peyton Gray Koch",
+        "Scott Downes"
+      ],
+      "kind": "internal",
+      "summary": "Internal Heritage working session (from title; summary not read).",
+      "url": "https://fathom.video/calls/381316432",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "374949824",
+      "title": "Chavez & Halvey (Tom, Tom join if available)",
+      "date": "2025-08-07",
+      "participants": [
+        "Chris Halvey",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Heritage call with the client team (from title; summary not read).",
+      "url": "https://fathom.video/calls/374949824",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "360573413",
+      "title": "Heritage + Supernal Weekly Call (Tom Sr. joins if available)",
+      "date": "2025-07-24",
+      "participants": [
+        "Chris Chavez",
+        "Chris Halvey",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/360573413",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "354245549",
+      "title": "Heritage + Supernal Weekly Call (Tom Sr. joins if available)",
+      "date": "2025-07-17",
+      "participants": [
+        "Seb Van Kuyk",
+        "Chris Halvey",
+        "Thomas Fanning Jr.",
+        "Thomas J. Fanning Sr."
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/354245549",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "347615397",
+      "title": "Heritage + Supernal Weekly Call (Tom Sr. joins if available)",
+      "date": "2025-07-10",
+      "participants": [
+        "Chris Chavez",
+        "Chris Halvey",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/347615397",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "342299638",
+      "title": "(S) Supernal + Heritage",
+      "date": "2025-07-02",
+      "participants": [
+        "Scott Downes",
+        "Chris Halvey",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Heritage call with the client team (from title; summary not read).",
+      "url": "https://fathom.video/calls/342299638",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "338383398",
+      "title": "(S) Gary Hisiger, Gabe Rives-Corbett, Supernal + Heritage Strategies",
+      "date": "2025-07-01",
+      "participants": [
+        "Chris Chavez",
+        "Scott Downes",
+        "Gabriel Rives-Corbett",
+        "Chris Halvey",
+        "Gary C. Hisiger",
+        "Esq.",
+        "Kembe"
+      ],
+      "kind": "client",
+      "summary": "Heritage call with the client team (from title; summary not read).",
+      "url": "https://fathom.video/calls/338383398",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "339965251",
+      "title": "Supernal + Heritage Dry Run",
+      "date": "2025-06-30",
+      "participants": [
+        "Chris Halvey",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr.",
+        "Scott Downes"
+      ],
+      "kind": "client",
+      "summary": "Heritage presentation, rehearsal or prep session on AI and the platform (from title; summary not read).",
+      "url": "https://fathom.video/calls/339965251",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "337879728",
+      "title": "(S) Supernal + Heritage Presentation Dry Run",
+      "date": "2025-06-27",
+      "participants": [
+        "Chris Halvey",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Heritage presentation, rehearsal or prep session on AI and the platform (from title; summary not read).",
+      "url": "https://fathom.video/calls/337879728",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "336024314",
+      "title": "Heritage + Supernal Weekly Call",
+      "date": "2025-06-26",
+      "participants": [
+        "Seb Van Kuyk",
+        "Chris Halvey",
+        "Thomas Fanning Jr.",
+        "Thomas J. Fanning Sr."
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/336024314",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "333570344",
+      "title": "Supernal & Heritage Call",
+      "date": "2025-06-24",
+      "participants": [
+        "Seb Van Kuyk",
+        "Peyton Gray Koch",
+        "Scott Downes",
+        "Chris Halvey",
+        "Thomas J. Fanning Sr.",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Heritage call with the client team (from title; summary not read).",
+      "url": "https://fathom.video/calls/333570344",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "329863977",
+      "title": "Heritage + Supernal Weekly Call",
+      "date": "2025-06-19",
+      "participants": [
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Thomas J. Fanning Sr.",
+        "Chris Chavez"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/329863977",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "327371396",
+      "title": "Supernal & Heritage Call",
+      "date": "2025-06-18",
+      "participants": [
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Thomas J. Fanning Sr.",
+        "Chris Chavez",
+        "Scott Downes",
+        "Peyton Gray Koch"
+      ],
+      "kind": "client",
+      "summary": "Heritage call with the client team (from title; summary not read).",
+      "url": "https://fathom.video/calls/327371396",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "328773456",
+      "title": "Flow Diagram Employee QA",
+      "date": "2025-06-18",
+      "participants": [
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Keith McMahon",
+        "Chris Halvey"
+      ],
+      "kind": "client",
+      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "url": "https://fathom.video/calls/328773456",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "326226564",
+      "title": "Supernal + Heritage - Intern Training",
+      "date": "2025-06-16",
+      "participants": [
+        "Seb Van Kuyk",
+        "Chris Chavez",
+        "Alan Temiryaev",
+        "Chris Halvey",
+        "William Morales",
+        "Anthony Terrano",
+        "Lisa Siegfried",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Training session with Heritage staff on a platform section (from title; summary not read).",
+      "url": "https://fathom.video/calls/326226564",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "322593954",
+      "title": "HOLD - Assets QA Cont.",
+      "date": "2025-06-11",
+      "participants": [
+        "Seb Van Kuyk",
+        "Chris Halvey",
+        "Jens Haakaas",
+        "Alan Temiryaev"
+      ],
+      "kind": "client",
+      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "url": "https://fathom.video/calls/322593954",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "318122592",
+      "title": "Heritage + Supernal Weekly Call (Chavez, Tom, Tom, Chris)",
+      "date": "2025-06-04",
+      "participants": [
+        "Chris Chavez",
+        "Seb Van Kuyk",
+        "Chris Halvey",
+        "Thomas Fanning Jr.",
+        "Thomas J. Fanning Sr."
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/318122592",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "311998287",
+      "title": "Heritage + Supernal Weekly Call",
+      "date": "2025-05-29",
+      "participants": [
+        "Seb Van Kuyk",
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Thomas J. Fanning Sr.",
+        "Chris Chavez"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/311998287",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "311073985",
+      "title": "Data Sheet QA Follow Up",
+      "date": "2025-05-28",
+      "participants": [
+        "Seb Van Kuyk",
+        "Chris Halvey",
+        "Jens Haakaas",
+        "Lisa Siegfried"
+      ],
+      "kind": "client",
+      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "url": "https://fathom.video/calls/311073985",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "306499177",
+      "title": "Heritage + Supernal Weekly Call (extra 30 minutes; includes interns)",
+      "date": "2025-05-22",
+      "participants": [
+        "Seb Van Kuyk",
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Thomas J. Fanning Sr.",
+        "Chris Chavez"
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/306499177",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "299265221",
+      "title": "HOLD: Insurance QA",
+      "date": "2025-05-16",
+      "participants": [
+        "Seb Van Kuyk",
+        "Chris Halvey",
+        "Jens Haakaas"
+      ],
+      "kind": "client",
+      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "url": "https://fathom.video/calls/299265221",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "300842902",
+      "title": "Heritage + Supernal Weekly Call",
+      "date": "2025-05-15",
+      "participants": [
+        "Chris Chavez",
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Thomas J. Fanning Sr."
+      ],
+      "kind": "client",
+      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "url": "https://fathom.video/calls/300842902",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "299265220",
+      "title": "Flow Diagram QA cont.",
+      "date": "2025-05-14",
+      "participants": [
+        "Seb Van Kuyk",
+        "Chris Halvey",
+        "Keith McMahon",
+        "Jens Haakaas"
+      ],
+      "kind": "client",
+      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "url": "https://fathom.video/calls/299265220",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "299265223",
+      "title": "Data Sheet follow up",
+      "date": "2025-05-14",
+      "participants": [
+        "Seb Van Kuyk",
+        "Chris Halvey",
+        "Jens Haakaas",
+        "Lisa Siegfried"
+      ],
+      "kind": "client",
+      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "url": "https://fathom.video/calls/299265223",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "298072152",
+      "title": "Asset QA Cont.",
+      "date": "2025-05-13",
+      "participants": [
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Alan Temiryaev",
+        "Chris Halvey"
+      ],
+      "kind": "client",
+      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "url": "https://fathom.video/calls/298072152",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "293441293",
+      "title": "Assets QA",
+      "date": "2025-05-07",
+      "participants": [
+        "Seb Van Kuyk",
+        "Chris Halvey",
+        "Jens Haakaas",
+        "Paul Lodder",
+        "Alan Temiryaev"
+      ],
+      "kind": "client",
+      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "url": "https://fathom.video/calls/293441293",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "293441294",
+      "title": "Flow Diagram QA",
+      "date": "2025-05-07",
+      "participants": [
+        "Seb Van Kuyk",
+        "Chris Halvey",
+        "Keith McMahon",
+        "Jens Haakaas",
+        "Paul Lodder"
+      ],
+      "kind": "client",
+      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "url": "https://fathom.video/calls/293441294",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "290730268",
+      "title": "New Meeting Room: Chavez, Halvey, Tom",
+      "date": "2025-05-01",
+      "participants": [
+        "Chris Chavez",
+        "Thomas Fanning Jr.",
+        "Chris Halvey"
+      ],
+      "kind": "client",
+      "summary": "Heritage call with the client team (from title; summary not read).",
+      "url": "https://fathom.video/calls/290730268",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "286765470",
+      "title": "Chris <> Seb Testing Insurance",
+      "date": "2025-04-29",
+      "participants": [
+        "Seb Van Kuyk",
+        "Chris Halvey"
+      ],
+      "kind": "client",
+      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "url": "https://fathom.video/calls/286765470",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "283957904",
+      "title": "Supernal <> Heritage: Keith Testing Follow up",
+      "date": "2025-04-23",
+      "participants": [
+        "Seb Van Kuyk",
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Keith McMahon",
+        "Jens Haakaas",
+        "Jessica Varkey"
+      ],
+      "kind": "client",
+      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "url": "https://fathom.video/calls/283957904",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "275235928",
+      "title": "Heritage and Invisible Catch Up",
+      "date": "2025-04-14",
+      "participants": [
+        "Chris Chavez",
+        "Chris Halvey",
+        "Thomas Fanning Jr."
+      ],
+      "kind": "client",
+      "summary": "Heritage call with the client team (from title; summary not read).",
+      "url": "https://fathom.video/calls/275235928",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "257834655",
+      "title": "HOLD: Supernal + Heritage",
+      "date": "2025-03-21",
+      "participants": [
+        "Chris Chavez",
+        "Thomas Fanning Jr.",
+        "Chris Halvey",
+        "Jules Terrien",
+        "Seb Van Kuyk"
+      ],
+      "kind": "client",
+      "summary": "Heritage call with the client team (from title; summary not read).",
+      "url": "https://fathom.video/calls/257834655",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "241154517",
+      "title": "Follow-Up: Questions to train Heritage AI",
+      "date": "2025-02-25",
+      "participants": [
+        "Chris Chavez",
+        "Thomas Fanning Jr.",
+        "Chris Halvey"
+      ],
+      "kind": "client",
+      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "url": "https://fathom.video/calls/241154517",
+      "alt_url": null
+    }
+  ]
+}
