@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { normalizeFathom, listFathom, fetchFathomTranscript, hmsToSeconds } from "../lib/memory/sources/fathom.ts";
 import { normalizeGranola, listGranola, fetchGranolaTranscript } from "../lib/memory/sources/granola.ts";
-import { fetchTranscript } from "../lib/memory/sources/index.ts";
+import { fetchTranscript, isRateLimited, SourceHttpError } from "../lib/memory/sources/index.ts";
 
 const load = (name: string) => JSON.parse(readFileSync(new URL(`./fixtures/${name}`, import.meta.url), "utf8"));
 const isIso = (s: string) => !Number.isNaN(Date.parse(s)) && /^\d{4}-\d{2}-\d{2}T/.test(s);
@@ -80,6 +80,15 @@ test("normalizeFathom rejects a meeting with no recording id", () => {
   assert.throws(() => normalizeFathom(null));
 });
 
+test("normalizeFathom and normalizeGranola reject a call with no usable date (no 1970)", () => {
+  const f = load("fathom-meeting.json");
+  f.recording_start_time = null; f.scheduled_start_time = "nope"; delete f.created_at;
+  assert.throws(() => normalizeFathom(f), /date/);
+  const g = load("granola-note.json");
+  g.calendar_event = null; g.created_at = null;
+  assert.throws(() => normalizeGranola(g), /date/);
+});
+
 test("hmsToSeconds", () => {
   assert.equal(hmsToSeconds("00:01:23"), 83);
   assert.equal(hmsToSeconds("01:00:05"), 3605);
@@ -130,6 +139,15 @@ test("normalizeGranola: turn starts are seconds from the first turn; speaker fal
   ]);
 });
 
+test("normalizeGranola accepts numeric start_time in seconds", () => {
+  const raw = load("granola-note.json");
+  raw.transcript = [
+    { text: "a", start_time: 12.5, speaker: { name: "Ann" } },
+    { text: "b", start_time: "20", speaker: { name: "Bob" } },
+  ];
+  assert.deepEqual(normalizeGranola(raw).turns?.map((t) => t.start), [0, 7.5]);
+});
+
 test("normalizeGranola: metAt from calendar start else created_at; summary_text fallback; participants deduped", () => {
   const raw = load("granola-note.json");
   raw.calendar_event = null;
@@ -173,6 +191,9 @@ test("listFathom pages with cursor, sends key and created_after, and includes tr
   const u0 = new URL(f.calls[0].url);
   assert.equal(u0.origin + u0.pathname, "https://api.fathom.ai/external/v1/meetings");
   assert.equal(u0.searchParams.get("include_transcript"), "true");
+  assert.equal(u0.searchParams.get("include_summary"), "true");
+  assert.equal(new URL(f.calls[1].url).searchParams.get("include_summary"), "true");
+  assert.equal(r.skipped, 0);
   assert.equal(u0.searchParams.get("created_after"), "2026-11-01T00:00:00Z");
   assert.equal(u0.searchParams.get("cursor"), null);
   assert.equal(new URL(f.calls[1].url).searchParams.get("cursor"), "c2");
@@ -194,16 +215,53 @@ test("listFathom throws with the status but not the body; missing key throws", a
   await assert.rejects(listFathom(null, null, { fetch: f.fn, key: undefined }), /FATHOM_API_KEY/);
 });
 
-test("fetchFathomTranscript returns turns, null on 404 or empty", async () => {
+test("fetchFathomTranscript: ready, not_ready when empty, gone on 404, RateLimitedError on 429", async () => {
   const m = load("fathom-meeting.json");
   let f = fakeFetch([{ status: 200, body: { transcript: m.transcript } }]);
-  const turns = await fetchFathomTranscript("123", { fetch: f.fn, key: "k" });
-  assert.equal(turns?.length, 3);
+  const r = await fetchFathomTranscript("123", { fetch: f.fn, key: "k" });
+  assert.equal(r.status, "ready");
+  assert.equal(r.status === "ready" && r.turns.length, 3);
   assert.equal(f.calls[0].url, "https://api.fathom.ai/external/v1/recordings/123/transcript");
   f = fakeFetch([{ status: 404 }]);
-  assert.equal(await fetchFathomTranscript("123", { fetch: f.fn, key: "k" }), null);
+  assert.deepEqual(await fetchFathomTranscript("123", { fetch: f.fn, key: "k" }), { status: "gone" });
   f = fakeFetch([{ status: 200, body: { transcript: [] } }]);
-  assert.equal(await fetchFathomTranscript("123", { fetch: f.fn, key: "k" }), null);
+  assert.deepEqual(await fetchFathomTranscript("123", { fetch: f.fn, key: "k" }), { status: "not_ready" });
+  f = fakeFetch([{ status: 200, body: {} }]);
+  assert.deepEqual(await fetchFathomTranscript("123", { fetch: f.fn, key: "k" }), { status: "not_ready" });
+  f = fakeFetch([{ status: 429 }]);
+  await assert.rejects(fetchFathomTranscript("123", { fetch: f.fn, key: "k" }), (e) => isRateLimited(e));
+  f = fakeFetch([{ status: 500 }]);
+  await assert.rejects(fetchFathomTranscript("123", { fetch: f.fn, key: "k" }), (e) => e instanceof SourceHttpError && !isRateLimited(e));
+});
+
+test("listFathom skips and counts items that fail to normalize", async () => {
+  const m = load("fathom-meeting.json");
+  const f = fakeFetch([{ status: 200, body: { items: [m, { title: "no id" }, { ...m, recording_id: 7, recording_start_time: null, scheduled_start_time: null, created_at: null }], next_cursor: null } }]);
+  const r = await listFathom(null, null, { fetch: f.fn, key: "k" });
+  assert.deepEqual(r.calls.map((c) => c.externalId), ["123456789"]);
+  assert.equal(r.skipped, 2);
+});
+
+test("listing stops when the next cursor repeats", async () => {
+  const m = load("fathom-meeting.json");
+  let f = fakeFetch([{ status: 200, body: { items: [m], next_cursor: "same" } }, { status: 200, body: { items: [m], next_cursor: "same" } }]);
+  let r = await listFathom(null, null, { fetch: f.fn, key: "k" });
+  assert.equal(f.calls.length, 2);
+  assert.equal(r.cursor, null);
+  const n = load("granola-note.json");
+  f = fakeFetch([{ status: 200, body: { notes: [n], hasMore: true, cursor: "g1" } }]);
+  r = await listGranola(null, "g1", { fetch: f.fn, key: "gk" });
+  assert.equal(f.calls.length, 1);
+  assert.equal(r.cursor, null);
+});
+
+test("a non-JSON body becomes a status error without its content", async () => {
+  const bad = async () => ({ ok: true, status: 200, json: async () => { throw new SyntaxError("Unexpected token < in <html>SECRET-PAGE"); } });
+  const check = (e: Error) => e instanceof SourceHttpError && /200/.test(e.message) && /invalid JSON/.test(e.message) && !/SECRET/.test(e.message);
+  await assert.rejects(listFathom(null, null, { fetch: bad, key: "k" }), check);
+  await assert.rejects(listGranola(null, null, { fetch: bad, key: "k" }), check);
+  await assert.rejects(fetchTranscript("fathom", "1", { fetch: bad, key: "k" }), check);
+  await assert.rejects(fetchTranscript("granola", "1", { fetch: bad, key: "k" }), check);
 });
 
 // ---------------- Granola listing
@@ -219,6 +277,7 @@ test("listGranola pages with cursor/hasMore, drops deleted and filters by update
   assert.equal(r.rateLimited, false);
   assert.equal(r.cursor, null);
   assert.deepEqual(r.calls.map((c) => c.externalId), ["a", "b"]);
+  assert.equal(r.skipped, 0);
   assert.ok(r.calls.every((c) => c.turns === null));
   assert.equal(f.calls[0].headers.Authorization, "Bearer gk");
   const u0 = new URL(f.calls[0].url);
@@ -243,21 +302,35 @@ test("listGranola throws on other errors without the body; missing key throws", 
   await assert.rejects(listGranola(null, null, { fetch: f.fn, key: undefined }), /GRANOLA_API_KEY/);
 });
 
-test("fetchGranolaTranscript asks for the transcript and returns turns, null on 404", async () => {
+test("fetchGranolaTranscript: ready, not_ready when empty, gone on 404 or deleted, RateLimitedError on 429", async () => {
   const n = load("granola-note.json");
   let f = fakeFetch([{ status: 200, body: n }]);
-  const turns = await fetchGranolaTranscript("id_placeholder", { fetch: f.fn, key: "gk" });
-  assert.equal(turns?.length, 3);
+  const r = await fetchGranolaTranscript("id_placeholder", { fetch: f.fn, key: "gk" });
+  assert.equal(r.status === "ready" && r.turns.length, 3);
   assert.equal(f.calls[0].url, "https://public-api.granola.ai/v1/notes/id_placeholder?include=transcript");
   f = fakeFetch([{ status: 404 }]);
-  assert.equal(await fetchGranolaTranscript("x", { fetch: f.fn, key: "gk" }), null);
+  assert.deepEqual(await fetchGranolaTranscript("x", { fetch: f.fn, key: "gk" }), { status: "gone" });
+  f = fakeFetch([{ status: 200, body: { ...n, transcript: [] } }]);
+  assert.deepEqual(await fetchGranolaTranscript("x", { fetch: f.fn, key: "gk" }), { status: "not_ready" });
+  f = fakeFetch([{ status: 200, body: { ...n, deleted_at: "2026-11-12T00:00:00Z" } }]);
+  assert.deepEqual(await fetchGranolaTranscript("x", { fetch: f.fn, key: "gk" }), { status: "gone" });
+  f = fakeFetch([{ status: 429 }]);
+  await assert.rejects(fetchGranolaTranscript("x", { fetch: f.fn, key: "gk" }), (e) => isRateLimited(e));
+});
+
+test("listGranola skips and counts malformed or undated notes", async () => {
+  const n = load("granola-note.json");
+  const f = fakeFetch([{ status: 200, body: { notes: [n, { title: "no id" }, "junk", { ...n, id: "nodate", calendar_event: null, created_at: null }], hasMore: false } }]);
+  const r = await listGranola(null, null, { fetch: f.fn, key: "gk" });
+  assert.deepEqual(r.calls.map((c) => c.externalId), ["id_placeholder"]);
+  assert.equal(r.skipped, 3);
 });
 
 test("fetchTranscript dispatches by provider", async () => {
   let f = fakeFetch([{ status: 200, body: { transcript: load("fathom-meeting.json").transcript } }]);
-  assert.equal((await fetchTranscript("fathom", "9", { fetch: f.fn, key: "k" }))?.length, 3);
+  assert.equal((await fetchTranscript("fathom", "9", { fetch: f.fn, key: "k" })).status, "ready");
   assert.match(f.calls[0].url, /api\.fathom\.ai\/external\/v1\/recordings\/9\/transcript$/);
   f = fakeFetch([{ status: 200, body: load("granola-note.json") }]);
-  assert.equal((await fetchTranscript("granola", "n1", { fetch: f.fn, key: "k" }))?.length, 3);
+  assert.equal((await fetchTranscript("granola", "n1", { fetch: f.fn, key: "k" })).status, "ready");
   assert.match(f.calls[0].url, /public-api\.granola\.ai\/v1\/notes\/n1\?include=transcript$/);
 });
