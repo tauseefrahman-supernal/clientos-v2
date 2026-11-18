@@ -278,3 +278,42 @@ app/api/admin/selftest/route.ts   live safety checks
 - [ ] **Step 4: Run the full backfill:** sync all providers, then show Tauseef the estimate, then digest and index. Expected: about 1,500 calls, about 45,000 chunks, under $1 for embeddings plus the digest estimate.
 - [ ] **Step 5: Run the evaluation again.** Expected: facts score at or above the baseline, input tokens per answer at or below the baseline, and layer reached matching the expected layer for at least 16 of 20 questions.
 - [ ] **Step 6: Add a build-log entry** (what shipped, counts, evaluation numbers, the open items). Then commit `docs: Stella memory build log and evaluation`, and push.
+
+---
+
+## Added 18 Nov at Tauseef's request (scoping a new deal)
+
+Today a strategist can't start scoping a new deal from ClientOS alone: the vault has no upload, and the scoping workflows read only vault files. Task 11 runs first (it depends on nothing above); Task 12 runs after Task 8.
+
+### Task 11: Upload files to a project's vault
+
+**Files:**
+- Create: `lib/vault-upload.ts` (pure: `uploadKind`, `toMarkdown` for text kinds, `uploadTitle`), `app/api/vault/upload/route.ts`, `components/project/VaultUpload.tsx`
+- Modify: `components/project/VaultView.tsx` (an "Upload files" button at the top of the vault), `lib/data/index.ts` only if `addDocumentFile` needs a `source` note
+- Test: `tests/vault-upload.test.ts`
+
+**Interfaces:**
+- Consumes: `addDocumentFile(slug, group, title, content, by)` in `lib/data/index.ts` (the same path Stella's "Save to vault" uses); `currentAccess()`, `canSee` from `lib/auth`; the Anthropic SDK for PDF conversion.
+- Produces: `uploadKind(name: string, mime: string): "markdown" | "text" | "csv" | "json" | "html" | "pdf" | null` (pure; null = refused); `toMarkdown(kind, name, text): string` (pure; csv becomes a markdown table up to 200 rows, json a fenced block, html stripped to text, text and markdown kept); `uploadTitle(name): string` (pure; file name without extension, tidied). `POST /api/vault/upload` (multipart: `slug`, `group`, one or more `file`) returns `{ saved: { name, path }[]; refused: { name, reason }[] }`.
+
+- [ ] **Step 1: Write failing tests** for `uploadKind` (accepts .md, .txt, .csv, .json, .html, .pdf by extension or mime; refuses .docx, .png, .exe and empty names), `toMarkdown` (csv with quoted commas becomes a table with a header row; more than 200 rows ends with "… N more rows"; json is fenced; html loses tags and scripts), and `uploadTitle` ("Acme RFP v2.pdf" → "Acme RFP v2").
+- [ ] **Step 2: Run `npm test`.** Expected: FAIL, module not found.
+- [ ] **Step 3: Implement.** Limits match Stella's attachments: PDFs up to 6 MB, text kinds up to 300 KB; larger files are refused with a plain reason. The route checks `canSee(access, slug)` server-side and refuses otherwise (403). Text kinds go through `toMarkdown`. A PDF is converted to markdown with one `claude-opus-5-5` call (document block plus "transcribe this document to markdown faithfully; keep headings, lists and tables; do not summarise"); a refusal or error refuses that file with a reason, never saves an empty file. Each saved file starts with a line `Uploaded by <name> on <date> from <file name>.` and goes into the group the strategist picked (default: the first group). The button opens a file picker that accepts several files, shows progress and the saved/refused list, and refreshes the vault. Copy: "Upload files", "Saved to the vault", "Not uploaded: …".
+- [ ] **Step 4: Run `npm test && npm run typecheck`,** then upload a markdown file and a small PDF on a test deal in the running dev server. Expected: both appear as vault files with content, and the deal's Work tab can run Sales intake against them.
+- [ ] **Step 5: Commit** `feat(vault): upload files to a project's vault`.
+
+### Task 12: Scoping workflows read the deal's calls
+
+**Files:**
+- Modify: `lib/data/runs.ts` (`runWorkflow` instructions and tool set), `lib/stella/agent.ts` only to export what the workflow runner needs
+- Test: extend `tests/scoping.test.ts` with a pure `workflowBrief(workflow, inputs, callCount)` helper
+
+**Interfaces:**
+- Consumes: Task 8's `search_calls` and `read_call` tools and `searchChunks`.
+- Produces: `workflowBrief(w: { name: string; inputs: string[] }, callCount: number): string` (pure) in `lib/data/runs.ts` or a new pure `lib/workflow-brief.ts`.
+
+- [ ] **Step 1: Write failing tests:** with `callCount > 0` the brief tells Stella to search the project's calls (summaries first, transcripts for exact wording) as well as the vault files, and to cite calls by title and date; with `callCount === 0` it says there are no calls yet and marks call-dependent facts as gaps.
+- [ ] **Step 2: Run `npm test`.** Expected: FAIL.
+- [ ] **Step 3: Implement.** `runWorkflow` counts the project's linked, usable calls, builds the brief with `workflowBrief`, and runs Stella with the Task 8 tools available and scoped to that one project. Same tool budget and context editing as Task 8.
+- [ ] **Step 4: Run `npm test && npm run typecheck`,** then run Sales intake on a deal whose calls have synced. Expected: the draft cites at least one call by title and date.
+- [ ] **Step 5: Commit** `feat(workflows): scoping workflows read the deal's calls`.
