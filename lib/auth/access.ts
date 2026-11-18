@@ -64,4 +64,4 @@ export const currentAccess = cache(async (): Promise<Access> => {
   return access;
 });
 
-export { canAssign, canOverride, canSee, runDecisionGate } from "./rules";
+export { actionAllowed, canAssign, canOverride, canSee, NO_PROJECT_ACCESS, runDecisionGate, type ActionKind } from "./rules";

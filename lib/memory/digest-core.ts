@@ -201,7 +201,8 @@ export function headingsOf(markdown: string): string[] {
 
 /** The source line under an accepted suggestion. */
 export function fromCallLine(title: string, metAt: string | null): string {
-  return `— from call: ${title.replace(/\s+/g, " ").trim()}, ${fmtDate(metAt)}`;
+  // The title comes from outside (whoever named the meeting): escaped like suggestion text, and kept to one line.
+  return `— from call: ${plainSuggestionText(title) || "untitled"}, ${fmtDate(metAt)}`;
 }
 
 /**
@@ -250,25 +251,39 @@ export function sectionLayout(markdown: string): { markdown: string; heading: st
 
 /**
  * Suggestion text as stored (markdown that renders as the plain text): images and raw HTML removed, links reduced to
- * their words, whitespace tidied, then every remaining \\ ! [ ] < > escaped. Bare URLs stay as text.
+ * their words, then every remaining \\ ! [ ] < > escaped, and the whole made one paragraph (singleParagraph). Bare
+ * URLs stay as text.
  */
 export function plainSuggestionText(text: string): string {
-  return text
+  const stripped = text
     .replace(/!\[[^\]]*\]\([^)]*\)/g, "")                 // images
     .replace(/!\[[^\]]*\]\[[^\]]*\]/g, "")                // reference images
     .replace(/^\s*\[[^\]]+\]:\s*\S+.*$/gm, "")             // reference definitions
     .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")               // inline links
     .replace(/\[([^\]]*)\]\[[^\]]*\]/g, "$1")              // reference links
     .replace(/<(https?:\/\/[^>\s]+)>/g, "$1")              // autolinks keep the address as text
-    .replace(/<\/?[a-zA-Z][^>]*>/g, "")                    // raw HTML tags
-    .replace(/[ \t]+/g, " ").replace(/ *\n */g, "\n").trim()
-    // Whatever the patterns above missed (nested or escaped brackets), escaped so it can never form an image, link or tag.
-    .replace(/[\\![\]<>]/g, "\\$&");
+    .replace(/<\/?[a-zA-Z][^>]*>/g, "");                   // raw HTML tags
+  // Whatever the patterns above missed (nested or escaped brackets), escaped so it can never form an image, link or tag.
+  return singleParagraph(stripped.replace(/[\\![\]<>]/g, "\\$&"));
+}
+
+/**
+ * Already-escaped suggestion text made into one paragraph that can only ever render as a paragraph: line breaks become
+ * spaces, a leading block marker (# > - * + _ = or "1." / "1)") is escaped so it can't start a heading, quote, list or
+ * rule, and every run of three or more ` or ~ is escaped so it can't open a fence. Idempotent, so it is safe to apply
+ * again when a stored suggestion is accepted.
+ */
+export function singleParagraph(text: string): string {
+  return text
+    .replace(/\s+/g, " ").trim()
+    .replace(/`{3,}|~{3,}/g, (run) => run.replace(/[`~]/g, "\\$&"))
+    .replace(/^([#>*+\-_=])/, "\\$1")
+    .replace(/^(\d{1,9})([.)])/, "$1\\$2");
 }
 
 /** Stored suggestion text back to what it says, for showing as plain text. */
 export function unescapeSuggestionText(text: string): string {
-  return text.replace(/\\([\\![\]<>])/g, "$1");
+  return text.replace(/\\([\\![\]<>#*+\-_=`~.)])/g, "$1");
 }
 
 // ---------------------------------------------------------------- duplicates

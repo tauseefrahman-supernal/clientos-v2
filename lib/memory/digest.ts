@@ -3,7 +3,7 @@ import { check, db, updateFile } from "@/lib/data/db";
 import { invalidate } from "@/lib/data";
 import { costOf, DIGEST_MODEL, digestSelection, estimateRun, SpendGate, type Digest, type Dollars } from "./digest-rules.ts";
 import {
-  appendUnderSection, buildOutline, DigestQueue, DIGEST_SCHEMA, DIGEST_SYSTEM, DIGEST_SYSTEM_BLOCKS, fmtDate, fromCallLine, headingsOf, runDigest, slimOutline,
+  appendUnderSection, buildOutline, DigestQueue, DIGEST_SCHEMA, DIGEST_SYSTEM, DIGEST_SYSTEM_BLOCKS, fmtDate, fromCallLine, headingsOf, singleParagraph, runDigest, slimOutline,
   type AskMessage, type AskReply, type CallForDigest, type CallUsage, type DigestDeps, type DigestOutcome, type ProjectForDigest, type SuggestionRow,
 } from "./digest-core.ts";
 
@@ -391,7 +391,8 @@ export async function decideSuggestion(id: string, accept: boolean, by: string):
       if (!f || f.state === "deleted") throw new Error("That file is no longer in the vault.");
       // An empty file shows its template's text; the fact goes into that text, as shown, not into a blank file.
       const base = f.content ? f.content : await templateBody(s.account_id, f.category_slug, f.template_name);
-      const content = appendUnderSection(base, s.section ?? "", s.text, source);
+      // singleParagraph again: rows stored before it existed may hold line breaks or block markers.
+      const content = appendUnderSection(base, s.section ?? "", singleParagraph(s.text ?? ""), source);
       saved = await updateFile(s.account_id, s.file_path, { content }, by, { ifUpdatedAt: f.updated_at ?? null });
     }
     if (!saved) throw new Error("The file was changed by someone else while saving. Try again.");

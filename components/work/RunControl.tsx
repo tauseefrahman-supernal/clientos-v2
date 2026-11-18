@@ -2,8 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import { SafeMarkdown } from "@/components/project/SafeMarkdown";
 import { Check, Loader2, Send, Sparkles, Trash2 } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { downloadText } from "@/components/stella/DocumentCard";
@@ -73,7 +72,7 @@ export function RunControl({ slug, workflow, name, run, current = true, external
           {run && <>
             <DialogHeader><DialogTitle className="flex flex-wrap items-center gap-space-2">{name}<span className={cn("rounded-full border px-space-2 py-0.5 text-xs font-medium", TONE[run.status])}>{LABEL[run.status]}</span></DialogTitle></DialogHeader>
             <p className="text-xs text-muted-foreground">Drafted by Stella for {run.startedBy ?? "someone"}, {ago(run.startedAt)}{run.approvedBy ? ` · approved by ${run.approvedBy}` : ""}.</p>
-            <div className="prose-vault rounded-lg border border-border bg-background p-space-4 text-sm"><ReactMarkdown remarkPlugins={[remarkGfm]}>{run.draft || "_Empty._"}</ReactMarkdown></div>
+            <div className="prose-vault rounded-lg border border-border bg-background p-space-4 text-sm"><SafeMarkdown>{run.draft || "_Empty._"}</SafeMarkdown></div>
             <div className="flex flex-wrap items-center gap-space-2">
               {run.status === "draft" && <button disabled={!!busy} onClick={() => decide("approve")} className="inline-flex items-center gap-1 rounded-md bg-primary px-space-3 py-1.5 text-sm font-medium text-primary-foreground disabled:opacity-50"><Check className="h-4 w-4" />Approve</button>}
               {external && (run.status === "draft" || run.status === "approved") && <button disabled={!!busy} onClick={() => decide("sent")} className="inline-flex items-center gap-1 rounded-md border border-border px-space-3 py-1.5 text-sm disabled:opacity-50"><Send className="h-4 w-4" />Mark sent</button>}

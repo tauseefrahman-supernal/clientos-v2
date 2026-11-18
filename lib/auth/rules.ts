@@ -24,3 +24,23 @@ export const canOverride = (a: AccessLike, slug: string | null, action: string, 
   if (action === "unassign") return slug !== null && (a.admin || (linkedToSlug && canAssign(a, slug)));
   return false;
 };
+
+/** What a server action changes, for the access check it needs (see actionAllowed). */
+export type ActionKind = "vault" | "team" | "approval" | "role";
+
+export const NO_PROJECT_ACCESS = "You don't have access to that project.";
+
+/**
+ * Server-side check for every server action in app/actions.ts:
+ * - vault: a vault file or document write on a project (save, state, in book, shown, propose a template, add a
+ *   template or document): anyone who can see the project, so assigned people may edit their project's vault.
+ * - team: adding or removing someone on a project's team: admins and the project's strategists (canAssign).
+ * - approval: approving or declining a shared category or template: admins only.
+ * - role: changing a person's admin/member role: admins only.
+ * A project-scoped kind with no slug is refused.
+ */
+export const actionAllowed = (a: AccessLike, kind: ActionKind, slug: string | null = null): boolean => {
+  if (kind === "approval" || kind === "role") return a.admin;
+  if (typeof slug !== "string" || !slug) return false;
+  return kind === "vault" ? canSee(a, slug) : canAssign(a, slug);
+};

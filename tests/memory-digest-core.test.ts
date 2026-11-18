@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
   appendUnderSection, buildDigestPrompt, DIGEST_SYSTEM, dropDuplicates, fromCallLine, headingsOf, parseDigestReply,
-  plainSuggestionText, unescapeSuggestionText, runDigest, buildDigestRequest, DigestQueue, buildOutline, slimOutline, DIGEST_SYSTEM_BLOCKS, sectionLayout, type CallForDigest, type DigestDeps, type DigestWrite,
+  plainSuggestionText, singleParagraph, unescapeSuggestionText, runDigest, buildDigestRequest, DigestQueue, buildOutline, slimOutline, DIGEST_SYSTEM_BLOCKS, sectionLayout, type CallForDigest, type DigestDeps, type DigestWrite,
 } from "../lib/memory/digest-core.ts";
 
 const lines = (n: number) => Array.from({ length: n }, (_, i) => `line ${i + 1}`).join("\n");
@@ -124,6 +124,40 @@ test("plainSuggestionText escapes what is left, so nested or escaped brackets ca
   // no unescaped "!" "[" "]" "<" ">" remain: every one is preceded by an odd run of backslashes
   for (const out of [a, b]) for (const m of out.matchAll(/(\\*)[!\[\]<>]/g)) assert.equal(m[1].length % 2, 1, out);
   assert.equal(unescapeSuggestionText(a), "A ![a [b] c](https://evil.example/x.png?d=1) z");
+});
+
+test("plainSuggestionText makes one paragraph: no line breaks, no leading block marker, no fences", () => {
+  assert.equal(plainSuggestionText("Line one.\n\nLine two.\r\n# Not a heading"), "Line one. Line two. # Not a heading");
+  for (const [raw, out] of [
+    ["# Heading", "\\# Heading"], ["## Heading", "\\## Heading"], ["> quote", "\\> quote"], ["- item", "\\- item"],
+    ["* item", "\\* item"], ["+ item", "\\+ item"], ["1. item", "1\\. item"], ["12) item", "12\\) item"],
+    ["---", "\\---"], ["___", "\\___"], ["=== x", "\\=== x"], ["  \n # late heading", "\\# late heading"],
+  ]) assert.equal(plainSuggestionText(raw), out, raw);
+  assert.equal(plainSuggestionText("```js\nalert(1)\n```"), "\\`\\`\\`js alert(1) \\`\\`\\`");
+  assert.equal(plainSuggestionText("~~~ x ~~~~"), "\\~\\~\\~ x \\~\\~\\~\\~");
+  assert.equal(plainSuggestionText("Uses `code` and 3.5% growth - fine"), "Uses `code` and 3.5% growth - fine");
+});
+
+test("an accepted fact can only add a paragraph to the vault, and reads back as what it said", () => {
+  for (const raw of ["# H\n> q\n- l\n```\nx\n```", "1. a\n2. b", "~~~\nfence", "plain"]) {
+    const stored = plainSuggestionText(raw);
+    assert.ok(!/[\r\n]/.test(stored), raw);
+    assert.ok(!/^([#>*+\-_=]|\d+[.)])/.test(stored), raw);
+    assert.ok(!/(^|[^\\])(`{3}|~{3})/.test(stored), raw);
+    assert.equal(singleParagraph(stored), stored, "idempotent");
+    const out = appendUnderSection("## A\ntext\n", "A", singleParagraph(stored), SRC);
+    assert.equal(out, "## A\ntext\n\n" + stored + "\n\n" + SRC + "\n");
+  }
+  assert.equal(unescapeSuggestionText(plainSuggestionText("# Big 1. ```x```")), "# Big 1. ```x```");
+  assert.equal(unescapeSuggestionText(plainSuggestionText("1) first")), "1) first");
+});
+
+test("fromCallLine escapes the external call title like suggestion text and keeps it on one line", () => {
+  assert.equal(fromCallLine("Sync ![x](https://evil.example/p.png?d=1) [y](https://evil.example)", null), "— from call: Sync y, undated");
+  assert.equal(fromCallLine("A\n\n# Injected\n> quote", null), "— from call: A # Injected \\> quote, undated");
+  assert.equal(fromCallLine("<img src=x onerror=y>```", null), "— from call: \\`\\`\\`, undated");
+  assert.equal(fromCallLine("   ", null), "— from call: untitled, undated");
+  for (const t of ["x\ny", "a\r\nb", "![a [b]](https://e/x)"]) assert.ok(!/[\r\n]/.test(fromCallLine(t, null)) && !/(^|[^\\])[![\]<>]/.test(fromCallLine(t, null).slice(1)), t);
 });
 
 // ---------------------------------------------------------------- duplicates

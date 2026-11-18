@@ -3,8 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMemo, useState, useTransition } from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import { SafeMarkdown } from "@/components/project/SafeMarkdown";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { StatusTag } from "@/components/kit";
@@ -91,7 +90,7 @@ export function LibraryView({ categories, pending, openCategory, openTemplate }:
           {tpl && <>
             <DialogHeader><DialogTitle className="flex flex-wrap items-center gap-space-2 font-mono text-base">{tpl.t.name}.md <StatusTag status={tpl.t.status} /><span className="ml-auto font-sans text-xs font-normal text-muted-foreground">{tpl.c.name} › {tpl.t.status === "standard" ? "Core" : tpl.t.onlyAccount ? `local to ${tpl.t.origin}` : "Shared"}</span></DialogTitle></DialogHeader>
             {tpl.t.description && <p className="text-sm text-muted-foreground">{tpl.t.description}</p>}
-            <div className="prose-vault rounded-lg border border-border bg-background p-space-4"><ReactMarkdown remarkPlugins={[remarkGfm]}>{tpl.t.body}</ReactMarkdown></div>
+            <div className="prose-vault rounded-lg border border-border bg-background p-space-4"><SafeMarkdown>{tpl.t.body}</SafeMarkdown></div>
             <div className="flex flex-wrap items-center gap-space-2 text-xs text-muted-foreground">
               <span>Added by {tpl.t.createdBy}{tpl.t.status === "standard" ? "" : `, on ${tpl.t.origin}`}</span><span>·</span>
               <span>{tpl.t.status === "standard" ? "On every project" : `Used on ${tpl.t.projects.length} project${tpl.t.projects.length === 1 ? "" : "s"}`}</span>

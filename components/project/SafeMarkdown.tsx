@@ -1,8 +1,12 @@
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { isSafeImageSrc } from "@/lib/safe-markdown";
+import { isExternalHref, isSafeHref, isSafeImageSrc } from "@/lib/safe-markdown";
 
-/** Vault markdown: GFM, no raw HTML, and remote images shown as their alt text instead of loading. */
+/**
+ * Every markdown render in the app goes through here: GFM, no raw HTML, remote images shown as their alt text instead
+ * of loading, and links only for http, https, mailto and relative hrefs (anything else is plain text). External links
+ * open in a new tab with rel="noopener noreferrer".
+ */
 export function SafeMarkdown({ children }: { children: string }) {
   return (
     <ReactMarkdown
@@ -12,6 +16,12 @@ export function SafeMarkdown({ children }: { children: string }) {
           // eslint-disable-next-line @next/next/no-img-element
           ? <img src={src} alt={alt ?? ""} />
           : <span className="rounded border border-dashed border-border px-1 text-xs text-muted-foreground">{alt ? `Image: ${alt}` : "Image not loaded"}</span>),
+        a: ({ href, children: text }) => {
+          if (typeof href !== "string" || !isSafeHref(href)) return <span>{text}</span>;
+          return isExternalHref(href)
+            ? <a href={href} target="_blank" rel="noopener noreferrer">{text}</a>
+            : <a href={href}>{text}</a>;
+        },
       }}
     >
       {children}

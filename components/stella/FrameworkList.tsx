@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import { SafeMarkdown } from "@/components/project/SafeMarkdown";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 type Framework = { name: string; blurb: string; body: string };
@@ -23,7 +22,7 @@ export function FrameworkList({ frameworks }: { frameworks: Framework[] }) {
         <DialogContent className="max-h-[86vh] max-w-3xl overflow-y-auto">
           {open && <>
             <DialogHeader><DialogTitle>{open.name.replace(/-/g, " ")}</DialogTitle></DialogHeader>
-            <div className="prose-vault"><ReactMarkdown remarkPlugins={[remarkGfm]}>{open.body}</ReactMarkdown></div>
+            <div className="prose-vault"><SafeMarkdown>{open.body}</SafeMarkdown></div>
           </>}
         </DialogContent>
       </Dialog>

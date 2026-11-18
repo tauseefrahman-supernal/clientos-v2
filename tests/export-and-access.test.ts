@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { buildExport } from "../lib/export.ts";
-import { canAssign, canOverride, canSee, runDecisionGate } from "../lib/auth/rules.ts";
+import { actionAllowed, canAssign, canOverride, canSee, runDecisionGate } from "../lib/auth/rules.ts";
 import { allowedEmail, supabaseUrl } from "../lib/auth/config.ts";
 
 const file = (path: string, content: string, state = "active", group = 0) => ({ path, content, state, group, category: null, template: null, summary: "", source: "import", inBook: true });
@@ -104,4 +104,21 @@ test("a Supabase URL pasted with a path is reduced to its origin", () => {
   process.env.NEXT_PUBLIC_SUPABASE_URL = "abc.supabase.co";
   assert.equal(supabaseUrl(), "https://abc.supabase.co");
   if (keep === undefined) delete process.env.NEXT_PUBLIC_SUPABASE_URL; else process.env.NEXT_PUBLIC_SUPABASE_URL = keep;
+});
+
+test("server actions: vault writes need the project, team changes its strategist, approvals and roles an admin", () => {
+  const admin = { admin: true, slugs: null, roles: new Map<string, string[]>() };
+  const strategist = { admin: false, slugs: new Set(["rx"]), roles: new Map([["rx", ["strategist"]]]) };
+  const engineer = { admin: false, slugs: new Set(["rx"]), roles: new Map([["rx", ["engineer"]]]) };
+  const outsider = { admin: false, slugs: new Set<string>(), roles: new Map<string, string[]>() };
+  // [who, kind, slug, allowed]
+  const table: [typeof admin, "vault" | "team" | "approval" | "role", string | null, boolean][] = [
+    [admin, "vault", "rx", true], [admin, "vault", "other", true], [admin, "team", "other", true], [admin, "approval", null, true], [admin, "role", null, true],
+    [strategist, "vault", "rx", true], [strategist, "vault", "other", false], [strategist, "team", "rx", true], [strategist, "team", "other", false],
+    [strategist, "approval", null, false], [strategist, "role", null, false],
+    [engineer, "vault", "rx", true], [engineer, "vault", "other", false], [engineer, "team", "rx", false], [engineer, "approval", "rx", false], [engineer, "role", null, false],
+    [outsider, "vault", "rx", false], [outsider, "team", "rx", false], [outsider, "approval", null, false],
+    [admin, "vault", null, false], [admin, "team", "", false], [strategist, "vault", null, false],
+  ];
+  for (const [who, kind, slug, ok] of table) assert.equal(actionAllowed(who, kind, slug), ok, `${who === admin ? "admin" : who === strategist ? "strategist" : who === engineer ? "engineer" : "outsider"} ${kind} ${slug}`);
 });
