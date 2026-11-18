@@ -342,3 +342,10 @@ Tauseef, 18 Nov: Stella's chat answers should read cleanly, without a source lab
 - [ ] **Step 3: Implement** the rules change, `splitEvidence`, ref resolution, persistence and `EvidencePanel`.
 - [ ] **Step 4: Run `npm test && npm run typecheck`, then `npm run test:live`** (its Stella check must still pass), then ask Stella a question in the running app. Expected: a clean answer and an "Evidence (N)" toggle that opens to sources with quotes.
 - [ ] **Step 5: Commit** `feat(stella): evidence toggle under each answer instead of inline citations`.
+
+## Changes decided 18 Nov (Tauseef)
+
+- **Personnel screen narrowed** (Task 4 follow-up, done): cut only an individual's performance/conduct, pay, health/family/personal life, unannounced departure, personal 1:1 matters and personal chatter, plus a client's customers' private details. Keep hiring/recruiting, staffing, training, org design, announced role changes. Rescreen option added to the sync.
+- **Digest scope** (Task 7 / Task 10 Step 4): summaries and suggested vault facts are written only for calls in the last 30 days, and for new calls as they arrive. Older calls keep their one-line headline and searchable transcript; a summary for an older call can be generated on demand (`transcriptIds`). Measured cost on Opus 5.5: about $0.14 per call (transcripts average ~25K tokens; caching only covers the ~2K-token instructions and outline).
+- **Kept as is**: each summary ends with "N personnel sections were removed"; vault facts are written as dated statements.
+- **Task 10 Step 4** becomes: full sync (preview first, then confirm), index, then digest the last 30 days only (estimate shown first; about $25 across projects).
