@@ -69,3 +69,16 @@ test("malformed input returns errors, never throws", () => {
     if (!r.ok) assert.ok(r.errors.length > 0);
   }
 });
+
+test("a section with a newline or '#', or over 80 characters, is rejected", () => {
+  const s = good().suggestions[0];
+  for (const section of ["A\nB", "## Scope", "Scope #2", "x".repeat(81)])
+    assert.equal(validateDigest({ ...good(), suggestions: [{ ...s, section }] }, ctx).ok, false, section);
+  assert.equal(validateDigest({ ...good(), suggestions: [{ ...s, section: "x".repeat(80) }] }, ctx).ok, true);
+});
+
+test("suggestion text over 600 characters is rejected", () => {
+  const s = good().suggestions[0];
+  assert.equal(validateDigest({ ...good(), suggestions: [{ ...s, text: "a".repeat(601) }] }, ctx).ok, false);
+  assert.equal(validateDigest({ ...good(), suggestions: [{ ...s, text: "a".repeat(600) }] }, ctx).ok, true);
+});

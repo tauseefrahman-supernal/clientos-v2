@@ -227,19 +227,20 @@ function FileView({ slug, s }: { slug: string; s: NonNullable<Selected> }) {
 
       <article className={cn("prose-vault", hidden && "pointer-events-none select-none blur-[5px]")}>
         <h1 className="font-display text-2xl font-semibold">{name.replace(/\.md$/, "").replace(/-/g, " ")}</h1>
-        <FileBody markdown={s.markdown.replace(/^\s*# [^\n]*\n+/, "")} filled={!!f.content} suggestions={s.suggestions} canDecide={s.canDecide} />
+        <FileBody markdown={s.markdown.replace(/^\s*# [^\n]*\n+/, "")} suggestions={s.suggestions} canDecide={s.canDecide} />
       </article>
     </div>
   );
 }
 
 /** The file's text, with pending suggestions shown at the end of the section each would be added to. */
-function FileBody({ markdown, filled, suggestions, canDecide }: { markdown: string; filled: boolean; suggestions: SuggestionItem[]; canDecide: boolean }) {
+function FileBody({ markdown, suggestions, canDecide }: { markdown: string; suggestions: SuggestionItem[]; canDecide: boolean }) {
   if (!suggestions.length) return <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>;
   const layout = sectionLayout(markdown);
-  // Where each section ends (its first heading, as an accept would use); an empty file has no sections of its own yet.
+  // Where each section ends (its first heading, as an accept would use). An empty file shows its template, and an
+  // accept appends into that same text. H1s are titles, never sections: a suggestion naming one is a new section.
   const endOf = new Map<string, number>();
-  if (filled) layout.forEach((c, i) => c.closes.forEach((k) => { if (!endOf.has(k)) endOf.set(k, i); }));
+  layout.forEach((c, i) => c.closes.forEach((k) => { if (!endOf.has(k)) endOf.set(k, i); }));
   const at = (i: number) => suggestions.filter((x) => x.section && endOf.get(headingKey(x.section)) === i);
   const rest = suggestions.filter((x) => !x.section || !endOf.has(headingKey(x.section)));
   return (

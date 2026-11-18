@@ -110,14 +110,21 @@ export async function loadFromDb(): Promise<DbStore> {
 
 // ---------------------------------------------------------------- write-through edits
 
-export async function updateFile(accountId: string, path: string, patch: Partial<Pick<VaultFile, "state" | "inBook" | "content" | "shown">>, by: string) {
+/**
+ * Saves an edit (and a version when the content changes). With ifUpdatedAt, saves only when the file's updated_at still
+ * equals it (null: never saved), and returns false when it did not, so the caller can re-read and try again.
+ */
+export async function updateFile(accountId: string, path: string, patch: Partial<Pick<VaultFile, "state" | "inBook" | "content" | "shown">>, by: string, opts: { ifUpdatedAt?: string | null } = {}): Promise<boolean> {
   const row: Row = { updated_at: new Date().toISOString(), updated_by: by };
   if (patch.state !== undefined) row.state = patch.state;
   if (patch.inBook !== undefined) row.in_book = patch.inBook;
   if (patch.shown !== undefined) row.shown = patch.shown;
   if (patch.content !== undefined) { row.content = patch.content; row.source = "human"; }
-  const updated = check(await db().from("vault_files").update(row).eq("account_id", accountId).eq("path", path).select("id"), "update file") as Row[];
+  let q = db().from("vault_files").update(row).eq("account_id", accountId).eq("path", path);
+  if (opts.ifUpdatedAt !== undefined) q = opts.ifUpdatedAt === null ? q.is("updated_at", null) : q.eq("updated_at", opts.ifUpdatedAt);
+  const updated = check(await q.select("id"), "update file") as Row[];
   if (patch.content !== undefined && updated[0]) check(await db().from("vault_file_versions").insert({ file_id: updated[0].id, content: patch.content, saved_by: by }), "save version");
+  return updated.length > 0;
 }
 
 export async function insertFile(accountId: string, f: VaultFile) {

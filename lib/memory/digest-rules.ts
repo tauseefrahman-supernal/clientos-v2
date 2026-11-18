@@ -23,6 +23,8 @@ export type DigestContext = { linkedSlugs: string[]; vaultPaths: Record<string, 
 export const SUMMARY_MIN_LINES = 5;
 export const SUMMARY_MAX_LINES = 8;
 export const HEADLINE_MAX_CHARS = 200;
+export const SECTION_MAX_CHARS = 80;
+export const SUGGESTION_MAX_CHARS = 600;
 
 export function validateDigest(
   raw: unknown,
@@ -70,6 +72,10 @@ export function validateDigest(
       else if (!(ctx.vaultPaths[slug] ?? []).includes(filePath))
         errors.push(`suggestion ${i}: "${filePath}" is not a vault file of "${slug}"`);
       if (text.trim() === "") errors.push(`suggestion ${i}: text is empty`);
+      else if (text.length > SUGGESTION_MAX_CHARS) errors.push(`suggestion ${i}: text is over ${SUGGESTION_MAX_CHARS} characters`);
+      // A section is a plain heading name: no line breaks or '#', so it cannot inject headings into the file.
+      if (/[\r\n#]/.test(section)) errors.push(`suggestion ${i}: section must be a plain heading name, without line breaks or '#'`);
+      else if (section.trim().length > SECTION_MAX_CHARS) errors.push(`suggestion ${i}: section is over ${SECTION_MAX_CHARS} characters`);
       if (errors.length === before) suggestions.push({ slug, filePath, section, text });
     });
   }

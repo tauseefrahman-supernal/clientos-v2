@@ -1,7 +1,7 @@
 // Call digests, the testable half: the prompt, reply parsing, the section-append text builder, the duplicate
 // check, and runDigest, which drives one call through an injected model client and DB writer.
 // No "server-only" import and no SDK, so node --test runs it against fakes. lib/memory/digest.ts wires it up.
-import { HEADLINE_MAX_CHARS, SUMMARY_MAX_LINES, SUMMARY_MIN_LINES, validateDigest, type Digest } from "./digest-rules.ts";
+import { HEADLINE_MAX_CHARS, SECTION_MAX_CHARS, SUGGESTION_MAX_CHARS, SUMMARY_MAX_LINES, SUMMARY_MIN_LINES, validateDigest, type Digest } from "./digest-rules.ts";
 
 export type FileForDigest = { path: string; headings: string[] };
 export type ProjectForDigest = { slug: string; name: string; accountId: string; files: FileForDigest[] };
@@ -20,14 +20,20 @@ export type AskReply = { stopReason: string | null; text: string; usage: { input
 
 export interface DigestDeps {
   load(id: string): Promise<CallForDigest | null>;
-  ask(messages: AskMessage[]): Promise<AskReply>;
-  /** Suggestions already pending or accepted on these projects. */
+  /** The model call; it must stop when the signal aborts. */
+  ask(messages: AskMessage[], opts?: { signal?: AbortSignal }): Promise<AskReply>;
+  /** Suggestions already pending, accepted or rejected on these projects. */
   existing(accountIds: string[]): Promise<SuggestionRow[]>;
   /** Writes everything for one call; the transcript's summary and status last. */
   write(w: DigestWrite): Promise<void>;
   markFailed(id: string, reason: string): Promise<void>;
   log(line: string): void;
+  /** Epoch ms after which no model call may run: a call in flight is aborted and the call stays pending. */
+  deadline?: number;
 }
+
+/** A model call is not started with less time than this left before the deadline. */
+export const MIN_START_MS = 1500;
 
 export type DigestOutcome =
   | { ok: true; digest: Digest; suggestions: number; usage: { input: number; output: number } }
@@ -49,8 +55,8 @@ Reply with JSON:
 - summary: ${SUMMARY_MIN_LINES} to ${SUMMARY_MAX_LINES} lines, one point per line, no blank lines, no bullets or numbering needed. Cover the decisions made, commitments with their owners (and dates when said), risks raised, and what changed.
 - headlines: one entry for every linked project, { slug, headline }: one line of at most ${HEADLINE_MAX_CHARS} characters saying what this call meant for that project.
 - suggestions: zero or more durable facts worth adding to a project's vault, { slug, filePath, section, text }.
-  filePath must be exactly one of that project's listed file paths. section should be one of that file's listed headings; use a short new heading only when none fits.
-  text is one to three sentences: a decision, a commitment with its owner and date, a risk, a number, a name or a date, stated plainly. Suggest only facts the transcript states clearly, and only for the project they are about. When nothing qualifies, return an empty list.
+  filePath must be exactly one of that project's listed file paths. section should be one of that file's listed headings, written without '#' marks; use a short new heading (at most ${SECTION_MAX_CHARS} characters, one line, no '#') only when none fits.
+  text is plain text, no links, images or markdown, at most ${SUGGESTION_MAX_CHARS} characters: one to three sentences: a decision, a commitment with its owner and date, a risk, a number, a name or a date, stated plainly. Suggest only facts the transcript states clearly, and only for the project they are about. When nothing qualifies, return an empty list.
   If the call seems to contradict what a vault section would say, state what the call said and that it should be checked against the current text.`;
 
 /** JSON schema for the reply. Headlines are a list because structured output needs fixed keys. */
@@ -151,7 +157,8 @@ export function appendUnderSection(content: string, section: string, text: strin
   const key = headingKey(section);
   const lines = content.split("\n");
   const heads = scan(lines);
-  const at = key ? heads.findIndex((h) => h && headingKey(h.text) === key) : -1;
+  // The H1 is the file's title, not a section: a suggestion naming it gets a new section at the end.
+  const at = key ? heads.findIndex((h) => h && h.level >= 2 && headingKey(h.text) === key) : -1;
   if (at === -1) {
     const base = content.replace(/\s+$/, "");
     const add = (key ? [`## ${section.trim()}`, "", ...block] : block).join("\n") + "\n";
@@ -165,7 +172,7 @@ export function appendUnderSection(content: string, section: string, text: strin
   return [...lines.slice(0, last + 1), "", ...block, "", ...lines.slice(end)].join("\n");
 }
 
-/** The file split at headings, for the view: each chunk's markdown and the sections (keys) whose range ends after it. */
+/** The file split at headings, for the view: each chunk's markdown and the sections (keys) whose range ends after it. H1s are never sections. */
 export function sectionLayout(markdown: string): { markdown: string; heading: string | null; closes: string[] }[] {
   const lines = markdown.split("\n");
   const heads = scan(lines);
@@ -177,18 +184,31 @@ export function sectionLayout(markdown: string): { markdown: string; heading: st
   }
   const open: { key: string; level: number }[] = [];
   chunks.forEach((c, i) => {
-    if (c.heading !== null) open.push({ key: headingKey(c.heading), level: c.level });
+    if (c.heading !== null && c.level >= 2) open.push({ key: headingKey(c.heading), level: c.level });
     const next = chunks[i + 1];
     while (open.length && (!next || open[open.length - 1].level >= next.level)) c.closes.push(open.pop()!.key);
   });
   return chunks.map((c) => ({ markdown: c.lines.join("\n").replace(/\s+$/, ""), heading: c.heading, closes: c.closes }));
 }
 
+/** Suggestion text as stored: images and raw HTML removed, links reduced to their words, whitespace tidied. */
+export function plainSuggestionText(text: string): string {
+  return text
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, "")                 // images
+    .replace(/!\[[^\]]*\]\[[^\]]*\]/g, "")                // reference images
+    .replace(/^\s*\[[^\]]+\]:\s*\S+.*$/gm, "")             // reference definitions
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")               // inline links
+    .replace(/\[([^\]]*)\]\[[^\]]*\]/g, "$1")              // reference links
+    .replace(/<(https?:\/\/[^>\s]+)>/g, "$1")              // autolinks keep the address as text
+    .replace(/<\/?[a-zA-Z][^>]*>/g, "")                    // raw HTML tags
+    .replace(/[ \t]+/g, " ").replace(/ *\n */g, "\n").replace(/ ([.,;:!?])/g, "$1").trim();
+}
+
 // ---------------------------------------------------------------- duplicates
 
 const dupKey = (s: SuggestionRow) => [s.accountId, s.filePath, headingKey(s.section), s.text.replace(/\s+/g, " ").trim()].join("\u0000");
 
-/** Drops suggestions whose text is already pending or accepted for the same file and section, and repeats in the batch. */
+/** Drops suggestions whose text is already pending, accepted or rejected for the same file and section, and repeats in the batch. */
 export function dropDuplicates(fresh: SuggestionRow[], existing: SuggestionRow[]): SuggestionRow[] {
   const seen = new Set(existing.map(dupKey));
   return fresh.filter((s) => { const k = dupKey(s); if (seen.has(k)) return false; seen.add(k); return true; });
@@ -211,7 +231,7 @@ function check(raw: Record<string, unknown> | null, c: CallForDigest): { ok: tru
 export async function runDigest(id: string, deps: DigestDeps): Promise<DigestOutcome> {
   const usage = { input: 0, output: 0 };
   const c = await deps.load(id);
-  const skip = (reason: string): DigestOutcome => { deps.log(`skipped ${id}: ${reason}`); return { ok: false, reason, failed: false, usage }; };
+  const skip = (reason: string): DigestOutcome => { deps.log(`skipped ${c ? `"${c.title}"` : id}: ${reason}`); return { ok: false, reason, failed: false, usage }; };
   if (!c) return skip("not found");
   if (c.status === "personnel") return skip("personnel call");
   if (!c.body || !c.body.trim()) return skip("no stored body");
@@ -228,14 +248,22 @@ export async function runDigest(id: string, deps: DigestDeps): Promise<DigestOut
   let errors: string[] = [];
   for (let attempt = 0; attempt < 2; attempt++) {
     let reply: AskReply;
-    try { reply = await deps.ask(messages.map((m) => ({ ...m }))); }
-    catch (e) { return fail(`model error: ${e instanceof Error ? e.message : String(e)}`); }
+    const left = deps.deadline === undefined ? Infinity : deps.deadline - Date.now();
+    if (left < MIN_START_MS) return skip("out of time; left pending for the next run");
+    const abort = new AbortController();
+    const timer = left === Infinity ? null : setTimeout(() => abort.abort(), left);
+    try { reply = await deps.ask(messages.map((m) => ({ ...m })), { signal: abort.signal }); }
+    catch (e) {
+      if (abort.signal.aborted) return skip("out of time; aborted and left pending for the next run");
+      return fail(`model error: ${e instanceof Error ? e.message : String(e)}`);
+    }
+    finally { if (timer) clearTimeout(timer); }
     usage.input += reply.usage.input; usage.output += reply.usage.output;
     if (reply.stopReason === "refusal" || reply.stopReason === "max_tokens") return fail(`model stopped: ${reply.stopReason}`);
     const v = check(parseDigestReply(reply.text), c);
     if (v.ok) {
       const bySlug = new Map(c.projects.map((p) => [p.slug, p.accountId]));
-      const fresh = v.digest.suggestions.map((s) => ({ accountId: bySlug.get(s.slug)!, filePath: s.filePath, section: s.section.trim(), text: s.text.trim() }));
+      const fresh = v.digest.suggestions.map((s) => ({ accountId: bySlug.get(s.slug)!, filePath: s.filePath, section: s.section.trim(), text: plainSuggestionText(s.text) })).filter((s) => s.text);
       let suggestions: SuggestionRow[];
       try {
         suggestions = dropDuplicates(fresh, await deps.existing([...new Set(fresh.map((s) => s.accountId))]));

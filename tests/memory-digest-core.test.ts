@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
   appendUnderSection, buildDigestPrompt, DIGEST_SYSTEM, dropDuplicates, fromCallLine, headingsOf, parseDigestReply,
-  runDigest, sectionLayout, type CallForDigest, type DigestDeps, type DigestWrite,
+  plainSuggestionText, runDigest, sectionLayout, type CallForDigest, type DigestDeps, type DigestWrite,
 } from "../lib/memory/digest-core.ts";
 
 const lines = (n: number) => Array.from({ length: n }, (_, i) => `line ${i + 1}`).join("\n");
@@ -103,6 +103,18 @@ test("appendUnderSection ignores headings inside code fences and never drops exi
   for (const l of md.split("\n")) assert.ok(out.includes(l));
 });
 
+test("a section named like the file's H1 title is created as a new section at the end", () => {
+  const md = "# Weekly\n\n## Decisions\n\n- Old.\n";
+  assert.equal(appendUnderSection(md, "Weekly", "Fact.", SRC), md.trimEnd() + "\n\n## Weekly\n\nFact.\n\n" + SRC + "\n");
+});
+
+test("plainSuggestionText strips images, links and HTML, keeping link words", () => {
+  assert.equal(plainSuggestionText("See ![x](https://evil.example/a.png?d=secret) the [plan](https://evil.example/p) now."), "See the plan now.");
+  assert.equal(plainSuggestionText("A <img src=x onerror=y> b <b>bold</b>"), "A b bold");
+  assert.equal(plainSuggestionText("Ref [a][1] here\n[1]: https://evil.example"), "Ref a here");
+  assert.equal(plainSuggestionText("Auto <https://evil.example> link"), "Auto https://evil.example link");
+});
+
 // ---------------------------------------------------------------- duplicates
 
 test("dropDuplicates skips text already pending or accepted for the same file and section, and repeats within the batch", () => {
@@ -123,6 +135,11 @@ test("sectionLayout splits at headings and says where each section ends", () => 
   assert.deepEqual(l.map((c) => c.closes), [[], [], ["a1", "a"], ["b"]]);
 });
 
+test("sectionLayout never closes an H1, but an H1 still ends the sections before it", () => {
+  const l = sectionLayout("## A\na\n# T\nt\n## B\nb");
+  assert.deepEqual(l.map((c) => c.closes), [["a"], [], ["b"]]);
+});
+
 // ---------------------------------------------------------------- runDigest with fakes
 
 type Ask = DigestDeps["ask"];
@@ -133,7 +150,7 @@ function fakes(c: CallForDigest | null, replies: { stop: string; text: string }[
   const asked: Parameters<Ask>[0][] = [];
   const deps: DigestDeps = {
     load: async () => c,
-    ask: async (messages) => { asked.push(messages.map((m) => ({ ...m }))); const r = replies.shift(); if (!r) throw new Error("no more replies"); return { stopReason: r.stop, text: r.text, usage: { input: 100, output: 10 } }; },
+    ask: async (messages, _opts) => { asked.push(messages.map((m) => ({ ...m }))); const r = replies.shift(); if (!r) throw new Error("no more replies"); return { stopReason: r.stop, text: r.text, usage: { input: 100, output: 10 } }; },
     existing: async () => existing,
     write: async (w) => { writes.push(w); },
     markFailed: async (id, reason) => { failed.push(`${id}:${reason}`); },
@@ -216,4 +233,36 @@ test("an API error marks the call failed", async () => {
   assert.equal(r.ok, false);
   assert.equal(f.failed.length, 1);
   assert.equal(f.writes.length, 0);
+});
+
+test("suggestion text is stored without images or links", async () => {
+  const f = fakes(call(), [{ stop: "end_turn", text: reply({ suggestions: [{ slug: "world-emblem", filePath: "Delivery Strategy/Weekly", section: "Decisions", text: "Ships ![t](https://evil.example/x.png) in [March](https://evil.example)." }] }) }]);
+  await runDigest("t1", f.deps);
+  assert.equal(f.writes[0].suggestions[0].text, "Ships in March.");
+});
+
+test("a call that runs past the deadline is aborted and stays pending", async () => {
+  const f = fakes(call(), []);
+  let aborted = false;
+  f.deps.ask = (_m, opts) => new Promise((_res, rej) => {
+    opts?.signal?.addEventListener("abort", () => { aborted = true; rej(new Error("aborted")); });
+  });
+  f.deps.deadline = Date.now() + 1_600;
+  const t0 = Date.now();
+  const r = await runDigest("t1", f.deps);
+  assert.ok(Date.now() - t0 < 3000, "aborted at the deadline, not when the call would end");
+  assert.equal(aborted, true);
+  assert.equal(r.ok, false);
+  if (!r.ok) assert.equal(r.failed, false);
+  assert.equal(f.failed.length, 0);
+  assert.equal(f.writes.length, 0);
+});
+
+test("a call is not started when too little time is left", async () => {
+  const f = fakes(call(), [{ stop: "end_turn", text: reply() }]);
+  f.deps.deadline = Date.now() + 1000;
+  const r = await runDigest("t1", f.deps);
+  assert.equal(r.ok, false);
+  assert.equal(f.asked.length, 0);
+  assert.equal(f.failed.length, 0);
 });

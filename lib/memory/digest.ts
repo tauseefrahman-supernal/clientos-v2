@@ -39,7 +39,7 @@ async function loadCall(id: string): Promise<CallForDigest | null> {
   };
 }
 
-async function ask(messages: AskMessage[]): Promise<AskReply> {
+async function ask(messages: AskMessage[], opts: { signal?: AbortSignal } = {}): Promise<AskReply> {
   const { default: Anthropic } = await import("@anthropic-ai/sdk");
   const client = new Anthropic();
   // No sampling parameters: a JSON schema fixes the shape, low effort keeps thinking short.
@@ -49,7 +49,7 @@ async function ask(messages: AskMessage[]): Promise<AskReply> {
     system: DIGEST_SYSTEM,
     messages,
     output_config: { effort: "low", format: { type: "json_schema", schema: DIGEST_SCHEMA as unknown as Record<string, unknown> } },
-  }).finalMessage();
+  }, { signal: opts.signal }).finalMessage();
   return {
     stopReason: m.stop_reason,
     text: m.content.map((b) => (b.type === "text" ? b.text : "")).join(""),
@@ -59,7 +59,7 @@ async function ask(messages: AskMessage[]): Promise<AskReply> {
 
 async function existing(accountIds: string[]): Promise<SuggestionRow[]> {
   if (!accountIds.length) return [];
-  const rows = check(await db().from("vault_suggestions").select("account_id,file_path,section,text").in("account_id", accountIds).in("status", ["pending", "accepted"]), "read suggestions") as Row[];
+  const rows = check(await db().from("vault_suggestions").select("account_id,file_path,section,text").in("account_id", accountIds).in("status", ["pending", "accepted", "rejected"]), "read suggestions") as Row[];
   return rows.map((r) => ({ accountId: r.account_id, filePath: r.file_path, section: r.section ?? "", text: r.text }));
 }
 
@@ -73,7 +73,8 @@ function writer(metAtOf: Map<string, string | null>) {
         account_id: s.accountId, file_path: s.filePath, section: s.section || null, text: s.text, transcript_id: w.transcriptId, met_at: metAt, status: "pending",
       }))), "add suggestions");
     }
-    for (const h of w.headlines) check(await db().from("transcript_accounts").update({ headline: h.headline }).eq("transcript_id", w.transcriptId).eq("account_id", h.accountId), "set headline");
+    // A headline on a link a person made by hand is theirs; only automatic links get the digest's headline.
+    for (const h of w.headlines) check(await db().from("transcript_accounts").update({ headline: h.headline }).eq("transcript_id", w.transcriptId).eq("account_id", h.accountId).neq("source", "manual"), "set headline");
     check(await db().from("transcripts").update({ summary: w.summary, status: "digested" }).eq("id", w.transcriptId), "save summary");
   };
 }
@@ -82,9 +83,10 @@ async function markFailed(id: string) {
   check(await db().from("transcripts").update({ status: "failed" }).eq("id", id).in("status", ["pending", "failed"]), "mark failed");
 }
 
-function deps(log: string[]): DigestDeps {
+function deps(log: string[], deadline?: number): DigestDeps {
   const metAtOf = new Map<string, string | null>();
   return {
+    deadline,
     load: async (id) => { const c = await loadCall(id); if (c) metAtOf.set(c.id, c.metAt); return c; },
     ask,
     existing,
@@ -145,14 +147,24 @@ export type DigestRun = {
 } | { refused: string; dollarsEstimated: number };
 
 /** Digests waiting calls, a few at a time, inside the route's time budget. Refused when the estimate is over maxDollars. */
+let running = false;
+
 export async function digestPending(o: DigestOptions & { maxDollars: number }): Promise<DigestRun> {
+  // One run at a time in this process, so two runs never digest the same call twice.
+  if (running) throw new Error("A digest run is already in progress.");
+  running = true;
+  try { return await digestBatch(o); } finally { running = false; }
+}
+
+async function digestBatch(o: DigestOptions & { maxDollars: number }): Promise<DigestRun> {
   const t0 = Date.now();
   const { list, total } = await candidates(o);
   const est = estimateCost(list);
   if (est.dollars > o.maxDollars) return { refused: `The estimate for ${est.calls} calls is $${est.dollars.toFixed(2)}, over maxDollars $${o.maxDollars}.`, dollarsEstimated: est.dollars };
   const log: string[] = [];
-  const d = deps(log);
-  const tally = { digested: 0, failed: 0, skipped: 0, input: 0, output: 0 };
+  // Model calls still running at the budget's end are aborted; those calls stay pending for the next run.
+  const d = deps(log, t0 + TIME_BUDGET_MS);
+  const tally = { digested: 0, failed: 0, skipped: 0, outOfTime: 0, input: 0, output: 0 };
   let next = 0;
   const worker = async () => {
     while (next < list.length && Date.now() - t0 < LAST_START_MS) {
@@ -160,12 +172,11 @@ export async function digestPending(o: DigestOptions & { maxDollars: number }): 
       let r: DigestOutcome;
       try { r = await runDigest(id, d); } catch (e) { d.log(`error on ${id}: ${e instanceof Error ? e.message : String(e)}`); tally.failed++; continue; }
       tally.input += r.usage.input; tally.output += r.usage.output;
-      if (r.ok) tally.digested++; else if (r.failed) tally.failed++; else tally.skipped++;
+      if (r.ok) tally.digested++; else if (r.failed) tally.failed++; else { tally.skipped++; if (r.reason.startsWith("out of time")) tally.outOfTime++; }
     }
   };
   await Promise.all(Array.from({ length: CONCURRENCY }, worker));
-  const remaining = total - next;
-  if (Date.now() - t0 > TIME_BUDGET_MS) log.push(`ran past the ${TIME_BUDGET_MS / 1000} s budget`);
+  const remaining = total - next + tally.outOfTime;
   return {
     digested: tally.digested, failed: tally.failed, skipped: tally.skipped, more: remaining > 0, remaining,
     dollarsEstimated: est.dollars, dollarsActual: (tally.input / 1e6) * INPUT_PER_M + (tally.output / 1e6) * OUTPUT_PER_M, log,
@@ -191,6 +202,14 @@ export async function suggestionProject(id: string): Promise<string | null> {
   return r?.accounts?.slug ?? null;
 }
 
+/** The body of the template an empty file shows (lib/data/render.ts fileMarkdown), preferring this project's own copy. */
+async function templateBody(accountId: string, category: string | null, name: string | null): Promise<string> {
+  if (!category || !name) return "";
+  const rows = check(await db().from("templates").select("body,only_account_id").eq("category_slug", category).eq("name", name), "read template") as Row[];
+  const t = rows.find((r) => r.only_account_id === accountId) ?? rows.find((r) => !r.only_account_id) ?? rows[0];
+  return (t?.body as string | undefined) ?? "";
+}
+
 /**
  * Accept appends the text under its section (creating the section at the end if missing) with a source line, as a
  * normal versioned save; reject only marks it. The caller checks canAssign on the project first.
@@ -204,10 +223,18 @@ export async function decideSuggestion(id: string, accept: boolean, by: string):
   const claimed = check(await db().from("vault_suggestions").update(decided).eq("id", id).eq("status", "pending").select("id"), "decide suggestion") as Row[];
   if (!claimed.length || !accept) return;
   try {
-    const f = check(await db().from("vault_files").select("content,state").eq("account_id", s.account_id).eq("path", s.file_path).maybeSingle(), "read file") as Row | null;
-    if (!f || f.state === "deleted") throw new Error("That file is no longer in the vault.");
-    const content = appendUnderSection(f.content ?? "", s.section ?? "", s.text, fromCallLine(s.transcripts?.title ?? "untitled", s.met_at ?? s.transcripts?.met_at ?? null));
-    await updateFile(s.account_id, s.file_path, { content }, by);
+    const source = fromCallLine(s.transcripts?.title ?? "untitled", s.met_at ?? s.transcripts?.met_at ?? null);
+    // Saved only if nobody saved the file since it was read; on a clash, read it again and try once more.
+    let saved = false;
+    for (let attempt = 0; attempt < 2 && !saved; attempt++) {
+      const f = check(await db().from("vault_files").select("content,state,updated_at,category_slug,template_name").eq("account_id", s.account_id).eq("path", s.file_path).maybeSingle(), "read file") as Row | null;
+      if (!f || f.state === "deleted") throw new Error("That file is no longer in the vault.");
+      // An empty file shows its template's text; the fact goes into that text, as shown, not into a blank file.
+      const base = f.content ? f.content : await templateBody(s.account_id, f.category_slug, f.template_name);
+      const content = appendUnderSection(base, s.section ?? "", s.text, source);
+      saved = await updateFile(s.account_id, s.file_path, { content }, by, { ifUpdatedAt: f.updated_at ?? null });
+    }
+    if (!saved) throw new Error("The file was changed by someone else while saving. Try again.");
   } catch (e) {
     await db().from("vault_suggestions").update({ status: "pending", decided_by: null, decided_at: null }).eq("id", id);
     throw e;

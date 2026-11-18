@@ -2,8 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import { Check, Sparkles, X } from "lucide-react";
 import { decideSuggestionAction } from "@/app/actions";
 
@@ -33,7 +31,8 @@ export function VaultSuggestions({ items, canDecide, newSection }: { items: Sugg
             <span>{s.callTitle} · {s.callDate}</span>
             {newSection && s.section && <span className="rounded border border-border px-1">New section: {s.section}</span>}
           </div>
-          <div className="mt-1 text-sm leading-relaxed [&_p]:my-1"><ReactMarkdown remarkPlugins={[remarkGfm]}>{s.text}</ReactMarkdown></div>
+          {/* Plain text on purpose: model-written markdown could load images or links on view. */}
+          <p className="mt-1 whitespace-pre-wrap text-sm leading-relaxed">{s.text}</p>
           {canDecide && (
             <div className="mt-space-2 flex gap-space-2">
               <button type="button" disabled={pending} onClick={() => decide(s.id, true)} className="inline-flex items-center gap-1 rounded-md bg-primary px-space-3 py-1 text-xs font-medium text-primary-foreground disabled:opacity-50"><Check className="h-3 w-3" />Accept</button>
