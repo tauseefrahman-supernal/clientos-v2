@@ -1,14 +1,14 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
-  absorbAltUrls, decodeCursor, encodeCursor, goneIsFinal, listingStart, rowForCall, runSyncWith, speakersOf,
-  type Snapshot, type StoredRow, type SyncDeps, type SyncStore,
+  absorbAltUrls, absorbStored, decodeCursor, encodeCursor, goneIsFinal, listingStart, PreviewRequiredError, rowForCall, runSyncWith,
+  sameMeetingAs, seededPairs, speakersOf, type Snapshot, type StoredRow, type SyncDeps, type SyncStore,
 } from "../lib/memory/sync-core.ts";
 import type { PlannedCall } from "../lib/memory/plan-sync.ts";
 import type { ScreenResult } from "../lib/memory/screen.ts";
 import type { ListResult, TranscriptResult } from "../lib/memory/sources/shared.ts";
 import type { SourceCall, Turn } from "../lib/memory/types.ts";
-import { turnsToBody } from "../lib/memory/index-rules.ts";
+import { recordingShown, turnsToBody } from "../lib/memory/index-rules.ts";
 import { applyCuts } from "../lib/memory/screen.ts";
 import { fathomCallId } from "../lib/memory/sources/index.ts";
 
@@ -110,7 +110,7 @@ test("rowForCall: personnel is a title-only row; error and metadata leave body a
 
 const stored = (over: Partial<StoredRow> = {}): StoredRow => ({
   id: "t-old", provider: "granola", externalId: "old", goneAt: null, status: "pending", altUrl: null,
-  hasBody: false, summaryEmpty: false, metAt: "2026-10-01T00:00:00.000Z", ...over,
+  hasBody: false, summaryEmpty: false, metAt: "2026-10-01T00:00:00.000Z", title: "Old call", url: null, ...over,
 });
 
 test("absorbAltUrls: a Fathom call already stored as a Granola row's alt link becomes that row", () => {
@@ -140,7 +140,9 @@ test("absorbAltUrls: a Fathom call already stored as a Granola row's alt link be
 
 class FakeStore implements SyncStore {
   rows: (Record<string, unknown> & { id: string })[] = [];
-  links: { transcriptId: string; accountId: string; source: string }[] = [];
+  links: { transcriptId: string; accountId: string; source: string; headline?: string }[] = [];
+  events: string[] = [];
+  writes = 0;
   state = new Map<string, { cursor: string | null; last_run_at: string | null; last_error: string | null }>();
   goneCalls: { ids: string[]; at: string | null }[] = [];
   chunkDeletes: string[] = [];
@@ -150,7 +152,7 @@ class FakeStore implements SyncStore {
   accounts = [{ id: "a-we", slug: "world-emblem", name: "World Emblem" }, { id: "a-br", slug: "breakr", name: "Breakr" }];
   private n = 0;
 
-  seed(row: Record<string, unknown>) { this.rows.push({ id: `t${++this.n}`, status: "pending", body: null, summary: "", gone_at: null, alt_url: null, ...row }); }
+  seed(row: Record<string, unknown>) { const r = { id: `t${++this.n}`, status: "pending", body: null, summary: "", gone_at: null, alt_url: null, title: "Seeded", url: null, participants: [], ...row }; this.rows.push(r); return r; }
   row(provider: string, externalId: string) { return this.rows.find((r) => r.provider === provider && r.external_id === externalId); }
 
   async load(): Promise<Snapshot> {
@@ -158,7 +160,7 @@ class FakeStore implements SyncStore {
       rows: this.rows.map((r) => ({
         id: r.id, provider: r.provider as string, externalId: r.external_id as string, goneAt: (r.gone_at as string) ?? null,
         status: r.status as string, altUrl: (r.alt_url as string) ?? null, hasBody: r.body != null, summaryEmpty: !r.summary,
-        metAt: (r.met_at as string) ?? null,
+        metAt: (r.met_at as string) ?? null, title: (r.title as string) ?? "", url: (r.url as string) ?? null,
       })),
       overrides: this.overrides, rules: this.rules, accounts: this.accounts,
       state: new Map([...this.state].map(([p, s]) => [p, { cursor: s.cursor, lastRunAt: s.last_run_at }])),
@@ -169,13 +171,17 @@ class FakeStore implements SyncStore {
     this.state.set(provider, { ...cur, ...patch });
   }
   async dropBodies(ids: string[]) {
+    this.writes++;
     for (const r of this.rows) if (ids.includes(r.id)) Object.assign(r, { body: null, cuts: [], status: "personnel", summary: "" });
+    for (const l of this.links) if (ids.includes(l.transcriptId)) l.headline = "";
     this.chunkDeletes.push(...ids);
   }
   async unlink(pairs: { transcriptId: string; accountId: string }[]) {
     this.links = this.links.filter((l) => !pairs.some((p) => p.transcriptId === l.transcriptId && p.accountId === l.accountId));
   }
   async writeCalls(rows: Record<string, unknown>[]) {
+    this.writes++;
+    this.events.push(`write:${rows.length}`);
     return rows.map((w) => {
       let r = this.row(w.provider as string, w.external_id as string);
       if (!r) { r = { id: `t${++this.n}`, status: "pending", body: null, summary: "", gone_at: null, alt_url: null }; this.rows.push(r); }
@@ -183,7 +189,22 @@ class FakeStore implements SyncStore {
       return { id: r.id, provider: r.provider as string, externalId: r.external_id as string };
     });
   }
-  async deleteChunks(ids: string[]) { this.chunkDeletes.push(...ids); }
+  async clearPersonnel(ids: string[]) {
+    this.chunkDeletes.push(...ids);
+    for (const l of this.links) if (ids.includes(l.transcriptId)) l.headline = "";
+  }
+  async rekey(id: string, provider: string, externalId: string, altUrl: string | null) {
+    this.writes++;
+    const r = this.rows.find((x) => x.id === id)!;
+    Object.assign(r, { provider, external_id: externalId }, altUrl ? { alt_url: altUrl } : {});
+  }
+  async fold(fromId: string, toId: string) {
+    this.writes++;
+    for (const l of this.links.filter((x) => x.transcriptId === fromId))
+      if (!this.links.some((x) => x.transcriptId === toId && x.accountId === l.accountId)) this.links.push({ ...l, transcriptId: toId });
+    this.links = this.links.filter((x) => x.transcriptId !== fromId);
+    this.rows = this.rows.filter((x) => x.id !== fromId);
+  }
   async link(rows: { transcriptId: string; accountId: string; source: "auto" | "manual" }[]) {
     for (const l of rows) if (!this.links.some((x) => x.transcriptId === l.transcriptId && x.accountId === l.accountId)) this.links.push(l);
   }
@@ -206,6 +227,7 @@ interface Fakes {
   screen?: (c: SourceCall) => Promise<ScreenResult>;
   mention?: (q: { title: string; summary: string; project: string }) => Promise<boolean>;
   clock?: () => number;
+  previews?: SyncDeps["previews"];
 }
 
 function deps(store: FakeStore, f: Fakes = {}) {
@@ -219,9 +241,10 @@ function deps(store: FakeStore, f: Fakes = {}) {
       return typeof r === "function" ? r() : (r ?? empty);
     },
     fetchTranscript: async (provider, id) => { seen.fetched.push(`${provider}:${id}`); return f.transcript ? f.transcript(provider, id) : { status: "ready", turns: TURNS }; },
-    screen: async (c) => { seen.screened.push(`${c.provider}:${c.externalId}`); return f.screen ? f.screen(c) : { verdict: "clean", cuts: [] }; },
+    screen: async (c) => { seen.screened.push(`${c.provider}:${c.externalId}`); store.events.push(`screen:${c.externalId}`); return f.screen ? f.screen(c) : { verdict: "clean", cuts: [] }; },
     askMention: async (q) => { seen.mentions.push(q.title); return f.mention ? f.mention(q) : false; },
     now: f.clock ?? (() => NOW_MS),
+    previews: f.previews ?? { last: () => NOW_MS, mark: () => {} },
   };
   return { d, seen };
 }
@@ -235,7 +258,7 @@ test("a rate-limited run marks nothing gone and keeps its cursor", async () => {
   assert.equal(out.gone, 0);
   assert.equal(store.row("granola", "old")!.gone_at, null);
   assert.deepEqual(decodeCursor(store.state.get("granola")!.cursor), { cursor: "next", since: null });
-  assert.equal(store.state.get("granola")!.last_run_at ?? null, null);
+  assert.equal(store.state.get("granola")?.last_run_at ?? null, null);
 });
 
 test("a complete full listing marks an absent stored call gone and advances last_run_at", async () => {
@@ -337,7 +360,7 @@ test("a 429 on a transcript stops fetching for the run; calls stay pending; the 
   assert.equal(out.pending, 2);
   assert.equal(store.row("granola", "g1")!.body, null);
   assert.equal(store.row("granola", "g2")!.status, "pending");
-  assert.equal(store.state.get("granola")!.last_run_at ?? null, null); // not advanced: calls were left over
+  assert.equal(store.state.get("granola")?.last_run_at ?? null, null); // not advanced: calls were left over
 });
 
 test("transcript not_ready stays pending; gone is final only after 2 days", async () => {
@@ -408,7 +431,7 @@ test("the time budget stops screening cleanly and reports that more remains", as
   assert.equal(out.more, true);
   assert.equal(out.pending, 1);
   assert.ok(store.row("granola", "g2")); // still stored, as pending
-  assert.equal(store.state.get("granola")!.last_run_at ?? null, null);
+  assert.equal(store.state.get("granola")?.last_run_at ?? null, null);
   assert.ok(out.log.some((l) => /more remains/i.test(l)));
 });
 
@@ -423,4 +446,203 @@ test("a personnel override drops a stored body before anything else", async () =
   assert.equal(r.body, null);
   assert.equal(r.status, "personnel");
   assert.ok(store.chunkDeletes.includes(id));
+});
+
+// ---------------------------------------------------------------- fix round 1
+
+test("a run stopped mid-apply holds its cursor back, so the next run re-lists the unapplied calls", async () => {
+  const store = new FakeStore();
+  const saved = encodeCursor("c1", "2026-11-01T00:00:00.000Z");
+  store.state.set("granola", { cursor: saved, last_run_at: "2026-11-04T00:00:00.000Z", last_error: null });
+  let t = NOW_MS;
+  const calls = [call(), call({ externalId: "g2", title: "World Emblem 2", metAt: "2026-11-11T10:00:00.000Z", url: "u2" })];
+  const first = deps(store, {
+    granola: { calls, cursor: "c2", rateLimited: false, skipped: 0 },
+    screen: async () => { t += 200_000; return { verdict: "clean", cuts: [] }; },
+    clock: () => t,
+  });
+  const out = await runSyncWith({ budgetMs: 150_000 }, first.d);
+  assert.equal(out.more, true);
+  assert.equal(store.state.get("granola")!.cursor, saved);                    // not advanced to c2
+  assert.equal(store.state.get("granola")!.last_run_at, "2026-11-04T00:00:00.000Z");
+  const second = deps(store, { granola: { calls, cursor: null, rateLimited: false, skipped: 0 } });
+  await runSyncWith({}, second.d);
+  assert.deepEqual(second.seen.listed[0], { provider: "granola", since: "2026-11-01T00:00:00.000Z", cursor: "c1" });
+  assert.deepEqual(second.seen.screened, ["granola:g2"]);                     // g1 already has its body
+  assert.equal(store.state.get("granola")!.cursor, null);
+});
+
+test("a completed run saves the cursor the listing ended on", async () => {
+  const store = new FakeStore();
+  const { d } = deps(store, { granola: { calls: [call()], cursor: "next", rateLimited: true, skipped: 0 } });
+  await runSyncWith({}, d);
+  assert.deepEqual(decodeCursor(store.state.get("granola")!.cursor), { cursor: "next", since: null });
+});
+
+test("the retry pass picks up a stranded Granola row (not Fathom), keeping its title and people", async () => {
+  const store = new FakeStore();
+  const g = store.seed({ provider: "granola", external_id: "stranded", title: "Kept title", met_at: "2026-11-05T10:00:00.000Z", participants: [{ name: "Zed", email: null }] });
+  store.seed({ provider: "fathom", external_id: "999", met_at: "2026-11-05T10:00:00.000Z" });
+  store.seed({ provider: "granola", external_id: "gone1", gone_at: "2026-11-10T00:00:00.000Z" });
+  for (const p of ["granola", "fathom"]) store.state.set(p, { cursor: null, last_run_at: "2026-11-15T00:00:00.000Z", last_error: null });
+  const { d, seen } = deps(store, {});
+  await runSyncWith({}, d);
+  assert.deepEqual(seen.fetched, ["granola:stranded"]);
+  assert.equal(g.body, turnsToBody(TURNS));
+  assert.equal(g.title, "Kept title");
+  assert.deepEqual(g.participants, [{ name: "Zed", email: null }]);
+  assert.equal(g.met_at, "2026-11-05T10:00:00.000Z");
+});
+
+test("the retry pass is bounded by the time budget and skipped for onlySlugs runs", async () => {
+  const store = new FakeStore();
+  store.seed({ provider: "granola", external_id: "s1", met_at: "2026-11-05T10:00:00.000Z" });
+  const trial = deps(store, {});
+  await runSyncWith({ since: "2026-11-01T00:00:00.000Z", onlySlugs: ["world-emblem"] }, trial.d);
+  assert.deepEqual(trial.seen.fetched, []);
+  let t = NOW_MS;
+  const late = deps(store, { clock: () => (t += 100_000) });
+  await runSyncWith({ budgetMs: 150_000, confirmFull: true }, late.d);
+  assert.deepEqual(late.seen.fetched, []);
+});
+
+test("(i) a listed Granola call whose Fathom link is a stored Fathom row takes that row over in place", async () => {
+  const store = new FakeStore();
+  const f = store.seed({ provider: "fathom", external_id: "555", title: "Fathom title", url: "https://fathom.video/calls/555", met_at: "2026-11-10T10:00:00.000Z" });
+  store.links.push({ transcriptId: f.id, accountId: "a-br", source: "manual", headline: "kept" });
+  // Listed in both sources: the merge keeps the Granola call with the Fathom link as its altUrl.
+  const g = call({ externalId: "g-new" });
+  const fathomCopy = call({ provider: "fathom", externalId: "555", fetchId: "r555", url: "https://fathom.video/calls/555", title: "World Emblem weekly" });
+  const { d } = deps(store, { granola: { calls: [g], cursor: null, rateLimited: false, skipped: 0 }, fathom: { calls: [fathomCopy], cursor: null, rateLimited: false, skipped: 0 } });
+  const out = await runSyncWith({}, d);
+  assert.equal(store.rows.length, 1);
+  assert.equal(f.provider, "granola");
+  assert.equal(f.external_id, "g-new");
+  assert.equal(f.alt_url, "https://fathom.video/calls/555");
+  assert.equal(f.title, "Fathom title");
+  assert.ok(store.links.some((l) => l.transcriptId === f.id && l.accountId === "a-br" && l.headline === "kept"));
+  assert.equal(out.gone, 0);
+  assert.ok(out.log.some((l) => /is now Granola call g-new/.test(l)));
+});
+
+test("(ii) same title within 10 minutes absorbs across providers, Granola as the row identity", async () => {
+  const store = new FakeStore();
+  const g = store.seed({ provider: "granola", external_id: "g-old", title: "Ops Review", met_at: "2026-11-10T10:00:00.000Z", participants: [{ name: "Kept", email: null }] });
+  const fr = store.seed({ provider: "fathom", external_id: "321", title: "Board call", url: "https://fathom.video/calls/321", met_at: "2026-11-12T09:00:00.000Z" });
+  const fathomCopy = call({ provider: "fathom", externalId: "777", fetchId: "r777", title: "ops review!", metAt: "2026-11-10T10:06:00.000Z", url: "https://fathom.video/calls/777", turns: TURNS, participants: [{ name: "New", email: "n@x.com" }] });
+  const granolaNew = call({ externalId: "g-board", title: "Board  Call", metAt: "2026-11-12T09:04:00.000Z", url: "https://notes.granola.ai/d/g-board" });
+  const { d } = deps(store, { granola: { calls: [granolaNew], cursor: null, rateLimited: false, skipped: 0 }, fathom: { calls: [fathomCopy], cursor: null, rateLimited: false, skipped: 0 } });
+  await runSyncWith({}, d);
+  assert.equal(store.rows.length, 2);
+  assert.equal(g.alt_url, "https://fathom.video/calls/777");
+  assert.equal(g.title, "Ops Review");
+  assert.equal(g.met_at, "2026-11-10T10:00:00.000Z");
+  assert.deepEqual(g.participants, [{ name: "Kept", email: null }]);
+  assert.equal(g.body, turnsToBody(TURNS));
+  assert.equal(fr.provider, "granola");
+  assert.equal(fr.external_id, "g-board");
+  assert.equal(fr.alt_url, "https://fathom.video/calls/321");
+  assert.equal(sameMeetingAs({ title: "A", metAt: "2026-11-10T10:00:00Z" }, { title: "a", metAt: "2026-11-10T10:11:00Z" }), false);
+});
+
+test("a seeded pair folds: the Fathom row's links move to the Granola row (existing link wins) and the Fathom row goes", async () => {
+  const store = new FakeStore();
+  const g = store.seed({ provider: "granola", external_id: "g1x", alt_url: "https://fathom.video/calls/42", met_at: "2026-10-10T10:00:00.000Z" });
+  const f = store.seed({ provider: "fathom", external_id: "42", met_at: "2026-10-10T10:00:00.000Z" });
+  store.links.push({ transcriptId: g.id, accountId: "a-we", source: "auto", headline: "granola" });
+  store.links.push({ transcriptId: f.id, accountId: "a-we", source: "manual", headline: "fathom" });
+  store.links.push({ transcriptId: f.id, accountId: "a-br", source: "auto", headline: "br" });
+  assert.deepEqual(seededPairs([stored({ id: g.id, externalId: "g1x", altUrl: "https://fathom.video/calls/42" }), stored({ id: f.id, provider: "fathom", externalId: "42" })]).folds.map((x) => [x.fromId, x.toId]), [[f.id, g.id]]);
+  for (const p of ["granola", "fathom"]) store.state.set(p, { cursor: null, last_run_at: "2026-11-15T00:00:00.000Z", last_error: null });
+  const out = await runSyncWith({}, deps(store, { transcript: async () => ({ status: "not_ready" }) }).d);
+  assert.equal(store.row("fathom", "42"), undefined);
+  assert.deepEqual(store.links.map((l) => [l.transcriptId, l.accountId, l.headline]).sort(), [[g.id, "a-br", "br"], [g.id, "a-we", "granola"]]);
+  assert.ok(out.log.some((l) => /folded a duplicate Fathom row/.test(l)));
+});
+
+test("personnel calls lose their project headlines, by screen and by override", async () => {
+  const store = new FakeStore();
+  const a = store.seed({ provider: "granola", external_id: "g1", met_at: "2026-11-10T10:00:00.000Z" });
+  const b = store.seed({ provider: "granola", external_id: "p2", body: "x", met_at: "2026-11-09T10:00:00.000Z" });
+  store.links.push({ transcriptId: a.id, accountId: "a-we", source: "auto", headline: "secret a" });
+  store.links.push({ transcriptId: b.id, accountId: "a-we", source: "auto", headline: "secret b" });
+  store.overrides = [{ transcriptId: b.id, accountId: null, action: "personnel" }];
+  const { d } = deps(store, { granola: { calls: [call()], cursor: null, rateLimited: false, skipped: 0 }, screen: async () => ({ verdict: "personnel", cuts: [] }) });
+  await runSyncWith({ confirmFull: true }, d);
+  assert.deepEqual(store.links.map((l) => l.headline), ["", ""]);
+});
+
+test("recordingShown hides personnel calls and calls gone for more than 14 days", () => {
+  const now = new Date(NOW);
+  assert.equal(recordingShown({ status: "pending", gone_at: null }, now), true);
+  assert.equal(recordingShown({ status: "personnel", gone_at: null }, now), false);
+  assert.equal(recordingShown({ status: "digested", gone_at: new Date(NOW_MS - 15 * DAY).toISOString() }, now), false);
+  assert.equal(recordingShown({ status: "digested", gone_at: new Date(NOW_MS - 13 * DAY).toISOString() }, now), true);
+});
+
+test("preview lists what a full run would mark gone and writes nothing, calls no model", async () => {
+  const store = new FakeStore();
+  store.seed({ provider: "granola", external_id: "old", title: "Left the company", met_at: "2026-10-01T00:00:00.000Z" });
+  let marked: number | null = null;
+  const { d, seen } = deps(store, {
+    granola: { calls: [call({ sourceSummary: "breakr" })], cursor: null, rateLimited: false, skipped: 0 },
+    previews: { last: () => marked, mark: (at) => { marked = at; } },
+  });
+  const out = await runSyncWith({ preview: true }, d);
+  assert.deepEqual(out.preview!.wouldMarkGone, [{ title: "Left the company", provider: "granola", metAt: "2026-10-01T00:00:00.000Z" }]);
+  assert.equal(out.preview!.new, 1);
+  assert.equal(store.writes, 0);
+  assert.equal(store.state.size, 0);
+  assert.deepEqual(seen.screened, []);
+  assert.deepEqual(seen.mentions, []);
+  assert.deepEqual(seen.fetched, []);
+  assert.equal(marked, NOW_MS);
+  // With that preview recorded, the full run is allowed.
+  const run = await runSyncWith({}, d);
+  assert.equal(run.gone, 1);
+});
+
+test("a full run without a recent preview is refused unless confirmFull", async () => {
+  const store = new FakeStore();
+  const stale = { last: () => NOW_MS - 2 * 60 * 60 * 1000, mark: () => {} };
+  await assert.rejects(runSyncWith({}, deps(store, { previews: stale }).d), (e) => e instanceof PreviewRequiredError);
+  await assert.rejects(runSyncWith({ full: true }, deps(store, { previews: { last: () => null, mark: () => {} } }).d), (e) => e instanceof PreviewRequiredError);
+  assert.equal(store.writes, 0);
+  const ok = await runSyncWith({ confirmFull: true }, deps(store, { previews: stale }).d);
+  assert.equal(ok.more, false);
+  // Incremental and ad-hoc runs need no preview.
+  for (const p of ["granola", "fathom"]) store.state.set(p, { cursor: null, last_run_at: "2026-11-15T00:00:00.000Z", last_error: null });
+  await runSyncWith({}, deps(store, { previews: stale }).d);
+});
+
+test("absorbing a Fathom copy keeps the row's title, date and people; refreshes keep a stored title", () => {
+  const p = { externalKey: "granola:g1", provider: "granola" as const, externalId: "g1", title: "Fathom title", metAt: NOW, participants: [{ name: "X", email: null }], url: "", altUrl: "https://fathom.video/calls/1", sourceSummary: "", turns: null, status: "keep" as const, dropBody: false, isNew: false };
+  const a = rowForCall(p, { kind: "meta" }, { summaryEmpty: false, now: NOW, storedTitle: "Granola title", absorbed: true });
+  assert.equal(a.title, "Granola title");
+  assert.equal("met_at" in a, false);
+  assert.equal("participants" in a, false);
+  const r = rowForCall(p, { kind: "meta" }, { summaryEmpty: false, now: NOW, storedTitle: "" });
+  assert.equal(r.title, "Fathom title");
+  assert.equal(r.met_at, NOW);
+});
+
+test("with under 45 s left, queued writes are flushed before each screen call", async () => {
+  const store = new FakeStore();
+  let t = NOW_MS;
+  const calls = [call(), call({ externalId: "g2", title: "World Emblem 2", metAt: "2026-11-11T10:00:00.000Z", url: "u2" })];
+  const { d } = deps(store, {
+    granola: { calls, cursor: null, rateLimited: false, skipped: 0 },
+    screen: async () => { t += 40_000; return { verdict: "clean", cuts: [] }; },
+    clock: () => t,
+  });
+  await runSyncWith({ budgetMs: 80_000 }, d);
+  assert.deepEqual(store.events.slice(0, 3), ["screen:g1", "write:1", "screen:g2"]);
+});
+
+test("absorbStored leaves the input rows untouched", () => {
+  const rows = [stored({ id: "f", provider: "fathom", externalId: "9", url: "https://fathom.video/calls/9" })];
+  const out = absorbStored([{ ...call({ externalId: "gx" }), altUrl: "https://fathom.video/calls/9" }], rows);
+  assert.equal(rows[0].provider, "fathom");
+  assert.equal(out.rows[0].provider, "granola");
+  assert.equal(out.rekeys.length, 1);
 });

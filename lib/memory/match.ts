@@ -9,7 +9,7 @@ const MIN_CONTAINED_TITLE = 8; // guards short/generic titles from matching by c
 const SHARED_EMAIL_RATIO = 0.6;
 const MIN_SHARED_EMAILS = 2; // one shared email is usually just the recorder
 
-function normTitle(t: string): string {
+export function normTitle(t: string): string {
   return t.toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, " ").replace(/\s+/g, " ").trim();
 }
 

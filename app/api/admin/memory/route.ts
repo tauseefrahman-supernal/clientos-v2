@@ -9,15 +9,17 @@ export const maxDuration = 300;
 // POST /api/admin/memory { action, ...options }: admin jobs for Stella's memory. Admins only.
 //   index { dryRun? }: embed new or changed vault files, chapters, call summaries and call bodies;
 //                      with dryRun, report the counts and an estimated token total without calling Voyage or writing.
-//   sync { since?, onlySlugs?, full? }: pull calls from Granola and Fathom, screen and store them, link projects.
-//                      since (ISO date) and onlySlugs make an ad-hoc run that leaves the saved sync state alone;
-//                      full lists everything so missing calls can be marked gone. Stops early and says when more remains.
+//   sync { since?, onlySlugs?, full?, preview?, confirmFull? }: pull calls from Granola and Fathom, screen and store
+//                      them, link projects. since (ISO date) and onlySlugs make an ad-hoc run that leaves the saved sync
+//                      state alone; full lists everything so missing calls can be marked gone; preview lists everything and
+//                      reports what would change (including calls it would mark gone) without writing. A full run is
+//                      refused (409) without a preview in the last hour or confirmFull. Stops early and says when more remains.
 type Body = Record<string, unknown> & { action?: string };
 
 class BadRequest extends Error {}
 
 function syncOptions(body: Body) {
-  const opts: { since?: string; onlySlugs?: string[]; full?: boolean } = {};
+  const opts: { since?: string; onlySlugs?: string[]; full?: boolean; preview?: boolean; confirmFull?: boolean } = {};
   if (body.since !== undefined) {
     if (typeof body.since !== "string" || Number.isNaN(Date.parse(body.since))) throw new BadRequest("since must be an ISO date.");
     opts.since = new Date(Date.parse(body.since)).toISOString();
@@ -27,6 +29,8 @@ function syncOptions(body: Body) {
     opts.onlySlugs = body.onlySlugs.map((s) => (s as string).trim());
   }
   if (body.full === true) opts.full = true;
+  if (body.preview === true) opts.preview = true;
+  if (body.confirmFull === true) opts.confirmFull = true;
   return opts;
 }
 
@@ -49,6 +53,6 @@ export async function POST(req: Request) {
   } catch (e) {
     if (e instanceof BadRequest) return new Response(e.message, { status: 400 });
     const error = e instanceof Error ? e.message : String(e);
-    return Response.json({ ok: false, action: body.action, error }, { status: /already in progress/.test(error) ? 409 : 500 });
+    return Response.json({ ok: false, action: body.action, error }, { status: /already in progress|run a preview first/.test(error) ? 409 : 500 });
   }
 }

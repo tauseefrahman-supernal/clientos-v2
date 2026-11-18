@@ -51,6 +51,11 @@ export function isUsable(o: UsableFacts, now: Date): boolean {
   return true;
 }
 
+/** Whether a call shows in a project's Recordings list: never a personnel call, nor one gone for more than 14 days. */
+export function recordingShown(t: { status?: string | null; gone_at?: string | null }, now: Date): boolean {
+  return isUsable({ status: t.status ?? null, goneAt: t.gone_at ?? null }, now);
+}
+
 // ---------------------------------------------------------------- batching
 
 export function batches<T>(xs: T[], size = EMBED_BATCH): T[][] {
