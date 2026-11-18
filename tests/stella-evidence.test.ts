@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { evidenceHref, joinEvidence, resolveRefs, splitEvidence, visibleAnswer, type Evidence } from "../lib/stella/evidence.ts";
+import { evidenceHref, joinEvidence, resolveRefs, splitEvidence, stripHistory, visibleAnswer, type Evidence } from "../lib/stella/evidence.ts";
 
 const block = (json: string) => "```evidence\n" + json + "\n```";
 const item = { point: "Bought for speed", source: "File Technical Strategy/Feature-Rationale.md", quote: "They chose us because we ship in weeks." };
@@ -94,4 +94,47 @@ test("evidence joined for storage splits back with its resolved refs", () => {
   assert.equal(back.answer, "The answer.");
   assert.deepEqual(back.evidence, ev);
   assert.equal(joinEvidence("No evidence.", []), "No evidence.");
+});
+
+test("every evidence block is stripped and their entries merged", () => {
+  const two = `First part.\n\n${block(JSON.stringify([item]))}\n\nSecond part.\n\n${block(JSON.stringify([{ ...item, point: "Second point" }]))}`;
+  const { answer, evidence } = splitEvidence(two);
+  assert.equal(answer, "First part.\n\nSecond part.");
+  assert.deepEqual(evidence.map((e) => e.point), ["Bought for speed", "Second point"]);
+});
+
+test("an evidence fence that does not start a line is still found", () => {
+  const { answer, evidence } = splitEvidence(`They bought for speed.\`\`\`evidence\n${JSON.stringify([item])}\n\`\`\``);
+  assert.equal(answer, "They bought for speed.");
+  assert.equal(evidence.length, 1);
+  assert.equal(visibleAnswer("They bought for speed.```evidence\n[{"), "They bought for speed.");
+});
+
+test("a final json block of points and sources is taken as evidence", () => {
+  const { answer, evidence } = splitEvidence(`They bought for speed.\n\n\`\`\`json\n${JSON.stringify([item])}\n\`\`\`\n`);
+  assert.equal(answer, "They bought for speed.");
+  assert.equal(evidence.length, 1);
+});
+
+test("a json block mid-answer, or one that is not points and sources, stays visible", () => {
+  const mid = "Their config:\n\n```json\n[{\"point\":\"p\",\"source\":\"File X.md\"}]\n```\n\nThat is all they sent.";
+  assert.deepEqual(splitEvidence(mid), { answer: mid, evidence: [] });
+  const other = "The payload:\n\n```json\n[{\"name\":\"x\"}]\n```";
+  assert.deepEqual(splitEvidence(other), { answer: other, evidence: [] });
+});
+
+test("a reply that is only an evidence block leaves nothing to show", () => {
+  assert.equal(splitEvidence(block(JSON.stringify([item]))).answer, "");
+});
+
+test("history sent back to Stella has no evidence and no empty assistant turns", () => {
+  const out = stripHistory([
+    { role: "user" as const, content: "Q1" },
+    { role: "assistant" as const, content: `A1.\n\n${block(JSON.stringify([item]))}` },
+    { role: "user" as const, content: "Q2" },
+    { role: "assistant" as const, content: block(JSON.stringify([item])) },
+    { role: "user" as const, content: "Q3" },
+  ]);
+  assert.deepEqual(out.map((t) => t.content), ["Q1", "A1.", "Q2", "(answered)", "Q3"]);
+  for (let i = 1; i < out.length; i++) assert.notEqual(out[i].role, out[i - 1].role);
 });

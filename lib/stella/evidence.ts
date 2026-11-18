@@ -11,9 +11,9 @@ export type KnownSource = { label: string; slug: string; id: string };
 
 const KINDS: EvidenceKind[] = ["file", "chapter", "call", "project", "attachment", "other"];
 const MAX_QUOTE = 200;
-const OPEN = /(^|\n)[ \t]*```evidence[^\n]*(\n|$)/;
-const CLOSE = /(^|\n)[ \t]*```[ \t]*(\n|$)/;
+const OPEN = /```evidence[^\n`]*/;
 const FENCE = /(^|\n)[ \t]*```/g;
+const FINAL_JSON = /(^|\n)[ \t]*```json[^\n]*\n([\s\S]*?)```\s*$/;
 
 export const noRef = (): EvidenceRef => ({ kind: "other", slug: null, id: null, at: null });
 
@@ -37,21 +37,37 @@ function cleanItem(raw: unknown): Evidence | null {
   return { point, source, quote, ref: cleanRef(r.ref) };
 }
 
-/** Remove the evidence block from an answer and parse it. A malformed block is dropped; no block leaves the text as is. */
+function parseItems(body: string): unknown[] | null {
+  try { const v: unknown = JSON.parse(body); return Array.isArray(v) ? v : null; } catch { return null; }
+}
+
+const joinParts = (parts: string[]) => parts.map((p) => p.trim()).filter(Boolean).join("\n\n");
+
+/**
+ * Remove every evidence block from an answer and merge their entries; a malformed block is dropped.
+ * A final ```json block that is an array of { point, source } counts as evidence too. No block leaves the text as is.
+ */
 export function splitEvidence(text: string): { answer: string; evidence: Evidence[] } {
-  const open = OPEN.exec(text);
-  if (!open) return { answer: text, evidence: [] };
-  const before = text.slice(0, open.index);
-  const rest = text.slice(open.index + open[0].length);
-  const close = CLOSE.exec(rest);
-  const body = close ? rest.slice(0, close.index) : rest;
-  const after = close ? rest.slice(close.index + close[0].length) : "";
-  let evidence: Evidence[] = [];
-  try {
-    const parsed: unknown = JSON.parse(body);
-    if (Array.isArray(parsed)) evidence = parsed.map(cleanItem).filter((e): e is Evidence => !!e);
-  } catch { /* malformed: shown without evidence */ }
-  const answer = [before.trimEnd(), after.trim()].filter(Boolean).join("\n\n");
+  const parts: string[] = [];
+  const evidence: Evidence[] = [];
+  let rest = text, found = false;
+  for (let open = OPEN.exec(rest); open; open = OPEN.exec(rest)) {
+    found = true;
+    parts.push(rest.slice(0, open.index));
+    const after = rest.slice(open.index + open[0].length);
+    const close = after.indexOf("```");
+    const body = close >= 0 ? after.slice(0, close) : after;
+    rest = close >= 0 ? after.slice(close + 3) : "";
+    for (const it of parseItems(body) ?? []) { const e = cleanItem(it); if (e) evidence.push(e); }
+  }
+  parts.push(rest);
+  let answer = found ? joinParts(parts) : text;
+  const json = FINAL_JSON.exec(answer);
+  const items = json ? parseItems(json[2]) : null;
+  if (json && items?.length && items.every((it) => !!cleanItem(it))) {
+    evidence.push(...items.map((it) => cleanItem(it)!));
+    answer = answer.slice(0, json.index).trim();
+  }
   return { answer, evidence };
 }
 
@@ -59,13 +75,21 @@ export function splitEvidence(text: string): { answer: string; evidence: Evidenc
 export function visibleAnswer(text: string): string {
   const open = OPEN.exec(text);
   if (open) return text.slice(0, open.index).trimEnd();
-  const partial = /(^|\n)[ \t]*`{1,3}(e(v(i(d(e(n(c(e)?)?)?)?)?)?)?)?$/.exec(text);
+  const partial = /`{1,3}(e(v(i(d(e(n(c(e)?)?)?)?)?)?)?)?$/.exec(text);
   if (partial) {
     // An odd number of fences before it means this one closes a code block, so keep it.
     const fences = (text.slice(0, partial.index).match(FENCE) ?? []).length;
-    if (fences % 2 === 0) return text.slice(0, partial.index).trimEnd();
+    const bare = partial[0].replace(/`/g, "");
+    // Mid-line backticks only count once a letter of "evidence" follows, so inline code is not cut.
+    const lineStart = partial.index === 0 || text[partial.index - 1] === "\n";
+    if (fences % 2 === 0 && (lineStart || (partial[0].startsWith("```") && bare))) return text.slice(0, partial.index).trimEnd();
   }
   return text;
+}
+
+/** Turns to send back to Stella: assistant turns without evidence, and never empty (so roles keep alternating). */
+export function stripHistory<T extends { role: "user" | "assistant"; content: string }>(turns: T[]): T[] {
+  return turns.map((t) => (t.role === "assistant" ? { ...t, content: splitEvidence(t.content).answer || "(answered)" } : t));
 }
 
 const norm = (s: string) => s.trim().replace(/^\[(.*)\]$/, "$1").replace(/ \(part \d+\)$/, "").trim().toLowerCase();

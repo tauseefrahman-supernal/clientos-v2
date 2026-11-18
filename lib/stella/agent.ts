@@ -5,7 +5,7 @@ import { join } from "node:path";
 import { getAccount, listAccounts } from "@/lib/data";
 import { buildExport, type ExportPart } from "@/lib/export";
 import { listSources, readSource, search, searchExpertise } from "./corpus";
-import { resolveRefs, splitEvidence, type Evidence, type KnownSource } from "./evidence";
+import { resolveRefs, splitEvidence, stripHistory, type Evidence, type KnownSource } from "./evidence";
 
 // Stella: answers questions about one project, several, or all of them, from their vaults, books
 // and research, with the evidence for each answer; writes documents and compiles exports. Manual streaming tool
@@ -18,7 +18,7 @@ const RULES = `You are Stella, the strategy agent inside ClientOS at Supernal, a
 
 How you work:
 - Answer only from what the tools return. Search before you answer anything factual; read a source in full when an excerpt is not enough. With several projects in scope, search each one that matters (pass project) or all at once (leave project out).
-- Keep source labels out of the prose of a chat answer. End every factual answer with one fenced code block tagged evidence holding a JSON array, one entry per key point: {"point": the point in a few words, "source": the source label exactly as the tool gave it, e.g. "File Technical Strategy/Feature-Rationale.md" or "Heritage · Book, chapter 2: Why they bought", "quote": a short quote from that source, at most 200 characters}. Nothing comes after the block. A claim you cannot source does not go in the answer. When comparing projects, say which project each fact belongs to.
+- Keep source labels out of the prose of a chat answer. End every factual answer with one fenced code block tagged evidence holding a JSON array, one entry per key point: {"point": the point in a few words, "source": the source label exactly as the tool gave it, e.g. "File Technical Strategy/Feature-Rationale.md" or "Heritage · Book, chapter 2: Why they bought", "quote": a short quote from that source, at most 200 characters}. Nothing comes after the block. No evidence block when the reply only announces a document. Where it matters (disagreements, changes over time, dates), refer to a source in plain words in the prose, for example "the 3 Mar kickoff call". A claim you cannot source does not go in the answer. When comparing projects, say which project each fact belongs to.
 - When sources disagree, say so and give both, each with its own evidence entry. Never pick one silently.
 - If the sources do not hold the answer, say what is missing and where it would likely be found (a meeting, Linear, Account OS, Drive). Do not guess.
 - "Why" questions usually have several causes. Give each one, in order of weight.
@@ -217,7 +217,7 @@ export async function* askStella(scopeIn: string[], history: Turn[]): AsyncGener
   const slugs = all ? everyone.map((b) => b.account.slug) : scopeIn.filter((x) => names.has(x));
   if (!slugs.length) { yield { type: "error", message: "Choose at least one project." }; return; }
   const scope: Scope = { slugs, all, names };
-  const messages: Anthropic.Beta.BetaMessageParam[] = history.map((m): Anthropic.Beta.BetaMessageParam => ({ role: m.role, content: m.role === "user" ? userContent(m) : splitEvidence(m.content).answer }));
+  const messages: Anthropic.Beta.BetaMessageParam[] = stripHistory(history).map((m): Anthropic.Beta.BetaMessageParam => ({ role: m.role, content: m.role === "user" ? userContent(m) : m.content }));
   const system: Anthropic.Beta.BetaTextBlockParam[] = [
     { type: "text", text: `${RULES}\n\n# Your frameworks\n\n${frameworks()}`, cache_control: { type: "ephemeral" } },
     { type: "text", text: await scopeHeader(scope), cache_control: { type: "ephemeral" } },

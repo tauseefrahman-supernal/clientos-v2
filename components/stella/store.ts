@@ -1,7 +1,7 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
-import { splitEvidence, type Evidence } from "@/lib/stella/evidence";
+import { noRef, splitEvidence, stripHistory, type Evidence } from "@/lib/stella/evidence";
 
 // Stella conversations, one store shared by the Stella chat page and the side drawer.
 // With Supabase configured the server holds the chats (/api/chats) and saves each answer;
@@ -54,11 +54,11 @@ function persist() {
   listeners.forEach((l) => l());
 }
 
-/** An answer's text without its evidence block; evidence the server sent is kept, else what the block held. */
+/** An answer's text without its evidence block; evidence the server sent is kept, else what the block held (unresolved). */
 function clean(m: ChatMessage): ChatMessage {
   if (m.role !== "assistant") return m;
   const { answer, evidence } = splitEvidence(m.content);
-  return { ...m, content: answer, evidence: m.evidence?.length ? m.evidence : evidence.length ? evidence : undefined };
+  return { ...m, content: answer, evidence: m.evidence?.length ? m.evidence : evidence.length ? evidence.map((e) => ({ ...e, ref: noRef() })) : undefined };
 }
 
 const stripData = (a: ChatFile): ChatFile => ({ name: a.name, kind: a.kind, size: a.size, ...(a.text !== undefined ? { text: a.text } : {}) });
@@ -118,7 +118,7 @@ export async function ask(chatId: string, text: string, files: ChatFile[] = []) 
       scope: chat.scope,
       chatId: mode === "server" ? chatId : undefined,
       // Evidence stays in the browser: it is not sent back to Stella
-      messages: history.map(({ role, content, attachments }) => ({ role, content: role === "assistant" ? splitEvidence(content).answer : content, attachments: attachments?.map(({ name, kind, text, data }) => ({ name, kind, text, data })) })),
+      messages: stripHistory(history).map(({ role, content, attachments }) => ({ role, content, attachments: attachments?.map(({ name, kind, text, data }) => ({ name, kind, text, data })) })),
     };
     const res = await fetch("/api/stella", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
     if (!res.ok || !res.body) { const t = await res.text().catch(() => ""); patch((m) => ({ ...m, error: t || `Request failed (${res.status})` })); return; }

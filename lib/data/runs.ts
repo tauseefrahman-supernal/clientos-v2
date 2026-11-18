@@ -2,6 +2,7 @@ import "server-only";
 import { db, dbEnabled } from "./db";
 import { getAccount, listTemplates, setFileState } from "./index";
 import { askStella } from "@/lib/stella/agent";
+import { splitEvidence } from "@/lib/stella/evidence";
 import { SCOPING_STEPS } from "@/lib/scoping";
 
 // Workflow runs (clientos.workflow_runs): Stella drafts a workflow's output from its input files; a
@@ -77,7 +78,8 @@ export async function runWorkflow(slug: string, workflowSlug: string, by: string
       else if (ev.type === "error") failure = ev.message;
     }
   } catch (e) { failure = e instanceof Error ? e.message : String(e); }
-  if (!draft && !failure) failure = reply.trim() || "Stella did not produce a document.";
+  // The reply is shown as the failure; its evidence block, if any, is not.
+  if (!draft && !failure) failure = splitEvidence(reply).answer.trim() || "Stella did not produce a document.";
 
   const status: RunStatus = failure ? "failed" : "draft";
   const { data: done } = await db().from("workflow_runs").update({ status, draft: failure ? `# Run failed\n\n${failure}` : draft, finished_at: new Date().toISOString() }).eq("id", row.id).select("*").single();
