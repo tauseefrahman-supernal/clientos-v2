@@ -2,6 +2,7 @@ import "server-only";
 import { all, check, db } from "@/lib/data/db";
 import { screenCall, type Cut } from "./screen.ts";
 import { fetchTranscript, listFathom, listGranola } from "./sources/index.ts";
+import { clearPersonnelCalls, rejectPatch, type PersonnelOps } from "./personnel-cleanup.ts";
 import { askMentionModel, runSyncWith, type Row, type Snapshot, type SyncOptions, type SyncResult, type SyncStore } from "./sync-core.ts";
 
 // Pulls calls from Granola and Fathom into clientos.transcripts: lists what changed, merges duplicates, matches
@@ -10,6 +11,18 @@ import { askMentionModel, runSyncWith, type Row, type Snapshot, type SyncOptions
 
 const BATCH = 100;
 const chunked = <T,>(xs: T[], n = BATCH) => Array.from({ length: Math.ceil(xs.length / n) }, (_, i) => xs.slice(i * n, i * n + n));
+
+// A personnel call's chunks, pending suggested facts, body and headlines (see personnel-cleanup.ts).
+const personnelOps: PersonnelOps = {
+  async deleteChunks(part) { check(await db().from("chunks").delete().in("transcript_id", part), "remove personnel chunks"); },
+  async rejectSuggestions(part) {
+    check(await db().from("vault_suggestions").update(rejectPatch(new Date())).in("transcript_id", part).eq("status", "pending"), "reject personnel suggestions");
+  },
+  async dropBodies(part) {
+    check(await db().from("transcripts").update({ body: null, cuts: [], status: "personnel", summary: "", speakers: [] }).in("id", part), "drop personnel bodies");
+  },
+  async blankHeadlines(part) { check(await db().from("transcript_accounts").update({ headline: "" }).in("transcript_id", part), "blank personnel headlines"); },
+};
 
 export const dbSyncStore: SyncStore = {
   async load(): Promise<Snapshot> {
@@ -42,11 +55,7 @@ export const dbSyncStore: SyncStore = {
   },
 
   async dropBodies(ids) {
-    for (const part of chunked(ids)) {
-      check(await db().from("chunks").delete().in("transcript_id", part), "remove personnel chunks");
-      check(await db().from("transcripts").update({ body: null, cuts: [], status: "personnel", summary: "", speakers: [] }).in("id", part), "drop personnel bodies");
-      check(await db().from("transcript_accounts").update({ headline: "" }).in("transcript_id", part), "blank personnel headlines");
-    }
+    await clearPersonnelCalls(ids, personnelOps, { dropBodies: true, batch: BATCH });
   },
 
   async unlink(pairs) {
@@ -72,10 +81,7 @@ export const dbSyncStore: SyncStore = {
   },
 
   async clearPersonnel(ids) {
-    for (const part of chunked(ids)) {
-      check(await db().from("chunks").delete().in("transcript_id", part), "remove personnel chunks");
-      check(await db().from("transcript_accounts").update({ headline: "" }).in("transcript_id", part), "blank personnel headlines");
-    }
+    await clearPersonnelCalls(ids, personnelOps, { dropBodies: false, batch: BATCH });
   },
 
   async rekey(id, provider, externalId, altUrl) {

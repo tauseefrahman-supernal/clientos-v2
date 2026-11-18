@@ -145,17 +145,24 @@ async function present(hits: SearchHit[], query: string, names: Map<string, stri
   return { items, sources: items.map((f, i) => ({ label: f.label, slug: hits[i].slug, id: f.id, url: f.link, at: f.date })) };
 }
 
-/** Pending vault facts suggested from calls, for the projects searched. */
+/** Pending vault facts suggested from calls, for the projects searched; never from a personnel call or one gone > 14 days. */
 async function suggestions(which: string[], all: boolean, query: string, names: Map<string, string>, prefix: boolean, limit: number) {
   const maps = await accountMaps();
-  let q = db().from("vault_suggestions").select("id,account_id,file_path,text,met_at,transcript_id").eq("status", "pending");
+  let q = db().from("vault_suggestions").select("id,account_id,file_path,text,met_at,transcript_id,transcripts(status,gone_at,url,alt_url)").eq("status", "pending");
   if (!all) q = q.in("account_id", which.map((s) => maps.bySlug.get(s)).filter((x): x is string => !!x));
-  const rows = check(await q.limit(1000), "read suggested facts") as SuggestionRow[];
+  type Row = SuggestionRow & { transcripts: { status: string; gone_at: string | null; url: string | null; alt_url: string | null } | null };
+  const now = new Date();
+  const rows = (check(await q.order("met_at", { ascending: false, nullsFirst: false }).limit(1000), "read suggested facts") as unknown as Row[])
+    .filter((r) => !r.transcript_id || keepHit(r.transcripts ?? undefined, now));
   return matchSuggestions(rows, query, limit).flatMap((r) => {
     const slug = maps.byId.get(r.account_id);
     if (!slug || (!all && !which.includes(slug))) return [];
-    const label = `${prefix ? `${names.get(slug) ?? slug} · ` : ""}${SUGGESTED}: File ${r.file_path}.md${r.met_at ? `, ${r.met_at.slice(0, 10)}` : ""}`;
-    return [{ item: { label, project: names.get(slug) ?? slug, file: r.file_path, date: r.met_at?.slice(0, 10) ?? null, call: r.transcript_id ? `call:${r.transcript_id}` : null, text: r.text }, source: { label, slug, id: `file:${r.file_path}` } }];
+    const date = r.met_at?.slice(0, 10) ?? null;
+    const label = `${prefix ? `${names.get(slug) ?? slug} · ` : ""}${SUGGESTED}: File ${r.file_path}.md${date ? `, ${date}` : ""}`;
+    const url = [r.transcripts?.url, r.transcripts?.alt_url].find((u) => !!u && /^https?:\/\//i.test(u)) ?? null;
+    // Evidence for a suggested fact points at the call it came from; a fact with no source call points at its file.
+    const source: KnownSource = r.transcript_id ? { label, slug, id: `call:${r.transcript_id}`, url, at: date } : { label, slug, id: `file:${r.file_path}` };
+    return [{ item: { label, project: names.get(slug) ?? slug, file: r.file_path, date, call: r.transcript_id ? `call:${r.transcript_id}` : null, link: url, text: r.text }, source }];
   });
 }
 
@@ -287,7 +294,8 @@ async function recentCalls(slugs: string[]): Promise<Map<string, { metAt: string
     if (!ids.length) return out;
     const since = new Date(Date.now() - DIGEST_DAYS * 86_400_000).toISOString();
     const rows = check(await db().from("transcript_accounts").select("account_id,headline,transcripts!inner(title,met_at,status,gone_at)")
-      .in("account_id", ids).gte("transcripts.met_at", since).limit(1000), "read recent calls") as unknown as
+      .in("account_id", ids).gte("transcripts.met_at", since)
+      .order("transcripts(met_at)", { ascending: false }).limit(1000), "read recent calls") as unknown as
       { account_id: string; headline: string | null; transcripts: { title: string; met_at: string | null; status: string; gone_at: string | null } }[];
     const now = new Date();
     for (const r of rows) {
