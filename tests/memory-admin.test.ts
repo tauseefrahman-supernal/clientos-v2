@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
-  InvalidRequest, goneList, parseGone, parseOverride, parseRule, rulesByProject, screenedList, splitMarkers, syncStatus,
+  InvalidRequest, goneList, httpUrl, parseGone, parseOverride, parseRule, rulesByProject, screenedList, splitMarkers, syncStatus,
   transcriptGate, turnsForPanel, unassignedList,
 } from "../lib/memory/admin-rules.ts";
 import { reFetchNotPersonnel, type NotPersonnelDeps } from "../lib/memory/override-core.ts";
@@ -204,4 +204,15 @@ test("a whole-call personnel verdict under a not-personnel override stores the f
   const out = await reFetchNotPersonnel(row(), fakeDeps({ screen: async () => ({ verdict: "personnel", cuts: [] }) }).deps);
   assert.equal(out.kind, "stored");
   if (out.kind === "stored") { assert.deepEqual(out.patch.cuts, []); assert.match(String(out.patch.body), /estate/); }
+});
+
+test("provider links render only for http and https URLs", () => {
+  assert.equal(httpUrl("https://fathom.video/calls/1"), "https://fathom.video/calls/1");
+  assert.equal(httpUrl(" http://notes.granola.ai/d/x "), "http://notes.granola.ai/d/x");
+  assert.equal(httpUrl("javascript:alert(1)"), null);
+  assert.equal(httpUrl("JaVaScRiPt:alert(1)"), null);
+  assert.equal(httpUrl("data:text/html,hi"), null);
+  assert.equal(httpUrl("//evil.example"), null);
+  assert.equal(httpUrl(""), null);
+  assert.equal(httpUrl(undefined), null);
 });

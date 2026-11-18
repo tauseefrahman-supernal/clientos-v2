@@ -89,7 +89,7 @@ export function MemoryAdmin({ data }: { data: MemoryAdminData }) {
 
   const override = (id: string, kind: "personnel" | "not_personnel") => {
     if (kind === "personnel" && !window.confirm("Mark this call personnel? Its transcript, search passages and pending facts are deleted.")) return;
-    if (kind === "not_personnel" && !window.confirm("Mark this call not personnel? It is fetched again from its source and screened for private details (a small paid model call).")) return;
+    if (kind === "not_personnel" && !window.confirm("Mark this call not personnel? The personal parts the screen removed will come back into its transcript and become searchable. Private details of clients' customers stay removed. The call is fetched again from its source and screened (a small paid model call).")) return;
     return act(`o:${id}`, { action: "override", override: kind, transcriptId: id });
   };
 
@@ -173,7 +173,7 @@ export function MemoryAdmin({ data }: { data: MemoryAdminData }) {
                 </div>
                 <div className="flex gap-space-2">
                   <button onClick={() => act(`g:${g.id}`, { action: "gone", transcriptId: g.id, keep: true })} disabled={!!busy} className={btn}>Keep</button>
-                  <button onClick={() => window.confirm(`Delete “${g.title}” for good? Its transcript, summary and search passages go with it.`) && act(`g:${g.id}`, { action: "gone", transcriptId: g.id, keep: false })} disabled={!!busy} className={cn(btn, "text-[hsl(var(--color-status-error-text))]")}>Delete</button>
+                  <button onClick={() => window.confirm(`Delete “${g.title}” for good? Its transcript, summary, search passages, pending facts and any manual decisions on it (project assignments, personnel marks) are deleted too. Facts already accepted into the vault stay.`) && act(`g:${g.id}`, { action: "gone", transcriptId: g.id, keep: false })} disabled={!!busy} className={cn(btn, "text-[hsl(var(--color-status-error-text))]")}>Delete</button>
                 </div>
               </div>
             ))}

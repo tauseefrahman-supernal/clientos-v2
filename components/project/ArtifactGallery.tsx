@@ -10,6 +10,7 @@ import { TranscriptPanel } from "@/components/project/TranscriptPanel";
 import { formatOf } from "@/lib/formats";
 import { cn } from "@/lib/utils";
 import type { Artifact, Recording } from "@/lib/types";
+import { httpUrl } from "@/lib/memory/admin-rules";
 
 type View = "gallery" | "table" | "recordings";
 type SortKey = "title" | "kind" | "format" | "dated" | "provider";
@@ -147,8 +148,8 @@ export function ArtifactGallery({ artifacts, recordings, heldBack, project, slug
                       <div className="flex items-start gap-space-2">
                         {r.transcriptId && <button onClick={() => setReading(r)} className="inline-flex items-center gap-1 rounded-md border border-border px-space-2 py-0.5 text-xs hover:bg-muted"><FileText className="h-3 w-3" />Transcript</button>}
                         <button onClick={() => openStella(`What happened in the meeting “${r.title}” on ${when(r.date)}?`)} className="rounded-md border border-border px-space-2 py-0.5 text-xs hover:bg-muted">Ask Stella</button>
-                        {r.url && <a href={r.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 rounded-md border border-border px-space-2 py-0.5 text-xs no-underline hover:bg-muted">Open<ExternalLink className="h-3 w-3" /></a>}
-                        {r.altUrl && <a href={r.altUrl} target="_blank" rel="noopener noreferrer" className="text-xs">Also in {r.provider === "granola" ? "Fathom" : "Granola"}</a>}
+                        {httpUrl(r.url) && <a href={httpUrl(r.url)!} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 rounded-md border border-border px-space-2 py-0.5 text-xs no-underline hover:bg-muted">Open<ExternalLink className="h-3 w-3" /></a>}
+                        {httpUrl(r.altUrl) && <a href={httpUrl(r.altUrl)!} target="_blank" rel="noopener noreferrer" className="text-xs">Also in {r.provider === "granola" ? "Fathom" : "Granola"}</a>}
                         {canUnassign && r.transcriptId && <button onClick={() => unassign(r)} disabled={unassigning === r.transcriptId} className="text-xs text-muted-foreground hover:text-foreground disabled:opacity-60" title="This call is not about this project">Not this project</button>}
                       </div>
                     </div>

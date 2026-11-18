@@ -56,6 +56,12 @@ export async function loadMemoryAdmin(): Promise<MemoryAdminData> {
   /* eslint-enable @typescript-eslint/no-explicit-any */
 }
 
+/** Whether the call is linked to the project now. */
+export async function isLinked(transcriptId: string, slug: string): Promise<boolean> {
+  const rows = check(await db().from("transcript_accounts").select("transcript_id,accounts!inner(slug)").eq("transcript_id", transcriptId).eq("accounts.slug", slug).limit(1), "check call link") as unknown[];
+  return rows.length > 0;
+}
+
 async function accountId(slug: string): Promise<string> {
   const row = check(await db().from("accounts").select("id").eq("slug", slug).maybeSingle(), "find project") as { id: string } | null;
   if (!row) throw new NotThere(`Unknown project: ${slug}`);
@@ -76,38 +82,47 @@ export async function applyOverride(o: { transcriptId: string; slug: string | nu
   const account = o.slug ? await accountId(o.slug) : null;
   check(await db().from("transcript_overrides").insert({ transcript_id: o.transcriptId, account_id: account, action: o.action, by }), "save override");
   try {
-    if (o.action === "assign") {
-      check(await db().from("transcript_accounts").upsert({ transcript_id: o.transcriptId, account_id: account, source: "manual" }, { onConflict: "transcript_id,account_id" }), "assign call");
-      return { message: `Added to ${o.slug}. Search picks it up at the next index run.` };
-    }
-    if (o.action === "unassign") {
-      const chunks = check(await db().from("chunks").select("id").eq("transcript_id", o.transcriptId), "read call chunks") as { id: string }[];
-      for (let i = 0; i < chunks.length; i += 200)
-        check(await db().from("chunk_accounts").delete().eq("account_id", account).in("chunk_id", chunks.slice(i, i + 200).map((c) => c.id)), "unlink call chunks");
-      check(await db().from("transcript_accounts").delete().eq("transcript_id", o.transcriptId).eq("account_id", account), "unassign call");
-      return { message: `Removed from ${o.slug}. Later syncs will not add it back.` };
-    }
-    if (o.action === "personnel") {
-      await clearPersonnelCalls([o.transcriptId], personnelOps, { dropBodies: true });
-      return { message: "Marked personnel. Its transcript, search passages and pending facts are gone." };
-    }
-    const out = await reFetchNotPersonnel({
-      provider: call.provider as string, externalId: call.external_id as string, title: (call.title as string) ?? "",
-      metAt: (call.met_at as string) ?? null, participants: Array.isArray(call.participants) ? call.participants as never : [],
-      url: (call.url as string) ?? "", sourceSummary: "",
-    }, {
-      fetchTranscript: (provider, id) => fetchTranscript(provider, id),
-      listFathom: (since) => listFathom(since, null),
-      screen: screenCall,
-      now: () => new Date().toISOString(),
-    });
-    if (out.kind === "later")
-      return { message: `Marked not personnel. The transcript could not be fetched now (${out.reason}); it comes back when the call is next pulled from Granola or Fathom.` };
-    check(await db().from("transcripts").update(out.patch).eq("id", o.transcriptId), "store screened body");
-    return { message: `Marked not personnel. Transcript fetched again${out.cuts ? ` with ${out.cuts} private detail${out.cuts === 1 ? "" : "s"} removed` : ""}; it is summarised and indexed at the next digest and index runs.` };
+    return await applyNow(o, call, account, by);
+  } catch (e) {
+    // The override is stored, and every later sync applies it; say so rather than a bare failure.
+    throw new Error(`Your choice is saved, but applying it now failed (${e instanceof Error ? e.message : String(e)}). It will apply at the next sync.`);
   } finally {
     invalidate();
   }
+}
+
+async function applyNow(o: { transcriptId: string; slug: string | null; action: OverrideAction }, call: Record<string, unknown>, account: string | null, by: string): Promise<{ message: string }> {
+  if (o.action === "assign") {
+    check(await db().from("transcript_accounts").upsert({ transcript_id: o.transcriptId, account_id: account, source: "manual" }, { onConflict: "transcript_id,account_id" }), "assign call");
+    return { message: `Added to ${o.slug}. Search picks it up at the next index run.` };
+  }
+  if (o.action === "unassign") {
+    const chunks = check(await db().from("chunks").select("id").eq("transcript_id", o.transcriptId), "read call chunks") as { id: string }[];
+    for (let i = 0; i < chunks.length; i += 200)
+      check(await db().from("chunk_accounts").delete().eq("account_id", account).in("chunk_id", chunks.slice(i, i + 200).map((c) => c.id)), "unlink call chunks");
+    check(await db().from("vault_suggestions").update({ status: "rejected", decided_by: by, decided_at: new Date().toISOString() })
+      .eq("transcript_id", o.transcriptId).eq("account_id", account).eq("status", "pending"), "reject the call's pending facts for this project");
+    check(await db().from("transcript_accounts").delete().eq("transcript_id", o.transcriptId).eq("account_id", account), "unassign call");
+    return { message: `Removed from ${o.slug}. Later syncs will not add it back.` };
+  }
+  if (o.action === "personnel") {
+    await clearPersonnelCalls([o.transcriptId], personnelOps, { dropBodies: true });
+    return { message: "Marked personnel. Its transcript, search passages and pending facts are gone." };
+  }
+  const out = await reFetchNotPersonnel({
+    provider: call.provider as string, externalId: call.external_id as string, title: (call.title as string) ?? "",
+    metAt: (call.met_at as string) ?? null, participants: Array.isArray(call.participants) ? call.participants as never : [],
+    url: (call.url as string) ?? "", sourceSummary: "",
+  }, {
+    fetchTranscript: (provider, id) => fetchTranscript(provider, id),
+    listFathom: (since) => listFathom(since, null),
+    screen: screenCall,
+    now: () => new Date().toISOString(),
+  });
+  if (out.kind === "later")
+    return { message: `Marked not personnel. The transcript could not be fetched now (${out.reason}); it comes back when the call is next pulled from Granola or Fathom.` };
+  check(await db().from("transcripts").update(out.patch).eq("id", o.transcriptId), "store screened body");
+  return { message: `Marked not personnel. Transcript fetched again${out.cuts ? ` with ${out.cuts} private detail${out.cuts === 1 ? "" : "s"} removed` : ""}; it is summarised and indexed at the next digest and index runs.` };
 }
 
 /** Keep clears the gone mark (a later full sync marks it again if it is still missing); delete removes the call for good. */
@@ -116,7 +131,11 @@ export async function settleGone(g: { transcriptId: string; keep: boolean }): Pr
   if (!call) throw new NotThere("No such call.");
   if (!call.gone_at) throw new NotThere("That call is not marked as gone.");
   if (g.keep) check(await db().from("transcripts").update({ gone_at: null }).eq("id", g.transcriptId), "keep call");
-  else check(await db().from("transcripts").delete().eq("id", g.transcriptId), "delete call");
+  else {
+    // Accepted facts are vault content now: keep them, detached from the call. Pending ones, overrides and links go with it.
+    check(await db().from("vault_suggestions").update({ transcript_id: null }).eq("transcript_id", g.transcriptId).eq("status", "accepted"), "keep accepted facts");
+    check(await db().from("transcripts").delete().eq("id", g.transcriptId), "delete call");
+  }
   invalidate();
   return { message: g.keep ? "Kept; it will be marked again if still missing at the next full sync." : "Deleted." };
 }

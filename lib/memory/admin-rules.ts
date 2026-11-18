@@ -187,3 +187,13 @@ export function syncStatus(state: { provider: string; last_run_at: string | null
     return { provider, label: provider === "granola" ? "Granola" : "Fathom", lastRunAt: s?.last_run_at ?? null, lastError: s?.last_error ?? null, more: !!s?.cursor };
   });
 }
+
+/** The URL when it is an absolute http(s) link, else null: provider links from the sources render only then. */
+export function httpUrl(u: string | null | undefined): string | null {
+  const s = (u ?? "").trim();
+  if (!s) return null;
+  try {
+    const url = new URL(s);
+    return url.protocol === "http:" || url.protocol === "https:" ? s : null;
+  } catch { return null; }
+}

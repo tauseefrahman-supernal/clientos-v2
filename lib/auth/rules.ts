@@ -15,11 +15,12 @@ export const canAssign = (a: AccessLike, slug: string): boolean => a.admin || (a
 export const runDecisionGate = (a: AccessLike, slug: string | null): 403 | 404 | null => (slug === null ? 404 : canAssign(a, slug) ? null : 403);
 
 /**
- * Who may override a call's screen or project links: admins every action; the project's strategists may assign or
- * unassign that project's calls; marking a call personnel or not personnel is for admins only.
+ * Who may override a call's screen or project links. Admins every action. A project's strategist may only unassign a
+ * call that is currently linked to their project (so they can't pull in, and then read, a call by id); assigning and
+ * marking a call personnel or not personnel are admin only.
  */
-export const canOverride = (a: AccessLike, slug: string | null, action: string): boolean => {
-  if (action === "assign" || action === "unassign") return slug !== null && canAssign(a, slug);
-  if (action === "personnel" || action === "not_personnel") return a.admin;
+export const canOverride = (a: AccessLike, slug: string | null, action: string, linkedToSlug = false): boolean => {
+  if (action === "assign" || action === "personnel" || action === "not_personnel") return a.admin && (action !== "assign" || slug !== null);
+  if (action === "unassign") return slug !== null && (a.admin || (linkedToSlug && canAssign(a, slug)));
   return false;
 };

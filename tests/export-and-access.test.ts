@@ -66,21 +66,25 @@ test("only admins and the project's strategists may approve, send or discard its
   assert.equal(runDecisionGate(member, null), 404);
 });
 
-test("admins override everything; a project's strategist only assigns or unassigns its calls; members never screen", () => {
+test("admins override everything; a strategist only unassigns a call already on their project; members never screen", () => {
   const admin = { admin: true, slugs: null, roles: new Map() };
   const strategist = { admin: false, slugs: new Set(["rxvip", "heritage"]), roles: new Map([["rxvip", ["strategist"]], ["heritage", ["am"]]]) };
   const member = { admin: false, slugs: new Set(["rxvip"]), roles: new Map([["rxvip", ["am"]]]) };
   for (const action of ["assign", "unassign", "personnel", "not_personnel"]) assert.ok(canOverride(admin, action.endsWith("assign") ? "rxvip" : null, action), action);
-  assert.ok(canOverride(strategist, "rxvip", "assign"));
-  assert.ok(canOverride(strategist, "rxvip", "unassign"));
-  assert.ok(!canOverride(strategist, "heritage", "assign"));
-  assert.ok(!canOverride(strategist, "we", "unassign"));
-  assert.ok(!canOverride(strategist, null, "assign"));
+  assert.ok(!canOverride(admin, null, "assign"));
+  // Assigning would let a strategist pull any call (by id) into their project and read it: admin only.
+  assert.ok(!canOverride(strategist, "rxvip", "assign"));
+  assert.ok(!canOverride(strategist, "rxvip", "assign", true));
+  assert.ok(canOverride(strategist, "rxvip", "unassign", true));
+  assert.ok(!canOverride(strategist, "rxvip", "unassign"));
+  assert.ok(!canOverride(strategist, "heritage", "unassign", true));
+  assert.ok(!canOverride(strategist, "we", "unassign", true));
+  assert.ok(!canOverride(strategist, null, "unassign", true));
   assert.ok(!canOverride(strategist, "rxvip", "personnel"));
   assert.ok(!canOverride(strategist, "rxvip", "not_personnel"));
   assert.ok(!canOverride(member, "rxvip", "personnel"));
   assert.ok(!canOverride(member, null, "not_personnel"));
-  assert.ok(!canOverride(member, "rxvip", "assign"));
+  assert.ok(!canOverride(member, "rxvip", "unassign", true));
   assert.ok(!canOverride(admin, "rxvip", "delete"));
 });
 

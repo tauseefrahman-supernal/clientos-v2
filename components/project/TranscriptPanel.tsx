@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { ExternalLink } from "lucide-react";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet";
-import type { PanelTurn } from "@/lib/memory/admin-rules";
+import { httpUrl, type PanelTurn } from "@/lib/memory/admin-rules";
 import type { Recording } from "@/lib/types";
 
 const pad = (n: number) => String(n).padStart(2, "0");
@@ -42,7 +42,7 @@ export function TranscriptPanel({ recording, when, onClose }: { recording: Recor
             <SheetTitle className="pr-space-6">{recording.title}</SheetTitle>
             <SheetDescription className="flex flex-wrap items-center gap-space-2">
               <span>{when(recording.date)} · {recording.provider === "granola" ? "Granola" : recording.provider === "fathom" ? "Fathom" : "Upload"}</span>
-              {recording.url && <a href={recording.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs">Open at the source<ExternalLink className="h-3 w-3" /></a>}
+              {httpUrl(recording.url) && <a href={httpUrl(recording.url)!} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs">Open at the source<ExternalLink className="h-3 w-3" /></a>}
             </SheetDescription>
           </SheetHeader>
           <div className="min-h-0 flex-1 overflow-y-auto pr-space-2">

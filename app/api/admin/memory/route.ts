@@ -1,6 +1,6 @@
 import { canOverride, currentAccess } from "@/lib/auth/access";
 import { InvalidRequest, parseGone, parseOverride, parseRule } from "@/lib/memory/admin-rules";
-import { applyOverride, editRule, NotThere, settleGone } from "@/lib/memory/admin";
+import { applyOverride, editRule, isLinked, NotThere, settleGone } from "@/lib/memory/admin";
 import { dbEnabled } from "@/lib/data/db";
 import { indexPending } from "@/lib/memory/embed";
 import { runSync } from "@/lib/memory/sync";
@@ -35,8 +35,9 @@ export const maxDuration = 300;
 //                      estimate. Returns dollarsActual by part (input, cache read, cache write, output, estimated), usage and
 //                      per-call averages.
 //                      retryFailed also takes calls an earlier digest marked failed.
-//   override { override, transcriptId, slug? }: override is the kind (action already names this route action): assign | unassign (with slug; admins and that project's strategists),
-//                      personnel | not_personnel (admins). Stored as an override every later sync respects, and applied
+//   override { override, transcriptId, slug? }: override is the kind (action already names this route action): assign (with slug;
+//                      admins), unassign (with slug; admins, and that project's strategists when the call is on it), personnel |
+//                      not_personnel (admins). Stored as an override every later sync respects, and applied
 //                      now: assign/unassign change the call's project links; personnel deletes the body, chunks,
 //                      headlines and pending facts; not_personnel fetches the call again and screens it for private
 //                      details only (a paid screen call), or says it will come back at the next pull when the source
@@ -131,7 +132,9 @@ export async function POST(req: Request) {
   if (body.action === "override") {
     let o: ReturnType<typeof parseOverride>;
     try { o = parseOverride(body); } catch (e) { return new Response(access.admin && e instanceof Error ? e.message : "Not allowed.", { status: access.admin ? 400 : 403 }); }
-    if (!canOverride(access, o.slug, o.action)) return new Response("Not allowed.", { status: 403 });
+    // A strategist may only unassign a call that is on their project now; checked before anything is written.
+    const linked = !access.admin && o.action === "unassign" && o.slug && dbEnabled() ? await isLinked(o.transcriptId, o.slug) : false;
+    if (!canOverride(access, o.slug, o.action, linked)) return new Response("Not allowed.", { status: 403 });
     run = () => applyOverride(o, access.person?.name ?? access.person?.email ?? "admin");
   } else {
     if (!access.admin) return new Response("Not allowed.", { status: 403 });
