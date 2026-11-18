@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { applyCuts, parseScreenReply } from "../lib/memory/screen.ts";
-import type { Turn } from "../lib/memory/types.ts";
+import { applyCuts, buildPrompt, combineBatches, parseScreenReply, planBatches } from "../lib/memory/screen.ts";
+import type { SourceCall, Turn } from "../lib/memory/types.ts";
 
 /** Ten turns, one minute apart, starting at 0s. */
 function turns(n = 10): Turn[] {
@@ -94,4 +94,147 @@ test("parseScreenReply returns error on anything malformed", () => {
     "[]",
   ];
   for (const b of bad) assert.deepEqual(parseScreenReply(b, 10), { verdict: "error" }, b);
+});
+
+// ---- fix round 1 ----
+
+function words(n: number): string { return Array(n).fill("word").join(" "); }
+
+test("a cut at index 0 replaces the first turn", () => {
+  const out = applyCuts(turns(), [{ from: 0, to: 1, reason: "private" }]);
+  assert.equal(out.length, 9);
+  assert.deepEqual(out[0], { speaker: "", start: 0, text: "[private details removed, 2 min]" });
+  assert.equal(out[1].text, "turn 2");
+});
+
+test("a cut covering the whole call leaves one marker", () => {
+  const t = turns(3).map((x) => ({ ...x, text: words(150) }));
+  // turn 2 starts at 120s, plus 150 words (1 min) = 180s from 0: 3 min
+  assert.deepEqual(applyCuts(t, [{ from: 0, to: 2, reason: "personnel" }]), [{ speaker: "", start: 0, text: "[personnel section removed, 3 min]" }]);
+});
+
+test("an end-of-call cut whose last turn has no start falls back to the cut words", () => {
+  const t: Turn[] = [
+    { speaker: "A", start: 0, text: "hi" },
+    { speaker: "B", start: 60, text: words(150) },
+    { speaker: "C", start: null, text: words(150) },
+  ];
+  assert.deepEqual(applyCuts(t, [{ from: 1, to: 2, reason: "private" }])[1], { speaker: "", start: 60, text: "[private details removed, 2 min]" });
+});
+
+test("cuts outside the turns are clamped or ignored, never a crash", () => {
+  const out = applyCuts(turns(), [{ from: 8, to: 20, reason: "private" }, { from: 30, to: 40, reason: "personnel" }, { from: -5, to: 0, reason: "private" }]);
+  assert.equal(out.length, 9);
+  assert.equal(out[0].text.startsWith("[private details removed"), true);
+  assert.equal(out[out.length - 1].text.startsWith("[private details removed"), true);
+  assert.deepEqual(applyCuts([], [{ from: 0, to: 2, reason: "private" }]), []);
+});
+
+test("parseScreenReply with no turns accepts clean and personnel, rejects any cut", () => {
+  assert.deepEqual(parseScreenReply('{"verdict":"clean","cuts":[]}', 0), { verdict: "clean", cuts: [] });
+  assert.deepEqual(parseScreenReply('{"verdict":"personnel","cuts":[]}', 0), { verdict: "personnel", cuts: [] });
+  assert.deepEqual(parseScreenReply('{"verdict":"cut","cuts":[{"from":0,"to":0,"reason":"private"}]}', 0), { verdict: "error" });
+});
+
+test("parseScreenReply tolerates a fence without a json tag", () => {
+  assert.deepEqual(parseScreenReply('```\n{"verdict":"clean","cuts":[]}\n```', 5), { verdict: "clean", cuts: [] });
+});
+
+test("a personnel verdict's cuts are normalised to []", () => {
+  assert.deepEqual(parseScreenReply('{"verdict":"personnel","cuts":[{"from":1,"to":2,"reason":"private"}]}', 5), { verdict: "personnel", cuts: [] });
+});
+
+test("parseScreenReply rejects cuts before a batch's first turn", () => {
+  assert.deepEqual(parseScreenReply('{"verdict":"cut","cuts":[{"from":3,"to":4,"reason":"private"}]}', 10, 5), { verdict: "error" });
+  assert.deepEqual(parseScreenReply('{"verdict":"cut","cuts":[{"from":5,"to":9,"reason":"private"}]}', 10, 5), { verdict: "cut", cuts: [{ from: 5, to: 9, reason: "private" }] });
+});
+
+function call(over: Partial<SourceCall> = {}): SourceCall {
+  return {
+    provider: "fathom", externalId: "x1", title: "  Weekly\n sync  ", metAt: "2026-11-17T15:00:00Z",
+    participants: [], url: "https://example.com/x1", sourceSummary: "They agreed the rollout plan.", turns: null, ...over,
+  };
+}
+
+test("buildPrompt numbers every turn with its full text inside transcript delimiters", () => {
+  const long = words(300);
+  const t: Turn[] = [{ speaker: " Ann\n Lee ", start: 0, text: "hello\n  there" }, { speaker: "", start: 5, text: long }];
+  const p = buildPrompt(call(), t);
+  assert.match(p, /Title: Weekly sync\n/);
+  assert.match(p, /They agreed the rollout plan\./);
+  assert.match(p, /<transcript>\n\[0\] Ann Lee: hello there\n\[1\] Unknown: /);
+  assert.ok(p.includes(long), "full turn text, no truncation");
+  assert.match(p, /<\/transcript>$/);
+});
+
+test("buildPrompt without turns asks for clean or personnel from title and summary", () => {
+  const p = buildPrompt(call(), []);
+  assert.match(p, /They agreed the rollout plan\./);
+  assert.ok(!p.includes("<transcript>"));
+  assert.match(p, /none; judge from the title and summary/);
+});
+
+test("buildPrompt for a batch keeps global numbers and marks context turns", () => {
+  const p = buildPrompt(call(), turns(), { contextFrom: 3, from: 5, to: 7 });
+  assert.ok(!p.includes("[2] "));
+  assert.ok(p.includes("[3] S3: turn 3"));
+  assert.ok(p.includes("[7] S7: turn 7"));
+  assert.ok(!p.includes("[8] "));
+  assert.match(p, /only turns 5 to 7/);
+});
+
+test("planBatches keeps a short call in one batch", () => {
+  assert.deepEqual(planBatches(turns(), 150_000), [{ contextFrom: 0, from: 0, to: 9 }]);
+  assert.deepEqual(planBatches([], 150_000), []);
+});
+
+test("planBatches covers every turn once, with global offsets, within budget", () => {
+  const t: Turn[] = Array.from({ length: 50 }, (_, i) => ({ speaker: "S", start: i, text: words(20) }));
+  const budget = 1000;
+  const lineLength = (i: number) => `[${i}] S: ${t[i].text}`.length + 1;
+  const batches = planBatches(t, budget);
+  assert.ok(batches.length > 1);
+  let next = 0;
+  for (const b of batches) {
+    assert.equal(b.from, next, "contiguous, no gaps or repeats");
+    assert.ok(b.contextFrom <= b.from && b.contextFrom >= Math.max(0, b.from - 3));
+    let size = 0;
+    for (let i = b.contextFrom; i <= b.to; i++) size += lineLength(i);
+    assert.ok(size <= budget, `batch ${b.from}-${b.to} is ${size}`);
+    next = b.to + 1;
+  }
+  assert.equal(next, 50);
+  assert.equal(batches[1].contextFrom, batches[1].from - 3);
+});
+
+test("planBatches gives an oversized turn its own batch", () => {
+  const t: Turn[] = [{ speaker: "S", start: 0, text: "a" }, { speaker: "S", start: 1, text: words(500) }, { speaker: "S", start: 2, text: "b" }];
+  const batches = planBatches(t, 200);
+  assert.deepEqual(batches.map((b) => [b.from, b.to]), [[0, 0], [1, 1], [2, 2]]);
+  assert.equal(batches[1].contextFrom, 1, "no context when the turn alone exceeds the budget");
+});
+
+test("combineBatches: any error is an overall error", () => {
+  assert.deepEqual(combineBatches([
+    { batch: { contextFrom: 0, from: 0, to: 4 }, result: { verdict: "clean", cuts: [] } },
+    { batch: { contextFrom: 2, from: 5, to: 9 }, result: { verdict: "error" } },
+  ]), { verdict: "error" });
+});
+
+test("combineBatches: personnel everywhere is whole-call personnel", () => {
+  assert.deepEqual(combineBatches([
+    { batch: { contextFrom: 0, from: 0, to: 4 }, result: { verdict: "personnel", cuts: [] } },
+    { batch: { contextFrom: 2, from: 5, to: 9 }, result: { verdict: "personnel", cuts: [] } },
+  ]), { verdict: "personnel", cuts: [] });
+});
+
+test("combineBatches: a partial personnel batch becomes a cut over its range; cuts merge", () => {
+  assert.deepEqual(combineBatches([
+    { batch: { contextFrom: 0, from: 0, to: 4 }, result: { verdict: "cut", cuts: [{ from: 3, to: 4, reason: "private" }] } },
+    { batch: { contextFrom: 2, from: 5, to: 9 }, result: { verdict: "personnel", cuts: [] } },
+    { batch: { contextFrom: 7, from: 10, to: 14 }, result: { verdict: "clean", cuts: [] } },
+  ]), { verdict: "cut", cuts: [{ from: 3, to: 9, reason: "personnel" }] });
+  assert.deepEqual(combineBatches([
+    { batch: { contextFrom: 0, from: 0, to: 4 }, result: { verdict: "clean", cuts: [] } },
+  ]), { verdict: "clean", cuts: [] });
 });
