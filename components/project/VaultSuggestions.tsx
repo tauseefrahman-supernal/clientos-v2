@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 import { Check, Sparkles, X } from "lucide-react";
 import { decideSuggestionAction } from "@/app/actions";
+import { unwrapAction } from "@/lib/auth/rules";
 import { unescapeSuggestionText } from "@/lib/memory/digest-core";
 
 export type SuggestionItem = { id: string; section: string; text: string; callTitle: string; callDate: string };
@@ -19,7 +20,7 @@ export function VaultSuggestions({ items, canDecide, newSection }: { items: Sugg
   if (!items.length) return null;
   const decide = (id: string, accept: boolean) => start(async () => {
     setError(null);
-    try { await decideSuggestionAction(id, accept); router.refresh(); }
+    try { unwrapAction(await decideSuggestionAction(id, accept)); router.refresh(); }
     catch (e) { setError(e instanceof Error ? e.message : "That did not work. Try again."); }
   });
   return (

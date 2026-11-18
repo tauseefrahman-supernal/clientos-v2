@@ -11,6 +11,7 @@ import { VaultSuggestions, type SuggestionItem } from "@/components/project/Vaul
 import { headingKey, sectionLayout } from "@/lib/memory/digest-core";
 import { useShell } from "@/components/shell/AppShell";
 import { addTemplateAction, proposeTemplateAction, saveFileAction, setFileShownAction, setFileStateAction, toggleInBookAction } from "@/app/actions";
+import { unwrapAction } from "@/lib/auth/rules";
 import { cn } from "@/lib/utils";
 import type { FileState, ShareStatus, VaultFile } from "@/lib/types";
 
@@ -35,12 +36,14 @@ export function VaultView({ slug, groups, selected, picker }: { slug: string; gr
   const router = useRouter();
   const base = `/projects/${slug}/vault`;
   const href = (path: string) => `${base}?file=${encodeURIComponent(path)}`;
-  const run = (fn: () => Promise<unknown>) => start(async () => { await fn(); router.refresh(); });
+  const [error, setError] = useState<string | null>(null);
+  const run = (fn: () => Promise<unknown>) => start(async () => { setError(null); try { await fn(); router.refresh(); } catch (e) { setError(e instanceof Error ? e.message : "That did not work. Try again."); } });
 
   return (
     <div className="grid min-h-[calc(100vh-170px)] grid-cols-1 lg:grid-cols-[300px_minmax(0,1fr)]">
       <nav aria-label="Vault files" className="relative border-b border-border bg-card p-space-3 font-mono text-xs lg:border-b-0 lg:border-r">
         <VaultUpload slug={slug} groups={groups.map((g) => g.name)} />
+        {error && <p role="alert" className="mb-space-2 font-sans text-xs text-[hsl(var(--color-status-error-text))]">{error}</p>}
         {groups.map((g, gi) => {
           const isOpen = open[g.name] ?? false;
           const all = g.sections.flatMap((s) => s.files);
@@ -64,8 +67,8 @@ export function VaultView({ slug, groups, selected, picker }: { slug: string; gr
               </div>
               {adding === gi && <TemplatePicker items={picker} group={gi} groupName={g.name} busy={pending} onClose={() => setAdding(null)}
                 onPick={(it) => run(async () => {
-                  if (it.where === "add") { const path = await addTemplateAction(slug, it.category, it.name, gi); if (path) router.push(href(path)); }
-                  else if (it.path) { if (it.where === "archived") await setFileStateAction(slug, it.path, "active"); await setFileShownAction(slug, it.path, true); router.push(href(it.path)); }
+                  if (it.where === "add") { const path = unwrapAction(await addTemplateAction(slug, it.category, it.name, gi)); if (path) router.push(href(path)); }
+                  else if (it.path) { if (it.where === "archived") unwrapAction(await setFileStateAction(slug, it.path, "active")); unwrapAction(await setFileShownAction(slug, it.path, true)); router.push(href(it.path)); }
                   setAdding(null);
                 })} />}
               </div>
@@ -91,14 +94,14 @@ export function VaultView({ slug, groups, selected, picker }: { slug: string; gr
                               </Link>
                               <span className={cn("mr-1 flex shrink-0 items-center gap-0.5 opacity-0 transition-opacity focus-within:opacity-100 group-hover/file:opacity-100", current && "opacity-100")}>
                                 {out ? (
-                                  <IconBtn label={`Restore ${f.label}`} disabled={pending} onClick={() => run(async () => { if (f.state === "archived") await setFileStateAction(slug, f.path, "active"); await setFileShownAction(slug, f.path, true); })}><ArchiveRestore className="h-3.5 w-3.5" /></IconBtn>
+                                  <IconBtn label={`Restore ${f.label}`} disabled={pending} onClick={() => run(async () => { if (f.state === "archived") unwrapAction(await setFileStateAction(slug, f.path, "active")); unwrapAction(await setFileShownAction(slug, f.path, true)); })}><ArchiveRestore className="h-3.5 w-3.5" /></IconBtn>
                                 ) : (
                                   <>
-                                    <IconBtn label={`Hide ${f.label} from the sidebar`} disabled={pending} onClick={() => run(() => setFileShownAction(slug, f.path, false))}><EyeOff className="h-3.5 w-3.5" /></IconBtn>
-                                    <IconBtn label={`Archive ${f.label}`} disabled={pending} onClick={() => run(() => setFileStateAction(slug, f.path, "archived"))}><Archive className="h-3.5 w-3.5" /></IconBtn>
+                                    <IconBtn label={`Hide ${f.label} from the sidebar`} disabled={pending} onClick={() => run(async () => { unwrapAction(await setFileShownAction(slug, f.path, false)); })}><EyeOff className="h-3.5 w-3.5" /></IconBtn>
+                                    <IconBtn label={`Archive ${f.label}`} disabled={pending} onClick={() => run(async () => { unwrapAction(await setFileStateAction(slug, f.path, "archived")); })}><Archive className="h-3.5 w-3.5" /></IconBtn>
                                   </>
                                 )}
-                                <IconBtn label={`Delete ${f.label}`} danger disabled={pending} onClick={() => { if (window.confirm(`Delete ${f.label} from this project? This can’t be undone here.`)) run(async () => { await setFileStateAction(slug, f.path, "deleted"); if (current) router.push(base); }); }}><Trash2 className="h-3.5 w-3.5" /></IconBtn>
+                                <IconBtn label={`Delete ${f.label}`} danger disabled={pending} onClick={() => { if (window.confirm(`Delete ${f.label} from this project? This can’t be undone here.`)) run(async () => { unwrapAction(await setFileStateAction(slug, f.path, "deleted")); if (current) router.push(base); }); }}><Trash2 className="h-3.5 w-3.5" /></IconBtn>
                               </span>
                             </div>
                           );
@@ -179,7 +182,8 @@ function FileView({ slug, s }: { slug: string; s: NonNullable<Selected> }) {
   const { openStella } = useShell();
   const f = s.file;
   const name = `${f.path.split("/").pop()}.md`;
-  const act = (fn: () => Promise<void>, after?: () => void) => start(async () => { await fn(); after?.(); router.refresh(); });
+  const [error, setError] = useState<string | null>(null);
+  const act = (fn: () => Promise<void>, after?: () => void) => start(async () => { setError(null); try { await fn(); after?.(); router.refresh(); } catch (e) { setError(e instanceof Error ? e.message : "That did not work. Try again."); } });
   const hidden = f.state === "hidden";
 
   return (
@@ -193,6 +197,7 @@ function FileView({ slug, s }: { slug: string; s: NonNullable<Selected> }) {
         </div>
       </div>
 
+      {error && <p role="alert" className="text-xs text-[hsl(var(--color-status-error-text))]">{error}</p>}
       {hidden && <p className="rounded-lg border border-dashed border-border px-space-3 py-space-2 text-xs"><b>Hidden from Stella.</b> Not used in answers or in the book.</p>}
       {f.state === "archived" && <p className="rounded-lg border border-dashed border-border px-space-3 py-space-2 text-xs"><b>Archived.</b> Out of the vault sidebar and Stella’s memory. Restore it from the file’s icon, or + on its category.</p>}
 
@@ -208,17 +213,17 @@ function FileView({ slug, s }: { slug: string; s: NonNullable<Selected> }) {
             {s.otherProjects.length ? <><span className="text-muted-foreground">Also on</span>{s.otherProjects.map((p) => <Link key={p.slug} href={`/projects/${p.slug}/vault?file=${encodeURIComponent(p.path)}`} className="rounded-full border border-border px-space-2 py-0.5 text-foreground no-underline hover:bg-muted">{p.name}</Link>)}</> : <span className="text-muted-foreground">Not on any other project.</span>}
           </div>
           <div className="flex flex-wrap gap-space-2">
-            {s.template && (s.template.onlyAccount || s.template.status === "local") && <Btn disabled={pending} onClick={() => act(() => proposeTemplateAction(slug, f.path))}>Propose as a template</Btn>}
-            <Btn disabled={pending} onClick={() => act(() => toggleInBookAction(slug, f.path, !f.inBook))}>{f.inBook ? "Leave out of the book" : "Add to the book"}</Btn>
-            <Btn disabled={pending} onClick={() => act(() => setFileStateAction(slug, f.path, hidden ? "active" : "hidden"))}>{hidden ? "Unhide" : "Hide from Stella"}</Btn>
-            <Btn disabled={pending} onClick={() => act(() => setFileStateAction(slug, f.path, f.state === "archived" ? "active" : "archived"))}>{f.state === "archived" ? "Restore" : "Archive"}</Btn>
-            <Btn disabled={pending} onClick={() => act(() => setFileStateAction(slug, f.path, "deleted"), () => router.push(`/projects/${slug}/vault`))}>Delete</Btn>
+            {s.template && (s.template.onlyAccount || s.template.status === "local") && <Btn disabled={pending} onClick={() => act(async () => { unwrapAction(await proposeTemplateAction(slug, f.path)); })}>Propose as a template</Btn>}
+            <Btn disabled={pending} onClick={() => act(async () => { unwrapAction(await toggleInBookAction(slug, f.path, !f.inBook)); })}>{f.inBook ? "Leave out of the book" : "Add to the book"}</Btn>
+            <Btn disabled={pending} onClick={() => act(async () => { unwrapAction(await setFileStateAction(slug, f.path, hidden ? "active" : "hidden")); })}>{hidden ? "Unhide" : "Hide from Stella"}</Btn>
+            <Btn disabled={pending} onClick={() => act(async () => { unwrapAction(await setFileStateAction(slug, f.path, f.state === "archived" ? "active" : "archived")); })}>{f.state === "archived" ? "Restore" : "Archive"}</Btn>
+            <Btn disabled={pending} onClick={() => act(async () => { unwrapAction(await setFileStateAction(slug, f.path, "deleted")); }, () => router.push(`/projects/${slug}/vault`))}>Delete</Btn>
           </div>
           <p className="text-xs text-muted-foreground">Hide from Stella keeps the file in the vault but out of her answers and the book. To tidy the sidebar, use the icons next to the file name: hide, archive or delete. Hidden and archived files come back from the eye toggle on their category.</p>
           {!s.generated && (
             <div className="flex flex-col gap-space-2">
               <textarea value={draft} onChange={(e) => setDraft(e.target.value)} rows={14} className="w-full rounded-md border border-input bg-background p-space-3 font-mono text-xs" aria-label="File content" />
-              <div className="flex justify-end"><Btn primary disabled={pending || draft === s.markdown} onClick={() => act(() => saveFileAction(slug, f.path, draft))}>Save</Btn></div>
+              <div className="flex justify-end"><Btn primary disabled={pending || draft === s.markdown} onClick={() => act(async () => { unwrapAction(await saveFileAction(slug, f.path, draft)); })}>Save</Btn></div>
             </div>
           )}
         </section>

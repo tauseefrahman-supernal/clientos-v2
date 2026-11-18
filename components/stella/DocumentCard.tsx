@@ -5,6 +5,7 @@ import { useRef, useState, useTransition } from "react";
 import { SafeMarkdown } from "@/components/project/SafeMarkdown";
 import { Check, ChevronDown, ChevronRight, Copy, Download, FileText, Printer, Save } from "lucide-react";
 import { saveDocumentAction } from "@/app/actions";
+import { unwrapAction } from "@/lib/auth/rules";
 import { cn } from "@/lib/utils";
 import type { ChatDocument } from "./store";
 import type { PickProject } from "./ScopePicker";
@@ -27,6 +28,7 @@ export function DocumentCard({ doc, projects, defaultOpen = false }: { doc: Chat
   const [target, setTarget] = useState(doc.projects[0] ?? projects[0]?.slug ?? "");
   const [group, setGroup] = useState(doc.kind === "export" ? 3 : 0);
   const [saved, setSaved] = useState<string | null>(null);
+  const [saveError, setSaveError] = useState<string | null>(null);
   const [pending, start] = useTransition();
   const body = useRef<HTMLDivElement>(null);
   const words = doc.content.split(/\s+/).length;
@@ -64,9 +66,10 @@ export function DocumentCard({ doc, projects, defaultOpen = false }: { doc: Chat
             <select value={group} onChange={(e) => setGroup(Number(e.target.value))} className="rounded border border-input bg-background px-1 py-0.5" aria-label="Vault group">
               {GROUPS.map((g, i) => <option key={g} value={i}>{g}</option>)}
             </select>
-            <button type="button" disabled={pending || !target} onClick={() => start(async () => { const p = await saveDocumentAction(target, group, doc.title, doc.content); if (p) setSaved(p); })}
+            <button type="button" disabled={pending || !target} onClick={() => start(async () => { setSaveError(null); try { const p = unwrapAction(await saveDocumentAction(target, group, doc.title, doc.content)); if (p) setSaved(p); } catch (e) { setSaveError(e instanceof Error ? e.message : "That did not work. Try again."); } })}
               className="rounded bg-primary px-space-2 py-0.5 font-medium text-primary-foreground disabled:opacity-50">{pending ? "Saving…" : "Save"}</button>
             <span className="text-muted-foreground">It becomes a file added to that project, which Stella then reads.</span>
+            {saveError && <span role="alert" className="text-[hsl(var(--color-status-error-text))]">{saveError}</span>}
           </>}
         </div>
       )}

@@ -1,6 +1,7 @@
 import "server-only";
 import { check, db, updateFile } from "@/lib/data/db";
 import { invalidate } from "@/lib/data";
+import { Refusal } from "@/lib/auth/rules";
 import { costOf, DIGEST_MODEL, digestSelection, estimateRun, SpendGate, type Digest, type Dollars } from "./digest-rules.ts";
 import {
   appendUnderSection, buildOutline, DigestQueue, DIGEST_SCHEMA, DIGEST_SYSTEM, DIGEST_SYSTEM_BLOCKS, fmtDate, fromCallLine, headingsOf, singleParagraph, runDigest, slimOutline,
@@ -376,7 +377,7 @@ async function templateBody(accountId: string, category: string | null, name: st
  */
 export async function decideSuggestion(id: string, accept: boolean, by: string): Promise<void> {
   const s = check(await db().from("vault_suggestions").select("id,account_id,file_path,section,text,status,met_at,transcripts(title,met_at)").eq("id", id).maybeSingle(), "read suggestion") as Row | null;
-  if (!s) throw new Error("No such suggestion.");
+  if (!s) throw new Refusal("No such suggestion.");
   if (s.status !== "pending") return;
   const decided = { status: accept ? "accepted" : "rejected", decided_by: by, decided_at: new Date().toISOString() };
   // Claim it first, so two clicks never append twice.
@@ -388,14 +389,14 @@ export async function decideSuggestion(id: string, accept: boolean, by: string):
     let saved = false;
     for (let attempt = 0; attempt < 2 && !saved; attempt++) {
       const f = check(await db().from("vault_files").select("content,state,updated_at,category_slug,template_name").eq("account_id", s.account_id).eq("path", s.file_path).maybeSingle(), "read file") as Row | null;
-      if (!f || f.state === "deleted") throw new Error("That file is no longer in the vault.");
+      if (!f || f.state === "deleted") throw new Refusal("That file is no longer in the vault.");
       // An empty file shows its template's text; the fact goes into that text, as shown, not into a blank file.
       const base = f.content ? f.content : await templateBody(s.account_id, f.category_slug, f.template_name);
       // singleParagraph again: rows stored before it existed may hold line breaks or block markers.
       const content = appendUnderSection(base, s.section ?? "", singleParagraph(s.text ?? ""), source);
       saved = await updateFile(s.account_id, s.file_path, { content }, by, { ifUpdatedAt: f.updated_at ?? null });
     }
-    if (!saved) throw new Error("The file was changed by someone else while saving. Try again.");
+    if (!saved) throw new Refusal("The file was changed by someone else while saving. Try again.");
   } catch (e) {
     await db().from("vault_suggestions").update({ status: "pending", decided_by: null, decided_at: null }).eq("id", id);
     throw e;

@@ -19,7 +19,7 @@ test("links render only for http, https, mailto and relative hrefs", () => {
   ]) assert.equal(isSafeHref(bad as string), false, String(bad));
 });
 
-test("only http, https and mailto links count as external (new tab, noopener noreferrer)", () => {
-  for (const ext of ["https://example.com", "http://x", "mailto:a@b.test"]) assert.equal(isExternalHref(ext), true, ext);
-  for (const rel of ["/a", "#x", "?q", "a/b"]) assert.equal(isExternalHref(rel), false, rel);
+test("only http and https links open in a new tab (noopener noreferrer); mailto and relative links do not", () => {
+  for (const ext of ["https://example.com", "http://x", "HTTPS://X"]) assert.equal(isExternalHref(ext), true, ext);
+  for (const rel of ["/a", "#x", "?q", "a/b", "mailto:a@b.test", "MAILTO:a@b.test"]) assert.equal(isExternalHref(rel), false, rel);
 });

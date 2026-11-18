@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { buildExport } from "../lib/export.ts";
-import { actionAllowed, canAssign, canOverride, canSee, runDecisionGate } from "../lib/auth/rules.ts";
+import { actionAllowed, actionRefusal, ADMIN_ONLY, canAssign, matchPersonByEmail, NO_PROJECT_ACCESS, unwrapAction, canOverride, canSee, runDecisionGate } from "../lib/auth/rules.ts";
 import { allowedEmail, supabaseUrl } from "../lib/auth/config.ts";
 
 const file = (path: string, content: string, state = "active", group = 0) => ({ path, content, state, group, category: null, template: null, summary: "", source: "import", inBook: true });
@@ -121,4 +121,36 @@ test("server actions: vault writes need the project, team changes its strategist
     [admin, "vault", null, false], [admin, "team", "", false], [strategist, "vault", null, false],
   ];
   for (const [who, kind, slug, ok] of table) assert.equal(actionAllowed(who, kind, slug), ok, `${who === admin ? "admin" : who === strategist ? "strategist" : who === engineer ? "engineer" : "outsider"} ${kind} ${slug}`);
+});
+
+test("a refused action comes back as a plain { ok: false, error } (Next masks thrown messages); allowed is null", () => {
+  const engineer = { admin: false, slugs: new Set(["rx"]), roles: new Map([["rx", ["engineer"]]]) };
+  assert.equal(actionRefusal(engineer, "vault", "rx"), null);
+  assert.deepEqual(actionRefusal(engineer, "vault", "other"), { ok: false, error: NO_PROJECT_ACCESS });
+  assert.deepEqual(actionRefusal(engineer, "team", "rx"), { ok: false, error: "You don't have access to that project." });
+  assert.deepEqual(actionRefusal(engineer, "approval"), { ok: false, error: ADMIN_ONLY });
+  assert.deepEqual(actionRefusal(engineer, "role"), { ok: false, error: ADMIN_ONLY });
+  // what crosses the wire is plain JSON, so the message survives serialisation
+  assert.deepEqual(JSON.parse(JSON.stringify(actionRefusal(engineer, "vault", "other"))), { ok: false, error: NO_PROJECT_ACCESS });
+  assert.equal(unwrapAction({ ok: true, value: "Sales Strategy/X" }), "Sales Strategy/X");
+  assert.throws(() => unwrapAction({ ok: false, error: NO_PROJECT_ACCESS }), { message: NO_PROJECT_ACCESS });
+});
+
+test("a sign-in links only to the people row with exactly its email, never by name", () => {
+  const people = [
+    { id: "1", name: "Tauseef Rahman", email: "Tauseef@Supernal.test" },
+    { id: "2", name: "Jack Parham", email: null },
+    { id: "3", name: "Jack Smith", email: "jack.smith@supernal.test" },
+    { id: "4", name: "Dup A", email: "dup@supernal.test" },
+    { id: "5", name: "Dup B", email: " DUP@supernal.test " },
+  ];
+  assert.equal(matchPersonByEmail(people, "tauseef@supernal.test")?.id, "1");
+  assert.equal(matchPersonByEmail(people, "  TAUSEEF@SUPERNAL.TEST ")?.id, "1");
+  assert.equal(matchPersonByEmail(people, "jack.smith@supernal.test")?.id, "3");
+  assert.equal(matchPersonByEmail(people, "jack@elsewhere.test"), null, "same first name, different email: no access");
+  assert.equal(matchPersonByEmail(people, "jack_smith@supernal.test"), null, "no wildcard matching");
+  assert.equal(matchPersonByEmail(people, "jack%@supernal.test"), null);
+  assert.equal(matchPersonByEmail(people, "dup@supernal.test"), null, "an ambiguous email links no one");
+  assert.equal(matchPersonByEmail(people, ""), null);
+  assert.equal(matchPersonByEmail([], "a@b.test"), null);
 });

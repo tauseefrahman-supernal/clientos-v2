@@ -23,7 +23,7 @@ export function isSafeHref(href: string | null | undefined): boolean {
   return !scheme || ["http", "https", "mailto"].includes(scheme[1].toLowerCase());
 }
 
-/** True when a safe link leaves the app (http, https or mailto), so it opens in a new tab without an opener or referrer. */
+/** True for an http or https link, which opens in a new tab without an opener or referrer (mailto opens the mail app as is). */
 export function isExternalHref(href: string): boolean {
-  return /^(https?|mailto):/i.test(href.replace(/[\u0000- \u007f]/g, ""));
+  return /^https?:/i.test(href.replace(/[\u0000- \u007f]/g, ""));
 }

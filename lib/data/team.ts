@@ -1,6 +1,6 @@
 import "server-only";
 import { db, dbEnabled } from "./db";
-import { canAssign, currentAccess, resetAccess, type Person } from "@/lib/auth/access";
+import { canAssign, currentAccess, Refusal, resetAccess, type Person } from "@/lib/auth/access";
 
 // The team on each project (clientos.assignments) and the people list. Strategists on a project and
 // admins can add or remove people; admins can make someone an admin.
@@ -30,15 +30,15 @@ export async function listPeople(): Promise<(Person & { linked: boolean; project
 
 async function guard(slug: string) {
   const access = await currentAccess();
-  if (!canAssign(access, slug)) throw new Error("Only an admin or this project's strategist can change its team.");
+  if (!canAssign(access, slug)) throw new Refusal("Only an admin or this project's strategist can change its team.");
   return access;
 }
 
 export async function addMember(slug: string, personId: string, role: string) {
   const access = await guard(slug);
-  if (!ROLES.some((r) => r[0] === role)) throw new Error("Unknown role.");
+  if (!ROLES.some((r) => r[0] === role)) throw new Refusal("Unknown role.");
   const aid = await accountId(slug);
-  if (!aid) throw new Error("No such project.");
+  if (!aid) throw new Refusal("No such project.");
   const { error } = await db().from("assignments").upsert({ account_id: aid, person_id: personId, role, source: "manual", created_by: access.person?.name ?? null }, { onConflict: "account_id,person_id,role", ignoreDuplicates: true });
   if (error) throw new Error(error.message);
   resetAccess();
@@ -47,7 +47,7 @@ export async function addMember(slug: string, personId: string, role: string) {
 export async function removeMember(slug: string, personId: string, role: string) {
   await guard(slug);
   const aid = await accountId(slug);
-  if (!aid) throw new Error("No such project.");
+  if (!aid) throw new Refusal("No such project.");
   const { error } = await db().from("assignments").delete().eq("account_id", aid).eq("person_id", personId).eq("role", role);
   if (error) throw new Error(error.message);
   resetAccess();
@@ -55,8 +55,8 @@ export async function removeMember(slug: string, personId: string, role: string)
 
 export async function setPersonRole(personId: string, role: "admin" | "member") {
   const access = await currentAccess();
-  if (!access.admin) throw new Error("Only admins can change roles.");
-  if (access.person?.id === personId && role !== "admin") throw new Error("You cannot remove your own admin role.");
+  if (!access.admin) throw new Refusal("Only admins can change roles.");
+  if (access.person?.id === personId && role !== "admin") throw new Refusal("You cannot remove your own admin role.");
   const { error } = await db().from("people").update({ role }).eq("id", personId);
   if (error) throw new Error(error.message);
   resetAccess();

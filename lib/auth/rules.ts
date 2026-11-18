@@ -44,3 +44,36 @@ export const actionAllowed = (a: AccessLike, kind: ActionKind, slug: string | nu
   if (typeof slug !== "string" || !slug) return false;
   return kind === "vault" ? canSee(a, slug) : canAssign(a, slug);
 };
+
+/**
+ * What a server action returns. Next masks thrown Error messages in production, so a refusal the person should read
+ * comes back as { ok: false, error } instead of being thrown.
+ */
+export type ActionResult<T = null> = { ok: true; value: T } | { ok: false; error: string };
+
+/** A refusal whose message is safe and meant for the person (access, a missing or changed file, a bad role). */
+export class Refusal extends Error {}
+
+export const ADMIN_ONLY = "Only an admin can do that.";
+
+/** The access check as a result: null when allowed, else the refusal to return. */
+export const actionRefusal = (a: AccessLike, kind: ActionKind, slug: string | null = null): { ok: false; error: string } | null =>
+  actionAllowed(a, kind, slug) ? null : { ok: false, error: kind === "approval" || kind === "role" ? ADMIN_ONLY : NO_PROJECT_ACCESS };
+
+/** Client side: the action's value, or throws its refusal message (the callers already show e.message). */
+export function unwrapAction<T>(r: ActionResult<T>): T {
+  if (!r.ok) throw new Error(r.error);
+  return r.value;
+}
+
+/**
+ * Who a signed-in user is on the team: only the people row whose email equals theirs (ignoring case and surrounding
+ * spaces). Never by name, so a new sign-in cannot take over someone else's row and access; no match means no access
+ * until an admin links them.
+ */
+export function matchPersonByEmail<P extends { email: string | null }>(people: P[], email: string): P | null {
+  const want = email.trim().toLowerCase();
+  if (!want) return null;
+  const hits = people.filter((p) => typeof p.email === "string" && p.email.trim().toLowerCase() === want);
+  return hits.length === 1 ? hits[0] : null;
+}
