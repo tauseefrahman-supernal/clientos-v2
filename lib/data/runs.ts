@@ -4,6 +4,8 @@ import { getAccount, listTemplates, setFileState } from "./index";
 import { askStella } from "@/lib/stella/agent";
 import { splitEvidence } from "@/lib/stella/evidence";
 import { SCOPING_STEPS } from "@/lib/scoping";
+import { workflowBrief } from "@/lib/workflow-brief";
+import { GONE_GRACE_DAYS } from "@/lib/memory/index-rules";
 
 // Workflow runs (clientos.workflow_runs): Stella drafts a workflow's output from its input files; a
 // person approves it, or marks an external one sent. Approving a scoping step writes the draft into
@@ -22,6 +24,15 @@ async function workflowRow(accountId: string, slug: string) {
 async function accountId(slug: string) {
   const { data } = await db().from("accounts").select("id").eq("slug", slug).maybeSingle();
   return (data?.id as string) ?? null;
+}
+
+/** Usable calls linked to a project (not personnel, not gone for more than 14 days). A count, no rows. */
+async function usableCallCount(accountId: string): Promise<number> {
+  const cutoff = new Date(Date.now() - GONE_GRACE_DAYS * 86_400_000).toISOString();
+  const { count, error } = await db().from("transcript_accounts").select("transcript_id,transcripts!inner(id)", { count: "exact", head: true })
+    .eq("account_id", accountId).neq("transcripts.status", "personnel").or(`gone_at.is.null,gone_at.gte.${cutoff}`, { referencedTable: "transcripts" });
+  if (error) { console.error("[runs] counting the project's calls failed:", error.message); return 0; }
+  return count ?? 0;
 }
 
 const toRun = (r: Record<string, unknown>, project: string, workflow: string): Run => ({
@@ -60,16 +71,18 @@ export async function runWorkflow(slug: string, workflowSlug: string, by: string
 
   const file = fileForStep.get(workflowSlug) && b.account.stage === "sales" ? fileForStep.get(workflowSlug)! : null;
   const template = file ? (await listTemplates()).find((t) => t.name === file)?.body ?? "" : "";
+  const callCount = await usableCallCount(aid);
   const date = new Date().toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
   const prompt = [
     `Run the "${w.name}" workflow for ${b.account.name}.`,
     `It is for: ${w.audience}. Cadence: ${w.cadence}. It produces: ${w.output}.`,
-    w.inputs.length ? `It draws on these vault files: ${w.inputs.join(", ")}. Read them first, and anything else in the vault that bears on it.` : "",
+    workflowBrief(w, callCount),
     file ? `Once approved, your document becomes this project's ${file} file. Write it as that file: start with "# ${file.replace(/-/g, " ")}" and keep the template's section headings:\n\n${template}` : `Title the document "${w.name}: ${b.account.name} (${date})".`,
-    "Write the output with create_document, then reply in one or two lines with what it covers and what is missing. Mark anything the vault does not hold as a gap rather than guessing.",
+    `Write the output with create_document, then reply in one or two lines with what it covers and what is missing. Mark anything the vault${callCount ? " and calls do" : " does"} not hold as a gap rather than guessing.`,
   ].filter(Boolean).join("\n\n");
 
   let draft = "", reply = "", failure: string | null = null;
+  // Scoped to this one project: Stella's call tools see only its calls (and multi-project calls linked to it).
   try {
     for await (const ev of askStella([slug], [{ role: "user", content: prompt }])) {
       if (ev.type === "document" && !draft) draft = ev.doc.content;

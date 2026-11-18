@@ -1,6 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { byPriority, daysUntil, nextStep, scopingTrack } from "../lib/scoping.ts";
+import { workflowBrief } from "../lib/workflow-brief.ts";
 
 const states = (t: { state: string }[]) => t.map((s) => s.state).join(",");
 
@@ -46,4 +47,35 @@ test("days until a close date", () => {
   assert.equal(daysUntil("2026-11-16", today), 2);
   assert.equal(daysUntil("2026-11-10", today), -4);
   assert.equal(daysUntil("", today), null);
+});
+
+const intake = { name: "Sales intake", inputs: ["Sales-Intake", "Deal-Brief"] };
+
+test("with calls, the workflow brief sends Stella to the project's calls as well as its vault files", () => {
+  const b = workflowBrief(intake, 3);
+  assert.match(b, /Sales-Intake, Deal-Brief/);
+  assert.match(b, /search_calls/);
+  assert.match(b, /3 calls/);
+  assert.ok(b.indexOf("summaries") < b.indexOf("transcripts"), "summaries come before transcripts");
+  assert.match(b, /exact wording/);
+  assert.match(b, /who said what/);
+  assert.match(b, /title and date/);
+  assert.match(b, /30 days/);
+  assert.doesNotMatch(b, /no calls yet/i);
+});
+
+test("with one call, the brief says so in the singular", () => {
+  assert.match(workflowBrief(intake, 1), /1 call\b/);
+});
+
+test("without calls, the workflow brief says there are none and marks call facts as gaps", () => {
+  const b = workflowBrief(intake, 0);
+  assert.match(b, /Sales-Intake, Deal-Brief/);
+  assert.match(b, /no calls yet/i);
+  assert.match(b, /gap/);
+  assert.doesNotMatch(b, /search_calls/);
+});
+
+test("a workflow with no input files still points Stella at the vault", () => {
+  assert.match(workflowBrief({ name: "Discovery readout", inputs: [] }, 0), /vault/);
 });
