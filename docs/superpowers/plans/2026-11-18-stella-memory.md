@@ -317,3 +317,28 @@ Today a strategist can't start scoping a new deal from ClientOS alone: the vault
 - [ ] **Step 3: Implement.** `runWorkflow` counts the project's linked, usable calls, builds the brief with `workflowBrief`, and runs Stella with the Task 8 tools available and scoped to that one project. Same tool budget and context editing as Task 8.
 - [ ] **Step 4: Run `npm test && npm run typecheck`,** then run Sales intake on a deal whose calls have synced. Expected: the draft cites at least one call by title and date.
 - [ ] **Step 5: Commit** `feat(workflows): scoping workflows read the deal's calls`.
+
+### Task 13: Evidence behind each answer, not inline citations
+
+Tauseef, 18 Nov: Stella's chat answers should read cleanly, without a source label after every claim; each answer gets an **Evidence** toggle underneath that opens to show where each point came from. Runs after Task 6b (no dependency on the memory tasks; Task 8 later adds call sources to the same panel).
+
+**Files:**
+- Create: `lib/stella/evidence.ts` (pure: `splitEvidence`, `Evidence` type), `components/stella/EvidencePanel.tsx`
+- Modify: `lib/stella/agent.ts` (`RULES` citation lines; stream events), `app/api/stella/route.ts` if it relays events, `components/stella/store.ts` (`ChatMessage.evidence?: Evidence[]`, persisted with the chat), `components/stella/ChatThread.tsx` (render the toggle under assistant messages)
+- Test: `tests/stella-evidence.test.ts`
+
+**Interfaces:**
+- Produces: `type Evidence = { point: string; source: string; quote: string | null; ref: { kind: "file" | "chapter" | "call" | "project" | "attachment" | "other"; slug: string | null; id: string | null; at: string | null } }`; `splitEvidence(text: string): { answer: string; evidence: Evidence[] }` (pure).
+
+**Decisions:**
+- Chat answers carry no bracketed source labels in the prose. Stella ends every factual answer with one fenced block tagged `evidence` holding a JSON array: for each key point, the point in a few words, the source label exactly as the tool gave it, and a short quote (≤ 200 characters) from that source. The rule "a claim you cannot source does not go in the answer" stays.
+- `splitEvidence` removes that block from the shown answer and parses it; a malformed or missing block leaves the answer intact and evidence empty (never shows raw JSON). While streaming, the UI hides text from the opening fence onward.
+- `ref` is resolved server-side from the label against what the tools returned in that turn (file path → vault link, chapter → book link; Task 8 adds calls with a link to the recording and its date). Unresolved labels show as plain text.
+- The toggle reads "Evidence (N)", collapsed by default, under each assistant message; each row shows the point, the source as a link when resolvable, and the quote. Answers with no evidence show no toggle.
+- Documents written with `create_document` keep their current inline citations (they leave ClientOS and need sources on the page); only chat replies change.
+
+- [ ] **Step 1: Write failing tests** for `splitEvidence`: a well-formed block is removed and parsed; text before and after the block is kept; a malformed block gives `evidence: []` and the answer without the raw block; no block gives the text unchanged; a quote over 200 characters is trimmed; an answer that still contains `[File …]` labels is left as is.
+- [ ] **Step 2: Run `npm test`.** Expected: FAIL.
+- [ ] **Step 3: Implement** the rules change, `splitEvidence`, ref resolution, persistence and `EvidencePanel`.
+- [ ] **Step 4: Run `npm test && npm run typecheck`, then `npm run test:live`** (its Stella check must still pass), then ask Stella a question in the running app. Expected: a clean answer and an "Evidence (N)" toggle that opens to sources with quotes.
+- [ ] **Step 5: Commit** `feat(stella): evidence toggle under each answer instead of inline citations`.
