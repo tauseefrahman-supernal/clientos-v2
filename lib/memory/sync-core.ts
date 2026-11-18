@@ -80,7 +80,8 @@ export interface SyncStore {
 
 export interface SyncDeps {
   store: SyncStore;
-  list(provider: Provider, since: string | null, cursor: string | null): Promise<ListResult>;
+  /** `deadline` (epoch ms): the lister must not start a rate-limit wait that would end after it. */
+  list(provider: Provider, since: string | null, cursor: string | null, deadline?: number): Promise<ListResult>;
   /** id is the call's fetchId (Fathom recording_id) or its externalId. */
   fetchTranscript(provider: Provider, id: string): Promise<TranscriptResult>;
   screen(call: SourceCall): Promise<ScreenResult>;
@@ -512,7 +513,8 @@ export async function runSyncWith(opts: SyncOptions, deps: SyncDeps): Promise<Sy
     if (overBudget()) { listedInFull = false; listingIncomplete = true; log.push(`${provider}: not listed, out of time`); continue; }
     let r: ListResult;
     try {
-      r = await deps.list(provider, start.since, start.cursor);
+      // rate-limit waits while listing must leave the flush margin for applying what was listed
+      r = await deps.list(provider, start.since, start.cursor, deadline - FLUSH_MARGIN_MS);
     } catch (e) {
       listedInFull = false; listingIncomplete = true;
       log.push(`${provider}: listing failed: ${errText(e)}`);

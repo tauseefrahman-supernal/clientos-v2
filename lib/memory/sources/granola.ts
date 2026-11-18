@@ -4,7 +4,7 @@
 import type { SourceCall, Turn } from "../types.ts";
 import {
   type FetchLike, type ListResult, type SourceDeps, type TranscriptResult, MAX_PAGES, RateLimitedError, SourceHttpError,
-  addPeople, asArray, defaultFetch, iso, obj, readJson, str, tryNormalize, uuidIn,
+  addPeople, asArray, defaultFetch, iso, obj, rateLimitWaiter, readJson, str, tryNormalize, uuidIn,
 } from "./shared.ts";
 
 /** A note's web link: web_url, or url / share_url when a response names it that way. */
@@ -74,7 +74,9 @@ function deps(d?: SourceDeps): { fetch: FetchLike; key: string } {
  * Lists live notes updated at or after `since` (all when null), starting at `cursor`. Calls come back with
  * `turns: null`; fetch each with fetchGranolaTranscript. Deleted notes are dropped. The updated-since filter
  * is applied here, client-side, because the public API's server-side filter is unconfirmed.
- * Pages until done; on HTTP 429 returns what it has with the cursor to resume from and rateLimited true.
+ * Pages until done. On HTTP 429 it waits per Retry-After (default 30 s, cap 65 s) and retries the same page, up to
+ * 6 waits per call and never past `d.deadline`; after that it returns what it has with the cursor to resume from
+ * and rateLimited true.
  * Items that fail to normalize are skipped and counted. Stops if the API hands back the same cursor again.
  */
 export async function listGranola(since: string | null, cursor: string | null, d?: SourceDeps): Promise<ListResult> {
@@ -82,12 +84,16 @@ export async function listGranola(since: string | null, cursor: string | null, d
   const sinceMs = since ? Date.parse(since) : NaN;
   const calls: SourceCall[] = [];
   let next = cursor, skipped = 0;
+  const waitOut = rateLimitWaiter(d);
   for (let page = 0; page < MAX_PAGES; page++) {
     const url = new URL(`${GRANOLA_BASE}/notes`);
     url.searchParams.set("page_size", String(GRANOLA_PAGE_SIZE));
     if (next) url.searchParams.set("cursor", next);
     const res = await fetch(url.toString(), { headers: { Authorization: `Bearer ${key}` } });
-    if (res.status === 429) return { calls, cursor: next, rateLimited: true, skipped };
+    if (res.status === 429) {
+      if (await waitOut(res)) { page--; continue; }
+      return { calls, cursor: next, rateLimited: true, skipped };
+    }
     if (!res.ok) throw new SourceHttpError("Granola", res.status);
     const body = obj(await readJson("Granola", res)) ?? {};
     for (const item of asArray(body.notes ?? body.data ?? body.items)) {

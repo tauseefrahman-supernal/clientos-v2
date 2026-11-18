@@ -3,10 +3,55 @@ import type { SourceCall, Turn } from "../types.ts";
 
 /** The slice of fetch the source clients use, so tests can pass a fake. */
 export type FetchLike = (url: string, init: { headers: Record<string, string> }) =>
-  Promise<{ ok: boolean; status: number; json: () => Promise<unknown> }>;
+  Promise<{ ok: boolean; status: number; json: () => Promise<unknown>; headers?: { get(name: string): string | null } }>;
 
-/** Fetch and key for a source client; both default to the real ones when left out. */
-export interface SourceDeps { fetch?: FetchLike; key?: string | undefined }
+/**
+ * Fetch and key for a source client; both default to the real ones when left out. `sleep` and `now` default to a
+ * real timer and Date.now (tests inject them). `deadline` (epoch ms): a listing never starts a rate-limit wait that
+ * would end after it, and returns rateLimited instead.
+ */
+export interface SourceDeps {
+  fetch?: FetchLike;
+  key?: string | undefined;
+  sleep?: (ms: number) => Promise<void>;
+  now?: () => number;
+  deadline?: number;
+}
+
+/** Rate-limit waits while listing: default when Retry-After is absent, cap per wait, and waits per listing call. */
+export const RETRY_DEFAULT_MS = 30_000;
+export const RETRY_CAP_MS = 65_000;
+export const MAX_RATE_WAITS = 6;
+
+/** Retry-After (seconds or an HTTP date) in ms, clamped to [0, RETRY_CAP_MS]; RETRY_DEFAULT_MS when absent or unreadable. */
+export function retryAfterMs(header: string | null | undefined, now: number): number {
+  const h = header?.trim();
+  let ms = RETRY_DEFAULT_MS;
+  if (h) {
+    if (/^\d+(\.\d+)?$/.test(h)) ms = Number(h) * 1000;
+    else { const t = Date.parse(h); if (!Number.isNaN(t)) ms = t - now; }
+  }
+  return Math.min(RETRY_CAP_MS, Math.max(0, ms));
+}
+
+/**
+ * Returns a function to call on each listing 429: it waits per Retry-After and resolves true (retry the same page),
+ * or resolves false without waiting when the waits are used up or the wait would end after the deadline.
+ */
+export function rateLimitWaiter(d?: SourceDeps) {
+  const sleep = d?.sleep ?? ((ms: number) => new Promise<void>((r) => setTimeout(r, ms)));
+  const now = d?.now ?? Date.now;
+  let waits = 0;
+  return async (res: { headers?: { get(name: string): string | null } }): Promise<boolean> => {
+    if (waits >= MAX_RATE_WAITS) return false;
+    const t = now();
+    const ms = retryAfterMs(res.headers?.get("retry-after"), t);
+    if (d?.deadline !== undefined && t + ms > d.deadline) return false;
+    waits++;
+    await sleep(ms);
+    return true;
+  };
+}
 
 /**
  * One listing run. `cursor` non-null means there is more to fetch (rate limit or page cap); `skipped` counts

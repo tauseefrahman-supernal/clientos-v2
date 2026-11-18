@@ -4,11 +4,12 @@ import { readFileSync } from "node:fs";
 import { normalizeFathom, listFathom, fetchFathomTranscript, hmsToSeconds } from "../lib/memory/sources/fathom.ts";
 import { normalizeGranola, listGranola, fetchGranolaTranscript } from "../lib/memory/sources/granola.ts";
 import { fetchTranscript, isRateLimited, SourceHttpError } from "../lib/memory/sources/index.ts";
+import { retryAfterMs, MAX_RATE_WAITS } from "../lib/memory/sources/shared.ts";
 
 const load = (name: string) => JSON.parse(readFileSync(new URL(`./fixtures/${name}`, import.meta.url), "utf8"));
 const isIso = (s: string) => !Number.isNaN(Date.parse(s)) && /^\d{4}-\d{2}-\d{2}T/.test(s);
 
-type Reply = { status: number; body?: unknown };
+type Reply = { status: number; body?: unknown; headers?: Record<string, string> };
 /** A fake fetch that answers from a queue and records the URLs and headers it was called with. */
 function fakeFetch(replies: Reply[]) {
   const calls: { url: string; headers: Record<string, string> }[] = [];
@@ -16,7 +17,8 @@ function fakeFetch(replies: Reply[]) {
     calls.push({ url, headers: init?.headers ?? {} });
     const r = replies.shift();
     if (!r) throw new Error("unexpected fetch");
-    return { ok: r.status >= 200 && r.status < 300, status: r.status, json: async () => r.body, text: async () => "secret body" };
+    const h = Object.fromEntries(Object.entries(r.headers ?? {}).map(([k, v]) => [k.toLowerCase(), v]));
+    return { ok: r.status >= 200 && r.status < 300, status: r.status, json: async () => r.body, text: async () => "secret body", headers: { get: (n: string) => h[n.toLowerCase()] ?? null } };
   };
   return { fn, calls };
 }
@@ -204,7 +206,7 @@ test("listFathom pages with cursor, sends key and created_after, and includes tr
 test("listFathom on 429 returns calls so far and the cursor to resume from", async () => {
   const m = load("fathom-meeting.json");
   const f = fakeFetch([{ status: 200, body: { items: [m], next_cursor: "c2" } }, { status: 429 }]);
-  const r = await listFathom(null, "c1", { fetch: f.fn, key: "k" });
+  const r = await listFathom(null, "c1", { fetch: f.fn, key: "k", now: () => 0, deadline: 0 });
   assert.equal(r.rateLimited, true);
   assert.equal(r.cursor, "c2");
   assert.equal(r.calls.length, 1);
@@ -291,7 +293,7 @@ test("listGranola pages with cursor/hasMore, drops deleted and filters by update
 test("listGranola with no since returns every live note; 429 returns the resume cursor", async () => {
   const n = load("granola-note.json");
   const f = fakeFetch([{ status: 200, body: { notes: [n], hasMore: true, cursor: "g2" } }, { status: 429 }]);
-  const r = await listGranola(null, null, { fetch: f.fn, key: "gk" });
+  const r = await listGranola(null, null, { fetch: f.fn, key: "gk", now: () => 0, deadline: 0 });
   assert.equal(r.rateLimited, true);
   assert.equal(r.cursor, "g2");
   assert.equal(r.calls.length, 1);
@@ -356,4 +358,89 @@ test("normalizeGranola takes the web link from url or share_url when web_url is 
   assert.equal(normalizeGranola({ ...n, url: "https://notes.granola.ai/d/x" }).url, "https://notes.granola.ai/d/x");
   assert.equal(normalizeGranola({ ...n, share_url: "https://notes.granola.ai/t/y" }).url, "https://notes.granola.ai/t/y");
   assert.equal(normalizeGranola(n).url, "");
+});
+
+// ---------------- rate-limit waits while listing
+
+/** A fake clock whose sleep advances it, recording each wait. */
+function fakeClock(start = 1_000_000) {
+  let t = start;
+  const waits: number[] = [];
+  return { now: () => t, sleep: async (ms: number) => { waits.push(ms); t += ms; }, waits };
+}
+
+test("retryAfterMs reads seconds or an HTTP date, defaults to 30 s and caps at 65 s", () => {
+  const now = Date.parse("2026-11-18T10:00:00Z");
+  assert.equal(retryAfterMs("12", now), 12_000);
+  assert.equal(retryAfterMs(null, now), 30_000);
+  assert.equal(retryAfterMs("soon", now), 30_000);
+  assert.equal(retryAfterMs("600", now), 65_000);
+  assert.equal(retryAfterMs("Wed, 18 Nov 2026 10:00:20 GMT", now), 20_000);
+  assert.equal(retryAfterMs("Wed, 18 Nov 2026 09:00:00 GMT", now), 0);
+});
+
+test("listFathom waits out Retry-After and retries the same page, then succeeds", async () => {
+  const m = load("fathom-meeting.json");
+  const clock = fakeClock();
+  const f = fakeFetch([
+    { status: 200, body: { items: [m], next_cursor: "c2" } },
+    { status: 429, headers: { "Retry-After": "7" } },
+    { status: 429 },
+    { status: 200, body: { items: [{ ...m, recording_id: 2 }], next_cursor: null } },
+  ]);
+  const r = await listFathom(null, null, { fetch: f.fn, key: "k", ...clock });
+  assert.deepEqual(clock.waits, [7_000, 30_000]);
+  assert.equal(r.rateLimited, false);
+  assert.equal(r.cursor, null);
+  assert.equal(r.calls.length, 2);
+  assert.deepEqual(f.calls.slice(1).map((c) => new URL(c.url).searchParams.get("cursor")), ["c2", "c2", "c2"]);
+});
+
+test("listGranola waits out a 429 and retries the same page", async () => {
+  const n = load("granola-note.json");
+  const clock = fakeClock();
+  const f = fakeFetch([{ status: 429, headers: { "retry-after": "2" } }, { status: 200, body: { notes: [n], hasMore: false } }]);
+  const r = await listGranola(null, null, { fetch: f.fn, key: "gk", ...clock });
+  assert.deepEqual(clock.waits, [2_000]);
+  assert.equal(r.rateLimited, false);
+  assert.equal(r.calls.length, 1);
+});
+
+test("listing gives up after 6 waits and returns the resume cursor", async () => {
+  const m = load("fathom-meeting.json");
+  const clock = fakeClock();
+  const f = fakeFetch([{ status: 200, body: { items: [m], next_cursor: "c2" } }, ...Array.from({ length: 7 }, () => ({ status: 429, headers: { "Retry-After": "1" } }))]);
+  const r = await listFathom(null, null, { fetch: f.fn, key: "k", ...clock });
+  assert.equal(MAX_RATE_WAITS, 6);
+  assert.equal(clock.waits.length, 6);
+  assert.equal(f.calls.length, 8);
+  assert.equal(r.rateLimited, true);
+  assert.equal(r.cursor, "c2");
+  assert.equal(r.calls.length, 1);
+  const g = fakeFetch(Array.from({ length: 7 }, () => ({ status: 429, headers: { "Retry-After": "1" } })));
+  const gc = fakeClock();
+  const gr = await listGranola(null, "g1", { fetch: g.fn, key: "gk", ...gc });
+  assert.equal(gc.waits.length, 6);
+  assert.equal(gr.rateLimited, true);
+  assert.equal(gr.cursor, "g1");
+});
+
+test("listing never starts a wait that would end after the deadline", async () => {
+  const m = load("fathom-meeting.json");
+  const clock = fakeClock(0);
+  const f = fakeFetch([
+    { status: 429, headers: { "Retry-After": "10" } },
+    { status: 429, headers: { "Retry-After": "10" } },
+  ]);
+  // first wait ends at 10 s (within 15 s); the second would end at 20 s, past the deadline
+  const r = await listFathom(null, "c1", { fetch: f.fn, key: "k", ...clock, deadline: 15_000 });
+  assert.deepEqual(clock.waits, [10_000]);
+  assert.equal(r.rateLimited, true);
+  assert.equal(r.cursor, "c1");
+  const g = fakeFetch([{ status: 429 }]);
+  const gc = fakeClock(0);
+  const gr = await listGranola(null, null, { fetch: g.fn, key: "gk", ...gc, deadline: 29_999 });
+  assert.deepEqual(gc.waits, []);
+  assert.equal(gr.rateLimited, true);
+  void m;
 });

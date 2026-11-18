@@ -161,7 +161,7 @@ export async function runSync(opts: SyncOptions = {}): Promise<SyncResult> {
   try {
     return await runSyncWith(opts, {
       store: dbSyncStore,
-      list: (provider, since, cursor) => (provider === "granola" ? listGranola(since, cursor) : listFathom(since, cursor)),
+      list: (provider, since, cursor, deadline) => (provider === "granola" ? listGranola(since, cursor, { deadline }) : listFathom(since, cursor, { deadline })),
       fetchTranscript: (provider, id) => fetchTranscript(provider, id),
       screen: screenCall,
       askMention: askMentionModel,

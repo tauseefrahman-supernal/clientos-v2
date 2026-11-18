@@ -3,7 +3,7 @@
 import type { SourceCall, Turn } from "../types.ts";
 import {
   type FetchLike, type ListResult, type SourceDeps, type TranscriptResult, MAX_PAGES, RateLimitedError, SourceHttpError,
-  addPeople, asArray, defaultFetch, iso, obj, readJson, str, tryNormalize,
+  addPeople, asArray, defaultFetch, iso, obj, rateLimitWaiter, readJson, str, tryNormalize,
 } from "./shared.ts";
 
 export const FATHOM_BASE = "https://api.fathom.ai/external/v1";
@@ -73,13 +73,16 @@ function deps(d?: SourceDeps): { fetch: FetchLike; key: string } {
 
 /**
  * Lists meetings created after `since` (all when null), transcripts and summaries included, starting at `cursor`.
- * Pages until done; on HTTP 429 returns what it has with the cursor to resume from and rateLimited true.
+ * Pages until done. On HTTP 429 it waits per Retry-After (default 30 s, cap 65 s) and retries the same page, up to
+ * 6 waits per call and never past `d.deadline`; after that it returns what it has with the cursor to resume from
+ * and rateLimited true.
  * Items that fail to normalize are skipped and counted. Stops if the API hands back the same cursor again.
  */
 export async function listFathom(since: string | null, cursor: string | null, d?: SourceDeps): Promise<ListResult> {
   const { fetch, key } = deps(d);
   const calls: SourceCall[] = [];
   let next = cursor, skipped = 0;
+  const waitOut = rateLimitWaiter(d);
   for (let page = 0; page < MAX_PAGES; page++) {
     const url = new URL(`${FATHOM_BASE}/meetings`);
     url.searchParams.set("include_transcript", "true");
@@ -87,7 +90,10 @@ export async function listFathom(since: string | null, cursor: string | null, d?
     if (since) url.searchParams.set("created_after", since);
     if (next) url.searchParams.set("cursor", next);
     const res = await fetch(url.toString(), { headers: { "X-Api-Key": key } });
-    if (res.status === 429) return { calls, cursor: next, rateLimited: true, skipped };
+    if (res.status === 429) {
+      if (await waitOut(res)) { page--; continue; }
+      return { calls, cursor: next, rateLimited: true, skipped };
+    }
     if (!res.ok) throw new SourceHttpError("Fathom", res.status);
     const body = obj(await readJson("Fathom", res)) ?? {};
     for (const item of asArray(body.items)) {
