@@ -4,6 +4,8 @@ import { revalidatePath } from "next/cache";
 import { addDocumentFile, addTemplateFile, decide, proposeTemplate, setFileState } from "@/lib/data";
 import type { FileState, GroupId } from "@/lib/types";
 import { addMember, removeMember, setPersonRole } from "@/lib/data/team";
+import { canAssign, currentAccess } from "@/lib/auth/access";
+import { decideSuggestion, suggestionProject } from "@/lib/memory/digest";
 
 // Server actions for the prototype store. Each one revalidates every page so the
 // library, vault and search reflect the change.
@@ -63,5 +65,15 @@ export async function removeMemberAction(slug: string, personId: string, role: s
 
 export async function setPersonRoleAction(personId: string, role: "admin" | "member") {
   await setPersonRole(personId, role);
+  revalidatePath("/", "layout");
+}
+
+/** Accept or reject a suggested vault fact. Only an admin or the project's strategist; checked here, not only in the UI. */
+export async function decideSuggestionAction(id: string, accept: boolean) {
+  const slug = await suggestionProject(id);
+  if (!slug) throw new Error("No such suggestion.");
+  const access = await currentAccess();
+  if (!canAssign(access, slug)) throw new Error("Only an admin or this project's strategist can accept or reject suggestions.");
+  await decideSuggestion(id, accept === true, access.person?.name ?? "You");
   revalidatePath("/", "layout");
 }

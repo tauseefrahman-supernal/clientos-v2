@@ -2,6 +2,7 @@ import { currentAccess } from "@/lib/auth/access";
 import { dbEnabled } from "@/lib/data/db";
 import { indexPending } from "@/lib/memory/embed";
 import { runSync } from "@/lib/memory/sync";
+import { digestPending, estimatePending, type DigestOptions } from "@/lib/memory/digest";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 300;
@@ -16,6 +17,11 @@ export const maxDuration = 300;
 //                      refused (409) without a preview in the last hour or confirmFull. repairOnly only folds stored duplicate rows. rescreen (needs
 //                      onlySlugs) screens those projects' stored calls again from their source; pass the returned
 //                      rescreen.rescreenBefore back on re-runs to skip calls already rescreened. Stops early and says when more remains.
+//   estimate { onlySlugs?, limit?, retryFailed? }: what digesting the waiting calls (status pending, with a stored body) would cost.
+//   digest { confirm: true, maxDollars, onlySlugs?, limit?, retryFailed? }: summary, project headlines and suggested vault facts
+//                      for those calls, newest first. Refused without confirm or when the estimate is over maxDollars.
+//                      Stops starting calls after about 150 s; says how many remain (more), so run it again until done.
+//                      retryFailed also takes calls an earlier digest marked failed.
 type Body = Record<string, unknown> & { action?: string };
 
 class BadRequest extends Error {}
@@ -48,9 +54,33 @@ function syncOptions(body: Body) {
   return opts;
 }
 
+function digestOptions(body: Body): DigestOptions {
+  const o: DigestOptions = {};
+  if (body.onlySlugs !== undefined) {
+    if (!Array.isArray(body.onlySlugs) || !body.onlySlugs.length || !body.onlySlugs.every((s) => typeof s === "string" && s.trim())) throw new BadRequest("onlySlugs must be a list of project slugs.");
+    o.onlySlugs = body.onlySlugs.map((s) => (s as string).trim());
+  }
+  if (body.limit !== undefined) {
+    if (!Number.isInteger(body.limit) || (body.limit as number) < 1) throw new BadRequest("limit must be a whole number above 0.");
+    o.limit = body.limit as number;
+  }
+  if (body.retryFailed === true) o.retryFailed = true;
+  return o;
+}
+
+async function digest(body: Body) {
+  if (body.confirm !== true) throw new BadRequest("digest costs money: run estimate first, then send confirm: true and maxDollars.");
+  if (typeof body.maxDollars !== "number" || !Number.isFinite(body.maxDollars) || body.maxDollars <= 0) throw new BadRequest("maxDollars must be a number above 0.");
+  const r = await digestPending({ ...digestOptions(body), maxDollars: body.maxDollars });
+  if ("refused" in r) throw new BadRequest(r.refused);
+  return r;
+}
+
 const actions: Record<string, (body: Body) => Promise<unknown>> = {
   index: (body) => indexPending({ dryRun: body.dryRun === true }),
   sync: (body) => runSync(syncOptions(body)),
+  estimate: (body) => estimatePending(digestOptions(body)),
+  digest,
 };
 
 export async function POST(req: Request) {
@@ -67,6 +97,7 @@ export async function POST(req: Request) {
   } catch (e) {
     if (e instanceof BadRequest) return new Response(e.message, { status: 400 });
     const error = e instanceof Error ? e.message : String(e);
+    if (/^Unknown project/.test(error)) return new Response(error, { status: 400 });
     return Response.json({ ok: false, action: body.action, error }, { status: /already in progress|run a preview first/.test(error) ? 409 : 500 });
   }
 }

@@ -8,6 +8,8 @@ import remarkGfm from "remark-gfm";
 import { Archive, ArchiveRestore, ChevronDown, ChevronRight, Eye, EyeOff, Folder, Plus, Search, Sparkles, Trash2 } from "lucide-react";
 import { StatusTag } from "@/components/kit";
 import { VaultUpload } from "@/components/project/VaultUpload";
+import { VaultSuggestions, type SuggestionItem } from "@/components/project/VaultSuggestions";
+import { headingKey, sectionLayout } from "@/lib/memory/digest-core";
 import { useShell } from "@/components/shell/AppShell";
 import { addTemplateAction, proposeTemplateAction, saveFileAction, setFileShownAction, setFileStateAction, toggleInBookAction } from "@/app/actions";
 import { cn } from "@/lib/utils";
@@ -21,6 +23,7 @@ type Selected = {
   category: { slug: string; name: string; status: ShareStatus; isCore: boolean } | null;
   template: { name: string; status: ShareStatus; onlyAccount: string | null } | null;
   otherProjects: { slug: string; name: string; path: string }[];
+  suggestions: SuggestionItem[]; canDecide: boolean;
 } | null;
 
 const isOut = (f: TreeFile) => f.state === "archived" || !f.inView;
@@ -224,9 +227,31 @@ function FileView({ slug, s }: { slug: string; s: NonNullable<Selected> }) {
 
       <article className={cn("prose-vault", hidden && "pointer-events-none select-none blur-[5px]")}>
         <h1 className="font-display text-2xl font-semibold">{name.replace(/\.md$/, "").replace(/-/g, " ")}</h1>
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>{s.markdown.replace(/^\s*# [^\n]*\n+/, "")}</ReactMarkdown>
+        <FileBody markdown={s.markdown.replace(/^\s*# [^\n]*\n+/, "")} filled={!!f.content} suggestions={s.suggestions} canDecide={s.canDecide} />
       </article>
     </div>
+  );
+}
+
+/** The file's text, with pending suggestions shown at the end of the section each would be added to. */
+function FileBody({ markdown, filled, suggestions, canDecide }: { markdown: string; filled: boolean; suggestions: SuggestionItem[]; canDecide: boolean }) {
+  if (!suggestions.length) return <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>;
+  const layout = sectionLayout(markdown);
+  // Where each section ends (its first heading, as an accept would use); an empty file has no sections of its own yet.
+  const endOf = new Map<string, number>();
+  if (filled) layout.forEach((c, i) => c.closes.forEach((k) => { if (!endOf.has(k)) endOf.set(k, i); }));
+  const at = (i: number) => suggestions.filter((x) => x.section && endOf.get(headingKey(x.section)) === i);
+  const rest = suggestions.filter((x) => !x.section || !endOf.has(headingKey(x.section)));
+  return (
+    <>
+      {layout.map((c, i) => (
+        <div key={i}>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{c.markdown}</ReactMarkdown>
+          <VaultSuggestions items={at(i)} canDecide={canDecide} />
+        </div>
+      ))}
+      <VaultSuggestions items={rest} canDecide={canDecide} newSection />
+    </>
   );
 }
 
