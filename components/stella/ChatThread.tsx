@@ -7,6 +7,8 @@ import { ArrowUp, AudioLines, ChevronDown, ChevronRight, FileText, Mic, Papercli
 import { cn } from "@/lib/utils";
 import { ask, newChat, readFiles, type Chat, type ChatFile } from "./store";
 import { DocumentCard } from "./DocumentCard";
+import { EvidencePanel } from "./EvidencePanel";
+import { visibleAnswer } from "@/lib/stella/evidence";
 import type { PickProject } from "./ScopePicker";
 import { useVoice } from "./useVoice";
 
@@ -50,7 +52,7 @@ export function ChatThread({ chat, scope, scopeName, projects, suggestions = [],
     if (spokenFor.current === key) return;
     spokenFor.current = key;
     const docs = last.documents?.length ? ` I also made ${last.documents.length === 1 ? "a document" : `${last.documents.length} documents`}: ${last.documents.map((d) => d.title).join(", ")}.` : "";
-    voice.speak((last.error ? `Something went wrong: ${last.error}` : last.content) + docs, () => voice.listen());
+    voice.speak((last.error ? `Something went wrong: ${last.error}` : visibleAnswer(last.content)) + docs, () => voice.listen());
   }, [voiceMode, last, messages.length, chat?.id, voice]);
 
   async function addFiles(list: FileList | File[] | null) {
@@ -89,7 +91,7 @@ export function ChatThread({ chat, scope, scopeName, projects, suggestions = [],
             <div className="flex flex-col gap-space-3 pt-space-6">
               <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[hsl(var(--color-action-subtle-bg))]"><Sparkles className="h-4 w-4 text-primary" /></span>
               <h2 className={cn("font-display font-semibold", compact ? "text-lg" : "text-2xl")}>Ask about {scopeName}</h2>
-              <p className="max-w-[60ch] text-sm text-muted-foreground">I answer from the vaults, books and account data of the projects you choose, cite every source, and say when something isn’t recorded. Attach files, ask me to write a document or export a project’s context, or talk to me.</p>
+              <p className="max-w-[60ch] text-sm text-muted-foreground">I answer from the vaults, books and account data of the projects you choose, show the evidence behind each answer, and say when something isn’t recorded. Attach files, ask me to write a document or export a project’s context, or talk to me.</p>
               {suggestions.length > 0 && <div className="flex flex-col gap-1 pt-space-2">{suggestions.map((s) => <button key={s} onClick={() => send(s)} className="rounded-lg border border-border bg-card px-space-3 py-space-2 text-left text-sm hover:border-primary hover:bg-muted/40">{s}</button>)}</div>}
             </div>
           )}
@@ -102,10 +104,11 @@ export function ChatThread({ chat, scope, scopeName, projects, suggestions = [],
             <div key={i} className="flex flex-col gap-space-2">
               {!!m.steps?.length && <Steps steps={m.steps} live={!!m.pending && !m.content} />}
               {m.pending && !m.content && !m.error && !m.steps?.length && <span className="text-sm text-muted-foreground">Reading the vault…</span>}
-              {m.content && <div className="prose-vault stella-answer text-[15px]"><ReactMarkdown remarkPlugins={[remarkGfm]}>{m.content.replace(SOURCE, " `$1`")}</ReactMarkdown></div>}
+              {m.content && <div className="prose-vault stella-answer text-[15px]"><ReactMarkdown remarkPlugins={[remarkGfm]}>{visibleAnswer(m.content).replace(SOURCE, " `$1`")}</ReactMarkdown></div>}
+              {!m.pending && !!m.evidence?.length && <EvidencePanel evidence={m.evidence} />}
               {m.documents?.map((d) => <DocumentCard key={d.id} doc={d} projects={projects} defaultOpen={!compact && d.kind === "written"} />)}
               {m.content && !m.pending && voice.supported.speak && (
-                <button type="button" onClick={() => (voice.speaking ? voice.stopSpeaking() : voice.speak(m.content))} className="flex w-fit items-center gap-1 text-xs text-muted-foreground hover:text-foreground">
+                <button type="button" onClick={() => (voice.speaking ? voice.stopSpeaking() : voice.speak(visibleAnswer(m.content)))} className="flex w-fit items-center gap-1 text-xs text-muted-foreground hover:text-foreground">
                   <Volume2 className="h-3.5 w-3.5" />{voice.speaking ? "Stop reading" : "Read aloud"}
                 </button>
               )}

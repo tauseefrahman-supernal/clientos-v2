@@ -5,9 +5,10 @@ import { join } from "node:path";
 import { getAccount, listAccounts } from "@/lib/data";
 import { buildExport, type ExportPart } from "@/lib/export";
 import { listSources, readSource, search, searchExpertise } from "./corpus";
+import { resolveRefs, splitEvidence, type Evidence, type KnownSource } from "./evidence";
 
 // Stella: answers questions about one project, several, or all of them, from their vaults, books
-// and research, with citations; writes documents and compiles exports. Manual streaming tool
+// and research, with the evidence for each answer; writes documents and compiles exports. Manual streaming tool
 // loop so every text delta, tool call and document reaches the browser.
 
 export const MODEL = "claude-opus-5-5";
@@ -17,13 +18,13 @@ const RULES = `You are Stella, the strategy agent inside ClientOS at Supernal, a
 
 How you work:
 - Answer only from what the tools return. Search before you answer anything factual; read a source in full when an excerpt is not enough. With several projects in scope, search each one that matters (pass project) or all at once (leave project out).
-- Cite every factual claim with the source label in square brackets, exactly as the tool gave it, e.g. [File Technical Strategy/Feature-Rationale.md] or [Heritage · Book, chapter 2: Why they bought]. A claim you cannot cite does not go in the answer. When comparing projects, say which project each fact belongs to.
-- When sources disagree, say so and give both, with their citations. Never pick one silently.
+- Keep source labels out of the prose of a chat answer. End every factual answer with one fenced code block tagged evidence holding a JSON array, one entry per key point: {"point": the point in a few words, "source": the source label exactly as the tool gave it, e.g. "File Technical Strategy/Feature-Rationale.md" or "Heritage · Book, chapter 2: Why they bought", "quote": a short quote from that source, at most 200 characters}. Nothing comes after the block. A claim you cannot source does not go in the answer. When comparing projects, say which project each fact belongs to.
+- When sources disagree, say so and give both, each with its own evidence entry. Never pick one silently.
 - If the sources do not hold the answer, say what is missing and where it would likely be found (a meeting, Linear, Account OS, Drive). Do not guess.
 - "Why" questions usually have several causes. Give each one, in order of weight.
 - Write plainly for a busy strategist: lead with the answer, short paragraphs or a short list, no preamble, no closing summary. Use each project's own names for people, products and documents.
 - Files the strategist attached to their message are in the message itself; use them and say so when you do. They are not in the vault unless the strategist saves them.
-- When asked for a document (a brief, a proposal section, a summary, meeting prep, a one-pager), write it with create_document rather than in the reply, then reply in one or two lines saying what it holds. The document follows the same citation rules.
+- When asked for a document (a brief, a proposal section, a summary, meeting prep, a one-pager), write it with create_document rather than in the reply, then reply in one or two lines saying what it holds. Documents leave ClientOS, so they cite inline instead: every factual claim followed by its source label in square brackets, exactly as the tool gave it, e.g. [File Technical Strategy/Feature-Rationale.md]; a claim you cannot cite does not go in.
 - When asked to export or pull together context from projects (their vault files, book, artifacts), use compile_export: it assembles the material itself, so do not retype it.
 - You cannot change the vault. If the strategist asks for a change, draft it as a document and say it needs their approval; they can save a document to a project's vault themselves.`;
 
@@ -63,7 +64,7 @@ const tools: Anthropic.Tool[] = [
   },
   {
     name: "create_document",
-    description: "Write a document the strategist can download, print or save to a project's vault: a brief, meeting prep, a proposal section, a one-pager, a comparison. Markdown, starting with a # title. Cite sources inline in square brackets as in answers.",
+    description: "Write a document the strategist can download, print or save to a project's vault: a brief, meeting prep, a proposal section, a one-pager, a comparison. Markdown, starting with a # title. Cite every factual claim inline with its source label in square brackets, exactly as the tool gave it, e.g. [File Technical Strategy/Feature-Rationale.md].",
     input_schema: { type: "object", properties: { title: { type: "string" }, content: { type: "string", description: "The full document in markdown" }, project: { type: "string", description: "The project it is about, if one" } }, required: ["title", "content"], additionalProperties: false },
     eager_input_streaming: true,
   },
@@ -96,7 +97,7 @@ function resolve(scope: Scope, key: unknown): string | null {
   return null;
 }
 
-async function runTool(scope: Scope, name: string, input: unknown, emit: (d: StellaDocument) => void): Promise<{ ok: boolean; content: string; summary: string }> {
+async function runTool(scope: Scope, name: string, input: unknown, emit: (d: StellaDocument) => void): Promise<{ ok: boolean; content: string; summary: string; sources?: KnownSource[] }> {
   const args = (input && typeof input === "object" ? input : {}) as Record<string, unknown>;
   const multi = scope.slugs.length > 1;
   const pick = (): string[] | { error: string } => {
@@ -114,27 +115,27 @@ async function runTool(scope: Scope, name: string, input: unknown, emit: (d: Ste
     const all = (await Promise.all(which.map(async (slug) => (await search(slug, args.query as string, per)).map((h) => multi ? { ...h, id: `${slug}|${h.id}`, label: `${scope.names.get(slug)} · ${h.label}` } : h)))).flat();
     const hits = all.sort((a, b) => b.score - a.score).slice(0, limit);
     const where = which.length === 1 && multi ? ` in ${scope.names.get(which[0])}` : "";
-    return { ok: true, content: hits.length ? JSON.stringify(hits) : "No matches. Try other words: names, products, dates.", summary: `searched “${args.query}”${where} · ${hits.length} hits` };
+    return { ok: true, content: hits.length ? JSON.stringify(hits) : "No matches. Try other words: names, products, dates.", summary: `searched “${args.query}”${where} · ${hits.length} hits`, sources: hits.map((h) => ({ label: h.label, slug: which[0], id: h.id })) };
   }
   if (name === "read_source") {
     if (typeof args.id !== "string") return { ok: false, content: "id must be a string", summary: "invalid read" };
     const [other, inner] = args.id.includes("|") ? args.id.split("|", 2) : [scope.slugs[0], args.id];
     const s = await readSource(other, inner);
     const label = s && (other !== scope.slugs[0] || multi) ? `${(await getAccount(other))?.account.name ?? other} · ${s.label}` : s?.label;
-    return s ? { ok: true, content: JSON.stringify({ id: args.id, label, text: s.text }), summary: `read ${label}` } : { ok: false, content: `No source with id ${args.id}. Call list_sources.`, summary: "source not found" };
+    return s ? { ok: true, content: JSON.stringify({ id: args.id, label, text: s.text }), summary: `read ${label}`, sources: [{ label: label ?? s.label, slug: other, id: inner }] } : { ok: false, content: `No source with id ${args.id}. Call list_sources.`, summary: "source not found" };
   }
   if (name === "list_sources") {
     const which = pick();
     if ("error" in which) return { ok: false, content: which.error, summary: "unknown project" };
     const slug = which[0];
     const l = (await listSources(slug)).map((x) => multi ? { id: `${slug}|${x.id}`, label: `${scope.names.get(slug)} · ${x.label}` } : x);
-    return { ok: true, content: JSON.stringify(l), summary: `listed ${l.length} sources${multi ? ` in ${scope.names.get(slug)}` : ""}` };
+    return { ok: true, content: JSON.stringify(l), summary: `listed ${l.length} sources${multi ? ` in ${scope.names.get(slug)}` : ""}`, sources: l.map((x) => ({ label: x.label, slug, id: x.id })) };
   }
   if (name === "search_expertise") {
     if (typeof args.query !== "string" || !args.query.trim()) return { ok: false, content: "query must be a non-empty string", summary: "invalid search" };
     const inScope = new Set(scope.slugs);
     const hits = (await searchExpertise(scope.slugs[0], args.query, 16)).filter((h) => !inScope.has(h.id.split("|")[0])).slice(0, Math.min(12, Math.max(1, Number(args.limit) || 8)));
-    return { ok: true, content: hits.length ? JSON.stringify(hits) : "No matches in other projects.", summary: `searched other projects for “${args.query}” · ${hits.length} hits` };
+    return { ok: true, content: hits.length ? JSON.stringify(hits) : "No matches in other projects.", summary: `searched other projects for “${args.query}” · ${hits.length} hits`, sources: hits.map((h) => ({ label: h.label, slug: h.id.split("|")[0], id: h.id })) };
   }
   if (name === "create_document") {
     if (typeof args.title !== "string" || typeof args.content !== "string" || !args.content.trim()) return { ok: false, content: "title and content (markdown) are required", summary: "invalid document" };
@@ -188,6 +189,8 @@ export type StellaEvent =
   /** The text streamed since the last reset was working notes before a tool call, not the answer. */
   | { type: "reset" }
   | { type: "document"; doc: StellaDocument }
+  /** Where the answer's points came from, split off the end of the answer text; sent once, before done. */
+  | { type: "evidence"; items: Evidence[] }
   | { type: "done"; stop: string; usage: { input: number; output: number; cacheRead: number } }
   | { type: "error"; message: string };
 
@@ -214,12 +217,14 @@ export async function* askStella(scopeIn: string[], history: Turn[]): AsyncGener
   const slugs = all ? everyone.map((b) => b.account.slug) : scopeIn.filter((x) => names.has(x));
   if (!slugs.length) { yield { type: "error", message: "Choose at least one project." }; return; }
   const scope: Scope = { slugs, all, names };
-  const messages: Anthropic.Beta.BetaMessageParam[] = history.map((m): Anthropic.Beta.BetaMessageParam => ({ role: m.role, content: m.role === "user" ? userContent(m) : m.content }));
+  const messages: Anthropic.Beta.BetaMessageParam[] = history.map((m): Anthropic.Beta.BetaMessageParam => ({ role: m.role, content: m.role === "user" ? userContent(m) : splitEvidence(m.content).answer }));
   const system: Anthropic.Beta.BetaTextBlockParam[] = [
     { type: "text", text: `${RULES}\n\n# Your frameworks\n\n${frameworks()}`, cache_control: { type: "ephemeral" } },
     { type: "text", text: await scopeHeader(scope), cache_control: { type: "ephemeral" } },
   ];
   const docs: StellaDocument[] = [];
+  const known: KnownSource[] = [];   // every source a tool returned this turn, to resolve evidence labels
+  let said = "";                     // the answer text since the last reset
   const usage = { input: 0, output: 0, cacheRead: 0 };
 
   for (let turn = 0; turn < MAX_TURNS; turn++) {
@@ -241,9 +246,9 @@ export async function* askStella(scopeIn: string[], history: Turn[]): AsyncGener
     const done = stream.finalMessage().then((m) => { message = m; }, (e) => { failure = e; });
     while (!message && !failure) {
       await Promise.race([done, new Promise((r) => setTimeout(r, 60))]);
-      while (queue.length) yield { type: "text", delta: queue.shift()! };
+      while (queue.length) { const d = queue.shift()!; said += d; yield { type: "text", delta: d }; }
     }
-    while (queue.length) yield { type: "text", delta: queue.shift()! };
+    while (queue.length) { const d = queue.shift()!; said += d; yield { type: "text", delta: d }; }
     if (failure) {
       yield { type: "error", message: failure instanceof Anthropic.APIError ? `Claude API error ${failure.status}: ${failure.message}` : String(failure) };
       return;
@@ -253,13 +258,20 @@ export async function* askStella(scopeIn: string[], history: Turn[]): AsyncGener
 
     if (m.stop_reason === "refusal") { yield { type: "text", delta: "\n\nI can’t help with that request." }; yield { type: "done", stop: "refusal", usage }; return; }
     const calls = m.content.filter((b): b is Anthropic.Beta.BetaToolUseBlock => b.type === "tool_use");
-    if (!calls.length || m.stop_reason === "end_turn") { yield { type: "done", stop: String(m.stop_reason), usage }; return; }
+    if (!calls.length || m.stop_reason === "end_turn") {
+      const { evidence } = splitEvidence(said);
+      if (evidence.length) yield { type: "evidence", items: resolveRefs(evidence, known) };
+      yield { type: "done", stop: String(m.stop_reason), usage };
+      return;
+    }
     if (m.stop_reason === "max_tokens") { yield { type: "error", message: "The answer ran past its length limit." }; return; }
 
     yield { type: "reset" };
+    said = "";
     messages.push({ role: "assistant", content: m.content });
     const results: Anthropic.Beta.BetaToolResultBlockParam[] = await Promise.all(calls.map(async (c) => {
       const r = await runTool(scope, c.name, c.input, (d) => docs.push(d));
+      if (r.sources) known.push(...r.sources);
       return { type: "tool_result", tool_use_id: c.id, content: r.content, is_error: !r.ok, _summary: r.summary } as Anthropic.Beta.BetaToolResultBlockParam & { _summary: string };
     }));
     for (const r of results as (Anthropic.Beta.BetaToolResultBlockParam & { _summary: string })[]) { yield { type: "tool", name: calls.find((c) => c.id === r.tool_use_id)!.name, summary: r._summary }; delete (r as { _summary?: string })._summary; }

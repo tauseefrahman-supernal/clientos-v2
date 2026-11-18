@@ -1,13 +1,16 @@
 import "server-only";
 import { db, dbEnabled } from "./db";
+import { joinEvidence, splitEvidence, type Evidence } from "@/lib/stella/evidence";
 
 // Stella conversations in clientos.stella_chats / stella_messages, one set per signed-in user
 // (created_by; null when sign-in is off). A chat's scope is the projects it asks about: slugs, or
 // ["*"] for all. Chat ids are UUIDs made by the browser, so a chat shows before it is saved.
+// An answer's evidence is stored in its content as a trailing ```evidence block (no column of its
+// own) and split off again when chats are listed.
 
 export type ChatDocument = { id: string; title: string; content: string; projects: string[]; kind: "written" | "export" };
 export type ChatFile = { name: string; kind: "text" | "pdf"; size: number; text?: string };
-export type ChatMessage = { role: "user" | "assistant"; content: string; steps?: string[]; error?: string; documents?: ChatDocument[]; attachments?: ChatFile[]; at: number };
+export type ChatMessage = { role: "user" | "assistant"; content: string; steps?: string[]; error?: string; documents?: ChatDocument[]; attachments?: ChatFile[]; evidence?: Evidence[]; at: number };
 export type Chat = { id: string; scope: string[]; title: string; messages: ChatMessage[]; updatedAt: number };
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -35,7 +38,8 @@ export async function listChats(userId: string | null): Promise<Chat[] | null> {
   const by = new Map<string, ChatMessage[]>();
   for (const m of msgs ?? []) {
     if (!by.has(m.chat_id)) by.set(m.chat_id, []);
-    by.get(m.chat_id)!.push({ role: m.role, content: m.content, steps: m.steps ?? [], error: m.error ?? undefined, documents: m.documents ?? [], attachments: m.attachments ?? [], at: Date.parse(m.created_at) });
+    const { answer, evidence } = m.role === "assistant" ? splitEvidence(m.content) : { answer: m.content, evidence: [] };
+    by.get(m.chat_id)!.push({ role: m.role, content: answer, evidence: evidence.length ? evidence : undefined, steps: m.steps ?? [], error: m.error ?? undefined, documents: m.documents ?? [], attachments: m.attachments ?? [], at: Date.parse(m.created_at) });
   }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return (chats ?? []).map((c: any) => ({ id: c.id, scope: c.scope?.length ? c.scope : c.accounts?.slug ? [c.accounts.slug] : [], title: c.title, updatedAt: Date.parse(c.updated_at), messages: by.get(c.id) ?? [] }));
@@ -62,7 +66,7 @@ export async function deleteChat(id: string, userId: string | null) {
 
 /** Save one question and its answer, and name the chat after its first question. */
 export async function saveExchange(chatId: string, scope: string[], userId: string | null, question: string, attachments: ChatFile[],
-  answer: { content: string; steps: string[]; error?: string; usage?: unknown; documents: ChatDocument[] }) {
+  answer: { content: string; steps: string[]; error?: string; usage?: unknown; documents: ChatDocument[]; evidence?: Evidence[] }) {
   if (!dbEnabled()) return;
   await createChat(chatId, scope, userId, question.slice(0, 60));
   // Only write into a chat that belongs to this user.
@@ -72,7 +76,7 @@ export async function saveExchange(chatId: string, scope: string[], userId: stri
   // Batch inserts send null for any column a row leaves out, so every row sets every column.
   const { error } = await db().from("stella_messages").insert([
     { chat_id: chatId, role: "user", content: question, steps: [], error: null, usage: null, documents: [], attachments, created_at: new Date(now).toISOString() },
-    { chat_id: chatId, role: "assistant", content: answer.content, steps: answer.steps, error: answer.error ?? null, usage: answer.usage ?? null, documents: answer.documents, attachments: [], created_at: new Date(now + 1).toISOString() },
+    { chat_id: chatId, role: "assistant", content: joinEvidence(splitEvidence(answer.content).answer, answer.evidence ?? []), steps: answer.steps, error: answer.error ?? null, usage: answer.usage ?? null, documents: answer.documents, attachments: [], created_at: new Date(now + 1).toISOString() },
   ]);
   if (error) throw new Error(error.message);
   await db().from("stella_chats").update({ updated_at: new Date().toISOString(), scope, account_id: await primaryAccount(scope), ...(owned.title === "New chat" ? { title: question.slice(0, 60) } : {}) }).eq("id", chatId);
