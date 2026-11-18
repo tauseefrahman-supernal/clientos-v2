@@ -63,7 +63,7 @@ export async function loadFromDb(): Promise<DbStore> {
     all("vault_files", "account_id,path,category_slug,template_name,summary,content,source,state,in_book,shown"),
     all("book_chapters"), all("artifacts"), all("workflows"),
     // One row per project link: that project's headline, plus the call it points to.
-    all("transcript_accounts", "account_id,headline,transcripts(provider,external_id,title,met_at,participants,kind,summary,url,alt_url)"),
+    all("transcript_accounts", "account_id,headline,transcripts(provider,external_id,title,met_at,participants,kind,summary,url,alt_url)", (q) => q.order("transcript_id").order("account_id")),
   ]);
   const slugOf = new Map(accounts.map((a) => [a.id as string, a.slug as string]));
   const by = <T,>(rows: Row[], map: (r: Row) => T) => {
@@ -146,7 +146,7 @@ function matchRulesFor(root: string, slug: string): { kind: "keyword" | "email" 
     const value = String(t ?? "").trim();
     if (!value) continue;
     const kind = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(value) ? "email" : /^[a-z0-9-]+(\.[a-z0-9-]+)*\.[a-z]{2,}$/i.test(value) ? "domain" : "keyword";
-    const v = kind === "keyword" ? value : value.toLowerCase();
+    const v = value.toLowerCase();
     if (seen.has(`${kind}:${v}`)) continue;
     seen.add(`${kind}:${v}`);
     out.push({ kind, value: v });

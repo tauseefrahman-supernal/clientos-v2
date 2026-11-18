@@ -73,6 +73,24 @@ from clientos.transcripts t;
 insert into clientos.transcript_accounts (transcript_id, account_id, headline, source)
 select keep_id, account_id, summary, 'auto' from _keep where account_id is not null;
 
+-- Body, links and participants missing on the kept copy come from the earliest-pulled copy that has them.
+update clientos.transcripts t set
+  body         = coalesce(m.body, t.body),
+  url          = coalesce(m.url, t.url),
+  alt_url      = coalesce(m.alt_url, t.alt_url),
+  participants = coalesce(m.participants, t.participants)
+from (
+  select k.keep_id,
+         (array_agg(o.body         order by o.pulled_at, o.id) filter (where o.body is not null))[1]    as body,
+         (array_agg(o.url          order by o.pulled_at, o.id) filter (where o.url is not null))[1]     as url,
+         (array_agg(o.alt_url      order by o.pulled_at, o.id) filter (where o.alt_url is not null))[1] as alt_url,
+         (array_agg(o.participants order by o.pulled_at, o.id) filter (where o.participants <> '[]'::jsonb))[1] as participants
+  from _keep k join clientos.transcripts o on o.id = k.old_id
+  group by k.keep_id
+  having count(*) > 1
+) m
+where t.id = m.keep_id;
+
 -- Chunks of a dropped copy move to the kept row before the copy goes.
 update clientos.chunks c set owner_id = k.keep_id
 from _keep k where c.owner_type = 'transcript' and c.owner_id = k.old_id and k.old_id <> k.keep_id;
@@ -122,12 +140,17 @@ create table clientos.chunk_accounts (
 create index chunk_accounts_account_idx on clientos.chunk_accounts (account_id);
 insert into clientos.chunk_accounts (chunk_id, account_id)
 select id, account_id from clientos.chunks where account_id is not null;
+-- A call's chunks belong to every project the call is linked to.
+insert into clientos.chunk_accounts (chunk_id, account_id)
+select c.id, ta.account_id from clientos.chunks c join clientos.transcript_accounts ta on ta.transcript_id = c.transcript_id
+on conflict do nothing;
 
 -- ---------- hybrid search ----------
 -- Reciprocal-rank fusion (k = 60) of vector similarity and full-text rank. Without an explicit date
 -- range the fused score halves every 60 days of age; chunks with no date are not penalised.
--- A null q_embedding searches full text only; null filters mean "no filter" (callers pass the
--- projects the person may see as account_ids).
+-- A null q_embedding searches full text only. Projects are deny by default: only chunks linked to
+-- account_ids are searched, and a null or empty list finds nothing unless all_projects is true
+-- (admins). Other null filters mean "no filter".
 create or replace function clientos.search_chunks(
   q_embedding vector(1024) default null,
   q_text      text         default null,
@@ -136,10 +159,13 @@ create or replace function clientos.search_chunks(
   since       timestamptz  default null,
   until       timestamptz  default null,
   speakers    text[]       default null,
-  k           int          default 6
+  k           int          default 6,
+  all_projects boolean     default false
 ) returns table (chunk_id uuid, transcript_id uuid, account_id uuid, layer text, label text, body text, met_at timestamptz, speakers text[], score real)
 language sql stable
 set search_path = clientos, public, extensions
+set hnsw.iterative_scan = 'relaxed_order'   -- keep scanning the index until filtered rows are found
+set hnsw.ef_search = 200
 as $$
   with base as not materialized (
     select c.id, c.embedding, c.body
@@ -149,7 +175,7 @@ as $$
       and (search_chunks.since  is null or c.met_at >= search_chunks.since)
       and (search_chunks.until  is null or c.met_at <  search_chunks.until)
       and (search_chunks.speakers is null or c.speakers && search_chunks.speakers)
-      and (search_chunks.account_ids is null or exists (
+      and (search_chunks.all_projects or exists (
             select 1 from clientos.chunk_accounts ca where ca.chunk_id = c.id and ca.account_id = any (search_chunks.account_ids)))
   ),
   vec as (
@@ -173,7 +199,7 @@ as $$
   )
   select c.id, c.transcript_id,
          coalesce((select ca.account_id from clientos.chunk_accounts ca
-                   where ca.chunk_id = c.id and (search_chunks.account_ids is null or ca.account_id = any (search_chunks.account_ids))
+                   where ca.chunk_id = c.id and (search_chunks.all_projects or ca.account_id = any (search_chunks.account_ids))
                    order by ca.account_id = c.account_id desc nulls last limit 1), c.account_id),
          c.layer, c.label, c.body, c.met_at, c.speakers,
          (f.s * case when search_chunks.since is null and search_chunks.until is null and c.met_at is not null
@@ -184,8 +210,8 @@ as $$
   limit greatest(search_chunks.k, 1);
 $$;
 
-revoke all on function clientos.search_chunks(vector, text, uuid[], text[], timestamptz, timestamptz, text[], int) from public, anon, authenticated;
-grant execute on function clientos.search_chunks(vector, text, uuid[], text[], timestamptz, timestamptz, text[], int) to service_role;
+revoke all on function clientos.search_chunks(vector, text, uuid[], text[], timestamptz, timestamptz, text[], int, boolean) from public, anon, authenticated;
+grant execute on function clientos.search_chunks(vector, text, uuid[], text[], timestamptz, timestamptz, text[], int, boolean) to service_role;
 
 -- ---------- access: service role only, like the other clientos tables ----------
 alter table clientos.transcript_accounts  enable row level security;
