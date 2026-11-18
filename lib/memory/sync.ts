@@ -83,11 +83,12 @@ export const dbSyncStore: SyncStore = {
   },
 
   async fold(fromId, toId) {
-    // Links: the kept row's existing links win; overrides move across; then the duplicate goes (its chunks cascade).
+    // Links: the kept row's existing links win; overrides and vault suggestions move across; then the duplicate goes (its chunks cascade).
     const links = check(await db().from("transcript_accounts").select("account_id,headline,source").eq("transcript_id", fromId), "read duplicate links") as Row[];
     if (links.length)
       check(await db().from("transcript_accounts").upsert(links.map((l) => ({ transcript_id: toId, account_id: l.account_id, headline: l.headline, source: l.source })), { onConflict: "transcript_id,account_id", ignoreDuplicates: true }), "move duplicate links");
     check(await db().from("transcript_overrides").update({ transcript_id: toId }).eq("transcript_id", fromId), "move duplicate overrides");
+    check(await db().from("vault_suggestions").update({ transcript_id: toId }).eq("transcript_id", fromId), "move duplicate suggestions");
     check(await db().from("transcripts").delete().eq("id", fromId), "delete duplicate call");
   },
 

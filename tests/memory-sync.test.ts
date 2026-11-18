@@ -646,3 +646,21 @@ test("absorbStored leaves the input rows untouched", () => {
   assert.equal(out.rows[0].provider, "granola");
   assert.equal(out.rekeys.length, 1);
 });
+
+// ---------------------------------------------------------------- fix round 2
+
+test("an onlySlugs run folds no seeded pair and logs no rekey it did not apply", async () => {
+  const store = new FakeStore();
+  store.seed({ provider: "granola", external_id: "g1x", alt_url: "https://fathom.video/calls/42", met_at: "2026-10-10T10:00:00.000Z" });
+  store.seed({ provider: "fathom", external_id: "42", met_at: "2026-10-10T10:00:00.000Z" });
+  const f = store.seed({ provider: "fathom", external_id: "555", title: "Fathom title", url: "https://fathom.video/calls/555", met_at: "2026-11-10T10:00:00.000Z" });
+  // A Breakr call that would rekey the stored Fathom row, filtered out by onlySlugs.
+  const g = { ...call({ externalId: "g-br", title: "Breakr weekly", sourceSummary: "" }), altUrl: "https://fathom.video/calls/555" };
+  const fathomCopy = call({ provider: "fathom", externalId: "555", fetchId: "r555", url: "https://fathom.video/calls/555", title: "Breakr weekly", sourceSummary: "" });
+  const { d } = deps(store, { granola: { calls: [g], cursor: null, rateLimited: false, skipped: 0 }, fathom: { calls: [fathomCopy], cursor: null, rateLimited: false, skipped: 0 } });
+  const out = await runSyncWith({ since: "2026-11-01T00:00:00.000Z", onlySlugs: ["world-emblem"] }, d);
+  assert.ok(store.row("fathom", "42"));
+  assert.equal(f.provider, "fathom");
+  assert.equal(store.writes, 0);
+  assert.ok(!out.log.some((l) => /folded|is now Granola/.test(l)));
+});

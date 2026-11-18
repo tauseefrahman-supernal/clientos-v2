@@ -29,7 +29,10 @@ function syncOptions(body: Body) {
     opts.onlySlugs = body.onlySlugs.map((s) => (s as string).trim());
   }
   if (body.full === true) opts.full = true;
-  if (body.preview === true) opts.preview = true;
+  if (body.preview === true) {
+    if (opts.since !== undefined || opts.onlySlugs) throw new BadRequest("preview lists everything; leave out onlySlugs and since");
+    opts.preview = true;
+  }
   if (body.confirmFull === true) opts.confirmFull = true;
   return opts;
 }

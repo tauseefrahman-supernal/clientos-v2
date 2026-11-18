@@ -57,7 +57,7 @@ export interface SyncStore {
   clearPersonnel(ids: string[]): Promise<void>;
   /** Re-identify a stored row in place (a Fathom row becoming the Granola call of the same meeting). */
   rekey(id: string, provider: Provider, externalId: string, altUrl: string | null): Promise<void>;
-  /** Move a duplicate row's project links (existing links win) and overrides onto another row, then delete it. */
+  /** Move a duplicate row's project links (existing links win), overrides and vault suggestions onto another row, then delete it. */
   fold(fromId: string, toId: string): Promise<void>;
   /** auto links never overwrite an existing link; manual links set source manual. */
   link(rows: { transcriptId: string; accountId: string; source: "auto" | "manual" }[]): Promise<void>;
@@ -110,7 +110,7 @@ export type SyncCall = MergedCall & { fetchFrom?: { provider: Provider; id: stri
 
 export type Outcome = { kind: "meta" } | { kind: "screened"; result: ScreenResult; turns: Turn[] } | { kind: "final-gone" };
 
-export interface Rekey { rowId: string; fromKey: string; provider: Provider; externalId: string; altUrl: string | null }
+export interface Rekey { rowId: string; fromKey: string; provider: Provider; externalId: string; altUrl: string | null; note: string }
 
 const keyOf = (provider: string, externalId: string) => `${provider}:${externalId}`;
 
@@ -194,12 +194,12 @@ export function seededPairs(rows: StoredRow[]): { folds: { fromId: string; toId:
  *   is listed too, the Fathom copy only lends its link and turns.
  * `rows` is not changed; the returned rows carry the rekeys.
  */
-export function absorbStored(calls: SyncCall[], rows: StoredRow[]): { calls: SyncCall[]; rows: StoredRow[]; rekeys: Rekey[]; notes: string[] } {
+export function absorbStored(calls: SyncCall[], rows: StoredRow[]): { calls: SyncCall[]; rows: StoredRow[]; rekeys: Rekey[]; notes: { key: string; text: string }[] } {
   const live = rows.map((r) => ({ ...r }));
   const byKey = new Map(live.map((r) => [keyOf(r.provider, r.externalId), r]));
   const claimed = new Set<string>();
   const rekeys: Rekey[] = [];
-  const notes: string[] = [];
+  const notes: { key: string; text: string }[] = [];
   const out: SyncCall[] = [];
   const at = new Map<string, number>();
   const push = (c: SyncCall) => { at.set(keyOf(c.provider, c.externalId), out.length); out.push(c); };
@@ -216,8 +216,7 @@ export function absorbStored(calls: SyncCall[], rows: StoredRow[]): { calls: Syn
     if (!target) { push(c); continue; }
     const fromKey = keyOf(target.provider, target.externalId);
     const altUrl = c.altUrl ?? target.url ?? null;
-    rekeys.push({ rowId: target.id, fromKey, provider: "granola", externalId: c.externalId, altUrl });
-    notes.push(`stored Fathom row "${target.title}" is now Granola call ${c.externalId}`);
+    rekeys.push({ rowId: target.id, fromKey, provider: "granola", externalId: c.externalId, altUrl, note: `stored Fathom row "${target.title}" is now Granola call ${c.externalId}` });
     byKey.delete(fromKey);
     Object.assign(target, { provider: "granola", externalId: c.externalId, altUrl });
     byKey.set(keyOf("granola", c.externalId), target);
@@ -241,7 +240,7 @@ export function absorbStored(calls: SyncCall[], rows: StoredRow[]): { calls: Syn
       continue;
     }
     const { fetchId, ...rest } = c;
-    notes.push(`Fathom call ${c.externalId} folded into stored row "${target.title}"`);
+    notes.push({ key, text: `Fathom call ${c.externalId} folded into stored row "${target.title}"` });
     push({
       ...rest, provider: target.provider as Provider, externalId: target.externalId, url: "", altUrl: c.url, absorbed: true,
       fetchFrom: { provider: "fathom", id: fetchId ?? c.externalId },
@@ -387,7 +386,8 @@ export async function runSyncWith(opts: SyncOptions, deps: SyncDeps): Promise<Sy
   }
 
   // ---- one row per meeting: fold seeded pairs, then match listed calls against stored rows
-  const paired = seededPairs(snap.rows);
+  // Folding seeded pairs deletes rows, so an onlySlugs (trial) run leaves them alone.
+  const paired = only ? { folds: [] as { fromId: string; toId: string; title: string }[], rows: snap.rows } : seededPairs(snap.rows);
   const foldedInto = new Map(paired.folds.map((f) => [f.fromId, f.toId]));
   const accountById = new Map(snap.accounts.map((a) => [a.id, a]));
   const accountIdOf = new Map(snap.accounts.map((a) => [a.slug, a.id]));
@@ -449,8 +449,8 @@ export async function runSyncWith(opts: SyncOptions, deps: SyncDeps): Promise<Sy
 
   // ---- apply: folds and rekeys, then bodies that must go and unlinks
   for (const f of paired.folds) { await store.fold(f.fromId, f.toId); log.push(`folded a duplicate Fathom row into "${f.title}"`); }
-  for (const k of rekeys) await store.rekey(k.rowId, k.provider, k.externalId, k.altUrl);
-  for (const n of absorbed.notes) log.push(n);
+  for (const k of rekeys) { await store.rekey(k.rowId, k.provider, k.externalId, k.altUrl); log.push(k.note); }
+  for (const n of absorbed.notes) if (callByKey.has(n.key)) log.push(n.text);
   const drop = plan.dropBodies.map((k) => rowByKey.get(k)).filter((r): r is StoredRow => !!r && (r.hasBody || r.status !== "personnel")).map((r) => r.id);
   if (drop.length) { await store.dropBodies(drop); log.push(`dropped ${drop.length} personnel bod${drop.length === 1 ? "y" : "ies"}`); }
   const unlinks = plan.unlinks
