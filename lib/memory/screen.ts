@@ -18,8 +18,9 @@ const WORDS_PER_MINUTE = 150;
 export const SCREEN_BUDGET = 150_000;
 const OVERLAP_TURNS = 3;
 
-function oneLine(s: string): string {
-  return s.replace(/\s+/g, " ").trim();
+/** The one sanitiser for every field that enters the prompt: no angle brackets at all, whitespace collapsed to single spaces. */
+function sanitise(s: string): string {
+  return s.replace(/[<>]/g, "").replace(/\s+/g, " ").trim();
 }
 
 function wordCount(text: string): number {
@@ -77,7 +78,8 @@ export function applyCuts(turns: Turn[], cuts: Cut[]): Turn[] {
 
 /**
  * Validates the model's JSON reply; anything malformed or out of range is an error.
- * Cuts must lie in first..turnCount-1 (first is a batch's first own turn). A personnel verdict carries no cuts.
+ * Cuts must lie in 0..turnCount-1. In a batch (first > 0, the batch's first own turn), a cut that starts in the
+ * context turns is clamped to start at first, and one wholly in the context is dropped. A personnel verdict carries no cuts.
  */
 export function parseScreenReply(text: string, turnCount: number, first = 0): ScreenResult {
   const error = { verdict: "error" } as const;
@@ -94,12 +96,17 @@ export function parseScreenReply(text: string, turnCount: number, first = 0): Sc
     const { from, to, reason } = c as Record<string, unknown>;
     if (!Number.isInteger(from) || !Number.isInteger(to)) return error;
     const f = from as number, t = to as number;
-    if (f < first || t > turnCount - 1 || f > t) return error;
+    if (f < 0 || t > turnCount - 1 || f > t) return error;
     if (reason !== "personnel" && reason !== "private") return error;
     valid.push({ from: f, to: t, reason });
   }
+  // Checked before clamping: "cut" with no ranges is a malformed reply even in a batch.
   if (verdict === "clean" && valid.length > 0) return error;
   if (verdict === "cut" && valid.length === 0) return error;
+  if (first > 0 && verdict === "cut") {
+    const own = valid.map((c) => ({ ...c, from: Math.max(c.from, first) })).filter((c) => c.from <= c.to);
+    return own.length ? { verdict, cuts: own } : { verdict: "clean", cuts: [] };
+  }
   return { verdict, cuts: verdict === "personnel" ? [] : valid };
 }
 
@@ -138,12 +145,12 @@ const REPLY_SCHEMA = {
 };
 
 function promptLine(t: Turn, i: number): string {
-  return `[${i}] ${oneLine(t.speaker) || "Unknown"}: ${oneLine(t.text).replace(/<\/?transcript>/gi, "")}`;
+  return `[${i}] ${sanitise(t.speaker) || "Unknown"}: ${sanitise(t.text)}`;
 }
 
 /** The user message: title, source summary, and the numbered turns (global numbers, full text) of the batch. */
 export function buildPrompt(call: SourceCall, turns: Turn[], batch?: Batch): string {
-  const head = `Title: ${oneLine(call.title)}\n\nSummary:\n${call.sourceSummary || "(none)"}\n\n`;
+  const head = `Title: ${sanitise(call.title)}\n\nSummary:\n${sanitise(call.sourceSummary) || "(none)"}\n\n`;
   if (turns.length === 0) return `${head}Transcript: (none; judge from the title and summary, and answer clean or personnel)`;
   const b = batch ?? { contextFrom: 0, from: 0, to: turns.length - 1 };
   const lines: string[] = [];
