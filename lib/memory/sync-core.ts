@@ -39,6 +39,8 @@ export interface StoredRow {
   id: string; provider: string; externalId: string; goneAt: string | null; status: string;
   altUrl: string | null; hasBody: boolean; summaryEmpty: boolean; metAt: string | null;
   title: string; url: string | null;
+  /** When the body was last stored (transcripts.pulled_at); a rescreen skips rows pulled at or after rescreenBefore. */
+  pulledAt?: string | null;
 }
 
 export interface Snapshot {
@@ -107,6 +109,8 @@ export interface SyncOptions {
    * stored body; a manual personnel / not_personnel override wins over the screen.
    */
   rescreen?: boolean;
+  /** Rescreen only rows whose body was stored before this time; defaults to the run's start (returned for re-runs). */
+  rescreenBefore?: string;
   budgetMs?: number;
 }
 
@@ -117,6 +121,8 @@ export interface PreviewReport {
 }
 
 export interface RescreenReport {
+  /** Pass this back as rescreenBefore on a re-run so calls already rescreened are skipped. */
+  rescreenBefore: string;
   rescreened: number; cutsBefore: number; cutsAfter: number; minutesCutBefore: number; minutesCutAfter: number; personnel: number; errors: number;
 }
 
@@ -124,6 +130,16 @@ export interface SyncResult {
   added: number; updated: number; pending: number; gone: number; rateLimited: boolean; more: boolean; log: string[];
   preview?: PreviewReport;
   rescreen?: RescreenReport;
+}
+
+/**
+ * A manual not_personnel override: the call is not a personnel call, so a personnel verdict and personnel-reason cuts
+ * are dropped; private-detail cuts still apply. Errors pass through.
+ */
+export function applyNotPersonnel(result: ScreenResult): ScreenResult {
+  if (result.verdict === "error") return result;
+  const cuts = result.verdict === "personnel" ? [] : result.cuts.filter((c) => c.reason === "private");
+  return cuts.length ? { verdict: "cut", cuts } : { verdict: "clean", cuts: [] };
 }
 
 /** Minutes cut, summed from the markers applyCuts writes into a body ("[… removed, N min]"). */
@@ -606,6 +622,22 @@ export async function runSyncWith(opts: SyncOptions, deps: SyncDeps): Promise<Sy
     return row;
   };
   /** Fetches (when needed) and screens one call; the outcome to write. Counts what it leaves pending. */
+  // The last manual personnel / not_personnel word per call.
+  const manualPersonnel = new Map<string, boolean>();
+  for (const o of overrides) {
+    if (o.action === "personnel") manualPersonnel.set(o.externalKey, true);
+    else if (o.action === "not_personnel") manualPersonnel.set(o.externalKey, false);
+  }
+  /** One rule for first screens and rescreens: a not_personnel override keeps only private-detail cuts. */
+  const screenWithOverrides = async (call: SourceCall, key: string, title: string): Promise<ScreenResult> => {
+    const result = await deps.screen(call);
+    if (manualPersonnel.get(key) !== false || result.verdict === "error") return result;
+    const kept = applyNotPersonnel(result);
+    if (result.verdict === "personnel" || (result.verdict === "cut" && kept.verdict !== "error" && kept.cuts.length !== result.cuts.length))
+      log.push(`"${title}" is marked not personnel by hand: personnel removal dropped, private-detail cuts kept`);
+    return kept;
+  };
+
   const obtain = async (p: PlannedCall, from: { provider: Provider; id: string }): Promise<Outcome> => {
     let turns = p.turns;
     if (!turns?.length) {
@@ -631,10 +663,10 @@ export async function runSyncWith(opts: SyncOptions, deps: SyncDeps): Promise<Sy
     }
     if (overBudget()) { pending++; return { kind: "meta" }; }
     if (deadline - deps.now() < FLUSH_MARGIN_MS) await flush();
-    const result = await deps.screen({
+    const result = await screenWithOverrides({
       provider: p.provider, externalId: p.externalId, title: p.title, metAt: p.metAt, participants: p.participants,
       url: p.url, sourceSummary: p.sourceSummary, turns,
-    });
+    }, p.externalKey, p.title);
     if (result.verdict === "error") { errors++; pending++; }
     else if (result.verdict === "personnel") { personnel++; personnelKeys.add(p.externalKey); }
     else { stored++; if (result.verdict === "cut") cut++; }
@@ -642,52 +674,57 @@ export async function runSyncWith(opts: SyncOptions, deps: SyncDeps): Promise<Sy
   };
 
   // ---- rescreen (onlySlugs runs that ask for it): stored calls screened again from their source
-  const manualPersonnel = new Map<string, boolean>();
-  for (const o of overrides) {
-    if (o.action === "personnel") manualPersonnel.set(o.externalKey, true);
-    else if (o.action === "not_personnel") manualPersonnel.set(o.externalKey, false);
-  }
-  const isRescreen = (p: PlannedCall, st: StoredRow | undefined): st is StoredRow =>
-    !!opts.rescreen && !!st && (st.hasBody || st.status === "personnel") && manualPersonnel.get(p.externalKey) !== true;
-  const stats: RescreenReport = { rescreened: 0, cutsBefore: 0, cutsAfter: 0, minutesCutBefore: 0, minutesCutAfter: 0, personnel: 0, errors: 0 };
+  const rescreenBefore = opts.rescreenBefore ?? now;
+  const rescreenCutoff = Date.parse(rescreenBefore);
+  const isRescreen = (p: PlannedCall, st: StoredRow | undefined): boolean =>
+    !!opts.rescreen && !!st && (st.hasBody || st.status === "personnel") && manualPersonnel.get(p.externalKey) !== true
+    && !(st.pulledAt && Date.parse(st.pulledAt) >= rescreenCutoff);
+  const stats: RescreenReport = { rescreenBefore, rescreened: 0, cutsBefore: 0, cutsAfter: 0, minutesCutBefore: 0, minutesCutAfter: 0, personnel: 0, errors: 0 };
   const before = opts.rescreen
-    ? await store.readScreened(plan.upserts.map((p) => rowByKey.get(p.externalKey)).filter((st): st is StoredRow => !!st && isRescreen(plannedFor(st), st)).map((st) => st.id))
+    ? await store.readScreened(plan.upserts.filter((p) => isRescreen(p, rowByKey.get(p.externalKey))).map((p) => rowByKey.get(p.externalKey)!.id))
     : new Map<string, { body: string | null; cuts: Cut[] }>();
-  function plannedFor(st: StoredRow): PlannedCall { return plan.upserts.find((p) => p.externalKey === keyOf(st.provider, st.externalId))!; }
 
-  /** Screens one stored call again; null leaves it as it is (no turns, out of time, 429, or a screen error). */
-  const rescreenOne = async (p: PlannedCall, st: StoredRow, src: SyncCall | undefined): Promise<Outcome | null> => {
+  /**
+   * Screens one stored call again. Anything short of a usable screen (no transcript, out of time, 429, a screen
+   * error) keeps the call exactly as stored: a personnel row stays personnel, any other row is only refreshed.
+   */
+  const rescreenOne = async (p: PlannedCall, st: StoredRow, src: SyncCall | undefined): Promise<Outcome> => {
+    const keep: Outcome = p.status === "personnel" ? { kind: "screened", result: { verdict: "personnel", cuts: [] }, turns: [] } : { kind: "meta" };
     let turns = src?.turns?.length ? src.turns : null;
     if (!turns) {
-      if (fetchStopped || overBudget()) return null;
+      if (fetchStopped || overBudget()) return keep;
       const from = src?.fetchFrom ?? { provider: p.provider, id: src?.fetchId ?? p.externalId };
       let r: TranscriptResult;
       try { r = await deps.fetchTranscript(from.provider, from.id); } catch (e) {
         if (isRateLimited(e)) { fetchStopped = true; rateLimited = true; log.push(`${from.provider} rate limited fetching transcripts; the rest keep their stored screen`); }
         else log.push(`rescreen: transcript fetch failed for ${p.externalKey}: ${errText(e)}`);
-        return null;
+        return keep;
       }
-      if (r.status !== "ready") { log.push(`rescreen: no transcript for "${st.title}" (${r.status}); kept as stored`); return null; }
+      if (r.status !== "ready") { log.push(`rescreen: no transcript for "${st.title}" (${r.status}); kept as stored`); return keep; }
       turns = r.turns;
       if (r.url) fetchedUrl.set(p.externalKey, r.url);
     }
-    if (overBudget()) return null;
+    if (overBudget()) return keep;
     if (deadline - deps.now() < FLUSH_MARGIN_MS) await flush();
-    let result = await deps.screen({
+    const result = await screenWithOverrides({
       provider: p.provider, externalId: p.externalId, title: p.title, metAt: p.metAt, participants: p.participants,
       url: p.url, sourceSummary: src?.sourceSummary ?? p.sourceSummary, turns,
-    });
+    }, p.externalKey, st.title);
     const old = before.get(st.id);
+    const oldCuts = old?.cuts.length ?? 0, oldMinutes = markerMinutes(old?.body);
     stats.rescreened++;
-    stats.cutsBefore += old?.cuts.length ?? 0;
-    stats.minutesCutBefore += markerMinutes(old?.body);
-    if (result.verdict === "error") { stats.errors++; log.push(`rescreen: screen error for "${st.title}"; stored body kept`); return null; }
-    if (result.verdict === "personnel" && manualPersonnel.get(p.externalKey) === false) {
-      log.push(`rescreen: "${st.title}" marked not personnel by hand; stored without whole-call removal`);
-      result = { verdict: "clean", cuts: [] };
+    stats.cutsBefore += oldCuts;
+    stats.minutesCutBefore += oldMinutes;
+    if (result.verdict === "error") {
+      stats.errors++;
+      stats.cutsAfter += oldCuts;
+      stats.minutesCutAfter += oldMinutes;
+      log.push(`rescreen: screen error for "${st.title}"; stored body kept`);
+      return keep;
     }
     if (result.verdict === "personnel") { stats.personnel++; personnelKeys.add(p.externalKey); }
     else {
+      personnelKeys.delete(p.externalKey); // a personnel row that screens clean gets its mention checks again
       stats.cutsAfter += result.cuts.length;
       stats.minutesCutAfter += markerMinutes(turnsToBody(applyCuts(turns, result.cuts)));
     }
@@ -698,12 +735,19 @@ export async function runSyncWith(opts: SyncOptions, deps: SyncDeps): Promise<Sy
     const st = rowByKey.get(p.externalKey);
     const src = callByKey.get(p.externalKey);
     let outcome: Outcome = { kind: "meta" };
-    const again = isRescreen(p, st) ? await rescreenOne(p, st, src) : null;
-    if (again) outcome = again;
+    const rescreening = isRescreen(p, st);
+    if (rescreening && st) outcome = await rescreenOne(p, st, src);
     else if (p.status === "personnel") outcome = { kind: "screened", result: { verdict: "personnel", cuts: [] }, turns: [] };
     else if (p.status === "pending" && !st?.hasBody)
       outcome = await obtain(p, src?.fetchFrom ?? { provider: p.provider, id: src?.fetchId ?? p.externalId });
-    const row = withUrl(rowForCall(p, outcome, { summaryEmpty: st ? st.summaryEmpty : true, now, storedTitle: st?.title, absorbed: src?.absorbed }), p.externalKey, st?.url);
+    // A personnel row that now screens clean or cut gets its source summary back (into an empty summary only).
+    const forRow = rescreening && p.status === "personnel" && outcome.kind === "screened" && outcome.result.verdict !== "personnel"
+      ? { ...p, sourceSummary: src?.sourceSummary ?? "" } : p;
+    const row = withUrl(rowForCall(forRow, outcome, { summaryEmpty: st ? st.summaryEmpty : true, now, storedTitle: st?.title, absorbed: src?.absorbed }), p.externalKey, st?.url);
+    if (rescreening && outcome.kind === "screened" && outcome.result.verdict !== "error") {
+      row.pulled_at = now; // marks the call rescreened, personnel rows included
+      if ("body" in row && row.body === before.get(st!.id)?.body && row.status !== "personnel") delete row.status;
+    }
     queue.push({ key: p.externalKey, row, personnel: row.status === "personnel" });
     if (st) updated++; else added++;
     if (queue.length >= WRITE_BATCH) await flush();
@@ -723,7 +767,7 @@ export async function runSyncWith(opts: SyncOptions, deps: SyncDeps): Promise<Sy
     if (!p || !project) continue;
     if (overBudget()) break;
     asked++;
-    if (await deps.askMention({ title: p.title, summary: p.sourceSummary, project })) {
+    if (await deps.askMention({ title: p.title, summary: p.sourceSummary || (callByKey.get(m.externalKey)?.sourceSummary ?? ""), project })) {
       mentionLinks.push({ externalKey: m.externalKey, slug: m.slug, source: "auto" });
       multi.add(m.externalKey);
     }

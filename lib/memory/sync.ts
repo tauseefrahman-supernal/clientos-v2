@@ -1,6 +1,6 @@
 import "server-only";
 import { all, check, db } from "@/lib/data/db";
-import { screenCall } from "./screen.ts";
+import { screenCall, type Cut } from "./screen.ts";
 import { fetchTranscript, listFathom, listGranola } from "./sources/index.ts";
 import { askMentionModel, runSyncWith, type Row, type Snapshot, type SyncOptions, type SyncResult, type SyncStore } from "./sync-core.ts";
 
@@ -14,7 +14,7 @@ const chunked = <T,>(xs: T[], n = BATCH) => Array.from({ length: Math.ceil(xs.le
 export const dbSyncStore: SyncStore = {
   async load(): Promise<Snapshot> {
     const [rows, withBody, emptySummary, overrides, rules, accounts, state] = await Promise.all([
-      all("transcripts", "id,provider,external_id,gone_at,status,alt_url,met_at,title,url", (q) => q.order("id")),
+      all("transcripts", "id,provider,external_id,gone_at,status,alt_url,met_at,title,url,pulled_at", (q) => q.order("id")),
       all("transcripts", "id", (q) => q.not("body", "is", null).order("id")),
       all("transcripts", "id", (q) => q.eq("summary", "").order("id")),
       all("transcript_overrides", "transcript_id,account_id,action,at", (q) => q.order("at").order("id")),
@@ -28,7 +28,7 @@ export const dbSyncStore: SyncStore = {
       rows: rows.map((r) => ({
         id: r.id, provider: r.provider, externalId: r.external_id, goneAt: r.gone_at ?? null, status: r.status,
         altUrl: r.alt_url ?? null, hasBody: bodies.has(r.id), summaryEmpty: empty.has(r.id), metAt: r.met_at ?? null,
-        title: r.title ?? "", url: r.url ?? null,
+        title: r.title ?? "", url: r.url ?? null, pulledAt: r.pulled_at ?? null,
       })),
       overrides: overrides.map((o) => ({ transcriptId: o.transcript_id, accountId: o.account_id ?? null, action: o.action })),
       rules: rules.map((r) => ({ accountId: r.account_id, kind: r.kind, value: r.value })),
@@ -126,15 +126,15 @@ export const dbSyncStore: SyncStore = {
   },
 
   async readScreened(ids) {
-    const out = new Map<string, { body: string | null; cuts: never[] }>();
+    const out = new Map<string, { body: string | null; cuts: Cut[] }>();
     for (const part of chunked(ids)) {
       const rows = check(await db().from("transcripts").select("id,body,cuts").in("id", part), "read stored screens") as Row[];
-      for (const r of rows) out.set(r.id as string, { body: (r.body as string) ?? null, cuts: (Array.isArray(r.cuts) ? r.cuts : []) as never[] });
+      for (const r of rows) out.set(r.id as string, { body: (r.body as string) ?? null, cuts: Array.isArray(r.cuts) ? (r.cuts as Cut[]) : [] });
     }
     return out;
   },
 
-    async setGone(ids, at) {
+  async setGone(ids, at) {
     for (const part of chunked(ids)) check(await db().from("transcripts").update({ gone_at: at }).in("id", part), "mark gone");
   },
 };

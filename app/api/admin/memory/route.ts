@@ -14,13 +14,14 @@ export const maxDuration = 300;
 //                      state alone; full lists everything so missing calls can be marked gone; preview lists everything and
 //                      reports what would change (including calls it would mark gone) without writing. A full run is
 //                      refused (409) without a preview in the last hour or confirmFull. repairOnly only folds stored duplicate rows. rescreen (needs
-//                      onlySlugs) screens those projects' stored calls again from their source. Stops early and says when more remains.
+//                      onlySlugs) screens those projects' stored calls again from their source; pass the returned
+//                      rescreen.rescreenBefore back on re-runs to skip calls already rescreened. Stops early and says when more remains.
 type Body = Record<string, unknown> & { action?: string };
 
 class BadRequest extends Error {}
 
 function syncOptions(body: Body) {
-  const opts: { since?: string; onlySlugs?: string[]; full?: boolean; preview?: boolean; confirmFull?: boolean; repairOnly?: boolean; rescreen?: boolean } = {};
+  const opts: { since?: string; onlySlugs?: string[]; full?: boolean; preview?: boolean; confirmFull?: boolean; repairOnly?: boolean; rescreen?: boolean; rescreenBefore?: string } = {};
   if (body.repairOnly === true) return { repairOnly: true };
   if (body.since !== undefined) {
     if (typeof body.since !== "string" || Number.isNaN(Date.parse(body.since))) throw new BadRequest("since must be an ISO date.");
@@ -34,6 +35,10 @@ function syncOptions(body: Body) {
   if (body.rescreen === true) {
     if (!opts.onlySlugs) throw new BadRequest("rescreen needs onlySlugs");
     opts.rescreen = true;
+    if (body.rescreenBefore !== undefined) {
+      if (typeof body.rescreenBefore !== "string" || Number.isNaN(Date.parse(body.rescreenBefore))) throw new BadRequest("rescreenBefore must be an ISO date.");
+      opts.rescreenBefore = new Date(Date.parse(body.rescreenBefore)).toISOString();
+    }
   }
   if (body.preview === true) {
     if (opts.since !== undefined || opts.onlySlugs) throw new BadRequest("preview lists everything; leave out onlySlugs and since");

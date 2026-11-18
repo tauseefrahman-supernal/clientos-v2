@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
-  absorbAltUrls, absorbStored, uniqueTwin, markerMinutes, decodeCursor, encodeCursor, goneIsFinal, listingStart, PreviewRequiredError, rowForCall, runSyncWith,
+  absorbAltUrls, absorbStored, uniqueTwin, markerMinutes, applyNotPersonnel, decodeCursor, encodeCursor, goneIsFinal, listingStart, PreviewRequiredError, rowForCall, runSyncWith,
   sameMeetingAs, seededPairs, speakersOf, type Snapshot, type StoredRow, type SyncDeps, type SyncStore,
 } from "../lib/memory/sync-core.ts";
 import type { PlannedCall } from "../lib/memory/plan-sync.ts";
@@ -160,7 +160,7 @@ class FakeStore implements SyncStore {
       rows: this.rows.map((r) => ({
         id: r.id, provider: r.provider as string, externalId: r.external_id as string, goneAt: (r.gone_at as string) ?? null,
         status: r.status as string, altUrl: (r.alt_url as string) ?? null, hasBody: r.body != null, summaryEmpty: !r.summary,
-        metAt: (r.met_at as string) ?? null, title: (r.title as string) ?? "", url: (r.url as string) ?? null,
+        metAt: (r.met_at as string) ?? null, title: (r.title as string) ?? "", url: (r.url as string) ?? null, pulledAt: (r.pulled_at as string) ?? null,
       })),
       overrides: this.overrides, rules: this.rules, accounts: this.accounts,
       state: new Map([...this.state].map(([p, s]) => [p, { cursor: s.cursor, lastRunAt: s.last_run_at }])),
@@ -880,7 +880,7 @@ test("rescreen re-reads the call and replaces its body, cuts and status", async 
   assert.equal(r.body, turnsToBody(applyCuts(TURNS, newCuts)));
   assert.deepEqual(r.cuts, newCuts);
   assert.equal(r.status, "pending");
-  assert.deepEqual(out.rescreen, { rescreened: 1, cutsBefore: 1, cutsAfter: 1, minutesCutBefore: markerMinutes(OLD_BODY), minutesCutAfter: markerMinutes(String(r.body)), personnel: 0, errors: 0 });
+  assert.deepEqual(out.rescreen, { rescreenBefore: NOW, rescreened: 1, cutsBefore: 1, cutsAfter: 1, minutesCutBefore: markerMinutes(OLD_BODY), minutesCutAfter: markerMinutes(String(r.body)), personnel: 0, errors: 0 });
   assert.ok(markerMinutes(OLD_BODY) > 0);
 });
 
@@ -933,4 +933,109 @@ test("rescreen is refused without onlySlugs, and ordinary runs never rescreen", 
   assert.deepEqual(x.seen.screened, []);
   assert.equal(r.body, OLD_BODY);
   assert.equal(out.rescreen, undefined);
+});
+
+// ---------------------------------------------------------------- rescreen fix round 1
+
+const MIXED = [{ from: 0, to: 0, reason: "personnel" as const }, { from: 2, to: 2, reason: "private" as const }];
+
+test("a second rescreen run passing rescreenBefore skips the calls already rescreened", async () => {
+  const { store, r } = rescreenStore();
+  r.pulled_at = "2026-11-01T00:00:00.000Z";
+  const first = await runSyncWith(TRIAL, deps(store, { ...listing, screen: async () => ({ verdict: "clean", cuts: [] }) }).d);
+  assert.equal(first.rescreen!.rescreenBefore, NOW);
+  assert.equal(r.pulled_at, NOW);
+  const x = deps(store, { ...listing, clock: () => NOW_MS + 60_000 });
+  const second = await runSyncWith({ ...TRIAL, rescreenBefore: first.rescreen!.rescreenBefore }, x.d);
+  assert.deepEqual(x.seen.screened, []);
+  assert.equal(second.rescreen!.rescreened, 0);
+  assert.equal(second.rescreen!.rescreenBefore, NOW);
+});
+
+test("rescreened personnel rows are stamped too", async () => {
+  const { store, r } = rescreenStore();
+  await runSyncWith(TRIAL, deps(store, { ...listing, screen: async () => ({ verdict: "personnel", cuts: [] }) }).d);
+  assert.equal(r.status, "personnel");
+  assert.equal(r.pulled_at, NOW);
+});
+
+test("a 429 mid-rescreen keeps the stored bodies and reports more", async () => {
+  const store = new FakeStore();
+  const a = store.seed({ provider: "granola", external_id: "g1", title: "World Emblem weekly", met_at: "2026-11-10T10:00:00.000Z", body: OLD_BODY, cuts: OLD_CUTS, status: "digested" });
+  const b = store.seed({ provider: "granola", external_id: "g2", title: "World Emblem two", met_at: "2026-11-11T10:00:00.000Z", body: "kept b", status: "digested" });
+  const { RateLimitedError } = await import("../lib/memory/sources/shared.ts");
+  const { d, seen } = deps(store, {
+    granola: { calls: [call(), call({ externalId: "g2", title: "World Emblem two", metAt: "2026-11-11T10:00:00.000Z", url: "u2" })], cursor: null, rateLimited: false, skipped: 0 },
+    transcript: async () => { throw new RateLimitedError("Granola"); },
+  });
+  const out = await runSyncWith(TRIAL, d);
+  assert.equal(seen.fetched.length, 1);
+  assert.equal(a.body, OLD_BODY);
+  assert.equal(b.body, "kept b");
+  assert.equal(out.more, true);
+  assert.equal(out.rateLimited, true);
+  assert.equal(out.rescreen!.rescreened, 0);
+});
+
+test("applyNotPersonnel keeps only private-detail cuts and drops a personnel verdict", () => {
+  assert.deepEqual(applyNotPersonnel({ verdict: "cut", cuts: MIXED }), { verdict: "cut", cuts: [MIXED[1]] });
+  assert.deepEqual(applyNotPersonnel({ verdict: "cut", cuts: [MIXED[0]] }), { verdict: "clean", cuts: [] });
+  assert.deepEqual(applyNotPersonnel({ verdict: "personnel", cuts: [] }), { verdict: "clean", cuts: [] });
+  assert.deepEqual(applyNotPersonnel({ verdict: "error" }), { verdict: "error" });
+});
+
+test("not_personnel override, first screen: personnel cuts dropped, private cuts kept", async () => {
+  const store = new FakeStore();
+  const r = store.seed({ provider: "granola", external_id: "g1", title: "World Emblem weekly", met_at: "2026-11-10T10:00:00.000Z" });
+  store.overrides = [{ transcriptId: r.id, accountId: null, action: "not_personnel" }];
+  await runSyncWith({ since: "2026-11-01T00:00:00.000Z" }, deps(store, { ...listing, screen: async () => ({ verdict: "cut", cuts: MIXED }) }).d);
+  assert.deepEqual(r.cuts, [MIXED[1]]);
+  assert.equal(r.body, turnsToBody(applyCuts(TURNS, [MIXED[1]])));
+});
+
+test("not_personnel override, rescreen: personnel cuts dropped, private cuts kept", async () => {
+  const { store, r } = rescreenStore();
+  store.overrides = [{ transcriptId: r.id, accountId: null, action: "not_personnel" }];
+  const out = await runSyncWith(TRIAL, deps(store, { ...listing, screen: async () => ({ verdict: "cut", cuts: MIXED }) }).d);
+  assert.deepEqual(r.cuts, [MIXED[1]]);
+  assert.equal(out.rescreen!.cutsAfter, 1);
+});
+
+test("a released personnel call that errors on rescreen is screened once and counted once", async () => {
+  const { store, r } = rescreenStore();
+  Object.assign(r, { body: null, cuts: [], status: "personnel" });
+  store.overrides = [{ transcriptId: r.id, accountId: null, action: "not_personnel" }];
+  const x = deps(store, { ...listing, screen: async () => ({ verdict: "error" }) });
+  const out = await runSyncWith(TRIAL, x.d);
+  assert.equal(x.seen.screened.length, 1);
+  assert.equal(out.rescreen!.errors, 1);
+  assert.equal(r.body, null);
+});
+
+test("a personnel row that rescreens clean gets its source summary and its mention checks", async () => {
+  const { store, r } = rescreenStore();
+  Object.assign(r, { body: null, cuts: [], status: "personnel", summary: "" });
+  const x = deps(store, {
+    granola: { calls: [call({ sourceSummary: "Breakr in depth" })], cursor: null, rateLimited: false, skipped: 0 },
+    screen: async () => ({ verdict: "clean", cuts: [] }),
+  });
+  await runSyncWith({ ...TRIAL, onlySlugs: ["world-emblem", "breakr"] }, x.d);
+  assert.equal(r.status, "pending");
+  assert.equal(r.summary, "Breakr in depth");
+  assert.deepEqual(x.seen.mentions, ["World Emblem weekly"]);
+});
+
+test("rescreen counts: an error carries the unchanged cuts into the after totals", async () => {
+  const { store } = rescreenStore();
+  const out = await runSyncWith(TRIAL, deps(store, { ...listing, screen: async () => ({ verdict: "error" }) }).d);
+  assert.equal(out.rescreen!.cutsAfter, out.rescreen!.cutsBefore);
+  assert.equal(out.rescreen!.minutesCutAfter, out.rescreen!.minutesCutBefore);
+});
+
+test("a rescreen that yields the same body leaves the status alone", async () => {
+  const { store, r } = rescreenStore();
+  await runSyncWith(TRIAL, deps(store, { ...listing, screen: async () => ({ verdict: "cut", cuts: OLD_CUTS }) }).d);
+  assert.equal(r.body, OLD_BODY);
+  assert.equal(r.status, "digested");
+  assert.equal(r.pulled_at, NOW);
 });
