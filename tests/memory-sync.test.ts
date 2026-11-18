@@ -200,9 +200,15 @@ class FakeStore implements SyncStore {
   }
   async fold(fromId: string, toId: string) {
     this.writes++;
-    for (const l of this.links.filter((x) => x.transcriptId === fromId))
-      if (!this.links.some((x) => x.transcriptId === toId && x.accountId === l.accountId)) this.links.push({ ...l, transcriptId: toId });
+    this.events.push(`fold:${fromId}>${toId}`);
+    for (const l of this.links.filter((x) => x.transcriptId === fromId)) {
+      const kept = this.links.find((x) => x.transcriptId === toId && x.accountId === l.accountId);
+      if (!kept) this.links.push({ ...l, transcriptId: toId });
+      else if (!kept.headline && l.headline) kept.headline = l.headline;
+    }
     this.links = this.links.filter((x) => x.transcriptId !== fromId);
+    const from = this.rows.find((x) => x.id === fromId), to = this.rows.find((x) => x.id === toId);
+    if (from && to) { if (!to.url && from.url) to.url = from.url; if (!to.alt_url && from.alt_url) to.alt_url = from.alt_url; }
     this.rows = this.rows.filter((x) => x.id !== fromId);
   }
   async link(rows: { transcriptId: string; accountId: string; source: "auto" | "manual" }[]) {
@@ -663,4 +669,112 @@ test("an onlySlugs run folds no seeded pair and logs no rekey it did not apply",
   assert.equal(f.provider, "fathom");
   assert.equal(store.writes, 0);
   assert.ok(!out.log.some((l) => /folded|is now Granola/.test(l)));
+});
+
+// ---------------------------------------------------------------- fix round 3: Granola public ids vs web UUIDs
+
+const UUID = "a42e472a-1152-4517-a0df-3982a134c884";
+
+test("a listed Granola note (public id) takes over the row seeded under its web UUID: same title, within 15 minutes", async () => {
+  const store = new FakeStore();
+  const seeded = store.seed({ provider: "granola", external_id: UUID, title: "World Emblem weekly", met_at: "2026-11-10T10:00:00.000Z", url: `https://notes.granola.ai/d/${UUID}`, summary: "seeded" });
+  store.links.push({ transcriptId: seeded.id, accountId: "a-we", source: "auto", headline: "kept headline" });
+  const other = store.seed({ provider: "granola", external_id: "not_other", title: "World Emblem weekly", met_at: "2026-11-10T10:20:00.000Z" }); // 6 min from the listed call, 20 from the seeded row
+  const listed = call({ externalId: "not_orlk1vdjfkhixj", metAt: "2026-11-10T10:14:00.000Z", url: "" });
+  const { d } = deps(store, {
+    granola: { calls: [listed], cursor: null, rateLimited: false, skipped: 0 },
+    transcript: async () => ({ status: "ready", turns: TURNS, url: `https://notes.granola.ai/d/${UUID}`, webId: UUID }),
+  });
+  const out = await runSyncWith({ since: "2026-11-01T00:00:00.000Z" }, d);
+  assert.equal(seeded.external_id, "not_orlk1vdjfkhixj");
+  assert.equal(seeded.body, turnsToBody(TURNS));
+  assert.equal(seeded.url, `https://notes.granola.ai/d/${UUID}`);           // stored url kept
+  assert.deepEqual(store.links, [{ transcriptId: seeded.id, accountId: "a-we", source: "auto", headline: "kept headline" }]);
+  assert.equal(other.external_id, "not_other");                              // a public-id row is never a target
+  assert.equal(store.rows.length, 2);
+  assert.equal(out.added, 0);
+  assert.ok(out.log.some((l) => /is now Granola note not_orlk1vdjfkhixj/.test(l)));
+  assert.ok(out.log.some((l) => l.includes(`has web id ${UUID}`)));
+});
+
+test("no Granola rekey past 15 minutes, nor under onlySlugs when the call is filtered out", async () => {
+  const store = new FakeStore();
+  const seeded = store.seed({ provider: "granola", external_id: UUID, title: "Breakr weekly", met_at: "2026-11-10T10:00:00.000Z" });
+  const far = call({ externalId: "not_far", title: "Breakr weekly", metAt: "2026-11-10T10:16:00.000Z", sourceSummary: "" });
+  await runSyncWith({ since: "2026-11-01T00:00:00.000Z", onlySlugs: ["world-emblem"] }, deps(store, { granola: { calls: [far, call({ externalId: "not_near", title: "Breakr weekly", metAt: "2026-11-10T10:01:00.000Z", sourceSummary: "" })], cursor: null, rateLimited: false, skipped: 0 } }).d);
+  assert.equal(seeded.external_id, UUID);
+  assert.equal(store.writes, 0);
+  await runSyncWith({ since: "2026-11-01T00:00:00.000Z" }, deps(store, { granola: { calls: [far], cursor: null, rateLimited: false, skipped: 0 } }).d);
+  assert.equal(seeded.external_id, UUID);
+  assert.ok(store.row("granola", "not_far"));
+});
+
+test("a fetched Granola web link fills a row stored without a url", async () => {
+  const store = new FakeStore();
+  const { d } = deps(store, {
+    granola: { calls: [call({ externalId: "not_new", url: "" })], cursor: null, rateLimited: false, skipped: 0 },
+    transcript: async () => ({ status: "ready", turns: TURNS, url: "https://notes.granola.ai/d/x" }),
+  });
+  await runSyncWith({ since: "2026-11-01T00:00:00.000Z" }, d);
+  assert.equal(store.row("granola", "not_new")!.url, "https://notes.granola.ai/d/x");
+});
+
+function duplicatePair(store: FakeStore) {
+  const kept = store.seed({ provider: "granola", external_id: "not_x", title: "Ops Review", met_at: "2026-11-10T10:00:00.000Z", body: "[00:00:00] Ann: hi", url: null });
+  const dup = store.seed({ provider: "granola", external_id: UUID, title: "ops review", met_at: "2026-11-10T10:12:00.000Z", url: `https://notes.granola.ai/d/${UUID}`, alt_url: "https://fathom.video/calls/5" });
+  store.links.push({ transcriptId: kept.id, accountId: "a-we", source: "auto", headline: "" });
+  store.links.push({ transcriptId: dup.id, accountId: "a-we", source: "manual", headline: "UUID headline" });
+  store.links.push({ transcriptId: dup.id, accountId: "a-br", source: "auto", headline: "br" });
+  store.links.push({ transcriptId: kept.id, accountId: "a-xx", source: "auto", headline: "own" });
+  return { kept, dup };
+}
+
+test("seededPairs pairs a public-id Granola row with its web-UUID twin (within 15 minutes) and keeps the public-id row", () => {
+  const rows = [
+    stored({ id: "k", externalId: "not_x", title: "Ops Review", metAt: "2026-11-10T10:00:00.000Z" }),
+    stored({ id: "u", externalId: UUID, title: "ops review", metAt: "2026-11-10T10:12:00.000Z" }),
+    stored({ id: "u2", externalId: "b42e472a-1152-4517-a0df-3982a134c884", title: "Ops Review", metAt: "2026-11-10T10:16:00.000Z" }),
+  ];
+  const out = seededPairs(rows);
+  assert.deepEqual(out.folds.map((f) => [f.fromId, f.toId, f.kind]), [["u", "k", "granola-id"]]);
+  assert.deepEqual(out.rows.map((r) => r.id), ["k", "u2"]);
+});
+
+test("a full run folds a web-UUID duplicate into the public-id row, carrying links, an empty headline and links", async () => {
+  const store = new FakeStore();
+  const { kept, dup } = duplicatePair(store);
+  for (const p of ["granola", "fathom"]) store.state.set(p, { cursor: null, last_run_at: "2026-11-15T00:00:00.000Z", last_error: null });
+  const out = await runSyncWith({}, deps(store, {}).d);
+  assert.equal(store.rows.find((r) => r.id === dup.id), undefined);
+  assert.deepEqual(store.links.map((l) => [l.accountId, l.source, l.headline]).sort(), [["a-br", "auto", "br"], ["a-we", "auto", "UUID headline"], ["a-xx", "auto", "own"]]);
+  assert.ok(store.links.every((l) => l.transcriptId === kept.id));
+  assert.equal(kept.url, `https://notes.granola.ai/d/${UUID}`);
+  assert.equal(kept.alt_url, "https://fathom.video/calls/5");
+  assert.equal(kept.body, "[00:00:00] Ann: hi");
+  assert.ok(out.log.some((l) => /web UUID into "Ops Review"/.test(l)));
+});
+
+test("repairOnly folds duplicates and does nothing else", async () => {
+  const store = new FakeStore();
+  const { kept, dup } = duplicatePair(store);
+  store.seed({ provider: "granola", external_id: "g-old", alt_url: "https://fathom.video/calls/42", met_at: "2026-10-10T10:00:00.000Z" });
+  store.seed({ provider: "fathom", external_id: "42", met_at: "2026-10-10T10:00:00.000Z" });
+  store.seed({ provider: "granola", external_id: "stranded", met_at: "2026-11-05T10:00:00.000Z" });
+  const { d, seen } = deps(store, {
+    granola: { calls: [call()], cursor: null, rateLimited: false, skipped: 0 },
+    previews: { last: () => null, mark: () => {} },
+  });
+  const out = await runSyncWith({ repairOnly: true }, d);
+  assert.deepEqual(seen.listed, []);
+  assert.deepEqual(seen.fetched, []);
+  assert.deepEqual(seen.screened, []);
+  assert.deepEqual(seen.mentions, []);
+  assert.equal(store.writes, 2);                     // two folds, nothing more
+  assert.equal(store.state.size, 0);
+  assert.equal(store.events.length, 2);
+  assert.ok(store.events.every((e) => e.startsWith("fold:")));
+  assert.equal(store.rows.find((r) => r.id === dup.id), undefined);
+  assert.equal(store.row("fathom", "42"), undefined);
+  assert.ok(store.rows.find((r) => r.id === kept.id));
+  assert.ok(out.log.some((l) => /repair: 2 duplicate rows folded/.test(l)));
 });

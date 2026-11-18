@@ -83,14 +83,33 @@ export const dbSyncStore: SyncStore = {
   },
 
   async fold(fromId, toId) {
-    // Links: the kept row's existing links win; overrides and vault suggestions move across; then the duplicate goes (its chunks cascade).
-    const links = check(await db().from("transcript_accounts").select("account_id,headline,source").eq("transcript_id", fromId), "read duplicate links") as Row[];
-    if (links.length)
-      check(await db().from("transcript_accounts").upsert(links.map((l) => ({ transcript_id: toId, account_id: l.account_id, headline: l.headline, source: l.source })), { onConflict: "transcript_id,account_id", ignoreDuplicates: true }), "move duplicate links");
+    // Links: the kept row's existing links win, but an empty headline takes the duplicate's; overrides and vault
+    // suggestions move across; the kept row's empty url / alt_url are filled; then the duplicate goes (its chunks cascade).
+    const [links, kept, pair] = await Promise.all([
+      db().from("transcript_accounts").select("account_id,headline,source").eq("transcript_id", fromId),
+      db().from("transcript_accounts").select("account_id,headline").eq("transcript_id", toId),
+      db().from("transcripts").select("id,url,alt_url").in("id", [fromId, toId]),
+    ]);
+    const fromLinks = check(links, "read duplicate links") as Row[];
+    const keptLinks = new Map((check(kept, "read kept links") as Row[]).map((l) => [l.account_id as string, (l.headline as string) ?? ""]));
+    const fresh = fromLinks.filter((l) => !keptLinks.has(l.account_id as string));
+    if (fresh.length)
+      check(await db().from("transcript_accounts").upsert(fresh.map((l) => ({ transcript_id: toId, account_id: l.account_id, headline: l.headline, source: l.source })), { onConflict: "transcript_id,account_id", ignoreDuplicates: true }), "move duplicate links");
+    for (const l of fromLinks)
+      if (keptLinks.has(l.account_id as string) && !keptLinks.get(l.account_id as string) && l.headline)
+        check(await db().from("transcript_accounts").update({ headline: l.headline }).eq("transcript_id", toId).eq("account_id", l.account_id).eq("headline", ""), "carry duplicate headline");
     check(await db().from("transcript_overrides").update({ transcript_id: toId }).eq("transcript_id", fromId), "move duplicate overrides");
     check(await db().from("vault_suggestions").update({ transcript_id: toId }).eq("transcript_id", fromId), "move duplicate suggestions");
+    const rows = check(pair, "read duplicate pair") as Row[];
+    const from = rows.find((r) => r.id === fromId), to = rows.find((r) => r.id === toId);
+    const fill: Row = {};
+    if (to && from && !to.url && from.url) fill.url = from.url;
+    if (to && from && !to.alt_url && from.alt_url) fill.alt_url = from.alt_url;
+    // The duplicate goes first, so a url moved across never collides with a constraint on the old row.
     check(await db().from("transcripts").delete().eq("id", fromId), "delete duplicate call");
+    if (Object.keys(fill).length) check(await db().from("transcripts").update(fill).eq("id", toId), "fill kept call links");
   },
+
 
   async link(rows) {
     const toRow = (l: { transcriptId: string; accountId: string; source: string }) => ({ transcript_id: l.transcriptId, account_id: l.accountId, source: l.source });
@@ -117,6 +136,7 @@ let lastPreviewAt: number | null = null;
 /**
  * One sync run against the real sources and database. Stops starting new work after ~270 s and says when more
  * remains. `since` and `onlySlugs` make an ad-hoc run that leaves sync_state alone and never marks calls gone.
+ * `repairOnly` folds stored duplicates and does nothing else.
  * `preview` lists everything and reports what a full run would do without writing; a full (gone-marking) run is
  * refused unless a complete preview ran in this process within the hour, or `confirmFull` is passed.
  */

@@ -4,8 +4,11 @@
 import type { SourceCall, Turn } from "../types.ts";
 import {
   type FetchLike, type ListResult, type SourceDeps, type TranscriptResult, MAX_PAGES, RateLimitedError, SourceHttpError,
-  addPeople, asArray, defaultFetch, iso, obj, readJson, str, tryNormalize,
+  addPeople, asArray, defaultFetch, iso, obj, readJson, str, tryNormalize, uuidIn,
 } from "./shared.ts";
+
+/** A note's web link: web_url, or url / share_url when a response names it that way. */
+const webUrl = (n: Record<string, unknown>) => str(n.web_url) ?? str(n.url) ?? str(n.share_url) ?? null;
 
 export const GRANOLA_BASE = "https://public-api.granola.ai/v1";
 export const GRANOLA_PAGE_SIZE = 30;
@@ -55,7 +58,7 @@ export function normalizeGranola(raw: unknown): SourceCall {
     title: str(n.title) ?? str(cal?.event_title) ?? "Untitled call",
     metAt,
     participants,
-    url: str(n.web_url) ?? "",
+    url: webUrl(n) ?? "",
     sourceSummary: str(n.summary_markdown) ?? str(n.summary_text) ?? "",
     turns: granolaTurns(n.transcript),
   };
@@ -106,7 +109,10 @@ export async function listGranola(since: string | null, cursor: string | null, d
   return { calls, cursor: next, rateLimited: false, skipped };
 }
 
-/** One note's transcript: ready, not_ready (empty or still processing) or gone (404). Throws RateLimitedError on 429. */
+/**
+ * One note's transcript: ready (with the note's web link and any web UUID in it), not_ready (empty or still
+ * processing) or gone (404). Throws RateLimitedError on 429.
+ */
 export async function fetchGranolaTranscript(noteId: string, d?: SourceDeps): Promise<TranscriptResult> {
   const { fetch, key } = deps(d);
   const res = await fetch(`${GRANOLA_BASE}/notes/${encodeURIComponent(noteId)}?include=transcript`, { headers: { Authorization: `Bearer ${key}` } });
@@ -116,5 +122,8 @@ export async function fetchGranolaTranscript(noteId: string, d?: SourceDeps): Pr
   const note = obj(await readJson("Granola", res));
   if (note?.deleted_at) return { status: "gone" };
   const turns = granolaTurns(note?.transcript);
-  return turns ? { status: "ready", turns } : { status: "not_ready" };
+  if (!turns) return { status: "not_ready" };
+  const url = note ? webUrl(note) : null;
+  const webId = uuidIn(url);
+  return { status: "ready", turns, ...(url ? { url } : {}), ...(webId ? { webId } : {}) };
 }

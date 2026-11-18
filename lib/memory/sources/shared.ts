@@ -15,7 +15,16 @@ export interface SourceDeps { fetch?: FetchLike; key?: string | undefined }
 export interface ListResult { calls: SourceCall[]; cursor: string | null; rateLimited: boolean; skipped: number }
 
 /** One transcript fetch: ready with turns, not ready yet (empty or still processing), or gone (404). */
-export type TranscriptResult = { status: "ready"; turns: Turn[] } | { status: "not_ready" } | { status: "gone" };
+export type TranscriptResult =
+  | { status: "ready"; turns: Turn[]; url?: string; webId?: string }
+  | { status: "not_ready" }
+  | { status: "gone" };
+
+/** The first UUID in a string (Granola web links carry the note's web UUID), else undefined. */
+export function uuidIn(v: unknown): string | undefined {
+  const m = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i.exec(typeof v === "string" ? v : "");
+  return m ? m[0].toLowerCase() : undefined;
+}
 
 /** Safety cap on pages per list call; hitting it returns the cursor so the caller can carry on. */
 export const MAX_PAGES = 200;

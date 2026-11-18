@@ -336,3 +336,24 @@ test("fetchTranscript dispatches by provider", async () => {
   assert.equal((await fetchTranscript("granola", "n1", { fetch: f.fn, key: "k" })).status, "ready");
   assert.match(f.calls[0].url, /public-api\.granola\.ai\/v1\/notes\/n1\?include=transcript$/);
 });
+
+test("fetchGranolaTranscript returns the note's web link and any web UUID in it", async () => {
+  const n = load("granola-note.json");
+  const uuid = "a42e472a-1152-4517-a0df-3982a134c884";
+  let f = fakeFetch([{ status: 200, body: { ...n, web_url: `https://notes.granola.ai/d/${uuid}` } }]);
+  const r = await fetchGranolaTranscript("not_abc", { fetch: f.fn, key: "gk" });
+  assert.equal(r.status === "ready" && r.url, `https://notes.granola.ai/d/${uuid}`);
+  assert.equal(r.status === "ready" && r.webId, uuid);
+  f = fakeFetch([{ status: 200, body: n }]);
+  const r2 = await fetchGranolaTranscript("not_abc", { fetch: f.fn, key: "gk" });
+  assert.equal(r2.status === "ready" && r2.url, n.web_url);
+  assert.equal(r2.status === "ready" && r2.webId, undefined);
+});
+
+test("normalizeGranola takes the web link from url or share_url when web_url is absent", () => {
+  const n = load("granola-note.json");
+  delete n.web_url;
+  assert.equal(normalizeGranola({ ...n, url: "https://notes.granola.ai/d/x" }).url, "https://notes.granola.ai/d/x");
+  assert.equal(normalizeGranola({ ...n, share_url: "https://notes.granola.ai/t/y" }).url, "https://notes.granola.ai/t/y");
+  assert.equal(normalizeGranola(n).url, "");
+});

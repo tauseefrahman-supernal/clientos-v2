@@ -26,6 +26,11 @@ export const FLUSH_MARGIN_MS = 45_000;
 export const PREVIEW_VALID_MS = 60 * 60 * 1000;
 /** The same meeting in both sources: same normalized title, start times this close. */
 export const SAME_MEETING_MS = 10 * 60 * 1000;
+/** A Granola note seeded under its web UUID and listed by the API under its public id: same title, this close. */
+export const GRANOLA_ID_WINDOW_MS = 15 * 60 * 1000;
+
+/** A Granola web UUID (the id seeded rows carry), as opposed to the API's public note id (not_…). */
+export const isWebUuid = (id: string) => /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id);
 const WRITE_BATCH = 25;
 
 // ---------------------------------------------------------------- shapes
@@ -57,7 +62,11 @@ export interface SyncStore {
   clearPersonnel(ids: string[]): Promise<void>;
   /** Re-identify a stored row in place (a Fathom row becoming the Granola call of the same meeting). */
   rekey(id: string, provider: Provider, externalId: string, altUrl: string | null): Promise<void>;
-  /** Move a duplicate row's project links (existing links win), overrides and vault suggestions onto another row, then delete it. */
+  /**
+   * Move a duplicate row's project links (an existing link wins, but takes the duplicate's headline when its own is
+   * empty), overrides and vault suggestions onto another row, fill the kept row's empty url and alt_url from it,
+   * then delete it.
+   */
   fold(fromId: string, toId: string): Promise<void>;
   /** auto links never overwrite an existing link; manual links set source manual. */
   link(rows: { transcriptId: string; accountId: string; source: "auto" | "manual" }[]): Promise<void>;
@@ -88,6 +97,8 @@ export interface SyncOptions {
   preview?: boolean;
   /** Run a full (gone-marking) listing without a recent preview. */
   confirmFull?: boolean;
+  /** Only fold stored duplicates (seeded Fathom pairs, Granola web-UUID rows): no listing, screening or other writes. */
+  repairOnly?: boolean;
   budgetMs?: number;
 }
 
@@ -156,36 +167,50 @@ export function speakersOf(turns: Turn[]): string[] {
   return out;
 }
 
-/** Same meeting by title and time: equal normalized (non-empty) titles and start times within 10 minutes. */
-export function sameMeetingAs(a: { title: string; metAt: string | null }, b: { title: string; metAt: string | null }): boolean {
+/** Same meeting by title and time: equal normalized (non-empty) titles and start times within the window (10 minutes). */
+export function sameMeetingAs(a: { title: string; metAt: string | null }, b: { title: string; metAt: string | null }, windowMs = SAME_MEETING_MS): boolean {
   if (!a.metAt || !b.metAt) return false;
   const gap = Math.abs(Date.parse(a.metAt) - Date.parse(b.metAt));
-  if (!Number.isFinite(gap) || gap > SAME_MEETING_MS) return false;
+  if (!Number.isFinite(gap) || gap > windowMs) return false;
   const x = normTitle(a.title);
   return !!x && x === normTitle(b.title);
 }
 
+export interface Fold { fromId: string; toId: string; title: string; kind: "fathom" | "granola-id" }
+
 /**
- * Seeded duplicates: a stored Granola row whose alt_url is the link of a stored Fathom row. The Fathom row is folded
- * into the Granola row. Returns the folds and the rows that remain.
+ * Stored duplicates, folded in this order:
+ * - a stored Granola row whose alt_url is the link of a stored Fathom row: the Fathom row folds into the Granola row;
+ * - a Granola row stored under the API's public id (not_…) and one under the web UUID with the same title and a start
+ *   within 15 minutes: the UUID row folds into the public-id row (which the sync now owns and which has the body).
+ * Returns the folds in order (a row can be folded into, then folded on) and the rows that remain.
  */
-export function seededPairs(rows: StoredRow[]): { folds: { fromId: string; toId: string; title: string }[]; rows: StoredRow[] } {
+export function seededPairs(rows: StoredRow[]): { folds: Fold[]; rows: StoredRow[] } {
   const byKey = new Map(rows.map((r) => [keyOf(r.provider, r.externalId), r]));
-  const folds: { fromId: string; toId: string; title: string }[] = [];
+  const folds: Fold[] = [];
   const gone = new Set<string>();
   for (const g of rows) {
     if (g.provider !== "granola" || gone.has(g.id)) continue;
     const id = fathomCallId(g.altUrl);
     const f = id ? byKey.get(keyOf("fathom", id)) : undefined;
     if (!f || gone.has(f.id)) continue;
-    folds.push({ fromId: f.id, toId: g.id, title: g.title });
+    folds.push({ fromId: f.id, toId: g.id, title: g.title, kind: "fathom" });
     gone.add(f.id);
+  }
+  for (const n of rows) {
+    if (n.provider !== "granola" || isWebUuid(n.externalId) || gone.has(n.id)) continue;
+    const u = rows.find((r) => r.provider === "granola" && isWebUuid(r.externalId) && !gone.has(r.id) && sameMeetingAs(r, n, GRANOLA_ID_WINDOW_MS));
+    if (!u) continue;
+    folds.push({ fromId: u.id, toId: n.id, title: n.title, kind: "granola-id" });
+    gone.add(u.id);
   }
   return { folds, rows: rows.filter((r) => !gone.has(r.id)) };
 }
 
 /**
- * Matches listed calls against stored rows of the other provider so one meeting keeps one row:
+ * Matches listed calls against stored rows so one meeting keeps one row:
+ * - a listed Granola call (API public id) with no row of its own whose title matches, within 15 minutes, a stored
+ *   Granola row seeded under its web UUID takes that row over in place (a rekey to the public id);
  * - a listed Granola call whose Fathom link (altUrl), or title and time, matches a stored Fathom row takes that row
  *   over in place (a rekey: provider and external id become the Granola ones, alt_url the Fathom link), keeping the
  *   row's links and chunks;
@@ -209,6 +234,19 @@ export function absorbStored(calls: SyncCall[], rows: StoredRow[]): { calls: Syn
     const own = byKey.get(keyOf(c.provider, c.externalId));
     if (own) { claimed.add(own.id); push(c); continue; }
     if (c.provider === "fathom") { fathoms.push(c); continue; }
+    const seeded = isWebUuid(c.externalId) ? undefined
+      : live.find((r) => r.provider === "granola" && isWebUuid(r.externalId) && !claimed.has(r.id) && sameMeetingAs(r, c, GRANOLA_ID_WINDOW_MS));
+    if (seeded) {
+      const fromKey = keyOf(seeded.provider, seeded.externalId);
+      const altUrl = c.altUrl ?? seeded.altUrl;
+      rekeys.push({ rowId: seeded.id, fromKey, provider: "granola", externalId: c.externalId, altUrl: c.altUrl, note: `stored Granola row "${seeded.title}" (${seeded.externalId}) is now Granola note ${c.externalId}` });
+      byKey.delete(fromKey);
+      Object.assign(seeded, { externalId: c.externalId, altUrl });
+      byKey.set(keyOf("granola", c.externalId), seeded);
+      claimed.add(seeded.id);
+      push({ ...c, altUrl });
+      continue;
+    }
     const fid = fathomCallId(c.altUrl);
     let target = fid ? byKey.get(keyOf("fathom", fid)) : undefined;
     if (target && claimed.has(target.id)) target = undefined;
@@ -344,6 +382,18 @@ export async function runSyncWith(opts: SyncOptions, deps: SyncDeps): Promise<Sy
   };
 
   const snap = await store.load();
+  const applyFold = async (f: Fold) => {
+    await store.fold(f.fromId, f.toId);
+    log.push(f.kind === "fathom" ? `folded a duplicate Fathom row into "${f.title}"` : `folded a Granola row stored under its web UUID into "${f.title}"`);
+  };
+
+  // ---- repairOnly: fold stored duplicates and nothing else
+  if (opts.repairOnly) {
+    const { folds } = seededPairs(snap.rows);
+    for (const f of folds) await applyFold(f);
+    log.push(`repair: ${folds.length} duplicate row${folds.length === 1 ? "" : "s"} folded`);
+    return { added: 0, updated: 0, pending: 0, gone: 0, rateLimited: false, more: false, log };
+  }
 
   // ---- where each listing starts; a full (gone-marking) run needs a recent preview or confirmFull
   const starts = new Map(PROVIDERS.map((provider) => {
@@ -387,8 +437,9 @@ export async function runSyncWith(opts: SyncOptions, deps: SyncDeps): Promise<Sy
 
   // ---- one row per meeting: fold seeded pairs, then match listed calls against stored rows
   // Folding seeded pairs deletes rows, so an onlySlugs (trial) run leaves them alone.
-  const paired = only ? { folds: [] as { fromId: string; toId: string; title: string }[], rows: snap.rows } : seededPairs(snap.rows);
+  const paired = only ? { folds: [] as Fold[], rows: snap.rows } : seededPairs(snap.rows);
   const foldedInto = new Map(paired.folds.map((f) => [f.fromId, f.toId]));
+  const keptRow = (id: string) => { let x = id; for (let i = 0; i < 5 && foldedInto.has(x); i++) x = foldedInto.get(x)!; return x; };
   const accountById = new Map(snap.accounts.map((a) => [a.id, a]));
   const accountIdOf = new Map(snap.accounts.map((a) => [a.slug, a.id]));
   const rules: Rules = new Map();
@@ -421,7 +472,7 @@ export async function runSyncWith(opts: SyncOptions, deps: SyncDeps): Promise<Sy
   const rowById = new Map(liveRows.map((r) => [r.id, r]));
   const overrides: { externalKey: string; slug: string | null; action: string }[] = [];
   for (const o of snap.overrides) {
-    const row = rowById.get(foldedInto.get(o.transcriptId) ?? o.transcriptId);
+    const row = rowById.get(keptRow(o.transcriptId));
     if (!row) continue;
     const slug = o.accountId ? accountById.get(o.accountId)?.slug ?? null : null;
     if (o.accountId && !slug) continue;
@@ -448,7 +499,7 @@ export async function runSyncWith(opts: SyncOptions, deps: SyncDeps): Promise<Sy
   }
 
   // ---- apply: folds and rekeys, then bodies that must go and unlinks
-  for (const f of paired.folds) { await store.fold(f.fromId, f.toId); log.push(`folded a duplicate Fathom row into "${f.title}"`); }
+  for (const f of paired.folds) await applyFold(f);
   for (const k of rekeys) { await store.rekey(k.rowId, k.provider, k.externalId, k.altUrl); log.push(k.note); }
   for (const n of absorbed.notes) if (callByKey.has(n.key)) log.push(n.text);
   const drop = plan.dropBodies.map((k) => rowByKey.get(k)).filter((r): r is StoredRow => !!r && (r.hasBody || r.status !== "personnel")).map((r) => r.id);
@@ -473,6 +524,13 @@ export async function runSyncWith(opts: SyncOptions, deps: SyncDeps): Promise<Sy
     if (clear.length) await store.clearPersonnel(clear);
   };
 
+  const fetchedUrl = new Map<string, string>();
+  /** A fetched web link fills a row whose url is empty (listing items may come without one). */
+  const withUrl = (row: Row, key: string, storedUrl: string | null | undefined) => {
+    const u = fetchedUrl.get(key);
+    if (!row.url && !storedUrl && u) row.url = u;
+    return row;
+  };
   /** Fetches (when needed) and screens one call; the outcome to write. Counts what it leaves pending. */
   const obtain = async (p: PlannedCall, from: { provider: Provider; id: string }): Promise<Outcome> => {
     let turns = p.turns;
@@ -494,6 +552,8 @@ export async function runSyncWith(opts: SyncOptions, deps: SyncDeps): Promise<Sy
         return { kind: "meta" };
       }
       turns = r.turns;
+      if (r.url) fetchedUrl.set(p.externalKey, r.url);
+      if (r.webId && r.webId !== p.externalId) log.push(`Granola note ${p.externalId} has web id ${r.webId}`);
     }
     if (overBudget()) { pending++; return { kind: "meta" }; }
     if (deadline - deps.now() < FLUSH_MARGIN_MS) await flush();
@@ -514,7 +574,7 @@ export async function runSyncWith(opts: SyncOptions, deps: SyncDeps): Promise<Sy
     if (p.status === "personnel") outcome = { kind: "screened", result: { verdict: "personnel", cuts: [] }, turns: [] };
     else if (p.status === "pending" && !st?.hasBody)
       outcome = await obtain(p, src?.fetchFrom ?? { provider: p.provider, id: src?.fetchId ?? p.externalId });
-    const row = rowForCall(p, outcome, { summaryEmpty: st ? st.summaryEmpty : true, now, storedTitle: st?.title, absorbed: src?.absorbed });
+    const row = withUrl(rowForCall(p, outcome, { summaryEmpty: st ? st.summaryEmpty : true, now, storedTitle: st?.title, absorbed: src?.absorbed }), p.externalKey, st?.url);
     queue.push({ key: p.externalKey, row, personnel: row.status === "personnel" });
     if (st) updated++; else added++;
     if (queue.length >= WRITE_BATCH) await flush();
@@ -586,7 +646,7 @@ export async function runSyncWith(opts: SyncOptions, deps: SyncDeps): Promise<Sy
       };
       const outcome = await obtain(p, { provider: "granola", id: r.externalId });
       if (outcome.kind === "meta") continue;
-      queue.push({ key: p.externalKey, row: rowForCall(p, outcome, { summaryEmpty: r.summaryEmpty, now, storedTitle: r.title, absorbed: true }), personnel: outcome.kind === "screened" && outcome.result.verdict === "personnel" });
+      queue.push({ key: p.externalKey, row: withUrl(rowForCall(p, outcome, { summaryEmpty: r.summaryEmpty, now, storedTitle: r.title, absorbed: true }), p.externalKey, r.url), personnel: outcome.kind === "screened" && outcome.result.verdict === "personnel" });
       if (queue.length >= WRITE_BATCH) await flush();
     }
     await flush();
