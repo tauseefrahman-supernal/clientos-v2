@@ -8,12 +8,40 @@ export const OUTPUT_PER_M = 20;
 /** Prompt cache prices on claude-opus-5-5: reads $0.20/M, 5-minute writes 1.25x input. */
 export const CACHE_READ_PER_M = 0.2;
 export const CACHE_WRITE_PER_M = 5;
-/** Assumed output size of one digest call, in tokens, until a run has measured it. */
-export const ASSUMED_OUTPUT_TOKENS = 2500;
+/** Assumed output size of one digest call, in tokens, until a run has measured it (measured 1,865 over 4 live calls, 18 Nov). */
+export const ASSUMED_OUTPUT_TOKENS = 1900;
 const CHARS_PER_TOKEN = 4;
+/**
+ * claude-opus-5-5's tokenizer makes more tokens than the usual 4 characters per token for these transcripts: a live run
+ * averaged 25,445 input tokens per call where chars/4 predicted far fewer. Character counts are scaled by this factor.
+ */
+export const TOKENS_PER_CHAR_FACTOR = 1.35;
+
+/** Estimated tokens for a character count: chars / 4 x TOKENS_PER_CHAR_FACTOR, rounded up. */
+export function tokensForChars(chars: number): number {
+  return Math.max(0, Math.ceil((Math.max(0, chars) / CHARS_PER_TOKEN) * TOKENS_PER_CHAR_FACTOR - 1e-9));
+}
+
+/** Calls are digested from this many days back unless since or transcriptIds says otherwise. */
+export const DEFAULT_WINDOW_DAYS = 30;
+
+/** Which calls a digest or estimate covers: a met_at window (default the last 30 days, or since), or chosen call ids at any date. */
+export function digestSelection(o: { since?: string; transcriptIds?: string[] }, now: Date):
+  { kind: "window"; since: string; label: string } | { kind: "ids"; ids: string[]; label: string } {
+  if (o.transcriptIds?.length) {
+    const ids = [...new Set(o.transcriptIds)];
+    return { kind: "ids", ids, label: `${ids.length} chosen call${ids.length === 1 ? "" : "s"}, any date` };
+  }
+  if (o.since) {
+    const since = new Date(Date.parse(o.since)).toISOString();
+    return { kind: "window", since, label: `calls since ${since.slice(0, 10)} (given)` };
+  }
+  const since = new Date(now.getTime() - DEFAULT_WINDOW_DAYS * 86_400_000).toISOString();
+  return { kind: "window", since, label: `calls since ${since.slice(0, 10)} (the last ${DEFAULT_WINDOW_DAYS} days, the default)` };
+}
 
 export function estimateCost(calls: { chars: number }[]): { calls: number; inputTokens: number; dollars: number } {
-  const inputTokens = calls.reduce((n, c) => n + Math.ceil(Math.max(0, c.chars) / CHARS_PER_TOKEN), 0);
+  const inputTokens = calls.reduce((n, c) => n + tokensForChars(c.chars), 0);
   const outputTokens = calls.length * ASSUMED_OUTPUT_TOKENS;
   const dollars = (inputTokens / 1e6) * INPUT_PER_M + (outputTokens / 1e6) * OUTPUT_PER_M;
   return { calls: calls.length, inputTokens, dollars };
@@ -38,7 +66,7 @@ export function costOf(u: Usage): Dollars {
  * A group marked cacheable: false (prefix under the model's cache minimum) pays its prefix as plain input every call.
  */
 export function estimateRun(calls: { chars: number; group: string; stableChars: number; cacheable?: boolean }[], o: { outputTokens?: number } = {}) {
-  const tok = (chars: number) => Math.ceil(Math.max(0, chars) / CHARS_PER_TOKEN);
+  const tok = tokensForChars;
   const out = Math.max(0, Math.round(o.outputTokens ?? ASSUMED_OUTPUT_TOKENS));
   const seen = new Set<string>();
   let inputTokens = 0, cacheWriteTokens = 0, cacheReadTokens = 0;

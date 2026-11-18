@@ -1,7 +1,7 @@
 import "server-only";
 import { check, db, updateFile } from "@/lib/data/db";
 import { invalidate } from "@/lib/data";
-import { costOf, DIGEST_MODEL, estimateRun, SpendGate, type Digest, type Dollars } from "./digest-rules.ts";
+import { costOf, DIGEST_MODEL, digestSelection, estimateRun, SpendGate, type Digest, type Dollars } from "./digest-rules.ts";
 import {
   appendUnderSection, buildOutline, DigestQueue, DIGEST_SCHEMA, DIGEST_SYSTEM, DIGEST_SYSTEM_BLOCKS, fmtDate, fromCallLine, headingsOf, runDigest, slimOutline,
   type AskMessage, type AskReply, type CallForDigest, type CallUsage, type DigestDeps, type DigestOutcome, type ProjectForDigest, type SuggestionRow,
@@ -159,30 +159,45 @@ export async function digestCall(transcriptId: string): Promise<Digest> {
 
 // ---------------------------------------------------------------- batches
 
-export type DigestOptions = { onlySlugs?: string[]; limit?: number; retryFailed?: boolean; outputTokens?: number };
+/**
+ * since (ISO) narrows to calls met on or after it; the default is the last 30 days. transcriptIds picks calls directly,
+ * at any date, for on-demand digests of older calls (not combined with onlySlugs or since). Older calls keep their
+ * one-liner and stay searchable by transcript.
+ */
+export type DigestOptions = { onlySlugs?: string[]; limit?: number; retryFailed?: boolean; outputTokens?: number; since?: string; transcriptIds?: string[] };
 type Candidate = { id: string; chars: number; metAt: string; group: string; accountIds: string[] };
 
 /** Calls waiting for a digest (the newest, when a limit applies), with their body length and linked projects. total counts every match, before the limit. */
-async function candidates(o: DigestOptions): Promise<{ list: Candidate[]; total: number }> {
+async function candidates(o: DigestOptions, log: (l: string) => void): Promise<{ list: Candidate[]; total: number; window: string }> {
   const statuses = o.retryFailed ? ["pending", "failed"] : ["pending"];
+  const sel = digestSelection(o, new Date());
+  log(`window: ${sel.label}`);
+  const since = sel.kind === "window" ? sel.since : null;
   const byDate = (a: Row, b: Row) => String(b.met_at ?? "").localeCompare(String(a.met_at ?? "")) || String(a.id).localeCompare(String(b.id));
   let rows: Row[] = [];
   let total: number;
-  if (o.onlySlugs) {
+  if (sel.kind === "ids") {
+    for (let i = 0; i < sel.ids.length; i += PAGE)
+      rows.push(...check(await db().from("transcripts").select("id,met_at,body").in("id", sel.ids.slice(i, i + PAGE)).in("status", statuses).not("body", "is", null), "read calls") as Row[]);
+    rows = rows.filter((r) => (r.body ?? "").trim()).sort(byDate);
+    if (rows.length < sel.ids.length) log(`${rows.length} of ${sel.ids.length} chosen calls are waiting (${statuses.join(" or ")}, with a stored body); the rest are skipped`);
+    total = rows.length;
+    rows = rows.slice(0, o.limit ?? rows.length);
+  } else if (o.onlySlugs) {
     const accts = check(await db().from("accounts").select("id,slug").in("slug", o.onlySlugs), "read projects") as Row[];
     const missing = o.onlySlugs.filter((s) => !accts.some((a) => a.slug === s));
     if (missing.length) throw new Error(`Unknown project: ${missing.join(", ")}`);
     const links = check(await db().from("transcript_accounts").select("transcript_id").in("account_id", accts.map((a) => a.id)), "read call links") as Row[];
     const ids = [...new Set(links.map((l) => l.transcript_id as string))];
     for (let i = 0; i < ids.length; i += PAGE)
-      rows.push(...check(await db().from("transcripts").select("id,met_at,body").in("id", ids.slice(i, i + PAGE)).in("status", statuses).not("body", "is", null), "read calls") as Row[]);
+      rows.push(...check(await db().from("transcripts").select("id,met_at,body").in("id", ids.slice(i, i + PAGE)).in("status", statuses).not("body", "is", null).gte("met_at", since!), "read calls") as Row[]);
     rows = rows.filter((r) => (r.body ?? "").trim()).sort(byDate);
     total = rows.length;
     rows = rows.slice(0, o.limit ?? rows.length);
   } else {
-    const { count } = await db().from("transcripts").select("id", { count: "exact", head: true }).in("status", statuses).not("body", "is", null);
+    const { count } = await db().from("transcripts").select("id", { count: "exact", head: true }).in("status", statuses).not("body", "is", null).gte("met_at", since!);
     for (let from = 0; rows.length < (o.limit ?? Infinity); from += PAGE) {
-      const page = check(await db().from("transcripts").select("id,met_at,body").in("status", statuses).not("body", "is", null)
+      const page = check(await db().from("transcripts").select("id,met_at,body").in("status", statuses).not("body", "is", null).gte("met_at", since!)
         .order("met_at", { ascending: false, nullsFirst: false }).order("id").range(from, from + PAGE - 1), "read calls") as Row[];
       for (const r of page) if ((r.body ?? "").trim() && rows.length < (o.limit ?? Infinity)) rows.push(r);
       if (page.length < PAGE) break;
@@ -196,12 +211,12 @@ async function candidates(o: DigestOptions): Promise<{ list: Candidate[]; total:
     for (const l of links) accountsOf.set(l.transcript_id, [...(accountsOf.get(l.transcript_id) ?? []), l.account_id]);
   }
   const list = rows.map((r) => { const a = sortIds(accountsOf.get(r.id) ?? []); return { id: r.id as string, chars: (r.body as string).length, metAt: String(r.met_at ?? ""), group: a.join(","), accountIds: a }; });
-  return { list, total };
+  return { list, total, window: sel.label };
 }
 
 /** The calls in the order they will run (grouped by project, newest group first, newest call first) and their estimate. */
 async function planRun(o: DigestOptions, outlines: Outlines, log: (l: string) => void) {
-  const { list, total } = await candidates(o);
+  const { list, total, window } = await candidates(o, log);
   const newest = new Map<string, string>();
   for (const c of list) if ((newest.get(c.group) ?? "") < c.metAt) newest.set(c.group, c.metAt);
   const ordered = [...list].sort((a, b) =>
@@ -219,17 +234,17 @@ async function planRun(o: DigestOptions, outlines: Outlines, log: (l: string) =>
     const n = stable.get(c.group) ?? 0;
     return { chars: c.chars, group: c.group, stableChars: n, cacheable: n >= MIN_CACHE_CHARS };
   }), { outputTokens });
-  return { list: ordered, total, est };
+  return { list: ordered, total, est, window };
 }
 
 /** What digesting the waiting calls would cost, counted as the real requests are sent. Reads only. */
 export async function estimatePending(o: DigestOptions) {
   const log: string[] = [];
   const outlines = outlineSource(logger(log));
-  const { total, est } = await planRun(o, outlines, logger(log));
+  const { total, est, window } = await planRun(o, outlines, logger(log));
   return {
     calls: est.calls, inputTokens: est.inputTokens, cacheWriteTokens: est.cacheWriteTokens, cacheReadTokens: est.cacheReadTokens,
-    outputTokens: est.outputTokens, dollars: est.dollars, model: DIGEST_MODEL, waiting: total,
+    outputTokens: est.outputTokens, dollars: est.dollars, model: DIGEST_MODEL, waiting: total, window,
     outputTokensPerCall: est.calls ? est.outputTokens / est.calls : (o.outputTokens ?? measuredOutput ?? null),
     outputTokensSource: o.outputTokens !== undefined ? "given" : measuredOutput !== null ? "measured by the last run" : "default",
     outlineChars: Object.fromEntries(outlines.chars),

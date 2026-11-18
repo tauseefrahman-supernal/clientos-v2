@@ -17,11 +17,13 @@ export const maxDuration = 300;
 //                      refused (409) without a preview in the last hour or confirmFull. repairOnly only folds stored duplicate rows. rescreen (needs
 //                      onlySlugs) screens those projects' stored calls again from their source; pass the returned
 //                      rescreen.rescreenBefore back on re-runs to skip calls already rescreened. Stops early and says when more remains.
-//   estimate { onlySlugs?, limit?, retryFailed?, outputTokens? }: what digesting the waiting calls (status pending, with a stored
+//   estimate and digest choose calls met in the last 30 days by default; since (ISO) sets another start, and transcriptIds
+//                      (alone) picks specific calls at any date for an on-demand digest. The window used is in the log.
+//   estimate { onlySlugs?, since?, transcriptIds?, limit?, retryFailed?, outputTokens? }: what digesting the waiting calls (status pending, with a stored
 //                      body) would cost, counted as the requests are sent: system prompt + project outline as a cache write on
 //                      each project's first call and a cache read after, the transcript as input, and output at outputTokens
-//                      per call (else the last run's measured average, else 2,500).
-//   digest { confirm: true, maxDollars, onlySlugs?, limit?, retryFailed? }: summary, project headlines and suggested vault facts
+//                      per call (else the last run's measured average, else 1,900); character counts x 1.35 for the tokenizer.
+//   digest { confirm: true, maxDollars, onlySlugs?, since?, transcriptIds?, limit?, retryFailed? }: summary, project headlines and suggested vault facts
 //                      for those calls (the newest when limit is set), run grouped by project so the prompt cache is
 //                      reused. Refused without confirm or when the estimate is over maxDollars.
 //                      Stops starting calls after about 150 s, or before a call or a retry whose estimate would take actual
@@ -74,6 +76,17 @@ function digestOptions(body: Body): DigestOptions {
     o.limit = body.limit as number;
   }
   if (body.retryFailed === true) o.retryFailed = true;
+  if (body.since !== undefined) {
+    if (typeof body.since !== "string" || Number.isNaN(Date.parse(body.since))) throw new BadRequest("since must be an ISO date.");
+    o.since = body.since;
+  }
+  if (body.transcriptIds !== undefined) {
+    const ids = body.transcriptIds;
+    if (!Array.isArray(ids) || !ids.length || ids.length > 500 || !ids.every((x) => typeof x === "string" && /^[0-9a-f-]{36}$/i.test(x)))
+      throw new BadRequest("transcriptIds must be a list of 1 to 500 call ids.");
+    if (o.onlySlugs || o.since) throw new BadRequest("transcriptIds picks calls directly; leave out onlySlugs and since.");
+    o.transcriptIds = ids as string[];
+  }
   if (body.outputTokens !== undefined) {
     if (!Number.isInteger(body.outputTokens) || (body.outputTokens as number) < 1) throw new BadRequest("outputTokens must be a whole number above 0.");
     o.outputTokens = body.outputTokens as number;
