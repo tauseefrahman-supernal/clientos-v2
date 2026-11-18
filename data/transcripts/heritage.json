@@ -198,7 +198,7 @@
         "Micah Barker"
       ],
       "kind": "client",
-      "summary": "Heritage call with the client team (from title; summary not read).",
+      "summary": "Scoped a custom insurance CRM to replace Heritage's failing Smart Office tool: automation, AI notes, platform and SharePoint links, data migration; custom vs Airtable options.",
       "url": "https://fathom.video/calls/875861931",
       "alt_url": null
     },
@@ -461,7 +461,7 @@
         "Sven Boettger"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Reviewed an AI misclassification found in a pilot test and the fix, planned a virtual pre-interview for the brand video, and walked through the DPE contract terms.",
       "url": "https://fathom.video/calls/846602272",
       "alt_url": null
     },
@@ -497,7 +497,7 @@
         "Jonathan Hayes"
       ],
       "kind": "client",
-      "summary": "Session on the Heritage brand videos and websites (from title; summary not read).",
+      "summary": "Reviewed Heritage AI website V3, moving from a book to a vault concept with an advisors-only section, and set brand video scripts, pre-interviews and filming logistics.",
       "url": "https://fathom.video/calls/844970133",
       "alt_url": null
     },
@@ -886,7 +886,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Weekly call on the stalled Ridgeback pilot ahead of the 2027 launch, restructuring updates around book production, completed features and the September roadmap.",
       "url": "https://fathom.video/calls/802424541",
       "alt_url": null
     },
@@ -967,7 +967,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Weekly call on differentiating from Wealth.com on visual output, feature status (AI book ingestion, version control, uploads), and launching the pilot with the first firm.",
       "url": "https://fathom.video/calls/793847097",
       "alt_url": null
     },
@@ -1037,7 +1037,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Approved the private Google Cloud environment, made budgeting the blocker for new contracts, moved the help desk up for licensee launch, and approved marketing contracts.",
       "url": "https://fathom.video/calls/784822010",
       "alt_url": null
     },
@@ -1158,7 +1158,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Set a plain-English rule for technical updates and clarified features: multi-tenancy, secure book access, firm onboarding, disclosures, in-app LLM chat and a security upgrade.",
       "url": "https://fathom.video/calls/779562491",
       "alt_url": null
     },
@@ -1177,7 +1177,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Weighed selling the inventory list and data room as a standalone MVP, confirmed the app migration timeline, reviewed features and planned competitor research and a patent.",
       "url": "https://fathom.video/calls/759455592",
       "alt_url": null
     },
@@ -1193,7 +1193,7 @@
         "Thomas J. Fanning Sr."
       ],
       "kind": "client",
-      "summary": "Discussion with Heritage on the Foreman and CRM workstream (from title; summary not read).",
+      "summary": "Defined the Foreman AI employee: meeting follow-ups, daily task lists and overdue flags, merged with the EA role, plus cost, build time and next steps on requirements.",
       "url": "https://fathom.video/calls/750979409",
       "alt_url": null
     },
@@ -1204,7 +1204,7 @@
       "date": "2026-07-20",
       "participants": [],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Set dates and agenda for the August in-person strategy meeting, refined the dev feedback cycle and accuracy targets, and explained the API layer and version control.",
       "url": "https://fathom.video/calls/750979419",
       "alt_url": null
     },
@@ -1219,7 +1219,7 @@
         "Daniel Cuellar"
       ],
       "kind": "internal",
-      "summary": "Internal Heritage working session (from title; summary not read).",
+      "summary": "Internal handoff of Heritage items #36 and #37: draft/publish version control for client vault tabs and section-level sharing controls with invite and revoke rules.",
       "url": "https://fathom.video/calls/748500607",
       "alt_url": null
     },
@@ -1230,7 +1230,7 @@
       "date": "2026-07-16",
       "participants": [],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Supernal shared its service-model shift and a contained security incident; planned a September strategy workshop, required a dated project tracker, and flagged Foreman scope.",
       "url": "https://fathom.video/calls/747716880",
       "alt_url": null
     },
@@ -1269,7 +1269,7 @@
         "Sven Boettger"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Backend migration done; set an Oct 31 target for hands-off book automation with human QC, approved the private cloud upgrade, a video package and two websites.",
       "url": "https://fathom.video/calls/739343695",
       "alt_url": null
     },
@@ -1286,7 +1286,7 @@
         "Alex Cover"
       ],
       "kind": "client",
-      "summary": "UX interview with Heritage staff on one section of the Heritage Book to inform platform design (from title; summary not read).",
+      "summary": "UX interview on the Assets tab: QC workflow, schedule navigation overflow, moving assets between schedules, and needs for version history, autosave and live collaboration.",
       "url": "https://fathom.video/calls/736974127",
       "alt_url": null
     },
@@ -1301,7 +1301,7 @@
         "Ellen Smith"
       ],
       "kind": "client",
-      "summary": "UX interview with Heritage staff on one section of the Heritage Book to inform platform design (from title; summary not read).",
+      "summary": "UX interview on the insurance sheet: clunky edit mode, Office-style inline editing and undo, autosave, and snapshot-based version history.",
       "url": "https://fathom.video/calls/736974116",
       "alt_url": null
     },
@@ -1317,7 +1317,7 @@
         "Ellen Smith"
       ],
       "kind": "client",
-      "summary": "UX interview with Heritage staff on one section of the Heritage Book to inform platform design (from title; summary not read).",
+      "summary": "UX interview on the flow diagram: AI population works well; staff need full text and style editing, undo, easier reordering, consistent dates and a wider canvas.",
       "url": "https://fathom.video/calls/736974114",
       "alt_url": null
     },
@@ -1333,7 +1333,7 @@
         "Ellen Smith"
       ],
       "kind": "client",
-      "summary": "UX interview with Heritage staff on one section of the Heritage Book to inform platform design (from title; summary not read).",
+      "summary": "UX interview on the data sheet: legal-size printing, a fixed Office-style toolbar, version history and undo, and multi-user editing safeguards.",
       "url": "https://fathom.video/calls/736974122",
       "alt_url": null
     },
@@ -1349,7 +1349,7 @@
         "Ellen Smith"
       ],
       "kind": "client",
-      "summary": "UX interview with Heritage staff on one section of the Heritage Book to inform platform design (from title; summary not read).",
+      "summary": "UX interview on client-facing use: need a full-page presentation view, side-by-side sheet comparison, and mockups before modernizing the diagrams.",
       "url": "https://fathom.video/calls/736974121",
       "alt_url": null
     },
@@ -1369,7 +1369,7 @@
         "Sven Boettger"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Approved the dedicated Google Cloud security tier, tracked the fundraise close and Phase 2 start, discussed Foreman and CRM agents, SaaS pricing and a video package.",
       "url": "https://fathom.video/calls/721132531",
       "alt_url": null
     },
@@ -1399,7 +1399,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Discussion with Heritage on the Foreman and CRM workstream (from title; summary not read).",
+      "summary": "Reviewed the Foreman prototype and agreed to build custom project management and CRM tools on centralized data, sponsored by the new company; help desk later.",
       "url": "https://fathom.video/calls/719395714",
       "alt_url": null
     },
@@ -1434,7 +1434,7 @@
         "Jessica Varkey"
       ],
       "kind": "client",
-      "summary": "Heritage call with the client team (from title; summary not read).",
+      "summary": "Walked through the Ask the Vault AI chat and auto-labeling document upload, agreed to test chat in production, and asked for an exportable, grouped vault inventory list.",
       "url": "https://fathom.video/calls/711092693",
       "alt_url": null
     },
@@ -1453,7 +1453,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Settled product naming as The Vault, powered by Heritage AI, pending trademark advice, and gave an update on the delayed first funding close.",
       "url": "https://fathom.video/calls/706014612",
       "alt_url": null
     },
@@ -1491,7 +1491,7 @@
         "Jessica Varkey"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Fundraise nearly complete; reviewed the June roadmap, book recreation from scanned sheets, countering a competitor's multi-LLM demo, a trust-led demo video, and an AI EA.",
       "url": "https://fathom.video/calls/694009341",
       "alt_url": null
     },
@@ -1526,7 +1526,7 @@
         "Sven Boettger"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "summary": "Heritage platform weekly sync between the Supernal and Heritage teams on platform progress.",
       "url": "https://fathom.video/calls/679052656",
       "alt_url": null
     },
@@ -1540,7 +1540,7 @@
         "Keith McMahon"
       ],
       "kind": "client",
-      "summary": "Heritage call with the client team (from title; summary not read).",
+      "summary": "Reviewed the estate distribution chart for bugs: insurance edits, domicile-driven tax updates, NY tax and qualified-plan calculations, hide toggles and first-death modeling.",
       "url": "https://fathom.video/calls/675022326",
       "alt_url": null
     },
@@ -1554,7 +1554,7 @@
         "Chris Halvey"
       ],
       "kind": "client",
-      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "summary": "Demoed the estate distribution chart and gathered feedback on GST status, per-beneficiary tax allocation and net bequests; planned a flow diagram template fix.",
       "url": "https://fathom.video/calls/668434515",
       "alt_url": null
     },
@@ -1593,7 +1593,7 @@
         "Sven Boettger"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Weekly call setting two accuracy KPIs, noting flow diagram delays, adding a structured project update to each meeting, and exploring an AI executive assistant.",
       "url": "https://fathom.video/calls/662618603",
       "alt_url": null
     },
@@ -1609,7 +1609,7 @@
         "Sven Boettger"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "summary": "Weekly sync prioritizing large document handling for the asset sheet with a dedicated intern, noting flow diagram and distribution chart delays and the fundraise setup.",
       "url": "https://fathom.video/calls/661431988",
       "alt_url": null
     },
@@ -1661,7 +1661,7 @@
         "Sven Boettger"
       ],
       "kind": "internal",
-      "summary": "Internal Heritage working session (from title; summary not read).",
+      "summary": "Internal session planning a staging environment and CI/CD for Heritage: hosting options, separate Supabase dev instance, migration cleanup, Cypress tests and review rules.",
       "url": "https://fathom.video/calls/654704853",
       "alt_url": null
     },
@@ -1679,7 +1679,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Supernal pitched and Heritage approved a marketing package: website redesign, AI-written newsletters and blogs, four videos, with the shoot date to be moved.",
       "url": "https://fathom.video/calls/655588010",
       "alt_url": null
     },
@@ -1694,7 +1694,7 @@
         "Chris Halvey"
       ],
       "kind": "client",
-      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "summary": "Reviewed AI-generated flow diagrams for wills and trusts and agreed on more granular questions, strict template wording and clearer scenario logic before a rerun.",
       "url": "https://fathom.video/calls/655751789",
       "alt_url": null
     },
@@ -1711,7 +1711,7 @@
         "Sven Boettger"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "summary": "Weekly sync unblocking the flow diagram with a test run on a client family's documents, setting the distribution chart example handoff, re-testing record duplication.",
       "url": "https://fathom.video/calls/653064660",
       "alt_url": null
     },
@@ -1762,7 +1762,7 @@
         "Chris Halvey"
       ],
       "kind": "client",
-      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "summary": "Working session refining flow diagram question sets for revocable and irrevocable trusts, diagram logic, a default successor-trustee rule and draft/proposed statuses.",
       "url": "https://fathom.video/calls/647373473",
       "alt_url": null
     },
@@ -1778,7 +1778,7 @@
         "Chris Halvey"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "summary": "Weekly sync approving the new flow diagram template and test plan, unblocking the distribution chart with an annotated example, and planning June projects and ramp-up.",
       "url": "https://fathom.video/calls/645593317",
       "alt_url": null
     },
@@ -1830,7 +1830,7 @@
         "Sven Boettger"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "summary": "Weekly sync approving a structured flow diagram template, setting annotated trust examples and a full-pipeline test, and confirming model refinement is under maintenance.",
       "url": "https://fathom.video/calls/636528579",
       "alt_url": null
     },
@@ -1864,7 +1864,7 @@
         "Chris Halvey"
       ],
       "kind": "client",
-      "summary": "Heritage call with the client team (from title; summary not read).",
+      "summary": "May planning call on a scope gap in document automation: renaming only vs full workflow, a hybrid inventory-list option pending API confirmation, and a fundraise update.",
       "url": "https://fathom.video/calls/630653840",
       "alt_url": null
     },
@@ -1884,7 +1884,7 @@
         "Jessica Varkey"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Finalized three contract amendments (pricing cap for scaling, failure response timeline, email notice period) so the contract could support an investor call.",
       "url": "https://fathom.video/calls/627974726",
       "alt_url": null
     },
@@ -1900,7 +1900,7 @@
         "Chris Halvey"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "summary": "Weekly sync adding a single-ILIT trust type to the flow diagram, listing blocking inputs from Heritage, noting early client demos and a future diagram design pass.",
       "url": "https://fathom.video/calls/627602336",
       "alt_url": null
     },
@@ -1921,7 +1921,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Agreed a quick interactive-book onboarding project with two-tier pricing, and worked through contract issues: license exclusivity, reseller terms, acceptance and termination.",
       "url": "https://fathom.video/calls/623737819",
       "alt_url": null
     },
@@ -1937,7 +1937,7 @@
         "Chris Halvey"
       ],
       "kind": "client",
-      "summary": "Heritage call with the client team (from title; summary not read).",
+      "summary": "Process walkthrough of the flow diagram's three-color review logic and the estate distribution chart's data sources and tax calculations, with inputs needed from Heritage.",
       "url": "https://fathom.video/calls/620008265",
       "alt_url": null
     },
@@ -1953,7 +1953,7 @@
         "Chris Halvey"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "summary": "Weekly sync on engagement statuses, the fixed eval pipeline for targeted updates, vault migration, and a proposed PDF-to-platform onboarding automation.",
       "url": "https://fathom.video/calls/620008277",
       "alt_url": null
     },
@@ -1973,7 +1973,7 @@
         "Jessi"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Aligned on the Supernal contract (termination terms, IP and data ownership) and refined Heritage's investor deck: pricing range, credibility, branding and raise structure.",
       "url": "https://fathom.video/calls/613700434",
       "alt_url": null
     },
@@ -1989,7 +1989,7 @@
         "Sven Boettger"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "summary": "Weekly sync standardizing client and sheet statuses, adding an engagement end date and table dashboard, planning asset update matching, and fixing insurance age calculations.",
       "url": "https://fathom.video/calls/611628444",
       "alt_url": null
     },
@@ -2009,7 +2009,7 @@
         "Jessica Varkey"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Finalized a point-based SOW for flexible pacing, made a reseller agreement the gate for scaling past the pilot, defined pilot milestones and discussed seat-plus-vault pricing.",
       "url": "https://fathom.video/calls/603950211",
       "alt_url": null
     },
@@ -2025,7 +2025,7 @@
         "Chris Halvey"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "summary": "Weekly sync on running evals in category-specific document batches, interim SharePoint organization, an account-merging bug, and ideas for recommendations, uploads and mobile.",
       "url": "https://fathom.video/calls/603368264",
       "alt_url": null
     },
@@ -2059,7 +2059,7 @@
         "Chris Halvey"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "summary": "Weekly sync on asset renumbering and PDF highlight bugs, deferring sub-assets to Phase 2, AI output errors on the asset sheet, and a new project plan with acceleration costs.",
       "url": "https://fathom.video/calls/595067562",
       "alt_url": null
     },
@@ -2077,7 +2077,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Set the contract as MSA plus Phase 1 extension and Phase 2 SOWs, with MSA legal review pending, accelerated costs and dates added to the SOW sheet, and a Phase 2 decision date.",
       "url": "https://fathom.video/calls/588686080",
       "alt_url": null
     },
@@ -2099,7 +2099,7 @@
         "Thomas Fanning Jr"
       ],
       "kind": "client",
-      "summary": "Heritage call with the client team (from title; summary not read).",
+      "summary": "Agreed a three-month Phase 1 extension to fix flowchart automation and pull key features forward, a priced Phase 2 feature menu for investors, and faster review of delivered work.",
       "url": "https://fathom.video/calls/587103846",
       "alt_url": null
     },
@@ -2115,7 +2115,7 @@
         "Sven Boettger"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "summary": "Weekly sync demoing flow diagram editing upgrades (multi-select, moving boxes and pages), indented list formatting, renaming Book to Vault, and asset list pagination.",
       "url": "https://fathom.video/calls/587458517",
       "alt_url": null
     },
@@ -2133,7 +2133,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Heritage call with the client team (from title; summary not read).",
+      "summary": "Agreed the AI-written flow diagram language is unusable and must become the original checklist with black, green and red flags; the fix became top priority with a roadmap review.",
       "url": "https://fathom.video/calls/586331417",
       "alt_url": null
     },
@@ -2153,7 +2153,7 @@
         "Chris Halvey"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Raised AI failures on simple facts and source links, disputed Phase 1 vs extra-build scope, deferred non-essential features, and scoped research on asset aggregator APIs.",
       "url": "https://fathom.video/calls/579346747",
       "alt_url": null
     },
@@ -2169,7 +2169,7 @@
         "Sven Boettger"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "summary": "Weekly sync demoing a merge-assets feature with a source-saving bug, and renaming the platform to The Heritage Vault; Phase 1 vs Phase 2 discussion deferred.",
       "url": "https://fathom.video/calls/578737714",
       "alt_url": null
     },
@@ -2187,7 +2187,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Agreed to add promised features to the Phase 1 SOW, scope multi-tenancy for Ridgeback firms in Phase 2, give two Ridgeback contacts trial access, and sequence MSA and SOWs.",
       "url": "https://fathom.video/calls/572276022",
       "alt_url": null
     },
@@ -2211,7 +2211,7 @@
         "T"
       ],
       "kind": "client",
-      "summary": "Weekly training and check-in with Heritage staff on using the platform (from title; summary not read).",
+      "summary": "Check-in and training on data sheet fixes, a single-record workflow for a client's multiple insurance policies, and early AI eval feedback such as document rotation and search.",
       "url": "https://fathom.video/calls/572887343",
       "alt_url": null
     },
@@ -2227,7 +2227,7 @@
         "Sven Boettger"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "summary": "Weekly sync on fixed headers and two-way trust linking, limiting book sharing to people on the data sheet, user management at scale, and an end-to-end rebuild test.",
       "url": "https://fathom.video/calls/570202311",
       "alt_url": null
     },
@@ -2251,7 +2251,7 @@
         "T"
       ],
       "kind": "client",
-      "summary": "Weekly training and check-in with Heritage staff on using the platform (from title; summary not read).",
+      "summary": "Check-in and training on a page-top missing-info note, collapsible trust schedules linked from the flowchart, an undo button on the distribution chart, and PDF borders.",
       "url": "https://fathom.video/calls/564234273",
       "alt_url": null
     },
@@ -2272,7 +2272,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Weekly call on contracts awaiting review ahead of a March start, finishing the client demo video, delaying the Phase 2 decision, and a stopgap for internal task tracking.",
       "url": "https://fathom.video/calls/563716036",
       "alt_url": null
     },
@@ -2288,7 +2288,7 @@
         "Sven Boettger"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "summary": "Weekly sync on demo-blocking distribution chart fixes, collapsible sections and sticky headers, cross-linking, insurance terminology, and onboarding Sven as project manager.",
       "url": "https://fathom.video/calls/562337840",
       "alt_url": null
     },
@@ -2309,7 +2309,7 @@
         "Sven Boettge"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Finalized the sample demo book and a client video package, clarified Phase 1 subscription and Phase 2 build terms and IP, and discussed offshore production to scale books.",
       "url": "https://fathom.video/calls/556338487",
       "alt_url": null
     },
@@ -2332,7 +2332,7 @@
         "Internal Revi"
       ],
       "kind": "client",
-      "summary": "Weekly training and check-in with Heritage staff on using the platform (from title; summary not read).",
+      "summary": "Short check-in on auto-filling phone numbers in the flow diagram from the data sheet and adding a phone field for missing contacts; cut short by audio issues.",
       "url": "https://fathom.video/calls/555803751",
       "alt_url": null
     },
@@ -2348,7 +2348,7 @@
         "Jessica Varkey"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "summary": "Weekly sync on finishing the sample demo book: a trust subtotal bug blocking the flowchart, a new asset schedule subtotal import feature, mock source documents and formatting fixes.",
       "url": "https://fathom.video/calls/554534562",
       "alt_url": null
     },
@@ -2364,7 +2364,7 @@
         "Chris Halvey"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "summary": "Weekly sync on new asset import and text coloring, hover links from the flow diagram to source sheets, surrender charge/loan logic, and deferring tabloid PDF before the demo.",
       "url": "https://fathom.video/calls/547993496",
       "alt_url": null
     },
@@ -2383,7 +2383,7 @@
         "Jessica Varkey"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Weekly call splitting Foreman features into Phase 1, setting demo book link requirements for investors, fixing a QC data transfer bug, and discussing outsourced production.",
       "url": "https://fathom.video/calls/548247066",
       "alt_url": null
     },
@@ -2407,7 +2407,7 @@
         "T"
       ],
       "kind": "client",
-      "summary": "Weekly training and check-in with Heritage staff on using the platform (from title; summary not read).",
+      "summary": "Check-in and training on the approach book as the investor demo, updating existing records via targeted evals, flow diagram hide-empty and source links, and one bug tracker.",
       "url": "https://fathom.video/calls/547993493",
       "alt_url": null
     },
@@ -2425,7 +2425,7 @@
         "Rosie Salsone"
       ],
       "kind": "client",
-      "summary": "Heritage call with the client team (from title; summary not read).",
+      "summary": "Working session to finish the sample demo book: flow diagram text loss and zero-display bugs, targeted evals for source links, and moving some Phase 2 features into Phase 1.",
       "url": "https://fathom.video/calls/543991469",
       "alt_url": null
     },
@@ -2442,7 +2442,7 @@
         "Chris Halvey"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "summary": "Weekly sync on the sample book import, insurance sheet auto-updates keyed on policy number, unique identifiers for asset updates, and importing policies into the flow diagram.",
       "url": "https://fathom.video/calls/536617244",
       "alt_url": null
     },
@@ -2460,7 +2460,7 @@
         "Keith McMahon"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "summary": "Weekly sync on branding and numbering, an as-of plus last-updated date system, rebuilding the flow diagram on structured fields, and a manual-entry estate distribution chart.",
       "url": "https://fathom.video/calls/530814065",
       "alt_url": null
     },
@@ -2484,7 +2484,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Weekly training and check-in with Heritage staff on using the platform (from title; summary not read).",
+      "summary": "Check-in and training on tagging records by client, uploading PDFs for accurate extraction, the flow diagram as source of truth, fixing bad evals, and print and numbering requests.",
       "url": "https://fathom.video/calls/533299022",
       "alt_url": null
     },
@@ -2505,7 +2505,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "summary": "Demo follow-up approving Phase 2 for an April start, setting commercial terms, January delivery dates for punch-list items, and a story-led client demo video approach.",
       "url": "https://fathom.video/calls/525908822",
       "alt_url": null
     },
@@ -2525,7 +2525,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Training session with Heritage staff on a platform section (from title; summary not read).",
+      "summary": "Training on the AI flow diagram tool (evals, validation, edit mode) that surfaced needs: structured fields to keep data links, last-reviewed date, draft status and insurance import.",
       "url": "https://fathom.video/calls/523783619",
       "alt_url": null
     },
@@ -2546,7 +2546,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Training session with Heritage staff on a platform section (from title; summary not read).",
+      "summary": "Training on the insurance sheet workflow; agreed policy-number updates instead of duplicates, deferred asset matching to Phase 2, and approved grouping and trustee capture.",
       "url": "https://fathom.video/calls/524472357",
       "alt_url": null
     },
@@ -2563,7 +2563,7 @@
         "Chris Halvey"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "summary": "Weekly sync fixing login links, adopting Heritage branding, restructuring the data sheet into uniform tables, adding a super admin role, and deferring flow diagram design.",
       "url": "https://fathom.video/calls/523111854",
       "alt_url": null
     },
@@ -2583,7 +2583,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Demo of the Heritage platform to the Heritage team and follow-up discussion (from title; summary not read).",
+      "summary": "Book demo review: well received with a UI punch list, a training day set for team adoption, a redacted demo book and partner video planned, and a Phase 2 and billing decision due.",
       "url": "https://fathom.video/calls/520207683",
       "alt_url": null
     },
@@ -2600,7 +2600,7 @@
         "Jessica Varkey"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "summary": "Platform sync standardizing yellow highlights for missing data, approving the PDF output and table of contents, reviewing business agreements, and deferring cash flow analysis.",
       "url": "https://fathom.video/calls/519825010",
       "alt_url": null
     },
@@ -2617,7 +2617,7 @@
         "Jessica Varkey"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "summary": "Weekly sync approving advisor data tables, setting co-trustee data sources, adding a descendants' assets total, and fixing the book's intro pages and closing chart.",
       "url": "https://fathom.video/calls/517462743",
       "alt_url": null
     },
@@ -2628,7 +2628,7 @@
       "date": "2025-12-23",
       "participants": [],
       "kind": "client",
-      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "summary": "Weekly sync defining four user roles, fixing PDF widths and table lettering, and holding a data sheet table redesign pending a mockup and internal sign-off.",
       "url": "https://fathom.video/calls/513356616",
       "alt_url": null
     },
@@ -2647,7 +2647,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Chose the demo client book and format (recorded walkthrough then live Q&A), clarified data ownership, Phase 1 vs 2 document access and a Ridgeback CRM link, and an AI employee SOW.",
       "url": "https://fathom.video/calls/510348809",
       "alt_url": null
     },
@@ -2658,7 +2658,7 @@
       "date": "2025-12-18",
       "participants": [],
       "kind": "client",
-      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "summary": "Weekly sync scoping the estate distribution chart: pull data from asset, insurance and data sheets now, keep tax and distribution calculations manual until later.",
       "url": "https://fathom.video/calls/509849222",
       "alt_url": null
     },
@@ -2676,7 +2676,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Heritage call with the client team (from title; summary not read).",
+      "summary": "Planned the Phase 1 wrap-up demo with a pre-recorded book run, confirmed human edits are now logged automatically for prompt tuning, and clarified Phase 1 support terms.",
       "url": "https://fathom.video/calls/507480497",
       "alt_url": null
     },
@@ -2692,7 +2692,7 @@
         "Jessica Varkey"
       ],
       "kind": "client",
-      "summary": "Heritage call with the client team (from title; summary not read).",
+      "summary": "Scoping session for an AI project manager to replace manual task tracking: a live task list, missed-deadline flags to the COO, meeting letter sync and a new delegation workflow.",
       "url": "https://fathom.video/calls/504703105",
       "alt_url": null
     },
@@ -2703,7 +2703,7 @@
       "date": "2025-12-10",
       "participants": [],
       "kind": "client",
-      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "summary": "Weekly sync approving a modernized flow diagram that keeps its layout, merging the page-one tabs, auto-populating trust diagrams, and defining view-only client access.",
       "url": "https://fathom.video/calls/500701814",
       "alt_url": null
     },
@@ -2721,7 +2721,7 @@
         "Lisa Siegfried"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage platform sync with Tom Jr. and Chris on build items and roadmap (from title; summary not read).",
+      "summary": "Weekly sync redesigning the data sheet to match the approach book: blank-field highlights, rich-text notes, an auto gifting exclusion total, insurance tweaks and asset schedules.",
       "url": "https://fathom.video/calls/494429059",
       "alt_url": null
     },
@@ -2743,7 +2743,7 @@
         "Jessica Varkey"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Supernal presented the Phase 2 SaaS platform proposal: cost and support, a Q2 2026 pilot, success criteria, pilot pricing options and the IP ownership terms investors need.",
       "url": "https://fathom.video/calls/481200640",
       "alt_url": null
     },
@@ -2760,7 +2760,7 @@
         "Chris Chavez"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Weekly call setting up the Phase 2 proposal review, a post-meeting issue email rule, asset sheet concerns, the Ridgeback LOI and Salesforce needs, and IP and exclusivity.",
       "url": "https://fathom.video/calls/472520597",
       "alt_url": null
     },
@@ -2780,7 +2780,7 @@
         "Eric E"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Weekly call defining Supernal as technology partner rather than equity holder, and exploring a central book-production model with ways to capture insurance commissions.",
       "url": "https://fathom.video/calls/465279751",
       "alt_url": null
     },
@@ -2796,7 +2796,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Weekly call aligning Phase 1 scope to the PRD: secure client login required for launch, source snippets now and full documents later, LLC flowchart estimate, and team adoption.",
       "url": "https://fathom.video/calls/457231323",
       "alt_url": null
     },
@@ -2812,7 +2812,7 @@
         "Ryan Williams"
       ],
       "kind": "client",
-      "summary": "Heritage presentation, rehearsal or prep session on AI and the platform (from title; summary not read).",
+      "summary": "Realigned the AI project to Heritage's core goal of an internal book-building tool, detailing the asset sheet and color-coded flow diagram, with a revised scope and demo date set.",
       "url": "https://fathom.video/calls/447923046",
       "alt_url": null
     },
@@ -2828,7 +2828,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Weekly call preparing law firm pitch meetings: agenda, demo with sanitized sample files, positioning against legal AI competitors, pricing and ROI, and a dry run.",
       "url": "https://fathom.video/calls/442051111",
       "alt_url": null
     },
@@ -2844,7 +2844,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Heritage call with the client team (from title; summary not read).",
+      "summary": "Debrief after a law firm demo of the Heritage and Supernal platform: get to the demo faster, address AI liability upfront, lead with revenue, and refine pricing and ROI.",
       "url": "https://fathom.video/calls/441949142",
       "alt_url": null
     },
@@ -2863,7 +2863,7 @@
         "Thomas J."
       ],
       "kind": "client",
-      "summary": "Heritage presentation, rehearsal or prep session on AI and the platform (from title; summary not read).",
+      "summary": "Heritage and Supernal demoed AI estate document analysis to a prospective law firm partner, covering accuracy, time savings, security, pricing and liability questions.",
       "url": "https://fathom.video/calls/439267624",
       "alt_url": null
     },
@@ -2879,7 +2879,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Heritage presentation, rehearsal or prep session on AI and the platform (from title; summary not read).",
+      "summary": "Dry run of the law firm AI presentation: final deck flow, demo emphasizing speed and accuracy, annual pricing and payment terms, roles, and future book opportunities.",
       "url": "https://fathom.video/calls/439267626",
       "alt_url": null
     },
@@ -2895,7 +2895,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Weekly call preparing a law firm pitch: revised agenda, a single-document demo with QA walkthrough, time-savings examples, future AI benefits, and a Monday dry run.",
       "url": "https://fathom.video/calls/434975479",
       "alt_url": null
     },
@@ -2914,7 +2914,7 @@
         "Eric Eklund"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Weekly call planning upcoming law firm presentations: demo approach with pre-loaded documents, QA timing, security and competitor talking points, live vs recorded demo.",
       "url": "https://fathom.video/calls/427744917",
       "alt_url": null
     },
@@ -2932,7 +2932,7 @@
         "Thomas J. Fanning Sr."
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Weekly call on competitor pricing, the demo, flow diagram and full book timeline, pricing model options, October law firm pitches, and updating the partnership agreement.",
       "url": "https://fathom.video/calls/406356302",
       "alt_url": null
     },
@@ -2946,7 +2946,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Heritage call with the client team (from title; summary not read).",
+      "summary": "Check-in on the demo target date and restructuring the joint pitch deck to lead with the demo, with Heritage supplying its story and pricing terms added.",
       "url": "https://fathom.video/calls/389129953",
       "alt_url": null
     },
@@ -2964,7 +2964,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Heritage presentation, rehearsal or prep session on AI and the platform (from title; summary not read).",
+      "summary": "Discussed the Heritage and Supernal partnership structure and long-term value sharing, agreeing to prove the concept with initial client deals and draft an MOU.",
       "url": "https://fathom.video/calls/379776552",
       "alt_url": null
     },
@@ -2979,7 +2979,7 @@
         "Scott Downes"
       ],
       "kind": "internal",
-      "summary": "Internal Heritage working session (from title; summary not read).",
+      "summary": "Internal Supernal prep for a Heritage partnership call on equity and perpetuity asks, agreeing to defer equity until the first deals produce data and to offer later options.",
       "url": "https://fathom.video/calls/381316432",
       "alt_url": null
     },
@@ -2994,7 +2994,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Heritage call with the client team (from title; summary not read).",
+      "summary": "Short call scheduling the partnership proposal review, confirming Heritage would send an equity-focused proposal in contract form, and deciding how to onboard Ridgeback contacts.",
       "url": "https://fathom.video/calls/374949824",
       "alt_url": null
     },
@@ -3010,7 +3010,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Weekly call on AI employee status (insurance on track, assets below accuracy target), intern continuity, an in-person session on resale pricing, and a client pitch event idea.",
       "url": "https://fathom.video/calls/360573413",
       "alt_url": null
     },
@@ -3026,7 +3026,7 @@
         "Thomas J. Fanning Sr."
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Weekly call planning an internal strategy visit, delaying law firm outreach to late summer, licensing price ideas, AI error reporting, and automating meeting summary letters.",
       "url": "https://fathom.video/calls/354245549",
       "alt_url": null
     },
@@ -3042,7 +3042,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Weekly call on upcoming AI employee launches and accuracy targets, the estate planning AI for law firms, a licensing fee and revenue split, and refining the pitch deck.",
       "url": "https://fathom.video/calls/347615397",
       "alt_url": null
     },
@@ -3058,7 +3058,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Heritage call with the client team (from title; summary not read).",
+      "summary": "Follow-up after a law firm pitch: consolidate the deck around unbillable hours, refine the core document review offering, agree an initial profit split, plan an in-person session.",
       "url": "https://fathom.video/calls/342299638",
       "alt_url": null
     },
@@ -3077,7 +3077,7 @@
         "Kembe"
       ],
       "kind": "client",
-      "summary": "Heritage call with the client team (from title; summary not read).",
+      "summary": "Heritage and Supernal presented the AI estate document analysis platform to a law firm prospect: accuracy, time savings, upcoming flow diagram automation and licensing options.",
       "url": "https://fathom.video/calls/338383398",
       "alt_url": null
     },
@@ -3093,7 +3093,7 @@
         "Scott Downes"
       ],
       "kind": "client",
-      "summary": "Heritage presentation, rehearsal or prep session on AI and the platform (from title; summary not read).",
+      "summary": "Dry run for a law firm presentation: finalized structure and AI demo, a licensing fee pitched against unbillable hours, a cost-then-split revenue share, and five target firms.",
       "url": "https://fathom.video/calls/339965251",
       "alt_url": null
     },
@@ -3108,7 +3108,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Heritage presentation, rehearsal or prep session on AI and the platform (from title; summary not read).",
+      "summary": "Presentation dry run for a law firm licensing pitch: two-pillar structure, demo with generic templates, handling security questions, and positioning against legal AI tools.",
       "url": "https://fathom.video/calls/337879728",
       "alt_url": null
     },
@@ -3124,7 +3124,7 @@
         "Thomas J. Fanning Sr."
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Weekly call preparing for a law firm licensing call: benchmarking the AI paralegal against the old process and tightening the description of how Heritage uses it.",
       "url": "https://fathom.video/calls/336024314",
       "alt_url": null
     },
@@ -3142,7 +3142,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Heritage call with the client team (from title; summary not read).",
+      "summary": "Planned an AI estate document tool pitch for attorneys: current capabilities, live demo, value for law firms, competitive positioning and gathering time-savings data.",
       "url": "https://fathom.video/calls/333570344",
       "alt_url": null
     },
@@ -3158,7 +3158,7 @@
         "Chris Chavez"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Weekly sync demoing AI review for flow diagram questions with high-confidence answers, intern-led testing against existing books, the 2025 roadmap, and future licensing.",
       "url": "https://fathom.video/calls/329863977",
       "alt_url": null
     },
@@ -3176,7 +3176,7 @@
         "Peyton Gray Koch"
       ],
       "kind": "client",
-      "summary": "Heritage call with the client team (from title; summary not read).",
+      "summary": "Reviewed the first flow diagram AI employee's accuracy and citation UX, then explored a channel partnership, revenue sharing and AI-led expansion in estate planning.",
       "url": "https://fathom.video/calls/327371396",
       "alt_url": null
     },
@@ -3192,7 +3192,7 @@
         "Chris Halvey"
       ],
       "kind": "client",
-      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "summary": "QA session deploying the flow diagram AI employee: big accuracy gains on trust questions, source viewing, creating per-case employees, prompt refinements and upcoming batch evals.",
       "url": "https://fathom.video/calls/328773456",
       "alt_url": null
     },
@@ -3212,7 +3212,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Training session with Heritage staff on a platform section (from title; summary not read).",
+      "summary": "Trained Heritage interns to test the assets AI agent with a scoring sheet, covered access and deployment timing, and set a follow-up on QA and choosing test cases.",
       "url": "https://fathom.video/calls/326226564",
       "alt_url": null
     },
@@ -3228,7 +3228,7 @@
         "Alan Temiryaev"
       ],
       "kind": "client",
-      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "summary": "Assets QA session testing extraction from complex personal financial statement spreadsheets after a retrieval upgrade, noting ownership and value mix-ups and prompt fixes.",
       "url": "https://fathom.video/calls/322593954",
       "alt_url": null
     },
@@ -3245,7 +3245,7 @@
         "Thomas J. Fanning Sr."
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Weekly call on restructuring the partnership: Heritage investing in Supernal's spinout instead of a separate Heritage AI entity, with equity, revenue and exclusivity questions.",
       "url": "https://fathom.video/calls/318122592",
       "alt_url": null
     },
@@ -3262,7 +3262,7 @@
         "Chris Chavez"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Weekly call on a short AI employee launch delay, strong data sheet accuracy, the competitive landscape, and licensing the flow diagram tool to law firms for early revenue.",
       "url": "https://fathom.video/calls/311998287",
       "alt_url": null
     },
@@ -3278,7 +3278,7 @@
         "Lisa Siegfried"
       ],
       "kind": "client",
-      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "summary": "Data sheet QA follow-up refining prompts to list all professional advisors, fixing wrong role assumptions, email attachment access, and sequencing trust and tax return questions.",
       "url": "https://fathom.video/calls/311073985",
       "alt_url": null
     },
@@ -3295,7 +3295,7 @@
         "Chris Chavez"
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Weekly call onboarding Heritage interns for asset sheet testing, targeting the flow diagram AI employee rollout with a unified employee model, and finalizing the MOU draft.",
       "url": "https://fathom.video/calls/306499177",
       "alt_url": null
     },
@@ -3310,7 +3310,7 @@
         "Jens Haakaas"
       ],
       "kind": "client",
-      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "summary": "Insurance QA session refining prompts, limiting which questions may use illustration documents, adding an ordinary income gain calculation, and logging a retrieval bug.",
       "url": "https://fathom.video/calls/299265221",
       "alt_url": null
     },
@@ -3326,24 +3326,8 @@
         "Thomas J. Fanning Sr."
       ],
       "kind": "client",
-      "summary": "Weekly Heritage and Ridgeback call with the Fanning team and Chris Halvey on engagement progress and priorities (from title; summary not read).",
+      "summary": "Weekly update on AI accuracy by domain, rolling out to the team by end of May at about half accuracy, flow diagram first, client AI consent tracking and safe use of outside AI tools.",
       "url": "https://fathom.video/calls/300842902",
-      "alt_url": null
-    },
-    {
-      "provider": "fathom",
-      "id": "299265220",
-      "title": "Flow Diagram QA cont.",
-      "date": "2025-05-14",
-      "participants": [
-        "Seb Van Kuyk",
-        "Chris Halvey",
-        "Keith McMahon",
-        "Jens Haakaas"
-      ],
-      "kind": "client",
-      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
-      "url": "https://fathom.video/calls/299265220",
       "alt_url": null
     },
     {
@@ -3358,7 +3342,7 @@
         "Lisa Siegfried"
       ],
       "kind": "client",
-      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "summary": "Data sheet follow-up on reframed questions grouped by source, setting up AI testing on one client file, and challenges with varied formats and spreadsheet support.",
       "url": "https://fathom.video/calls/299265223",
       "alt_url": null
     },
@@ -3374,7 +3358,7 @@
         "Chris Halvey"
       ],
       "kind": "client",
-      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "summary": "Asset QA session: progress by asset type, limits from unreadable spreadsheet financial statements, prompt vs data engineering, and a staged rollout plan for the assets AI.",
       "url": "https://fathom.video/calls/298072152",
       "alt_url": null
     },
@@ -3391,7 +3375,7 @@
         "Alan Temiryaev"
       ],
       "kind": "client",
-      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "summary": "Assets QA session troubleshooting AI asset answers: a problem spreadsheet removed, personal property gaps in standard documents, outside valuation data and email-held details.",
       "url": "https://fathom.video/calls/293441293",
       "alt_url": null
     },
@@ -3408,7 +3392,7 @@
         "Paul Lodder"
       ],
       "kind": "client",
-      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "summary": "Flow diagram QA session reviewing inconsistent AI answers on trust documents, adding and rewording questions, the value of focus mode, and source citation UI needs.",
       "url": "https://fathom.video/calls/293441294",
       "alt_url": null
     },
@@ -3423,7 +3407,7 @@
         "Chris Halvey"
       ],
       "kind": "client",
-      "summary": "Heritage call with the client team (from title; summary not read).",
+      "summary": "Check-in on Heritage's insurance carrier terminology sheet, fields needing human review, client files uploaded for AI testing, accuracy goals, and LOI and MOU follow-ups.",
       "url": "https://fathom.video/calls/290730268",
       "alt_url": null
     },
@@ -3437,7 +3421,7 @@
         "Chris Halvey"
       ],
       "kind": "client",
-      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "summary": "Insurance QA working session testing AI answers on individual policies, finding answers that mixed in unrelated policies, and logging results for prompt fixes.",
       "url": "https://fathom.video/calls/286765470",
       "alt_url": null
     },
@@ -3455,7 +3439,7 @@
         "Jessica Varkey"
       ],
       "kind": "client",
-      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "summary": "Testing follow-up across insurance, assets and flow diagram domains: owners and deadlines, weak irrevocable trust and asset results, and a new QA review interface prototype.",
       "url": "https://fathom.video/calls/283957904",
       "alt_url": null
     },
@@ -3470,7 +3454,7 @@
         "Thomas Fanning Jr."
       ],
       "kind": "client",
-      "summary": "Heritage call with the client team (from title; summary not read).",
+      "summary": "Catch-up on priorities (complete books by end of May), sample materials Heritage owes for AI training, a quick win drafting follow-up letters, and hands-on platform use.",
       "url": "https://fathom.video/calls/275235928",
       "alt_url": null
     },
@@ -3487,7 +3471,7 @@
         "Seb Van Kuyk"
       ],
       "kind": "client",
-      "summary": "Heritage call with the client team (from title; summary not read).",
+      "summary": "Demoed three AI co-pilots for Heritage staff (data extraction, scheduling and briefings, QA review), set app access and onboarding sessions, and discussed client data for training.",
       "url": "https://fathom.video/calls/257834655",
       "alt_url": null
     },
@@ -3502,7 +3486,7 @@
         "Chris Halvey"
       ],
       "kind": "client",
-      "summary": "Working session with Heritage staff reviewing and testing a Heritage Book section (assets, insurance, data sheet or flow diagram) (from title; summary not read).",
+      "summary": "Follow-up on training the Heritage AI: sample documents, terminology lists and workflow recordings Heritage will provide, a mid-March demo, and a phased automation plan.",
       "url": "https://fathom.video/calls/241154517",
       "alt_url": null
     }
