@@ -13,20 +13,6 @@
   "meetings": [
     {
       "provider": "granola",
-      "id": "0391399f-b56f-4da2-985d-4d3dd750a44e",
-      "title": "Sync: \"Seb & Tauseef\"",
-      "date": "2026-11-13T18:00:00Z",
-      "participants": [
-        "Tauseef Rahman",
-        "Seb Van Kuyk"
-      ],
-      "kind": "multi",
-      "summary": "1:1 on the company situation; noted Labyrinth has been rebranded and folded back into Infinity.",
-      "url": "https://notes.granola.ai/d/0391399f-b56f-4da2-985d-4d3dd750a44e",
-      "alt_url": null
-    },
-    {
-      "provider": "granola",
       "id": "7497714a-f6d8-4009-8877-3ec3909e9dda",
       "title": "Delivery Sync",
       "date": "2026-11-09T17:00:00Z",
@@ -89,22 +75,6 @@
       "kind": "multi",
       "summary": "Squad weekly review with a section on Labyrinth status and product vision.",
       "url": "https://notes.granola.ai/d/a5358d60-d5f2-41a5-b3b5-5ed8ab851c48",
-      "alt_url": null
-    },
-    {
-      "provider": "granola",
-      "id": "6f81d6ad-b9ff-48de-bbd1-17783aaf61e1",
-      "title": "Mason Feedback new",
-      "date": "2026-10-07T16:00:00Z",
-      "participants": [
-        "Tauseef Rahman",
-        "Naveen Lekkalapudi",
-        "Jaime Garcia",
-        "Diana Pedroza"
-      ],
-      "kind": "multi",
-      "summary": "Mason performance review with feedback on the Ethic Select, Hooray and Labyrinth pod.",
-      "url": "https://notes.granola.ai/d/6f81d6ad-b9ff-48de-bbd1-17783aaf61e1",
       "alt_url": null
     },
     {

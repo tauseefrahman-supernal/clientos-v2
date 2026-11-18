@@ -1,0 +1,1515 @@
+{
+  "slug": "breakr",
+  "pulled": "2026-11-18",
+  "searched": [
+    "Breakr",
+    "Breaker",
+    "BRKR",
+    "brkr.io",
+    "BreakrPay",
+    "Ella",
+    "Ela",
+    "Creator Networks",
+    "Creator Network",
+    "Duolingo",
+    "Altus Minds",
+    "Amp companion",
+    "OF-003",
+    "Ameer",
+    "Ameer Brown",
+    "Anthony Brown",
+    "Tony Brown",
+    "Mauro",
+    "Sagar",
+    "Auryn",
+    "Breakr JPMorgan"
+  ],
+  "meetings": [
+    {
+      "provider": "fathom",
+      "id": "905219245",
+      "title": "Darkroom x Breakr API",
+      "date": "2026-11-17",
+      "participants": [
+        "Ameer Brown",
+        "Tony Brown",
+        "Sam Czaja",
+        "Dominik Springer",
+        "Aman Nirala",
+        "Oliver Jordan",
+        "Sacha Mattey"
+      ],
+      "kind": "client",
+      "summary": "Scoped Darkroom's integration of the Breakr API into its artist workspace, starting with creator payouts and a historical backfill; Breakr to provide docs and staging keys.",
+      "url": "https://fathom.video/calls/905219245",
+      "alt_url": "https://fathom.video/calls/905184601"
+    },
+    {
+      "provider": "fathom",
+      "id": "902663426",
+      "title": "Breakr x Supernal",
+      "date": "2026-11-17",
+      "participants": [
+        "Johnny Borbone",
+        "Dominik Springer",
+        "Aman Nirala",
+        "Ameer Brown",
+        "Tony Brown",
+        "Mauro Alves",
+        "Eisley Parks",
+        "Jacob Berman",
+        "Sam Czaja"
+      ],
+      "kind": "client",
+      "summary": "Weekly sync on code-audit findings (outdated Python and Django, hidden TypeScript errors), approval of the $21K/mo dual-team model to Dec 4, and the affiliate push.",
+      "url": "https://fathom.video/calls/902663426",
+      "alt_url": "https://fathom.video/calls/903946357"
+    },
+    {
+      "provider": "fathom",
+      "id": "902663428",
+      "title": "Daily standup",
+      "date": "2026-11-17",
+      "participants": [
+        "Dominik Springer",
+        "Aman Nirala",
+        "Ameer Brown",
+        "Sam Czaja",
+        "Sagar Dangal",
+        "Kailash Pokhrel",
+        "Achyut Kayastha",
+        "Kishan Sharma",
+        "Doren Gore",
+        "Tony Brown"
+      ],
+      "kind": "client",
+      "summary": "Engineering standup introducing a CI pipeline with blocking tests and security scans; failing legacy agency tests, a downgraded Vercel plan and dev invite links flagged.",
+      "url": "https://fathom.video/calls/902663428",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "902316881",
+      "title": "Vanta Chat: Anthony Brown & Ash Gong",
+      "date": "2026-11-16",
+      "participants": [
+        "Tony Brown",
+        "Ameer Brown",
+        "Ash Gong",
+        "Dominik Springer"
+      ],
+      "kind": "client",
+      "summary": "Breakr agreed a Vanta deal for SOC 2 and ISO compliance, needed to land a contract with a major record label.",
+      "url": "https://fathom.video/calls/902316881",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "900305623",
+      "title": "Delivery Sync",
+      "date": "2026-11-16",
+      "participants": [
+        "Seb Van Kuyk",
+        "Devan Leibowitz",
+        "Johnny Borbone",
+        "Tauseef Rahman",
+        "Naveen Lekkalapudi",
+        "Thomas Bustos",
+        "Aman Nirala",
+        "Dominik Springer"
+      ],
+      "kind": "multi",
+      "summary": "Delivery sync reporting Breakr de-risked after a realignment: the client keeps its Altus Minds engineers through January, easing Supernal's capacity pressure.",
+      "url": "https://fathom.video/calls/900305623",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "900716592",
+      "title": "Strat Team Standup",
+      "date": "2026-11-16",
+      "participants": [
+        "Dominik Springer",
+        "Scott Downes",
+        "Seb Van Kuyk",
+        "Devan Leibowitz",
+        "Tauseef Rahman",
+        "Naveen Lekkalapudi",
+        "Thomas Bustos"
+      ],
+      "kind": "multi",
+      "summary": "Strategy standup that traced the Breakr escalation to Ameer's investor pressure and the Dec 4 date rather than delivery, and moved to proactive expectation-setting.",
+      "url": "https://fathom.video/calls/900716592",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "901345985",
+      "title": "Daily standup",
+      "date": "2026-11-16",
+      "participants": [
+        "Dominik Springer",
+        "Aman Nirala",
+        "Ameer Brown",
+        "Sam Czaja",
+        "Sagar Dangal",
+        "Kailash Pokhrel",
+        "Achyut Kayastha",
+        "Kishan Sharma",
+        "Doren Gore"
+      ],
+      "kind": "client",
+      "summary": "Standup prioritising a record-label client's security audit and settling wallet fee logic with automatic transfers between a user's wallets.",
+      "url": "https://fathom.video/calls/901345985",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "bd0f4712-4b37-4b2d-a303-479e5dd8bc29",
+      "title": "Sync: \"Breakr\"",
+      "date": "2026-11-13T16:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Aman Nirala"
+      ],
+      "kind": "internal",
+      "summary": "Discussed Breakr's fast, unreviewed coding and tech debt, holding refactors until after Dec 4, knowledge transfer from Sagar, and Dominik owning stakeholder expectations.",
+      "url": "https://notes.granola.ai/d/bd0f4712-4b37-4b2d-a303-479e5dd8bc29",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "900716588",
+      "title": "Tiered Pricing Strategy Thunderdome",
+      "date": "2026-11-13",
+      "participants": [
+        "Tony Brown",
+        "Sam Czaja",
+        "Dominik Springer"
+      ],
+      "kind": "client",
+      "summary": "Pricing session that settled on a hybrid three-tier model (self-serve, growth, enterprise) with laddered per-dollar fees and automatic tier changes.",
+      "url": "https://fathom.video/calls/900716588",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "900742681",
+      "title": "Replenishment",
+      "date": "2026-11-13",
+      "participants": [
+        "Ameer Brown",
+        "Aman Nirala",
+        "Sagar Dangal",
+        "Doren Gore",
+        "Dominik Springer"
+      ],
+      "kind": "client",
+      "summary": "Set next week's priorities: finish Affiliate then Clipping before the Dec 4 Duolingo meeting, redesign Business API key auth after a flaw, and new GitHub rules.",
+      "url": "https://fathom.video/calls/900742681",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "899118460",
+      "title": "Daily Standup",
+      "date": "2026-11-13",
+      "participants": [
+        "Dominik Springer",
+        "Aman Nirala",
+        "Ameer Brown",
+        "Sam Czaja",
+        "Sagar Dangal",
+        "Kailash Pokhrel",
+        "Achyut Kayastha",
+        "Kishan Sharma"
+      ],
+      "kind": "client",
+      "summary": "Standup on a live bug recalculating creator payouts at the current platform rate, Business API and OnSocial PRs awaiting release, and Creator Network review gaps.",
+      "url": "https://fathom.video/calls/899118460",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "897388890",
+      "title": "Daily standup",
+      "date": "2026-11-12",
+      "participants": [
+        "Dominik Springer",
+        "Aman Nirala",
+        "Ameer Brown",
+        "Sam Czaja",
+        "Sagar Dangal",
+        "Kailash Pokhrel",
+        "Achyut Kayastha",
+        "Kishan Sharma",
+        "Doren Gore",
+        "Tony Brown"
+      ],
+      "kind": "client",
+      "summary": "Agreed to build the affiliate feature on the existing Campaign model and reviewed a critical analytics bug from decentralised calculations.",
+      "url": "https://fathom.video/calls/897388890",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "895772880",
+      "title": "Daily standup",
+      "date": "2026-11-11",
+      "participants": [
+        "Dominik Springer",
+        "Aman Nirala",
+        "Ameer Brown",
+        "Sam Czaja",
+        "Sagar Dangal",
+        "Kailash Pokhrel",
+        "Achyut Kayastha",
+        "Kishan Sharma",
+        "Tony Brown"
+      ],
+      "kind": "client",
+      "summary": "Standup on Aman's work waiting for the Business API production deploy, a knowledge-transfer session with Sagar, and a new developer use-case initiative.",
+      "url": "https://fathom.video/calls/895772880",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "893840017",
+      "title": "Breakr x Supernal",
+      "date": "2026-11-10",
+      "participants": [
+        "Johnny Borbone",
+        "Dominik Springer",
+        "Aman Nirala",
+        "Ameer Brown",
+        "Tony Brown",
+        "Mauro Alves",
+        "Eisley Parks",
+        "Jacob Berman",
+        "Sam Czaja"
+      ],
+      "kind": "client",
+      "summary": "Traced wrong analytics to five pages computing metrics separately, weighed a quick fix against a ledger refactor, and reviewed Creator Networks and the Ella release.",
+      "url": "https://fathom.video/calls/893840017",
+      "alt_url": "https://fathom.video/calls/895233700"
+    },
+    {
+      "provider": "fathom",
+      "id": "893840019",
+      "title": "Daily standup",
+      "date": "2026-11-10",
+      "participants": [
+        "Dominik Springer",
+        "Aman Nirala",
+        "Ameer Brown",
+        "Sam Czaja",
+        "Sagar Dangal",
+        "Kailash Pokhrel",
+        "Achyut Kayastha",
+        "Kishan Sharma",
+        "Tony Brown"
+      ],
+      "kind": "client",
+      "summary": "Standup on the finding that 5+ screens calculate the same metrics, and the case for refactoring core pieces incrementally alongside new features.",
+      "url": "https://fathom.video/calls/893840019",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "7497714a-f6d8-4009-8877-3ec3909e9dda",
+      "title": "Delivery Sync",
+      "date": "2026-11-09T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Ryan Williams",
+        "Devan Leibowitz",
+        "Thomas Bustos"
+      ],
+      "kind": "multi",
+      "summary": "Delivery sync where Breakr was rated healthy: Dec 4 walkthrough target held, Ameer unreachable for a week, growing scope, and Doren onboarding as QA.",
+      "url": "https://notes.granola.ai/d/7497714a-f6d8-4009-8877-3ec3909e9dda",
+      "alt_url": "https://fathom.video/calls/891407302"
+    },
+    {
+      "provider": "fathom",
+      "id": "893165390",
+      "title": "API go-to-market and process",
+      "date": "2026-11-09",
+      "participants": [
+        "Ameer Brown",
+        "Tony Brown",
+        "Sam Czaja",
+        "Sagar Dangal",
+        "Dominik Springer"
+      ],
+      "kind": "client",
+      "summary": "Defined go-to-market for the Breakr API: gated developer access inside the app and a self-serve onboarding portal built around service bundles.",
+      "url": "https://fathom.video/calls/893165390",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "889973477",
+      "title": "Breakr x JPMorgan | Next Steps",
+      "date": "2026-11-06",
+      "participants": [
+        "Ameer Brown",
+        "Tony Brown",
+        "Aman Nirala",
+        "J.P. Morgan team"
+      ],
+      "kind": "client",
+      "summary": "Worked through how Breakr could earn float income on client funds using J.P. Morgan virtual sub-accounts, including how the funds are classified for compliance.",
+      "url": "https://fathom.video/calls/889973477",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "891466520",
+      "title": "Next Steps Creator Networks - Duolingo",
+      "date": "2026-11-06",
+      "participants": [
+        "Dominik Springer",
+        "Aman Nirala",
+        "Sagar Dangal",
+        "Achyut Kayastha",
+        "Kishan Sharma"
+      ],
+      "kind": "client",
+      "summary": "Clarified Creator Networks scope for Dec 4: undefined items such as Ambassadors and EU payouts flagged, affiliates deferred, and a question list prepared for Ameer.",
+      "url": "https://fathom.video/calls/891466520",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "891406791",
+      "title": "Daily Standup",
+      "date": "2026-11-06",
+      "participants": [
+        "Dominik Springer",
+        "Aman Nirala",
+        "Ameer Brown",
+        "Sam Czaja",
+        "Sagar Dangal",
+        "Kailash Pokhrel",
+        "Achyut Kayastha",
+        "Kishan Sharma"
+      ],
+      "kind": "client",
+      "summary": "Standup on Ella fixes for action-status and re-proposal loops, three Business API security fixes in staging, and a Creator Networks planning session with Ameer.",
+      "url": "https://fathom.video/calls/891406791",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "889476790",
+      "title": "Jira Board | Kailash / Dominik",
+      "date": "2026-11-04",
+      "participants": [
+        "Dominik Springer",
+        "Kailash Pokhrel"
+      ],
+      "kind": "client",
+      "summary": "Working session between Dominik and Kailash on Breakr's Jira board; no recording summary was available.",
+      "url": "https://fathom.video/calls/889476790",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "888403821",
+      "title": "Sam / Dominik",
+      "date": "2026-11-04",
+      "participants": [
+        "Sam Czaja",
+        "Dominik Springer"
+      ],
+      "kind": "client",
+      "summary": "Kicked off an end-to-end pricing review for musicbreakr at Tony's request, using Sam's existing playbook as the starting point.",
+      "url": "https://fathom.video/calls/888403821",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "887018721",
+      "title": "Daily standup",
+      "date": "2026-11-04",
+      "participants": [
+        "Dominik Springer",
+        "Aman Nirala",
+        "Ameer Brown",
+        "Sam Czaja",
+        "Sagar Dangal",
+        "Kailash Pokhrel",
+        "Achyut Kayastha",
+        "Kishan Sharma",
+        "Tony Brown"
+      ],
+      "kind": "client",
+      "summary": "Standup confirming Creator Network nearly complete on dev with SSO and custom domains, and moving all work onto a new Jira board as the single source of truth.",
+      "url": "https://fathom.video/calls/887018721",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "888400251",
+      "title": "Ameer / Dominik | Jira sync",
+      "date": "2026-11-04",
+      "participants": [
+        "Ameer Brown",
+        "Dominik Springer"
+      ],
+      "kind": "client",
+      "summary": "Set Jira ticket-to-code rules and reviewed status: Duolingo UI in QA, white-labelling, a basic content library, a proposed CRM restructure, and AI token limits.",
+      "url": "https://fathom.video/calls/888400251",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "884600863",
+      "title": "Breakr x Supernal",
+      "date": "2026-11-03",
+      "participants": [
+        "Johnny Borbone",
+        "Dominik Springer",
+        "Aman Nirala",
+        "Ameer Brown",
+        "Tony Brown",
+        "Mauro Alves",
+        "Eisley Parks",
+        "Jacob Berman",
+        "Sam Czaja"
+      ],
+      "kind": "client",
+      "summary": "Weekly Breakr and Supernal client sync; no recording summary was available.",
+      "url": "https://fathom.video/calls/884600863",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "884600866",
+      "title": "Daily standup",
+      "date": "2026-11-03",
+      "participants": [
+        "Dominik Springer",
+        "Aman Nirala",
+        "Ameer Brown",
+        "Sam Czaja",
+        "Sagar Dangal",
+        "Kailash Pokhrel",
+        "Achyut Kayastha",
+        "Kishan Sharma",
+        "Tony Brown"
+      ],
+      "kind": "client",
+      "summary": "Standup on an Offer Calculator for clients with strict purchase orders, an onboarding survey to segment clients, and Creator Networks V1 progress.",
+      "url": "https://fathom.video/calls/884600866",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "c77ccf9c-e184-41d1-a8a5-8c1354531a90",
+      "title": "Delivery Sync",
+      "date": "2026-11-02T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Ryan Williams",
+        "Devan Leibowitz",
+        "Thomas Bustos"
+      ],
+      "kind": "multi",
+      "summary": "Delivery sync that opened with Breakr: Creator Network ahead of schedule, Ella token cost cut about 70% by caching, GitHub friction, and Tony re-engaged and positive.",
+      "url": "https://notes.granola.ai/d/c77ccf9c-e184-41d1-a8a5-8c1354531a90",
+      "alt_url": "https://fathom.video/calls/882864595"
+    },
+    {
+      "provider": "granola",
+      "id": "ab83cf16-fd9c-4a2f-85e3-e393cef92993",
+      "title": "Strat Team Standup",
+      "date": "2026-11-02T16:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Devan Leibowitz",
+        "Thomas Bustos",
+        "Jaime Garcia",
+        "Katie Jefferson",
+        "Diana Pedroza",
+        "Dominik Springer",
+        "Scott Downes"
+      ],
+      "kind": "multi",
+      "summary": "Strategy standup covering Tony and Ameer pulling Dominik toward GTM versus running product, a plan to formalise expanded scope with Johnny, and scope-creep risk.",
+      "url": "https://notes.granola.ai/d/ab83cf16-fd9c-4a2f-85e3-e393cef92993",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "883510863",
+      "title": "Dominik and Anthony Brown",
+      "date": "2026-11-02",
+      "participants": [
+        "Tony Brown",
+        "Dominik Springer"
+      ],
+      "kind": "client",
+      "summary": "Tony and Dominik aligned on the product roadmap, holding the marketing push until the product is fully agentic, and an operating cadence.",
+      "url": "https://fathom.video/calls/883510863",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "878864861",
+      "title": "Daily standup",
+      "date": "2026-10-29",
+      "participants": [
+        "Dominik Springer",
+        "Aman Nirala",
+        "Ameer Brown",
+        "Sam Czaja",
+        "Sagar Dangal",
+        "Kailash Pokhrel",
+        "Achyut Kayastha",
+        "Kishan Sharma",
+        "Tony Brown"
+      ],
+      "kind": "client",
+      "summary": "Standup on an Ella analytics 502 caused by a 90-day data pull, a standard Git workflow, and a Creator Network demo before the Oct 31 deadline.",
+      "url": "https://fathom.video/calls/878864861",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "ebaa217b-95e5-4eb1-bd5c-9f3b05c5fc7c",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-10-28T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Devan Leibowitz",
+        "Nick Agresti",
+        "Naveen Lekkalapudi",
+        "Jaime Garcia",
+        "Jack Parham"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review noting the Breakr expansion closed at about $200K, roughly $100K under plan after moving from a 24-month to a 12-month term.",
+      "url": "https://notes.granola.ai/d/ebaa217b-95e5-4eb1-bd5c-9f3b05c5fc7c",
+      "alt_url": "https://fathom.video/calls/877122683"
+    },
+    {
+      "provider": "fathom",
+      "id": "877975650",
+      "title": "Daily standup",
+      "date": "2026-10-28",
+      "participants": [
+        "Dominik Springer",
+        "Aman Nirala",
+        "Ameer Brown",
+        "Sam Czaja",
+        "Sagar Dangal",
+        "Kailash Pokhrel",
+        "Achyut Kayastha",
+        "Kishan Sharma",
+        "Tony Brown"
+      ],
+      "kind": "client",
+      "summary": "Introduced Dominik to the team, approved a payout anomaly-detection prototype, confirmed Creator Network V1 on dev, and discussed a platform re-architecture.",
+      "url": "https://fathom.video/calls/877975650",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "878026129",
+      "title": "Walkthrough + GH access",
+      "date": "2026-10-27",
+      "participants": [
+        "Ameer Brown",
+        "Dominik Springer"
+      ],
+      "kind": "client",
+      "summary": "Onboarded Dominik to Breakr's tools, workflows and team structure, with Jira set as the source of truth for all work.",
+      "url": "https://fathom.video/calls/878026129",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "875861933",
+      "title": "Breakr x Supernal",
+      "date": "2026-10-27",
+      "participants": [
+        "Dominik Springer",
+        "Johnny Borbone",
+        "Devan Leibowitz",
+        "Aman Nirala",
+        "Ameer Brown",
+        "Tony Brown",
+        "Mauro Alves",
+        "Eisley Parks",
+        "Jacob Berman",
+        "Sam Czaja"
+      ],
+      "kind": "client",
+      "summary": "Ella caching cut model spend about 70%, Creator Networks frontend ready for the Oct 31 Duolingo demo with the Dec 4 launch on track, and a new product vision.",
+      "url": "https://fathom.video/calls/875861933",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "876000654",
+      "title": "Aman <> Sagar | Breakr BE Backlogs",
+      "date": "2026-10-26",
+      "participants": [
+        "Aman Nirala",
+        "Sagar Dangal",
+        "Dominik Springer"
+      ],
+      "kind": "client",
+      "summary": "Aligned on the Creator Network backend backlog: custom UI over GetStream, per-network branding, encrypted SSO secrets, and the content library deferred past Dec 4.",
+      "url": "https://fathom.video/calls/876000654",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "866547358",
+      "title": "Breakr x Supernal",
+      "date": "2026-10-20",
+      "participants": [
+        "Johnny Borbone",
+        "Devan Leibowitz",
+        "Aman Nirala",
+        "Ameer Brown",
+        "Tony Brown",
+        "Mauro Alves",
+        "Eisley Parks",
+        "Jacob Berman",
+        "Sam Czaja"
+      ],
+      "kind": "client",
+      "summary": "Introduced Dominik as strategist replacing Devan, reviewed Ella updates ready for production, and paused Creator Networks until the new contract was signed.",
+      "url": "https://fathom.video/calls/866547358",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "861885808",
+      "title": "Breakr x Supernal",
+      "date": "2026-10-14",
+      "participants": [
+        "Dominik Springer",
+        "Devan Leibowitz",
+        "Johnny Borbone",
+        "Ameer Brown",
+        "Tony Brown",
+        "Aman Nirala"
+      ],
+      "kind": "client",
+      "summary": "Agreed the new engagement: $21K/mo sprint to the Dec 4 Creator Network launch then $15K, an expanded team with Dominik, and Sagar brought in-house.",
+      "url": "https://fathom.video/calls/861885808",
+      "alt_url": "https://fathom.video/calls/860309702"
+    },
+    {
+      "provider": "fathom",
+      "id": "860309697",
+      "title": "what are we walking Breakr through?",
+      "date": "2026-10-13",
+      "participants": [
+        "Aman Nirala",
+        "Devan Leibowitz",
+        "Johnny Borbone",
+        "Thomas Bustos",
+        "Dominik Springer",
+        "Naveen Lekkalapudi"
+      ],
+      "kind": "internal",
+      "summary": "Internal prep that fixed the Phase 1 split (Supernal frontend and infra, Sagar backend), staffing, and pricing of $15K base plus a $6K sprint surcharge.",
+      "url": "https://fathom.video/calls/860309697",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "857657524",
+      "title": "Breakr x Supernal",
+      "date": "2026-10-13",
+      "participants": [
+        "Johnny Borbone",
+        "Devan Leibowitz",
+        "Aman Nirala",
+        "Ameer Brown",
+        "Tony Brown",
+        "Mauro Alves",
+        "Eisley Parks",
+        "Jacob Berman",
+        "Sam Czaja"
+      ],
+      "kind": "client",
+      "summary": "Weekly Breakr and Supernal client sync; no recording summary was available.",
+      "url": "https://fathom.video/calls/857657524",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "848754660",
+      "title": "Breakr x Supernal",
+      "date": "2026-10-06",
+      "participants": [
+        "Johnny Borbone",
+        "Devan Leibowitz",
+        "Aman Nirala",
+        "Ameer Brown",
+        "Tony Brown",
+        "Mauro Alves",
+        "Eisley Parks",
+        "Jacob Berman",
+        "Sam Czaja"
+      ],
+      "kind": "client",
+      "summary": "Aligned on a new model: Sagar handles legacy maintenance while a ~3x larger retainer funds an AI platform, with Ella as a campaign-manager style assistant.",
+      "url": "https://fathom.video/calls/848754660",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "cc77a502-84ea-4971-8ef5-7c22259d4b38",
+      "title": "Delivery Sync",
+      "date": "2026-10-05T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Ryan Williams",
+        "Devan Leibowitz",
+        "Thomas Bustos"
+      ],
+      "kind": "multi",
+      "summary": "Delivery sync on the chance to replace Breakr's third-party engineering agency, a gap between the client's ~$15K/mo expectation and the ~$21K order form, and maintenance mode.",
+      "url": "https://notes.granola.ai/d/cc77a502-84ea-4971-8ef5-7c22259d4b38",
+      "alt_url": "https://fathom.video/calls/846711109"
+    },
+    {
+      "provider": "fathom",
+      "id": "839807615",
+      "title": "Breakr x Supernal",
+      "date": "2026-10-01",
+      "participants": [
+        "Devan Leibowitz",
+        "Johnny Borbone",
+        "Ameer Brown",
+        "Tony Brown",
+        "Aman Nirala"
+      ],
+      "kind": "client",
+      "summary": "Discussed IP, consolidating all development with Supernal instead of Altus Minds, and the $15K tier with a dedicated product lead.",
+      "url": "https://fathom.video/calls/839807615",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "3296088e-fbb0-4b57-8f1a-574053008b08",
+      "title": "Delivery Sync",
+      "date": "2026-09-28T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Ryan Williams",
+        "Devan Leibowitz",
+        "Thomas Bustos"
+      ],
+      "kind": "multi",
+      "summary": "Delivery sync update on Breakr: payment due, Mauro happy with Ella, new analytics dashboard, next-phase order form awaiting pricing, and an internal Ella ROI case.",
+      "url": "https://notes.granola.ai/d/3296088e-fbb0-4b57-8f1a-574053008b08",
+      "alt_url": "https://fathom.video/calls/838015067"
+    },
+    {
+      "provider": "fathom",
+      "id": "830876835",
+      "title": "Breakr x Supernal",
+      "date": "2026-09-22",
+      "participants": [
+        "Johnny Borbone",
+        "Devan Leibowitz",
+        "Aman Nirala",
+        "Ameer Brown",
+        "Tony Brown",
+        "Mauro Alves",
+        "Eisley Parks",
+        "Jacob Berman",
+        "Sam Czaja"
+      ],
+      "kind": "client",
+      "summary": "Mauro called Ella essential to daily CS; next phase targets finance and accounting tasks for Jacob and Sam, with email integration the top priority.",
+      "url": "https://fathom.video/calls/830876835",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "824522098",
+      "title": "Impromptu Google Meet Meeting",
+      "date": "2026-09-15",
+      "participants": [
+        "Ameer Brown",
+        "Aman Nirala"
+      ],
+      "kind": "client",
+      "summary": "Reviewed Ella's performance; gaps in the knowledge base and a Gmail API blocker on the shared info inbox were the main issues.",
+      "url": "https://fathom.video/calls/824522098",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "796707641",
+      "title": "Breakr x Supernal",
+      "date": "2026-08-25",
+      "participants": [
+        "Johnny Borbone",
+        "Devan Leibowitz",
+        "Aman Nirala",
+        "Ameer Brown",
+        "Tony Brown",
+        "Mauro Alves",
+        "Eisley Parks",
+        "Jacob Berman",
+        "Sam Czaja"
+      ],
+      "kind": "client",
+      "summary": "Defined Ella's next phase: one SLA dashboard across channels, automating BreakrPay and invoicing as the first workflow, and product feedback loops.",
+      "url": "https://fathom.video/calls/796707641",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "787036886",
+      "title": "Breakr x Supernal",
+      "date": "2026-08-18",
+      "participants": [
+        "Johnny Borbone",
+        "Devan Leibowitz",
+        "Aman Nirala",
+        "Ameer Brown",
+        "Tony Brown",
+        "Mauro Alves",
+        "Eisley Parks",
+        "Jacob Berman",
+        "Sam Czaja"
+      ],
+      "kind": "client",
+      "summary": "Found an SOP document to train Ella on complex workflows such as payment reversals, and agreed to rebuild email as drafts a person approves.",
+      "url": "https://fathom.video/calls/787036886",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "781038445",
+      "title": "Breakr x Supernal",
+      "date": "2026-08-11",
+      "participants": [
+        "Johnny Borbone",
+        "Devan Leibowitz",
+        "Aman Nirala",
+        "Ameer Brown",
+        "Tony Brown",
+        "Mauro Alves",
+        "Eisley Parks",
+        "Jacob Berman",
+        "Sam Czaja"
+      ],
+      "kind": "client",
+      "summary": "Finalised Ella's go-live: accuracy up to 41 of 44 checks, with review of the Notion knowledge base the last blocker before launch.",
+      "url": "https://fathom.video/calls/781038445",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "770207213",
+      "title": "Breakr <> Supernal",
+      "date": "2026-08-04",
+      "participants": [
+        "Johnny Borbone",
+        "Devan Leibowitz",
+        "Aman Nirala",
+        "Ameer Brown",
+        "Tony Brown",
+        "Mauro Alves",
+        "Eisley Parks",
+        "Jacob Berman",
+        "Sam Czaja"
+      ],
+      "kind": "client",
+      "summary": "With Eisley leaving, prioritised automating finance tasks such as Stripe-to-PayPal funding, and kept the customer-facing Ella persona read-only for safety.",
+      "url": "https://fathom.video/calls/770207213",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "760212622",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-07-27",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Scott Downes",
+        "Saad Ali",
+        "Manish Chintha",
+        "Devan Leibowitz"
+      ],
+      "kind": "multi",
+      "summary": "Delivery planning noting Breakr's faulty API docs resolved, Ella go-live expected that week, and a creator-network build next that needs a data compliance review.",
+      "url": "https://fathom.video/calls/760212622",
+      "alt_url": "https://fathom.video/calls/760212683"
+    },
+    {
+      "provider": "fathom",
+      "id": "753028299",
+      "title": "Breakr <> Supernal",
+      "date": "2026-07-21",
+      "participants": [
+        "Johnny Borbone",
+        "Devan Leibowitz",
+        "Aman Nirala",
+        "Ameer Brown",
+        "Tony Brown",
+        "Mauro Alves",
+        "Eisley Parks",
+        "Jacob Berman",
+        "Sam Czaja",
+        "Sagar Dangal"
+      ],
+      "kind": "client",
+      "summary": "Ella go-live held for Mauro's persona report; data accuracy and security fixes deployed, and the dashboard gained an approval audit trail and unified history.",
+      "url": "https://fathom.video/calls/753028299",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "750903801",
+      "title": "Supernal x Breakr | Progress + Roadmap",
+      "date": "2026-07-20",
+      "participants": [
+        "Devan Leibowitz",
+        "Johnny Borbone",
+        "Ameer Brown",
+        "Aman Nirala",
+        "Tony Brown"
+      ],
+      "kind": "client",
+      "summary": "Ella ready to go live once Business API docs arrived; the roadmap shifted toward an external agentic service for Breakr's own clients.",
+      "url": "https://fathom.video/calls/750903801",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "d00c498d-ad0e-49e4-8bb6-9f426ef83dbb",
+      "title": "All Hands",
+      "date": "2026-07-13T18:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Devan Leibowitz",
+        "Seb Van Kuyk",
+        "Ryan Williams",
+        "Nick Agresti"
+      ],
+      "kind": "multi",
+      "summary": "All-hands on the security incident: Breakr was the one client where malicious code reached production, so it was notified and asked to rotate secrets.",
+      "url": "https://notes.granola.ai/d/d00c498d-ad0e-49e4-8bb6-9f426ef83dbb",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "4cc0a43d-8af1-4507-82b1-372cbd76b61a",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-07-13T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Scott Downes",
+        "Saad Ali",
+        "Manish Chintha",
+        "Devan Leibowitz"
+      ],
+      "kind": "multi",
+      "summary": "Delivery planning during the security incident: Breakr down pending Stripe and PayPal credential rotation, new Breakr API live, and proactive disclosure to the client.",
+      "url": "https://notes.granola.ai/d/4cc0a43d-8af1-4507-82b1-372cbd76b61a",
+      "alt_url": "https://fathom.video/calls/742306023"
+    },
+    {
+      "provider": "fathom",
+      "id": "735952202",
+      "title": "Breakr <> Supernal",
+      "date": "2026-07-07",
+      "participants": [
+        "Johnny Borbone",
+        "Devan Leibowitz",
+        "Aman Nirala",
+        "Ameer Brown",
+        "Tony Brown",
+        "Mauro Alves",
+        "Eisley Parks",
+        "Jacob Berman",
+        "Sam Czaja",
+        "Sagar Dangal"
+      ],
+      "kind": "client",
+      "summary": "Made invoice editing the top priority, positioned Ella as an onboarding knowledge hub, and set up Mauro's knowledge base testing.",
+      "url": "https://fathom.video/calls/735952202",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "b61a26c0-abad-41c0-af4e-b53becae3830",
+      "title": "All Hands",
+      "date": "2026-07-06T18:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Devan Leibowitz",
+        "Seb Van Kuyk",
+        "Ryan Williams",
+        "Nick Agresti",
+        "Naveen Lekkalapudi"
+      ],
+      "kind": "multi",
+      "summary": "All-hands with a demo of the Ella dashboard: connectors, approvals, memory, knowledge base, telemetry and a test widget, plus a fast payout-method setup.",
+      "url": "https://notes.granola.ai/d/b61a26c0-abad-41c0-af4e-b53becae3830",
+      "alt_url": "https://fathom.video/calls/734123268"
+    },
+    {
+      "provider": "fathom",
+      "id": "719676093",
+      "title": "Breakr <> Supernal",
+      "date": "2026-06-23",
+      "participants": [
+        "Aman Nirala",
+        "Eisley Parks",
+        "Sam Czaja"
+      ],
+      "kind": "client",
+      "summary": "Ella Phase 3 complete pending the new Business API; discussed using an outside vendor for creator enrichment versus building it in-house.",
+      "url": "https://fathom.video/calls/719676093",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "715431203",
+      "title": "Breakr <> J.P. Morgan",
+      "date": "2026-06-19",
+      "participants": [
+        "Ameer Brown",
+        "Tony Brown",
+        "J.P. Morgan team"
+      ],
+      "kind": "client",
+      "summary": "Explored automating Breakr's manual PayPal funding wires with J.P. Morgan payment APIs, plus asset-based lending as a replacement for factoring.",
+      "url": "https://fathom.video/calls/715431203",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "710612239",
+      "title": "Breakr <> Supernal",
+      "date": "2026-06-16",
+      "participants": [
+        "Aman Nirala",
+        "Devan Leibowitz",
+        "Mauro Alves"
+      ],
+      "kind": "client",
+      "summary": "Testing feedback called for role-based access; demoed Phase 2 gated tools and a stale-data guardrail; data gaps and the Business API remained blockers.",
+      "url": "https://fathom.video/calls/710612239",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "702030637",
+      "title": "Breakr <> Supernal",
+      "date": "2026-06-09",
+      "participants": [
+        "Aman Nirala",
+        "Ameer Brown",
+        "Mauro Alves",
+        "Eisley Parks"
+      ],
+      "kind": "client",
+      "summary": "Core Ella build near completion with team testing; scoped a Phase 3 vision (interaction log, voice admin, generated analytics) and an approval timeout.",
+      "url": "https://fathom.video/calls/702030637",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "693416570",
+      "title": "Breakr <> Supernal",
+      "date": "2026-06-02",
+      "participants": [
+        "Aman Nirala",
+        "Ameer Brown",
+        "Sagar Dangal",
+        "Mauro Alves",
+        "Eisley Parks"
+      ],
+      "kind": "client",
+      "summary": "Guardrail layer live on staging, API middleware due next day, Plaid considered over Chase for payout funding, and roster automation queued.",
+      "url": "https://fathom.video/calls/693416570",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "118d19de-d6f6-48dd-b799-53b7cce6e266",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-06-01T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Scott Downes",
+        "Saad Ali",
+        "Manish Chintha",
+        "Devan Leibowitz"
+      ],
+      "kind": "multi",
+      "summary": "Delivery planning noting Breakr Phase 2 nearly done, API middleware due June 3, Aman stretched across accounts, Ella hitting API rate limits, and new automation ideas.",
+      "url": "https://notes.granola.ai/d/118d19de-d6f6-48dd-b799-53b7cce6e266",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "693943999",
+      "title": "Aman <> Sagar Sync",
+      "date": "2026-06-01",
+      "participants": [
+        "Aman Nirala",
+        "Sagar Dangal"
+      ],
+      "kind": "client",
+      "summary": "Phase 2 blockers: direct Stripe-to-PayPal transfers not possible via API and roster automation needing new admin APIs; middleware due mid-week.",
+      "url": "https://fathom.video/calls/693943999",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "688679253",
+      "title": "Breakr x Supernal | Sam, Eisley, Aman",
+      "date": "2026-05-28",
+      "participants": [
+        "Sam Czaja",
+        "Eisley Parks",
+        "Aman Nirala"
+      ],
+      "kind": "client",
+      "summary": "Mapped Sam's and Eisley's manual workflows (lead outreach, payment error fixes, agency rosters) as candidates for Ella automation via Slack.",
+      "url": "https://fathom.video/calls/688679253",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "686404539",
+      "title": "Breakr x Supernal | Mauro / Aman",
+      "date": "2026-05-27",
+      "participants": [
+        "Mauro Alves",
+        "Aman Nirala"
+      ],
+      "kind": "client",
+      "summary": "Mapped Mauro's invoice PO edits and creator account troubleshooting for Ella, with Slack approvals and an audit log required.",
+      "url": "https://fathom.video/calls/686404539",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "685069045",
+      "title": "Breakr <> Supernal",
+      "date": "2026-05-26",
+      "participants": [
+        "Aman Nirala",
+        "Mauro Alves",
+        "Devan Leibowitz"
+      ],
+      "kind": "client",
+      "summary": "Raised a knowledge base need from Mauro's onboarding, planned guardrail testing, and diagnosed invoice ID and currency errors in Ella.",
+      "url": "https://fathom.video/calls/685069045",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "676737499",
+      "title": "Breakr <> Supernal",
+      "date": "2026-05-19",
+      "participants": [
+        "Aman Nirala",
+        "Ameer Brown",
+        "Mauro Alves",
+        "Eisley Parks",
+        "Sam Czaja"
+      ],
+      "kind": "client",
+      "summary": "Phase 2 on track for June; fixes for hallucinations and currency handling, a critic sub-agent for data security, and an automation wishlist.",
+      "url": "https://fathom.video/calls/676737499",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "679464127",
+      "title": "Sagar <> Aman Sync on BREKR API",
+      "date": "2026-05-19",
+      "participants": [
+        "Sagar Dangal",
+        "Aman Nirala"
+      ],
+      "kind": "client",
+      "summary": "Walked through the Business API docs and agreed to extend it with agent keys and a business ID header so Ella can act across businesses.",
+      "url": "https://fathom.video/calls/679464127",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "12d54bdc-c554-4e67-a471-1449758bdd51",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-05-18T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Scott Downes",
+        "Saad Ali",
+        "Manish Chintha",
+        "Devan Leibowitz"
+      ],
+      "kind": "multi",
+      "summary": "Delivery planning on Ella quality: hallucinations from stale data, dollars-versus-cents errors, moving feedback into the app, and adding observability logging.",
+      "url": "https://notes.granola.ai/d/12d54bdc-c554-4e67-a471-1449758bdd51",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "668733529",
+      "title": "Breakr <> Supernal",
+      "date": "2026-05-12",
+      "participants": [
+        "Aman Nirala",
+        "Ameer Brown",
+        "Mauro Alves"
+      ],
+      "kind": "client",
+      "summary": "Phase 2 write access blocked on two private endpoints; a cents-versus-dollars bug; new knowledge base and reports ideas; Intercom email channel set up.",
+      "url": "https://fathom.video/calls/668733529",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "659588479",
+      "title": "Breakr <> Supernal",
+      "date": "2026-05-05",
+      "participants": [
+        "Aman Nirala",
+        "Devan Leibowitz",
+        "Ameer Brown"
+      ],
+      "kind": "client",
+      "summary": "Agreed read-only database access for Ella Phase 1, internal APIs for later write actions, and Intercom as a temporary bridge to Breakr's own agent stack.",
+      "url": "https://fathom.video/calls/659588479",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "651331452",
+      "title": "Breakr <> Supernal",
+      "date": "2026-04-28",
+      "participants": [
+        "Aman Nirala",
+        "Mauro Alves",
+        "Ameer Brown"
+      ],
+      "kind": "client",
+      "summary": "Ella Phase 1 complete but blocked on a production database connection; demoed the memory feature and took a request for account balance lookups.",
+      "url": "https://fathom.video/calls/651331452",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "19b40f8c-2b8c-4c37-b814-7183de052419",
+      "title": "Delivery Team Sync",
+      "date": "2026-04-27T15:45:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Devan Leibowitz",
+        "Nana Williams",
+        "Eric Kravitz",
+        "Sven Boettger"
+      ],
+      "kind": "internal",
+      "summary": "Breakr nearing its 200-hour budget after the client dropped Intercom as data layer; treat extra platform work as an upsell and trial a monthly retainer model.",
+      "url": "https://notes.granola.ai/d/19b40f8c-2b8c-4c37-b814-7183de052419",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "650231690",
+      "title": "Aman <> Sagar Deployment Setup for Breakr",
+      "date": "2026-04-24",
+      "participants": [
+        "Aman Nirala",
+        "Sagar Dangal"
+      ],
+      "kind": "client",
+      "summary": "Unblocked Ella's staging database access, created a dedicated PayPal app, and reused read-only Stripe keys for testing.",
+      "url": "https://fathom.video/calls/650231690",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "643007926",
+      "title": "Breakr <> Supernal",
+      "date": "2026-04-21",
+      "participants": [
+        "Aman Nirala",
+        "Ameer Brown",
+        "Eisley Parks",
+        "Mauro Alves"
+      ],
+      "kind": "client",
+      "summary": "Ella Phase 1 complete on Intercom and Slack; planned a pilot test with Eisley and Mauro and scoping of finance automation for Phase 2.",
+      "url": "https://fathom.video/calls/643007926",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "639062937",
+      "title": "Aman <> Sagar | DB Prod - Stage - Dev Setup",
+      "date": "2026-04-16",
+      "participants": [
+        "Aman Nirala",
+        "Sagar Dangal"
+      ],
+      "kind": "client",
+      "summary": "Chose a public database IP restricted to Supernal's hosts over the bastion proxy for Ella's database access, validated on dev.",
+      "url": "https://fathom.video/calls/639062937",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "634330763",
+      "title": "Breakr <> Supernal",
+      "date": "2026-04-14",
+      "participants": [
+        "Aman Nirala",
+        "Ameer Brown",
+        "Eisley Parks"
+      ],
+      "kind": "client",
+      "summary": "Ella running on a dedicated Supernal instance; production DB access the key blocker; agreed escalation rules and the Ella Slack app.",
+      "url": "https://fathom.video/calls/634330763",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "630051432",
+      "title": "Sagar <> Aman : Breakr",
+      "date": "2026-04-08",
+      "participants": [
+        "Sagar Dangal",
+        "Aman Nirala"
+      ],
+      "kind": "client",
+      "summary": "Decided to build a dedicated API layer for the agent so it can authenticate service-to-service without breaking user-facing APIs.",
+      "url": "https://fathom.video/calls/630051432",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "619683476",
+      "title": "Breakr <> Supernal",
+      "date": "2026-04-01",
+      "participants": [
+        "Aman Nirala",
+        "Ameer Brown",
+        "Jacob Berman",
+        "Johnny Borbone"
+      ],
+      "kind": "client",
+      "summary": "Demoed early Ella; Phase 1 on track for end of month, with PayPal funding automation, user identity checks and a multi-channel plan.",
+      "url": "https://fathom.video/calls/619683476",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "614196951",
+      "title": "Breakr Agentic Setup",
+      "date": "2026-03-25",
+      "participants": [
+        "Aman Nirala",
+        "Sagar Dangal",
+        "Ameer Brown"
+      ],
+      "kind": "client",
+      "summary": "Onboarded Aman to Breakr's dev environment and AWS, set the agent automation goal, and raised the need for service-to-service auth.",
+      "url": "https://fathom.video/calls/614196951",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "612931077",
+      "title": "Ameer / Devan Demo / Q&A",
+      "date": "2026-03-25",
+      "participants": [
+        "Ameer Brown",
+        "Devan Leibowitz",
+        "Aman Nirala"
+      ],
+      "kind": "client",
+      "summary": "Platform demo surfacing the top CS and ops pain points (unlinked offers, manual PayPal top-ups) and the vision for Ella.",
+      "url": "https://fathom.video/calls/612931077",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "607850936",
+      "title": "Breakr <> Supernal",
+      "date": "2026-03-23",
+      "participants": [
+        "Ameer Brown",
+        "Aman Nirala"
+      ],
+      "kind": "client",
+      "summary": "Aligned on Ella's goal of automating most manual ops, granted system access, found an invite email bug, and leaned toward replacing Intercom.",
+      "url": "https://fathom.video/calls/607850936",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "599460747",
+      "title": "Breakr <> Supernal",
+      "date": "2026-03-16",
+      "participants": [
+        "Ameer Brown",
+        "Aman Nirala",
+        "Devan Leibowitz"
+      ],
+      "kind": "client",
+      "summary": "Kickoff for Ella: May 1 launch target, root causes of CS issues, Breakr's existing agent as a scaffold, training data and channel plan.",
+      "url": "https://fathom.video/calls/599460747",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "599122110",
+      "title": "Breakr Pre Sync",
+      "date": "2026-03-12",
+      "participants": [
+        "Aman Nirala",
+        "Devan Leibowitz",
+        "Tauseef Rahman"
+      ],
+      "kind": "internal",
+      "summary": "Internal kickoff prep: discovery gap on CS workflows, Intercom reliability risk to the 200-hour budget, Phase 1 scope, and absorbing the client codebase.",
+      "url": "https://fathom.video/calls/599122110",
+      "alt_url": null
+    }
+  ]
+}

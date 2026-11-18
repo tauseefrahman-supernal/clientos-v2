@@ -112,21 +112,6 @@
     },
     {
       "provider": "granola",
-      "id": "6f81d6ad-b9ff-48de-bbd1-17783aaf61e1",
-      "title": "Mason Feedback new",
-      "date": "2026-10-07T16:00:00Z",
-      "participants": [
-        "Tauseef Rahman",
-        "Naveen Lekkalapudi",
-        "Sven Boettger"
-      ],
-      "kind": "multi",
-      "summary": "Mason performance review with a section on the JetHQ and Heritage pod.",
-      "url": "https://notes.granola.ai/d/6f81d6ad-b9ff-48de-bbd1-17783aaf61e1",
-      "alt_url": null
-    },
-    {
-      "provider": "granola",
       "id": "cc77a502-84ea-4971-8ef5-7c22259d4b38",
       "title": "Delivery Sync",
       "date": "2026-10-05T16:00:00Z",

@@ -1,0 +1,1514 @@
+{
+  "slug": "sunflower-wellness",
+  "pulled": "2026-11-18",
+  "searched": [
+    "Sunflower",
+    "Sunflower Wellness",
+    "ArcWell",
+    "Arcwell",
+    "Arc Well",
+    "Arkwell",
+    "Arquel",
+    "Artwell",
+    "Arc Manufacturing",
+    "Power Wellness",
+    "Oliver",
+    "7-OH",
+    "Figaro",
+    "Retail AI",
+    "Oren Dlin",
+    "Suzan Damron",
+    "Sheri DeCoste",
+    "Alex Seleznov",
+    "Rob Miller",
+    "Phil Burrow",
+    "Kaleb Renyer",
+    "Ehron Sidel",
+    "Molly Xiong",
+    "Mailee Xiong",
+    "sunflowerwellness.us"
+  ],
+  "meetings": [
+    {
+      "provider": "granola",
+      "id": "f79a0e5c-e4a9-4003-a904-19e177d1ffe6",
+      "title": "Tauseef / Nick: WE Vid Clip",
+      "date": "2026-11-11T18:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Nick Agresti"
+      ],
+      "kind": "multi",
+      "summary": "Covered a World Emblem video clip, then ArcWell: account at near-zero engagement but still billing, Oliver waiting on NetSuite, and Nick's re-engagement email introducing Tauseef and Swami.",
+      "url": "https://notes.granola.ai/d/f79a0e5c-e4a9-4003-a904-19e177d1ffe6",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "a885d1b9-f2d0-4438-9e51-9fb02572c9f2",
+      "title": "Sync: \"Arcwell / Sunflower\"",
+      "date": "2026-11-11T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Diana Pedroza",
+        "Swami"
+      ],
+      "kind": "internal",
+      "summary": "Handoff of the account to Tauseef and Swami: Sunflower-to-ArcWell background, NetSuite migration as the blocker for Oliver, sandbox request, stakeholders and fragmented context.",
+      "url": "https://notes.granola.ai/d/a885d1b9-f2d0-4438-9e51-9fb02572c9f2",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "7497714a-f6d8-4009-8877-3ec3909e9dda",
+      "title": "Delivery Sync",
+      "date": "2026-11-09T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Ryan Williams",
+        "Fran Abenza",
+        "Manish Chintha"
+      ],
+      "kind": "multi",
+      "summary": "Portfolio review flagging ArcWell/Sunflower as critical: client unresponsive, Fran-to-Swami handover, open credential follow-up, plan to ready Oliver for ArcWell systems.",
+      "url": "https://notes.granola.ai/d/7497714a-f6d8-4009-8877-3ec3909e9dda",
+      "alt_url": "https://fathom.video/calls/891407302"
+    },
+    {
+      "provider": "granola",
+      "id": "bbde1813-542f-48d4-b307-ab9230549550",
+      "title": "New note",
+      "date": "2026-10-26T16:31:23Z",
+      "participants": [
+        "Tauseef Rahman"
+      ],
+      "kind": "multi",
+      "summary": "Account round-up where Sunflower/ArcWell was on hold with churn risk; billing continues, finance follow-up pending, handover in progress and delivery offered decks to help Nick close.",
+      "url": "https://notes.granola.ai/d/bbde1813-542f-48d4-b307-ab9230549550",
+      "alt_url": "https://fathom.video/calls/873656257"
+    },
+    {
+      "provider": "granola",
+      "id": "cc77a502-84ea-4971-8ef5-7c22259d4b38",
+      "title": "Delivery Sync",
+      "date": "2026-10-05T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Ryan Williams",
+        "Sven Boettger"
+      ],
+      "kind": "multi",
+      "summary": "Delivery review with ArcWell/Sunflower in a holding pattern: original champion gone, NetSuite-focused new decision maker to win over, Oliver build expected to transfer.",
+      "url": "https://notes.granola.ai/d/cc77a502-84ea-4971-8ef5-7c22259d4b38",
+      "alt_url": "https://fathom.video/calls/846711109"
+    },
+    {
+      "provider": "fathom",
+      "id": "841362207",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-09-30",
+      "participants": [
+        "Nick Agresti",
+        "Johnny Borbone",
+        "Ryan Williams",
+        "Seb Van Kuyk",
+        "Devan Leibowitz",
+        "Fran Abenza",
+        "Tauseef Rahman",
+        "Naveen Lekkalapudi"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review where the ArcWell deal was stalled by a NetSuite-first integration lead; team shifted to a smaller ~$96k Oliver transfer and expansion deal.",
+      "url": "https://fathom.video/calls/841362207",
+      "alt_url": "https://fathom.video/calls/842405244"
+    },
+    {
+      "provider": "granola",
+      "id": "b3f48710-9730-48eb-a5e1-15316f1f76c9",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-09-23T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Devan Leibowitz",
+        "Nick Agresti",
+        "Naveen Lekkalapudi",
+        "Ryan Williams",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review: ArcWell's integration lead anchoring on NetSuite and overlap concerns; idea of forgiving the Sunflower balance as goodwill since Sunflower is closing.",
+      "url": "https://notes.granola.ai/d/b3f48710-9730-48eb-a5e1-15316f1f76c9",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "d61b41c6-5f95-4ed3-84e2-c4d37e3a4553",
+      "title": "Product Standup - WB/Pulse rollout",
+      "date": "2026-09-23T18:00:00Z",
+      "participants": [
+        "Katie Jefferson",
+        "Seb Van Kuyk",
+        "Naveen Lekkalapudi",
+        "Thomas Bustos",
+        "Ellen Smith",
+        "Diana Pedroza"
+      ],
+      "kind": "multi",
+      "summary": "Standup covering ArcWell as pre-order-form: positioning Supernal on top of NetSuite, seeking internal user advocates, and possible forgiveness of the Sunflower balance.",
+      "url": "https://notes.granola.ai/d/d61b41c6-5f95-4ed3-84e2-c4d37e3a4553",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "823256553",
+      "title": "GTM + Scoping",
+      "date": "2026-09-16",
+      "participants": [
+        "Nick Agresti",
+        "Johnny Borbone",
+        "Tauseef Rahman",
+        "Thomas Bustos",
+        "Jaime Garcia",
+        "Katie Jefferson",
+        "Diana Pedroza",
+        "Seb Van Kuyk"
+      ],
+      "kind": "multi",
+      "summary": "GTM sync noting the ArcWell deal may have grown to about $200k and that Dominik would become strategist if confirmed; Katie to verify the figure with Nick.",
+      "url": "https://fathom.video/calls/823256553",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "dde55f9d-140b-444c-8914-ebcda048e318",
+      "title": "GTM + Scoping",
+      "date": "2026-09-15T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Thomas Bustos",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Account roundup treating ArcWell as phase two of the Sunflower work: pending sign-off on a roughly $18-22k/month proposal, staffing and packaging.",
+      "url": "https://notes.granola.ai/d/dde55f9d-140b-444c-8914-ebcda048e318",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "4997470a-0ed9-4944-b268-95d7da456155",
+      "title": "Squad Portfolio Sync",
+      "date": "2026-09-15T15:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Vitor Escalfoni",
+        "Harvy Leyton",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "Squad sync with an ArcWell section: deal near close, client wants all modules started together, value chart vs raw NetSuite, and splitting new scope from legacy Oliver work.",
+      "url": "https://notes.granola.ai/d/4997470a-0ed9-4944-b268-95d7da456155",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "8213a1fd-907d-4079-bcda-cf386b21244a",
+      "title": "Supernal x Arcwell: Steps to Kicking Off",
+      "date": "2026-09-10T20:00:00Z",
+      "participants": [
+        "Nick Agresti",
+        "Devan Leibowitz",
+        "Fran Abenza",
+        "Diana Pedroza",
+        "Suzan Damron",
+        "Rob Miller",
+        "Oren Dlin",
+        "Ehron Sidel",
+        "Phil Burrow",
+        "Kaleb Renyer"
+      ],
+      "kind": "client",
+      "summary": "Introduced ArcWell's team, NetSuite go-live timing, four workstreams and sequencing, demoed procurement and fulfilment prototypes; contract to go to Suzan for signature.",
+      "url": "https://notes.granola.ai/d/8213a1fd-907d-4079-bcda-cf386b21244a",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "c1a781fa-e684-49b8-a2ff-9d7ab95613ee",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-09-02T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Devan Leibowitz",
+        "Nick Agresti",
+        "Naveen Lekkalapudi",
+        "Ryan Williams"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review on ArcWell: the president supportive but not signing, a new MSA needed for the entity change, and an executive escalation call proposed for September.",
+      "url": "https://notes.granola.ai/d/c1a781fa-e684-49b8-a2ff-9d7ab95613ee",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "65dbe5ce-88b5-43ae-a972-08d913b44209",
+      "title": "Sunflower x Supernal",
+      "date": "2026-08-26T21:00:00Z",
+      "participants": [
+        "Mailee Xiong",
+        "Oren Dlin",
+        "Molly Xiong",
+        "Fran Abenza",
+        "Nick Agresti",
+        "Devan Leibowitz",
+        "Phil Burrow",
+        "Sheri DeCoste",
+        "Kaleb Renyer",
+        "Diana Pedroza"
+      ],
+      "kind": "client",
+      "summary": "Reviewed ArcWell production bottlenecks and spreadsheet data, demoed Fran's planning dashboard, debated phased vs parallel build, data health, and future R&D scope.",
+      "url": "https://notes.granola.ai/d/65dbe5ce-88b5-43ae-a972-08d913b44209",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "6c8ad8e4-f6a7-471c-8752-3db363f4dbfa",
+      "title": "NEW GTM + Scoping",
+      "date": "2026-08-26T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Thomas Bustos",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "GTM session noting the president asked to keep ArcWell separate from Sunflower, with discovery planned and the mostly approved order form awaiting a meeting to sign.",
+      "url": "https://notes.granola.ai/d/6c8ad8e4-f6a7-471c-8752-3db363f4dbfa",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "b280307d-dde2-409b-92b3-426f95ade203",
+      "title": "NEW GTM + Scoping",
+      "date": "2026-08-25T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Thomas Bustos"
+      ],
+      "kind": "multi",
+      "summary": "Reviewed the updated ArcWell order form, pricing structure and review timing; flagged that moving Oliver from Sunflower may need a migration and NetSuite integration.",
+      "url": "https://notes.granola.ai/d/b280307d-dde2-409b-92b3-426f95ade203",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "6dbba2f3-2e7b-4444-a29d-abde0e3a0770",
+      "title": "Arcwell Manufcaturing (Sunflower Wellness) Sync",
+      "date": "2026-08-21T22:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Fran Abenza"
+      ],
+      "kind": "internal",
+      "summary": "Fran briefed Diana on Oliver's current state and the ArcWell expansion into procurement, production and sales, with inventory risk and handover of materials.",
+      "url": "https://notes.granola.ai/d/6dbba2f3-2e7b-4444-a29d-abde0e3a0770",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "7f56bfb6-2dde-4b3f-8b38-0232888f5d32",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-08-19T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Devan Leibowitz",
+        "Nick Agresti",
+        "Naveen Lekkalapudi",
+        "Ryan Williams"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review treating Sunflower's closure as churn and ArcWell as a new logo, with a new contract needed by end of August and Oliver moving to ArcWell.",
+      "url": "https://notes.granola.ai/d/7f56bfb6-2dde-4b3f-8b38-0232888f5d32",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "789026663",
+      "title": "Sunflower x Supernal",
+      "date": "2026-08-19",
+      "participants": [
+        "Mailee Xiong",
+        "Oren Dlin",
+        "Molly Xiong",
+        "Fran Abenza",
+        "Nick Agresti",
+        "Devan Leibowitz",
+        "Phil Burrow",
+        "Sheri DeCoste",
+        "Kaleb Renyer"
+      ],
+      "kind": "client",
+      "summary": "Walked through the proposed ArcWell order form, which was approved pending internal review; flagged compliance risk in production automation and pricing flexibility.",
+      "url": "https://fathom.video/calls/789026663",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "81220759-61be-43d2-847a-27eb878ad0a2",
+      "title": "Sunflower Sync",
+      "date": "2026-08-13T19:00:00Z",
+      "participants": [
+        "Diana Pedroza",
+        "Nick Agresti",
+        "Jaime Garcia"
+      ],
+      "kind": "internal",
+      "summary": "Planned the ArcWell order form: hybrid strategy plus build with procurement, production, Oliver transition and a strategy layer, client-triggered milestones and target pricing.",
+      "url": "https://notes.granola.ai/d/81220759-61be-43d2-847a-27eb878ad0a2",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "08d6cab7-162c-4db2-8a78-cbf79d563954",
+      "title": "NEW GTM + Scoping",
+      "date": "2026-08-13T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Naveen Lekkalapudi",
+        "Thomas Bustos"
+      ],
+      "kind": "multi",
+      "summary": "GTM session on moving Sunflower's work to ArcWell under a new outcome-based order form, repositioning from a $2k subscription, plus pricing and proposal support.",
+      "url": "https://notes.granola.ai/d/08d6cab7-162c-4db2-8a78-cbf79d563954",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "e2da0ba3-94af-4434-8261-fe2b9ae354a0",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-08-12T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Devan Leibowitz",
+        "Nick Agresti",
+        "Naveen Lekkalapudi",
+        "Ryan Williams"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline review: sponsor change at Sunflower, wind-down with work moving to ArcWell, and options to keep the $2k subscription, add a transition fee or raise the fee.",
+      "url": "https://notes.granola.ai/d/e2da0ba3-94af-4434-8261-fe2b9ae354a0",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "779860901",
+      "title": "Sunflower x Supernal",
+      "date": "2026-08-12",
+      "participants": [
+        "Mailee Xiong",
+        "Devan Leibowitz",
+        "Oren Dlin",
+        "Molly Xiong",
+        "Nick Agresti",
+        "Phil Burrow",
+        "Sheri DeCoste"
+      ],
+      "kind": "client",
+      "summary": "Agreed to tackle ArcWell's production bottlenecks (procurement, inventory) before more sales tooling, and to draft a new contract bundling the Oliver transition.",
+      "url": "https://fathom.video/calls/779860901",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "771297999",
+      "title": "Sunflower x Supernal",
+      "date": "2026-08-05",
+      "participants": [
+        "Mailee Xiong",
+        "Devan Leibowitz",
+        "Oren Dlin",
+        "Molly Xiong",
+        "Nick Agresti",
+        "Phil Burrow",
+        "Sheri DeCoste"
+      ],
+      "kind": "client",
+      "summary": "Explored automating ArcWell's spreadsheet-based production planning and inventory with an Oliver-style dashboard on Zoho data to cut lead times.",
+      "url": "https://fathom.video/calls/771297999",
+      "alt_url": "https://fathom.video/calls/771878112"
+    },
+    {
+      "provider": "granola",
+      "id": "47eb5ad6-3cc4-4c7b-9cc9-efc88612915f",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-08-03T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Jens Haakaas",
+        "Devan Leibowitz",
+        "Seb Van Kuyk",
+        "Manish Chintha",
+        "Nick Agresti",
+        "Fran Abenza"
+      ],
+      "kind": "multi",
+      "summary": "Delivery review on Sunflower's renewal and expansion amid leadership turnover and regulatory change, with budget authority shifting to new stakeholders.",
+      "url": "https://notes.granola.ai/d/47eb5ad6-3cc4-4c7b-9cc9-efc88612915f",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "766060563",
+      "title": "Sunflower x Supernal",
+      "date": "2026-07-29",
+      "participants": [
+        "Alex Seleznov",
+        "Oren Dlin",
+        "Molly Xiong",
+        "Mailee Xiong",
+        "Nick Agresti",
+        "Fran Abenza",
+        "Devan Leibowitz"
+      ],
+      "kind": "client",
+      "summary": "Presented the Oliver Generalist proposal and discussed the pivot to ArcWell: whether to move Oliver, cover both companies, or build a new assistant.",
+      "url": "https://fathom.video/calls/766060563",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "760212683",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-07-27",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Fran Abenza",
+        "Devan Leibowitz",
+        "Nick Agresti",
+        "Manish Chintha",
+        "Saad Farooq",
+        "Nana Williams"
+      ],
+      "kind": "multi",
+      "summary": "Delivery review marking Sunflower yellow because its main products were becoming illegal; Nick to brief Oren ahead of reviewing the new order form.",
+      "url": "https://fathom.video/calls/760212683",
+      "alt_url": "https://fathom.video/calls/760212622"
+    },
+    {
+      "provider": "fathom",
+      "id": "757433056",
+      "title": "Supernal x Sunflower | Weekly",
+      "date": "2026-07-22",
+      "participants": [
+        "Alex Seleznov",
+        "Devan Leibowitz",
+        "Nick Agresti",
+        "Nana Williams",
+        "Oren Dlin",
+        "Molly Xiong",
+        "Mailee Xiong",
+        "Fran Abenza"
+      ],
+      "kind": "client",
+      "summary": "Weekly Sunflower client call on the Oliver engagement.",
+      "url": "https://fathom.video/calls/757433056",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "750231046",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-07-20",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Fran Abenza",
+        "Devan Leibowitz",
+        "Nick Agresti",
+        "Manish Chintha",
+        "Saad Farooq",
+        "Nana Williams"
+      ],
+      "kind": "multi",
+      "summary": "Delivery review with Sunflower green and Oliver handling orders without errors; next step was pricing a more generalist Oliver from Fran's scoping notes.",
+      "url": "https://fathom.video/calls/750231046",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "745753852",
+      "title": "Supernal x Sunflower | Weekly",
+      "date": "2026-07-15",
+      "participants": [
+        "Nana Williams",
+        "Oren Dlin",
+        "Nick Agresti",
+        "Alex Seleznov",
+        "Mailee Xiong",
+        "Molly Xiong",
+        "Fran Abenza",
+        "Devan Leibowitz"
+      ],
+      "kind": "client",
+      "summary": "Shifted priority from purchase orders to invoice generation and validated a unified sales-order view across Figaro and Zoho; Fran to record a demo for Alex.",
+      "url": "https://fathom.video/calls/745753852",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "4cc0a43d-8af1-4507-82b1-372cbd76b61a",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-07-13T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Fran Abenza",
+        "Manish Chintha",
+        "Saad Farooq"
+      ],
+      "kind": "multi",
+      "summary": "Delivery review where the 7-OH rescheduling was expected to change Sunflower's operations and Oliver's rules; new order-status view, broader Oliver role and pricing.",
+      "url": "https://notes.granola.ai/d/4cc0a43d-8af1-4507-82b1-372cbd76b61a",
+      "alt_url": "https://fathom.video/calls/742306023"
+    },
+    {
+      "provider": "fathom",
+      "id": "736916384",
+      "title": "Supernal x Sunflower | Weekly",
+      "date": "2026-07-08",
+      "participants": [
+        "Nana Williams",
+        "Oren Dlin",
+        "Nick Agresti",
+        "Alex Seleznov",
+        "Mailee Xiong",
+        "Molly Xiong",
+        "Fran Abenza",
+        "Devan Leibowitz"
+      ],
+      "kind": "client",
+      "summary": "Discussed the DEA rescheduling of 7-OH forcing a shift to sister company ArcWell, an Oliver-for-ArcWell opportunity, and a new order-status pop-out demo.",
+      "url": "https://fathom.video/calls/736916384",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "e9494bfc-fdc6-458c-940b-9a9cfd1abace",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-07-06T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Fran Abenza",
+        "Manish Chintha"
+      ],
+      "kind": "multi",
+      "summary": "Delivery review: Alex re-engaged and happy with Oliver's stability; ideas to expand Oliver into a generalist, restore invoicing and separate SOW from new paid scope.",
+      "url": "https://notes.granola.ai/d/e9494bfc-fdc6-458c-940b-9a9cfd1abace",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "732106636",
+      "title": "Supernal x Sunflower | Weekly",
+      "date": "2026-07-01",
+      "participants": [
+        "Nana Williams",
+        "Oren Dlin",
+        "Nick Agresti",
+        "Alex Seleznov",
+        "Mailee Xiong",
+        "Molly Xiong",
+        "Fran Abenza",
+        "Devan Leibowitz"
+      ],
+      "kind": "client",
+      "summary": "Set Oliver's next phase to answer sales' order-status and invoice questions by linking Zoho Books and Figaro, and to automate manual PO creation.",
+      "url": "https://fathom.video/calls/732106636",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "71b7650e-51d0-4528-b692-c498422303ac",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-06-29T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Fran Abenza",
+        "Manish Chintha"
+      ],
+      "kind": "multi",
+      "summary": "Delivery review: Oliver handling about 91% of Sunflower orders with no recent errors; inventory AI, a roadmap and price conversation, and a peptides expansion idea.",
+      "url": "https://notes.granola.ai/d/71b7650e-51d0-4528-b692-c498422303ac",
+      "alt_url": "https://fathom.video/calls/726161143"
+    },
+    {
+      "provider": "fathom",
+      "id": "721607070",
+      "title": "Supernal x Sunflower | Weekly",
+      "date": "2026-06-24",
+      "participants": [
+        "Nana Williams",
+        "Oren Dlin",
+        "Nick Agresti",
+        "Alex Seleznov",
+        "Mailee Xiong",
+        "Molly Xiong",
+        "Fran Abenza",
+        "Devan Leibowitz"
+      ],
+      "kind": "client",
+      "summary": "Picked live inventory management as the next AI project over onboarding, for cost tracking, real-time visibility and batch traceability across siloed systems.",
+      "url": "https://fathom.video/calls/721607070",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "8a2bf558-0441-439e-86eb-ce200106bc5a",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-06-22T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Fran Abenza",
+        "Manish Chintha"
+      ],
+      "kind": "multi",
+      "summary": "Delivery review with Sunflower green at 90%+ usage and few errors; covered reporting precision fixes, client-owned actions, metrics and further scoping.",
+      "url": "https://notes.granola.ai/d/8a2bf558-0441-439e-86eb-ce200106bc5a",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "712647991",
+      "title": "Supernal x Sunflower | Weekly",
+      "date": "2026-06-17",
+      "participants": [
+        "Nana Williams",
+        "Oren Dlin",
+        "Nick Agresti",
+        "Alex Seleznov",
+        "Mailee Xiong",
+        "Molly Xiong",
+        "Fran Abenza",
+        "Devan Leibowitz"
+      ],
+      "kind": "client",
+      "summary": "Oliver now handling about 90% of orders with no true errors; planned a UI fix, a Special Rules feature for compliance, and lifecycle timing in Pulse via the Figaro API.",
+      "url": "https://fathom.video/calls/712647991",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "704193805",
+      "title": "Supernal x Sunflower | Weekly",
+      "date": "2026-06-10",
+      "participants": [
+        "Nana Williams",
+        "Oren Dlin",
+        "Nick Agresti",
+        "Alex Seleznov",
+        "Mailee Xiong",
+        "Molly Xiong",
+        "Fran Abenza",
+        "Devan Leibowitz"
+      ],
+      "kind": "client",
+      "summary": "Reviewed Oliver's new backend (no errors, faster) and a halted SMS input, dropped payment terms from orders, and added an order-to-invoice metric to Pulse.",
+      "url": "https://fathom.video/calls/704193805",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "695387833",
+      "title": "Supernal x Sunflower | Weekly",
+      "date": "2026-06-03",
+      "participants": [
+        "Nana Williams",
+        "Oren Dlin",
+        "Nick Agresti",
+        "Alex Seleznov",
+        "Mailee Xiong",
+        "Molly Xiong",
+        "Fran Abenza",
+        "Devan Leibowitz"
+      ],
+      "kind": "client",
+      "summary": "Demoed Oliver's new in-house backend and browser UI with order editing and templates, and planned the next phase including a Twilio fix for SMS.",
+      "url": "https://fathom.video/calls/695387833",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "118d19de-d6f6-48dd-b799-53b7cce6e266",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-06-01T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Fran Abenza",
+        "Saad Farooq",
+        "Lucas Stein"
+      ],
+      "kind": "multi",
+      "summary": "Delivery review on the Oliver rollout: Node.js backend live, tool-call errors gone, remaining validation gaps, code review, close monitoring and a CRM expansion idea.",
+      "url": "https://notes.granola.ai/d/118d19de-d6f6-48dd-b799-53b7cce6e266",
+      "alt_url": "https://fathom.video/calls/692024430"
+    },
+    {
+      "provider": "fathom",
+      "id": "687194553",
+      "title": "Supernal x Sunflower | Weekly",
+      "date": "2026-05-27",
+      "participants": [
+        "Nana Williams",
+        "Oren Dlin",
+        "Nick Agresti",
+        "Alex Seleznov",
+        "Mailee Xiong",
+        "Molly Xiong",
+        "Fran Abenza",
+        "Devan Leibowitz"
+      ],
+      "kind": "client",
+      "summary": "Traced an 8% error rate to one data-formatting cause with a fix underway, and scoped new-customer onboarding through Oliver with a focus on data quality.",
+      "url": "https://fathom.video/calls/687194553",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "03264170-c0b4-4b4e-b293-4edfbb239d1d",
+      "title": "Delivery Team Sync",
+      "date": "2026-05-26T15:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Devan Leibowitz",
+        "Nana Williams",
+        "Eric Kravitz",
+        "Belen Zerboni"
+      ],
+      "kind": "multi",
+      "summary": "Delivery team sync where Sunflower's only issue was stability, expected to fall below a 3% error rate after Fran's rollout so the account could turn green.",
+      "url": "https://notes.granola.ai/d/03264170-c0b4-4b4e-b293-4edfbb239d1d",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "12d54bdc-c554-4e67-a471-1449758bdd51",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-05-18T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Fran Abenza",
+        "Scott Downes"
+      ],
+      "kind": "multi",
+      "summary": "Delivery review: Sunflower happy but Oliver yellow on workflow-platform reliability and output bugs; plan to move core logic off it, test on past orders, ship UI and SMS.",
+      "url": "https://notes.granola.ai/d/12d54bdc-c554-4e67-a471-1449758bdd51",
+      "alt_url": "https://fathom.video/calls/675453672"
+    },
+    {
+      "provider": "fathom",
+      "id": "670485368",
+      "title": "Supernal x Sunflower | Weekly",
+      "date": "2026-05-13",
+      "participants": [
+        "Alex Seleznov",
+        "Fran Abenza",
+        "Nick Agresti",
+        "Nana Williams",
+        "Oren Dlin",
+        "Molly Xiong",
+        "Mailee Xiong",
+        "Devan Leibowitz"
+      ],
+      "kind": "client",
+      "summary": "Oliver's error rate down to about 6%; demoed a form-based ordering UI, discussed a sales dashboard idea, and opened scoping for new-customer onboarding.",
+      "url": "https://fathom.video/calls/670485368",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "662051442",
+      "title": "Sunflower Wellness <> Supernal: Implementation",
+      "date": "2026-05-06",
+      "participants": [
+        "Oren Dlin",
+        "Alex Seleznov",
+        "Nick Agresti",
+        "Amiri Mouhab",
+        "John Messiter",
+        "Devan Leibowitz",
+        "Mailee Xiong",
+        "Molly Xiong",
+        "Fran Abenza",
+        "Thomas Bustos"
+      ],
+      "kind": "client",
+      "summary": "Reviewed the stable production branch passing all tests, the new zero-error architecture in progress, a mobile-first hybrid UI and on-demand evaluations.",
+      "url": "https://fathom.video/calls/662051442",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "a648b866-f8b9-4dee-ab03-6896620e8672",
+      "title": "All Hands ",
+      "date": "2026-05-04T18:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Devan Leibowitz",
+        "Seb Van Kuyk",
+        "Ryan Williams",
+        "Nick Agresti",
+        "Eric Kravitz"
+      ],
+      "kind": "multi",
+      "summary": "Company all-hands that demoed Oliver as Sunflower's order-request AI employee, including blocking a non-compliant order, and how Pulse should surface that value.",
+      "url": "https://notes.granola.ai/d/a648b866-f8b9-4dee-ab03-6896620e8672",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "9ba05626-0280-40e3-a7b6-1d0e00d49a5a",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-05-04T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Jens Haakaas",
+        "Fran Abenza",
+        "Scott Downes",
+        "Amiri Mouhab",
+        "Manish Chintha"
+      ],
+      "kind": "multi",
+      "summary": "Delivery review keeping Sunflower yellow despite a good QBR: drive adoption, improve stability and prove a sub-3% failure rate with more simulations.",
+      "url": "https://notes.granola.ai/d/9ba05626-0280-40e3-a7b6-1d0e00d49a5a",
+      "alt_url": "https://fathom.video/calls/657863117"
+    },
+    {
+      "provider": "fathom",
+      "id": "653784165",
+      "title": "Sunflower Wellness <> Supernal: QBR",
+      "date": "2026-04-29",
+      "participants": [
+        "Oren Dlin",
+        "Nick Agresti",
+        "Alex Seleznov",
+        "Devan Leibowitz",
+        "Johnny Borbone",
+        "Ryan Williams",
+        "Fran Abenza",
+        "Thomas Bustos"
+      ],
+      "kind": "client",
+      "summary": "Quarterly review of Oliver V2: error rate falling after the rebuild, rebuilding sales trust, and a plan to switch off manual entry once errors drop below 3%.",
+      "url": "https://fathom.video/calls/653784165",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "d2070803-b108-42f9-9fd3-4069c6faf7c2",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-04-27T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Fran Abenza",
+        "Amiri Mouhab",
+        "Manish Chintha"
+      ],
+      "kind": "multi",
+      "summary": "Delivery review focused on Sunflower: cutting a ~10% error rate, SMS test access, QBR messaging, Pulse metrics and tracking Oliver orders against manual ones.",
+      "url": "https://notes.granola.ai/d/d2070803-b108-42f9-9fd3-4069c6faf7c2",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "645790515",
+      "title": "Sunflower Wellness <> Supernal: Implementation",
+      "date": "2026-04-22",
+      "participants": [
+        "Oren Dlin",
+        "Alex Seleznov",
+        "Nick Agresti",
+        "Amiri Mouhab",
+        "John Messiter",
+        "Devan Leibowitz",
+        "Mailee Xiong",
+        "Molly Xiong",
+        "Fran Abenza"
+      ],
+      "kind": "client",
+      "summary": "Oliver's error rate down to about 10% with better error notifications; a messy CRM product list forced temporarily hard-coding products.",
+      "url": "https://fathom.video/calls/645790515",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "12a92dbd-1f85-437a-bc9c-6368fc26ade9",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-04-20T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Fran Abenza",
+        "Amiri Mouhab",
+        "Manish Chintha"
+      ],
+      "kind": "multi",
+      "summary": "Delivery review: Oliver V2 near handoff, stability work, the client prioritising compliance over speed, and high but partly forced adoption for sales orders.",
+      "url": "https://notes.granola.ai/d/12a92dbd-1f85-437a-bc9c-6368fc26ade9",
+      "alt_url": "https://fathom.video/calls/642177061"
+    },
+    {
+      "provider": "fathom",
+      "id": "644258934",
+      "title": "Oliver upgrades",
+      "date": "2026-04-20",
+      "participants": [
+        "Oren Dlin",
+        "Fran Abenza",
+        "Molly Xiong",
+        "Mailee Xiong",
+        "Devan Leibowitz"
+      ],
+      "kind": "client",
+      "summary": "Defined how Oliver maps accounts to sales reps and assistants, required confirmation steps, and took Oliver offline for a day of focused testing.",
+      "url": "https://fathom.video/calls/644258934",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "637185059",
+      "title": "Sunflower Wellness <> Supernal: Implementation",
+      "date": "2026-04-15",
+      "participants": [
+        "Oren Dlin",
+        "Alex Seleznov",
+        "Nick Agresti",
+        "Amiri Mouhab",
+        "John Messiter",
+        "Devan Leibowitz",
+        "Mailee Xiong",
+        "Molly Xiong",
+        "Fran Abenza"
+      ],
+      "kind": "client",
+      "summary": "Prioritised Oliver reliability fixes as sales adoption lagged manual entry, and proposed a form-based UI as training wheels for reps.",
+      "url": "https://fathom.video/calls/637185059",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "99e12869-46a1-4a75-b9db-798a2e50f39e",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-04-13T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Fran Abenza",
+        "Amiri Mouhab",
+        "Manish Chintha"
+      ],
+      "kind": "multi",
+      "summary": "Delivery review: Sunflower raw-materials support done, stability fixes about 80% complete, good relationship, and Oliver's occasional failures discussed.",
+      "url": "https://notes.granola.ai/d/99e12869-46a1-4a75-b9db-798a2e50f39e",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "628115239",
+      "title": "Sunflower Wellness <> Supernal: Implementation",
+      "date": "2026-04-08",
+      "participants": [
+        "Oren Dlin",
+        "Alex Seleznov",
+        "Nick Agresti",
+        "Amiri Mouhab",
+        "John Messiter",
+        "Devan Leibowitz",
+        "Mailee Xiong",
+        "Molly Xiong",
+        "Fran Abenza"
+      ],
+      "kind": "client",
+      "summary": "Agreed a draft-order status to avoid premature signature requests, an order recall approach, and next steps on raw material orders and Zoho integration.",
+      "url": "https://fathom.video/calls/628115239",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "620608721",
+      "title": "Sunflower Wellness <> Supernal: Implementation",
+      "date": "2026-04-01",
+      "participants": [
+        "Oren Dlin",
+        "Alex Seleznov",
+        "Nick Agresti",
+        "Amiri Mouhab",
+        "John Messiter",
+        "Devan Leibowitz",
+        "Mailee Xiong",
+        "Molly Xiong",
+        "Fran Abenza"
+      ],
+      "kind": "client",
+      "summary": "Defined the raw material order calculation from dry weight and potency with flexible inputs, and sorted admin access needed for an audit.",
+      "url": "https://fathom.video/calls/620608721",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "604299114",
+      "title": "Sunflower Wellness <> Supernal: Implementation",
+      "date": "2026-03-18",
+      "participants": [
+        "Oren Dlin",
+        "Alex Seleznov",
+        "Nick Agresti",
+        "Amiri Mouhab",
+        "John Messiter",
+        "Devan Leibowitz",
+        "Mailee Xiong",
+        "Molly Xiong"
+      ],
+      "kind": "client",
+      "summary": "Planned a dedicated text and email inbox for Oliver, unblocked raw material orders pending CRM line items, and set product-lingo recognition.",
+      "url": "https://fathom.video/calls/604299114",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "594972436",
+      "title": "Sunflower Wellness <> Supernal: Implementation",
+      "date": "2026-03-11",
+      "participants": [
+        "Oren Dlin",
+        "Alex Seleznov",
+        "Nick Agresti",
+        "Amiri Mouhab",
+        "John Messiter",
+        "Devan Leibowitz",
+        "Mailee Xiong",
+        "Molly Xiong"
+      ],
+      "kind": "client",
+      "summary": "Oliver now stable with rare bugs; the new shots flow is live but needs clearer product instructions, and raw material support awaits a product list.",
+      "url": "https://fathom.video/calls/594972436",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "587485784",
+      "title": "Sunflower Wellness <> Supernal: Implementation",
+      "date": "2026-03-04",
+      "participants": [
+        "Oren Dlin",
+        "Alex Seleznov",
+        "Nick Agresti",
+        "Amiri Mouhab",
+        "John Messiter",
+        "Devan Leibowitz",
+        "Mailee Xiong",
+        "Molly Xiong"
+      ],
+      "kind": "client",
+      "summary": "Expanded Oliver to liquid shots and raw material orders, discussed self-service product configuration, and Oliver's role in enforcing compliance steps.",
+      "url": "https://fathom.video/calls/587485784",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "578404907",
+      "title": "Sunflower Wellness <> Supernal: Implementation",
+      "date": "2026-02-25",
+      "participants": [
+        "Oren Dlin",
+        "Alex Seleznov",
+        "Nick Agresti",
+        "Amiri Mouhab",
+        "John Messiter",
+        "Devan Leibowitz",
+        "Mailee Xiong",
+        "Molly Xiong"
+      ],
+      "kind": "client",
+      "summary": "Reviewed weekly outages from Zoho workflow conflicts and prioritised a clone-order feature to cut order entry from about six minutes to one.",
+      "url": "https://fathom.video/calls/578404907",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "570202204",
+      "title": "Sunflower Wellness <> Supernal: Implementation",
+      "date": "2026-02-18",
+      "participants": [
+        "Oren Dlin",
+        "Alex Seleznov",
+        "Nick Agresti",
+        "Amiri Mouhab",
+        "John Messiter",
+        "Devan Leibowitz",
+        "Mailee Xiong",
+        "Molly Xiong",
+        "Seb Van Kuyk",
+        "Naveen Lekkalapudi"
+      ],
+      "kind": "client",
+      "summary": "Paused the Cortex project to put engineering on stabilising Oliver, with Naveen leading, after frequent failures eroded sales trust.",
+      "url": "https://fathom.video/calls/570202204",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "562368182",
+      "title": "Sunflower Wellness <> Supernal: Implementation",
+      "date": "2026-02-11",
+      "participants": [
+        "Oren Dlin",
+        "Alex Seleznov",
+        "Nick Agresti",
+        "Amiri Mouhab",
+        "John Messiter",
+        "Devan Leibowitz",
+        "Mailee Xiong",
+        "Molly Xiong",
+        "Seb Van Kuyk"
+      ],
+      "kind": "client",
+      "summary": "Oliver's instability blocked making it mandatory ahead of an audit; a new product needs richer compliance logic and scope questions were raised.",
+      "url": "https://fathom.video/calls/562368182",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "554729238",
+      "title": "Sunflower Wellness <> Supernal: Implementation",
+      "date": "2026-02-04",
+      "participants": [
+        "Oren Dlin",
+        "Alex Seleznov",
+        "Nick Agresti",
+        "Amiri Mouhab",
+        "John Messiter",
+        "Devan Leibowitz",
+        "Mailee Xiong",
+        "Molly Xiong"
+      ],
+      "kind": "client",
+      "summary": "Made stability the top priority after outages, expanded scope to raw materials and SMS/voice channels, and approved a Cortex beta led by Oren.",
+      "url": "https://fathom.video/calls/554729238",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "538795469",
+      "title": "Sunflower Wellness <> Supernal: Implementation",
+      "date": "2026-01-21",
+      "participants": [
+        "Oren Dlin",
+        "Alex Seleznov",
+        "Nick Agresti",
+        "Amiri Mouhab",
+        "John Messiter",
+        "Devan Leibowitz",
+        "Mailee Xiong",
+        "Molly Xiong"
+      ],
+      "kind": "client",
+      "summary": "Finalised the order amendment workflow in Zoho, demoed rejected-order SMS alerts to reps, and noted a bug fix for wrong customer data.",
+      "url": "https://fathom.video/calls/538795469",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "530424092",
+      "title": "Sunflower Wellness <> Supernal: Implementation",
+      "date": "2026-01-14",
+      "participants": [
+        "Oren Dlin",
+        "Alex Seleznov",
+        "Nick Agresti",
+        "Amiri Mouhab",
+        "John Messiter",
+        "Devan Leibowitz",
+        "Mailee Xiong",
+        "Molly Xiong"
+      ],
+      "kind": "client",
+      "summary": "Approved a workflow for Oliver to create marked amended sales orders in Zoho, leaving approvals and production steps to Figaro.",
+      "url": "https://fathom.video/calls/530424092",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "522900353",
+      "title": "Sunflower Wellness <> Supernal: Implementation",
+      "date": "2026-01-07",
+      "participants": [
+        "Oren Dlin",
+        "Alex Seleznov",
+        "Nick Agresti",
+        "Amiri Mouhab",
+        "John Messiter",
+        "Devan Leibowitz",
+        "Mailee Xiong",
+        "Molly Xiong"
+      ],
+      "kind": "client",
+      "summary": "Approved pre- and post-signature order change workflows; the post-signature flow waits on Figaro API access, so the pre-signature flow is built first.",
+      "url": "https://fathom.video/calls/522900353",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "524174371",
+      "title": "Sync: Sunflower Scope Review",
+      "date": "2026-01-07",
+      "participants": [
+        "Tauseef Rahman",
+        "Amiri Mouhab",
+        "Nana Williams"
+      ],
+      "kind": "internal",
+      "summary": "Internal review of the revised Sunflower scope: automation logic too high-level, Amiri to add platforms, data points and triggers before sharing.",
+      "url": "https://fathom.video/calls/524174371",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "512444547",
+      "title": "Sunflower Additional Scope",
+      "date": "2025-12-22",
+      "participants": [
+        "Tauseef Rahman",
+        "Nana Williams",
+        "Amiri Mouhab",
+        "Nick Agresti"
+      ],
+      "kind": "internal",
+      "summary": "Re-scoped Sunflower around new requests (PO rejection handling, post-approval changes, customer success) within the existing hours, with a technical scope doc.",
+      "url": "https://fathom.video/calls/512444547",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "508487774",
+      "title": "Sunflower Wellness <> Supernal: Implementation",
+      "date": "2025-12-17",
+      "participants": [
+        "Oren Dlin",
+        "Alex Seleznov",
+        "Nick Agresti",
+        "Amiri Mouhab",
+        "John Messiter",
+        "Devan Leibowitz",
+        "Mailee Xiong",
+        "Molly Xiong"
+      ],
+      "kind": "client",
+      "summary": "Shifted Oliver from PO and invoice generation, now handled by Figaro, to order change management and credit processing.",
+      "url": "https://fathom.video/calls/508487774",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "500565614",
+      "title": "Sunflower Wellness <> Supernal: Implementation",
+      "date": "2025-12-10",
+      "participants": [
+        "Oren Dlin",
+        "Nick Agresti",
+        "Amiri Mouhab",
+        "John Messiter",
+        "Alex Seleznov",
+        "Devan Leibowitz"
+      ],
+      "kind": "client",
+      "summary": "Showed Oliver's rules and knowledge configuration UI, moved priority to converting customer POs into sales orders, and queued invoice automation.",
+      "url": "https://fathom.video/calls/500565614",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "492929308",
+      "title": "Sunflower Wellness <> Supernal: Implementation",
+      "date": "2025-12-03",
+      "participants": [
+        "Oren Dlin",
+        "Nick Agresti",
+        "Amiri Mouhab",
+        "John Messiter",
+        "Alex Seleznov",
+        "Devan Leibowitz"
+      ],
+      "kind": "client",
+      "summary": "Cleared Oliver's sales-order launch for tablets by asking for manufacturer and unit price, with Oren supplying exact product and manufacturer lists.",
+      "url": "https://fathom.video/calls/492929308",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "486330776",
+      "title": "Sunflower Wellness <> Supernal: Implementation",
+      "date": "2025-11-26",
+      "participants": [
+        "Oren Dlin",
+        "Nick Agresti",
+        "Amiri Mouhab",
+        "John Messiter",
+        "Alex Seleznov",
+        "Devan Leibowitz"
+      ],
+      "kind": "client",
+      "summary": "Reviewed Oliver's Zoho integration creating orders in seconds, fixed an approval-status issue that skipped customer sign-off, and set the go-live plan.",
+      "url": "https://fathom.video/calls/486330776",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "479347328",
+      "title": "Sunflower Wellness <> Supernal: Implementation",
+      "date": "2025-11-19",
+      "participants": [
+        "Oren Dlin",
+        "Nick Agresti",
+        "Amiri Mouhab",
+        "John Messiter",
+        "Alex Seleznov",
+        "Devan Leibowitz"
+      ],
+      "kind": "client",
+      "summary": "Stakeholder approval to continue; Oliver now pulls customer data from Zoho, a text ordering demo was ready, and the automated order workflow was defined.",
+      "url": "https://fathom.video/calls/479347328",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "470908232",
+      "title": "Sunflower Wellness <> Supernal: Implementation",
+      "date": "2025-11-12",
+      "participants": [
+        "Oren Dlin",
+        "Nick Agresti",
+        "Amiri Mouhab",
+        "John Messiter",
+        "Alex Seleznov",
+        "Devan Leibowitz",
+        "Brooke Willis",
+        "Molly Xiong",
+        "Sheri DeCoste"
+      ],
+      "kind": "client",
+      "summary": "Demoed Oliver capturing voice orders with live validation and planned the Zoho CRM integration, blocked on a Zoho user account for Supernal.",
+      "url": "https://fathom.video/calls/470908232",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "462982217",
+      "title": "Sunflower Wellness <> Supernal: Implementation",
+      "date": "2025-11-05",
+      "participants": [
+        "Oren Dlin",
+        "Nick Agresti",
+        "Amiri Mouhab",
+        "John Messiter",
+        "Alex Seleznov",
+        "Devan Leibowitz"
+      ],
+      "kind": "client",
+      "summary": "Reviewed a successful voice MVP demo of Oliver and planned the sales leadership demo by live phone call, plus robustness testing by Sunflower.",
+      "url": "https://fathom.video/calls/462982217",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "455653133",
+      "title": "Sunflower Wellness <> Supernal: Implementation",
+      "date": "2025-10-29",
+      "participants": [
+        "Alex Seleznov",
+        "Nick Agresti",
+        "Amiri Mouhab",
+        "John Messiter",
+        "Oren Dlin"
+      ],
+      "kind": "client",
+      "summary": "Planned to train Oliver on spoken order scripts from Oren, run a blind test, and demo the MVP internally before the sales team.",
+      "url": "https://fathom.video/calls/455653133",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "448844849",
+      "title": "Sunflower Wellness <> Supernal: Implementation",
+      "date": "2025-10-22",
+      "participants": [
+        "Alex Seleznov",
+        "Nick Agresti",
+        "Amiri Mouhab",
+        "John Messiter",
+        "Oren Dlin"
+      ],
+      "kind": "client",
+      "summary": "Set Oliver's MVP scope for the sales demo on a static data sheet, with Zoho CRM and Figaro integration to follow and Oren supplying training data.",
+      "url": "https://fathom.video/calls/448844849",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "439760648",
+      "title": "Supernal <> Sunflower Wellness: Kick",
+      "date": "2025-10-14",
+      "participants": [
+        "Alex Seleznov",
+        "Eric Kravitz",
+        "Nick Agresti",
+        "Amiri Mouhab",
+        "Nana Williams",
+        "John Messiter",
+        "Oren Dlin"
+      ],
+      "kind": "client",
+      "summary": "Kickoff for Oliver: MVP on voice-based order capture and validation, friendly but strict on procedure, with Zoho updates and lookups as later steps.",
+      "url": "https://fathom.video/calls/439760648",
+      "alt_url": "https://fathom.video/calls/439768280"
+    }
+  ]
+}

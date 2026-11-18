@@ -1,0 +1,2115 @@
+{
+  "slug": "rxvip",
+  "pulled": "2026-11-18",
+  "searched": [
+    "RxVIP",
+    "Rx VIP",
+    "RXVIP",
+    "Syntrixs",
+    "Rayne",
+    "Rayne Medicine",
+    "PioneerRx",
+    "Priority Fill",
+    "cycle fill",
+    "Pharmacy OS",
+    "pharmacy AI employee",
+    "New Iberia",
+    "Benamoz",
+    "Andrea Bourque",
+    "Andrea pharmacy",
+    "Mat Silverstein",
+    "DRX",
+    "TJM",
+    "TigerBytes",
+    "RxVIP Weekly Planning",
+    "pharmacy Dan Pioneer"
+  ],
+  "meetings": [
+    {
+      "provider": "granola",
+      "id": "4fdea124-bae8-4458-88d9-20685b448f1c",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-11-11T19:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Ellen Smith",
+        "Johnny Borbone",
+        "Devan Leibowitz",
+        "Nick Agresti",
+        "Naveen Lekkalapudi",
+        "Ryan Williams"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP part: Order Form 2 around $48K expected to close Nov 16, with next steps to cut per-pharmacy cost and Tauseef building the order form within two days.",
+      "url": "https://notes.granola.ai/d/4fdea124-bae8-4458-88d9-20685b448f1c",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "99b544c4-ee24-4c95-b17a-2ead7959960a",
+      "title": "Johnny / Dan 1:1 - RxVIP and Supernal move forward plan",
+      "date": "2026-11-11T17:00:00Z",
+      "participants": [
+        "Johnny Borbone",
+        "Dan Benamoz"
+      ],
+      "kind": "client",
+      "summary": "Johnny and Dan walked through revised build-phase pricing, tiers after rollout, the DRX comparison, and early scoping of an outbound medication sync calling agent.",
+      "url": "https://notes.granola.ai/d/99b544c4-ee24-4c95-b17a-2ead7959960a",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "daf9fd40-d47c-4308-af2c-f5f965d423c8",
+      "title": "Deal Desk Weekly Review",
+      "date": "2026-11-10T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Stuart Childs",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Jaime Garcia",
+        "Diana Pedroza",
+        "Belu Zerboni"
+      ],
+      "kind": "multi",
+      "summary": "Covered RxVIP proposal after the Andrea scoping call: 30-day scope, $12K for three months then per-script pricing, plus lessons on sending proposals faster and a post-call debrief habit.",
+      "url": "https://notes.granola.ai/d/daf9fd40-d47c-4308-af2c-f5f965d423c8",
+      "alt_url": "https://fathom.video/calls/893840018"
+    },
+    {
+      "provider": "granola",
+      "id": "5af932d5-8baf-4e63-9dab-094452ef9a57",
+      "title": "RxVIP <> Supernal | Weekly",
+      "date": "2026-11-10T15:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore",
+        "Nick Agresti",
+        "Andrea Bourque",
+        "Stuart Childs"
+      ],
+      "kind": "client",
+      "summary": "Walked through the cycle fill queue flow with the technician, confirmed pop-up handling rules for the learning loop, and flagged a refill day-supply bug for investigation.",
+      "url": "https://notes.granola.ai/d/5af932d5-8baf-4e63-9dab-094452ef9a57",
+      "alt_url": "https://fathom.video/calls/893650489"
+    },
+    {
+      "provider": "granola",
+      "id": "7497714a-f6d8-4009-8877-3ec3909e9dda",
+      "title": "Delivery Sync",
+      "date": "2026-11-09T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Deep Sarker",
+        "Ryan Williams",
+        "Harvy Leyton"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP part: critical status, build covers about 35% of script volume, cycle-fill scoping with Andrea, risk of Dan moving to DRX, and Johnny drafting a proposal.",
+      "url": "https://notes.granola.ai/d/7497714a-f6d8-4009-8877-3ec3909e9dda",
+      "alt_url": "https://fathom.video/calls/891407302"
+    },
+    {
+      "provider": "granola",
+      "id": "fbebcb53-59f2-4cc9-a036-ea375d024291",
+      "title": "Strat Team Standup",
+      "date": "2026-11-09T16:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Seb Van Kuyk",
+        "Thomas Bustos",
+        "Jaime Garcia",
+        "Sven Boettger",
+        "Katie Jefferson"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP part: contract direction of roughly $5K for six months, Nick empowered to write the order form, engineering allocation, and framing value around the 33% efficiency gain.",
+      "url": "https://notes.granola.ai/d/fbebcb53-59f2-4cc9-a036-ea375d024291",
+      "alt_url": "https://fathom.video/calls/891631358"
+    },
+    {
+      "provider": "granola",
+      "id": "102d7f54-87a3-4a91-b811-fbce5072c11f",
+      "title": "RxVIP Sync: \"Weekly Planning\"",
+      "date": "2026-11-09T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore",
+        "Thomas Bustos",
+        "Nick Agresti"
+      ],
+      "kind": "internal",
+      "summary": "Planning for a learning-loop scoping call with Andrea, questions on cycle scripts, and note that new-store pricing waits on scope; also a light squad-naming chat.",
+      "url": "https://notes.granola.ai/d/102d7f54-87a3-4a91-b811-fbce5072c11f",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "7e370483-4751-4a8c-a0ab-37e10b7a3268",
+      "title": "Tauseef / Thomas",
+      "date": "2026-11-05T19:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Thomas Bustos"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP part: scoping gaps (cycle fill, learning loop), pricing floor versus breakeven debate, the 33% complete framing for Dan, and plan to send a first-draft order form.",
+      "url": "https://notes.granola.ai/d/7e370483-4751-4a8c-a0ab-37e10b7a3268",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "c4477f29-e0f2-48e0-93e8-1cc4de3694d4",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-11-04T19:00:00Z",
+      "participants": [
+        "Katie Jefferson",
+        "Ellen Smith",
+        "Johnny Borbone",
+        "Devan Leibowitz",
+        "Nick Agresti",
+        "Ryan Williams"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP met that day and moved to proposal stage with clarity on what Dan needs; proposal to go out async with custom, lower-than-usual pricing, with Tauseef checking pricing with Johnny and Thomas.",
+      "url": "https://notes.granola.ai/d/c4477f29-e0f2-48e0-93e8-1cc4de3694d4",
+      "alt_url": "https://fathom.video/calls/887018725"
+    },
+    {
+      "provider": "granola",
+      "id": "c4ef5333-1dd6-4d4f-a1b6-7ea5abe678c7",
+      "title": "Pricing strategy and contract terms with Johnny Borbone",
+      "date": "2026-11-04T17:28:31Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone"
+      ],
+      "kind": "internal",
+      "summary": "Tauseef and Johnny worked out RxVIP pricing at $4k/month (up to $6k with chatbot), milestone gates, hours-based framing, and how to handle pushback toward a competitor.",
+      "url": "https://notes.granola.ai/d/c4ef5333-1dd6-4d4f-a1b6-7ea5abe678c7",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "930cfb21-013a-4b9e-95dc-a8784a4e639a",
+      "title": "Supernal AI <> RxVIP - Path Forward Alignment",
+      "date": "2026-11-04T16:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Meagan Loschiavo",
+        "Dan Benamoz",
+        "Andrea Bourque"
+      ],
+      "kind": "client",
+      "summary": "Path-forward alignment with Dan on current coverage, three pricing and scope options, the learning loop to reach about 95% coverage, and a revised proposal before any work starts.",
+      "url": "https://notes.granola.ai/d/930cfb21-013a-4b9e-95dc-a8784a4e639a",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "c1e99ac2-f813-4922-83d0-9df68171bbb8",
+      "title": "Pharmacy AI roadmap: phase alignment and deck simplification with Thomas",
+      "date": "2026-11-04T15:42:23Z",
+      "participants": [
+        "Tauseef Rahman"
+      ],
+      "kind": "internal",
+      "summary": "Solo notes on feedback to simplify the pharmacy AI roadmap deck for Dan, clarify the three simultaneous phases and pricing, and plan how the upcoming call would be run.",
+      "url": "https://notes.granola.ai/d/c1e99ac2-f813-4922-83d0-9df68171bbb8",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "27070f37-34c0-4d93-a620-f786ab63f2eb",
+      "title": "Deal Desk Weekly Review",
+      "date": "2026-11-03T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Stuart Childs",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Jaime Garcia",
+        "Diana Pedroza",
+        "Katie Jefferson"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP part: Order Form 2 status with three options for Dan, pricing framing, one-page visual plan for his call, and lessons on qualifying his pharmacy network.",
+      "url": "https://notes.granola.ai/d/27070f37-34c0-4d93-a620-f786ab63f2eb",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "dabba4c3-7373-401e-935d-cc63b6eaef36",
+      "title": "RxVIP <> Supernal | Weekly",
+      "date": "2026-11-03T13:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore",
+        "Nick Agresti",
+        "Andrea Bourque",
+        "Stuart Childs"
+      ],
+      "kind": "client",
+      "summary": "Discussed Dan's shifting phase two direction, holding New Iberia onboarding, Pioneer crashes, and remote operator dashboard access via TigerBytes and Pulse.",
+      "url": "https://notes.granola.ai/d/dabba4c3-7373-401e-935d-cc63b6eaef36",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "c77ccf9c-e184-41d1-a8a5-8c1354531a90",
+      "title": "Delivery Sync",
+      "date": "2026-11-02T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Deep Sarker",
+        "Ryan Williams",
+        "Harvy Leyton",
+        "Fran Abenza"
+      ],
+      "kind": "multi",
+      "summary": "Dan wanted onboarding and maintenance priced apart from build; a three-option plan (full coverage, copy current build, IVR) and a one-pager were set, with the deal at risk of stalling.",
+      "url": "https://notes.granola.ai/d/c77ccf9c-e184-41d1-a8a5-8c1354531a90",
+      "alt_url": "https://fathom.video/calls/882864595"
+    },
+    {
+      "provider": "granola",
+      "id": "ab83cf16-fd9c-4a2f-85e3-e393cef92993",
+      "title": "Strat Team Standup",
+      "date": "2026-11-02T16:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Devan Leibowitz",
+        "Thomas Bustos",
+        "Jaime Garcia",
+        "Katie Jefferson",
+        "Diana Pedroza",
+        "Dominik Springer"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP part: the stakeholder's last-minute shift from the existing build to a voice agent, a roughly $10k pricing anchor, and aligning with Thomas on the new pitch.",
+      "url": "https://notes.granola.ai/d/ab83cf16-fd9c-4a2f-85e3-e393cef92993",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "ab22feb3-e928-4695-932a-294026139b88",
+      "title": "RxVIP <> Supernal: The Numbers for a Win-Win",
+      "date": "2026-10-30T14:00:00Z",
+      "participants": [
+        "Nick Agresti",
+        "Meagan Loschiavo",
+        "Dan Benamoz"
+      ],
+      "kind": "client",
+      "summary": "Pricing call with Dan and Meagan on per-script plus retainer model, break-even assumptions, DRX competition, free-trial go-to-market idea, and a medication sync call bot request.",
+      "url": "https://notes.granola.ai/d/ab22feb3-e928-4695-932a-294026139b88",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "3758cedc-ac0c-4a8b-b6e6-ebe5b0e20e37",
+      "title": "Confirm Variable Costs for RxVIP for Meeting Tomorrow",
+      "date": "2026-10-29T18:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Aligned pricing for a one-pager for Dan: monthly retainer, per-task split, breakeven pharmacy count, onboarding-pace risk, and keeping the existing MSA with an addendum.",
+      "url": "https://notes.granola.ai/d/3758cedc-ac0c-4a8b-b6e6-ebe5b0e20e37",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "4a01d3bc-ed43-4667-8528-ba50f878cc7e",
+      "title": "Rx VIP pricing and pharmacy expansion strategy with Thomas",
+      "date": "2026-10-28T21:44:12Z",
+      "participants": [
+        "Tauseef Rahman"
+      ],
+      "kind": "internal",
+      "summary": "Internal pricing session on the RxVIP retainer plus per-script model, breakeven floor, DRX comparison, and the calculator and storytelling deck needed for the pitch to Dan.",
+      "url": "https://notes.granola.ai/d/4a01d3bc-ed43-4667-8528-ba50f878cc7e",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "ebaa217b-95e5-4eb1-bd5c-9f3b05c5fc7c",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-10-28T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Ellen Smith",
+        "Johnny Borbone",
+        "Devan Leibowitz",
+        "Nick Agresti",
+        "Naveen Lekkalapudi"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP waiting on Dan to confirm order form priorities after two follow-ups, with a variable cost structure in progress and uncertainty whether Dan is slow or losing interest.",
+      "url": "https://notes.granola.ai/d/ebaa217b-95e5-4eb1-bd5c-9f3b05c5fc7c",
+      "alt_url": "https://fathom.video/calls/877122683"
+    },
+    {
+      "provider": "granola",
+      "id": "511079e0-f271-4ef2-a1b7-5212dcb23c38",
+      "title": "Deal Desk Weekly Review",
+      "date": "2026-10-27T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Stuart Childs",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Jaime Garcia",
+        "Diana Pedroza",
+        "Belu Zerboni"
+      ],
+      "kind": "multi",
+      "summary": "Deal desk flagged RxVIP pricing as an open item needing a usage-based model charging per pharmacy onboarded; Tauseef to build it and align with Thomas first.",
+      "url": "https://notes.granola.ai/d/511079e0-f271-4ef2-a1b7-5212dcb23c38",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "d2a46811-a2d8-43c8-a501-0700926df418",
+      "title": "RxVIP <> Supernal | Weekly",
+      "date": "2026-10-27T13:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore",
+        "Nick Agresti",
+        "Andrea Bourque",
+        "Stuart Childs"
+      ],
+      "kind": "client",
+      "summary": "Covered script volumes and unhandled request types, the date-overwrite bug, a Pioneer crash and restart loop, the new operator dashboard, and New Iberia onboarding plans.",
+      "url": "https://notes.granola.ai/d/d2a46811-a2d8-43c8-a501-0700926df418",
+      "alt_url": "https://fathom.video/calls/874947978"
+    },
+    {
+      "provider": "granola",
+      "id": "aece2e9d-e4fb-429d-8e88-0399cb46fbaf",
+      "title": "Catchup: Nick & Tauseef",
+      "date": "2026-10-26T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Nick Agresti"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP part: Dan still wants to proceed but balked at per-pharmacy pricing; two tracks to signing, a per-task variable pricing model, and the cycle-fill scope gap.",
+      "url": "https://notes.granola.ai/d/aece2e9d-e4fb-429d-8e88-0399cb46fbaf",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "be26ef11-93a0-4ca1-b023-2d6be7a8d63b",
+      "title": "RxVIP Sync: \"Weekly Planning\"",
+      "date": "2026-10-26T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore",
+        "Thomas Bustos",
+        "Nick Agresti"
+      ],
+      "kind": "internal",
+      "summary": "Internal weekly on the new live monitoring dashboard, auto-start schedule, a week of Pioneer crashes and success rates, email notification domain blockers, and prep for a new pharmacy onboarding.",
+      "url": "https://notes.granola.ai/d/be26ef11-93a0-4ca1-b023-2d6be7a8d63b",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "9364f309-e20b-4ca7-a2e3-17bcf5ad6d32",
+      "title": "Pharmacy AI employee pricing model and DRX integration with Dan",
+      "date": "2026-10-16T14:28:54Z",
+      "participants": [
+        "Nick Agresti"
+      ],
+      "kind": "client",
+      "summary": "Call with Dan on moving to variable per-task pricing with a retainer, DRX as benchmark, and focusing the AI employee on pharmacy management systems.",
+      "url": "https://notes.granola.ai/d/9364f309-e20b-4ca7-a2e3-17bcf5ad6d32",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "72f17677-d200-4935-8cc3-9a4c1cbd7fb7",
+      "title": "Tauseef / Thomas",
+      "date": "2026-10-15T18:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Thomas Bustos"
+      ],
+      "kind": "multi",
+      "summary": "Part of a 1:1 covered RxVIP status: product now hitting volume targets after a cycle-fill scope mix-up, Dan unsure on pricing, and a plan for a short visual narrative for Nick.",
+      "url": "https://notes.granola.ai/d/72f17677-d200-4935-8cc3-9a4c1cbd7fb7",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "b29dc1bc-fa6e-4d7a-9ef6-a88345788885",
+      "title": "RxVIP <> Supernal | Weekly",
+      "date": "2026-10-13T13:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore",
+        "Andrea Bourque",
+        "Stuart Childs"
+      ],
+      "kind": "client",
+      "summary": "Reviewed the refill date-change bug and its fix, scripts stuck after Pioneer crashes, volume metric baselines, and adding cycle requests to the next order form.",
+      "url": "https://notes.granola.ai/d/b29dc1bc-fa6e-4d7a-9ef6-a88345788885",
+      "alt_url": "https://fathom.video/calls/857263499"
+    },
+    {
+      "provider": "granola",
+      "id": "3f3176c7-e40b-435c-be71-cccf04cce487",
+      "title": "GTM + Scoping",
+      "date": "2026-10-09T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Sven Boettger",
+        "Thomas Bustos",
+        "Jaime Garcia"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP part: pitching against a solo developer rival, Dan declining Order Form 2 on price, open HIPAA readiness questions, and plans to involve Naveen.",
+      "url": "https://notes.granola.ai/d/3f3176c7-e40b-435c-be71-cccf04cce487",
+      "alt_url": "https://fathom.video/calls/853841933"
+    },
+    {
+      "provider": "granola",
+      "id": "d2521bd2-a5ac-40a2-ae53-597035c41103",
+      "title": "RxVIP Sync: \"Weekly Planning\"",
+      "date": "2026-10-09T15:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore",
+        "Thomas Bustos",
+        "Nick Agresti"
+      ],
+      "kind": "internal",
+      "summary": "Internal planning on the gap between AI employee and Pioneer volume counts, next steps with Matt's platform, a pharmacy-facing control GUI, and holding scope until renewal.",
+      "url": "https://notes.granola.ai/d/d2521bd2-a5ac-40a2-ae53-597035c41103",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "9ebbb4f5-56cc-4dcd-91b6-1dab5a7bcd9b",
+      "title": "RxVIP <> Supernal | Weekly",
+      "date": "2026-10-07T13:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore",
+        "Nick Agresti",
+        "Andrea Bourque",
+        "Stuart Childs"
+      ],
+      "kind": "client",
+      "summary": "Reconciled processed versus total volume, explained how to pull Pioneer reports, and prioritized cycle fill expansion while doubting a head-on DRX competition.",
+      "url": "https://notes.granola.ai/d/9ebbb4f5-56cc-4dcd-91b6-1dab5a7bcd9b",
+      "alt_url": "https://fathom.video/calls/848184104"
+    },
+    {
+      "provider": "granola",
+      "id": "cba92cc5-98c7-4d56-891b-9144d9b50540",
+      "title": "Sync: \"RxVIP OF 2 Pricing\"",
+      "date": "2026-10-05T20:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Nick Agresti",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Internal pricing sync on the second order form, comparing DRX's cost and scope, Dan's pharmacy-in-a-box ask, and a proposed retainer and go-to-market partner model.",
+      "url": "https://notes.granola.ai/d/cba92cc5-98c7-4d56-891b-9144d9b50540",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "cc77a502-84ea-4971-8ef5-7c22259d4b38",
+      "title": "Delivery Sync",
+      "date": "2026-10-05T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Deep Sarker",
+        "Ryan Williams",
+        "Harvy Leyton"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP part: red status with about 43% success on weekly scripts, almost daily pharmacy system crashes, a speed fix, blockers, and the need for repricing and an expansion pitch.",
+      "url": "https://notes.granola.ai/d/cc77a502-84ea-4971-8ef5-7c22259d4b38",
+      "alt_url": "https://fathom.video/calls/846711109"
+    },
+    {
+      "provider": "granola",
+      "id": "e36a8b69-a466-4426-9899-763ebdbd02a6",
+      "title": "Strat Team Standup",
+      "date": "2026-10-05T15:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Devan Leibowitz",
+        "Seb Van Kuyk",
+        "Thomas Bustos",
+        "Jaime Garcia",
+        "Sven Boettger"
+      ],
+      "kind": "multi",
+      "summary": "Standup noted Dan rejected the RxVIP order form, and Nick wants a redesign around a $10k/month model that requires cutting cost to about $500 per pharmacy; a dedicated meeting was planned.",
+      "url": "https://notes.granola.ai/d/e36a8b69-a466-4426-9899-763ebdbd02a6",
+      "alt_url": "https://fathom.video/calls/846716902"
+    },
+    {
+      "provider": "granola",
+      "id": "e7742a54-b133-4593-aeeb-12ea6074ff00",
+      "title": "RxVIP Sync: \"Weekly Planning\"",
+      "date": "2026-10-05T14:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore",
+        "Thomas Bustos",
+        "Nick Agresti"
+      ],
+      "kind": "internal",
+      "summary": "Planning on last week's bot completion stats, pop-up fixes, daily volume stuck under 100, log access blockers, operator start/stop controls, and needing a Windows test setup.",
+      "url": "https://notes.granola.ai/d/e7742a54-b133-4593-aeeb-12ea6074ff00",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "972bd9fe-a0e2-4057-8400-849afbc9ef7c",
+      "title": "RxVIP <> Supernal | Weekly",
+      "date": "2026-09-29T13:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore",
+        "Andrea Bourque",
+        "Stuart Childs"
+      ],
+      "kind": "client",
+      "summary": "Reviewed results of the speed deployment, a stalled eScript queue and skipped-script visibility fix, Pioneer instability, unknown pop-ups, and log export and auto-start plans.",
+      "url": "https://notes.granola.ai/d/972bd9fe-a0e2-4057-8400-849afbc9ef7c",
+      "alt_url": "https://fathom.video/calls/839205486"
+    },
+    {
+      "provider": "granola",
+      "id": "3296088e-fbb0-4b57-8f1a-574053008b08",
+      "title": "Delivery Sync",
+      "date": "2026-09-28T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Deep Sarker",
+        "Ryan Williams",
+        "Harvy Leyton"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP update: second order form signing, completion rate up to 38%, auto-start added, but only 80-90 of 300 cases picked up, with Pioneer instability and missing test environment as blockers.",
+      "url": "https://notes.granola.ai/d/3296088e-fbb0-4b57-8f1a-574053008b08",
+      "alt_url": "https://fathom.video/calls/838015067"
+    },
+    {
+      "provider": "granola",
+      "id": "f4d21ac4-5223-4543-91f5-7f5a3b79e2a3",
+      "title": "RxVIP Sync: \"Weekly Planning\"",
+      "date": "2026-09-28T14:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore",
+        "Thomas Bustos",
+        "Nick Agresti"
+      ],
+      "kind": "internal",
+      "summary": "Internal planning on bot speed gains, pop-up handling rework, the gap to full volume coverage, and per-run CSV reporting feeding the Pulse dashboard pending an IT file-copy unblock.",
+      "url": "https://notes.granola.ai/d/f4d21ac4-5223-4543-91f5-7f5a3b79e2a3",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "2eb4e1c1-c37d-48d3-b01e-9dd485af928a",
+      "title": "Sync: \"RxVIP\"",
+      "date": "2026-09-24T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore"
+      ],
+      "kind": "internal",
+      "summary": "Timeline and technical review: phase milestones, FillRx having no API as the biggest risk, a second AI employee needing extra machines, logging gaps, and human-AI sync concerns.",
+      "url": "https://notes.granola.ai/d/2eb4e1c1-c37d-48d3-b01e-9dd485af928a",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "b3f48710-9730-48eb-a5e1-15316f1f76c9",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-09-23T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Ellen Smith",
+        "Johnny Borbone",
+        "Devan Leibowitz",
+        "Nick Agresti",
+        "Naveen Lekkalapudi",
+        "Ryan Williams"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP part: order form one complete, order form two signing expected around $120k, recurring per-location fee, and debate on points versus outcome-based pricing.",
+      "url": "https://notes.granola.ai/d/b3f48710-9730-48eb-a5e1-15316f1f76c9",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "fd07f549-88e4-4296-ab4a-0bb1838d0211",
+      "title": "GTM + Scoping",
+      "date": "2026-09-23T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Sven Boettger",
+        "Thomas Bustos"
+      ],
+      "kind": "multi",
+      "summary": "Reviewed the RxVIP order form: about $10k/month over roughly six months, milestone-based, 50 points versus 35 on the first form, with a draft due to Thomas and client presentation planned.",
+      "url": "https://notes.granola.ai/d/fd07f549-88e4-4296-ab4a-0bb1838d0211",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "fcc8df52-8be4-46f9-802d-4d3eede60589",
+      "title": "Confirm RxVIP Order Form #2 Pricing",
+      "date": "2026-09-23T16:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Naveen Lekkalapudi",
+        "Ryan Williams",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Agreed Order Form 2 pricing and phasing as a monthly retainer, with engineering concerns on FillRx having no API, OCR data, and the queue pickup gap, plus the approval path.",
+      "url": "https://notes.granola.ai/d/fcc8df52-8be4-46f9-802d-4d3eede60589",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "6a9bb3ea-ab8a-4473-ae87-fe1e54a73169",
+      "title": "World Emblem | Strat Sync",
+      "date": "2026-09-22T19:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Dominik Springer"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP part: debrief of a monthly review that landed poorly after last-minute scope change, holding rollout until Order Form 2 is signed, and unclear pricing for it.",
+      "url": "https://notes.granola.ai/d/6a9bb3ea-ab8a-4473-ae87-fe1e54a73169",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "1cd7b4ef-c09c-4264-bc94-702cdca29eed",
+      "title": "Supernal x RxVIP: Progress + Way Forward",
+      "date": "2026-09-22T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Nick Agresti",
+        "Naveen Lekkalapudi",
+        "Dan Benamoz",
+        "Ryan Williams",
+        "Mathieu Silverstein",
+        "Meagan Loschiavo",
+        "Stuart Childs",
+        "Andrea Bourque"
+      ],
+      "kind": "client",
+      "summary": "Progress review with Dan's team after Order Form 1: run stats, why cases route to humans, blockers, Order Form 2 scope, expansion to next pharmacies, and trend reporting agreements.",
+      "url": "https://notes.granola.ai/d/1cd7b4ef-c09c-4264-bc94-702cdca29eed",
+      "alt_url": "https://fathom.video/calls/830146881"
+    },
+    {
+      "provider": "granola",
+      "id": "5ccd9298-1ed9-4031-addf-a51227056fe4",
+      "title": "RxVIP <> Supernal | Weekly",
+      "date": "2026-09-22T13:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore",
+        "Nick Agresti",
+        "Andrea Bourque",
+        "Stuart Childs"
+      ],
+      "kind": "client",
+      "summary": "Reviewed a queue backlog and slow Pioneer behavior, volume figures, the move to 24/7 running and stall notifications, and walked Andrea through the SOW modules and retainer model.",
+      "url": "https://notes.granola.ai/d/5ccd9298-1ed9-4031-addf-a51227056fe4",
+      "alt_url": "https://fathom.video/calls/830146880"
+    },
+    {
+      "provider": "fathom",
+      "id": "185555172",
+      "title": "GTM + Scoping",
+      "date": "2026-09-22",
+      "participants": [
+        "Tauseef Rahman",
+        "Nick Agresti",
+        "Johnny Borbone",
+        "Thomas Bustos",
+        "Naveen Lekkalapudi",
+        "Seb Van Kuyk",
+        "Ryan Williams",
+        "Belu Zerboni"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP pricing for the next order form was put on hold because Andrea had widened the scope the day before, so an internal alignment sync was set before the client call.",
+      "url": "https://fathom.video/calls/830394530",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "3f107402-6f4a-4c5c-ad64-e9b978250048",
+      "title": "Delivery Sync",
+      "date": "2026-09-21T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Deep Sarker",
+        "Ryan Williams",
+        "Harvy Leyton"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP part: red status, 500-fill milestone nearly met, low weekly completion rate and three suspected causes, a CAPTCHA suspension fix, and a VM sleep problem.",
+      "url": "https://notes.granola.ai/d/3f107402-6f4a-4c5c-ad64-e9b978250048",
+      "alt_url": "https://fathom.video/calls/827964071"
+    },
+    {
+      "provider": "granola",
+      "id": "229df315-e9bf-402d-972e-bffa58f7d043",
+      "title": "Strat Team Standup",
+      "date": "2026-09-21T15:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Belu Zerboni",
+        "Seb Van Kuyk",
+        "Jaime Garcia",
+        "Sven Boettger",
+        "Katie Jefferson",
+        "Diana Pedroza"
+      ],
+      "kind": "multi",
+      "summary": "Reported that Anthropic suspended RxVIP's private LLM account over CAPTCHA screenshots; the fix removed them from the workflow and an incident report was being prepared.",
+      "url": "https://notes.granola.ai/d/229df315-e9bf-402d-972e-bffa58f7d043",
+      "alt_url": "https://fathom.video/calls/828280568"
+    },
+    {
+      "provider": "granola",
+      "id": "6c435b68-56cf-4fc6-bd49-3ca840eab30e",
+      "title": "RxVIP Sync: \"Weekly Planning\"",
+      "date": "2026-09-21T14:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore",
+        "Thomas Bustos",
+        "Nick Agresti"
+      ],
+      "kind": "internal",
+      "summary": "Internal review of weak bot throughput versus target, suspected causes, inflated volume figures, moving project status to red, and prep for a live demo with Andrea.",
+      "url": "https://notes.granola.ai/d/6c435b68-56cf-4fc6-bd49-3ca840eab30e",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "d6661cfe-24a7-43db-9cac-075609385657",
+      "title": "RxVIP <> Supernal | #OF2 Scope Discovery",
+      "date": "2026-09-21T12:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Stuart Childs",
+        "Doren Gore",
+        "Nick Agresti",
+        "Andrea Bourque"
+      ],
+      "kind": "client",
+      "summary": "Order form 2 scope discovery on current coverage gaps, FillRx and eFax incoming-docs work, compounds, a two-bot architecture, and prep for the next call with Dan.",
+      "url": "https://notes.granola.ai/d/d6661cfe-24a7-43db-9cac-075609385657",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "f5572598-2562-41bd-a8a5-e94340896d37",
+      "title": "RxVIP <> Supernal | #OF2 Scope Discovery",
+      "date": "2026-09-18T12:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Stuart Childs",
+        "Doren Gore",
+        "Nick Agresti",
+        "Andrea Bourque"
+      ],
+      "kind": "client",
+      "summary": "Scope discovery for Order Form 2 with Andrea, overshadowed by an LLM suspension over CAPTCHA content; compound prescriptions and receipts/OCR walkthroughs deferred to Monday.",
+      "url": "https://notes.granola.ai/d/f5572598-2562-41bd-a8a5-e94340896d37",
+      "alt_url": "https://fathom.video/calls/826292546"
+    },
+    {
+      "provider": "fathom",
+      "id": "183111210",
+      "title": "RxVIP <> Supernal | Weekly",
+      "date": "2026-09-15",
+      "participants": [
+        "Tauseef Rahman",
+        "Nick Agresti",
+        "Stuart Childs",
+        "Doren Gore"
+      ],
+      "kind": "internal",
+      "summary": "Andrea cancelled, so the slot was used to announce Stuart taking over account expansion from Nick and to plan an internal rehearsal of the RxVIP deck.",
+      "url": "https://fathom.video/calls/821248613",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "182797837",
+      "title": "Delivery Sync",
+      "date": "2026-09-14",
+      "participants": [
+        "Tauseef Rahman",
+        "Nick Agresti",
+        "Johnny Borbone",
+        "Seb Van Kuyk",
+        "Naveen Lekkalapudi",
+        "Devan Leibowitz",
+        "Ryan Williams"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP was flagged at risk: about 51 of the 500 target cases were complete and the success rate had dropped to roughly 19% because of new, unhandled Pioneer pop-ups.",
+      "url": "https://fathom.video/calls/819309043",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "3dd8b560-b2bb-4bc5-ba15-b4af38324455",
+      "title": "RxVIP Sync: \"Weekly Planning\"",
+      "date": "2026-09-08T15:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore",
+        "Thomas Bustos",
+        "Nick Agresti"
+      ],
+      "kind": "internal",
+      "summary": "Planning on script-level analytics, recent bot flow changes, multi-machine work, and preparing a database schema submission for Mat's shared queue.",
+      "url": "https://notes.granola.ai/d/3dd8b560-b2bb-4bc5-ba15-b4af38324455",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "b7351815-55f6-40ee-8df5-0297f5090a1a",
+      "title": "RxVIP Work Products",
+      "date": "2026-09-08T13:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Lucas Stein",
+        "Doren Gore"
+      ],
+      "kind": "internal",
+      "summary": "Internal session on HIPAA limits for RxVIP data and an event-tracking plan to feed a Prescriptions Processed work product into Pulse and Workbench.",
+      "url": "https://notes.granola.ai/d/b7351815-55f6-40ee-8df5-0297f5090a1a",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "9896b3c0-91da-489e-b888-46ef7eeca54b",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-09-02T18:00:00Z",
+      "participants": [
+        "Ryan Williams",
+        "Ellen Smith",
+        "Johnny Borbone",
+        "Devan Leibowitz",
+        "Nick Agresti",
+        "Naveen Lekkalapudi"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline meeting noted a September meeting with Dan to present completed work and a second order form, and flagged how a $1,500/month single-pharmacy option would show in recurring revenue reporting.",
+      "url": "https://notes.granola.ai/d/9896b3c0-91da-489e-b888-46ef7eeca54b",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "3c788c52-02cd-45de-9b5c-333acca32af8",
+      "title": "Delivery Sync",
+      "date": "2026-08-31T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Nick Agresti",
+        "Seb Van Kuyk",
+        "Deep Sarker",
+        "Harvy Leyton",
+        "Fran Abenza"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP part: AI employee at 326 of 500 cases, longer testing window, caching speedup, Andrea out for two weeks, stakeholder call set, and scope expansion talk.",
+      "url": "https://notes.granola.ai/d/3c788c52-02cd-45de-9b5c-333acca32af8",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "607095f0-486c-4ad8-a594-7c5dc333a8c0",
+      "title": "RxVIP Sync: \"Weekly Planning\"",
+      "date": "2026-08-31T14:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore",
+        "Thomas Bustos",
+        "Nick Agresti"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP part covered Doren automating the daily stat sheet, a PostHog and Pulse dashboard for Dan, a longer testing window, and restarting the AI Employee.",
+      "url": "https://notes.granola.ai/d/607095f0-486c-4ad8-a594-7c5dc333a8c0",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "f9d62766-783b-4145-bc87-7e0571153cbb",
+      "title": "RxVIP <> Supernal | Weekly",
+      "date": "2026-08-25T13:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore",
+        "Nick Agresti",
+        "Andrea Bourque"
+      ],
+      "kind": "client",
+      "summary": "Weekly with Andrea on Pioneer pop-up rules, handwritten and faxed prescription handling, bot throughput targets, and her absence plan before a demo for Dan.",
+      "url": "https://notes.granola.ai/d/f9d62766-783b-4145-bc87-7e0571153cbb",
+      "alt_url": "https://fathom.video/calls/795196852"
+    },
+    {
+      "provider": "granola",
+      "id": "6166bc70-3fa6-4787-bb8c-ede43271ea1f",
+      "title": "Delivery Sync",
+      "date": "2026-08-24T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Devan Leibowitz",
+        "Naveen Lekkalapudi",
+        "Majo Victoria",
+        "Deep Sarker",
+        "Jens Haakaas"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP status yellow trending green: faster per-script processing, exception queue, testing log, case volume and speed targets, and analytics gaps being addressed.",
+      "url": "https://notes.granola.ai/d/6166bc70-3fa6-4787-bb8c-ede43271ea1f",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "cec13e53-06c9-49fd-9cf2-8b11807e6c7f",
+      "title": "RxVIP Sync: \"Weekly Planning\"",
+      "date": "2026-08-24T14:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore",
+        "Thomas Bustos",
+        "Nick Agresti"
+      ],
+      "kind": "internal",
+      "summary": "Internal weekly on processing stats versus the 500-case target, narrative and artifacts for the Dan meeting, caching improvements, and the Neon database connection with Matt.",
+      "url": "https://notes.granola.ai/d/cec13e53-06c9-49fd-9cf2-8b11807e6c7f",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "986cbb5c-f89d-40e4-aec3-073a2c59d38c",
+      "title": "RxVIP <> Supernal | Check-In",
+      "date": "2026-08-21T12:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore",
+        "Nick Agresti",
+        "Andrea Bourque"
+      ],
+      "kind": "client",
+      "summary": "Check-in on two weeks of bot results, CAPTCHA-caused declines, caching speedups, a to-do-list task approach for stuck cases, and planned downtime notices to the store staff.",
+      "url": "https://notes.granola.ai/d/986cbb5c-f89d-40e4-aec3-073a2c59d38c",
+      "alt_url": "https://fathom.video/calls/793020397"
+    },
+    {
+      "provider": "granola",
+      "id": "7f56bfb6-2dde-4b3f-8b38-0232888f5d32",
+      "title": "Weekly Pipeline Meeting (post-migration)",
+      "date": "2026-08-19T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Ellen Smith",
+        "Johnny Borbone",
+        "Devan Leibowitz",
+        "Nick Agresti",
+        "Naveen Lekkalapudi",
+        "Ryan Williams"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP exit criteria identified for the first order form, with a signed timeline to present to Dan and two tracks: deploy to three pharmacies and expand capabilities via a second order form.",
+      "url": "https://notes.granola.ai/d/7f56bfb6-2dde-4b3f-8b38-0232888f5d32",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "340afa4a-1a83-4abb-abda-703fdbc3dcbb",
+      "title": "RxVIP <> Supernal | Weekly",
+      "date": "2026-08-18T13:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore",
+        "Nick Agresti",
+        "Andrea Bourque"
+      ],
+      "kind": "client",
+      "summary": "Weekly covering the queue-refresh root cause behind low bot output, the 500-case testing milestone, staff monitoring plan, earlier start time, and scope adjustments.",
+      "url": "https://notes.granola.ai/d/340afa4a-1a83-4abb-abda-703fdbc3dcbb",
+      "alt_url": "https://fathom.video/calls/786552025"
+    },
+    {
+      "provider": "granola",
+      "id": "68ef5490-c66f-4175-aa09-025b8bcc061f",
+      "title": "RxVIP: AI employee queue performance and handover plan",
+      "date": "2026-08-18T11:49:30Z",
+      "participants": [
+        "Tauseef Rahman"
+      ],
+      "kind": "internal",
+      "summary": "Solo notes on the AI employee's queue results from the prior day, plan to keep running in-house before handing over to Andrea, and open items on templates and pop-ups.",
+      "url": "https://notes.granola.ai/d/68ef5490-c66f-4175-aa09-025b8bcc061f",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "388a820e-e552-40ef-9086-0382610b21bf",
+      "title": "Delivery Sync",
+      "date": "2026-08-17T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Devan Leibowitz",
+        "Naveen Lekkalapudi",
+        "Majo Victoria",
+        "Deep Sarker",
+        "Jens Haakaas",
+        "Belu Zerboni"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP hit its August milestone with the AI employee handling all five scripts alone; next target 500 end-to-end cases, plus September expansion at $1,500/month per pharmacy.",
+      "url": "https://notes.granola.ai/d/388a820e-e552-40ef-9086-0382610b21bf",
+      "alt_url": "https://fathom.video/calls/784724415"
+    },
+    {
+      "provider": "granola",
+      "id": "133ad1ae-e298-4f8f-b471-64c7095b719d",
+      "title": "RxVIP Sync: \"Weekly Planning\"",
+      "date": "2026-08-17T14:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Internal weekly planning sync for RxVIP between Tauseef and Thomas; no written notes were generated for this meeting.",
+      "url": "https://notes.granola.ai/d/133ad1ae-e298-4f8f-b471-64c7095b719d",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "173387408",
+      "title": "RxVIP <> Supernal | Testing",
+      "date": "2026-08-14",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore",
+        "Andrea Bourque"
+      ],
+      "kind": "client",
+      "summary": "Live testing session for the RxVIP AI Employee with Andrea; no summary was available for this recording.",
+      "url": "https://fathom.video/calls/782898778",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "26346ea8-2f26-451d-a061-e31b0ff585da",
+      "title": "RxVIP <> Supernal | Testing",
+      "date": "2026-08-13T13:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore",
+        "Andrea Bourque"
+      ],
+      "kind": "client",
+      "summary": "Testing session check-in with Andrea: queue backlog, restarts and a rejected case to investigate; also a side discussion on a reusable prototype-building guide.",
+      "url": "https://notes.granola.ai/d/26346ea8-2f26-451d-a061-e31b0ff585da",
+      "alt_url": "https://fathom.video/calls/781194986"
+    },
+    {
+      "provider": "granola",
+      "id": "76390cce-1e07-4275-bb4e-97a8ccb9f4cd",
+      "title": "RxVIP <> Supernal | Testing",
+      "date": "2026-08-12T13:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore",
+        "Andrea Bourque"
+      ],
+      "kind": "client",
+      "summary": "Live testing of the updated executable with Andrea, handling failures in real time, her extra reject cases for overrides, and ongoing monitoring after she left.",
+      "url": "https://notes.granola.ai/d/76390cce-1e07-4275-bb4e-97a8ccb9f4cd",
+      "alt_url": "https://fathom.video/calls/780782473"
+    },
+    {
+      "provider": "granola",
+      "id": "7ee3bb4f-e1e9-4f5b-ae98-fe7d8e4d4a64",
+      "title": "RxVIP <> Supernal | Weekly",
+      "date": "2026-08-11T13:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore",
+        "Nick Agresti",
+        "Andrea Bourque"
+      ],
+      "kind": "client",
+      "summary": "Status on all five script types going live, Neon database migration, live testing and pop-up rules, patient messaging workflows, and rollout phases across stores.",
+      "url": "https://notes.granola.ai/d/7ee3bb4f-e1e9-4f5b-ae98-fe7d8e4d4a64",
+      "alt_url": "https://fathom.video/calls/778924714"
+    },
+    {
+      "provider": "granola",
+      "id": "8c2815e2-bd84-4bab-a514-6e4433344900",
+      "title": "RxVIP Sync: \"Weekly Planning\"",
+      "date": "2026-08-10T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore",
+        "Thomas Bustos"
+      ],
+      "kind": "internal",
+      "summary": "Internal planning on Neon versus SQLite for multi-machine processing, remaining patient communication work, prep for the Andrea call, and delivering the executable by mid-August.",
+      "url": "https://notes.granola.ai/d/8c2815e2-bd84-4bab-a514-6e4433344900",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "854931b5-b592-4fcc-bd8d-1ca6266525d2",
+      "title": "Strat ²",
+      "date": "2026-08-06T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Sven Boettger",
+        "Thomas Bustos",
+        "Jaime Garcia",
+        "Katie Jefferson"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP part: testing phase with daily live sessions with Andrea, roles split, positive monthly call, and the risk that the fixed-scope order form nears expiry with no expansion path.",
+      "url": "https://notes.granola.ai/d/854931b5-b592-4fcc-bd8d-1ca6266525d2",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "4ba8f71e-bd85-453c-96b2-7066a0450fe4",
+      "title": "USE THIS ONE All-Hands",
+      "date": "2026-08-03T18:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Peyton Gray Koch",
+        "Zack",
+        "Manish Chintha",
+        "Deep Sarker",
+        "Ricardo Morel"
+      ],
+      "kind": "multi",
+      "summary": "All-hands included a RxVIP demo of the private LLM reading screenshots to handle random pop-ups in the legacy pharmacy app, resolving about 90% and escalating low-confidence cases to the pharmacist.",
+      "url": "https://notes.granola.ai/d/4ba8f71e-bd85-453c-96b2-7066a0450fe4",
+      "alt_url": "https://fathom.video/calls/768998522"
+    },
+    {
+      "provider": "granola",
+      "id": "47eb5ad6-3cc4-4c7b-9cc9-efc88612915f",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-08-03T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Devan",
+        "Jens Haakaas",
+        "Seb Van Kuyk",
+        "Manish Chintha",
+        "Lucas Stein",
+        "Nick Agresti"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP section: on track for the August 15 milestone with private LLM pop-up handling, remaining scope, contract renewal beyond the order form, and Neon access for Mat.",
+      "url": "https://notes.granola.ai/d/47eb5ad6-3cc4-4c7b-9cc9-efc88612915f",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "6209ab84-e149-4023-8c4c-4b85cd298d25",
+      "title": "RxVIP <> Supernal | Weekly",
+      "date": "2026-08-03T12:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore",
+        "Andrea Bourque"
+      ],
+      "kind": "client",
+      "summary": "Progress update on the private LLM pop-up handling, confirmed fill queue priority order and workflow, and a live testing session with Andrea.",
+      "url": "https://notes.granola.ai/d/6209ab84-e149-4023-8c4c-4b85cd298d25",
+      "alt_url": "https://fathom.video/calls/768519624"
+    },
+    {
+      "provider": "granola",
+      "id": "033cc2b5-4c23-4d4b-b145-b0bdf16d8d27",
+      "title": "[optional] Tauseef / Thomas",
+      "date": "2026-07-31T13:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Thomas Bustos"
+      ],
+      "kind": "multi",
+      "summary": "In a 1:1 with Thomas, Tauseef explained the RxVIP Pioneer bot: how it speeds fill requests, the vision LLM for pop-ups, and the plan to pitch a fuller AI employee to Dan.",
+      "url": "https://notes.granola.ai/d/033cc2b5-4c23-4d4b-b145-b0bdf16d8d27",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "b6aebd1b-5ede-4588-ad4c-8e10f15cebc3",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-07-27T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Fran Abenza",
+        "Scott Downes",
+        "Saad",
+        "Nicolas Cermesoni"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP status reported green: next milestone nearly done, data layer moved to SQL, private LLM fallback and error handling added, with testing delayed by Andrea's absence.",
+      "url": "https://notes.granola.ai/d/b6aebd1b-5ede-4588-ad4c-8e10f15cebc3",
+      "alt_url": "https://fathom.video/calls/760212683"
+    },
+    {
+      "provider": "granola",
+      "id": "41264ce9-f4e1-45f3-8e49-1d0d023c29f1",
+      "title": "Supernal x RxVIP: Update II",
+      "date": "2026-07-15T18:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Nick Agresti",
+        "Dan Benamoz",
+        "Doren Gore",
+        "Mathieu Silverstein",
+        "Andrea Bourque",
+        "Naveen Lekkalapudi"
+      ],
+      "kind": "client",
+      "summary": "Update with Dan and Mat on build progress, live demo, pop-up blockers, parallel bot scaling, and the next-phase vision including voice and medication sync.",
+      "url": "https://notes.granola.ai/d/41264ce9-f4e1-45f3-8e49-1d0d023c29f1",
+      "alt_url": "https://fathom.video/calls/747015979"
+    },
+    {
+      "provider": "granola",
+      "id": "4cc0a43d-8af1-4507-82b1-372cbd76b61a",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-07-13T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Fran Abenza",
+        "Scott Downes",
+        "Saad",
+        "Lucas Stein",
+        "Manish Chintha"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP fill workflow was built and in heavy testing; the late-month milestone was likely to slip as outdated Pioneer docs broke some scripts, with vision-based pop-up handling underway.",
+      "url": "https://notes.granola.ai/d/4cc0a43d-8af1-4507-82b1-372cbd76b61a",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "f569ded2-7243-4246-9c93-764c9d2e63f5",
+      "title": "RxVIP <> Supernal | Weekly",
+      "date": "2026-07-13T13:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Nick Agresti",
+        "Doren Gore",
+        "Andrea Bourque"
+      ],
+      "kind": "client",
+      "summary": "Weekly cut short by a pharmacy server outage; covered vision-LLM pop-up work, completed script fixes, and plans to resume live testing once the server returned.",
+      "url": "https://notes.granola.ai/d/f569ded2-7243-4246-9c93-764c9d2e63f5",
+      "alt_url": "https://fathom.video/calls/742803694"
+    },
+    {
+      "provider": "granola",
+      "id": "a9cdc8ff-1de6-4a09-8241-e9dfbe6c08d0",
+      "title": "Sync: \"RxVIP Weekly Plannning\"",
+      "date": "2026-07-13T13:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore"
+      ],
+      "kind": "internal",
+      "summary": "Internal weekly planning sync for RxVIP between Tauseef and Doren; no written notes were generated for this meeting.",
+      "url": "https://notes.granola.ai/d/a9cdc8ff-1de6-4a09-8241-e9dfbe6c08d0",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "c39e0de4-6722-4c5d-bafb-eadea0300053",
+      "title": "RxVIP <> Supernal | Testing & Review II",
+      "date": "2026-07-10T12:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Nick Agresti",
+        "Doren Gore",
+        "Andrea Bourque"
+      ],
+      "kind": "client",
+      "summary": "Testing session with Andrea: a missing label printer suspected of causing script errors, a drug-selection bug from new pop-up logic, no staging environment, and scheduling next tests.",
+      "url": "https://notes.granola.ai/d/c39e0de4-6722-4c5d-bafb-eadea0300053",
+      "alt_url": "https://fathom.video/calls/741094363"
+    },
+    {
+      "provider": "granola",
+      "id": "b9f79eba-7bc7-4c52-9551-80ca6fcf9b26",
+      "title": "Sync: \"Doren & Tauseef\"",
+      "date": "2026-07-09T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore"
+      ],
+      "kind": "internal",
+      "summary": "Sync with Doren on pop-up handling, a fix so requests only complete after submit, the JSON to SQLite move, and a simple demo UI for the stakeholder meeting.",
+      "url": "https://notes.granola.ai/d/b9f79eba-7bc7-4c52-9551-80ca6fcf9b26",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "82b81457-acc6-463f-a4b2-a94903f70e27",
+      "title": "RxVIP <> Supernal | Testing & Review",
+      "date": "2026-07-08T12:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Nick Agresti",
+        "Doren Gore",
+        "Andrea Bourque"
+      ],
+      "kind": "client",
+      "summary": "Live testing session with Andrea surfacing stuck scripts and critical-comment handling, and agreeing to scope a vision-based LLM approach for pop-ups.",
+      "url": "https://notes.granola.ai/d/82b81457-acc6-463f-a4b2-a94903f70e27",
+      "alt_url": "https://fathom.video/calls/737960408"
+    },
+    {
+      "provider": "granola",
+      "id": "5e8f14f2-9d7b-490f-bf3c-35d94aa43583",
+      "title": "RxVIP <> Supernal | Weekly",
+      "date": "2026-07-07T12:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore",
+        "Andrea Bourque"
+      ],
+      "kind": "client",
+      "summary": "Weekly covering store connectivity fixes, completed e-script and refill workflows, live testing hitting a new pop-up, exception routing via Pioneer tasks, and the August MVP plan.",
+      "url": "https://notes.granola.ai/d/5e8f14f2-9d7b-490f-bf3c-35d94aa43583",
+      "alt_url": "https://fathom.video/calls/735207789"
+    },
+    {
+      "provider": "granola",
+      "id": "e9494bfc-fdc6-458c-940b-9a9cfd1abace",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-07-06T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Fran",
+        "Saad",
+        "Lucas Stein",
+        "Manish Chintha"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP part: fill queue and refill workflows complete, pop-up fixes, move to SQLite, live test planned, AI Employee MVP milestone for August, and open blockers.",
+      "url": "https://notes.granola.ai/d/e9494bfc-fdc6-458c-940b-9a9cfd1abace",
+      "alt_url": "https://fathom.video/calls/733333448"
+    },
+    {
+      "provider": "granola",
+      "id": "25a42eb5-10b0-4119-aacd-cae0cc5c868a",
+      "title": "Sync: \"RxVIP Weekly Plannning\"",
+      "date": "2026-07-06T14:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore"
+      ],
+      "kind": "internal",
+      "summary": "Internal weekly on completed order fill and refill automation, the SQLite switch, Project OS milestones through the August MVP, and the Tailscale SSH blocker.",
+      "url": "https://notes.granola.ai/d/25a42eb5-10b0-4119-aacd-cae0cc5c868a",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "6a2ec669-6f6b-481b-aa98-b5a59debc52c",
+      "title": "RxVIP sync on future integration",
+      "date": "2026-06-30T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Naveen Lekkalapudi",
+        "Nick Agresti",
+        "Doren Gore"
+      ],
+      "kind": "internal",
+      "summary": "Internal review of engagement status and deliverables, a vision-plus-agent architecture for pop-ups, a Supabase metrics layer, and how to position future work with Mat.",
+      "url": "https://notes.granola.ai/d/6a2ec669-6f6b-481b-aa98-b5a59debc52c",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "5e08021a-9add-4817-9fe6-3487a87b39ca",
+      "title": "RxVIP <> Supernal | Weekly",
+      "date": "2026-06-30T13:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Nick Agresti",
+        "Doren Gore",
+        "Andrea Bourque"
+      ],
+      "kind": "client",
+      "summary": "Weekly on combined scripts tested end to end, pop-up and captcha blockers, widening scope to refills, facility exclusions, and CommandRX integration talks.",
+      "url": "https://notes.granola.ai/d/5e08021a-9add-4817-9fe6-3487a87b39ca",
+      "alt_url": "https://fathom.video/calls/727230672"
+    },
+    {
+      "provider": "granola",
+      "id": "9ef65e05-c88d-4c01-a0eb-edc87985e4d9",
+      "title": "Bot automation testing — pop-ups, captchas, and edge cases with Dora",
+      "date": "2026-06-30T12:34:39Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore"
+      ],
+      "kind": "internal",
+      "summary": "Tauseef reviewed bot automation progress and random pop-up and captcha failures, considered a vision-based approach, and prepared an agenda for the call with Andrea.",
+      "url": "https://notes.granola.ai/d/9ef65e05-c88d-4c01-a0eb-edc87985e4d9",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "71b7650e-51d0-4528-b692-c498422303ac",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-06-29T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Fran Abenza",
+        "Saad",
+        "Lucas Stein",
+        "Manish Chintha"
+      ],
+      "kind": "multi",
+      "summary": "Weekly delivery review noted RxVIP about 45 days into its 90-day build and roughly half complete, with the fill submission workflow built, testing starting, and staging setup underway.",
+      "url": "https://notes.granola.ai/d/71b7650e-51d0-4528-b692-c498422303ac",
+      "alt_url": "https://fathom.video/calls/726022521"
+    },
+    {
+      "provider": "granola",
+      "id": "b1b5cb75-5694-466f-8890-c496e53d00b8",
+      "title": "RxVIP <> Supernal: Technical Sync",
+      "date": "2026-06-24T15:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Andre Duplantier",
+        "Naveen Lekkalapudi",
+        "Doren Gore"
+      ],
+      "kind": "client",
+      "summary": "Technical sync with the TigerBytes IT vendor on an isolated Pioneer VM snapshot for development, their MSP role, and Tailscale and SSH blocking.",
+      "url": "https://notes.granola.ai/d/b1b5cb75-5694-466f-8890-c496e53d00b8",
+      "alt_url": "https://fathom.video/calls/720425930"
+    },
+    {
+      "provider": "granola",
+      "id": "fbaacc14-7774-4447-a47d-1061af62cd9b",
+      "title": "RxVIP <> Supernal | Weekly",
+      "date": "2026-06-23T13:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Nick Agresti",
+        "Doren Gore",
+        "Andrea Bourque"
+      ],
+      "kind": "client",
+      "summary": "Weekly on bot station access setup, the missing Pioneer staging environment, a fill queue demo, and an agreed focus on F12 fill testing with a live session planned.",
+      "url": "https://notes.granola.ai/d/fbaacc14-7774-4447-a47d-1061af62cd9b",
+      "alt_url": "https://fathom.video/calls/718852271"
+    },
+    {
+      "provider": "granola",
+      "id": "8143e8dd-3040-4af8-b1e0-12a22c44a8d1",
+      "title": "Check In: RxVIP",
+      "date": "2026-06-23T12:15:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore"
+      ],
+      "kind": "internal",
+      "summary": "Internal check-in with a live demo of the PioneerRx bot, remaining edge cases, task cleanup, and prep for the next day's call with Andrea.",
+      "url": "https://notes.granola.ai/d/8143e8dd-3040-4af8-b1e0-12a22c44a8d1",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "8a2bf558-0441-439e-86eb-ce200106bc5a",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-06-22T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Jens Haakaas",
+        "Fran",
+        "Saad",
+        "Lucas Stein",
+        "Manish Chintha"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP part: status yellow trending green, priority fill queue demo, pop-up issues, need for an empty Pioneer test VM to avoid touching live requests, and June deliverables.",
+      "url": "https://notes.granola.ai/d/8a2bf558-0441-439e-86eb-ce200106bc5a",
+      "alt_url": "https://fathom.video/calls/717368656"
+    },
+    {
+      "provider": "granola",
+      "id": "9215e295-b228-4045-8f31-52dab42c9387",
+      "title": "Exception queue implementation — JSON tracking, testing, and VM setup",
+      "date": "2026-06-16T12:39:07Z",
+      "participants": [
+        "Tauseef Rahman"
+      ],
+      "kind": "internal",
+      "summary": "Solo working notes on the exception queue build, the login blocker for testing, HIPAA and BAA requirements for the staging VM, and task tracking ahead of the next Andrea meeting.",
+      "url": "https://notes.granola.ai/d/9215e295-b228-4045-8f31-52dab42c9387",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "155442182",
+      "title": "RxVIP <> Supernal | Weekly",
+      "date": "2026-06-16",
+      "participants": [
+        "Tauseef Rahman",
+        "Nick Agresti",
+        "Doren Gore",
+        "Andrea Bourque"
+      ],
+      "kind": "client",
+      "summary": "Restored workstation access after a surprise lockout, planned a new dedicated machine, set exception-queue logic and the June end-to-end goal, and kept a separate repo.",
+      "url": "https://fathom.video/calls/710500980",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "155148815",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-06-15",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore",
+        "Nick Agresti",
+        "Devan Leibowitz",
+        "Naveen Lekkalapudi",
+        "Seb Van Kuyk"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP reported yellow: blockers mostly cleared after new cloud access, the fill queue and test-patient demo landed well, and staging and workstation gaps remained.",
+      "url": "https://fathom.video/calls/709424948",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "8119da77-1313-4788-a37d-27671461a7d8",
+      "title": "GTM + Scoping",
+      "date": "2026-06-11T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Belu Zerboni",
+        "Thomas Bustos",
+        "Naveen Lekkalapudi",
+        "Johnny Borbone",
+        "Jaime Garcia",
+        "Jack Parham",
+        "Nick Agresti"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP part covered the client check-in with Dan and live demo, the June and July scope, workstation and HIPAA infrastructure blockers, and BAA and repo alignment.",
+      "url": "https://notes.granola.ai/d/8119da77-1313-4788-a37d-27671461a7d8",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "91bb2687-9840-44a3-ad03-a31ae54e34f3",
+      "title": "Pioneer RX bot — JSON tracking, workflow blockers, and June roadmap",
+      "date": "2026-06-11T17:05:52Z",
+      "participants": [
+        "Tauseef Rahman"
+      ],
+      "kind": "internal",
+      "summary": "Solo notes on the Pioneer bot: local JSON tracking of queue items, June scope progress, workstation and access blockers, and prep for a stakeholder progress call.",
+      "url": "https://notes.granola.ai/d/91bb2687-9840-44a3-ad03-a31ae54e34f3",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "06b35235-7162-4fbc-aa1d-afdbaec8a179",
+      "title": "Sync: \"RxVIP\"",
+      "date": "2026-06-11T16:45:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore"
+      ],
+      "kind": "internal",
+      "summary": "Short internal sync disrupted by connection problems, covering access to the RxVIP machine, a request to pause during data pulls, and a planned script walkthrough recording.",
+      "url": "https://notes.granola.ai/d/06b35235-7162-4fbc-aa1d-afdbaec8a179",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "154419793",
+      "title": "Supernal x RxVIP: Progress Update I",
+      "date": "2026-06-11",
+      "participants": [
+        "Tauseef Rahman",
+        "Ryan Williams",
+        "Nick Agresti",
+        "Dan Benamoz",
+        "Doren Gore",
+        "Mathieu Silverstein",
+        "Andrea Bourque",
+        "Meagan Loschiavo"
+      ],
+      "kind": "client",
+      "summary": "Monthly update with Dan's team: demo of queue monitoring and record creation, workstation and Tailscale blockers, plans for Liberty and clinic work, and moving into RxVIP's stack.",
+      "url": "https://fathom.video/calls/705091676",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "153435117",
+      "title": "RxVIP <> Supernal | Weekly",
+      "date": "2026-06-09",
+      "participants": [
+        "Tauseef Rahman",
+        "Nick Agresti",
+        "Doren Gore",
+        "Andrea Bourque"
+      ],
+      "kind": "client",
+      "summary": "Agreed a shared-workstation schedule while Tailscale awaits IT and HIPAA approval, planned to ask PioneerRx for a free test account, and reviewed June deliverables.",
+      "url": "https://fathom.video/calls/701853368",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "516280db-0868-4417-a3d9-2ca67e69bf19",
+      "title": "Strat Team Standup",
+      "date": "2026-06-08T15:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Devan Leibowitz",
+        "Nana Williams",
+        "Sven Boettger",
+        "Belu Zerboni",
+        "Jaime Garcia",
+        "Seb Van Kuyk"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP part: three weeks in with little progress due to workstation blocks, first script written, light capacity on a $45k deal, and need to show progress to Dan.",
+      "url": "https://notes.granola.ai/d/516280db-0868-4417-a3d9-2ca67e69bf19",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "153132034",
+      "title": "Delivery Planning Weekly",
+      "date": "2026-06-08",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore",
+        "Nick Agresti",
+        "Devan Leibowitz",
+        "Naveen Lekkalapudi",
+        "Seb Van Kuyk"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP opened the account updates: the first Pioneer script logged in and created test patients, next was mapping prescriptions to a queue, and workstation sharing was the blocker.",
+      "url": "https://fathom.video/calls/701031053",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "44148a6c-ea67-4336-bcc2-89cac397c68f",
+      "title": "RxVIP <> Supernal | Weekly",
+      "date": "2026-06-02T13:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Nick Agresti",
+        "Doren Gore",
+        "Andrea Bourque"
+      ],
+      "kind": "client",
+      "summary": "Weekly call with Andrea on getting safe test access to the PioneerRx workstation, a separate dev VM, dummy-data testing rules, and the plan to start script testing the following week.",
+      "url": "https://notes.granola.ai/d/44148a6c-ea67-4336-bcc2-89cac397c68f",
+      "alt_url": "https://fathom.video/calls/693281334"
+    },
+    {
+      "provider": "granola",
+      "id": "fd268266-84ae-46e0-bf11-290e0a49b2a6",
+      "title": "Sync: \"Doren & Tauseef\"",
+      "date": "2026-06-01T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore"
+      ],
+      "kind": "internal",
+      "summary": "Doren and Tauseef planned RxVIP testing on a dedicated VM instead of the live pharmacy machine, a demo and request for a dedicated PC for Andrea, and the first automation deliverables.",
+      "url": "https://notes.granola.ai/d/fd268266-84ae-46e0-bf11-290e0a49b2a6",
+      "alt_url": null
+    },
+    {
+      "provider": "fathom",
+      "id": "149420527",
+      "title": "RxVIP <> Supernal | Weekly",
+      "date": "2026-05-26",
+      "participants": [
+        "Tauseef Rahman",
+        "Nick Agresti",
+        "Doren Gore",
+        "Andrea Bourque"
+      ],
+      "kind": "client",
+      "summary": "Agreed temporary remote access to a pharmacy computer via TigerBytes, planned to validate the Pioneer mapping document, and narrowed Part 1 scope to the core fill workflow.",
+      "url": "https://fathom.video/calls/685058898",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "9b86ceaa-de31-4c72-9e44-74c9a521df83",
+      "title": "Sync: \"Eric & Tauseef\"",
+      "date": "2026-05-19T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Eric Kravitz"
+      ],
+      "kind": "multi",
+      "summary": "One-on-one covering the RxVIP kickoff, rated decent, with architecture confirmed, small scope additions, security limits on access, a competing vendor's faster rollout, and platform access pending.",
+      "url": "https://notes.granola.ai/d/9b86ceaa-de31-4c72-9e44-74c9a521df83",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "51313d5a-daf3-4284-b83b-0ce959ff9cdf",
+      "title": "RxVIP <> Supernal: Kickoff",
+      "date": "2026-05-19T14:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Naveen Lekkalapudi",
+        "Nick Agresti",
+        "Andrea Bourque",
+        "Doren Gore"
+      ],
+      "kind": "client",
+      "summary": "Project kickoff covering introductions, Pioneer access and VPN setup, the planned bot workflow, human handoffs, and exception queue safety rules.",
+      "url": "https://notes.granola.ai/d/51313d5a-daf3-4284-b83b-0ce959ff9cdf",
+      "alt_url": "https://fathom.video/calls/676741241"
+    },
+    {
+      "provider": "granola",
+      "id": "c309b38c-a908-4caf-981a-0d2360b71a82",
+      "title": "Sync: \"Doren & Tauseef\"",
+      "date": "2026-05-18T17:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Doren Gore"
+      ],
+      "kind": "internal",
+      "summary": "Onboarding Doren to the RxVIP Pioneer automation project: scope, deliverables, prep tasks and logistics ahead of the first call with Andrea.",
+      "url": "https://notes.granola.ai/d/c309b38c-a908-4caf-981a-0d2360b71a82",
+      "alt_url": "https://fathom.video/calls/677887597"
+    },
+    {
+      "provider": "granola",
+      "id": "977bfa70-95fd-4db2-8465-096baed5b769",
+      "title": "Tauseef <> Lucas",
+      "date": "2026-05-15T13:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Lucas Stein"
+      ],
+      "kind": "multi",
+      "summary": "Update that the RxVIP deal had just been signed, plus planning to use PostHog analytics, Pulse and a Workbench work product to track and show the AI employee's activity.",
+      "url": "https://notes.granola.ai/d/977bfa70-95fd-4db2-8465-096baed5b769",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "7239accb-5429-4948-b077-7df84017364f",
+      "title": "Scope Review",
+      "date": "2026-05-15T12:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Nick Agresti",
+        "Andrea Bourque"
+      ],
+      "kind": "client",
+      "summary": "Scope review with Andrea on automating Pioneer prescription workflows, access needs (BAA, VPN, logins), patient text handling, phase-2 items and kickoff cadence.",
+      "url": "https://notes.granola.ai/d/7239accb-5429-4948-b077-7df84017364f",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "493570ba-a7b9-4789-bce4-f5c1fb9e81fd",
+      "title": "Pipeline War Room",
+      "date": "2026-05-13T18:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Johnny Borbone",
+        "Seb Van Kuyk",
+        "Eric Kravitz",
+        "Scott Downes",
+        "Ryan Williams",
+        "Nick Agresti"
+      ],
+      "kind": "multi",
+      "summary": "Pipeline war room covered RxVIP pricing ($45k build plus $1,500/month per live location with a 90-day reassessment), non-compete and IP concerns, and exec meeting prep.",
+      "url": "https://notes.granola.ai/d/493570ba-a7b9-4789-bce4-f5c1fb9e81fd",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "aa9a2de2-7f5a-4f8e-9a4c-3df05676b8a0",
+      "title": "Sync: \"Eric & Tauseef\"",
+      "date": "2026-05-12T17:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Eric Kravitz"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP part: stakeholder alignment with Andrea as main contact, the Pioneer browser-automation module as top priority, monthly pricing, and order form structure options.",
+      "url": "https://notes.granola.ai/d/aa9a2de2-7f5a-4f8e-9a4c-3df05676b8a0",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "7b6096dc-5e31-4301-965d-b09a019bf93c",
+      "title": "TJM Labs Provider Portal Custom Development Planning",
+      "date": "2026-05-05T19:02:20Z",
+      "participants": [
+        "Tauseef Rahman"
+      ],
+      "kind": "internal",
+      "summary": "Planning for Dan's pharmacy work: recommend a custom provider portal over the competing vendor's components, launch pushed to July 1, scale assumptions, and a 15 points/month sprint package.",
+      "url": "https://notes.granola.ai/d/7b6096dc-5e31-4301-965d-b09a019bf93c",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "02a1e8c2-5699-49e7-92ac-9cb178ba8130",
+      "title": "Supernal AI x RxVIP",
+      "date": "2026-05-05T19:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Ryan Williams",
+        "Naveen Lekkalapudi",
+        "Dan Benamoz",
+        "Nick Agresti",
+        "Mathieu Silverstein"
+      ],
+      "kind": "client",
+      "summary": "Early discussion with Dan and Mat of their pharmacy platform and finance tools, Pioneer integration hurdles, cost-saving opportunities, and a proposal for collaborating.",
+      "url": "https://notes.granola.ai/d/02a1e8c2-5699-49e7-92ac-9cb178ba8130",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "32862c9b-9f6d-4f18-ac65-f06aaf6c7e50",
+      "title": "TGM Labs Pharmacy Integration Strategy with Naveen and Nick",
+      "date": "2026-04-30T19:52:08Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Naveen Lekkalapudi",
+        "Nick Agresti"
+      ],
+      "kind": "internal",
+      "summary": "Naveen, Nick and Tauseef compared a competing pharmacy AI vendor with the planned build, concluded the June 1 deadline needed clarifying, and proposed phased delivery and a clarifying email to Dan.",
+      "url": "https://notes.granola.ai/d/32862c9b-9f6d-4f18-ac65-f06aaf6c7e50",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "cca7e078-f375-4998-9dc3-f05694faacbc",
+      "title": "New note",
+      "date": "2026-04-28T18:03:01Z",
+      "participants": [
+        "Tauseef Rahman"
+      ],
+      "kind": "client",
+      "summary": "Presented Dan a co-development proposal (three tracks, point-based sprints), discussed his expansion plans, overlap with a competing vendor, pricing targets and next steps toward the June launch.",
+      "url": "https://notes.granola.ai/d/cca7e078-f375-4998-9dc3-f05694faacbc",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "daff4696-1cb8-4313-a7f4-4029952c464a",
+      "title": "RxVIP Proposal Draft Iteration II",
+      "date": "2026-04-28T14:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Nick Agresti",
+        "Eric Kravitz",
+        "Naveen Lekkalapudi"
+      ],
+      "kind": "internal",
+      "summary": "Internal iteration on the RxVIP proposal covering the points-based engagement model, pod and platform engineer staffing language, and prep for the client call that afternoon.",
+      "url": "https://notes.granola.ai/d/daff4696-1cb8-4313-a7f4-4029952c464a",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "32d2ff8c-df08-4bb8-b9c0-5ba6fd9b70d3",
+      "title": "RxVIP and Hunting Group Proposal Points Model Review with Eric",
+      "date": "2026-04-28T10:23:08Z",
+      "participants": [
+        "Tauseef Rahman"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP part: switching proposals to points-based pricing with tiers and maintenance points, plus open items on the packaging module and contract cleanup before the pitch.",
+      "url": "https://notes.granola.ai/d/32d2ff8c-df08-4bb8-b9c0-5ba6fd9b70d3",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "6c6692bf-08ee-40b2-919b-04afa5707ba9",
+      "title": "RxVIP Proposal Iteration I",
+      "date": "2026-04-27T14:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Nick Agresti"
+      ],
+      "kind": "internal",
+      "summary": "Iteration on the early RxVIP proposal: platform-first workstreams, scope of a contract-renewal agent, and confusion over the pod pricing and points model.",
+      "url": "https://notes.granola.ai/d/6c6692bf-08ee-40b2-919b-04afa5707ba9",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "71b34753-73a1-4d16-9565-9afd124b22a8",
+      "title": "Sync: \"Consulting Process\"",
+      "date": "2026-04-24T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman"
+      ],
+      "kind": "multi",
+      "summary": "Discussed pod-based pricing tiers, the pharmacy client's platform asks (to be set aside in favour of Nick's recommendation), and allocating half a Mason to the project.",
+      "url": "https://notes.granola.ai/d/71b34753-73a1-4d16-9565-9afd124b22a8",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "da5ec576-b62f-48ad-92cd-733eae99aef5",
+      "title": "RxVIP x SupernalAI: Part 1",
+      "date": "2026-04-07T18:30:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Naveen Lekkalapudi",
+        "Nick Agresti",
+        "Dan Benamoz",
+        "Ryan Williams",
+        "Mathieu Silverstein"
+      ],
+      "kind": "client",
+      "summary": "First discovery call with Dan and Mat on his pharmacy operations, economics, AI pharmacy goals, existing tech stack, and where Supernal could start.",
+      "url": "https://notes.granola.ai/d/da5ec576-b62f-48ad-92cd-733eae99aef5",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "70866ef7-ffbc-49da-9b74-be50148e48b5",
+      "title": "RxVIP Prep (optional)",
+      "date": "2026-04-07T18:15:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Nick Agresti"
+      ],
+      "kind": "internal",
+      "summary": "Prep for the first discovery call with Dan: gaps in understanding his platform and data, scope and compliance concerns, and a strategy of letting him lead the conversation.",
+      "url": "https://notes.granola.ai/d/70866ef7-ffbc-49da-9b74-be50148e48b5",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "7bf3bebc-7640-469a-9cff-3216a7484ae9",
+      "title": "Sync: \"CSS Scope Review\"",
+      "date": "2026-04-06T20:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Naveen Lekkalapudi",
+        "Nick Agresti"
+      ],
+      "kind": "multi",
+      "summary": "RxVIP part: preparation for the first call with Dan and Matt, noting their platform ambitions, a possible detractor dynamic, and the goal of getting a scoped proposal request.",
+      "url": "https://notes.granola.ai/d/7bf3bebc-7640-469a-9cff-3216a7484ae9",
+      "alt_url": null
+    },
+    {
+      "provider": "granola",
+      "id": "b99eb834-2222-46e1-9a6b-67a5e67adf23",
+      "title": "Sync: \"Consulting Process\"",
+      "date": "2026-03-27T16:00:00Z",
+      "participants": [
+        "Tauseef Rahman",
+        "Seb Van Kuyk",
+        "Ryan Williams",
+        "Eric Kravitz",
+        "Johnny Borbone",
+        "Sven Boettger",
+        "Dexter Tortoriello"
+      ],
+      "kind": "multi",
+      "summary": "Discussed a strained RxVIP relationship after Dan questioned Supernal's legitimacy, with Nick to respond with team credentials and a decision not to chase clients who doubt legitimacy.",
+      "url": "https://notes.granola.ai/d/b99eb834-2222-46e1-9a6b-67a5e67adf23",
+      "alt_url": null
+    }
+  ]
+}
