@@ -35,14 +35,22 @@ export function costOf(u: Usage): Dollars {
  * The estimate of the real requests: each call's stable prefix (system prompt + its projects' outline, stableChars) is
  * a cache write on the first call of its group and a cache read after; its transcript is plain input; output is the
  * measured average, else ASSUMED_OUTPUT_TOKENS. Calls are counted in the order given (the order they will run).
+ * A group marked cacheable: false (prefix under the model's cache minimum) pays its prefix as plain input every call.
  */
-export function estimateRun(calls: { chars: number; group: string; stableChars: number }[], o: { outputTokens?: number } = {}) {
+export function estimateRun(calls: { chars: number; group: string; stableChars: number; cacheable?: boolean }[], o: { outputTokens?: number } = {}) {
   const tok = (chars: number) => Math.ceil(Math.max(0, chars) / CHARS_PER_TOKEN);
   const out = Math.max(0, Math.round(o.outputTokens ?? ASSUMED_OUTPUT_TOKENS));
   const seen = new Set<string>();
   let inputTokens = 0, cacheWriteTokens = 0, cacheReadTokens = 0;
   const perCall = calls.map((c) => {
-    const input = tok(c.chars), stable = tok(c.stableChars);
+    const stable = tok(c.stableChars);
+    // A prefix too short to cache is plain input on every call.
+    if (c.cacheable === false) {
+      const input = tok(c.chars) + stable;
+      inputTokens += input;
+      return costOf({ input, output: out }).total;
+    }
+    const input = tok(c.chars);
     const first = !seen.has(c.group);
     seen.add(c.group);
     inputTokens += input;

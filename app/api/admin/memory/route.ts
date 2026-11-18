@@ -22,10 +22,14 @@ export const maxDuration = 300;
 //                      each project's first call and a cache read after, the transcript as input, and output at outputTokens
 //                      per call (else the last run's measured average, else 2,500).
 //   digest { confirm: true, maxDollars, onlySlugs?, limit?, retryFailed? }: summary, project headlines and suggested vault facts
-//                      for those calls, newest first. Refused without confirm or when the estimate is over maxDollars.
-//                      Stops starting calls after about 150 s, or before a call whose estimate would take actual spend (plus
-//                      calls in flight) past maxDollars; says how many remain (more), so run it again until done. Returns
-//                      dollarsActual by part (input, cache read, cache write, output), usage and per-call averages.
+//                      for those calls (the newest when limit is set), run grouped by project so the prompt cache is
+//                      reused. Refused without confirm or when the estimate is over maxDollars.
+//                      Stops starting calls after about 150 s, or before a call or a retry whose estimate would take actual
+//                      spend plus the estimates of calls in flight past maxDollars (those calls stay pending); says how many
+//                      remain (more), so run it again until done. Spend can pass maxDollars only by how far the calls already
+//                      in flight cost more than their estimates. Calls billed without usage (aborted, errored) count at their
+//                      estimate. Returns dollarsActual by part (input, cache read, cache write, output, estimated), usage and
+//                      per-call averages.
 //                      retryFailed also takes calls an earlier digest marked failed.
 type Body = Record<string, unknown> & { action?: string };
 

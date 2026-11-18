@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
   appendUnderSection, buildDigestPrompt, DIGEST_SYSTEM, dropDuplicates, fromCallLine, headingsOf, parseDigestReply,
-  plainSuggestionText, unescapeSuggestionText, runDigest, buildDigestRequest, buildOutline, slimOutline, DIGEST_SYSTEM_BLOCKS, sectionLayout, type CallForDigest, type DigestDeps, type DigestWrite,
+  plainSuggestionText, unescapeSuggestionText, runDigest, buildDigestRequest, DigestQueue, buildOutline, slimOutline, DIGEST_SYSTEM_BLOCKS, sectionLayout, type CallForDigest, type DigestDeps, type DigestWrite,
 } from "../lib/memory/digest-core.ts";
 
 const lines = (n: number) => Array.from({ length: n }, (_, i) => `line ${i + 1}`).join("\n");
@@ -323,7 +323,7 @@ test("slimOutline keeps files and headings a call fact can land in, plus files w
     { path: "Deal Strategy/Scope-Definition", headings: [] },
     { path: "Deal Strategy/Proposal", headings: [] },
     { path: "Technical Strategy/Feature-Rationale", headings: ["Decisions"] },
-    { path: "Sales Strategy/Findings-Ledger", headings: ["Old"], accepted: true },
+    { path: "Sales Strategy/Findings-Ledger", headings: ["Old"], hasSuggestion: true },
     { path: "Sales Strategy/Sales-Research", headings: [] },
     { path: "Delivery Strategy/AI-Strategy-Roadmap", headings: ["Opportunity map", "Use cases", "Account OS records"] },
     { path: "Sales Strategy/Client-Feedback", headings: [] },
@@ -353,4 +353,94 @@ test("usage is logged per call with cache reads and writes", async () => {
   const r = await runDigest("t1", f.deps);
   assert.deepEqual(r.usage, { input: 2000, output: 900, cacheRead: 1500, cacheWrite: 0 });
   assert.ok(f.log.some((l) => /usage .*in 2000 .*cache read 1500 .*cache write 0 .*out 900/.test(l)), f.log.join("\n"));
+});
+
+test("slimOutline keeps the files live suggestions landed in (World Emblem names)", () => {
+  const names = [
+    "Delivery Strategy/Project-Plan", "Technical Strategy/Integrations", "Technical Strategy/Use-Cases-and-Feedback",
+    "Delivery Strategy/Weekly", "Delivery Strategy/Adoption-Plan", "Technical Strategy/Phasing-Commercial",
+    "Sales Strategy/Sales-Notes", "Technical Strategy/Feature-Rationale", "Delivery Strategy/Stakeholders",
+    "Deal Strategy/Order-Forms", "Delivery Strategy/KPI-Tracker", "Delivery Strategy/Incident-Log",
+  ];
+  const out = slimOutline(names.map((path) => ({ path, headings: ["Anything"] })));
+  assert.deepEqual(out.map((f) => f.path), names);
+  assert.ok(out.every((f) => f.headings.length === 1), "a matched file keeps all its headings");
+  // files with no landing word are kept only when they already hold a pending or accepted suggestion
+  const rest = slimOutline([
+    { path: "Sales Strategy/Sales-Context", headings: ["Arc"] },
+    { path: "Deal Strategy/Three-Party-Delivery-Boundary", headings: ["Who does what"], hasSuggestion: true },
+  ]);
+  assert.deepEqual(rest.map((f) => f.path), ["Deal Strategy/Three-Party-Delivery-Boundary"]);
+});
+
+// ---------------------------------------------------------------- the run queue
+
+test("DigestQueue starts a group's first call, then takes another group's first call while that one warms", () => {
+  const q = new DigestQueue([
+    { id: "a1", group: "a" }, { id: "a2", group: "a" }, { id: "a3", group: "a" }, { id: "b1", group: "b" }, { id: "b2", group: "b" },
+  ]);
+  assert.equal(q.next(), 0); q.take(0);         // a1 warms group a
+  assert.equal(q.next(), 3); q.take(3);         // a2 waits, b1 goes
+  assert.equal(q.next(), "wait");               // both groups warming
+  q.warmed("b");
+  assert.equal(q.next(), 4); q.take(4);         // b2 reads b's cache
+  assert.equal(q.next(), "wait");
+  q.warmed("a");
+  assert.equal(q.next(), 1); q.take(1);
+  assert.equal(q.next(), 2); q.take(2);
+  assert.equal(q.next(), "done");
+  assert.equal(q.started, 5);
+});
+
+test("DigestQueue.changed resolves on the next warm-up, so a waiting worker wakes", async () => {
+  const q = new DigestQueue([{ id: "a1", group: "a" }, { id: "a2", group: "a" }]);
+  q.take(0);
+  let woke = false;
+  const w = q.changed().then(() => { woke = true; });
+  await Promise.resolve();
+  assert.equal(woke, false);
+  q.warmed("a");
+  await w;
+  assert.equal(woke, true);
+});
+
+// ---------------------------------------------------------------- hooks
+
+test("onStart fires when the model starts answering", async () => {
+  const f = fakes(call(), []);
+  let started = 0;
+  f.deps.ask = async (_m, opts) => { opts?.onStart?.(); return { stopReason: "end_turn", text: reply(), usage: { input: 1, output: 1 } }; };
+  const r = await runDigest("t1", f.deps, { onStart: () => { started++; } });
+  assert.equal(r.ok, true);
+  assert.equal(started, 1);
+});
+
+test("a retry that does not fit under the cap leaves the call pending, not failed", async () => {
+  const f = fakes(call(), [{ stop: "end_turn", text: reply({ summary: lines(3) }) }, { stop: "end_turn", text: reply() }]);
+  const r = await runDigest("t1", f.deps, { beforeRetry: () => false });
+  assert.equal(r.ok, false);
+  if (!r.ok) { assert.equal(r.failed, false); assert.equal(r.leftPending, true); assert.match(r.reason, /spending cap/); }
+  assert.equal(f.asked.length, 1);
+  assert.equal(f.failed.length, 0);
+  assert.equal(f.writes.length, 0);
+});
+
+test("a retry that fits is reserved before it starts", async () => {
+  let asks = 0;
+  const f = fakes(call(), [{ stop: "end_turn", text: reply({ summary: lines(3) }) }, { stop: "end_turn", text: reply() }]);
+  const r = await runDigest("t1", f.deps, { beforeRetry: () => { asks++; return true; } });
+  assert.equal(r.ok, true);
+  assert.equal(asks, 1);
+});
+
+test("an aborted or erroring model call is flagged as billed but unmeasured", async () => {
+  const f = fakes(call(), []);
+  f.deps.deadline = Date.now() + 1_600;
+  f.deps.ask = (_m, opts) => new Promise((_res, rej) => { opts?.signal?.addEventListener("abort", () => rej(new Error("aborted"))); });
+  const r = await runDigest("t1", f.deps);
+  assert.equal(r.ok, false);
+  if (!r.ok) { assert.equal(r.unmeasured, true); assert.equal(r.leftPending, true); }
+  const g = fakes(call(), []);   // no replies: the fake ask throws
+  const r2 = await runDigest("t1", g.deps);
+  if (!r2.ok) assert.equal(r2.unmeasured, true);
 });

@@ -23,7 +23,7 @@ export type CallUsage = { input: number; output: number; cacheRead: number; cach
 export interface DigestDeps {
   load(id: string): Promise<CallForDigest | null>;
   /** The model call; it must stop when the signal aborts. */
-  ask(messages: AskMessage[], opts?: { signal?: AbortSignal }): Promise<AskReply>;
+  ask(messages: AskMessage[], opts?: { signal?: AbortSignal; onStart?: () => void }): Promise<AskReply>;
   /** Suggestions already pending, accepted or rejected on these projects. */
   existing(accountIds: string[]): Promise<SuggestionRow[]>;
   /** Writes everything for one call; the transcript's summary and status last. */
@@ -39,7 +39,16 @@ export const MIN_START_MS = 1500;
 
 export type DigestOutcome =
   | { ok: true; digest: Digest; suggestions: number; usage: CallUsage }
-  | { ok: false; reason: string; failed: boolean; usage: CallUsage };
+  | {
+      ok: false; reason: string; failed: boolean; usage: CallUsage;
+      /** The call is still pending and will be taken by the next run (out of time, or stopped at the spending cap). */
+      leftPending?: boolean;
+      /** A model call was billed but its usage is unknown (aborted or errored): count it at its estimate. */
+      unmeasured?: boolean;
+    };
+
+/** Per-run hooks: onStart when the model starts answering (its cache entry exists); beforeRetry reserves a retry's cost. */
+export type DigestHooks = { onStart?: () => void; beforeRetry?: () => boolean };
 
 /** Bodies longer than this are not sent (about 150k tokens). */
 export const MAX_BODY_CHARS = 600_000;
@@ -127,24 +136,24 @@ export function buildDigestRequest(c: CallForDigest): { system: TextBlock[]; mes
 
 // ---------------------------------------------------------------- slim outline
 
-/** Words in a file name or heading that mark a place a call fact can land. */
+/** Words in a file name or heading that mark a place a call fact can land (checked against where live suggestions landed). */
 const LANDING_WORDS = [
-  "stakeholder", "scope", "pricing", "price", "commercial", "proposal", "decision", "open item", "open question", "risk",
-  "integration", "adoption", "project plan", "delivery plan", "use case", "feedback", "slipping", "coming up", "next step",
-  "action item", "commitment", "timeline", "milestone",
+  "stakeholder", "scope", "pricing", "price", "commercial", "proposal", "order form", "decision", "open item", "open question",
+  "risk", "incident", "integration", "kpi", "adoption", "project plan", "delivery plan", "use case", "feedback", "feature",
+  "weekly", "sales notes", "slipping", "coming up", "next step", "action item", "commitment", "timeline", "milestone",
 ];
 const LANDING = LANDING_WORDS.map((w) => new RegExp(`(^|[^a-z])${w}`));
 const lands = (s: string) => { const n = s.toLowerCase().replace(/[-_/]+/g, " "); return LANDING.some((r) => r.test(n)); };
 
 /**
  * Only the vault files and sections a call fact can land in: a file whose name names one (all its headings), else the
- * headings that name one, plus every file that already has an accepted suggestion (all its headings).
+ * headings that name one, plus every file that already has a pending or accepted suggestion (all its headings).
  */
-export function slimOutline(files: (FileForDigest & { accepted?: boolean })[]): FileForDigest[] {
+export function slimOutline(files: (FileForDigest & { hasSuggestion?: boolean })[]): FileForDigest[] {
   const out: FileForDigest[] = [];
   for (const f of files) {
     const name = f.path.split("/").pop() ?? f.path;
-    if (f.accepted || lands(name)) { out.push({ path: f.path, headings: f.headings }); continue; }
+    if (f.hasSuggestion || lands(name)) { out.push({ path: f.path, headings: f.headings }); continue; }
     const hs = f.headings.filter(lands);
     if (hs.length) out.push({ path: f.path, headings: hs });
   }
@@ -286,7 +295,7 @@ function check(raw: Record<string, unknown> | null, c: CallForDigest): { ok: tru
 }
 
 /** Digests one call: asks the model (one retry on an invalid reply), then writes once. Never throws. */
-export async function runDigest(id: string, deps: DigestDeps): Promise<DigestOutcome> {
+export async function runDigest(id: string, deps: DigestDeps, hooks: DigestHooks = {}): Promise<DigestOutcome> {
   const usage: CallUsage = { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 };
   const c = await deps.load(id);
   let asked = false;
@@ -295,17 +304,21 @@ export async function runDigest(id: string, deps: DigestDeps): Promise<DigestOut
     const d = costOf(usage);
     deps.log(`usage ${c ? `"${c.title}"` : id}: in ${usage.input} · cache read ${usage.cacheRead} · cache write ${usage.cacheWrite} · out ${usage.output} · $${d.total.toFixed(4)}`);
   };
-  const skip = (reason: string): DigestOutcome => { logUsage(); deps.log(`skipped ${c ? `"${c.title}"` : id}: ${reason}`); return { ok: false, reason, failed: false, usage }; };
+  const skip = (reason: string, flags: { leftPending?: boolean; unmeasured?: boolean } = {}): DigestOutcome => {
+    logUsage();
+    deps.log(`skipped ${c ? `"${c.title}"` : id}: ${reason}`);
+    return { ok: false, reason, failed: false, usage, ...flags };
+  };
   if (!c) return skip("not found");
   if (c.status === "personnel") return skip("personnel call");
   if (!c.body || !c.body.trim()) return skip("no stored body");
   if (c.status !== "pending" && c.status !== "failed") return skip(`status is ${c.status}`);
   const label = `"${c.title}" (${fmtDate(c.metAt)})`;
-  const fail = async (reason: string): Promise<DigestOutcome> => {
+  const fail = async (reason: string, unmeasured = false): Promise<DigestOutcome> => {
     logUsage();
     deps.log(`failed ${label}: ${reason}`);
     try { await deps.markFailed(c.id, reason); } catch (e) { deps.log(`could not mark ${label} failed: ${e instanceof Error ? e.message : String(e)}`); }
-    return { ok: false, reason, failed: true, usage };
+    return { ok: false, reason, failed: true, usage, ...(unmeasured ? { unmeasured } : {}) };
   };
   if (c.body.length > MAX_BODY_CHARS) return fail(`body is ${c.body.length} characters, over ${MAX_BODY_CHARS}`);
 
@@ -314,14 +327,16 @@ export async function runDigest(id: string, deps: DigestDeps): Promise<DigestOut
   for (let attempt = 0; attempt < 2; attempt++) {
     let reply: AskReply;
     const left = deps.deadline === undefined ? Infinity : deps.deadline - Date.now();
-    if (left < MIN_START_MS) return skip("out of time; left pending for the next run");
+    if (left < MIN_START_MS) return skip("out of time; left pending for the next run", { leftPending: true });
+    if (attempt > 0 && hooks.beforeRetry && !hooks.beforeRetry())
+      return skip("stopped at the spending cap before a retry; left pending for the next run", { leftPending: true });
     const abort = new AbortController();
     const timer = left === Infinity ? null : setTimeout(() => abort.abort(), left);
     asked = true;
-    try { reply = await deps.ask(messages.map((m) => ({ ...m })), { signal: abort.signal }); }
+    try { reply = await deps.ask(messages.map((m) => ({ ...m })), { signal: abort.signal, onStart: hooks.onStart }); }
     catch (e) {
-      if (abort.signal.aborted) return skip("out of time; aborted and left pending for the next run");
-      return fail(`model error: ${e instanceof Error ? e.message : String(e)}`);
+      if (abort.signal.aborted) return skip("out of time; aborted and left pending for the next run", { leftPending: true, unmeasured: true });
+      return fail(`model error: ${e instanceof Error ? e.message : String(e)}`, true);
     }
     finally { if (timer) clearTimeout(timer); }
     usage.input += reply.usage.input; usage.output += reply.usage.output;
@@ -351,3 +366,49 @@ export async function runDigest(id: string, deps: DigestDeps): Promise<DigestOut
   return fail(`invalid reply twice: ${errors.join("; ")}`);
 }
 
+
+// ---------------------------------------------------------------- run queue
+
+/**
+ * Which call a worker starts next. A group's first call (in the given order) starts alone; the group's other calls
+ * wait until it is warmed (its answer started, so the cache entry exists, or it ended). Meanwhile a free worker takes
+ * the next startable call, such as another group's first call. next() says "wait" when everything left is blocked.
+ */
+export class DigestQueue {
+  private items: { id: string; group: string }[];
+  private taken: boolean[];
+  private state = new Map<string, "warming" | "warm">();
+  private waiters: (() => void)[] = [];
+  started = 0;
+  constructor(items: { id: string; group: string }[]) {
+    this.items = items;
+    this.taken = items.map(() => false);
+  }
+  next(): number | "wait" | "done" {
+    let blocked = false;
+    for (let i = 0; i < this.items.length; i++) {
+      if (this.taken[i]) continue;
+      if (this.state.get(this.items[i].group) === "warming") { blocked = true; continue; }
+      return i;
+    }
+    return blocked ? "wait" : "done";
+  }
+  take(i: number) {
+    this.taken[i] = true;
+    this.started++;
+    const g = this.items[i].group;
+    if (!this.state.has(g)) this.state.set(g, "warming");
+  }
+  /** The group's cache exists (or its first call ended either way): its other calls may start. Idempotent. */
+  warmed(group: string) {
+    if (this.state.get(group) === "warm") return;
+    this.state.set(group, "warm");
+    const w = this.waiters;
+    this.waiters = [];
+    for (const r of w) r();
+  }
+  /** Resolves on the next warmed() change. */
+  changed(): Promise<void> {
+    return new Promise((r) => { this.waiters.push(r); });
+  }
+}

@@ -114,6 +114,11 @@ test("estimateRun charges the stable prefix as a cache write on a group's first 
   assert.ok(Math.abs(e.perCall[1] - later) < 1e-12);
   assert.ok(Math.abs(e.perCall[2] - first) < 1e-12);
   assert.ok(Math.abs(e.dollars - (2 * first + later)) < 1e-12);
+  // a prefix too short to cache is plain input on every call
+  const u = estimateRun([{ chars: 0, group: "a", stableChars: 4000, cacheable: false }, { chars: 0, group: "a", stableChars: 4000, cacheable: false }], { outputTokens: 0 });
+  assert.equal(u.cacheWriteTokens, 0);
+  assert.equal(u.cacheReadTokens, 0);
+  assert.equal(u.inputTokens, 2000);
   // default output size when none is measured
   assert.equal(estimateRun([{ chars: 0, group: "a", stableChars: 0 }]).outputTokens, 2500);
 });

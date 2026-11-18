@@ -3,7 +3,7 @@ import { check, db, updateFile } from "@/lib/data/db";
 import { invalidate } from "@/lib/data";
 import { costOf, DIGEST_MODEL, estimateRun, SpendGate, type Digest, type Dollars } from "./digest-rules.ts";
 import {
-  appendUnderSection, buildOutline, DIGEST_SCHEMA, DIGEST_SYSTEM, DIGEST_SYSTEM_BLOCKS, fmtDate, fromCallLine, headingsOf, runDigest, slimOutline,
+  appendUnderSection, buildOutline, DigestQueue, DIGEST_SCHEMA, DIGEST_SYSTEM, DIGEST_SYSTEM_BLOCKS, fmtDate, fromCallLine, headingsOf, runDigest, slimOutline,
   type AskMessage, type AskReply, type CallForDigest, type CallUsage, type DigestDeps, type DigestOutcome, type ProjectForDigest, type SuggestionRow,
 } from "./digest-core.ts";
 
@@ -23,8 +23,14 @@ const LAST_START_MS = 150_000;
 const CONCURRENCY = 3;
 const PAGE = 200;
 
-/** Output tokens per call measured by the last run in this process; estimates use it instead of the default. */
+/** Output tokens per call measured by the last run of at least MEASURE_MIN_CALLS calls in this process (in memory only). */
 let measuredOutput: number | null = null;
+const MEASURE_MIN_CALLS = 5;
+/**
+ * Below this many characters of system prompt + outline (about 600 tokens), the prefix may be under Opus 5.5's 512-token
+ * cache minimum: the run warns and the estimate prices it as plain input.
+ */
+const MIN_CACHE_CHARS = 2400;
 
 const sortIds = (ids: string[]) => [...new Set(ids)].sort();
 
@@ -32,7 +38,7 @@ const sortIds = (ids: string[]) => [...new Set(ids)].sort();
 
 /**
  * Each project's slim vault outline, loaded once per run, so every call of the same projects sends identical bytes.
- * Only active files (not hidden, archived or deleted), filtered by slimOutline; files with an accepted suggestion stay.
+ * Only active files (not hidden, archived or deleted), filtered by slimOutline; files with a pending or accepted suggestion stay.
  */
 function outlineSource(log: (l: string) => void) {
   const cache = new Map<string, ProjectForDigest>();
@@ -46,13 +52,13 @@ function outlineSource(log: (l: string) => void) {
         const [accts, files, accepted] = await Promise.all([
           db().from("accounts").select("id,slug,name").in("id", missing).then((r) => check(r, "read projects") as Row[]),
           db().from("vault_files").select("account_id,path,content").in("account_id", missing).eq("state", "active").order("path").then((r) => check(r, "read vault outline") as Row[]),
-          db().from("vault_suggestions").select("account_id,file_path").in("account_id", missing).eq("status", "accepted").then((r) => check(r, "read accepted suggestions") as Row[]),
+          db().from("vault_suggestions").select("account_id,file_path").in("account_id", missing).in("status", ["pending", "accepted"]).then((r) => check(r, "read suggestions") as Row[]),
         ]);
         for (const a of accts) {
           const took = new Set(accepted.filter((s) => s.account_id === a.id).map((s) => s.file_path as string));
           const p: ProjectForDigest = {
             slug: a.slug, name: a.name ?? a.slug, accountId: a.id,
-            files: slimOutline(files.filter((f) => f.account_id === a.id).map((f) => ({ path: f.path, headings: headingsOf(f.content ?? ""), accepted: took.has(f.path) }))),
+            files: slimOutline(files.filter((f) => f.account_id === a.id).map((f) => ({ path: f.path, headings: headingsOf(f.content ?? ""), hasSuggestion: took.has(f.path) }))),
           };
           cache.set(a.id, p);
           const n = buildOutline([p]).length;
@@ -78,18 +84,21 @@ async function loadCall(id: string, outlines: Outlines): Promise<CallForDigest |
   };
 }
 
-async function ask(messages: AskMessage[], opts: { signal?: AbortSignal } = {}): Promise<AskReply> {
+async function ask(messages: AskMessage[], opts: { signal?: AbortSignal; onStart?: () => void } = {}): Promise<AskReply> {
   const { default: Anthropic } = await import("@anthropic-ai/sdk");
   const client = new Anthropic();
   // No sampling parameters: a JSON schema fixes the shape, low effort keeps thinking short. The system blocks and the
   // outline block (cache_control) are the cached prefix; the call's own text follows the breakpoint.
-  const m = await client.messages.stream({
+  const stream = client.messages.stream({
     model: DIGEST_MODEL,
     max_tokens: MAX_TOKENS,
     system: DIGEST_SYSTEM_BLOCKS,
     messages,
     output_config: { effort: "low", format: { type: "json_schema", schema: DIGEST_SCHEMA as unknown as Record<string, unknown> } },
-  }, { signal: opts.signal }).finalMessage();
+  }, { signal: opts.signal });
+  // message_start comes once the prompt is read, so the cache entry exists: other calls of the project may start.
+  if (opts.onStart) { const start = opts.onStart; stream.on("streamEvent", (ev) => { if (ev.type === "message_start") start(); }); }
+  const m = await stream.finalMessage();
   return {
     stopReason: m.stop_reason,
     text: m.content.map((b) => (b.type === "text" ? b.text : "")).join(""),
@@ -153,7 +162,7 @@ export async function digestCall(transcriptId: string): Promise<Digest> {
 export type DigestOptions = { onlySlugs?: string[]; limit?: number; retryFailed?: boolean; outputTokens?: number };
 type Candidate = { id: string; chars: number; metAt: string; group: string; accountIds: string[] };
 
-/** Calls waiting for a digest, newest first, with their body length and linked projects. total counts every match, before the limit. */
+/** Calls waiting for a digest (the newest, when a limit applies), with their body length and linked projects. total counts every match, before the limit. */
 async function candidates(o: DigestOptions): Promise<{ list: Candidate[]; total: number }> {
   const statuses = o.retryFailed ? ["pending", "failed"] : ["pending"];
   const byDate = (a: Row, b: Row) => String(b.met_at ?? "").localeCompare(String(a.met_at ?? "")) || String(a.id).localeCompare(String(b.id));
@@ -191,7 +200,7 @@ async function candidates(o: DigestOptions): Promise<{ list: Candidate[]; total:
 }
 
 /** The calls in the order they will run (grouped by project, newest group first, newest call first) and their estimate. */
-async function planRun(o: DigestOptions, outlines: Outlines) {
+async function planRun(o: DigestOptions, outlines: Outlines, log: (l: string) => void) {
   const { list, total } = await candidates(o);
   const newest = new Map<string, string>();
   for (const c of list) if ((newest.get(c.group) ?? "") < c.metAt) newest.set(c.group, c.metAt);
@@ -200,10 +209,16 @@ async function planRun(o: DigestOptions, outlines: Outlines) {
   const stable = new Map<string, number>();
   for (const g of new Set(ordered.map((c) => c.group))) {
     const c = ordered.find((x) => x.group === g)!;
-    stable.set(g, DIGEST_SYSTEM.length + buildOutline(await outlines.projects(c.accountIds)).length);
+    const projects = await outlines.projects(c.accountIds);
+    const n = DIGEST_SYSTEM.length + buildOutline(projects).length;
+    stable.set(g, n);
+    if (n < MIN_CACHE_CHARS) log(`warning: the cached prefix for ${projects.map((p) => p.slug).join(" + ") || "unlinked calls"} is ${n} characters, under ${MIN_CACHE_CHARS}; caching may not engage, so its calls are estimated at the plain input price`);
   }
   const outputTokens = o.outputTokens ?? measuredOutput ?? undefined;
-  const est = estimateRun(ordered.map((c) => ({ chars: c.chars, group: c.group, stableChars: stable.get(c.group) ?? 0 })), { outputTokens });
+  const est = estimateRun(ordered.map((c) => {
+    const n = stable.get(c.group) ?? 0;
+    return { chars: c.chars, group: c.group, stableChars: n, cacheable: n >= MIN_CACHE_CHARS };
+  }), { outputTokens });
   return { list: ordered, total, est };
 }
 
@@ -211,7 +226,7 @@ async function planRun(o: DigestOptions, outlines: Outlines) {
 export async function estimatePending(o: DigestOptions) {
   const log: string[] = [];
   const outlines = outlineSource(logger(log));
-  const { total, est } = await planRun(o, outlines);
+  const { total, est } = await planRun(o, outlines, logger(log));
   return {
     calls: est.calls, inputTokens: est.inputTokens, cacheWriteTokens: est.cacheWriteTokens, cacheReadTokens: est.cacheReadTokens,
     outputTokens: est.outputTokens, dollars: est.dollars, model: DIGEST_MODEL, waiting: total,
@@ -224,7 +239,9 @@ export async function estimatePending(o: DigestOptions) {
 
 export type DigestRun = {
   digested: number; failed: number; skipped: number; more: boolean; remaining: number; stoppedAtCap: boolean;
-  dollarsEstimated: number; dollarsActual: Dollars;
+  dollarsEstimated: number;
+  /** By part from measured usage; estimated is the dollars counted at estimate for billed-but-unmeasured calls (in total). */
+  dollarsActual: Dollars & { estimated: number };
   usage: CallUsage;
   averages: (CallUsage & { calls: number; dollars: number }) | null;
   outlineChars: Record<string, number>;
@@ -248,49 +265,65 @@ async function digestBatch(o: DigestOptions & { maxDollars: number }): Promise<D
   const t0 = Date.now();
   const log: string[] = [];
   const outlines = outlineSource(logger(log));
-  const { list, total, est } = await planRun(o, outlines);
+  const { list, total, est } = await planRun(o, outlines, logger(log));
   if (est.dollars > o.maxDollars) return { refused: `The estimate for ${est.calls} calls is $${est.dollars.toFixed(2)}, over maxDollars $${o.maxDollars}.`, dollarsEstimated: est.dollars };
   // Model calls still running at the budget's end are aborted; those calls stay pending for the next run.
   const d = deps(log, outlines, t0 + TIME_BUDGET_MS);
   const gate = new SpendGate(o.maxDollars);
   const usage: CallUsage = { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 };
-  const tally = { digested: 0, failed: 0, skipped: 0, outOfTime: 0, asked: 0 };
-  // The first call of each project group runs alone, so the ones after it read the cache it wrote.
-  const warm = new Map<string, Promise<void>>();
-  let next = 0;
+  const tally = { digested: 0, failed: 0, skipped: 0, leftPending: 0, asked: 0 };
+  /** Dollars counted at their estimate because a model call was billed but its usage never came back (aborted or errored). */
+  let estimated = 0;
+  // A project's first call starts alone; its other calls start once its answer has begun (the cache entry exists).
+  // Meanwhile free workers take other projects' first calls.
+  const queue = new DigestQueue(list);
   let stoppedAtCap = false;
+  const capLog = (what: string, e: number) => d.log(`stopped at the spending cap: $${gate.spent.toFixed(2)} spent and $${gate.reserved.toFixed(2)} in flight; ${what} (about $${e.toFixed(2)}) would pass maxDollars $${o.maxDollars}`);
   const worker = async () => {
-    while (!stoppedAtCap && next < list.length && Date.now() - t0 < LAST_START_MS) {
-      const i = next, item = list[i], e = est.perCall[i];
-      if (!gate.tryReserve(e)) {
-        stoppedAtCap = true;
-        d.log(`stopped at the spending cap: $${gate.spent.toFixed(2)} spent and $${gate.reserved.toFixed(2)} in flight; the next call (about $${e.toFixed(2)}) would pass maxDollars $${o.maxDollars}`);
-        break;
-      }
-      next++;
-      const prior = warm.get(item.group);
-      let release = () => {};
-      if (prior) await prior; else warm.set(item.group, new Promise<void>((r) => { release = r; }));
+    for (;;) {
+      // Checked again after every wait.
+      if (stoppedAtCap || Date.now() - t0 >= LAST_START_MS) return;
+      const i = queue.next();
+      if (i === "done") return;
+      if (i === "wait") { await queue.changed(); continue; }
+      const item = list[i], e = est.perCall[i];
+      if (!gate.tryReserve(e)) { stoppedAtCap = true; capLog("the next call", e); return; }
+      queue.take(i);
+      let reservedTotal = e;
+      const hooks = {
+        onStart: () => queue.warmed(item.group),
+        // A retry costs about as much again: reserve it before it starts, or leave the call pending.
+        beforeRetry: () => {
+          if (gate.tryReserve(e)) { reservedTotal += e; return true; }
+          stoppedAtCap = true; capLog("a retry", e);
+          return false;
+        },
+      };
       let r: DigestOutcome | null = null;
-      try { r = await runDigest(item.id, d); }
-      catch (err) { d.log(`error on ${item.id}: ${err instanceof Error ? err.message : String(err)}`); tally.failed++; }
-      finally { release(); }
+      try { r = await runDigest(item.id, d, hooks); }
+      catch (err) { d.log(`error on ${item.id}: ${err instanceof Error ? err.message : String(err)}`); }
+      finally { queue.warmed(item.group); }
       const u = r?.usage ?? { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 };
-      gate.settle(e, costOf(u).total);
+      const measured = costOf(u).total;
+      // Billed but unmeasured (aborted, errored, or thrown): count it at its estimate, never at $0.
+      const charged = !r || (!r.ok && r.unmeasured) ? Math.max(measured, e) : measured;
+      estimated += charged - measured;
+      gate.settle(reservedTotal, charged);
       usage.input += u.input; usage.output += u.output; usage.cacheRead += u.cacheRead; usage.cacheWrite += u.cacheWrite;
       if (u.input + u.output + u.cacheRead + u.cacheWrite > 0) tally.asked++;
-      if (!r) continue;
-      if (r.ok) tally.digested++; else if (r.failed) tally.failed++; else { tally.skipped++; if (r.reason.startsWith("out of time")) tally.outOfTime++; }
+      if (!r) { tally.failed++; continue; }
+      if (r.ok) tally.digested++; else if (r.failed) tally.failed++; else { tally.skipped++; if (r.leftPending) tally.leftPending++; }
     }
   };
   await Promise.all(Array.from({ length: CONCURRENCY }, worker));
-  const remaining = total - next + tally.outOfTime;
+  const remaining = total - queue.started + tally.leftPending;
   const n = tally.asked;
   const averages = n ? { calls: n, input: usage.input / n, cacheRead: usage.cacheRead / n, cacheWrite: usage.cacheWrite / n, output: usage.output / n, dollars: costOf(usage).total / n } : null;
-  if (averages) measuredOutput = averages.output;
+  if (averages && n >= MEASURE_MIN_CALLS) measuredOutput = averages.output;
+  const measuredCost = costOf(usage);
   return {
     digested: tally.digested, failed: tally.failed, skipped: tally.skipped, more: remaining > 0, remaining, stoppedAtCap,
-    dollarsEstimated: est.dollars, dollarsActual: costOf(usage), usage, averages,
+    dollarsEstimated: est.dollars, dollarsActual: { ...measuredCost, estimated, total: measuredCost.total + estimated }, usage, averages,
     outlineChars: Object.fromEntries(outlines.chars), log,
   };
 }
