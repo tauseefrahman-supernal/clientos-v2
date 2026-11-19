@@ -7,3 +7,6 @@ next-env.d.ts
 # Environment files are managed by hand and never committed
 .env
 .env.*
+
+# Stella evaluation results hold client answers
+eval/results-*

@@ -99,9 +99,12 @@ async function runLayer() {
       return [l, { n: g.length, facts: g.filter((r) => r.facts).length, layerOk: g.filter((r) => r.layerOk).length, exact: g.filter((r) => r.layerExact).length }];
     })),
   };
-  console.log("\nexpected     n  facts  not deeper  exact");
-  for (const [l, g] of Object.entries(summary.byLayer)) if (g.n) console.log(`${l.padEnd(11)} ${String(g.n).padStart(2)}  ${String(g.facts).padStart(5)}  ${String(g.layerOk).padStart(10)}  ${String(g.exact).padStart(5)}`);
-  console.log(`\n${summary.passed} of ${n} passed · facts ${summary.facts}/${n} · layer not deeper than expected ${summary.layerOk}/${n} · exact layer ${summary.layerExact}/${n}`);
+  const yn = (b) => (b ? "yes" : "no").padStart(5);
+  console.log("\nid      pass  facts  layerOk  layerExact  reached/expected        tools  input");
+  for (const r of results) console.log(`${r.id.padEnd(6)} ${yn(r.pass)}  ${yn(r.facts)}  ${yn(r.layerOk).padStart(7)}  ${yn(r.layerExact).padStart(10)}  ${`${r.reached}/${r.expected}`.padEnd(22)} ${String(r.toolCalls).padStart(5)}  ${r.usage?.input ?? "?"}`);
+  console.log("\nexpected     n  facts  layerOk  layerExact");
+  for (const [l, g] of Object.entries(summary.byLayer)) if (g.n) console.log(`${l.padEnd(11)} ${String(g.n).padStart(2)}  ${String(g.facts).padStart(5)}  ${String(g.layerOk).padStart(7)}  ${String(g.exact).padStart(10)}`);
+  console.log(`\n${summary.passed} of ${n} passed (facts and layerOk) · facts ${summary.facts}/${n} · layerOk (not deeper than expected) ${summary.layerOk}/${n} · layerExact ${summary.layerExact}/${n}`);
   console.log(`avg tool calls ${summary.avgToolCalls} · avg input tokens ${summary.avgInput} (+${summary.avgCacheRead} cache read) · avg output ${summary.avgOutput}`);
   const out = `eval/results-layer-${stamp()}.json`;
   writeFileSync(out, JSON.stringify({ at: new Date().toISOString(), base: BASE, summary, tokens, results }, null, 2));
