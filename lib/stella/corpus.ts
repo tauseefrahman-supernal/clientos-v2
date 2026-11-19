@@ -1,15 +1,13 @@
 import "server-only";
-import { getAccount, listAccounts, listTemplates } from "@/lib/data";
-import { relatedByIndustry } from "@/lib/data/related";
+import { getAccount, listTemplates } from "@/lib/data";
 import { fileMarkdown } from "@/lib/data/render";
 
-// Stella's searchable memory for one account: its vault files (core templates filled with the
-// account's research), book chapters and account summaries. Built from what the strategist can see, minus
-// anything hidden, archived, deleted or sensitive. Keyword ranking today; the `chunks` table
-// with embeddings replaces it once the Supabase backend is in.
+// Stella's readable sources for one account: its vault files (core templates filled with the account's
+// research), book chapters and account summaries, for list_sources and read_source. Built from what the
+// strategist can see, minus anything hidden, archived, deleted or sensitive. Searching is done by
+// lib/memory/search.ts over the indexed chunks, not here.
 
 export interface Source { id: string; kind: "file" | "chapter" | "account"; label: string; text: string }
-export interface Hit { id: string; label: string; excerpt: string; score: number }
 
 const CHUNK = 1600;
 
@@ -47,44 +45,11 @@ export async function corpus(slug: string): Promise<Source[]> {
   out.push({ id: "account:deals", kind: "account", label: "Account: deals", text: o.deals.map((d) => `${d.name} · ${d.value} · ${d.stage}. ${d.note}`).join("\n") + (o.lost ? `\nLost: ${o.lost}` : "") });
   out.push({ id: "account:this-week", kind: "account", label: "Account: this week", text: [...o.decisions.map((d) => `Decision: ${d.title}. ${d.detail}`), ...o.slipping.map((s) => `${s.kind}: ${s.item}. ${s.detail}`), ...o.dates.map((d) => `${d.when}: ${d.what}`)].join("\n") });
   out.push({ id: "account:artifacts", kind: "account", label: "Account: artifacts list", text: artifacts.map((a) => `${a.kind}: ${a.title} (${a.dated}) ${a.description}${a.url ? ` <${a.url}>` : ""}`).join("\n") });
-  if (b.recordings.length) out.push(...split("account:recordings", "account", "Account: recordings list", b.recordings.map((m) => `${m.date.slice(0, 10)} · ${m.title} (${m.provider}, ${m.kind}${m.participants.length ? `; ${m.participants.slice(0, 6).join(", ")}` : ""}): ${m.summary}`).join("\n")));
+  if (b.recordings.length) out.push(...split("account:recordings", "account", "Account: recordings list", b.recordings.map((m) => `${m.date.slice(0, 10)} · ${m.title} (${m.provider}, ${m.kind}${m.participants.length ? `; ${m.participants.slice(0, 6).join(", ")}` : ""}): ${m.headline || m.summary}`).join("\n")));
   out.push({ id: "account:disagreements", kind: "account", label: "Account: where sources disagree", text: o.disagreements.join("\n") });
 
   cache.set(slug, { stamp, sources: out });
   return out;
-}
-
-const STOP = new Set("the a an and or of to in on for with is are was were be by at as it its this that from what why how who when which did does do".split(" "));
-const IRREGULAR: Record<string, string> = { bought: "buy", buying: "buy", sold: "sell", won: "win", paid: "pay", built: "build", chose: "choose", chosen: "choose", decided: "decide", decision: "decide", decisions: "decide" };
-const stem = (w: string) => IRREGULAR[w] ?? (w.length > 5 ? w.replace(/(ations?|ings?|edly|ed|es|s)$/, "") : w.length > 3 ? w.replace(/s$/, "") : w);
-const terms = (s: string) => s.toLowerCase().replace(/[^\p{L}\p{N}$%.]+/gu, " ").split(" ").filter((w) => w.length > 1 && !STOP.has(w)).map(stem);
-
-/** BM25-style ranking over the account's sources. */
-export async function search(slug: string, query: string, limit = 8): Promise<Hit[]> {
-  const docs = await corpus(slug);
-  const q = Array.from(new Set(terms(query)));
-  if (!q.length) return [];
-  const toks = docs.map((d) => { const l = terms(d.label); return [...l, ...l, ...l, ...terms(d.text)]; }); // label words count three times
-  const avg = toks.reduce((n, t) => n + t.length, 0) / Math.max(toks.length, 1);
-  const df = new Map(q.map((w) => [w, toks.filter((t) => t.includes(w)).length]));
-  const scored = docs.map((d, i) => {
-    const t = toks[i];
-    let s = 0;
-    for (const w of q) {
-      const f = t.filter((x) => x === w).length;
-      if (!f) continue;
-      const idf = Math.log(1 + (docs.length - df.get(w)! + 0.5) / (df.get(w)! + 0.5));
-      s += idf * ((f * 2.2) / (f + 1.2 * (0.25 + 0.75 * (t.length / avg))));
-    }
-    return { d, s };
-  }).filter((x) => x.s > 0).sort((a, b) => b.s - a.s).slice(0, limit);
-  return scored.map(({ d, s }) => ({ id: d.id, label: d.label, score: Math.round(s * 100) / 100, excerpt: excerpt(d.text, q) }));
-}
-
-function excerpt(text: string, q: string[]): string {
-  const lower = text.toLowerCase();
-  const at = Math.max(0, Math.min(...q.map((w) => { const i = lower.indexOf(w); return i < 0 ? Infinity : i; }).filter(Number.isFinite), text.length) - 200);
-  return (at > 0 ? "…" : "") + text.slice(at, at + 700) + (at + 700 < text.length ? "…" : "");
 }
 
 export async function readSource(slug: string, id: string): Promise<Source | null> {
@@ -98,19 +63,4 @@ export async function readSource(slug: string, id: string): Promise<Source | nul
 export async function listSources(slug: string) {
   const seen = new Set<string>();
   return (await corpus(slug)).map((d) => ({ id: d.id.split("#")[0], label: d.label.replace(/ \(part \d+\)$/, "") })).filter((d) => !seen.has(d.id) && seen.add(d.id));
-}
-
-/** Search the delivered projects other than this one. Projects in the same industry rank first. */
-export async function searchExpertise(slug: string, query: string, limit = 8): Promise<(Hit & { project: string; sameIndustry: boolean })[]> {
-  const me = await getAccount(slug);
-  const all = await listAccounts();
-  if (!me) return [];
-  const same = new Set(relatedByIndustry(me, all).map((r) => r.bundle.account.slug));
-  const out: (Hit & { project: string; sameIndustry: boolean })[] = [];
-  for (const b of all) {
-    if (b.account.slug === slug || b.account.stage !== "delivery") continue;
-    const boost = same.has(b.account.slug) ? 1.5 : 1;
-    for (const h of await search(b.account.slug, query, 4)) out.push({ ...h, id: `${b.account.slug}|${h.id}`, label: `${b.account.name} · ${h.label}`, score: Math.round(h.score * boost * 100) / 100, project: b.account.name, sameIndustry: boost > 1 });
-  }
-  return out.sort((a, b) => b.score - a.score).slice(0, limit);
 }

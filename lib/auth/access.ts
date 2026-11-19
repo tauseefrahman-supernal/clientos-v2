@@ -3,10 +3,11 @@ import { cache } from "react";
 import { db, dbEnabled } from "@/lib/data/db";
 import { authEnabled } from "./config";
 import { currentUser } from "./server";
+import { matchPersonByEmail } from "./rules";
 
 // Role-based access. Admins see every project; everyone else sees the projects they are assigned
 // to (from Account OS pods and deals, or added by a strategist). A signed-in user is linked to a
-// person on the team by email, else by name; someone not on the team yet is added with no projects.
+// person on the team by exact email only; anyone else is added with no projects until an admin assigns or links them.
 
 export type Person = { id: string; name: string; email: string | null; role: "admin" | "member"; title: string | null; squad: string | null };
 export type Access = { person: Person | null; admin: boolean; slugs: Set<string> | null; roles: Map<string, string[]> };
@@ -23,14 +24,13 @@ async function personFor(user: { id: string; email: string; name: string }): Pro
   const cols = "id,name,email,role,title,squad,user_id";
   const q = db().from("people");
   let { data } = await q.select(cols).eq("user_id", user.id).maybeSingle();
-  if (!data) ({ data } = await db().from("people").select(cols).ilike("email", user.email).maybeSingle());
   if (!data) {
-    // Not linked yet: match the Google name to the team list (full name, else a unique first name).
-    const { data: all } = await db().from("people").select(cols).is("user_id", null);
-    const n = user.name.trim().toLowerCase(), first = n.split(" ")[0];
-    const full = (all ?? []).filter((p) => p.name.toLowerCase() === n);
-    const byFirst = (all ?? []).filter((p) => p.name.toLowerCase().split(" ")[0] === first);
-    data = full[0] ?? (byFirst.length === 1 ? byFirst[0] : null);
+    // Not linked yet: only the row whose email is exactly theirs (ignoring case), and only if no one else holds it.
+    // Never by name (a new sign-in could take over a teammate's row and access), and not with ilike, where _ and % are
+    // wildcards. The team list is small, so it is matched here (lib/auth/rules.ts matchPersonByEmail).
+    const { data: rows } = await db().from("people").select(cols).not("email", "is", null);
+    const hit = matchPersonByEmail(rows ?? [], user.email);
+    data = hit && (!hit.user_id || hit.user_id === user.id) ? hit : null;
   }
   if (data) {
     if (data.user_id !== user.id || data.email !== user.email) await db().from("people").update({ user_id: user.id, email: user.email }).eq("id", data.id);
@@ -64,4 +64,4 @@ export const currentAccess = cache(async (): Promise<Access> => {
   return access;
 });
 
-export { canAssign, canSee } from "./rules";
+export { actionAllowed, actionRefusal, ADMIN_ONLY, canAssign, canOverride, canSee, matchPersonByEmail, NO_PROJECT_ACCESS, Refusal, runDecisionGate, type ActionKind, type ActionResult } from "./rules";

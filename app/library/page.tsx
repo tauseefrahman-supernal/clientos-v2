@@ -1,5 +1,6 @@
 import { listAccounts, listCategories, listTemplates, pendingApprovals, usage } from "@/lib/data";
 import { LibraryView, type LibCategory } from "@/components/library/LibraryView";
+import { currentAccess } from "@/lib/auth/access";
 
 export default async function LibraryPage({ searchParams }: { searchParams: { open?: string; t?: string } }) {
   const templates = (await listTemplates());
@@ -21,12 +22,14 @@ export default async function LibraryPage({ searchParams }: { searchParams: { op
     };
   }).filter((c) => c.templates.length);
   const p = (await pendingApprovals());
+  const canApprove = (await currentAccess()).admin;
   return (
     <LibraryView
       categories={cats}
       pending={[...p.categories.map((c) => ({ kind: "category" as const, category: c.slug, template: null, label: c.name, by: c.createdBy, from: c.origin })), ...p.templates.map((t) => ({ kind: "template" as const, category: t.category, template: t.name, label: `${t.name}.md`, by: t.createdBy, from: t.origin }))]}
       openCategory={searchParams.open ?? "core-tech"}
       openTemplate={searchParams.t ?? null}
+      canApprove={canApprove}
     />
   );
 }

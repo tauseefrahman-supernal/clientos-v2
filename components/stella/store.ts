@@ -1,6 +1,7 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
+import { noRef, splitEvidence, stripHistory, type Evidence } from "@/lib/stella/evidence";
 
 // Stella conversations, one store shared by the Stella chat page and the side drawer.
 // With Supabase configured the server holds the chats (/api/chats) and saves each answer;
@@ -10,7 +11,7 @@ import { useSyncExternalStore } from "react";
 export type ChatDocument = { id: string; title: string; content: string; projects: string[]; kind: "written" | "export" };
 /** A file attached to a question. Text files keep their text; a PDF keeps its data only until it is sent. */
 export type ChatFile = { name: string; kind: "text" | "pdf"; size: number; text?: string; data?: string };
-export type ChatMessage = { role: "user" | "assistant"; content: string; steps?: string[]; error?: string; pending?: boolean; documents?: ChatDocument[]; attachments?: ChatFile[]; at: number };
+export type ChatMessage = { role: "user" | "assistant"; content: string; steps?: string[]; error?: string; pending?: boolean; documents?: ChatDocument[]; attachments?: ChatFile[]; evidence?: Evidence[]; at: number };
 export type Chat = { id: string; scope: string[]; title: string; messages: ChatMessage[]; updatedAt: number };
 
 export const ALL = "*";
@@ -36,7 +37,7 @@ function readLocal(): Chat[] {
 function load() {
   if (loaded || typeof window === "undefined") return;
   loaded = true;
-  chats = readLocal().map((c) => ({ ...c, messages: c.messages.map((m) => (m.pending ? { ...m, pending: false, error: m.content ? undefined : "Interrupted before Stella answered." } : m)) }));
+  chats = readLocal().map((c) => ({ ...c, messages: c.messages.map((m) => (m.pending ? clean({ ...m, pending: false, error: m.content ? undefined : "Interrupted before Stella answered." }) : m)) }));
   fetch("/api/chats").then((r) => r.json()).then((j: { enabled: boolean; chats: Chat[] }) => {
     if (!j.enabled) return;
     mode = "server";
@@ -51,6 +52,13 @@ function persist() {
     try { localStorage.setItem(KEY, JSON.stringify(slim)); } catch { /* storage full or blocked */ }
   }
   listeners.forEach((l) => l());
+}
+
+/** An answer's text without its evidence block; evidence the server sent is kept, else what the block held (unresolved). */
+function clean(m: ChatMessage): ChatMessage {
+  if (m.role !== "assistant") return m;
+  const { answer, evidence } = splitEvidence(m.content);
+  return { ...m, content: answer, evidence: m.evidence?.length ? m.evidence : evidence.length ? evidence.map((e) => ({ ...e, ref: noRef() })) : undefined };
 }
 
 const stripData = (a: ChatFile): ChatFile => ({ name: a.name, kind: a.kind, size: a.size, ...(a.text !== undefined ? { text: a.text } : {}) });
@@ -109,7 +117,8 @@ export async function ask(chatId: string, text: string, files: ChatFile[] = []) 
     const body = {
       scope: chat.scope,
       chatId: mode === "server" ? chatId : undefined,
-      messages: history.map(({ role, content, attachments }) => ({ role, content, attachments: attachments?.map(({ name, kind, text, data }) => ({ name, kind, text, data })) })),
+      // Evidence stays in the browser: it is not sent back to Stella
+      messages: stripHistory(history).map(({ role, content, attachments }) => ({ role, content, attachments: attachments?.map(({ name, kind, text, data }) => ({ name, kind, text, data })) })),
     };
     const res = await fetch("/api/stella", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
     if (!res.ok || !res.body) { const t = await res.text().catch(() => ""); patch((m) => ({ ...m, error: t || `Request failed (${res.status})` })); return; }
@@ -128,6 +137,7 @@ export async function ask(chatId: string, text: string, files: ChatFile[] = []) 
         else if (ev.type === "reset") patch((m) => ({ ...m, content: "" }));
         else if (ev.type === "tool") patch((m) => ({ ...m, steps: [...(m.steps ?? []), ev.summary] }));
         else if (ev.type === "document") patch((m) => ({ ...m, documents: [...(m.documents ?? []), ev.doc] }));
+        else if (ev.type === "evidence") patch((m) => ({ ...m, evidence: ev.items }));
         else if (ev.type === "error") patch((m) => ({ ...m, error: ev.message }));
         else if (ev.type === "saved" && !ev.ok) patch((m) => ({ ...m, steps: [...(m.steps ?? []), `not saved: ${ev.error}`] }));
       }
@@ -135,7 +145,7 @@ export async function ask(chatId: string, text: string, files: ChatFile[] = []) 
   } catch (e) {
     patch((m) => ({ ...m, error: e instanceof Error ? e.message : String(e) }));
   } finally {
-    patch((m) => ({ ...m, pending: false }));
+    patch((m) => clean({ ...m, pending: false }));
     // A PDF is read once; drop its data from the question so it is not sent again
     updateChat(chatId, (c) => ({ ...c, messages: c.messages.map((m) => (m === question || (m.at === question.at && m.role === "user")) && m.attachments ? { ...m, attachments: m.attachments.map(stripData) } : m) }));
   }

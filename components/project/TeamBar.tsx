@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useTransition } from "react";
 import { Plus, UserRound, Users, X } from "lucide-react";
 import { addMemberAction, removeMemberAction } from "@/app/actions";
+import { unwrapAction } from "@/lib/auth/rules";
 import { cn } from "@/lib/utils";
 
 type Member = { personId: string; name: string; title: string | null; role: string; source: "import" | "manual"; linked: boolean };
@@ -32,7 +33,7 @@ export function TeamBar({ slug, members, people, canEdit }: { slug: string; memb
         <span key={`${m.personId}-${m.role}`} title={`${m.title ?? ""}${m.source === "import" ? " · from Account OS" : " · added in ClientOS"}${m.linked ? " · has signed in" : ""}`}
           className={cn("inline-flex items-center gap-1 rounded-full border border-border bg-card px-space-2 py-0.5", m.linked && "border-[hsl(var(--color-action-default))]")}>
           {m.name}<span className="text-muted-foreground">{SHORT[m.role] ?? m.role}</span>
-          {canEdit && <button type="button" aria-label={`Remove ${m.name} as ${m.role}`} disabled={pending} onClick={() => act(() => removeMemberAction(slug, m.personId, m.role))} className="rounded-full p-0.5 text-muted-foreground hover:bg-muted hover:text-foreground"><X className="h-3 w-3" /></button>}
+          {canEdit && <button type="button" aria-label={`Remove ${m.name} as ${m.role}`} disabled={pending} onClick={() => act(async () => { unwrapAction(await removeMemberAction(slug, m.personId, m.role)); })} className="rounded-full p-0.5 text-muted-foreground hover:bg-muted hover:text-foreground"><X className="h-3 w-3" /></button>}
         </span>
       ))}
       {!members.length && <span className="text-muted-foreground">No one assigned yet.</span>}
@@ -51,7 +52,7 @@ export function TeamBar({ slug, members, people, canEdit }: { slug: string; memb
               {ROLES.map(([v, l]) => <option key={v} value={v}>{l}</option>)}
             </select>
           </label>
-          <button type="button" disabled={!person || pending} onClick={() => act(async () => { await addMemberAction(slug, person, role); setOpen(false); setPerson(""); })} className="inline-flex items-center justify-center gap-1 rounded-md bg-primary px-space-3 py-1.5 font-medium text-primary-foreground disabled:opacity-50"><UserRound className="h-4 w-4" />Assign</button>
+          <button type="button" disabled={!person || pending} onClick={() => act(async () => { unwrapAction(await addMemberAction(slug, person, role)); setOpen(false); setPerson(""); })} className="inline-flex items-center justify-center gap-1 rounded-md bg-primary px-space-3 py-1.5 font-medium text-primary-foreground disabled:opacity-50"><UserRound className="h-4 w-4" />Assign</button>
           <p className="text-xs text-muted-foreground">They see this project as soon as they sign in. People from Account OS pods are added on each import; people you add here stay.</p>
         </div>
       )}

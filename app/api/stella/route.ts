@@ -1,5 +1,6 @@
 import { askStella, type Attachment, type StellaDocument, type Turn } from "@/lib/stella/agent";
 import { saveExchange, validChatId } from "@/lib/data/chats";
+import type { Evidence } from "@/lib/stella/evidence";
 import { currentUser } from "@/lib/auth/server";
 
 export const dynamic = "force-dynamic";
@@ -36,7 +37,7 @@ export async function POST(req: Request) {
 
   const chatId = validChatId(body.chatId) ? body.chatId : null;
   const userId = chatId ? (await currentUser())?.id ?? null : null;
-  const answer: { content: string; steps: string[]; error?: string; usage?: unknown; documents: StellaDocument[] } = { content: "", steps: [], documents: [] };
+  const answer: { content: string; steps: string[]; error?: string; usage?: unknown; documents: StellaDocument[]; evidence: Evidence[] } = { content: "", steps: [], documents: [], evidence: [] };
   const enc = new TextEncoder();
   const stream = new ReadableStream({
     async start(controller) {
@@ -46,6 +47,7 @@ export async function POST(req: Request) {
           else if (ev.type === "reset") answer.content = "";
           else if (ev.type === "tool") answer.steps.push(ev.summary);
           else if (ev.type === "document") answer.documents.push(ev.doc);
+          else if (ev.type === "evidence") answer.evidence = ev.items;
           else if (ev.type === "error") answer.error = ev.message;
           else if (ev.type === "done") answer.usage = ev.usage;
           controller.enqueue(enc.encode(JSON.stringify(ev) + "\n"));

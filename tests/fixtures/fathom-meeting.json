@@ -1,0 +1,76 @@
+{
+  "title": "<title>",
+  "meeting_title": "<meeting_title>",
+  "meeting_type": null,
+  "url": "https://fathom.video/calls/555000111",
+  "meeting_url": "https://example.com/x",
+  "created_at": "2026-11-17T15:00:00Z",
+  "scheduled_start_time": "2026-11-17T15:00:00Z",
+  "scheduled_end_time": "2026-11-17T15:00:00Z",
+  "recording_id": 123456789,
+  "recording_start_time": "2026-11-17T15:00:00Z",
+  "recording_end_time": "2026-11-17T15:00:00Z",
+  "calendar_invitees_domains_type": "<calendar_invitees_domains_type>",
+  "shared_with": "<shared_with>",
+  "transcript": [
+    {
+      "speaker": {
+        "display_name": "<display_name>",
+        "matched_calendar_invitee_email": "person@example.com"
+      },
+      "text": "<text>",
+      "timestamp": "00:01:23"
+    },
+    {
+      "speaker": {
+        "display_name": "<display_name>",
+        "matched_calendar_invitee_email": "person@example.com"
+      },
+      "text": "<text>",
+      "timestamp": "00:01:23"
+    },
+    {
+      "speaker": {
+        "display_name": "<display_name>",
+        "matched_calendar_invitee_email": "person@example.com"
+      },
+      "text": "<text>",
+      "timestamp": "00:01:23"
+    }
+  ],
+  "transcript_language": "<transcript_language>",
+  "default_summary": null,
+  "action_items": null,
+  "highlights": null,
+  "calendar_invitees": [
+    {
+      "name": "<name>",
+      "email": "person@example.com",
+      "email_domain": "person@example.com",
+      "is_external": false,
+      "matched_speaker_display_name": "<matched_speaker_display_name>"
+    },
+    {
+      "name": "<name>",
+      "email": "person@example.com",
+      "email_domain": "person@example.com",
+      "is_external": false,
+      "matched_speaker_display_name": null
+    },
+    {
+      "name": "<name>",
+      "email": "person@example.com",
+      "email_domain": "person@example.com",
+      "is_external": false,
+      "matched_speaker_display_name": "<matched_speaker_display_name>"
+    }
+  ],
+  "recorded_by": {
+    "name": "<name>",
+    "email": "person@example.com",
+    "email_domain": "person@example.com",
+    "team": "<team>"
+  },
+  "share_url": "https://example.com/x",
+  "crm_matches": null
+}

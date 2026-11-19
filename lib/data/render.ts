@@ -1,9 +1,11 @@
 import type { AccountBundle, Template, VaultFile } from "@/lib/types";
 
 /** The markdown shown for a vault file: its content, or the empty template it starts from. */
-export function fileMarkdown(_b: AccountBundle, f: VaultFile, templates: Template[]): { markdown: string; generated: boolean } {
+export function fileMarkdown(b: AccountBundle, f: VaultFile, templates: Template[]): { markdown: string; generated: boolean } {
   if (f.content) return { markdown: f.content, generated: false };
-  const t = templates.find((x) => x.category === f.category && x.name === f.template);
+  // The project's own copy of the template first, then the shared one (lib/memory/digest.ts templateBody picks the same).
+  const same = templates.filter((x) => x.category === f.category && x.name === f.template);
+  const t = same.find((x) => x.onlyAccount === b.account.slug) ?? same.find((x) => !x.onlyAccount) ?? same[0];
   return { generated: false, markdown: t?.body ? `_Not filled yet. The template it starts from:_\n\n${t.body}` : "_Empty._" };
 }
 

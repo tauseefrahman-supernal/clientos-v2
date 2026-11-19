@@ -1,9 +1,9 @@
 import { createClient } from "@supabase/supabase-js";
 import { db, dbEnabled, noStore } from "@/lib/data/db";
 import { anonKey, authEnabled, supabaseUrl } from "@/lib/auth/config";
-import { getAccount, listAccounts } from "@/lib/data";
+import { listAccounts } from "@/lib/data";
 import { buildExport } from "@/lib/export";
-import { search } from "@/lib/stella/corpus";
+import { searchChunks } from "@/lib/memory/search";
 import { createChat, deleteChat, listChats } from "@/lib/data/chats";
 import { decideRun, runWorkflow } from "@/lib/data/runs";
 import { myView } from "@/lib/myview";
@@ -79,11 +79,96 @@ export async function GET(req: Request) {
   });
 
   await check("Stella's search finds project context", async () => {
-    const b = await getAccount("heritage");
-    must(b, "Heritage not found");
-    const hits = await search("heritage", "accuracy", 5);
+    const hits = await searchChunks({ slugs: ["heritage"], query: "accuracy", layers: ["vault", "chapter"], k: 5 });
     must(hits.length > 0, "no hits");
+    must(hits.every((h) => h.slug === "heritage"), "a hit from another project");
     return `${hits.length} hits, top: ${hits[0].label}`;
+  });
+
+  // Retrieval access (Stella memory, Task 8). Read-only: these checks never write. A check whose counts are 0 says
+  // "vacuous": it passed, but the data held nothing that could have failed it.
+  const slugsOf = async (personId: string) => {
+    const { data } = await db().from("assignments").select("accounts(slug)").eq("person_id", personId);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return [...new Set(((data ?? []) as any[]).map((r) => r.accounts?.slug).filter(Boolean) as string[])];
+  };
+  const accountIdOf = async (slug: string) => (await db().from("accounts").select("id").eq("slug", slug).maybeSingle()).data?.id as string | undefined;
+  const vacuous = (n: number) => (n === 0 ? " (vacuous)" : "");
+  const BROAD = ["performance review", "salary compensation raise", "resignation leaving notice", "World Emblem", "pricing", "weekly sync"];
+  /** Calls hit by broad all-project searches of summaries and transcripts. */
+  const callsHit = async () => {
+    const tids = new Set<string>();
+    for (const q of BROAD)
+      for (const h of await searchChunks({ slugs: [], allProjects: true, query: q, layers: ["summary", "transcript"], k: 30 })) if (h.transcriptId) tids.add(h.transcriptId);
+    return tids;
+  };
+  /** Usable chunks that belong to these calls. */
+  const usableChunksOf = async (ids: string[]) => {
+    let n = 0;
+    for (let i = 0; i < ids.length; i += 100) {
+      const { count, error } = await db().from("chunks").select("id", { count: "exact", head: true }).eq("usable", true).in("transcript_id", ids.slice(i, i + 100));
+      must(!error, error?.message);
+      n += count ?? 0;
+    }
+    return n;
+  };
+
+  await check("search as a person with no assignments returns nothing", async () => {
+    const { data: people } = await db().from("people").select("id,name,role");
+    const { data: asg } = await db().from("assignments").select("person_id");
+    const assigned = new Set((asg ?? []).map((a) => a.person_id));
+    const lone = (people ?? []).find((p) => p.role !== "admin" && !assigned.has(p.id));
+    const slugs = lone ? await slugsOf(lone.id) : [];
+    must(slugs.length === 0, "that person has assignments");
+    const hits = await searchChunks({ slugs, query: "World Emblem pricing", layers: ["vault", "chapter", "summary", "transcript"], k: 10 });
+    must(hits.length === 0, `${hits.length} hits`);
+    return `${lone ? lone.name : "an empty project list"}: 0 hits`;
+  });
+
+  await check("a person on rxvip only gets no World Emblem calls unless they are also linked to rxvip", async () => {
+    const rx = await accountIdOf("rxvip");
+    must(rx, "no rxvip project");
+    const control = await searchChunks({ slugs: ["world-emblem"], query: "World Emblem", layers: ["summary", "transcript"], k: 5 });
+    must(control.length > 0, "the World Emblem control search finds nothing, so this check would prove nothing");
+    const queries = ["World Emblem", "FMDS leadership operating system", "Elena", "weekly sync"];
+    const seen = new Map<string, string>();
+    let total = 0;
+    for (const q of queries) {
+      const hits = await searchChunks({ slugs: ["rxvip"], query: q, layers: ["summary", "transcript"], k: 20 });
+      total += hits.length;
+      for (const h of hits) { must(h.slug === "rxvip", `hit labelled ${h.slug}`); if (h.transcriptId) seen.set(h.transcriptId, h.label); }
+    }
+    const ids = [...seen.keys()];
+    const { data: links } = ids.length ? await db().from("transcript_accounts").select("transcript_id,account_id").in("transcript_id", ids) : { data: [] };
+    const onRx = new Set((links ?? []).filter((l) => l.account_id === rx).map((l) => l.transcript_id));
+    const leaks = ids.filter((id) => !onRx.has(id));
+    must(!leaks.length, `calls not linked to rxvip: ${leaks.map((id) => seen.get(id)).join("; ")}`);
+    return `${total} hits over ${ids.length} calls, all linked to rxvip${vacuous(ids.length)} · World Emblem itself finds ${control.length}`;
+  });
+
+  await check("no hit comes from a personnel call", async () => {
+    const { data: personnel, error } = await db().from("transcripts").select("id").eq("status", "personnel");
+    must(!error, error?.message);
+    const pids = new Set((personnel ?? []).map((t) => t.id));
+    const tids = await callsHit();
+    const bad = [...tids].filter((id) => pids.has(id));
+    must(!bad.length, `${bad.length} hits from personnel calls`);
+    const usable = await usableChunksOf([...pids]);
+    must(usable === 0, `${usable} usable chunks belong to personnel calls`);
+    return `${tids.size} calls hit, none personnel · ${pids.size} personnel calls, 0 usable chunks${vacuous(pids.size)}`;
+  });
+
+  await check("no hit comes from a call gone from its source more than 14 days", async () => {
+    const cutoff = new Date(Date.now() - 14 * 86_400_000).toISOString();
+    const { data: gone, error } = await db().from("transcripts").select("id").lt("gone_at", cutoff);
+    must(!error, error?.message);
+    const gids = new Set((gone ?? []).map((t) => t.id));
+    const tids = await callsHit();
+    const bad = [...tids].filter((id) => gids.has(id));
+    must(!bad.length, `${bad.length} hits from calls gone more than 14 days`);
+    const usable = await usableChunksOf([...gids]);
+    must(usable === 0, `${usable} usable chunks belong to calls gone more than 14 days (run the index)`);
+    return `${tids.size} calls hit, none gone · ${gids.size} calls gone more than 14 days, 0 usable chunks${vacuous(gids.size)}`;
   });
 
   await check("chats save, list and delete", async () => {

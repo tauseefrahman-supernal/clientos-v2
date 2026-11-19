@@ -3,6 +3,9 @@ import { getAccount, listCategories, listTemplates, usage } from "@/lib/data";
 import { fileMarkdown, findFile } from "@/lib/data/render";
 import { VaultView } from "@/components/project/VaultView";
 import { GROUPS } from "@/lib/types";
+import { dbEnabled } from "@/lib/data/db";
+import { canAssign, currentAccess } from "@/lib/auth/access";
+import { pendingSuggestions } from "@/lib/memory/digest";
 
 export default async function VaultPage({ params, searchParams }: { params: { slug: string }; searchParams: { file?: string } }) {
   const b = (await getAccount(params.slug));
@@ -11,6 +14,8 @@ export default async function VaultPage({ params, searchParams }: { params: { sl
   const templates = (await listTemplates());
   const found = findFile(b.files, searchParams.file);
   const file = found && found.state !== "deleted" ? found : null;
+  const suggestions = file && dbEnabled() ? await pendingSuggestions(b.account.slug, file.path) : [];
+  const canDecide = canAssign(await currentAccess(), b.account.slug);
   const others = file?.category ? (await usage(file.category, file.template ?? undefined)).filter((u) => u.slug !== b.account.slug) : [];
   const selected = file && (() => {
     const t = templates.find((x) => x.category === file.category && x.name === file.template) ?? null;
@@ -21,6 +26,7 @@ export default async function VaultPage({ params, searchParams }: { params: { sl
       category: c ? { slug: c.slug, name: c.name, status: c.status, isCore: c.isCore } : null,
       template: t ? { name: t.name, status: t.status, onlyAccount: t.onlyAccount } : null,
       otherProjects: others,
+      suggestions, canDecide,
     };
   })();
 

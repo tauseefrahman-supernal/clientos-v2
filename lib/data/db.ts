@@ -6,6 +6,7 @@ import type { AccountBundle, Artifact, Category, Chapter, GroupId, Recording, Sh
 import { GROUPS } from "@/lib/types";
 import type { Store } from "./seed";
 import { buildTeam } from "./people-seed";
+import { recordingShown, recordingText } from "@/lib/memory/index-rules";
 
 // Supabase backend for the `clientos` schema. The server uses the service role; row-level
 // security keeps the anon and signed-in roles out until per-user policies exist.
@@ -36,13 +37,13 @@ export function db(): SupabaseClient<any, any, any> {
   return client;
 }
 
-function check<T>(res: { data: T; error: { message: string } | null }, what: string): T {
+export function check<T>(res: { data: T; error: { message: string } | null }, what: string): T {
   if (res.error) throw new Error(`Supabase ${what}: ${res.error.message}`);
   return res.data;
 }
 
 /** Every row of a table, paging past the 1,000-row response limit. */
-async function all(table: string, cols = "*", filter?: (q: any) => any): Promise<Row[]> {
+export async function all(table: string, cols = "*", filter?: (q: any) => any): Promise<Row[]> {
   const out: Row[] = [];
   for (let from = 0; ; from += 1000) {
     let q = db().from(table).select(cols).range(from, from + 999);
@@ -62,7 +63,8 @@ export async function loadFromDb(): Promise<DbStore> {
     all("accounts"), all("deals"), all("template_categories"), all("templates"),
     all("vault_files", "account_id,path,category_slug,template_name,summary,content,source,state,in_book,shown"),
     all("book_chapters"), all("artifacts"), all("workflows"),
-    all("transcripts", "account_id,provider,external_id,title,met_at,participants,kind,summary,url,alt_url"),
+    // One row per project link: that project's headline, plus the call it points to.
+    all("transcript_accounts", "account_id,headline,transcripts(id,provider,external_id,title,met_at,participants,kind,summary,url,alt_url,status,gone_at)", (q) => q.order("transcript_id").order("account_id")),
   ]);
   const slugOf = new Map(accounts.map((a) => [a.id as string, a.slug as string]));
   const by = <T,>(rows: Row[], map: (r: Row) => T) => {
@@ -74,7 +76,10 @@ export async function loadFromDb(): Promise<DbStore> {
   const booksBy = by<Chapter>(chapters, (r) => ({ sort: r.sort, title: r.title, minutes: r.minutes, lenses: r.lenses, body: r.body, sources: r.sources ?? [] }));
   const artsBy = by<Artifact>(arts, (r) => ({ id: r.key ?? r.id, kind: r.kind, title: r.title, dated: r.dated ?? "", description: r.description, url: r.url ?? "", provider: r.provider ?? "", sensitive: r.sensitive }));
   const wfBy = by<Workflow>(wfs, (r) => ({ slug: r.slug, name: r.name, kind: r.kind, cadence: r.cadence ?? "", audience: r.audience ?? "", inputs: r.inputs ?? [], output: r.output ?? "", note: r.note ?? "", standard: r.standard }));
-  const recsBy = by<Recording>(recs, (r) => ({ provider: r.provider, id: r.external_id, title: r.title, date: r.met_at ?? "", participants: r.participants ?? [], kind: r.kind, summary: r.summary ?? "", url: r.url ?? "", altUrl: r.alt_url ?? "" }));
+  // The Recordings list shows this project's headline, and the call's summary only once digested (never the body: the panel loads that).
+  // Personnel calls and calls gone from their source for more than 14 days are not listed.
+  const shownNow = new Date();
+  const recsBy = by<Recording>(recs.filter((r) => r.transcripts && recordingShown(r.transcripts, shownNow)), ({ headline, transcripts: t }) => ({ provider: t.provider, id: t.external_id, title: t.title, date: t.met_at ?? "", participants: t.participants ?? [], kind: t.kind, ...recordingText(headline, t), transcriptId: t.id, url: t.url ?? "", altUrl: t.alt_url ?? "" }));
   const dealOf = new Map(deals.map((d) => [d.account_id as string, d]));
 
   const s: DbStore = { accounts: new Map(), categories: new Map(), templates: [], ids: new Map() };
@@ -105,14 +110,21 @@ export async function loadFromDb(): Promise<DbStore> {
 
 // ---------------------------------------------------------------- write-through edits
 
-export async function updateFile(accountId: string, path: string, patch: Partial<Pick<VaultFile, "state" | "inBook" | "content" | "shown">>, by: string) {
+/**
+ * Saves an edit (and a version when the content changes). With ifUpdatedAt, saves only when the file's updated_at still
+ * equals it (null: never saved), and returns false when it did not, so the caller can re-read and try again.
+ */
+export async function updateFile(accountId: string, path: string, patch: Partial<Pick<VaultFile, "state" | "inBook" | "content" | "shown">>, by: string, opts: { ifUpdatedAt?: string | null } = {}): Promise<boolean> {
   const row: Row = { updated_at: new Date().toISOString(), updated_by: by };
   if (patch.state !== undefined) row.state = patch.state;
   if (patch.inBook !== undefined) row.in_book = patch.inBook;
   if (patch.shown !== undefined) row.shown = patch.shown;
   if (patch.content !== undefined) { row.content = patch.content; row.source = "human"; }
-  const updated = check(await db().from("vault_files").update(row).eq("account_id", accountId).eq("path", path).select("id"), "update file") as Row[];
+  let q = db().from("vault_files").update(row).eq("account_id", accountId).eq("path", path);
+  if (opts.ifUpdatedAt !== undefined) q = opts.ifUpdatedAt === null ? q.is("updated_at", null) : q.eq("updated_at", opts.ifUpdatedAt);
+  const updated = check(await q.select("id"), "update file") as Row[];
   if (patch.content !== undefined && updated[0]) check(await db().from("vault_file_versions").insert({ file_id: updated[0].id, content: patch.content, saved_by: by }), "save version");
+  return updated.length > 0;
 }
 
 export async function insertFile(accountId: string, f: VaultFile) {
@@ -132,10 +144,32 @@ export async function setCategoryStatus(slug: string, status: ShareStatus) {
 
 // ---------------------------------------------------------------- import from the repo files
 
+/** Match rules from the `searched` terms of data/transcripts/<slug>.json: emails, domains, everything else a keyword. */
+function matchRulesFor(root: string, slug: string): { kind: "keyword" | "email" | "domain"; value: string }[] {
+  const p = join(root, "data", "transcripts", `${slug}.json`);
+  if (!existsSync(p)) return [];
+  let terms: unknown[];
+  try { terms = JSON.parse(readFileSync(p, "utf8")).searched ?? []; } catch { return []; }
+  const seen = new Set<string>();
+  const out: { kind: "keyword" | "email" | "domain"; value: string }[] = [];
+  for (const t of terms) {
+    const value = String(t ?? "").trim();
+    if (!value) continue;
+    const kind = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(value) ? "email" : /^[a-z0-9-]+(\.[a-z0-9-]+)*\.[a-z]{2,}$/i.test(value) ? "domain" : "keyword";
+    const v = value.toLowerCase();
+    if (seen.has(`${kind}:${v}`)) continue;
+    seen.add(`${kind}:${v}`);
+    out.push({ kind, value: v });
+  }
+  return out;
+}
+
 /**
  * Copy the file-built store into Supabase. Keeps what people changed in the app: file content a person
  * edited, file visibility and state, template and category approval status. Book, artifacts and
- * workflows are replaced per project. Projects and files only in the database are left alone.
+ * workflows are replaced per project. Recordings are left to the sync; each project's match rules are
+ * seeded from the terms its recordings list was searched with. Projects and files only in the
+ * database are left alone.
  */
 export async function importToDb(seed: Store, root: string) {
   const log: string[] = [];
@@ -207,7 +241,7 @@ export async function importToDb(seed: Store, root: string) {
   log.push(`${seed.templates.length} templates (${newT} new)`);
 
   // vault files: new ones in full; existing ones get fresh imported content unless a person edited them
-  let added = 0, refreshed = 0, kept = 0, recordings = 0;
+  let added = 0, refreshed = 0, kept = 0, seeded = 0;
   for (const b of bundles) {
     const aid = ids.get(b.account.slug)!;
     const existing = new Map((await all("vault_files", "path,source", (q) => q.eq("account_id", aid))).map((r) => [r.path as string, r.source as string]));
@@ -223,14 +257,15 @@ export async function importToDb(seed: Store, root: string) {
     if (b.book.length) check(await db().from("book_chapters").insert(b.book.map((c) => ({ account_id: aid, sort: c.sort, title: c.title, minutes: c.minutes, lenses: c.lenses, body: c.body, sources: c.sources }))), "insert book");
     check(await db().from("artifacts").delete().eq("account_id", aid), "clear artifacts");
     if (b.artifacts.length) check(await db().from("artifacts").insert(b.artifacts.map((x) => ({ account_id: aid, key: x.id, kind: x.kind, title: x.title, dated: x.dated || null, description: x.description, url: x.url || null, provider: x.provider || null, sensitive: x.sensitive }))), "insert artifacts");
-    check(await db().from("transcripts").delete().eq("account_id", aid), "clear recordings");
-    for (let i = 0; i < b.recordings.length; i += 200) check(await db().from("transcripts").insert(b.recordings.slice(i, i + 200).map((m) => ({ account_id: aid, provider: m.provider, external_id: m.id, title: m.title, met_at: m.date || null, participants: m.participants, kind: m.kind, summary: m.summary, url: m.url || null, alt_url: m.altUrl || null }))), "insert recordings");
-    recordings += b.recordings.length;
+    // Recordings are no longer imported (the sync owns them); the terms each list was searched with seed the match rules.
+    const rules = matchRulesFor(root, b.account.slug).map((r) => ({ account_id: aid, ...r, source: "seed" }));
+    if (rules.length) check(await db().from("match_rules").upsert(rules, { onConflict: "account_id,kind,value", ignoreDuplicates: true }), "seed match rules");
+    seeded += rules.length;
     check(await db().from("workflows").delete().eq("account_id", aid), "clear workflows");
     if (b.workflows.length) check(await db().from("workflows").insert(b.workflows.map((w) => ({ account_id: aid, slug: w.slug, name: w.name, kind: w.kind, cadence: w.cadence || null, audience: w.audience || null, inputs: w.inputs, output: w.output || null, note: w.note || null, standard: w.standard }))), "insert workflows");
   }
   log.push(`files: ${added} added, ${refreshed} refreshed, ${kept} kept as edited`);
-  log.push(`${recordings} recordings`);
+  log.push(`${seeded} match rules from the recordings lists`);
 
   // team and assignments: imported assignments are refreshed; ones a strategist added by hand stay
   const team = buildTeam(seed, existsSync(pipe) ? JSON.parse(readFileSync(pipe, "utf8")) : {});

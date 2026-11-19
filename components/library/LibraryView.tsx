@@ -3,12 +3,12 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMemo, useState, useTransition } from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import { SafeMarkdown } from "@/components/project/SafeMarkdown";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { StatusTag } from "@/components/kit";
 import { decideAction } from "@/app/actions";
+import { unwrapAction } from "@/lib/auth/rules";
 import { cn } from "@/lib/utils";
 import type { Category, ShareStatus } from "@/lib/types";
 
@@ -16,7 +16,7 @@ type Tpl = { name: string; description: string; body: string; status: ShareStatu
 export type LibCategory = Category & { used: number; projects: { slug: string; name: string }[]; templates: Tpl[] };
 type Pending = { kind: "category" | "template"; category: string; template: string | null; label: string; by: string; from: string };
 
-export function LibraryView({ categories, pending, openCategory, openTemplate }: { categories: LibCategory[]; pending: Pending[]; openCategory: string; openTemplate: string | null }) {
+export function LibraryView({ categories, pending, openCategory, openTemplate, canApprove = false }: { categories: LibCategory[]; pending: Pending[]; openCategory: string; openTemplate: string | null; canApprove?: boolean }) {
   const [q, setQ] = useState("");
   const [open, setOpen] = useState<Set<string>>(new Set(["core-sales", "core-deal", "core-tech", "core-delivery", openCategory]));
   const [localOpen, setLocalOpen] = useState<Set<string>>(new Set());
@@ -28,7 +28,13 @@ export function LibraryView({ categories, pending, openCategory, openTemplate }:
   const [approvals, setApprovals] = useState(false);
   const [busy, start] = useTransition();
   const router = useRouter();
-  const decide = (p: Pending, approve: boolean) => start(async () => { await decideAction(p.kind, p.category, p.template, approve); router.refresh(); });
+  const [decideError, setDecideError] = useState<string | null>(null);
+  // Only admins approve or send back; the action checks that again on the server.
+  const decide = (p: Pending, approve: boolean) => start(async () => {
+    setDecideError(null);
+    try { unwrapAction(await decideAction(p.kind, p.category, p.template, approve)); router.refresh(); }
+    catch (e) { setDecideError(e instanceof Error ? e.message : "That did not work. Try again."); }
+  });
 
   const query = q.toLowerCase().trim();
   const match = (c: LibCategory, t: Tpl) => !query || `${t.name} ${c.name} ${t.description}`.toLowerCase().includes(query);
@@ -91,7 +97,7 @@ export function LibraryView({ categories, pending, openCategory, openTemplate }:
           {tpl && <>
             <DialogHeader><DialogTitle className="flex flex-wrap items-center gap-space-2 font-mono text-base">{tpl.t.name}.md <StatusTag status={tpl.t.status} /><span className="ml-auto font-sans text-xs font-normal text-muted-foreground">{tpl.c.name} › {tpl.t.status === "standard" ? "Core" : tpl.t.onlyAccount ? `local to ${tpl.t.origin}` : "Shared"}</span></DialogTitle></DialogHeader>
             {tpl.t.description && <p className="text-sm text-muted-foreground">{tpl.t.description}</p>}
-            <div className="prose-vault rounded-lg border border-border bg-background p-space-4"><ReactMarkdown remarkPlugins={[remarkGfm]}>{tpl.t.body}</ReactMarkdown></div>
+            <div className="prose-vault rounded-lg border border-border bg-background p-space-4"><SafeMarkdown>{tpl.t.body}</SafeMarkdown></div>
             <div className="flex flex-wrap items-center gap-space-2 text-xs text-muted-foreground">
               <span>Added by {tpl.t.createdBy}{tpl.t.status === "standard" ? "" : `, on ${tpl.t.origin}`}</span><span>·</span>
               <span>{tpl.t.status === "standard" ? "On every project" : `Used on ${tpl.t.projects.length} project${tpl.t.projects.length === 1 ? "" : "s"}`}</span>
@@ -107,10 +113,14 @@ export function LibraryView({ categories, pending, openCategory, openTemplate }:
           {pending.length ? <ul className="flex flex-col divide-y divide-[var(--color-border-default)]">{pending.map((p) => (
             <li key={`${p.kind}-${p.category}-${p.template}`} className="flex flex-wrap items-center gap-space-2 py-space-2">
               <div className="min-w-0 flex-1"><div className={cn("text-sm font-semibold", p.kind === "template" && "font-mono text-xs")}>{p.label}</div><div className="text-xs text-muted-foreground">{p.kind === "category" ? "Category" : "Template"} · suggested by {p.by}, from {p.from}</div></div>
+              {canApprove && <>
               <button disabled={busy} onClick={() => decide(p, true)} className="rounded-md bg-primary px-space-3 py-1 text-xs font-medium text-primary-foreground disabled:opacity-50">Approve</button>
               <button disabled={busy} onClick={() => decide(p, false)} className="rounded-md border border-border px-space-3 py-1 text-xs disabled:opacity-50">Send back</button>
+              </>}
             </li>
           ))}</ul> : <p className="text-sm text-muted-foreground">Nothing is waiting.</p>}
+          {pending.length > 0 && !canApprove && <p className="text-xs text-muted-foreground">An admin approves or sends these back.</p>}
+          {decideError && <p role="alert" className="text-xs text-[hsl(var(--color-status-error-text))]">{decideError}</p>}
         </DialogContent>
       </Dialog>
     </div>
