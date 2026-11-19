@@ -1,0 +1,176 @@
+{
+ "about": "Stella layer evaluation (Task 10 of the memory plan), kept apart from questions.json so the 13 Nov baseline stays comparable. Each question names the deepest memory layer a good answer needs (header < vault < summaries < transcripts) and, when it asks about recent calls, within_days. Required facts: every inner list is a set of alternatives, at least one must appear (case-insensitive). Facts were taken only from stored data on 18 Nov 2026: call summaries and transcript passages of World Emblem's digested calls (2 to 18 Nov), transcript_accounts headlines (the header digest) and vault files. Entries with todo: true are placeholders, skipped by scripts/eval.mjs until their project's calls are synced and digested. Header questions depend on the 10-line digest of the last 30 days, so they drift as new calls arrive: re-check them before each run.",
+ "questions": [
+  {
+   "id": "lw-01",
+   "slug": "world-emblem",
+   "q": "Where are we with World Emblem?",
+   "layer": "summaries",
+   "note": "Spec example: should end at layers 1 to 3. Facts from the 16-18 Nov headlines and summaries.",
+   "must": [["Business Central"], ["customer service"]]
+  },
+  {
+   "id": "lw-02",
+   "slug": "world-emblem",
+   "q": "What is holding up World Emblem's finance board right now?",
+   "layer": "header",
+   "note": "Header digest, T3 18 Nov: finance and revenue boards wait on the Business Central API key.",
+   "must": [["Business Central"], ["API"]]
+  },
+  {
+   "id": "lw-03",
+   "slug": "world-emblem",
+   "q": "Which World Emblem department most recently went live on the FMDS app?",
+   "layer": "header",
+   "note": "Header digest, Delivery Sync 16 Nov.",
+   "must": [["customer service"]]
+  },
+  {
+   "id": "lw-04",
+   "slug": "world-emblem",
+   "q": "By when does the FMDS sprint burndown automation need to be working, and what has to be cleaned up first?",
+   "layer": "header",
+   "note": "Header digest, Live FMDS Burndown Metrics 13 Nov: churn-tag audit and rollover cleanup by the 23 Nov sprint start.",
+   "must": [["23 Nov", "November 23", "Nov 23", "23rd", "23 November"], ["churn"]]
+  },
+  {
+   "id": "lw-05",
+   "slug": "world-emblem",
+   "q": "Why was the activity approval queue removed for World Emblem?",
+   "layer": "vault",
+   "note": "Vault Technical Strategy/Feature-Rationale: Randy and Eric, coaching happens in huddles (Supernal Weekly Update, 5 Nov).",
+   "must": [["coaching"], ["huddle"]]
+  },
+  {
+   "id": "lw-06",
+   "slug": "world-emblem",
+   "q": "What errors have we found in World Emblem's own data?",
+   "layer": "vault",
+   "note": "Vault Sales Strategy/Findings-Ledger.",
+   "must": [["hidden column"], ["500"], ["time-to-fill", "time to fill"], ["DART", "TRIR"]]
+  },
+  {
+   "id": "lw-07",
+   "slug": "world-emblem",
+   "q": "Why does World Emblem's AI CEO run as per-user agents instead of one shared agent?",
+   "layer": "vault",
+   "note": "Vault Technical Strategy/Feature-Rationale: a non-Randy user could read Randy's email through the shared agent (WE Sync: Weekly Planning, 5 Oct).",
+   "must": [["email"], ["Randy"]]
+  },
+  {
+   "id": "lw-08",
+   "slug": "world-emblem",
+   "q": "What did Indeed tell us about pulling Glassdoor and Indeed employer ratings into the HR KPI board?",
+   "layer": "summaries",
+   "note": "Summary of 'Indeed | World Emblem International', 2 Nov: no API exists; rating stays manual unless Trey finds an export.",
+   "must": [["no API", "no public API", "not have an API", "doesn't have an API", "does not have an API", "no way to pull"], ["manual"], ["Trey"]]
+  },
+  {
+   "id": "lw-09",
+   "slug": "world-emblem",
+   "q": "What commercials were proposed to Carlos for the AI-native discovery phase, and who runs it?",
+   "layer": "summaries",
+   "note": "Summaries of 'AI-Native World Emblem: Scoping Next Phase' and 'World Emblem | Strat Sync', 11 Nov.",
+   "must": [["10K", "10k", "10,000", "$10 thousand"], ["5K", "5k", "5,000"], ["Dominik"]]
+  },
+  {
+   "id": "lw-10",
+   "slug": "world-emblem",
+   "q": "In the last month, who said revenue figures for the boards must come from Business Central, and what did they accept for the e-commerce sub-KPIs?",
+   "layer": "transcripts",
+   "within_days": 30,
+   "note": "Spec example (who said what). T3 18 Nov: summary credits Randy; the transcript labels the speaker 'Jim Kozel' though Tauseef answers him as Randy (diarisation slip), so both names are accepted. GA4 via Windsor is acceptable.",
+   "must": [["Randy", "Jim Kozel"], ["ERP", "Business Central"], ["GA4", "GA 4", "GA four", "Windsor"]]
+  },
+  {
+   "id": "lw-11",
+   "slug": "world-emblem",
+   "q": "On the 2 Nov weekly planning call, what did Ricardo say Randy's Obsidian vault is connected for, and what does the commitment ledger actually read from?",
+   "layer": "transcripts",
+   "within_days": 30,
+   "note": "Transcript of World Emblem Sync: Weekly Planning, 2 Nov: Obsidian is connected for context the agent can answer from; the ledger reads meeting transcripts and emails, not Obsidian.",
+   "must": [["context"], ["transcript", "meeting"], ["email"]]
+  },
+  {
+   "id": "lw-12",
+   "slug": "world-emblem",
+   "q": "When did the Compact system first come up for World Emblem, and how did Carlos describe it?",
+   "layer": "transcripts",
+   "note": "Spec example (historical, no window). First stored mention: Supernal Weekly Update, 5 Nov; Carlos: 'kind of like the Mexican version of QuickBooks', on-prem, Mexico finance. Only calls since 1 Nov have transcripts today; re-check after the full backfill in case an older call mentions it.",
+   "must": [["5 Nov", "November 5", "Nov 5", "5 November", "Nov. 5", "2026-11-05", "5th"], ["QuickBooks"], ["Mexic"]]
+  },
+  {
+   "id": "lr-01",
+   "slug": "rxvip",
+   "todo": true,
+   "q": "When did cycle fill first come up for RxVIP?",
+   "layer": "transcripts",
+   "note": "Spec example (historical, no window). Fill after RxVIP calls are synced and digested; the 9 Nov Delivery Sync summary already mentions cycle fill scoping (85-95%), the first mention is likely earlier.",
+   "must": []
+  },
+  {
+   "id": "lr-02",
+   "slug": "rxvip",
+   "todo": true,
+   "q": "Where are we with RxVIP?",
+   "layer": "summaries",
+   "note": "Expected themes from cross-project summaries: proposal and order form status with Dan, 35% script coverage, call agent addendum. Take facts from RxVIP's own digested calls.",
+   "must": []
+  },
+  {
+   "id": "lh-01",
+   "slug": "heritage",
+   "todo": true,
+   "q": "What is the next Heritage milestone and when is it due?",
+   "layer": "header",
+   "note": "Should be answerable from Heritage's 30-day header digest once its calls are digested (DPE kickoff and first milestone were mentioned in the 9 Nov Delivery Sync).",
+   "must": []
+  },
+  {
+   "id": "lh-02",
+   "slug": "heritage",
+   "todo": true,
+   "q": "What does the Heritage vault say about how pilot firms get onboarded to the AI platform?",
+   "layer": "vault",
+   "note": "Pick a fact that lives in a Heritage vault file (not only in calls); confirm with a vault_files read.",
+   "must": []
+  },
+  {
+   "id": "lb-01",
+   "slug": "breakr",
+   "todo": true,
+   "q": "What is Breakr's next milestone?",
+   "layer": "header",
+   "note": "Likely the 4 December Duolingo walkthrough; confirm it is in Breakr's header digest after its calls are digested.",
+   "must": []
+  },
+  {
+   "id": "lb-02",
+   "slug": "breakr",
+   "todo": true,
+   "q": "Who said Ella's token costs were cut, by how much, and how?",
+   "layer": "transcripts",
+   "within_days": 30,
+   "note": "Who-said-what within 30 days; the 2 Nov Delivery Sync summary says about 70% via prompt caching. Confirm the speaker from the transcript.",
+   "must": []
+  },
+  {
+   "id": "ls-01",
+   "slug": "sunflower-wellness",
+   "todo": true,
+   "q": "What does the Sunflower Wellness vault say we are building for ArcWell?",
+   "layer": "vault",
+   "note": "Vault-only fact; read Sunflower's vault files to choose it.",
+   "must": []
+  },
+  {
+   "id": "ls-02",
+   "slug": "sunflower-wellness",
+   "todo": true,
+   "q": "What was decided on Sunflower Wellness's most recent calls?",
+   "layer": "summaries",
+   "note": "Fill from Sunflower's digested 30-day summaries.",
+   "must": []
+  }
+ ]
+}
